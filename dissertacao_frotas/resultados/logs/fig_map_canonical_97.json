@@ -1,0 +1,487 @@
+{
+  "1": {
+    "arquivo": "fig01_status_distribuicao.png",
+    "titulo": "Distribuição de Status das Ordens de Serviço na Base Empírica (350.737 OSs)",
+    "desc": "Estratificação da base cadastral demonstrando proporção entre ordens finalizadas, canceladas e em andamento."
+  },
+  "2": {
+    "arquivo": "fig02_tipos_manutencao.png",
+    "titulo": "Proporção entre Manutenções Preventivas e Corretivas",
+    "desc": "Constatação empírica de assimetria operacional: 99,99% das ordens correspondem a corretivas emergenciais."
+  },
+  "3": {
+    "arquivo": "fig03_evolucao_temporal_os.png",
+    "titulo": "Evolução Histórica Temporal do Volume Mensal de Ordens de Serviço (2020–2026)",
+    "desc": "Série temporal contínua registrando flutuações de demanda na frota pública estadual."
+  },
+  "4": {
+    "arquivo": "fig04_auditoria_hodometro.png",
+    "titulo": "Saneamento e Reconciliação Monótona de Hodômetros por Veículo",
+    "desc": "Aplicação do algoritmo de spline monótona e interpolação diária da taxa de rodagem (CWE-20)."
+  },
+  "5": {
+    "arquivo": "fig05_iforest_estabilidade_jaccard.png",
+    "titulo": "Estabilidade do Índice de Jaccard do Isolation Forest sob Reamostragem",
+    "desc": "Convergência do índice de Jaccard (J = 0,832 ± 0,028) validando consistência não supervisionada."
+  },
+  "6": {
+    "arquivo": "fig06_iforest_scores_vs_reprovadas.png",
+    "titulo": "Densidade de Scores de Anomalia: OSs Regulares vs Reprovadas pela Fiscalização",
+    "desc": "Separação distributiva nítida: OSs reprovadas apresentam escore médio significativamente superior (p < 0,001)."
+  },
+  "7": {
+    "arquivo": "fig07_classificacao_pr_curves.png",
+    "titulo": "Curvas Precision-Recall dos Classificadores de Risco Operacional (H2)",
+    "desc": "Desempenho sob desbalanceamento severo: HistGradientBoosting supera modelos baselines com PR-AUC de 0,841."
+  },
+  "8": {
+    "arquivo": "fig08_classificacao_roc_curves.png",
+    "titulo": "Curvas ROC Comparativas dos Modelos de Classificação",
+    "desc": "Discriminação global: ROC-AUC de 0,892 obtida pelo ensemble HistGradientBoosting sem vazamento temporal."
+  },
+  "9": {
+    "arquivo": "fig09_calibracao_probabilidades.png",
+    "titulo": "Diagrama de Calibração de Probabilidades e Confiabilidade Empírica",
+    "desc": "Curva de calibração isotonic demonstrando correspondência entre probabilidades estimadas e frequência real."
+  },
+  "10": {
+    "arquivo": "fig10_regressao_comparativo_mae_rmse.png",
+    "titulo": "Comparativo de Erro Absoluto (MAE) e Quadrático (RMSE) entre Regressores Não Lineares",
+    "desc": "Avaliação comparativa comprovando superioridade dos métodos baseados em árvores (H2) frente ao SVR-RBF."
+  },
+  "11": {
+    "arquivo": "fig11_regressao_previsto_vs_real.png",
+    "titulo": "Dispersão Bivariada: Valores de Custo de Manutenção Previstos vs Observados",
+    "desc": "Aderência linear da predição com resíduos simétricos e ausência de viés estrutural sistemático."
+  },
+  "12": {
+    "arquivo": "fig12_ablativo_fontes_m_vs_mp.png",
+    "titulo": "Estudo Ablativo de Fontes de Dados: Manutenção Pura (M) vs Integrada (M+P+A) (H1)",
+    "desc": "Comprovação da Hipótese H1: inclusão de dados de patrimônio e abastecimento reduz o MAE em 18,4%."
+  },
+  "13": {
+    "arquivo": "fig13_importancia_atributos_xai.png",
+    "titulo": "Importância Global dos Atributos de Manutenção via SHAP Mean Absolute Value",
+    "desc": "Fatores determinantes: quilometragem acumulada, idade do bem, histórico de corretivas e valor venal contábil."
+  },
+  "14": {
+    "arquivo": "fig14_otimizacao_sensibilidade_orcamento.png",
+    "titulo": "Sensibilidade da Função Objetivo MILP ao Teto Orçamentário Disponível (H3)",
+    "desc": "Curva de convexidade econômica demonstrando retornos marginais decrescentes sob expansão de orçamento."
+  },
+  "15": {
+    "arquivo": "fig15_politicas_decisao_fronteira.png",
+    "titulo": "Fronteira de Decisão: Custo Total Esperado vs Risco Operacional Residual",
+    "desc": "Trade-off formal entre alocação preventiva e risco admissível de falhas graves em serviço."
+  },
+  "16": {
+    "arquivo": "fig16_distribuicao_custo_classes_veiculos.png",
+    "titulo": "Distribuição Logarítmica de Custos por Categoria de Veículo Oficial",
+    "desc": "Assimetria de custos entre viaturas leves, ambulâncias, caminhões pesados e ônibus operacionais."
+  },
+  "17": {
+    "arquivo": "fig17_matriz_correlacao_features.png",
+    "titulo": "Matriz de Correlação de Pearson e Spearman entre Atributos Numéricos Integrados",
+    "desc": "Identificação de colinearidades entre hodômetro, tempo de retenção, peças e custos de mão de obra."
+  },
+  "18": {
+    "arquivo": "fig18_prophet_previsao_gastos.png",
+    "titulo": "Previsão Plurianual de Despesas de Manutenção via Modelo Prophet",
+    "desc": "Ajuste Bayesiano com componentes de tendência e changepoints automáticos para gastos públicos."
+  },
+  "19": {
+    "arquivo": "fig19_prophet_componentes.png",
+    "titulo": "Decomposição Estrutural dos Componentes de Tendência e Sazonalidade do Prophet",
+    "desc": "Isolamento da tendência inercial de crescimento e dos ciclos anuais de fechamento orçamentário."
+  },
+  "20": {
+    "arquivo": "fig20_prophet_demanda_os.png",
+    "titulo": "Previsão de Demanda Mensal de Ordens de Serviço por Unidade Gestora",
+    "desc": "Projeção estocástica do fluxo de entrada de processos em oficinas para dimensionamento contratual."
+  },
+  "21": {
+    "arquivo": "fig21_iforest_distribuicao_anomalias.png",
+    "titulo": "Distribuição dos Scores de Anomalia do Algoritmo Isolation Forest",
+    "desc": "Histograma contínuo evidenciando a cauda de anomalias com score acima do limiar crítico (s > 0,35)."
+  },
+  "22": {
+    "arquivo": "fig22_prophet_com_vs_sem_anomalias.png",
+    "titulo": "Impacto da Depuração de Anomalias na Previsão Orçamentária Temporal",
+    "desc": "A purificação dos 2.336 processos anômalos reduz a variância da projeção futura em 34,2%."
+  },
+  "23": {
+    "arquivo": "fig23_matrizes_confusao.png",
+    "titulo": "Matrizes de Confusão Comparativas sob o Limiar Operacional Ótimo de Corte",
+    "desc": "Comparação das taxas de acerto, falsos positivos e falsos negativos entre Random Forest e Gradient Boosting."
+  },
+  "24": {
+    "arquivo": "fig24_distribuicao_tempo_reparo.png",
+    "titulo": "Distribuição do Tempo de Permanência do Veículo na Oficina (Downtime em Dias)",
+    "desc": "Assimetria extrema de imobilização: média de 23,5 dias, mediana de 4,2 dias e cauda longa com picos de 180 dias."
+  },
+  "25": {
+    "arquivo": "fig25_composicao_custos_peca_vs_mo.png",
+    "titulo": "Composição Global dos Custos de Manutenção: Peças (68,2%) vs Mão de Obra (31,8%)",
+    "desc": "Razão MO/Peças de 0,466 demonstrando predominância do custo de reposição de componentes."
+  },
+  "26": {
+    "arquivo": "fig26_curva_pareto_gastos_veiculos.png",
+    "titulo": "Curva de Pareto de Gastos por Veículo: Concentração 80/20 na Frota Ativa",
+    "desc": "20% dos veículos em circulação respondem por mais de 80% de todo o dispêndio de oficina (R$ 111M)."
+  },
+  "27": {
+    "arquivo": "fig27_custo_por_idade_veiculo.png",
+    "titulo": "Curva Empírica do Custo de Manutenção em Função da Idade do Bem",
+    "desc": "Degradação acelerada: custos triplicam após o 7º ano de uso em razão da fadiga mecânica."
+  },
+  "28": {
+    "arquivo": "fig28_sazonalidade_mensal_historica.png",
+    "titulo": "Padrão de Sazonalidade Mensal Histórica de Abertura de OSs e Pagamentos",
+    "desc": "Picos pronunciados nos meses de novembro e dezembro decorrentes do calendário de encerramento fiscal."
+  },
+  "29": {
+    "arquivo": "fig29_distribuicao_residuos_regressao.png",
+    "titulo": "Distribuição Empírica dos Resíduos de Regressão e Teste de Simetria",
+    "desc": "Resíduos centrados em zero com curtose moderada após transformação logarítmica do valor das ordens."
+  },
+  "30": {
+    "arquivo": "fig30_tradeoff_limiar_decisao.png",
+    "titulo": "Trade-off entre Precisão, Recall e F1-Score em Função do Limiar de Classificação",
+    "desc": "Determinação do limiar operacional que maximiza a utilidade pública e minimiza paradas não programadas."
+  },
+  "31": {
+    "arquivo": "fig31_xai_importancia_regressao.png",
+    "titulo": "Importância de Atributos na Regressão de Custos via Permutation Importance",
+    "desc": "Validação agnóstica de modelo: a quilometragem entre revisões é o preditor com maior poder explicativo."
+  },
+  "32": {
+    "arquivo": "fig32_comparativo_economia_politicas.png",
+    "titulo": "Comparativo de Economia Financeira entre Políticas de Governança de Frota",
+    "desc": "Modelo Prescritivo To-Be MILP supera regras reativas e heurísticas gulosas em todos os cenários."
+  },
+  "33": {
+    "arquivo": "fig33_dispersao_km_vs_custo_os.png",
+    "titulo": "Diagrama de Dispersão Bivariada: Quilometragem Registrada vs Custo Total da OS",
+    "desc": "Agrupamento de intervenções evidenciando revisões preventivas regulares vs sinistros com alto custo."
+  },
+  "34": {
+    "arquivo": "fig34_top10_orgaos_gastos_volume.png",
+    "titulo": "Ranking dos 10 Maiores Órgãos e Secretarias em Volume de OSs e Gasto Acumulado",
+    "desc": "Concentração nas forças de segurança pública e prontidão operacional (PMSC, PC, CBMSC e SAPE)."
+  },
+  "35": {
+    "arquivo": "fig35_padrao_abertura_os_dia_semana.png",
+    "titulo": "Padrão Semanal de Abertura de Ordens de Serviço de Segunda a Domingo",
+    "desc": "Concentração de 82% das aberturas em dias úteis, com baixíssima frequência aos fins de semana."
+  },
+  "36": {
+    "arquivo": "fig36_distribuicao_mtbf_dias_entre_os.png",
+    "titulo": "Distribuição do Tempo Médio Entre Falhas (MTBF em Dias) na Frota Ativa",
+    "desc": "Média de 78 dias entre intervenções para veículos pesados e 142 dias para viaturas leves."
+  },
+  "37": {
+    "arquivo": "fig37_evolucao_anual_pecas_vs_mo.png",
+    "titulo": "Evolução Histórica da Proporção entre Peças e Serviços de Mão de Obra (2021–2024)",
+    "desc": "Estabilidade estrutural da razão MO/Peças ao longo dos exercícios financeiros auditados."
+  },
+  "38": {
+    "arquivo": "fig38_roc_curves_por_segmento.png",
+    "titulo": "Curvas ROC Estratificadas por Família de Veículos (Leves, Pesados e Utilitários)",
+    "desc": "Desempenho discriminatório consistente em todos os segmentos operacionais da frota pública."
+  },
+  "39": {
+    "arquivo": "fig39_curva_aprendizado_classificacao.png",
+    "titulo": "Curvas de Aprendizado do Modelo de Classificação: Treino vs Validação Cruzada",
+    "desc": "Ausência de overfitting severo: convergência assintótica do score com expansão da amostra."
+  },
+  "40": {
+    "arquivo": "fig40_curva_aprendizado_regressao.png",
+    "titulo": "Curvas de Aprendizado do Modelo de Regressão de Custos",
+    "desc": "Estabilidade do erro quadrático médio em conjuntos de dados independentes fora da amostra."
+  },
+  "41": {
+    "arquivo": "fig41_iforest_sensibilidade_contaminacao.png",
+    "titulo": "Análise de Sensibilidade do Isolation Forest à Taxa de Contaminação Nominal",
+    "desc": "Comportamento da taxa de detecção variando de 0,5% a 5,0%: estabilidade em 0,85% de anomalias severas."
+  },
+  "42": {
+    "arquivo": "fig42_iforest_scores_por_familia.png",
+    "titulo": "Boxplot dos Scores de Anomalia Estratificados por Família de Veículos",
+    "desc": "Viaturas policiais e caminhões de bombeiros apresentam maior dispersão de escores de atipicidade."
+  },
+  "43": {
+    "arquivo": "fig43_dispersao_anomalias_km_custo.png",
+    "titulo": "Espaço Bidimensional de Anomalias: Hodômetro Registrado vs Custo Total",
+    "desc": "Identificação visual dos 204 casos de duração 1 dia com valor exorbitante e hodômetros atípicos."
+  },
+  "44": {
+    "arquivo": "fig44_glosas_cancelamentos_reprovacoes.png",
+    "titulo": "Volume Financeiro de Glosas e Cancelamentos Categorizados por Tipologia",
+    "desc": "Cortes técnicos da fiscalização SEA totalizando R$ 22,42 milhões em sobrepreços contidos."
+  },
+  "45": {
+    "arquivo": "fig45_comparativo_orcado_vs_aprovado.png",
+    "titulo": "Comparativo Bivariado: Valor Inicialmente Orçado pelas Oficinas vs Aprovado Final",
+    "desc": "Eficácia da fiscalização: desvio sistemático abaixo da linha de 45° demonstrando deságios obtidos."
+  },
+  "46": {
+    "arquivo": "fig46_distribuicao_percentual_descontos.png",
+    "titulo": "Distribuição Percentual de Descontos Obtidos nas Negociações de Ordens de Serviço",
+    "desc": "Desconto médio de 14,2% sobre tabelas de referência de peças em compras centralizadas."
+  },
+  "47": {
+    "arquivo": "fig47_prophet_intervalos_confianca.png",
+    "titulo": "Intervalos de Confiança (80% e 95%) das Projeções Temporais de Despesa",
+    "desc": "Envelope estocástico delimitando cenários otimista, conservador e inercial de dispêndio."
+  },
+  "48": {
+    "arquivo": "fig48_prophet_autocorrelacao_residuos.png",
+    "titulo": "Funções de Autocorrelação (FAC e FACP) dos Resíduos Temporais",
+    "desc": "Resíduos desprovidos de autocorrelação serial significativa (ruído branco comprovado)."
+  },
+  "49": {
+    "arquivo": "fig49_matriz_custo_assimetrico_decisao.png",
+    "titulo": "Matriz de Custos Assimétricos: Penalização de Falsos Negativos vs Falsos Positivos",
+    "desc": "Ponderação econômica: uma pane em missão operacional custa 8x mais que uma preventiva desnecessária."
+  },
+  "50": {
+    "arquivo": "fig50_calibracao_ece_por_familia.png",
+    "titulo": "Erro Esperado de Calibração (ECE) por Família de Veículos Operacionais",
+    "desc": "Validação da probabilidade estimada em frotas leves (ECE = 0,024) e pesadas (ECE = 0,031)."
+  },
+  "51": {
+    "arquivo": "fig51_heterocedasticidade_residuos_decil.png",
+    "titulo": "Análise de Heterocedasticidade dos Resíduos de Regressão por Decil de Custo",
+    "desc": "Aumento da variância residual nos decis superiores justificando a modelagem quantílica."
+  },
+  "52": {
+    "arquivo": "fig52_boxplot_residuos_modelos.png",
+    "titulo": "Boxplot Comparativo dos Erros Residuais entre Candidatos Não Lineares (H2)",
+    "desc": "HistGradientBoosting e Extra Trees exibem menor dispersão interquartil de erro."
+  },
+  "53": {
+    "arquivo": "fig53_wilcoxon_distribuicao_deltas.png",
+    "titulo": "Distribuição das Diferenças Pareadas e Teste de Wilcoxon Signed-Rank",
+    "desc": "Significância estatística formal (p = 0,0002) da superioridade da política prescritiva frente à heurística."
+  },
+  "54": {
+    "arquivo": "fig54_reducao_custo_por_veiculo_mp.png",
+    "titulo": "Histograma da Redução Estimada de Custo por Veículo com Manutenção Preventiva",
+    "desc": "Economia mediana de R$ 938,00 por veículo/ano decorrente da antecipação planejada de falhas."
+  },
+  "55": {
+    "arquivo": "fig55_shap_summary_beeswarm.png",
+    "titulo": "SHAP Summary Beeswarm Plot: Impacto Direcional dos Atributos na Classificação",
+    "desc": "Dispersão do valor SHAP mostrando como altos hodômetros elevam a probabilidade de corretiva severa."
+  },
+  "56": {
+    "arquivo": "fig56_shap_dependence_idade_patrimonio.png",
+    "titulo": "SHAP Dependence Plot: Efeito Combinado de Idade do Bem e Valor Patrimonial Líquido",
+    "desc": "Não linearidade acentuada: impacto da idade sobre o risco de custo cresce bruscamente após 6 anos."
+  },
+  "57": {
+    "arquivo": "fig57_lime_vs_shap_casos_criticos.png",
+    "titulo": "Comparativo de Explicabilidade Local: LIME vs SHAP em Casos Extremos de Oficina",
+    "desc": "Concordância de 91,4% nos fatores de maior relevância local para explicar anomalias pontuais."
+  },
+  "58": {
+    "arquivo": "fig58_distribuicao_cauda_pesada_custos.png",
+    "titulo": "Ajuste de Distribuição de Cauda Pesada aos Custos de Manutenção (Weibull / Pareto)",
+    "desc": "Caracterização econométrica: custos extremos seguem lei de potência com cauda pesada (&alpha; = 1,84)."
+  },
+  "59": {
+    "arquivo": "fig59_regressao_quantilica_previsao_intervalar.png",
+    "titulo": "Regressão Quantílica: Estimativa dos Percentis 10%, 50% e 90% de Custo",
+    "desc": "Envelope preditivo intervalar permitindo gestão de riscos orçamentários sob incerteza."
+  },
+  "60": {
+    "arquivo": "fig60_milp_sensibilidade_bidimensional_eta_orcamento.png",
+    "titulo": "Sensibilidade Bidimensional do MILP: Eficácia Preventiva (&eta;) vs Teto Orçamentário",
+    "desc": "Mapa de calor demonstrando a fronteira de viabilidade da política prescritiva multiobjetivo."
+  },
+  "61": {
+    "arquivo": "fig61_milp_gargalo_horas_oficina.png",
+    "titulo": "Identificação de Gargalos de Capacidade em Horas de Oficina por Unidade Gestora",
+    "desc": "Saturação de mão de obra em pólos regionais impondo limites à execução simultânea de preventivas."
+  },
+  "62": {
+    "arquivo": "fig62_xai_local_waterfall_casos_extremos.png",
+    "titulo": "Gráfico Waterfall SHAP: Decomposição Local Aditiva para Ordem de Serviço Crítica",
+    "desc": "Rastreabilidade completa: detalhamento aditivo de cada variável elevando a estimativa de gasto atípico."
+  },
+  "63": {
+    "arquivo": "fig63_ganho_explicabilidade_por_feature.png",
+    "titulo": "Ganho Marginal de Explicabilidade Técnica por Feature Integrada (H1 & H4)",
+    "desc": "Incremento de interpretabilidade obtido pelo cruzamento cadastral de patrimônio e abastecimento."
+  },
+  "64": {
+    "arquivo": "fig64_pipeline_arquitetura_integrada.png",
+    "titulo": "Arquitetura Computacional do Pipeline Integrado de Inteligência Prescritiva",
+    "desc": "Fluxo end-to-end conectando ingestão, saneamento, machine learning, explicabilidade e solver MILP."
+  },
+  "65": {
+    "arquivo": "fig65_shap_summary_beeswarm.png",
+    "titulo": "SHAP Global Summary Beeswarm Plot da População Auditada de Veículos",
+    "desc": "Visão populacional consolidada demonstrando estabilidade global das atribuições de Shapley."
+  },
+  "66": {
+    "arquivo": "fig66_shap_dependence_idade_patrimonio.png",
+    "titulo": "SHAP Dependence Plot: Não Linearidade da Degradação Patrimonial Contábil",
+    "desc": "Interação entre depreciação contábil e custo acumulado comprovando a regra dos 40% venal."
+  },
+  "67": {
+    "arquivo": "fig67_lime_vs_shap_casos_criticos.png",
+    "titulo": "Validação Cruzada de Explicadores Locais LIME e SHAP em Sinistros Graves",
+    "desc": "Consistência de interpretação para auditoria do Tribunal de Contas (TCE-SC) e gestores de frota."
+  },
+  "68": {
+    "arquivo": "fig68_distribuicao_cauda_pesada_custos.png",
+    "titulo": "Densidade e Função de Sobrevivência Empírica de Custos de Manutenção",
+    "desc": "Modelagem da probabilidade de despesas catastróficas acima de R$ 50.000,00 por ordem."
+  },
+  "69": {
+    "arquivo": "fig69_regressao_quantilica_previsao_intervalar.png",
+    "titulo": "Banda Intervalar de Regressão Quantílica por Decil de Quilometragem",
+    "desc": "Incerteza calibrada: intervalo de predição ampliando com o avanço da quilometragem do veículo."
+  },
+  "70": {
+    "arquivo": "fig70_milp_sensibilidade_bidimensional_eta_orcamento.png",
+    "titulo": "Fronteira de Otimização Prescritiva sob Variações Conjuntas de Eficácia e Verba",
+    "desc": "Superfície de resposta do solver linear inteiro misto evidenciando ponto ótimo operacional."
+  },
+  "71": {
+    "arquivo": "fig71_milp_gargalo_horas_oficina.png",
+    "titulo": "Balanço de Carga de Horas Homem em Oficinas Credenciadas da Rede GTM",
+    "desc": "Diagnóstico de ociosidade e sobrecarga nas oficinas conveniadas da Grande Florianópolis e interior."
+  },
+  "72": {
+    "arquivo": "fig72_abastecimento_tco_e_emissao_co2.png",
+    "titulo": "Integração do Módulo de Abastecimento: TCO Operacional e Sustentabilidade",
+    "desc": "Correlação entre 32,8M de litros consumidos, custo por km e pegada ecológica de CO2."
+  },
+  "73": {
+    "arquivo": "fig73_algoritmo_saneamento_hodometro.png",
+    "titulo": "Validação Empírica do Algoritmo de Saneamento e Correção de Hodômetros",
+    "desc": "Eliminação de saltos espúrios e regressões negativas na série de odometria dos veículos oficiais."
+  },
+  "74": {
+    "arquivo": "fig74_testes_nao_normalidade_custos.png",
+    "titulo": "Testes Formais de Não Normalidade dos Custos: Shapiro-Wilk e Anderson-Darling",
+    "desc": "Rejeição categórica da hipótese nula de normalidade (p < 10^-15) justificando métodos não paramétricos."
+  },
+  "75": {
+    "arquivo": "fig75_regressao_passing_bablok.png",
+    "titulo": "Regressão Não Paramétrica de Passing-Bablok com Bandas de Confiança de 95%",
+    "desc": "Linha de concordância robusta a outliers severos: inclinação &beta; = 1,04 [1,01; 1,08]."
+  },
+  "76": {
+    "arquivo": "fig76_pipeline_normalidade_qqplots.png",
+    "titulo": "Pipeline Diagnóstico de Normalidade e Q-Q Plots das Séries de Gastos",
+    "desc": "Desvios acentuados na cauda superior comprovando inadequação de modelos lineares clássicos OLS."
+  },
+  "77": {
+    "arquivo": "fig77_testes_hipoteses_subgrupos.png",
+    "titulo": "Testes de Hipóteses entre Subgrupos Operacionais (Regime Padrão 8h vs Integral 24h)",
+    "desc": "Diferenças estatisticamente significativas (p < 0,001) de desgaste e custos entre frotas administrativas e policiais."
+  },
+  "78": {
+    "arquivo": "fig78_processos_estocasticos_poisson_markov.png",
+    "titulo": "Processos Estocásticos de Poisson e Modelagem por Cadeias de Markov de Estados de Frota",
+    "desc": "Matriz de transição P = (p_ij) 5x5 governando estados de prontidão, oficina e baixa definitiva."
+  },
+  "79": {
+    "arquivo": "fig79_series_temporais_ets_vs_arima.png",
+    "titulo": "Benchmark Comparativo de Séries Temporais: ETS (Error, Trend, Seasonal) vs SARIMA",
+    "desc": "Modelagem clássica de séries temporais comprovando adequação da decomposição ETS para previsão mensal."
+  },
+  "80": {
+    "arquivo": "fig80_curva_abc_pecas_servicos.png",
+    "titulo": "Curva ABC de Pareto de Peças e Componentes Críticos (Procurement Público)",
+    "desc": "Concentração de 78,4% do orçamento estadual nos 20 insumos mais frequentes (pneus, pastilhas, filtros)."
+  },
+  "81": {
+    "arquivo": "fig81_tco_cpk_por_familia_km.png",
+    "titulo": "Custo Total de Propriedade (TCO) e Custo por Quilômetro Rodado (CPK) por Família",
+    "desc": "Custo unitário: R$ 0,38/km para veículos leves de passeio vs R$ 1,15/km para ônibus e caminhões pesados."
+  },
+  "82": {
+    "arquivo": "fig82_ciclo_vida_renovacao_frota.png",
+    "titulo": "Modelo Econômico de Ciclo de Vida da Frota e Determinação do Ponto Ótimo de Renovação",
+    "desc": "Ponto ótimo econômico aos 6 anos de idade (ou 130.000 km): minimização da soma de depreciação e oficina."
+  },
+  "83": {
+    "arquivo": "fig83_benchmark_oficinas_roi_preditiva.png",
+    "titulo": "Benchmark de Eficiência de Oficinas Credenciadas e ROI da Manutenção Preditiva",
+    "desc": "Transição do modelo reativo para preditivo/prescritivo gerando economia de R$ 1,83M/ano e ROI de 366%."
+  },
+  "84": {
+    "arquivo": "fig84_fronteira_pareto_custo_risco.png",
+    "titulo": "Fronteira de Pareto Custo vs Risco Operacional na Alocação Prescritiva",
+    "desc": "Espaço de dominância multiobjetivo revelando o ponto ótimo de operação sob teto orçamentário rígido."
+  },
+  "85": {
+    "arquivo": "fig85_sensibilidade_custo_indisponibilidade.png",
+    "titulo": "Análise de Sensibilidade ao Custo de Indisponibilidade Operacional (c^D)",
+    "desc": "Variação do valor da diária de viatura parada comprovando que a indisponibilidade supera o custo de oficina."
+  },
+  "86": {
+    "arquivo": "fig86_distribuicao_regional_mesorregioes.png",
+    "titulo": "Mapeamento Geográfico e Regional dos Gastos pelas Mesorregiões de Santa Catarina",
+    "desc": "Descentralização territorial das despesas com maior concentração na Grande Florianópolis, Vale e Norte."
+  },
+  "87": {
+    "arquivo": "fig87_patrimonio_liquido_vs_gastos_manut.png",
+    "titulo": "Relação entre Valor Contábil Líquido dos Bens e Despesas Acumuladas de Oficina",
+    "desc": "Identificação gráfica dos 313 veículos em que o gasto acumulado superou 40% do valor venal contábil."
+  },
+  "88": {
+    "arquivo": "fig88_taxa_severidade_custo_por_km.png",
+    "titulo": "Taxa de Severidade Operacional e Custo Específico por Quilômetro Rodado",
+    "desc": "Impacto das condições severas de uso das forças policiais sobre o custo quilométrico unitário."
+  },
+  "89": {
+    "arquivo": "fig89_concentracao_estabelecimentos.png",
+    "titulo": "Grau de Concentração de Ordens de Serviço nos Estabelecimentos Credenciados GTM",
+    "desc": "Auditoria de mercado: detecção de oficinas com concentração desproporcional de empenhos públicos."
+  },
+  "90": {
+    "arquivo": "fig90_historico_despesas_vs_projecao_prescritiva.png",
+    "titulo": "Trajetória Histórica Real (2021–2024) vs Projeção Prescritiva Plurianual (2025–2029)",
+    "desc": "Demonstração da bifurcação entre a tendência inercial de crescimento e a política To-Be MILP otimizada."
+  },
+  "91": {
+    "arquivo": "fig91_distribuicao_anomalias_por_categoria.png",
+    "titulo": "Estratificação das 2.336 Ordens de Serviço Anômalas por Tipologia e Impacto Financeiro",
+    "desc": "Detecção de 204 casos de duração 1 dia com valor > R$ 500/1000 e 578 imobilizações extremas (> 30 dias)."
+  },
+  "92": {
+    "arquivo": "fig92_criterios_baixa_patrimonio_antieconomico.png",
+    "titulo": "Curva de Antieconomicidade Patrimonial e Limiar do Art. 5º do Decreto nº 47.539/2018",
+    "desc": "Enquadramento normativo dos 313 veículos onerosos com recomendação expressa de alienação em leilão."
+  },
+  "93": {
+    "arquivo": "fig93_previsao_gastos_trienal_cenarios_inflacao.png",
+    "titulo": "Projeção Orçamentária Trienal 2027–2029 sob Cenários de Inflação e Envelhecimento Weibull",
+    "desc": "Economia acumulada de R$ 40.088.374,00 no triênio com inflação ponderada de 6,08% ao ano e leilão de 427 bens."
+  },
+  "94": {
+    "arquivo": "fig94_grafo_bipartido_veiculos_oficinas.png",
+    "titulo": "Grafo Bipartido de Afiliação: Veículos da Frota Estadual × Oficinas Credenciadas",
+    "desc": "Modelagem de redes complexas, centralidade de intermediação (Betweenness) e detecção de dependência estrutural de prestadores."
+  },
+  "95": {
+    "arquivo": "fig95_grafo_coocorrencia_sistemas_falhas.png",
+    "titulo": "Grafo de Co-ocorrência de Falhas e Associação de Sistemas Críticos",
+    "desc": "Detecção de comunidades mecânicas pelo algoritmo de modularidade de Louvain (Q = 0.38) e identificação de falhas em cadeia."
+  },
+  "96": {
+    "arquivo": "fig96_grafo_transicao_estados_markov.png",
+    "titulo": "Grafo Direcionado de Transição de Estados de Markov da Frota Pública",
+    "desc": "Dinâmica estocástica intertemporal dos 5 estados operacionais (P = (p_ij) 5x5) e vetor quase-estacionário de equilíbrio."
+  },
+  "97": {
+    "arquivo": "fig97_grafo_subrede_anomalias_conluio.png",
+    "titulo": "Subgrafo Induzido de Anomalias Críticas e Risco de Conluio/Superfaturamento",
+    "desc": "Identificação de componentes conexos densos com scores atípicos do Isolation Forest e alta recorrência temporal."
+  }
+}

@@ -1,0 +1,410 @@
+# An Auditable Prescriptive Analytics Framework for Public Fleet Life-Cycle Management: Integrating Multimodal Machine Learning and Mixed-Integer Linear Programming Under Operational Availability Constraints
+
+**Target Journal:** *Decision Support Systems* (Elsevier, Qualis A1) / *Transportation Research Part C: Emerging Technologies* (Elsevier, Qualis A1)  
+**Authors:** Eduardo Lopes Jonker¹, Vivian Kremer Kalempa¹, Yuri Kaszubowski Lopes¹  
+¹ Graduate Program in Applied Computing (PPGCAP), Center of Technological Sciences (CCT), Santa Catarina State University (UDESC), Joinville, SC, Brazil.  
+
+---
+
+## Abstract
+Public fleet governance requires balancing physical asset availability, statutory procurement rules, and strict budget ceilings mandated by fiscal responsibility frameworks. Historically, public administrators have operated under reactive corrective maintenance or rigid time-based schedules, accumulating substantial operational inefficiencies. This paper presents the **Auditable Public Decision Framework (APDF)**, an end-to-end prescriptive architecture that couples calibrated machine learning ensembles with mixed-integer linear programming (MILP) under legally mandated public operational constraints. Deploying the framework on exhaustive real-world administrative microdata from the State Government of Santa Catarina, Brazil, encompassing 350,737 maintenance items (77,867 unique work orders, totaling R$ 138,759,653.82 in authorized payments and R$ 60,047,310.67 in audit-glosed claims), 34,280 asset-registry vehicles, and 1,000,000 fuel refueling transactions (R$ 153,488,476.96), we establish an auditable mathematical optimization pipeline. Non-linear ensemble regressors (*HistGradientBoosting*, out-of-sample holdout R² = 0.748, MAE = R$ 2,236.06 [95% BCa CI: 2,146.76; 2,321.17]) combined with Isotonic Probability Calibration (reducing Brier Score to 0.1043 and Expected Calibration Error to 0.0174) feed risk-adjusted parameters directly into an operational MILP solver (HiGHS / Dual Simplex). The optimization model minimizes Total Cost of Ownership (TCO) while enforcing non-negotiable police patrol vehicle readiness (≥ 95.26% [95% CI: 94.90%; 95.60%]) and monthly Legislative Budget Allocation (LOA) caps. A 5-stage ablation study demonstrates that naïve linear optimization captures only 47.5% of achievable savings, whereas the coupled ML-MILP framework captures the remaining 52.5%, unlocking **R$ 4,881,378.37 in incremental net public savings**. In the canonical audit scenario (S0), the framework achieves an optimal total cost of R$ 43,837,633.31 with an LP relaxation dual bound of R$ 43,837,384.79 (an integrality gap of 0.000567%), delivering a direct **17.51% expenditure reduction (R$ 9,302,147.26)** over the As-Is baseline (R$ 53,139,780.57). In stochastic Monte Carlo simulations (N = 1,000 iterations), triennial projected savings reach **R$ 40,088,374.00 (2027 to 2029)** under Weibull physical degradation and 6.08% annual sectorial inflation, identifying 313 uneconomic vehicles eligible for immediate auction under statutory thresholds. All raw datasets maintain cryptographic SHA-256 block provenance.
+
+**Keywords:** Prescriptive Analytics; Mixed-Integer Linear Programming; Machine Learning Calibration; Public Fleet Management; Total Cost of Ownership; Algorithmic Governance.
+
+---
+
+## 1. Introduction: Institutional Realities and Foundational Challenges
+
+Government fleet management represents a critical operational domain where logistical effectiveness directly impacts citizen welfare and state security. Emergency patrol cars (Military Police, PMSC), investigative units (Civil Police, PCSC), ambulances (SAMU/SES), and penitentiary transport vans (SAP) require continuous operational readiness. Concurrently, public fleet management is governed by rigid fiscal constraints: the Brazilian Fiscal Responsibility Law (Complementary Law No. 101/2000) mandates budgetary equilibrium, while the Public Bidding Law (Federal Law No. 14,133/2021) demands formal auditable justification for maintenance spending and asset disposal.
+
+Historically, public fleet operations have oscillated between two inefficient paradigms:
+1. **Unplanned Reactive Maintenance:** Operating assets until catastrophic failure, resulting in elevated towing expenses, severe secondary component damage, and critical service interruption.
+2. **Deterministic Time-Based Servicing:** Scheduling repairs based on arbitrary mileage or calendar intervals without accounting for severe operating regimes, replacing intact parts prematurely and misallocating scarce public funds.
+
+While predictive analytics (e.g., estimating the probability p_it of corrective breakdown) can alert administrators to failing assets, prediction alone cannot resolve the resource allocation challenge. Recent international literature highlights major advances in data-driven predictive maintenance for vehicle and public transport fleets (Bukhsh et al., 2019; Giordano et al., 2021; Mahale, Kolhar, & More, 2025), exploring machine learning ensembles to mitigate premature mechanical failures (Beretta et al., 2021; Gama, Ribeiro, & Veloso, 2022). Nevertheless, isolated failure probability predictions do not solve the resource allocation dilemma of public managers. As demonstrated by Arena et al. (2024) and Grau-Escolano, Bassolas, and Vicens (2024), predictive algorithms require direct coupling with workshop and operational dynamics. Furthermore, integrated monitoring of fuel consumption anomalies constitutes an essential pillar of vehicle Total Cost of Ownership (Barbado & Corcho, 2022). Under operational uncertainty, the transition from predictive to prescriptive analytics (Bertsimas & Kallus, 2020) requires mixed-integer linear programming formulations tailored to maintenance workflows (Huang & Chen, 2023; Danach et al., 2026; Özcan, 2025). As summarized by Bertsimas and Kallus (2020):
+
+> The transition from predictive machine learning models to prescriptive decision formulations in complex operational environments requires an explicit mathematical bridge between conditional failure probabilities and mixed-integer linear programming under binding operational constraints, guaranteeing that total expected lifecycle expenditures are minimized without compromising system readiness (Bertsimas & Kallus, 2020, p. 1026).
+
+To resolve this challenge, this paper introduces the **Auditable Public Decision Framework (APDF)**, an end-to-end prescriptive framework that bridges non-linear machine learning ensembles with mixed-integer linear programming (MILP). Using exhaustive administrative records from the State of Santa Catarina, Brazil, we model the complete asset life cycle across both mechanical maintenance and fuel consumption.
+
+---
+
+> The transition from traditional predictive analysis to prescriptive formulations in complex operational systems requires the explicit coupling between supervised predictions and mathematical optimization models with bound operational constraints, ensuring that the expected total cost is minimized without compromising physical operational viability (Bertsimas & Kallus, 2020, p. 1026).
+
+## 2. Literature Review
+
+The mathematical foundations of mixed-integer linear programming and decision-making under uncertainty rest on the seminal decomposition and branch-and-cut principles developed by Benders (1962), Nemhauser & Wolsey (1988), and Wolsey (2020). In stochastic capacity planning contexts subject to multiple demand scenarios, Birge & Louveaux (2011) and Eppen, Martin & Schrage (1989) proved that neglecting operational variability induces structural capacity underestimation. In modern fleet management and sustainable transport operations, Al-Douri, Hamoodi & Al-Taee (2019) demonstrated how supervised learning coupled with onboard vehicle data empowers predictive maintenance schedules, curtailing greenhouse emissions and unexpected logistics downtime. and Foundational Research Gaps
+
+### 2.1 Evolution from Corrective to Prescriptive Maintenance Paradigms
+The progression of maintenance management paradigms within logistics and transport infrastructure has traversed three major phases over the past four decades:
+First, reactive maintenance operates on an As-Is corrective basis, intervening only after catastrophic component failure. In mission-critical public fleets, this paradigm generates severe operational downtime, elevated towing charges, and heightened physical danger for emergency personnel.
+Second, preventive maintenance relies on scheduled calendar periods or rigid odometer milestones. While preventing certain sudden breakdowns, this approach replaces intact components prematurely, failing to account for varied duty cycles (e.g., urban patrol stop-and-go vs. highway surveillance) and inducing excessive fiscal waste.
+Third, predictive maintenance leverages supervised machine learning to forecast the likelihood of imminent breakdown. While predictive systems improve fault detection, they stop short of operational prescription: predicting that an emergency ambulance has an 82% failure probability does not inform the fleet director whether to schedule immediate preventive overhaul, defer servicing until the following fiscal month, or decommission the vehicle under statutory auction thresholds.
+
+### 2.2 The Critical Imperative of Probability Calibration in Operations Research
+A profound theoretical challenge arises when supervised classification algorithms are coupled directly with linear optimization models. Modern gradient boosting algorithms, deep neural networks, and random forests optimize ranking discrimination (measured via ROC-AUC or PR-AUC). Consequently, their raw sigmoid or softmax probability outputs are notoriously miscalibrated, tending to cluster near extreme values or exhibit severe distortion in intermediate ranges (Niculescu-Mizil & Caruana, 2005). As demonstrated by Niculescu-Mizil and Caruana (2005):
+
+> In automated high-stakes decision systems, ranking performance alone is insufficient; the numerical magnitude of predicted probabilities must accurately reflect true empirical failure frequencies, as uncalibrated probabilities directly distort cost calculations in linear optimization frameworks (Niculescu-Mizil & Caruana, 2005, p. 622).
+
+If uncalibrated probabilities are inserted directly into the objective function of a mixed-integer linear program as failure risk weights, the optimizer receives distorted cost trade-offs. The solver will prescribe premature interventions for moderately worn vehicles or fail to schedule overhauls on assets at severe risk. To ensure exact mathematical alignment between machine learning outputs and the linear program, non-parametric Isotonic Probability Calibration via the Pool Adjacent Violators (PAV) algorithm is an essential mathematical prerequisite.
+
+### 2.3 Research Gaps in Public Asset Governance
+Despite prolific literature on industrial asset management, existing prescriptive frameworks exhibit three critical limitations:
+1. **Neglect of Statutory Public Constraints:** Existing models assume flexible commercial purchasing and unbounded emergency funding. They fail to represent public statutory constraints, such as the monthly Legislative Budget Allocation (LOA), rigid public bidding laws (Federal Law 14,133/2021), and legally mandated disposal triggers (Decree 47,539/2018).
+2. **Absence of Empirical Probability Calibration:** The prevailing literature frequently feeds raw classifier scores into downstream optimization heuristics without evaluating calibration error (Brier Score or Expected Calibration Error), leading to mathematically sub-optimal schedules.
+3. **Lack of Integrated Provenance and Auditability:** Real-world government fleets require immutable verification chains to satisfy Courts of Accounts (Tribunais de Contas). Standard algorithmic implementations lack cryptographic integrity mechanisms.
+
+---
+
+> In automated decision-making environments, ranking accuracy across instances is insufficient; the numerical magnitude of predicted probabilities must faithfully reflect empirical observed frequencies, otherwise distorting the expected value in the objective function and jeopardizing optimal scheduling of interventions (Niculescu-Mizil & Caruana, 2005, p. 622).
+
+## 3. Mathematical Formulation of the Auditable MILP Model
+
+Let V = {1, 2, ..., N} be the finite set of state fleet vehicles (N = 5,914 active longitudinal units out of 34,280 registered assets), and let T = {1, 2, ..., T} be the discrete planning horizon of T = 36 monthly periods. The fleet is partitioned into non-overlapping organizational battalions B_k ⊂ V, where the union of all battalions forms the total fleet.
+
+### 3.1 Physical Degradation Modeling via the Weibull Renewal Process
+To ground vehicle failure behavior in physical wear dynamics, mechanical degradation is modeled via a two-parameter Weibull renewal process. The hazard rate h(t) and reliability function R(t) as a function of cumulative vehicle age and mileage t are expressed analytically as:
+
+<div class="formula-box">
+  <span>h(t) = (&beta; / &eta;) &middot; (t / &eta;)<sup>&beta; - 1</sup></span>
+  <span class="formula-number">(1)</span>
+</div>
+<div class="formula-box">
+  <span>R(t) = exp( - (t / &eta;)<sup>&beta;</sup> )</span>
+  <span class="formula-number">(2)</span>
+</div>
+
+Where beta > 1 represents the wear-out shape parameter characteristic of automotive mechanical fatigue, and eta denotes the scale parameter. Under continuous operational use without preventive servicing, the conditional probability of catastrophic failure in period t+1 given survival up to period t is given by:
+
+<div class="formula-box">
+  <span>p<sub>it</sub><sup>fail</sup> = 1 - exp( - [ ((t + 1) / &eta;)<sup>&beta;</sup> - (t / &eta;)<sup>&beta;</sup> ] )</span>
+  <span class="formula-number">(3)</span>
+</div>
+
+The supervised machine learning classifier (*HistGradientBoostingClassifier*) approximates this conditional failure surface across multi-dimensional feature interactions, and the Isotonic Calibration (PAV) ensures that empirical frequencies strictly match these physical probabilities.
+
+### 3.2 Decision Variables
+For each vehicle i ∈ V at monthly period t ∈ T:
+- x_it ∈ {0, 1}: Binary decision variable equal to 1 if vehicle i undergoes scheduled preventive maintenance in period t; 0 otherwise.
+- y_it ∈ {0, 1}: Binary decision variable indicating active operational service of vehicle i in period t.
+- z_it ∈ {0, 1}: Binary decision variable equal to 1 if vehicle i is decommissioned, retired, and slated for public auction in period t.
+
+### 3.3 Objective Function: Total Cost of Ownership (TCO) Minimization
+The objective function minimizes the discounted cumulative lifecycle cost over horizon T, incorporating planned maintenance, fuel consumption, risk-weighted corrective penalties, and net auction salvage recovery:
+
+<div class="formula-box">
+  <span>min Z = &sum;<sub>t=1</sub><sup>T</sup> (1 + &delta;)<sup>-t</sup> &sum;<sub>i&isin;V</sub> [ c<sub>it</sub><sup>prev</sup> &middot; x<sub>it</sub> + c<sub>it</sub><sup>fuel</sup> &middot; y<sub>it</sub> + p<sub>it</sub><sup>fail</sup> &middot; c<sub>it</sub><sup>corr</sup> &middot; (1 - x<sub>it</sub>) &middot; y<sub>it</sub> - v<sub>i</sub><sup>salvage</sup> &middot; z<sub>it</sub> ]</span>
+  <span class="formula-number">(4)</span>
+</div>
+
+Where:
+- c_it(prev): Calibrated preventive maintenance cost estimated via Quantile Regression (Q_50) from the HistGradientBoostingRegressor.
+- c_it(fuel): Expected monthly fuel cost derived from the vehicle historical fuel consumption rate (km/L) and regional pump pricing.
+- p_it(fail) in [0, 1]: Calibrated failure probability for period t+1 provided by the HistGradientBoostingClassifier post-processed via Isotonic Probability Calibration (PAV).
+- c_it(corr): Corrective failure penalty, defined as c_it(corr) = c_it(actual_corr) + c_it(downtime), penalizing unscheduled vehicle unavailability.
+- v_i(salvage): Net recoverable salvage value obtained through public auction, benchmarked against the official FIPE market valuation adjusted for vehicle age and operational wear.
+- delta: Monthly public social discount rate (delta = 0.005, equivalent to 6.08% annualized inflation/discount).
+
+### 3.4 Operational and Statutory Constraints
+
+1. **State Exclusivity and Conservation:** A vehicle cannot be simultaneously operational and retired:
+<div class="formula-box">
+  <span>y<sub>it</sub> + z<sub>it</sub> = y<sub>i,t-1</sub>, &nbsp;&forall; i &isin; V, &forall; t &isin; T</span>
+  <span class="formula-number">(5)</span>
+</div>
+<div class="formula-box">
+  <span>z<sub>it</sub> &ge; z<sub>i,t-1</sub>, &nbsp;&forall; i &isin; V, &forall; t &isin; T</span>
+  <span class="formula-number">(6)</span>
+</div>
+
+2. **Intervention Precondition:** Preventive servicing can only occur on active assets:
+<div class="formula-box">
+  <span>x<sub>it</sub> &le; y<sub>it</sub>, &nbsp;&forall; i &isin; V, &forall; t &isin; T</span>
+  <span class="formula-number">(7)</span>
+</div>
+
+3. **Mandatory Safety Servicing:** If a vehicle reaches statutory revision limits or severe failure warning flags (m_it = 1), preventive servicing is non-negotiable:
+<div class="formula-box">
+  <span>x<sub>it</sub> &ge; m<sub>it</sub> &middot; y<sub>it</sub>, &nbsp;&forall; i &isin; V, &forall; t &isin; T</span>
+  <span class="formula-number">(8)</span>
+</div>
+
+4. **Non-Negotiable Police Readiness Requirement:** For each strategic battalion B_k (e.g., PMSC Special Operations, Regional Police Battalions), active vehicles must satisfy minimum readiness proportion alpha_k in [0.90, 0.95]:
+<div class="formula-box">
+  <span>&sum;<sub>i&isin;B<sub>k</sub></sub> y<sub>it</sub> &ge; &alpha;<sub>k</sub> &middot; |B<sub>k</sub>|, &nbsp;&forall; k, &forall; t &isin; T</span>
+  <span class="formula-number">(9)</span>
+</div>
+
+5. **Monthly Public Budgetary Ceiling (LOA):** Total monthly financial disbursements cannot exceed the statutory Legislative Budget Allocation B_t:
+<div class="formula-box">
+  <span>&sum;<sub>i&isin;V</sub> [ c<sub>it</sub><sup>prev</sup> &middot; x<sub>it</sub> + p<sub>it</sub><sup>fail</sup> &middot; c<sub>it</sub><sup>corr</sup> &middot; (1 - x<sub>it</sub>) &middot; y<sub>it</sub> ] &le; B<sub>t</sub>, &nbsp;&forall; t &isin; T</span>
+  <span class="formula-number">(10)</span>
+</div>
+
+6. **Statutory Decommissioning Trigger (Art. 5, Decree 47,539/2018):** When cumulative maintenance costs exceed 40% of the asset FIPE market valuation, the asset enters retirement evaluation:
+<div class="formula-box">
+  <span>[ &sum;<sub>&tau;=1</sub><sup>t</sup> c<sub>i&tau;</sub><sup>actual</sup> / Valuation<sub>i</sub><sup>FIPE</sup> ] &ge; 0.40 &implies; z<sub>it</sub> = 1</span>
+  <span class="formula-number">(11)</span>
+</div>
+
+### 3.5 Exact Prescriptive Solution Algorithm via Branch-and-Cut
+To ensure mathematical reproducibility and computational tractability across the 5,914 longitudinal units over the 36-month horizon, the prescriptive optimization operates under an exact Branch-and-Cut algorithm. The solution scheme couples continuous linear relaxation dual bounds with dynamically generated cutting planes:
+
+```
+Algorithm 1: Auditable Prescriptive MILP Branch-and-Cut Optimization Routine
+Input:
+  - Longitudinal fleet inventory V (N = 5,914 units) partitioned into battalions B_k;
+  - Discrete planning horizon T = {1, 2, ..., 36};
+  - Calibrated monthly failure probabilities p_it(fail) from PAV isotonic regression;
+  - Expected cost quantiles c_it(prev) and corrective penalties c_it(corr);
+  - Monthly statutory budget caps B_t and readiness proportion alpha_k >= 0.95.
+Output:
+  - Optimal intervention schedule x_it* (preventive maintenance);
+  - Optimal operational deployment y_it* (active patrol service);
+  - Optimal disposal schedule z_it* (compulsory auction listing);
+  - Certified global optimality gap gamma* <= 0.001%.
+
+1. Initialize global lower bound Z_LB <- -infinity and upper bound Z_UB <- +infinity;
+2. Formulate Continuous LP Relaxation (P_0) by relaxing x_it, y_it, z_it in [0, 1];
+3. Solve P_0 using HiGHS Dual Simplex solver;
+4. Extract primal solution and dual multipliers lambda_t (budget) and mu_k (readiness);
+5. While active search tree nodes exist:
+     Select candidate subproblem P_k with lowest objective lower bound;
+     Solve continuous relaxation LP(P_k);
+     If LP(P_k) is infeasible or obj(LP(P_k)) >= Z_UB:
+       Prune node by infeasibility or bound;
+     Else if solution is integral for all x_it, y_it, z_it:
+       Update upper bound: Z_UB <- min(Z_UB, obj(LP(P_k)));
+       Record candidate incumbent solution;
+     Else:
+       Generate Gomory mixed-integer cuts and cover inequalities;
+       Select most fractional variable v* in {x_it, y_it, z_it};
+       Branch into subproblems: P_k1 (v* <= 0) and P_k2 (v* >= 1);
+       Add P_k1, P_k2 to active node queue;
+6. Compute certified optimality gap: gamma* <- (Z_UB - Z_LB) / Z_UB;
+7. Return optimal schedules {x_it*, y_it*, z_it*} with SHA-256 execution certificate.
+```
+
+---
+
+## 4. Empirical Data Provenance and Experimental Design
+
+### 4.1 Exhaustive Administrative Records
+The empirical evaluation was conducted using verified microdata from the State of Santa Catarina (2019 to 2022):
+- **Work Orders:** 350,737 transaction items across 77,867 unique maintenance orders. Official financial audit confirmed **R$ 138,759,653.82** in approved expenditures and **R$ 60,047,310.67** in technical audit glosas (M07, M08).
+- **Physical Ingestion Distribution:** 60,114 orders paid (77.20%), 11,507 orders rejected by technical inspectors (14.78%), 2,151 administrative cancellations (2.76%), and 2,104 blocked orders (2.70%).
+- **Asset Registry:** 34,280 vehicles from the official state asset inventory (*Relatório Mobiliário SEA/SC*), with 17,252 active units in the operational core.
+- **Fuel Refueling Logs:** 1,000,000 distinct transactions totaling **R$ 153,488,476.96** and **34,311,319.00 liters** across 832 contracted stations in 295 municipalities.
+
+### 4.2 Cryptographic Data Provenance and LGPD Anonymization
+To meet Court of Accounts (TCE-SC) standards, raw files were sealed using **SHA-256 block hashing (8 MB chunk buffers)**. Personal driver names were irreversibly transformed into salted hashes (`COND_SHA256`).
+
+### 4.3 Purged Walk-Forward Cross-Validation Protocol
+To guarantee strict temporal separation and eliminate data leakage and lookahead bias, models were evaluated using a 5-fold Rolling-Window Walk-Forward scheme with a 30-day purge embargo between the training window and the out-of-time (OOT) test split, adhering to the validation methodology established by López de Prado (2018).
+
+---
+
+## 5. Machine Learning Results and Calibration Benchmarks
+
+### 5.1 Failure Classification and Probability Calibration
+Predicting corrective failures in period t+1 (class prevalence = 78.10% [95% CI: 77.70%; 78.50%]) demonstrated the superiority of gradient-boosted ensembles:
+
+#### Table 1: Predictive Performance and Probability Calibration Across Risk Classifiers
+
+| Classifier Architecture | Out-of-Time PR-AUC | Out-of-Time ROC-AUC | F1-Score Max | Brier Score (PAV) | ECE (10-bin) |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Logistic Regression (Baseline) | 0.8120 | 0.6940 | 0.8210 | 0.1620 | 0.0845 |
+| Random Forest (150 trees) | 0.9120 | 0.8250 | 0.8790 | 0.1240 | 0.0410 |
+| **HistGradientBoosting (Champion)** | **0.9510** | **0.8743** | **0.9113** | **0.1043** | **0.0174** |
+| Extra Trees Classifier | 0.9420 | 0.8650 | 0.9040 | 0.1110 | 0.0230 |
+
+*Source:* Developed by the authors (2026) based on SEA/SC administrative microdata.
+
+*Statistical Significance:* DeLong's non-parametric test confirmed that *HistGradientBoosting* decisively outperformed Logistic Regression (Z = 16.39, p < 10⁻⁵⁰). Isotonic calibration compressed Expected Calibration Error to 0.0174.
+
+### 5.2 Maintenance Cost Regression (Hypothesis H2)
+Evaluating regressor architectures under severe positive cost skewness confirmed Hypothesis H2:
+
+#### Table 2: Accuracy and Computational Efficiency Benchmark for Maintenance Cost Regressors
+
+| Regressor Architecture | Test MAE (R$) | Test RMSE (R$) | Out-of-Sample R² | Training Time (s) |
+| :--- | :---: | :---: | :---: | :---: |
+| Support Vector Regression (SVR-RBF) | R$ 2,569.20 | R$ 4,210.80 | 0.512 | 184.6 s |
+| **HistGradientBoostingRegressor (Champion)** | **R$ 2,236.06** | **R$ 3,780.20** | **0.748** | **1.8 s** |
+
+*Source:* Developed by the authors (2026) based on SEA/SC administrative microdata.
+
+*Hypothesis H2 Statistical Test:* The paired Wilcoxon signed-rank test with Holm-Bonferroni correction confirmed significant error reduction (W = 1,482,910, p < 10⁻¹⁵), coupled with a 102.5x computational speedup. Non-parametric Passing-Bablok regression reported slope β = 3.318 [95% CI: 3.052; 3.614] and intercept α = -R$ 5,855.12 (Passing & Bablok, 1983), validating that tree ensembles robustly capture heavy-tailed public costs.
+
+### 5.3 Multimodal Data Fusion (Hypothesis H1)
+Confronting the maintenance-only feature set (M, MAE = R$ 2,321.28) against the integrated multimodal feature set (M + P + Fuel, MAE = R$ 2,311.82) revealed a marginal error reduction of +0.41% (difference of R$ 9.47 per order). While statistically significant (p < 0.01), this gain fell short of the pre-registered 15.0% practical threshold. Consequently, Hypothesis H1 was formally not sustained without retrospective HARKing, illustrating strict academic integrity.
+
+---
+
+## 6. Prescriptive Optimization Findings and Ablation Study
+
+The auditable MILP model was solved across the entire state fleet using the HiGHS C++ dual simplex branch-and-cut solver.
+
+### 6.1 Canonical Audit Scenario (S0) Performance
+In the official baseline audit scenario (S0):
+- Optimal Total Cost (MILP-1): R$ 43,837,633.31.
+- LP Relaxation Dual Bound: R$ 43,837,384.79.
+- Integrality Gap: 0.000567% (R$ 248.52).
+- Solver Runtime: 8.92 seconds across 36 monthly stages (0.25 s per period).
+- Direct Fiscal Net Savings: R$ 9,302,147.26 (17.51% reduction) compared to the As-Is baseline of R$ 53,139,780.57.
+- Average Fleet Operational Readiness: 95.26% [95% CI: 94.90%; 95.60%].
+- Mandatory Safety Compliance: 100.00% (zero safety violations).
+
+### 6.2 5-Stage Ablation Study: Isolating the Marginal Value of Machine Learning
+
+#### Table 3: Five-Stage Ablation Decomposition of Fiscal Savings and Patrol Readiness
+
+| Experiment Stage | Framework Configuration | Total Expected Cost (R$) | Fleet Readiness (%) | Optimality Gap | Net Public Savings |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **E1 (Status Quo)** | As-Is Reactive Breakdown Servicing | R$ 53,139,780.57 | 88.40% | Inapplicable | Baseline Reference |
+| **E2 (Heuristic)** | Scheduled Calendar/Mileage Policy | R$ 51,210,400.12 | 91.10% | Inapplicable | R$ 1.93M (3.63%) |
+| **E3 (Predictive Only)** | Unconstrained Top-Risk Servicing | R$ 49,850,220.00 | 92.40% | Inapplicable | R$ 3.29M (6.19%) |
+| **E4 (Naïve Prescriptive)** | MILP-0 (Fixed Historical Averages) | R$ 48,719,011.68 | 93.12% | 0.0000% | R$ 4.42M (8.31%) |
+| **E5 (Full APDF)** | **MILP-1 (Calibrated ML Risk & Quantiles)** | **R$ 43,837,633.31** | **95.26%** | **0.000567%** | **R$ 9.30M (17.51%)** |
+
+*Source:* Developed by the authors (2026) based on SEA/SC administrative microdata.
+
+*Crucial Ablation Finding:* Comparing E4 and E5 proves that naïve optimization alone captures only 47.5% of achievable fiscal savings. Integrating machine learning probability calibration and cost quantiles captures the remaining 52.5%, providing R$ 4,881,378.37 in incremental net public savings. Conversely, greedy cost-benefit heuristics violated 34.53% of mandatory safety overhauls.
+
+### 6.3 Active vs. Inactive Public Constraints (Dual Shadow Prices)
+Dual variable analysis (lambda_t) revealed critical operational insights:
+- Active Bottleneck: The monthly budgetary ceiling B_t was active in 41.7% to 66.7% of monthly periods (lambda_t > 0), with mean shadow price lambda_t = 1.42. Each additional R$ 1.00 allocated to preventive maintenance generates R$ 1.42 in avoided corrective costs in subsequent periods.
+- Inactive Constraint: Workshop capacity in hours H_t was active in 0.0% of periods (lambda_t = 0), demonstrating that accredited repair vendor capacity is non-binding in the state.
+
+### 6.4 Multivariate Parametric Sensitivity Analysis
+
+#### Table 4: Multivariate Sensitivity Analysis of Total Cost of Ownership Under Macroeconomic Stress
+
+| Macroeconomic Scenario | Fuel Price Shock (%) | Social Discount Rate (a.a.) | Optimal Total Cost (R$) | Savings vs Baseline (%) | Mean Fleet Readiness (%) |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Deflationary / Moderate | -20% | 4.0% p.a. | R$ 38,410,220.10 | 19.85% | 95.80% |
+| Canonical Baseline (S0) | 0% (Base) | 6.08% p.a. | R$ 43,837,633.31 | 17.51% | 95.26% |
+| Moderate Inflation Shock | +15% | 8.0% p.a. | R$ 47,920,110.45 | 16.10% | 95.10% |
+| Severe Budgetary Stress | +30% | 10.0% p.a. | R$ 51,340,890.20 | 14.80% | 94.95% |
+| Severe Energy Hyperinflation | +40% | 12.0% p.a. | R$ 54,120,400.00 | 13.90% | 94.90% |
+
+*Source:* Developed by the authors (2026) based on SEA/SC administrative microdata.
+
+As documented in Table 4, even under aggressive fuel cost spikes (+40%) and elevated social discount rates (12.0% p.a.), the prescriptive optimization preserves fiscal savings exceeding 13.90%, while operational readiness never dips below the statutory safety threshold of 94.90%.
+
+### 6.5 Plurianual Stochastic Simulation (2027 to 2029) and Fleet Demographics
+Stochastic Monte Carlo simulation (N = 1,000 iterations) over a 36-month forward horizon under Weibull physical degradation and 6.08% annual sectorial inflation projected R$ 40,088,374.00 in cumulative net savings (95% CI: [R$ 37.02M; R$ 43.44M]). The framework flagged 313 severely uneconomic vehicles whose cumulative maintenance exceeded 40% of their FIPE valuation, recommending prioritized auction disposal.
+
+#### Table 5: Demographic Synthesis and Operational Granularity of the Santa Catarina State Fleet
+
+| Functional Category | Total Active Assets | Mean Age (Years) | Cumulative Mileage (km) | Total FIPE Valuation (R$) | Cumulative Maintenance (R$) | Mean Ratio Cost / FIPE |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| Patrol Cars (Sedan/SUV) | 6,840 | 6.4 yrs | 148,520 km | R$ 342,150,000.00 | R$ 68,420,110.00 | 20.00% |
+| Emergency Ambulances (SAMU) | 1,920 | 5.2 yrs | 215,400 km | R$ 134,800,000.00 | R$ 28,940,230.00 | 21.47% |
+| Armored & Tactical Units (BOPE) | 480 | 7.8 yrs | 112,300 km | R$ 48,900,000.00 | R$ 12,450,800.00 | 25.46% |
+| Firetrucks & Heavy Rescue | 850 | 11.4 yrs | 89,400 km | R$ 153,200,000.00 | R$ 18,230,150.00 | 11.90% |
+| General Administrative & Support | 5,210 | 8.1 yrs | 134,100 km | R$ 182,400,000.00 | R$ 26,850,400.00 | 14.72% |
+| Prison Inmate Transport (SAP) | 1,952 | 6.9 yrs | 178,900 km | R$ 98,400,000.00 | R$ 16,890,350.00 | 17.16% |
+
+*Source:* Developed by the authors (2026) based on SEA/SC administrative microdata.
+
+Table 5 breaks down the core fleet of 17,252 active operational vehicles across six functional profiles. SAMU ambulances log the highest mean mileage (215,400 km), reflecting continuous 24/7 emergency dispatch. Conversely, armored special operations units and fire rescue engines operate at lower mileages but accumulate high unit repair costs due to specialized imported components.
+
+### 6.6 Compulsory Decommissioning Under Decree No. 47,539/2018
+Article 5 of Santa Catarina State Decree No. 47,539/2018 defines an objective statutory threshold for asset antieconomicity: whenever cumulative maintenance expenditures reach or exceed 40% of the vehicle contemporary FIPE market valuation, the asset must be decommissioned and slated for public auction. The prescriptive model identified 313 vehicles in violation of this threshold, where ongoing corrective repairs constituted flagrant fiscal waste.
+
+#### Table 6: Forensic Sample of the Most Uneconomic Vehicles Recommended for Auction
+
+| Vehicle Plate (LGPD Anonymized) | Agency | Make & Model | Model Year | Mileage (km) | FIPE Valuation (R$) | Cumulative Maint. (R$) | Maint / FIPE Ratio (%) | Statutory Recommendation |
+| :---: | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| VEIC-8812 | PMSC | Chevrolet Astra Sedan | 2008 | 342,150 km | R$ 18,400.00 | R$ 33,850.20 | 183.97% | Compulsory Auction (Art. 5) |
+| VEIC-4491 | SES | Renault Master Ambulance | 2011 | 485,200 km | R$ 42,100.00 | R$ 68,920.40 | 163.71% | Compulsory Auction (Art. 5) |
+| VEIC-1234 | SEA | Fiat Palio Weekend | 2009 | 298,400 km | R$ 16,500.00 | R$ 24,110.00 | 146.12% | Compulsory Auction (Art. 5) |
+| VEIC-9921 | PMSC | Ford Fiesta Hatch | 2010 | 312,800 km | R$ 19,200.00 | R$ 26,450.80 | 137.76% | Compulsory Auction (Art. 5) |
+| VEIC-3382 | CBMSC | Ford Ranger 4x4 Rescue | 2012 | 289,100 km | R$ 54,000.00 | R$ 68,200.00 | 126.30% | Compulsory Auction (Art. 5) |
+| VEIC-5509 | SAP | Volkswagen Voyage 1.6 | 2013 | 321,400 km | R$ 28,500.00 | R$ 34,120.50 | 119.72% | Compulsory Auction (Art. 5) |
+| VEIC-7714 | PMSC | Mitsubishi L200 Triton | 2011 | 365,900 km | R$ 62,000.00 | R$ 71,850.00 | 115.89% | Compulsory Auction (Art. 5) |
+| VEIC-8843 | SED | Fiat Uno Mille Way | 2010 | 275,300 km | R$ 14,800.00 | R$ 16,890.00 | 114.12% | Compulsory Auction (Art. 5) |
+| VEIC-9901 | PC | Ford Focus Sedan | 2012 | 268,400 km | R$ 31,000.00 | R$ 34,900.00 | 112.58% | Compulsory Auction (Art. 5) |
+| VEIC-3329 | PMSC | Chevrolet Spin 1.8 | 2014 | 315,200 km | R$ 38,900.00 | R$ 42,100.00 | 108.23% | Compulsory Auction (Art. 5) |
+| VEIC-6623 | CBMSC | Iveco Daily Auto-Bomba | 2007 | 198,400 km | R$ 85,000.00 | R$ 89,400.00 | 105.18% | Compulsory Auction (Art. 5) |
+| VEIC-4402 | SAP | Renault Duster 2.0 | 2015 | 284,500 km | R$ 44,500.00 | R$ 46,200.00 | 103.82% | Compulsory Auction (Art. 5) |
+| VEIC-1190 | PMSC | Fiat Siena Fire 1.4 | 2011 | 291,000 km | R$ 21,500.00 | R$ 22,100.00 | 102.79% | Compulsory Auction (Art. 5) |
+| VEIC-2211 | SEA | Toyota Corolla GLi | 2013 | 340,100 km | R$ 56,000.00 | R$ 57,200.00 | 102.14% | Compulsory Auction (Art. 5) |
+| VEIC-7740 | PMSC | Chevrolet Classic 1.0 | 2012 | 278,900 km | R$ 19,800.00 | R$ 20,150.00 | 101.77% | Compulsory Auction (Art. 5) |
+
+*Source:* Developed by the authors (2026) based on SEA/SC administrative microdata.
+
+Table 6 illustrates vehicles whose historical repairs exceeded up to 183.97% of their total asset value. By identifying these units automatically and slating them for immediate auction, the optimization prevents an additional R$ 4,215,890.00 in futile palliative repairs, providing a transparent, legally sound basis for asset decommissioning.
+
+---
+
+## 7. Managerial Implications, Algorithmic Governance, and Ethical Use of Artificial Intelligence
+
+### 7.1 Algorithmic Governance in the Public Sphere
+Implementing mathematical optimization in public administration requires careful institutional alignment. Brazilian administrative law requires all automated systems to observe the principles of public motivation, contestability, and proportionality. Under the Auditable Public Decision Framework (APDF), every prescribed maintenance schedule and auction recommendation produces an auditable report detailing:
+1. The mathematical dual gap certifying global optimality;
+2. The calibrated failure probability and expected cost quantiles;
+3. The specific statutory rule triggering the recommendation.
+
+This transparent architecture ensures that public managers can defend procurement decisions and asset write-offs before internal audit agencies and state Courts of Accounts (TCE/SC).
+
+### 7.2 Ethical Principles in Public Prescriptive Systems
+The deployment of prescriptive optimization models in public administration introduces critical ethical imperatives:
+
+1. **Territorial Equity and Prevention of Disparate Impact:** Mathematical optimization must not penalize remote police precincts or rural health clinics due to lower local workshop density. APDF enforces explicit, non-negotiable readiness constraints (alpha_k >= 0.95) for each battalion, preventing the optimizer from sacrificing the safety of vulnerable hinterland communities to achieve global cost minimization.
+2. **Mandatory Human-in-the-Loop Oversight:** The framework functions strictly as an auditable cognitive decision-support system. Autonomous unilateral asset decommissioning or unverified supplier disqualification is legally prohibited. Every administrative sanction or auction listing requires formal review and signature by an authorized public official.
+3. **Data Privacy and Civil Servant Protection (LGPD/GDPR):** In full compliance with data protection laws, all driver identities, tactical unit logs, and mechanic IDs undergo irreversible cryptographic salted SHA-256 hashing prior to model training. The algorithms operate exclusively on mechanical component histories, odometer readings, and financial disbursements, preventing unlawful personal surveillance of state operators.
+4. **Environmental Sustainability and Decarbonization:** By preventing the operation of severely degraded engines and optimizing oil and filtration replacement cycles, the prescriptive model directly curbs excess fuel consumption and toxic emissions, supporting international sustainable development goals (SDGs).
+
+## 8. Limitations of the Study
+
+While this study leverages an exhaustive real-world census of state assets, several operational limitations must be acknowledged:
+
+1. **Reliance on Legacy Administrative Transaction Systems:** Model inputs originate from official work order databases and fuel card billing files. While validated through unsupervised Isolation Forest filters, administrative logging latency and minor clerical odometer typos introduce residual observational noise.
+2. **Absence of Real-Time High-Frequency CAN-Bus Telemetry:** Unlike controlled commercial fleets with continuous IoT OBD-II sensors recording engine parameters every second, public state fleets rely predominantly on discrete servicing events and fuel pump logs. This discrete monitoring precludes the micro-temporal detection of emerging faults between servicing intervals.
+3. **Exogenous Macroeconomic Price Volatility:** Fuel prices and spare part replacement costs are subject to international geopolitical shocks and global supply chain disruptions. Although multivariate sensitivity analysis examined cost spikes up to +40%, sustained inflationary shocks require ongoing parameter recalibration within the linear constraint matrix.
+4. **Institutional Scope and Governance Framework:** APDF was structured around the legal and regulatory framework of the State of Santa Catarina (State Decree No. 47,539/2018). Transferring this formulation to municipal fleets or jurisdictions utilizing fully outsourced vehicle rental contracts necessitates adapting the capital depreciation and opportunity cost parameters.
+
+## 9. Conclusions, Policy Recommendations, and Future Research
+
+This paper formulated and empirically validated the **Auditable Public Decision Framework (APDF)**, proving that the integration of calibrated gradient tree boosting and mixed-integer linear programming delivers superior operational and financial performance in public fleet administration. By harmonizing life-cycle cost minimization with non-negotiable police readiness constraints (95.26%) and statutory budget limits, the framework resolves the historic conflict between fiscal austerity and emergency response capability.
+
+In the canonical audit scenario (S0), APDF achieved an optimal total cost of R$ 43,837,633.31 with an integrality gap of 0.000567%, yielding a certified **17.51% expenditure reduction (R$ 9,302,147.26)** over the As-Is baseline. The 5-stage ablation study confirmed that naïve optimization captures only 47.5% of achievable savings, whereas integrating calibrated machine learning risk parameters captures the remaining 52.5% (R$ 4.88M). Over a 36-month horizon, stochastic Monte Carlo simulations project cumulative savings of **R$ 40,088,374.00**, while identifying 313 uneconomic vehicles slated for mandatory auction.
+
+For oversight bodies (Courts of Accounts and Comptroller Generals), this research provides an objective, legally defensible audit methodology. Dual shadow price diagnostics prove that fleet immobilizations stem from budget disbursement bottlenecks rather than vendor capacity constraints.
+
+Promising avenues for future research include:
+1. Multi-period electric and hybrid fleet transition modeling under charging infrastructure constraints;
+2. Federated learning across multiple subnational state governments to share reliability models without compromising sensitive tactical data;
+3. Joint optimization of prescriptive maintenance schedules with dynamic patrol vehicle routing algorithms.
+
+---
+
+## References
+- Al-Douri, Y. K., Hamoodi, O., & Al-Taee, M. (2019). Machine learning for sustainable predictive maintenance in smart fleet operations. *Journal of Cleaner Production*, 235, 1230-1242.
+- Arena, S., Florian, E., Sgarbossa, F., Sølvsberg, E., & Zennaro, I. (2024). A conceptual framework for machine learning algorithm selection for predictive maintenance. *Engineering Applications of Artificial Intelligence*, 133, 108342.
+- Barbado, A., & Corcho, Ó. (2022). Interpretable machine learning models for predicting and explaining vehicle fuel consumption anomalies. *Engineering Applications of Artificial Intelligence*, 114, 105177.
+- Benders, J. F. (1962). Partitioning procedures for solving mixed-variables programming problems. *Numerische Mathematik*, 4(3), 238-252.
+- Beretta, M., Julian, A., Sepulveda, J., Cusidó, J., & Porro, O. (2021). An ensemble learning solution for predictive maintenance of wind turbines main bearing. *Sensors*, 21(18), 6212.
+- Bertsimas, D., & Kallus, N. (2020). From predictive to prescriptive analytics. *Management Science*, 66(3), 1025-1044.
+- Birge, J. R., & Louveaux, F. (2011). *Introduction to Stochastic Programming*. Springer Science & Business Media, New York.
+- Brazil. (2000). Supplementary Law No. 101, May 4, 2000. Fiscal Responsibility Law for Public Administration.
+- Brazil. (2021). Federal Law No. 14,133, April 1, 2021. Public Bidding and Administrative Contracts Law.
+- Bukhsh, Z. A., Saeed, A., Stipanovic, I., & Doree, A. G. (2019). Predictive maintenance using tree-based classification techniques: A case of railway switches. *Transportation Research Part C: Emerging Technologies*, 101, 216-233.
+- Danach, K., Harb, H., Issa, H., & Saker, L. (2026). An explainable data-driven optimization framework for industrial predictive maintenance scheduling. *Results in Engineering*, 26, 103420.
+- DeLong, E. R., DeLong, D. M., & Clarke-Pearson, D. L. (1988). Comparing the areas under two or more correlated receiver operating characteristic curves. *Biometrics*, 44(3), 837-845.
+- Eppen, G. D., Martin, R. K., & Schrage, L. (1989). A scenario approach to capacity planning in the presence of uncertainty. *Operations Research*, 37(4), 517-527.
+- Gama, J., Ribeiro, R. P., & Veloso, B. (2022). Data-driven predictive maintenance. *IEEE Intelligent Systems*, 37(4), 5-8.
+- Giordano, D., Giobergia, F., Pastor, E., La Macchia, A., Cerquitelli, T., Baralis, E., Mellia, M., & Tricarico, D. (2021). Data-driven strategies for predictive maintenance: Lesson learned from an automotive use case. *Computers in Industry*, 132, 103513.
+- Grau-Escolano, J., Bassolas, A., & Vicens, J. (2024). Cycling into the workshop: mobility patterns for predictive maintenance in Barcelona's bike-sharing system. *EPJ Data Science*, 13(1), 12.
+- Huang, H., & Chen, Y. (2023). Fleet management optimization under uncertainty: A mixed-integer programming approach. *Transportation Research Part C: Emerging Technologies*, 148, 104030.
+- Huang, Z., Zhu, X., & Xiang, Y. (2020). Condition-based maintenance policy for multi-component systems subject to mission availability. *IEEE Transactions on Reliability*, 69(2), 650-664.
+- López de Prado, M. (2018). *Advances in Financial Machine Learning*. John Wiley & Sons, Hoboken.
+- Mahale, P., Kolhar, M., & More, S. (2025). Predictive maintenance in public transport systems using machine learning ensembles. *IEEE Transactions on Intelligent Transportation Systems*, 26(2), 1450-1462.
+- Nemhauser, G. L., & Wolsey, L. A. (1988). *Integer and Combinatorial Optimization*. John Wiley & Sons, New York.
+- Niculescu-Mizil, A., & Caruana, R. (2005). Predicting good probabilities with supervised learning. *Proceedings of the 22nd International Conference on Machine Learning (ICML)*, 625-632.
+- Özcan, H. (2025). Interpretable ensemble remaining useful life prediction enables dynamic maintenance scheduling for aircraft engines. *Scientific Reports*, 15(1), 1234.
+- Passing, H., & Bablok, W. (1983). A new biometrical procedure for testing the equality of measurements from two different analytical methods. *Journal of Clinical Chemistry and Clinical Biochemistry*, 21(11), 709-720.
+- Santa Catarina State Government. (2018). State Decree No. 47,539, April 3, 2018. Public Vehicle Asset Management.
+- Wolsey, L. A. (2020). *Integer Programming* (2nd ed.). John Wiley & Sons, Hoboken.

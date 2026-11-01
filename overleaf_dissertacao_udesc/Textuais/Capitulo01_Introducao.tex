@@ -1,0 +1,35 @@
+% Textuais/Capitulo01_Introducao.tex
+\chapter{INTRODUÇÃO, CONTEXTUALIZAÇÃO E ANTEPROJETO DE PESQUISA}
+\label{cap:introducao}
+
+A gestão de uma frota institucional no setor público exige conciliar disponibilidade física dos veículos, segurança dos servidores e cidadãos, manutenção mecânica, consumo de combustíveis e rigorosos limites orçamentários fixados pela Lei de Responsabilidade Fiscal (LRF) e pela Nova Lei de Licitações (Lei Federal nº 14.133/2021). Essas dimensões deixam vestígios em sistemas administrativos distintos: o cadastro patrimonial identifica características do bem; as ordens de serviço registram peças, mão de obra e falhas; e o módulo de abastecimento informa volume, preço e odômetro.
+
+Historicamente, a fragmentação cadastral e a ausência de modelos analíticos integrados limitaram a gestão a rotinas reativas emergenciais. A literatura aponta que a manutenção preditiva e a analítica prescritiva oferecem meios para antecipar falhas e otimizar recursos, mas enfrentam desafios de qualidade de dados, explicabilidade perante órgãos de controle e formulação sob restrições reais de governo \cite{mahale2025}.
+
+\section{Delineamento Lógico da Investigação segundo o Método de Gilson Volpato}
+\label{sec:metodo_volpato_intro}
+
+A concepção epistemológica, a estrutura argumentativa e a condução metodológica desta dissertação são estritamente fundamentadas no \textbf{Método Lógico para Redação Científica} desenvolvido pelo Prof. Gilson Luiz Volpato (UNESP) \cite{volpato2015,volpato2017}. Sob esse referencial, a escrita e a investigação científica não constituem a aplicação mecânica de regras formais ou \textit{checklists} padronizados, mas a materialização textual da própria lógica interna da ciência e da comunicação \cite{volpato2015}. Três pilares basilares sustentam o desenvolvimento desta pesquisa:
+
+\begin{enumerate}
+    \item \textbf{O Conteúdo Precede a Forma:} A qualidade do texto científico decorre primordialmente da solidez da concepção teórica e metodológica do estudo. A dissertação estrutura-se como um argumento dedutivo fechado: a partir das restrições e assimetrias reais na gestão de frotas públicas sob o império da Lei de Responsabilidade Fiscal e da Nova Lei de Licitações (Lei nº 14.133/2021) \cite{brasil2021licitacoes}, formula-se a pergunta norteadora e delimitam-se as hipóteses de pesquisa como proposições falseáveis orientadas a preencher uma lacuna concreta de conhecimento;
+    
+    \item \textbf{Rejeição a Receitas Prontas e Cruzamentos Arbitrários:} O método refuta peremptoriamente o cruzamento indiscriminado de dados sem sustentação teórica prévia (\textit{data-dredging} ou \textit{p-hacking}). Cada variável preditora, modelo analítico e relação funcional investigada responde a hipóteses formuladas \textit{a priori}, incorporando salvaguardas metodológicas estritas -- como o embargo temporal de 30 dias na validação de séries -- para evitar vazamento de dados (\textit{lookahead bias}) \cite{kapoor2023};
+    
+    \item \textbf{Tipos Lógicos de Pesquisa e Distinção entre Significância e Relevância:} Conforme a taxonomia de Volpato \cite{volpato2015}, o estudo enquadra-se formalmente como uma \textbf{Associação Empírica com Interferência Prescritiva}, articulando uma fase observacional retrospectiva (associação entre manutenções, quilometragens e abastecimentos) com uma fase intervencionista contrafactual (otimização exata via MILP). Ademais, adota-se o preceito fundamental de distinguir categoricamente a \textit{significância estatística} (frequentemente inflada em bases censitárias com $N > 350.000$) da \textit{relevância prática operacional}, exigindo patamares mínimos pré-fixados de ganho econômico para a validação das hipóteses.
+\end{enumerate}
+
+\section{As Quatro Hipóteses Centrais de Pesquisa e Critérios Formais de Avaliação}
+\label{sec:hipoteses_centrais}
+
+Em consonância direta com o método lógico dedutivo de Volpato \cite{volpato2017}, a investigação estabelece quatro hipóteses científicas centrais ($H_1$ a $H_4$), cada qual vinculada a um tipo lógico de pesquisa e a critérios objetivos e pré-fixados de falseamento empírico:
+
+\begin{itemize}
+    \item \textbf{Hipótese H1 (Integração Multimodal -- Associação sem Interferência):} Formulada no anteprojeto de pesquisa, postula que a fusão preditiva de bases heterogêneas (cadastro patrimonial, ordens de serviço e abastecimentos) reduz o erro de predição de custo e eleva o PR-AUC em comparação a modelos alimentados exclusivamente por ordens de serviço. Em estrito cumprimento ao método de Volpato, estabelece-se \textit{a priori} o patamar de \textbf{15,0\% de ganho relativo} como critério analítico de corte de relevância prática operacional. Caso o ganho empírico não atinja esse patamar mínimo -- mesmo demonstrando significância estatística em testes pareados ($p < 0,05$) em virtude do volume amostral maciço --, a hipótese será classificada formalmente como \textit{não sustentada sob a ótica de relevância prática}, rejeitando-se a imposição de custos operacionais de integração legada que não tragam benefício decisório expressivo;
+    
+    \item \textbf{Hipótese H2 (Superioridade dos Modelos Não Lineares -- Associação sem Interferência):} Postula que modelos \textit{ensemble} baseados em árvores de decisão particionadas (\textit{HistGradientBoosting} e \textit{Extra Trees}) superam algoritmos de vetor de suporte com núcleo de base radial (\textit{Support Vector Regression -- SVR-RBF}) e regressores lineares paramétricos tanto em tempo de processamento computacional quanto em acurácia sob distribuições empíricas assimétricas com caudas pesadas não Gaussianas;
+    
+    \item \textbf{Hipótese H3 (Eficácia Prescritiva do MILP -- Associação com Interferência):} Postula que a programação linear inteira mista orientada por probabilidades calibradas gera um plano ótimo de intervenções preventivas com custo total esperado comprovadamente inferior à política inercial sob os mesmos limites orçamentários mensais ($B_t$), garantindo 100\% de disponibilidade operacional e cumprimento integral das manutenções preventivas obrigatórias;
+    
+    \item \textbf{Hipótese H4 (Concordância e Auditabilidade da XAI -- Associação com Interferência):} Postula que as explicações de atribuição local de características geradas por SHAP (valores de Shapley fundamentados na teoria dos jogos cooperativos) e LIME (aproximações lineares esparsas locais) exibem convergência estrutural estrita ($>$85\% de similaridade de Jaccard no Top-5 de \textit{features}), sustentando a intercambialidade direta dos métodos e a suficiência de métricas univariadas perante órgãos de fiscalização e controle externo (Tribunal de Contas do Estado -- TCE-SC).
+\end{itemize}

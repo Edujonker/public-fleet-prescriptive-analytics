@@ -1,0 +1,1614 @@
+{
+  "kpis_gfi": {
+    "normativa": {
+      "fonte": "Secretaria de Estado de Planejamento e Gestão (Seplag/SEA) - Cartilha GFI Abr/2026",
+      "decreto_regente": "Decreto Estadual nº 47.539/2018",
+      "regra_manutencao_onerosa": "Soma de manutenções em 12 meses superior a 40% do valor venal do veículo",
+      "regra_auditoria_hodometro": "Confiabilidade aceitável na faixa de 80% a 120% entre fontes independentes",
+      "regimes_operacionais": "Regime Padrão (8h/dia x dias úteis) e Regime Integral (24h/dia - PMSC, PC, CBMSC)",
+      "total_indicadores_apurados": 38
+    },
+    "tema_1_dados_situacao_kpis": {
+      "IND-01": {
+        "nome": "Total de Bens Registrados no Patrimônio",
+        "valor": 34280,
+        "valor_fmt": "34,280 bens",
+        "ref": "Inventário Geral Siad",
+        "status": "Consolidado"
+      },
+      "IND-02": {
+        "nome": "Veículos Ativos em Circulação",
+        "valor": 12707,
+        "valor_fmt": "12,707 (37.1%)",
+        "ref": "Operação Regular",
+        "status": "Ativo"
+      },
+      "IND-03": {
+        "nome": "Veículos Baixados ou em Desfazimento",
+        "valor": 21306,
+        "valor_fmt": "21,306 (62.2%)",
+        "ref": "Histórico Acumulado",
+        "status": "Inativo"
+      },
+      "IND-04": {
+        "nome": "Veículos Doados a Municípios e Entidades",
+        "valor": 260,
+        "valor_fmt": "260 (0.76%)",
+        "ref": "Alienação Gratuita",
+        "status": "Doados"
+      },
+      "IND-05": {
+        "nome": "Taxa de Crescimento Anual da Frota",
+        "valor": 2.1,
+        "valor_fmt": "+2,10% a.a.",
+        "ref": "Evolução Histórica",
+        "status": "Expansão Controlada"
+      },
+      "IND-06": {
+        "nome": "Idade Média da Frota Geral",
+        "valor": 8.7,
+        "valor_fmt": "8,7 anos",
+        "ref": "Meta de Referência < 7,0 anos",
+        "status": "Envelhecida"
+      },
+      "IND-07": {
+        "nome": "Idade Média de Veículos Leves",
+        "valor": 6.8,
+        "valor_fmt": "6,8 anos",
+        "ref": "Meta de Referência < 5,0 anos",
+        "status": "Atenção Moderada"
+      },
+      "IND-08": {
+        "nome": "Veículos Paralisados no Sistema há >12 Meses",
+        "valor": 1420,
+        "valor_fmt": "1.420 veículos",
+        "ref": "Art. 5º Dec. 47.539",
+        "status": "Passíveis de Baixa/Leilão"
+      }
+    },
+    "tema_2_manutencao_kpis": {
+      "IND-09": {
+        "nome": "Dispêndio Total em Manutenção Aprovada",
+        "valor": 138759653.82000002,
+        "valor_fmt": "R$ 138.759.653,82",
+        "ref": "Base Transacional 350k OSs",
+        "status": "Auditado"
+      },
+      "IND-10": {
+        "nome": "Gasto com Aquisição de Peças",
+        "valor": 94647192.74,
+        "valor_fmt": "R$ 94.647.192,74 (68.2%)",
+        "ref": "68,2% do total",
+        "status": "Aderente"
+      },
+      "IND-11": {
+        "nome": "Gasto com Mão de Obra e Serviços",
+        "valor": 44112461.08,
+        "valor_fmt": "R$ 44.112.461,08 (31.8%)",
+        "ref": "31,8% do total",
+        "status": "Aderente"
+      },
+      "IND-12": {
+        "nome": "Razão Mão de Obra / Peças (Razão MO)",
+        "valor": 0.466,
+        "valor_fmt": "0,466",
+        "ref": "Faixa Aceitável: 0,40 a 0,55",
+        "status": "Equilibrado"
+      },
+      "IND-13": {
+        "nome": "Gasto Médio por Veículo que Realizou Manutenção",
+        "valor": 18306.02,
+        "valor_fmt": "R$ 18.306,02",
+        "ref": "7.580 veículos atendidos",
+        "status": "Média Global"
+      },
+      "IND-14": {
+        "nome": "Gasto Médio de Veículos Leves",
+        "valor": 7415.08,
+        "valor_fmt": "R$ 7.415,08",
+        "ref": "Passeio, Utilitários e Motos",
+        "status": "Dentro da Faixa"
+      },
+      "IND-15": {
+        "nome": "Gasto Médio de Veículos Pesados",
+        "valor": 18946.49,
+        "valor_fmt": "R$ 18.946,49",
+        "ref": "Caminhões, Ônibus e Viaturas Pesadas",
+        "status": "Custo Elevado"
+      },
+      "IND-16": {
+        "nome": "Cobertura do Modelo Centralizado GTM",
+        "valor": 98.4,
+        "valor_fmt": "98,4%",
+        "ref": "Meta de Centralização > 95%",
+        "status": "Alta Conformidade"
+      }
+    },
+    "tema_3_abastecimento_kpis": {
+      "IND-17": {
+        "nome": "Consumo Total de Combustível em Valor",
+        "valor": 184250800.0,
+        "valor_fmt": "R$ 184.250.800,00",
+        "ref": "Faturamento Integrado de Combustíveis",
+        "status": "Auditado"
+      },
+      "IND-18": {
+        "nome": "Consumo Total de Combustível em Volume",
+        "valor": 32840500.0,
+        "valor_fmt": "32.840.500 Litros",
+        "ref": "Gasolina, Etanol, Diesel S10",
+        "status": "Consolidado"
+      },
+      "IND-19": {
+        "nome": "Abastecimentos com Preço Acima do Teto ANP",
+        "valor": 0.42,
+        "valor_fmt": "0,42% (1.380 reg.)",
+        "ref": "Limite: Preço Médio Municipal ANP",
+        "status": "Baixo Risco"
+      },
+      "IND-20": {
+        "nome": "Cobertura do Modelo Cartão de Abastecimento",
+        "valor": 94.2,
+        "valor_fmt": "94,2%",
+        "ref": "Rede Credenciada Integrada",
+        "status": "Majoritário"
+      },
+      "IND-21": {
+        "nome": "Cobertura do Modelo GTA (Postos Próprios)",
+        "valor": 5.8,
+        "valor_fmt": "5,8%",
+        "ref": "Guia de Tráfego e Abastecimento",
+        "status": "Específico"
+      },
+      "IND-22": {
+        "nome": "Volume de Abastecimentos Fora do GTA",
+        "valor": 94.2,
+        "valor_fmt": "94,2%",
+        "ref": "Abastecimento Externo em Viagem",
+        "status": "Conforme Rede"
+      },
+      "IND-23": {
+        "nome": "Desempenhos Improváveis de Consumo (<50% ou >150%)",
+        "valor": 1.85,
+        "valor_fmt": "1,85%",
+        "ref": "Desvios severos de km/L homologado",
+        "status": "Em Monitoramento"
+      },
+      "IND-24": {
+        "nome": "Desempenho Médio Geral da Frota (km/L)",
+        "valor": 9.4,
+        "valor_fmt": "9,40 km/L",
+        "ref": "Média Ponderada da Frota Ativa",
+        "status": "Padrão Aceitável"
+      },
+      "IND-25": {
+        "nome": "Desempenho Médio de Veículos a Diesel (km/L)",
+        "valor": 7.8,
+        "valor_fmt": "7,80 km/L",
+        "ref": "Caminhões e Camionetes Operacionais",
+        "status": "Eficiente"
+      }
+    },
+    "tema_4_atendimento_uso_kpis": {
+      "IND-26": {
+        "nome": "Atendimentos Improváveis (Velocidade ou Duração Atípica)",
+        "valor": 1.42,
+        "valor_fmt": "1,42%",
+        "ref": "Duração <4,8min ou >30d; Vel <1 ou >75 km/h",
+        "status": "Sob Controle"
+      },
+      "IND-27": {
+        "nome": "Quilometragem Total Percorrida Anual",
+        "valor": 48200000.0,
+        "valor_fmt": "48.200.000 km",
+        "ref": "Consolidação de Ordens e Hodômetros",
+        "status": "Consolidado"
+      },
+      "IND-28": {
+        "nome": "Horas Efetivas Trabalhadas com a Frota",
+        "valor": 3840000.0,
+        "valor_fmt": "3.840.000 h/ano",
+        "ref": "Jornadas em Operação Oficial",
+        "status": "Consolidado"
+      },
+      "IND-29": {
+        "nome": "Taxa de Ociosidade em Regime Padrão (8h/dia)",
+        "valor": 31.4,
+        "valor_fmt": "31,4%",
+        "ref": "Órgãos Administrativos Diretos (SEA/SED/SES)",
+        "status": "Potencial Otimização"
+      },
+      "IND-30": {
+        "nome": "Taxa de Ociosidade em Regime Integral (24h/dia)",
+        "valor": 12.8,
+        "valor_fmt": "12,8%",
+        "ref": "Forças de Segurança e Prontidão (PMSC/PC/CBMSC)",
+        "status": "Alta Demanda"
+      },
+      "IND-31": {
+        "nome": "Downtime Médio de Oficina (Dias Imobilizado)",
+        "valor": 23.5,
+        "valor_fmt": "23.5 dias (P90: 72.9d)",
+        "ref": "SLA Máximo Desejável: 15 dias",
+        "status": "Crítico / SLA Estourado"
+      },
+      "IND-32": {
+        "nome": "Confiabilidade da km Percorrida (Triangulação Hodômetro)",
+        "valor": 84.6,
+        "valor_fmt": "84.6%",
+        "ref": "Faixa 80% a 120% entre OSs e Abastecimento",
+        "status": "Aceitável / Guia GFI"
+      }
+    },
+    "tema_5_integridade_prescricao_kpis": {
+      "IND-33": {
+        "nome": "Ordens de Serviço com Anomalias Severas Auditadas",
+        "valor": 2336,
+        "valor_fmt": "2,336 OSs (0.67%)",
+        "ref": "Detecção Isolation Forest + Regras Especialistas",
+        "status": "Auditadas"
+      },
+      "IND-34": {
+        "nome": "Veículos com Manutenção Onerosa (>40% do Valor Venal)",
+        "valor": 313,
+        "valor_fmt": "313 veículos (R$ 11.689.836,17)",
+        "ref": "Art. 5º Decreto Estadual nº 47.539/2018",
+        "status": "Leilão Imediato"
+      },
+      "IND-35": {
+        "nome": "Volume Total Orçado Inicial em Processos Auditados",
+        "valor": 47763762.1,
+        "valor_fmt": "R$ 47.763.762,10",
+        "ref": "Propostas Iniciais de Oficinas Credenciadas",
+        "status": "Auditado"
+      },
+      "IND-36": {
+        "nome": "Glosa Técnica e Economia Efetiva da Fiscalização SEA",
+        "valor": 22416134.53,
+        "valor_fmt": "R$ 22.416.134,53 (46.93%)",
+        "ref": "Corte de Itens Indevidos e Sobrepreço",
+        "status": "Economia Gerada"
+      },
+      "IND-37": {
+        "nome": "Taxa Ponderada de Inflação Setorial de Frotas",
+        "valor": 6.08,
+        "valor_fmt": "6,08% ao ano",
+        "ref": "69,18% Autopeças (6,2%) + 30,82% MO (5,8%)",
+        "status": "Parâmetro LDO/LOA"
+      },
+      "IND-38": {
+        "nome": "Economia Trienal Prescritiva Acumulada (2027–2029)",
+        "valor": 40088374.0,
+        "valor_fmt": "R$ 40.088.374,00",
+        "ref": "Modelo Prescritivo To-Be MILP vs Tendência Inercial",
+        "status": "Meta Estratégica"
+      }
+    },
+    "matriz_exaustiva_38_indicadores": [
+      {
+        "id": "IND-01",
+        "tema": "1. Dados / Situação",
+        "nome": "Total de Bens Registrados no Patrimônio",
+        "valor": 34280,
+        "valor_fmt": "34,280 bens",
+        "ref": "Inventário Geral Siad",
+        "status": "Consolidado"
+      },
+      {
+        "id": "IND-02",
+        "tema": "1. Dados / Situação",
+        "nome": "Veículos Ativos em Circulação",
+        "valor": 12707,
+        "valor_fmt": "12,707 (37.1%)",
+        "ref": "Operação Regular",
+        "status": "Ativo"
+      },
+      {
+        "id": "IND-03",
+        "tema": "1. Dados / Situação",
+        "nome": "Veículos Baixados ou em Desfazimento",
+        "valor": 21306,
+        "valor_fmt": "21,306 (62.2%)",
+        "ref": "Histórico Acumulado",
+        "status": "Inativo"
+      },
+      {
+        "id": "IND-04",
+        "tema": "1. Dados / Situação",
+        "nome": "Veículos Doados a Municípios e Entidades",
+        "valor": 260,
+        "valor_fmt": "260 (0.76%)",
+        "ref": "Alienação Gratuita",
+        "status": "Doados"
+      },
+      {
+        "id": "IND-05",
+        "tema": "1. Dados / Situação",
+        "nome": "Taxa de Crescimento Anual da Frota",
+        "valor": 2.1,
+        "valor_fmt": "+2,10% a.a.",
+        "ref": "Evolução Histórica",
+        "status": "Expansão Controlada"
+      },
+      {
+        "id": "IND-06",
+        "tema": "1. Dados / Situação",
+        "nome": "Idade Média da Frota Geral",
+        "valor": 8.7,
+        "valor_fmt": "8,7 anos",
+        "ref": "Meta de Referência < 7,0 anos",
+        "status": "Envelhecida"
+      },
+      {
+        "id": "IND-07",
+        "tema": "1. Dados / Situação",
+        "nome": "Idade Média de Veículos Leves",
+        "valor": 6.8,
+        "valor_fmt": "6,8 anos",
+        "ref": "Meta de Referência < 5,0 anos",
+        "status": "Atenção Moderada"
+      },
+      {
+        "id": "IND-08",
+        "tema": "1. Dados / Situação",
+        "nome": "Veículos Paralisados no Sistema há >12 Meses",
+        "valor": 1420,
+        "valor_fmt": "1.420 veículos",
+        "ref": "Art. 5º Dec. 47.539",
+        "status": "Passíveis de Baixa/Leilão"
+      },
+      {
+        "id": "IND-09",
+        "tema": "2. Manutenção",
+        "nome": "Dispêndio Total em Manutenção Aprovada",
+        "valor": 138759653.82000002,
+        "valor_fmt": "R$ 138.759.653,82",
+        "ref": "Base Transacional 350k OSs",
+        "status": "Auditado"
+      },
+      {
+        "id": "IND-10",
+        "tema": "2. Manutenção",
+        "nome": "Gasto com Aquisição de Peças",
+        "valor": 94647192.74,
+        "valor_fmt": "R$ 94.647.192,74 (68.2%)",
+        "ref": "68,2% do total",
+        "status": "Aderente"
+      },
+      {
+        "id": "IND-11",
+        "tema": "2. Manutenção",
+        "nome": "Gasto com Mão de Obra e Serviços",
+        "valor": 44112461.08,
+        "valor_fmt": "R$ 44.112.461,08 (31.8%)",
+        "ref": "31,8% do total",
+        "status": "Aderente"
+      },
+      {
+        "id": "IND-12",
+        "tema": "2. Manutenção",
+        "nome": "Razão Mão de Obra / Peças (Razão MO)",
+        "valor": 0.466,
+        "valor_fmt": "0,466",
+        "ref": "Faixa Aceitável: 0,40 a 0,55",
+        "status": "Equilibrado"
+      },
+      {
+        "id": "IND-13",
+        "tema": "2. Manutenção",
+        "nome": "Gasto Médio por Veículo que Realizou Manutenção",
+        "valor": 18306.02,
+        "valor_fmt": "R$ 18.306,02",
+        "ref": "7.580 veículos atendidos",
+        "status": "Média Global"
+      },
+      {
+        "id": "IND-14",
+        "tema": "2. Manutenção",
+        "nome": "Gasto Médio de Veículos Leves",
+        "valor": 7415.08,
+        "valor_fmt": "R$ 7.415,08",
+        "ref": "Passeio, Utilitários e Motos",
+        "status": "Dentro da Faixa"
+      },
+      {
+        "id": "IND-15",
+        "tema": "2. Manutenção",
+        "nome": "Gasto Médio de Veículos Pesados",
+        "valor": 18946.49,
+        "valor_fmt": "R$ 18.946,49",
+        "ref": "Caminhões, Ônibus e Viaturas Pesadas",
+        "status": "Custo Elevado"
+      },
+      {
+        "id": "IND-16",
+        "tema": "2. Manutenção",
+        "nome": "Cobertura do Modelo Centralizado GTM",
+        "valor": 98.4,
+        "valor_fmt": "98,4%",
+        "ref": "Meta de Centralização > 95%",
+        "status": "Alta Conformidade"
+      },
+      {
+        "id": "IND-17",
+        "tema": "3. Abastecimento",
+        "nome": "Consumo Total de Combustível em Valor",
+        "valor": 184250800.0,
+        "valor_fmt": "R$ 184.250.800,00",
+        "ref": "Faturamento Integrado de Combustíveis",
+        "status": "Auditado"
+      },
+      {
+        "id": "IND-18",
+        "tema": "3. Abastecimento",
+        "nome": "Consumo Total de Combustível em Volume",
+        "valor": 32840500.0,
+        "valor_fmt": "32.840.500 Litros",
+        "ref": "Gasolina, Etanol, Diesel S10",
+        "status": "Consolidado"
+      },
+      {
+        "id": "IND-19",
+        "tema": "3. Abastecimento",
+        "nome": "Abastecimentos com Preço Acima do Teto ANP",
+        "valor": 0.42,
+        "valor_fmt": "0,42% (1.380 reg.)",
+        "ref": "Limite: Preço Médio Municipal ANP",
+        "status": "Baixo Risco"
+      },
+      {
+        "id": "IND-20",
+        "tema": "3. Abastecimento",
+        "nome": "Cobertura do Modelo Cartão de Abastecimento",
+        "valor": 94.2,
+        "valor_fmt": "94,2%",
+        "ref": "Rede Credenciada Integrada",
+        "status": "Majoritário"
+      },
+      {
+        "id": "IND-21",
+        "tema": "3. Abastecimento",
+        "nome": "Cobertura do Modelo GTA (Postos Próprios)",
+        "valor": 5.8,
+        "valor_fmt": "5,8%",
+        "ref": "Guia de Tráfego e Abastecimento",
+        "status": "Específico"
+      },
+      {
+        "id": "IND-22",
+        "tema": "3. Abastecimento",
+        "nome": "Volume de Abastecimentos Fora do GTA",
+        "valor": 94.2,
+        "valor_fmt": "94,2%",
+        "ref": "Abastecimento Externo em Viagem",
+        "status": "Conforme Rede"
+      },
+      {
+        "id": "IND-23",
+        "tema": "3. Abastecimento",
+        "nome": "Desempenhos Improváveis de Consumo (<50% ou >150%)",
+        "valor": 1.85,
+        "valor_fmt": "1,85%",
+        "ref": "Desvios severos de km/L homologado",
+        "status": "Em Monitoramento"
+      },
+      {
+        "id": "IND-24",
+        "tema": "3. Abastecimento",
+        "nome": "Desempenho Médio Geral da Frota (km/L)",
+        "valor": 9.4,
+        "valor_fmt": "9,40 km/L",
+        "ref": "Média Ponderada da Frota Ativa",
+        "status": "Padrão Aceitável"
+      },
+      {
+        "id": "IND-25",
+        "tema": "3. Abastecimento",
+        "nome": "Desempenho Médio de Veículos a Diesel (km/L)",
+        "valor": 7.8,
+        "valor_fmt": "7,80 km/L",
+        "ref": "Caminhões e Camionetes Operacionais",
+        "status": "Eficiente"
+      },
+      {
+        "id": "IND-26",
+        "tema": "4. Atendimento / Uso",
+        "nome": "Atendimentos Improváveis (Velocidade ou Duração Atípica)",
+        "valor": 1.42,
+        "valor_fmt": "1,42%",
+        "ref": "Duração <4,8min ou >30d; Vel <1 ou >75 km/h",
+        "status": "Sob Controle"
+      },
+      {
+        "id": "IND-27",
+        "tema": "4. Atendimento / Uso",
+        "nome": "Quilometragem Total Percorrida Anual",
+        "valor": 48200000.0,
+        "valor_fmt": "48.200.000 km",
+        "ref": "Consolidação de Ordens e Hodômetros",
+        "status": "Consolidado"
+      },
+      {
+        "id": "IND-28",
+        "tema": "4. Atendimento / Uso",
+        "nome": "Horas Efetivas Trabalhadas com a Frota",
+        "valor": 3840000.0,
+        "valor_fmt": "3.840.000 h/ano",
+        "ref": "Jornadas em Operação Oficial",
+        "status": "Consolidado"
+      },
+      {
+        "id": "IND-29",
+        "tema": "4. Atendimento / Uso",
+        "nome": "Taxa de Ociosidade em Regime Padrão (8h/dia)",
+        "valor": 31.4,
+        "valor_fmt": "31,4%",
+        "ref": "Órgãos Administrativos Diretos (SEA/SED/SES)",
+        "status": "Potencial Otimização"
+      },
+      {
+        "id": "IND-30",
+        "tema": "4. Atendimento / Uso",
+        "nome": "Taxa de Ociosidade em Regime Integral (24h/dia)",
+        "valor": 12.8,
+        "valor_fmt": "12,8%",
+        "ref": "Forças de Segurança e Prontidão (PMSC/PC/CBMSC)",
+        "status": "Alta Demanda"
+      },
+      {
+        "id": "IND-31",
+        "tema": "4. Atendimento / Uso",
+        "nome": "Downtime Médio de Oficina (Dias Imobilizado)",
+        "valor": 23.5,
+        "valor_fmt": "23.5 dias (P90: 72.9d)",
+        "ref": "SLA Máximo Desejável: 15 dias",
+        "status": "Crítico / SLA Estourado"
+      },
+      {
+        "id": "IND-32",
+        "tema": "4. Atendimento / Uso",
+        "nome": "Confiabilidade da km Percorrida (Triangulação Hodômetro)",
+        "valor": 84.6,
+        "valor_fmt": "84.6%",
+        "ref": "Faixa 80% a 120% entre OSs e Abastecimento",
+        "status": "Aceitável / Guia GFI"
+      },
+      {
+        "id": "IND-33",
+        "tema": "5. Integridade e Prescrição",
+        "nome": "Ordens de Serviço com Anomalias Severas Auditadas",
+        "valor": 2336,
+        "valor_fmt": "2,336 OSs (0.67%)",
+        "ref": "Detecção Isolation Forest + Regras Especialistas",
+        "status": "Auditadas"
+      },
+      {
+        "id": "IND-34",
+        "tema": "5. Integridade e Prescrição",
+        "nome": "Veículos com Manutenção Onerosa (>40% do Valor Venal)",
+        "valor": 313,
+        "valor_fmt": "313 veículos (R$ 11.689.836,17)",
+        "ref": "Art. 5º Decreto Estadual nº 47.539/2018",
+        "status": "Leilão Imediato"
+      },
+      {
+        "id": "IND-35",
+        "tema": "5. Integridade e Prescrição",
+        "nome": "Volume Total Orçado Inicial em Processos Auditados",
+        "valor": 47763762.1,
+        "valor_fmt": "R$ 47.763.762,10",
+        "ref": "Propostas Iniciais de Oficinas Credenciadas",
+        "status": "Auditado"
+      },
+      {
+        "id": "IND-36",
+        "tema": "5. Integridade e Prescrição",
+        "nome": "Glosa Técnica e Economia Efetiva da Fiscalização SEA",
+        "valor": 22416134.53,
+        "valor_fmt": "R$ 22.416.134,53 (46.93%)",
+        "ref": "Corte de Itens Indevidos e Sobrepreço",
+        "status": "Economia Gerada"
+      },
+      {
+        "id": "IND-37",
+        "tema": "5. Integridade e Prescrição",
+        "nome": "Taxa Ponderada de Inflação Setorial de Frotas",
+        "valor": 6.08,
+        "valor_fmt": "6,08% ao ano",
+        "ref": "69,18% Autopeças (6,2%) + 30,82% MO (5,8%)",
+        "status": "Parâmetro LDO/LOA"
+      },
+      {
+        "id": "IND-38",
+        "tema": "5. Integridade e Prescrição",
+        "nome": "Economia Trienal Prescritiva Acumulada (2027–2029)",
+        "valor": 40088374.0,
+        "valor_fmt": "R$ 40.088.374,00",
+        "ref": "Modelo Prescritivo To-Be MILP vs Tendência Inercial",
+        "status": "Meta Estratégica"
+      }
+    ],
+    "tema_1_dados_situacao": {
+      "total_bens_patrimonio": 34280,
+      "veiculos_ativos": 12707,
+      "pct_ativos": 37.07,
+      "veiculos_baixados_ou_desfazimento": 21306,
+      "pct_baixados": 62.15,
+      "veiculos_doados": 260,
+      "idade_media_frota_anos": 8.7,
+      "idade_media_veiculos_leves_anos": 6.8,
+      "veiculos_paralisados_mais_12m": 1420
+    },
+    "tema_2_manutencao": {
+      "gasto_total_aprovado_rs": 138759653.82000002,
+      "gasto_total_aprovado_fmt": "R$ 138.759.653,82",
+      "gasto_pecas_rs": 94647192.74,
+      "gasto_pecas_fmt": "R$ 94.647.192,74",
+      "pct_pecas": 68.21,
+      "gasto_mao_obra_rs": 44112461.08,
+      "gasto_mao_obra_fmt": "R$ 44.112.461,08",
+      "pct_mao_obra": 31.79,
+      "veiculos_atendidos": 7580,
+      "gasto_medio_geral_por_veiculo_rs": 18306.02,
+      "gasto_medio_geral_por_veiculo_fmt": "R$ 18.306,02",
+      "gasto_medio_leves_rs": 7415.08,
+      "gasto_medio_leves_fmt": "R$ 7.415,08",
+      "gasto_medio_pesados_rs": 18946.49,
+      "gasto_medio_pesados_fmt": "R$ 18.946,49",
+      "cobertura_modelo_centralizado_gtm_pct": 98.4,
+      "manutencoes_improsaveis": {
+        "total_os_anomalas": 2336,
+        "pct_sobre_amostra_auditada": 0.85,
+        "casos_duracao_1d_valor_excessivo": 204,
+        "casos_downtime_extremo_mais_30d": 578,
+        "casos_hodometro_invalido": 2,
+        "gasto_comprometido_em_anomalias_rs": 25347627.57,
+        "gasto_comprometido_em_anomalias_fmt": "R$ 25.347.627,57"
+      },
+      "manutencao_onerosa_decreto_47539": {
+        "limiar_decreto": "40% do valor venal contábil",
+        "veiculos_enquadrados": 313,
+        "economia_potencial_desincorporacao_rs": 11689836.169999998,
+        "economia_potencial_desincorporacao_fmt": "R$ 11.689.836,17",
+        "recomendacao": "Desincorporação imediata e encaminhamento para leilão público (Lei 14.133/2021)"
+      }
+    },
+    "tema_3_atendimento_uso": {
+      "downtime_medio_oficina_dias": 23.5,
+      "downtime_mediana_oficina_dias": 4.2,
+      "downtime_p90_oficina_dias": 72.9,
+      "pico_downtime_dias": 180,
+      "confiabilidade_hodometro": {
+        "indice_conformidade_80_120_pct": 84.6,
+        "indice_desvio_inconsistente_pct": 15.4,
+        "status": "Faixa aceitável em conformidade com o Guia GFI Seplag"
+      },
+      "regimes_analisados": {
+        "regime_padrao_8h": "Órgãos Administrativos Diretos (SEA, SED, SES, SAPE)",
+        "regime_integral_24h": "Forças de Segurança e Prontidão (PMSC, PC, CBMSC)"
+      }
+    },
+    "tema_4_integridade_e_glosas": {
+      "total_orcado_processos_anomalos_rs": 47763762.1,
+      "total_orcado_processos_anomalos_fmt": "R$ 47.763.762,10",
+      "total_aprovado_processos_anomalos_rs": 25347627.57,
+      "total_aprovado_processos_anomalos_fmt": "R$ 25.347.627,57",
+      "glosa_fiscalizacao_tecnica_rs": 22416134.53,
+      "glosa_fiscalizacao_tecnica_fmt": "R$ 22.416.134,53",
+      "taxa_glosa_pct": 46.93
+    }
+  },
+  "kpis_executivos": {
+    "total_gasto_aprovado_anomalias_rs": 25347627.57,
+    "total_orcado_processos_anomalias_rs": 47763762.1,
+    "total_glosado_economizado_rs": 22520222.79,
+    "taxa_glosa_processos_pct": 47.15,
+    "veiculos_manutencao_onerosa_leilao": 259,
+    "economia_trienio_2027_2029_rs": 40088374.0,
+    "downtime_medio_anomalias_dias": 23.5
+  },
+  "custos_anomalias_por_orgao": [
+    {
+      "ÓRGÃO": "PMSC - Polícia Militar do Estado de Santa Catarina",
+      "Valor_Aprovado": 9600222.21,
+      "vl_orcado": 17566672.97,
+      "dif_orcado_aprovado": 7998897.3,
+      "qtd_oss": 854,
+      "duracao_dias": 29.54157817940086
+    },
+    {
+      "ÓRGÃO": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "Valor_Aprovado": 3226754.32,
+      "vl_orcado": 4315401.56,
+      "dif_orcado_aprovado": 1113094.82,
+      "qtd_oss": 215,
+      "duracao_dias": 12.933730620155039
+    },
+    {
+      "ÓRGÃO": "SSP/FSP - FUNDO PARA MELHORIA DA SEGURANÇA PÚBLICA",
+      "Valor_Aprovado": 2821414.4,
+      "vl_orcado": 5695594.83,
+      "dif_orcado_aprovado": 2879523.21,
+      "qtd_oss": 294,
+      "duracao_dias": 21.28167076089695
+    },
+    {
+      "ÓRGÃO": "SES - Secretaria de Estado da Saúde",
+      "Valor_Aprovado": 2191105.75,
+      "vl_orcado": 3767178.7,
+      "dif_orcado_aprovado": 1599283.35,
+      "qtd_oss": 181,
+      "duracao_dias": 27.25388652291795
+    },
+    {
+      "ÓRGÃO": "SEJURI/FUPESC - Fundo Penitenciário do Estado de Santa Catarina",
+      "Valor_Aprovado": 1654499.74,
+      "vl_orcado": 4519519.92,
+      "dif_orcado_aprovado": 2872371.58,
+      "qtd_oss": 187,
+      "duracao_dias": 26.06196784016637
+    },
+    {
+      "ÓRGÃO": "SEJURI - SECRETARIA DE JUSTIÇA E REINTEGRAÇÃO SOCIAL ",
+      "Valor_Aprovado": 1346345.1,
+      "vl_orcado": 3567317.65,
+      "dif_orcado_aprovado": 2223470.87,
+      "qtd_oss": 172,
+      "duracao_dias": 21.056691497093023
+    },
+    {
+      "ÓRGÃO": "SIE - Secretaria de Estado da Infraestrutura e Mobilidade",
+      "Valor_Aprovado": 607053.93,
+      "vl_orcado": 704151.54,
+      "dif_orcado_aprovado": 98171.03,
+      "qtd_oss": 46,
+      "duracao_dias": 45.255600845410626
+    },
+    {
+      "ÓRGÃO": "SEA - Secretaria de Estado da Administração",
+      "Valor_Aprovado": 436808.73,
+      "vl_orcado": 544962.63,
+      "dif_orcado_aprovado": 108153.9,
+      "qtd_oss": 19,
+      "duracao_dias": 22.475804093567252
+    },
+    {
+      "ÓRGÃO": "PCSC/FUMPC - Fundo de Melhoria da Polícia Civil",
+      "Valor_Aprovado": 385793.31,
+      "vl_orcado": 1489364.96,
+      "dif_orcado_aprovado": 1103571.65,
+      "qtd_oss": 74,
+      "duracao_dias": 18.76014451951952
+    },
+    {
+      "ÓRGÃO": "PCISC - Polícia Científica do Estado de Santa Catarina",
+      "Valor_Aprovado": 361851.43,
+      "vl_orcado": 821760.24,
+      "dif_orcado_aprovado": 459908.81,
+      "qtd_oss": 46,
+      "duracao_dias": 22.570637077294688
+    },
+    {
+      "ÓRGÃO": "SSP/FESP - Fundo Estadual de Segurança Pública",
+      "Valor_Aprovado": 304689.04,
+      "vl_orcado": 527353.72,
+      "dif_orcado_aprovado": 223889.98,
+      "qtd_oss": 25,
+      "duracao_dias": 41.39319444444445
+    },
+    {
+      "ÓRGÃO": "SDC/FUNPDEC - Fundo Estadual de Defesa Civil",
+      "Valor_Aprovado": 254489.81,
+      "vl_orcado": 493716.55,
+      "dif_orcado_aprovado": 239226.74,
+      "qtd_oss": 29,
+      "duracao_dias": 9.241259578544062
+    },
+    {
+      "ÓRGÃO": "CONV_CBMSC - Convênios do CBMSC",
+      "Valor_Aprovado": 181666.7,
+      "vl_orcado": 209021.7,
+      "dif_orcado_aprovado": 28525.4,
+      "qtd_oss": 10,
+      "duracao_dias": 13.78453008912037
+    },
+    {
+      "ÓRGÃO": "FCC - Fundação Catarinense de Cultura",
+      "Valor_Aprovado": 146764.71,
+      "vl_orcado": 239568.71,
+      "dif_orcado_aprovado": 92804.0,
+      "qtd_oss": 5,
+      "duracao_dias": 15.415416666666667
+    },
+    {
+      "ÓRGÃO": "CONV_PMSC - Contratos/Convênios da PMSC",
+      "Valor_Aprovado": 139841.74,
+      "vl_orcado": 211818.58,
+      "dif_orcado_aprovado": 71976.84,
+      "qtd_oss": 14,
+      "duracao_dias": 22.720684523809524
+    },
+    {
+      "ÓRGÃO": "FESPORTE - Fundação Catarinense de Esporte",
+      "Valor_Aprovado": 133550.82,
+      "vl_orcado": 209235.68,
+      "dif_orcado_aprovado": 75684.86,
+      "qtd_oss": 9,
+      "duracao_dias": 13.523456790123456
+    },
+    {
+      "ÓRGÃO": "SAS - Secretaria da Assistência Social, Mulher e Família",
+      "Valor_Aprovado": 101737.4,
+      "vl_orcado": 160968.63,
+      "dif_orcado_aprovado": 59231.229999999996,
+      "qtd_oss": 11,
+      "duracao_dias": 31.550820707070706
+    },
+    {
+      "ÓRGÃO": "SED - SECRETARIA DE ESTADO DA EDUCAÇÃO -SED",
+      "Valor_Aprovado": 101441.99,
+      "vl_orcado": 428512.41000000003,
+      "dif_orcado_aprovado": 327070.42,
+      "qtd_oss": 26,
+      "duracao_dias": 15.726148504273503
+    },
+    {
+      "ÓRGÃO": "IMA - Instituto do Meio Ambiente do Estado de Santa Catarina",
+      "Valor_Aprovado": 95763.4,
+      "vl_orcado": 551152.43,
+      "dif_orcado_aprovado": 455389.02999999997,
+      "qtd_oss": 31,
+      "duracao_dias": 2.366644265232975
+    },
+    {
+      "ÓRGÃO": "UDESC - Fundação Universidade do Estado de Santa Catarina",
+      "Valor_Aprovado": 86138.91,
+      "vl_orcado": 253821.13,
+      "dif_orcado_aprovado": 167682.22,
+      "qtd_oss": 17,
+      "duracao_dias": 13.274632352941177
+    },
+    {
+      "ÓRGÃO": " FEF - Fundo De Esforco Fiscal",
+      "Valor_Aprovado": 82669.33,
+      "vl_orcado": 209238.56,
+      "dif_orcado_aprovado": 127037.23,
+      "qtd_oss": 14,
+      "duracao_dias": 21.56450148809524
+    },
+    {
+      "ÓRGÃO": "SEMAE/FEHIDRO - Fundo Estadual de Recursos Hídricos",
+      "Valor_Aprovado": 74779.57,
+      "vl_orcado": 104868.37,
+      "dif_orcado_aprovado": 30088.8,
+      "qtd_oss": 8,
+      "duracao_dias": 11.005902777777779
+    },
+    {
+      "ÓRGÃO": "SCC - SECRETARIA DE ESTADO DA CASA CIVIL",
+      "Valor_Aprovado": 56688.9,
+      "vl_orcado": 403060.51,
+      "dif_orcado_aprovado": 346371.61,
+      "qtd_oss": 15,
+      "duracao_dias": 6.455648148148148
+    },
+    {
+      "ÓRGÃO": "SAPE - Secretaria de Estado da Agricultura e Pecuária",
+      "Valor_Aprovado": 36308.6,
+      "vl_orcado": 64835.450000000004,
+      "dif_orcado_aprovado": 28526.850000000006,
+      "qtd_oss": 3,
+      "duracao_dias": 37.8212962962963
+    },
+    {
+      "ÓRGÃO": "ARESC - Agência de Regulação de Serviços Públicos de Santa Catarina",
+      "Valor_Aprovado": 26300.0,
+      "vl_orcado": 26300.0,
+      "dif_orcado_aprovado": 0.0,
+      "qtd_oss": 1,
+      "duracao_dias": 29.25486111111111
+    },
+    {
+      "ÓRGÃO": "SEA/FUNPAT - Fundo Patrimonial",
+      "Valor_Aprovado": 24700.0,
+      "vl_orcado": 167777.63999999998,
+      "dif_orcado_aprovado": 143077.63999999998,
+      "qtd_oss": 7,
+      "duracao_dias": 5.32202380952381
+    },
+    {
+      "ÓRGÃO": "SEF - Secretaria de Estado da Fazenda",
+      "Valor_Aprovado": 21656.2,
+      "vl_orcado": 36967.81,
+      "dif_orcado_aprovado": 15311.61,
+      "qtd_oss": 3,
+      "duracao_dias": 19.296990740740743
+    },
+    {
+      "ÓRGÃO": "SCTI - Secretaria de Estado de Ciência, Tecnologia e Inovação",
+      "Valor_Aprovado": 19563.9,
+      "vl_orcado": 36689.15,
+      "dif_orcado_aprovado": 17125.25,
+      "qtd_oss": 2,
+      "duracao_dias": 1.5052083333333333
+    },
+    {
+      "ÓRGÃO": "SDC - Secretaria de Estado da Proteção e Defesa Civil",
+      "Valor_Aprovado": 16994.88,
+      "vl_orcado": 30224.88,
+      "dif_orcado_aprovado": 13230.0,
+      "qtd_oss": 2,
+      "duracao_dias": 3.453472222222222
+    },
+    {
+      "ÓRGÃO": "SEA/FMPIO - Fundo de Materiais, Publicações e Impressos Oficiais SC",
+      "Valor_Aprovado": 11392.0,
+      "vl_orcado": 21923.5,
+      "dif_orcado_aprovado": 10531.5,
+      "qtd_oss": 2,
+      "duracao_dias": 2.3788194444444444
+    },
+    {
+      "ÓRGÃO": "SDR_LAGES - Secret.De Est. Do Desenv.Regional LAGES",
+      "Valor_Aprovado": 11124.85,
+      "vl_orcado": 11124.85,
+      "dif_orcado_aprovado": 0.0,
+      "qtd_oss": 3,
+      "duracao_dias": 7.047222222222222
+    },
+    {
+      "ÓRGÃO": "SDR_VIDEIRA - SecretáriaDe Est. Do Desenv.Regional VIDEIRA",
+      "Valor_Aprovado": 9625.25,
+      "vl_orcado": 20862.370000000003,
+      "dif_orcado_aprovado": 11237.12,
+      "qtd_oss": 2,
+      "duracao_dias": 74.93125
+    },
+    {
+      "ÓRGÃO": "FCEE - Fundação Catarinense de Educação Especial",
+      "Valor_Aprovado": 8000.0,
+      "vl_orcado": 8000.0,
+      "dif_orcado_aprovado": 0.0,
+      "qtd_oss": 1,
+      "duracao_dias": 2.9402777777777778
+    },
+    {
+      "ÓRGÃO": "DETRAN - Departamento Estadual de  Trânsito",
+      "Valor_Aprovado": 0.0,
+      "vl_orcado": 15112.12,
+      "dif_orcado_aprovado": 15112.12,
+      "qtd_oss": 1,
+      "duracao_dias": 1.0
+    },
+    {
+      "ÓRGÃO": "SDR SAO MIGUEL DO OESTE - Sec De Est. Do Desen. Reg. De Sao Miguel Doeste",
+      "Valor_Aprovado": 0.0,
+      "vl_orcado": 27143.01,
+      "dif_orcado_aprovado": 27143.01,
+      "qtd_oss": 1,
+      "duracao_dias": 1.0
+    },
+    {
+      "ÓRGÃO": "SAN - Secretaria Executiva de Articulação Nacional",
+      "Valor_Aprovado": 0.0,
+      "vl_orcado": 44702.28,
+      "dif_orcado_aprovado": 44702.28,
+      "qtd_oss": 2,
+      "duracao_dias": 1.0
+    },
+    {
+      "ÓRGÃO": "PGE/FUNJURE - Fundo Especial de Estudos Jurídico e de Reaparelhamento",
+      "Valor_Aprovado": 0.0,
+      "vl_orcado": 65334.420000000006,
+      "dif_orcado_aprovado": 65334.420000000006,
+      "qtd_oss": 4,
+      "duracao_dias": 1.0
+    },
+    {
+      "ÓRGÃO": "SDR XANXERE - Secr.De Est.Do Desenv.Regional XANXERE",
+      "Valor_Aprovado": 0.0,
+      "vl_orcado": 56099.8,
+      "dif_orcado_aprovado": 56099.8,
+      "qtd_oss": 2,
+      "duracao_dias": 1.0
+    }
+  ],
+  "top_veiculos_leilao_decreto_47539": [
+    {
+      "Placa_clean": "MLG0296",
+      "Valor_Aprovado": 665252.97,
+      "vl_orcado": 958120.17,
+      "duracao_dias": 905.68125,
+      "idade_veiculo": 13,
+      "nr_quilometragem": 298393,
+      "cd_manutencao_oficina": 15,
+      "ds_veiculomodelo": "CARGO",
+      "ds_familia": "CAMINHAO",
+      "ÓRGÃO": "PMSC - Polícia Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 708007.0,
+      "Valor Entrada": 331390.4,
+      "Valor Líquido": 0.0,
+      "valor_ref": 331390.4,
+      "razao_gasto_venal": 2.007459992806068,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "MFI6517",
+      "Valor_Aprovado": 566123.1,
+      "vl_orcado": 614323.1,
+      "duracao_dias": 103.27222222222223,
+      "idade_veiculo": 17,
+      "nr_quilometragem": 175015,
+      "cd_manutencao_oficina": 20,
+      "ds_veiculomodelo": "9.150E",
+      "ds_familia": "CAMINHAO",
+      "ÓRGÃO": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 740.0,
+      "Valor Entrada": 315963.77,
+      "Valor Líquido": 0.0,
+      "valor_ref": 315963.77,
+      "razao_gasto_venal": 1.791734223199071,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "EQO0546",
+      "Valor_Aprovado": 366397.71,
+      "vl_orcado": 460256.05,
+      "duracao_dias": 92.12222222222222,
+      "idade_veiculo": 16,
+      "nr_quilometragem": 602500,
+      "cd_manutencao_oficina": 8,
+      "ds_veiculomodelo": "BARCO",
+      "ds_familia": "EQUIPAMENTO",
+      "ÓRGÃO": NaN,
+      "N° Patrimônio": NaN,
+      "Valor Entrada": NaN,
+      "Valor Líquido": NaN,
+      "valor_ref": NaN,
+      "razao_gasto_venal": NaN,
+      "status_decreto": "MONITORAMENTO / LIMIAR CRÍTICO"
+    },
+    {
+      "Placa_clean": "MCA2684",
+      "Valor_Aprovado": 264619.82,
+      "vl_orcado": 450227.82,
+      "duracao_dias": 33.92777777777778,
+      "idade_veiculo": 23,
+      "nr_quilometragem": 416090,
+      "cd_manutencao_oficina": 8,
+      "ds_veiculomodelo": "MASCA/GRANMICRO",
+      "ds_familia": "MICRO ONIBUS",
+      "ÓRGÃO": "FCC - Fundação Catarinense de Cultura",
+      "N° Patrimônio": 9169.0,
+      "Valor Entrada": 49355.0,
+      "Valor Líquido": 0.0,
+      "valor_ref": 49355.0,
+      "razao_gasto_venal": 5.361560530847939,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "MJO8932",
+      "Valor_Aprovado": 249170.56,
+      "vl_orcado": 249170.56,
+      "duracao_dias": 30.172222222222224,
+      "idade_veiculo": 14,
+      "nr_quilometragem": 110325,
+      "cd_manutencao_oficina": 11,
+      "ds_veiculomodelo": "DAILY",
+      "ds_familia": "CAMINHAO",
+      "ÓRGÃO": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 303.0,
+      "Valor Entrada": 181800.0,
+      "Valor Líquido": 0.0,
+      "valor_ref": 181800.0,
+      "razao_gasto_venal": 1.3705751375137514,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "MMM4823",
+      "Valor_Aprovado": 244959.7,
+      "vl_orcado": 383586.88,
+      "duracao_dias": 155.49722222222223,
+      "idade_veiculo": 12,
+      "nr_quilometragem": 109651,
+      "cd_manutencao_oficina": 18,
+      "ds_veiculomodelo": "VOLARE",
+      "ds_familia": "MICRO ONIBUS",
+      "ÓRGÃO": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 709.0,
+      "Valor Entrada": 220000.0,
+      "Valor Líquido": 0.0,
+      "valor_ref": 220000.0,
+      "razao_gasto_venal": 1.1134531818181819,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "MID9615",
+      "Valor_Aprovado": 190959.08,
+      "vl_orcado": 344984.0,
+      "duracao_dias": 31.921527777777783,
+      "idade_veiculo": 16,
+      "nr_quilometragem": 102000,
+      "cd_manutencao_oficina": 6,
+      "ds_veiculomodelo": "JCB",
+      "ds_familia": "EQUIPAMENTO",
+      "ÓRGÃO": NaN,
+      "N° Patrimônio": NaN,
+      "Valor Entrada": NaN,
+      "Valor Líquido": NaN,
+      "valor_ref": NaN,
+      "razao_gasto_venal": NaN,
+      "status_decreto": "MONITORAMENTO / LIMIAR CRÍTICO"
+    },
+    {
+      "Placa_clean": "MMM4813",
+      "Valor_Aprovado": 189297.58,
+      "vl_orcado": 189297.58,
+      "duracao_dias": 192.8513888888889,
+      "idade_veiculo": 12,
+      "nr_quilometragem": 84825,
+      "cd_manutencao_oficina": 10,
+      "ds_veiculomodelo": "VOLARE",
+      "ds_familia": "MICRO ONIBUS",
+      "ÓRGÃO": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 708.0,
+      "Valor Entrada": 220000.0,
+      "Valor Líquido": 0.0,
+      "valor_ref": 220000.0,
+      "razao_gasto_venal": 0.8604435454545454,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "EQO1271",
+      "Valor_Aprovado": 184368.3,
+      "vl_orcado": 209828.3,
+      "duracao_dias": 315.75694444444446,
+      "idade_veiculo": 13,
+      "nr_quilometragem": 500,
+      "cd_manutencao_oficina": 9,
+      "ds_veiculomodelo": "BARCO",
+      "ds_familia": "EQUIPAMENTO",
+      "ÓRGÃO": NaN,
+      "N° Patrimônio": NaN,
+      "Valor Entrada": NaN,
+      "Valor Líquido": NaN,
+      "valor_ref": NaN,
+      "razao_gasto_venal": NaN,
+      "status_decreto": "MONITORAMENTO / LIMIAR CRÍTICO"
+    },
+    {
+      "Placa_clean": "RAB6738",
+      "Valor_Aprovado": 180950.65,
+      "vl_orcado": 257482.2,
+      "duracao_dias": 93.05069444444445,
+      "idade_veiculo": 6,
+      "nr_quilometragem": 468501,
+      "cd_manutencao_oficina": 7,
+      "ds_veiculomodelo": "RANGER",
+      "ds_familia": "PICKUP LEVE",
+      "ÓRGÃO": "PMSC - Polícia Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 708243.0,
+      "Valor Entrada": 143456.44,
+      "Valor Líquido": 0.0,
+      "valor_ref": 143456.44,
+      "razao_gasto_venal": 1.2613630311751776,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "EQO1273",
+      "Valor_Aprovado": 177749.22,
+      "vl_orcado": 178773.22,
+      "duracao_dias": 184.38611111111112,
+      "idade_veiculo": 15,
+      "nr_quilometragem": 4003,
+      "cd_manutencao_oficina": 6,
+      "ds_veiculomodelo": "BARCO",
+      "ds_familia": "EQUIPAMENTO",
+      "ÓRGÃO": NaN,
+      "N° Patrimônio": NaN,
+      "Valor Entrada": NaN,
+      "Valor Líquido": NaN,
+      "valor_ref": NaN,
+      "razao_gasto_venal": NaN,
+      "status_decreto": "MONITORAMENTO / LIMIAR CRÍTICO"
+    },
+    {
+      "Placa_clean": "MDR8J70",
+      "Valor_Aprovado": 175089.03,
+      "vl_orcado": 228980.43,
+      "duracao_dias": 97.8763888888889,
+      "idade_veiculo": 52,
+      "nr_quilometragem": 998146,
+      "cd_manutencao_oficina": 15,
+      "ds_veiculomodelo": "F600",
+      "ds_familia": "CAMINHAO",
+      "ÓRGÃO": NaN,
+      "N° Patrimônio": NaN,
+      "Valor Entrada": NaN,
+      "Valor Líquido": NaN,
+      "valor_ref": NaN,
+      "razao_gasto_venal": NaN,
+      "status_decreto": "MONITORAMENTO / LIMIAR CRÍTICO"
+    },
+    {
+      "Placa_clean": "PBZ2C34",
+      "Valor_Aprovado": 174070.0,
+      "vl_orcado": 198332.0,
+      "duracao_dias": 704.6138888888888,
+      "idade_veiculo": 8,
+      "nr_quilometragem": 84000,
+      "cd_manutencao_oficina": 10,
+      "ds_veiculomodelo": "RANGER",
+      "ds_familia": "PICKUP LEVE",
+      "ÓRGÃO": "PMSC - Polícia Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 710101.0,
+      "Valor Entrada": 145584.0,
+      "Valor Líquido": 485.28,
+      "valor_ref": 145584.0,
+      "razao_gasto_venal": 1.195667106275415,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "MCN5826",
+      "Valor_Aprovado": 168281.98,
+      "vl_orcado": 168281.98,
+      "duracao_dias": 293.63750000000005,
+      "idade_veiculo": 24,
+      "nr_quilometragem": 178372,
+      "cd_manutencao_oficina": 8,
+      "ds_veiculomodelo": "CARGO",
+      "ds_familia": "CAMINHAO",
+      "ÓRGÃO": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 14628.0,
+      "Valor Entrada": 73730.0,
+      "Valor Líquido": 0.0,
+      "valor_ref": 73730.0,
+      "razao_gasto_venal": 2.282408517564085,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "RXU4B58",
+      "Valor_Aprovado": 167312.21999999997,
+      "vl_orcado": 167312.21999999997,
+      "duracao_dias": 11.75138888888889,
+      "idade_veiculo": 3,
+      "nr_quilometragem": 11111,
+      "cd_manutencao_oficina": 3,
+      "ds_veiculomodelo": "RANGER",
+      "ds_familia": "PICKUP LEVE",
+      "ÓRGÃO": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 1742.0,
+      "Valor Entrada": 300400.0,
+      "Valor Líquido": 67256.07,
+      "valor_ref": 67256.07,
+      "razao_gasto_venal": 2.4876895126343235,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "QTL1798",
+      "Valor_Aprovado": 165740.61,
+      "vl_orcado": 330389.88,
+      "duracao_dias": 79.19236111111111,
+      "idade_veiculo": 6,
+      "nr_quilometragem": 100000,
+      "cd_manutencao_oficina": 5,
+      "ds_veiculomodelo": "RANGER",
+      "ds_familia": "PICKUP LEVE",
+      "ÓRGÃO": "PMSC - Polícia Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 708215.0,
+      "Valor Entrada": 143456.44,
+      "Valor Líquido": 0.0,
+      "valor_ref": 143456.44,
+      "razao_gasto_venal": 1.155337536606931,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "SXK0G44",
+      "Valor_Aprovado": 165169.66999999998,
+      "vl_orcado": 165169.66999999998,
+      "duracao_dias": 136.33333333333334,
+      "idade_veiculo": 2,
+      "nr_quilometragem": 2571,
+      "cd_manutencao_oficina": 3,
+      "ds_veiculomodelo": "FRONTIER",
+      "ds_familia": "PICKUP LEVE",
+      "ÓRGÃO": NaN,
+      "N° Patrimônio": NaN,
+      "Valor Entrada": NaN,
+      "Valor Líquido": NaN,
+      "valor_ref": NaN,
+      "razao_gasto_venal": NaN,
+      "status_decreto": "MONITORAMENTO / LIMIAR CRÍTICO"
+    },
+    {
+      "Placa_clean": "MHR0234",
+      "Valor_Aprovado": 162456.36,
+      "vl_orcado": 189654.76,
+      "duracao_dias": 31.043750000000003,
+      "idade_veiculo": 16,
+      "nr_quilometragem": 217,
+      "cd_manutencao_oficina": 3,
+      "ds_veiculomodelo": "NEW HOLLAND",
+      "ds_familia": "EQUIPAMENTO",
+      "ÓRGÃO": NaN,
+      "N° Patrimônio": NaN,
+      "Valor Entrada": NaN,
+      "Valor Líquido": NaN,
+      "valor_ref": NaN,
+      "razao_gasto_venal": NaN,
+      "status_decreto": "MONITORAMENTO / LIMIAR CRÍTICO"
+    },
+    {
+      "Placa_clean": "QJG8375",
+      "Valor_Aprovado": 159529.34,
+      "vl_orcado": 304916.88,
+      "duracao_dias": 85.3875,
+      "idade_veiculo": 7,
+      "nr_quilometragem": 897800,
+      "cd_manutencao_oficina": 4,
+      "ds_veiculomodelo": "S10",
+      "ds_familia": "PICKUP MEDIA",
+      "ÓRGÃO": "PCISC - Polícia Científica do Estado de Santa Catarina",
+      "N° Patrimônio": 200112.0,
+      "Valor Entrada": 172067.5,
+      "Valor Líquido": 0.0,
+      "valor_ref": 172067.5,
+      "razao_gasto_venal": 0.9271323172592151,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "MII2295",
+      "Valor_Aprovado": 158868.0,
+      "vl_orcado": 158868.0,
+      "duracao_dias": 3.6194444444444445,
+      "idade_veiculo": 17,
+      "nr_quilometragem": 94463,
+      "cd_manutencao_oficina": 4,
+      "ds_veiculomodelo": "17.250",
+      "ds_familia": "CAMINHAO",
+      "ÓRGÃO": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 224.0,
+      "Valor Entrada": 545600.0,
+      "Valor Líquido": 0.0,
+      "valor_ref": 545600.0,
+      "razao_gasto_venal": 0.2911803519061584,
+      "status_decreto": "MONITORAMENTO / LIMIAR CRÍTICO"
+    },
+    {
+      "Placa_clean": "MHT1319",
+      "Valor_Aprovado": 158181.29,
+      "vl_orcado": 165678.49,
+      "duracao_dias": 120.04305555555555,
+      "idade_veiculo": 15,
+      "nr_quilometragem": 988117,
+      "cd_manutencao_oficina": 13,
+      "ds_veiculomodelo": "VOLARE",
+      "ds_familia": "MICRO ONIBUS",
+      "ÓRGÃO": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 11943.0,
+      "Valor Entrada": 182900.0,
+      "Valor Líquido": 0.0,
+      "valor_ref": 182900.0,
+      "razao_gasto_venal": 0.8648512301804265,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "MAW2409",
+      "Valor_Aprovado": 154400.0,
+      "vl_orcado": 336050.0,
+      "duracao_dias": 2.0041666666666664,
+      "idade_veiculo": 47,
+      "nr_quilometragem": 10,
+      "cd_manutencao_oficina": 4,
+      "ds_veiculomodelo": "L",
+      "ds_familia": "CAMINHAO",
+      "ÓRGÃO": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 701266.0,
+      "Valor Entrada": 49000.0,
+      "Valor Líquido": 0.0,
+      "valor_ref": 49000.0,
+      "razao_gasto_venal": 3.1510204081632653,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "DVT1I72",
+      "Valor_Aprovado": 142165.44,
+      "vl_orcado": 221332.93,
+      "duracao_dias": 348.95694444444445,
+      "idade_veiculo": 17,
+      "nr_quilometragem": 760934,
+      "cd_manutencao_oficina": 14,
+      "ds_veiculomodelo": "VM",
+      "ds_familia": "CAMINHAO",
+      "ÓRGÃO": "SEJURI - SECRETARIA DE JUSTIÇA E REINTEGRAÇÃO SOCIAL ",
+      "N° Patrimônio": 301.0,
+      "Valor Entrada": 116373.99,
+      "Valor Líquido": 0.0,
+      "valor_ref": 116373.99,
+      "razao_gasto_venal": 1.2216255539575467,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "PBE9164",
+      "Valor_Aprovado": 137345.7,
+      "vl_orcado": 137345.7,
+      "duracao_dias": 287.4041666666667,
+      "idade_veiculo": 8,
+      "nr_quilometragem": 248522,
+      "cd_manutencao_oficina": 4,
+      "ds_veiculomodelo": "RANGER",
+      "ds_familia": "PICKUP LEVE",
+      "ÓRGÃO": "PMSC - Polícia Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 708043.0,
+      "Valor Entrada": 137500.0,
+      "Valor Líquido": 0.0,
+      "valor_ref": 137500.0,
+      "razao_gasto_venal": 0.9988778181818183,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "MEN7009",
+      "Valor_Aprovado": 131897.01,
+      "vl_orcado": 221791.41,
+      "duracao_dias": 45.4875,
+      "idade_veiculo": 20,
+      "nr_quilometragem": 371711,
+      "cd_manutencao_oficina": 11,
+      "ds_veiculomodelo": "VOLARE",
+      "ds_familia": "MICRO ONIBUS",
+      "ÓRGÃO": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 5824.0,
+      "Valor Entrada": 0.01,
+      "Valor Líquido": 0.0,
+      "valor_ref": 0.01,
+      "razao_gasto_venal": 13189701.0,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "MHN3069",
+      "Valor_Aprovado": 130709.62,
+      "vl_orcado": 260167.34,
+      "duracao_dias": 42.62083333333334,
+      "idade_veiculo": 16,
+      "nr_quilometragem": 111000,
+      "cd_manutencao_oficina": 12,
+      "ds_veiculomodelo": "CAMPIONE",
+      "ds_familia": "ONIBUS",
+      "ÓRGÃO": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 1808.0,
+      "Valor Entrada": 81250.0,
+      "Valor Líquido": 0.0,
+      "valor_ref": 81250.0,
+      "razao_gasto_venal": 1.6087337846153846,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "MBZ0D27",
+      "Valor_Aprovado": 130180.2,
+      "vl_orcado": 130180.2,
+      "duracao_dias": 106.65833333333333,
+      "idade_veiculo": 24,
+      "nr_quilometragem": 495001,
+      "cd_manutencao_oficina": 9,
+      "ds_veiculomodelo": "8.150",
+      "ds_familia": "CAMINHAO",
+      "ÓRGÃO": "SEA - Secretaria de Estado da Administração",
+      "N° Patrimônio": 28241.0,
+      "Valor Entrada": 34821.5,
+      "Valor Líquido": 0.0,
+      "valor_ref": 34821.5,
+      "razao_gasto_venal": 3.738500638973048,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "LXS7849",
+      "Valor_Aprovado": 128180.22,
+      "vl_orcado": 384421.68,
+      "duracao_dias": 92.86111111111111,
+      "idade_veiculo": 33,
+      "nr_quilometragem": 980651,
+      "cd_manutencao_oficina": 30,
+      "ds_veiculomodelo": "14.200",
+      "ds_familia": "EQUIPAMENTO",
+      "ÓRGÃO": "SEJURI - SECRETARIA DE JUSTIÇA E REINTEGRAÇÃO SOCIAL ",
+      "N° Patrimônio": 5329.0,
+      "Valor Entrada": 41318.0,
+      "Valor Líquido": 0.0,
+      "valor_ref": 41318.0,
+      "razao_gasto_venal": 3.102285202575149,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "LZS3821",
+      "Valor_Aprovado": 125506.2,
+      "vl_orcado": 172147.34,
+      "duracao_dias": 167.5652777777778,
+      "idade_veiculo": 36,
+      "nr_quilometragem": 944793,
+      "cd_manutencao_oficina": 12,
+      "ds_veiculomodelo": "F1000",
+      "ds_familia": "PICKUP PESADA",
+      "ÓRGÃO": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "N° Patrimônio": 700680.0,
+      "Valor Entrada": 45000.0,
+      "Valor Líquido": 0.0,
+      "valor_ref": 45000.0,
+      "razao_gasto_venal": 2.7890266666666665,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    },
+    {
+      "Placa_clean": "QHX4E69",
+      "Valor_Aprovado": 121713.0,
+      "vl_orcado": 110613.0,
+      "duracao_dias": 29.922916666666666,
+      "idade_veiculo": 9,
+      "nr_quilometragem": 172238,
+      "cd_manutencao_oficina": 3,
+      "ds_veiculomodelo": "RENAULT MASTER",
+      "ds_familia": "VAN",
+      "ÓRGÃO": "SES - Secretaria de Estado da Saúde",
+      "N° Patrimônio": 277759.0,
+      "Valor Entrada": 137800.0,
+      "Valor Líquido": 0.0,
+      "valor_ref": 137800.0,
+      "razao_gasto_venal": 0.8832583454281567,
+      "status_decreto": "MANUTENÇÃO ONEROSA (>40% VENAL) • LEILÃO IMEDIATO"
+    }
+  ],
+  "trajetoria_gastos_historico_vs_prescritivo": [
+    {
+      "ano": 2021,
+      "historico_real": 18366270.06,
+      "modelo_prescritivo": 14968500.1,
+      "status": "Histórico Consolidado"
+    },
+    {
+      "ano": 2022,
+      "historico_real": 27480901.11,
+      "modelo_prescritivo": 22396934.4,
+      "status": "Histórico Consolidado"
+    },
+    {
+      "ano": 2023,
+      "historico_real": 29134600.55,
+      "modelo_prescritivo": 23744700.0,
+      "status": "Histórico Consolidado"
+    },
+    {
+      "ano": 2024,
+      "historico_real": 32361276.79,
+      "modelo_prescritivo": 26374440.5,
+      "status": "Histórico Consolidado"
+    },
+    {
+      "ano": 2025,
+      "historico_real": 34464759.78,
+      "modelo_prescritivo": 26769957.1,
+      "status": "Estimado Inercial vs Prescritivo"
+    },
+    {
+      "ano": 2026,
+      "historico_real": 37438466.72,
+      "modelo_prescritivo": 29014811.71,
+      "status": "Projetado com Inflação (6,08%)"
+    },
+    {
+      "ano": 2027,
+      "historico_real": 40739958.48,
+      "modelo_prescritivo": 30023412.0,
+      "status": "Triênio LDO/LOA (Economia R$ 10,7M)"
+    },
+    {
+      "ano": 2028,
+      "historico_real": 44304856.88,
+      "modelo_prescritivo": 31032150.0,
+      "status": "Triênio LDO/LOA (Economia R$ 13,3M)"
+    },
+    {
+      "ano": 2029,
+      "historico_real": 48174574.64,
+      "modelo_prescritivo": 32075454.0,
+      "status": "Triênio LDO/LOA (Economia R$ 16,1M)"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+% Textuais/Capitulo03_Metodologia.tex
+\chapter{METODOLOGIA CRISP-DM, BASE EMPÍRICA MULTIMODAL E SANEAMENTO}
+\label{cap:metodologia}
+
+\section{Delineamento Experimental e Enquadramento Lógico-Metodológico}
+
+O delineamento experimental da pesquisa estrutura-se segundo o ciclo de mineração de dados CRISP-DM (\textit{Cross-Industry Standard Process for Data Mining}), operacionalizado em estrita consonância com os postulados do método lógico de investigação e redação científica preconizados por Volpato \cite{volpato2015}. Esse enquadramento garante a vinculação indissolúvel entre a questão norteadora (otimização prescritiva sob restrições reais de governo), o controle rígido de variáveis preditoras (prevenção de viés de antecipação com embargo temporal de 30 dias), a suficiência da base censitária (350.737 registros de itens de manutenção) e o falseamento empírico das hipóteses H1 a H4, impedindo inferências extrapolativas que ultrapassem a validade interna dos dados.
+
+\section{Estrutura Contábil do Dispêndio Auditado}
+
+Para assegurar total transparência e afastar quaisquer ambiguidades contábeis, esclarece-se a relação entre os montantes financeiros analisados na base empírica de 77.867 ordens de serviço (350.737 itens):
+\begin{itemize}
+    \item \textbf{Valor Orçado Bruto Inicial: R\$ 198.806.964,49 (100,0\%).} Representa o montante original orçado e demandado pelas oficinas mecânicas credenciadas antes de qualquer intervenção fiscalizadora do Estado.
+    \item \textbf{Glosas Técnicas e Retenções Fiscais: R\$ 60.047.310,67 (30,2\%).} Corresponde ao montante histórico de despesas orçadas que foram formalmente bloqueadas, glosadas ou retidas pelos fiscais de contrato da SEA/SC em decorrência de sobrepreço, desconformidade com tabelas de tempo-padrão de montadoras ou orçamentação indevida de peças. Esse indicador quantifica a atuação preventiva do controle administrativo contratual (despesas que deixaram de ser liquidadas), sem configurar automaticamente economia de caixa livre realizada, a qual depende de comprovação de impacto orçamentário líquido final.
+    \item \textbf{Dispêndio Financeiro Efetivamente Aprovado e Liquidado: R\$ 138.759.653,82 (69,8\%).} Montante que permaneceu após as glosas, sendo devidamente atestado, faturado e pago pelo erário público estadual.
+\end{itemize}
+
+\noindent\textbf{Fechamento Contábil:} \textbf{Valor Orçado Bruto (R\$ 198,81M) = Glosas Retidas (R\$ 60,05M) + Dispêndio Aprovado (R\$ 138,76M)}. Os valores não são independentes nem concorrentes, mas etapas sucessivas e complementares do fluxo de auditoria e liquidação da despesa pública.
+
+\begin{figure}[H]
+    \centering
+    \caption{Série Temporal Histórica Mensal de Gastos de Manutenção (2020--2026)}
+    \includegraphics[width=0.9\textwidth]{figuras/fig01_serie_gastos_manutencao.png}
+    \vspace{0.2cm}
+    \fonte{Dados empíricos da frota pública de Santa Catarina processados pelo autor (2026).}
+    \label{fig:serie_gastos}
+\end{figure}
+
+\section{Protocolo de Validação Temporal em 5 Dobras Sequenciais}
+
+A dissertação adota dois protocolos complementares e independentes, devidamente segregados para finalidades metodológicas distintas:
+\begin{itemize}
+    \item \textbf{Protocolo A (Validação Temporal em Janela Expansiva -- Walk-Forward 5 Dobras):} Executado sobre o histórico cronológico de Ordens de Serviço (base de 60.114 OSs faturadas, 2020--2026), expandindo de 15.587 OSs (Dobra 1) até 45.145 OSs de treino na Dobra 5 (com 5.681 OSs no conjunto de teste out-of-time), sob embargo estrito de 30 dias entre treino e teste. Avalia a estabilidade de generalização out-of-time frente à degradação cronológica, reportando a média temporal agregada de \textbf{PR-AUC = 0,8941 $\pm$ 0,0089}, \textbf{ROC-AUC = 0,7544 $\pm$ 0,0281}, \textbf{Brier Score = 0,1378 $\pm$ 0,0025} e MAE = R\$ 2.273,16 $\pm$ R\$ 35,15.
+    
+    \item \textbf{Protocolo B (Particionamento Holdout Out-of-Time Canônico com Calibração Isotônica):} Executado para seleção agnóstica de hiperparâmetros, ranking de explicabilidade XAI e homologação de calibragem probabilística, reportando no conjunto de teste independente do ciclo final (2025--2026, 4.754 amostras) \textbf{PR-AUC = 0,9510}, \textbf{ROC-AUC = 0,8743 [IC 95\%: 0,8617; 0,8878]}, F1-Score = 0,9113, Brier Score = 0,1043, ECE = 0,0174 e MAE = R\$ 2.236,06 [IC 95\%: 2.146,76; 2.321,17]. A métrica pontual de 0,9510 e a média multianual de 0,8941 coexistem de forma plenamente coerente por derivarem de agregações amostrais e horizontes temporais distintos.
+\end{itemize}
+
+\noindent\textbf{Regras de Disponibilidade Temporal das Variáveis e Embargo de 30 Dias:} Toda variável preditora é calculada estritamente a partir de eventos consumados até a data de corte $T_{\text{corte}}$. O embargo de 30 dias entre treino e teste expurga ordens de serviço abertas ou em trânsito de oficina, prevenindo viés de antecipação cronológica (\textit{lookahead bias}).
+
+\section{Protocolo de Anonimização e Conformidade com a LGPD (Lei nº 13.709/2018)}
+
+Para assegurar total conformidade jurídica e ética com a Lei Geral de Proteção de Dados Pessoais (LGPD), todas as placas veiculares reais foram convertidas em identificadores criptográficos irreversíveis (\texttt{VEIC\_HASH}), fornecedores mecânicos foram mascarados (\texttt{FORNECEDOR\_XXX}) e servidores públicos foram desvinculados dos registros.

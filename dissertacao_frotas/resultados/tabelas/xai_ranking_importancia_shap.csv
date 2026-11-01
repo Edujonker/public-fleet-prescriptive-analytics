@@ -1,0 +1,16 @@
+feature,feature_label,mean_abs_shap,importancia_relativa_pct
+qtd_corretivas_mes,Falhas Corretivas no Mês,0.632141,29.86
+corretivas_lag1,Corretivas Defasadas t-1,0.332239,15.7
+patrimonio_valor_entrada,Valor de Aquisição do Bem (R$),0.17602,8.32
+idade_veiculo,Idade do Veículo (Anos),0.164336,7.76
+km_max,Odômetro Acumulado (km),0.131008,6.19
+qtd_os_mes,Volume de OS no Mês,0.114949,5.43
+os_lag1,Volume OS Defasado t-1,0.113487,5.36
+custo_lag1,Custo Defasado t-1 (R$),0.095859,4.53
+qtd_preventivas_mes,Preventivas no Mês,0.069338,3.28
+km_diff,Quilometragem Percorrida Mês (km),0.066737,3.15
+custo_lag2,Custo Defasado t-2 (R$),0.063287,2.99
+custo_mes,Custo Mês Atual (R$),0.044069,2.08
+vl_mo_mes,Gasto com Mão de Obra (R$),0.040685,1.92
+vl_pecas_mes,Gasto com Peças (R$),0.037041,1.75
+patrimonio_valor_liquido,Valor Contábil Líquido (R$),0.035493,1.68

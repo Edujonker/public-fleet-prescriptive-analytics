@@ -1,0 +1,2 @@
+total_registros,total_colunas,veiculos_unicos,os_unicas,periodo_ini,periodo_fim,ano_veiculo_min,ano_veiculo_max,ano_veiculo_mean,quilometragem_min,quilometragem_max,quilometragem_mean,valor_medio,valor_total
+223819,46,4955,51371,2020-10-21 16:44:56,2026-07-21 19:00:44,1973,2026,2016.5,0,999999,152209.0,11836.53,2649241313.0

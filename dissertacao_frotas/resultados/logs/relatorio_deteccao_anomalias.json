@@ -1,0 +1,66 @@
+{
+  "metadados": {
+    "script": "05_deteccao_anomalias.py",
+    "timestamp_inicio": "2026-11-01T13:59:00.896762",
+    "timestamp_fim": "2026-11-01T13:59:11.762433",
+    "duracao_segundos": 10.87,
+    "status": "SUCESSO"
+  },
+  "estabilidade_sementes": [
+    {
+      "contaminacao_nominal": 0.005,
+      "contaminacao_pct": 0.5,
+      "anomalias_detectadas": 390,
+      "jaccard_medio_sementes": 0.7883,
+      "estabilidade_certificada": false
+    },
+    {
+      "contaminacao_nominal": 0.0085,
+      "contaminacao_pct": 0.85,
+      "anomalias_detectadas": 662,
+      "jaccard_medio_sementes": 0.8055,
+      "estabilidade_certificada": true
+    },
+    {
+      "contaminacao_nominal": 0.01,
+      "contaminacao_pct": 1.0,
+      "anomalias_detectadas": 779,
+      "jaccard_medio_sementes": 0.8239,
+      "estabilidade_certificada": true
+    },
+    {
+      "contaminacao_nominal": 0.02,
+      "contaminacao_pct": 2.0,
+      "anomalias_detectadas": 1558,
+      "jaccard_medio_sementes": 0.8323,
+      "estabilidade_certificada": true
+    },
+    {
+      "contaminacao_nominal": 0.05,
+      "contaminacao_pct": 5.0,
+      "anomalias_detectadas": 3894,
+      "jaccard_medio_sementes": 0.8393,
+      "estabilidade_certificada": true
+    }
+  ],
+  "modelo_referencia": {
+    "contaminacao_nu": 0.0085,
+    "total_anomalias_detectadas": 662,
+    "pct_universo_os": 0.85,
+    "vl_total_orcado": 17095252.89,
+    "vl_total_aprovado": 16581923.07,
+    "vl_total_glosas_concentradas": 513329.82,
+    "taxa_retencao_glosas_pct": 3.0
+  },
+  "concordancia_fiscal": {
+    "t_statistic": 26.079,
+    "t_p_value": 1.9445496078761935e-148,
+    "mann_whitney_u": 677435279.0,
+    "mann_whitney_p": 1.0,
+    "validacao_estatistica_rejeitada": true
+  },
+  "figuras_geradas": [
+    "estabilidade_jaccard_contaminacao.png",
+    "distribuicao_scores_anomalia_glosas.png"
+  ]
+}

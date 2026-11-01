@@ -1,0 +1,92 @@
+{
+  "metadados": {
+    "autor": "Eduardo Lopes Jonker",
+    "orientadora": "Profa. Dra. VIVIAN KREMER KALEMPA",
+    "coorientador": "Prof. Dr. YURI KASZUBOWSKI LOPES",
+    "instituicao": "UDESC / CCT / PPGCAP",
+    "ano": 2026
+  },
+  "xai": {
+    "spearman_rho_shap_lime": 0.44105263157894736,
+    "jaccard_top5_shap_lime": 0.28571428571428575,
+    "atributos_mais_relevantes": [
+      "Falhas Corretivas Mês Atual",
+      "Corretivas Defasadas t-1",
+      "Custo Mês Atual (R$)",
+      "Idade do Veículo (Anos)",
+      "Custo Defasado t-1 (R$)"
+    ]
+  },
+  "regressao": {
+    "r2_ols": 0.06650999864824136,
+    "mae_ols": 2336.2921435935364,
+    "r2_histgb": 0.0871209974278172,
+    "mae_histgb": 2319.3539061123065,
+    "r2_log_transform": 0.03204061533259728,
+    "mae_log_transform": 2202.430394047838,
+    "mae_quantil_mediana_50": 2091.840200530249,
+    "pinball_loss": {
+      "0.1": 259.880605967425,
+      "0.5": 1045.9201002651246,
+      "0.9": 840.0351740120134
+    }
+  },
+  "milp_bidimensional": {
+    "orcamentos_avaliados": [
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1.0
+    ],
+    "etas_avaliados": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5
+    ],
+    "economia_maxima": 133102.14501060106,
+    "economia_minima": 0.0
+  },
+  "abastecimento_tco": {
+    "familias": [
+      "Automóvel",
+      "Caminhonete",
+      "Caminhão",
+      "Motocicleta"
+    ],
+    "combustivel_anual_estimado": [
+      11014.3,
+      22878.0,
+      84132.0,
+      3133.48
+    ],
+    "manutencao_anual_media": [
+      3200.0,
+      6800.0,
+      18500.0,
+      1200.0
+    ],
+    "emissao_tco2_ano": [
+      4.263599999999999,
+      9.672,
+      35.568,
+      1.2129599999999998
+    ]
+  },
+  "metodologias_nao_parametricas": {
+    "passing_bablok_slope_pred_real": 3.317994877789831,
+    "passing_bablok_slope_ci": [
+      3.0520698714208536,
+      3.614491812125638
+    ],
+    "spearman_custo_corretivas": 0.1018740253525269,
+    "kendall_custo_corretivas": 0.08150358393584001,
+    "pearson_custo_corretivas": 0.08212752343526783,
+    "cobertura_quantilica_80": 87.73569437612724,
+    "medae_random_forest": 1644.6939380021497,
+    "medae_ols": 1637.183971885991,
+    "spearman_pred_random_forest": 0.254782273322121
+  }
+}

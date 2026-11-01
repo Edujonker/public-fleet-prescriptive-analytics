@@ -1,0 +1,379 @@
+{
+  "metadata": {
+    "gerado_em": "2026-10-29T21:51:22.511966",
+    "algoritmos": [
+      "Facebook Prophet (Regressão Linear e Sazonal)",
+      "Isolation Forest (n=150, nu=0.015)"
+    ],
+    "total_registros": 1000000,
+    "periodo": "2019-01-01 a 2022-02-05"
+  },
+  "por_ano": [
+    {
+      "ano": 2019,
+      "gasto_total": 46585731.76,
+      "litros_total": 12457349.4,
+      "preco_medio": 5.2,
+      "transacoes": 351158,
+      "veiculos_unicos": 9532
+    },
+    {
+      "ano": 2020,
+      "gasto_total": 39991773.35,
+      "litros_total": 9751489.12,
+      "preco_medio": 5.66,
+      "transacoes": 295927,
+      "veiculos_unicos": 9750
+    },
+    {
+      "ano": 2021,
+      "gasto_total": 59736353.97,
+      "litros_total": 10981256.09,
+      "preco_medio": 7.17,
+      "transacoes": 319878,
+      "veiculos_unicos": 10143
+    },
+    {
+      "ano": 2022,
+      "gasto_total": 7174617.88,
+      "litros_total": 1121224.39,
+      "preco_medio": 8.2,
+      "transacoes": 33037,
+      "veiculos_unicos": 6700
+    }
+  ],
+  "por_categoria": [
+    {
+      "categoria_veiculo": "Automóvel / Viatura Leve",
+      "gasto_total": 101773955.21,
+      "litros_total": 22431694.74,
+      "transacoes": 697419,
+      "veiculos_unicos": 7534,
+      "preco_medio": 5.94,
+      "percentual_gasto": 66.31
+    },
+    {
+      "categoria_veiculo": "Camionete / Pickup",
+      "gasto_total": 22321164.94,
+      "litros_total": 5124800.03,
+      "transacoes": 122969,
+      "veiculos_unicos": 1100,
+      "preco_medio": 5.97,
+      "percentual_gasto": 14.54
+    },
+    {
+      "categoria_veiculo": "Outros Operacionais",
+      "gasto_total": 19278419.87,
+      "litros_total": 4337176.61,
+      "transacoes": 112367,
+      "veiculos_unicos": 2378,
+      "preco_medio": 6.45,
+      "percentual_gasto": 12.56
+    },
+    {
+      "categoria_veiculo": "Van / Utilitário",
+      "gasto_total": 3635214.42,
+      "litros_total": 847981.33,
+      "transacoes": 20734,
+      "veiculos_unicos": 410,
+      "preco_medio": 6.74,
+      "percentual_gasto": 2.37
+    },
+    {
+      "categoria_veiculo": "Caminhão",
+      "gasto_total": 2944288.91,
+      "litros_total": 742478.16,
+      "transacoes": 9242,
+      "veiculos_unicos": 167,
+      "preco_medio": 8.31,
+      "percentual_gasto": 1.92
+    },
+    {
+      "categoria_veiculo": "Ambulância",
+      "gasto_total": 2418927.17,
+      "litros_total": 592474.53,
+      "transacoes": 16142,
+      "veiculos_unicos": 151,
+      "preco_medio": 5.26,
+      "percentual_gasto": 1.58
+    },
+    {
+      "categoria_veiculo": "Motocicleta",
+      "gasto_total": 924769.86,
+      "litros_total": 188637.68,
+      "transacoes": 20223,
+      "veiculos_unicos": 520,
+      "preco_medio": 7.92,
+      "percentual_gasto": 0.6
+    },
+    {
+      "categoria_veiculo": "Ônibus / Micro-ônibus",
+      "gasto_total": 191736.58,
+      "litros_total": 46075.92,
+      "transacoes": 904,
+      "veiculos_unicos": 31,
+      "preco_medio": 8.32,
+      "percentual_gasto": 0.12
+    }
+  ],
+  "por_secretaria": [
+    {
+      "secretaria": "PMSC (Polícia Militar)",
+      "gasto_total": 78670070.39,
+      "litros_total": 17821134.11,
+      "transacoes": 571268,
+      "veiculos_unicos": 4132,
+      "preco_medio": 6.03,
+      "percentual_gasto": 51.25
+    },
+    {
+      "secretaria": "Demais Órgãos Setoriais",
+      "gasto_total": 44841400.99,
+      "litros_total": 9880474.84,
+      "transacoes": 268495,
+      "veiculos_unicos": 6029,
+      "preco_medio": 5.8,
+      "percentual_gasto": 29.21
+    },
+    {
+      "secretaria": "SAP (Adm. Prisional)",
+      "gasto_total": 14245114.09,
+      "litros_total": 3185336.18,
+      "transacoes": 79305,
+      "veiculos_unicos": 983,
+      "preco_medio": 6.65,
+      "percentual_gasto": 9.28
+    },
+    {
+      "secretaria": "PCSC (Polícia Civil)",
+      "gasto_total": 4543924.15,
+      "litros_total": 954192.29,
+      "transacoes": 25481,
+      "veiculos_unicos": 449,
+      "preco_medio": 5.48,
+      "percentual_gasto": 2.96
+    },
+    {
+      "secretaria": "SES (Secretaria da Saúde)",
+      "gasto_total": 4218982.79,
+      "litros_total": 914148.32,
+      "transacoes": 20613,
+      "veiculos_unicos": 215,
+      "preco_medio": 6.34,
+      "percentual_gasto": 2.75
+    },
+    {
+      "secretaria": "SIE (Infraestrutura)",
+      "gasto_total": 3418182.44,
+      "litros_total": 759676.43,
+      "transacoes": 15600,
+      "veiculos_unicos": 250,
+      "preco_medio": 9.72,
+      "percentual_gasto": 2.23
+    },
+    {
+      "secretaria": "SED (Educação)",
+      "gasto_total": 2656017.63,
+      "litros_total": 603357.97,
+      "transacoes": 13788,
+      "veiculos_unicos": 492,
+      "preco_medio": 5.88,
+      "percentual_gasto": 1.73
+    },
+    {
+      "secretaria": "SEA (Administração)",
+      "gasto_total": 492521.68,
+      "litros_total": 106583.9,
+      "transacoes": 3245,
+      "veiculos_unicos": 85,
+      "preco_medio": 6.51,
+      "percentual_gasto": 0.32
+    },
+    {
+      "secretaria": "SAR (Agricultura)",
+      "gasto_total": 272806.44,
+      "litros_total": 56474.11,
+      "transacoes": 1508,
+      "veiculos_unicos": 50,
+      "preco_medio": 6.8,
+      "percentual_gasto": 0.18
+    },
+    {
+      "secretaria": "CBMSC (Bombeiros Militares)",
+      "gasto_total": 129456.36,
+      "litros_total": 29940.85,
+      "transacoes": 697,
+      "veiculos_unicos": 32,
+      "preco_medio": 5.85,
+      "percentual_gasto": 0.08
+    }
+  ],
+  "isolation_forest": {
+    "total_anomalias": 13936,
+    "taxa_percentual": 1.39,
+    "perfil": {
+      "-1": {
+        "total": 13936,
+        "litros_medio": 153.19,
+        "preco_medio": 52.33,
+        "valor_medio": 423.39,
+        "kml_medio": 19861.64,
+        "km_medio": 570895.28
+      },
+      "1": {
+        "total": 986064,
+        "litros_medio": 32.63,
+        "preco_medio": 5.41,
+        "valor_medio": 149.67,
+        "kml_medio": 9.53,
+        "km_medio": 299.34
+      }
+    }
+  },
+  "prophet_projecao": [
+    {
+      "ano_mes": "2022-02",
+      "projecao_gasto": 5215321.72,
+      "projecao_min": 4293228.67,
+      "projecao_max": 6123926.03
+    },
+    {
+      "ano_mes": "2022-03",
+      "projecao_gasto": 6992147.63,
+      "projecao_min": 5798881.72,
+      "projecao_max": 8174224.64
+    },
+    {
+      "ano_mes": "2022-04",
+      "projecao_gasto": 6335142.83,
+      "projecao_min": 5176041.83,
+      "projecao_max": 7491383.84
+    },
+    {
+      "ano_mes": "2022-05",
+      "projecao_gasto": 6996901.18,
+      "projecao_min": 5798446.54,
+      "projecao_max": 8208174.46
+    },
+    {
+      "ano_mes": "2022-06",
+      "projecao_gasto": 6958112.69,
+      "projecao_min": 5791402.09,
+      "projecao_max": 8129453.1
+    },
+    {
+      "ano_mes": "2022-07",
+      "projecao_gasto": 7196131.6,
+      "projecao_min": 5965168.48,
+      "projecao_max": 8457768.97
+    },
+    {
+      "ano_mes": "2022-08",
+      "projecao_gasto": 7619981.45,
+      "projecao_min": 6350001.72,
+      "projecao_max": 8907295.12
+    },
+    {
+      "ano_mes": "2022-09",
+      "projecao_gasto": 7572401.78,
+      "projecao_min": 6307434.56,
+      "projecao_max": 8876506.57
+    },
+    {
+      "ano_mes": "2022-10",
+      "projecao_gasto": 7966231.75,
+      "projecao_min": 6581169.48,
+      "projecao_max": 9367114.86
+    },
+    {
+      "ano_mes": "2022-11",
+      "projecao_gasto": 8253365.4,
+      "projecao_min": 6860377.48,
+      "projecao_max": 9701110.19
+    },
+    {
+      "ano_mes": "2022-12",
+      "projecao_gasto": 8577929.69,
+      "projecao_min": 7060195.83,
+      "projecao_max": 10132569.95
+    },
+    {
+      "ano_mes": "2023-01",
+      "projecao_gasto": 8479939.74,
+      "projecao_min": 6886575.64,
+      "projecao_max": 10136148.14
+    },
+    {
+      "ano_mes": "2023-02",
+      "projecao_gasto": 8295826.93,
+      "projecao_min": 6743707.46,
+      "projecao_max": 9884008.08
+    },
+    {
+      "ano_mes": "2023-03",
+      "projecao_gasto": 9320904.58,
+      "projecao_min": 7507874.94,
+      "projecao_max": 11209568.26
+    },
+    {
+      "ano_mes": "2023-04",
+      "projecao_gasto": 8495428.03,
+      "projecao_min": 6603770.19,
+      "projecao_max": 10438336.68
+    },
+    {
+      "ano_mes": "2023-05",
+      "projecao_gasto": 9418574.4,
+      "projecao_min": 7334486.99,
+      "projecao_max": 11588000.24
+    },
+    {
+      "ano_mes": "2023-06",
+      "projecao_gasto": 9202160.19,
+      "projecao_min": 7013464.53,
+      "projecao_max": 11464458.21
+    },
+    {
+      "ano_mes": "2023-07",
+      "projecao_gasto": 9524999.57,
+      "projecao_min": 7108640.26,
+      "projecao_max": 12046470.53
+    },
+    {
+      "ano_mes": "2023-08",
+      "projecao_gasto": 9944875.7,
+      "projecao_min": 7373573.61,
+      "projecao_max": 12626209.82
+    },
+    {
+      "ano_mes": "2023-09",
+      "projecao_gasto": 9745653.8,
+      "projecao_min": 7062245.2,
+      "projecao_max": 12570353.91
+    },
+    {
+      "ano_mes": "2023-10",
+      "projecao_gasto": 10364571.26,
+      "projecao_min": 7429295.58,
+      "projecao_max": 13410635.43
+    },
+    {
+      "ano_mes": "2023-11",
+      "projecao_gasto": 10503533.29,
+      "projecao_min": 7485192.21,
+      "projecao_max": 13661289.2
+    },
+    {
+      "ano_mes": "2023-12",
+      "projecao_gasto": 10819317.0,
+      "projecao_min": 7511395.06,
+      "projecao_max": 14319189.87
+    },
+    {
+      "ano_mes": "2024-01",
+      "projecao_gasto": 10894152.97,
+      "projecao_min": 7374360.6,
+      "projecao_max": 14600983.92
+    }
+  ]
+}

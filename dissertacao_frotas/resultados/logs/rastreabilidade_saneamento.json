@@ -1,0 +1,55 @@
+{
+  "metadados": {
+    "script": "02_preprocessamento.py",
+    "autor": "Eduardo Henrique dos Santos",
+    "instituicao": "PPGCAP / CCT / UDESC",
+    "timestamp_inicio": "2026-11-01T13:58:14.229131",
+    "timestamp_fim": "2026-11-01T13:58:26.710600",
+    "duracao_segundos": 12.48,
+    "status": "SUCESSO"
+  },
+  "etapas_rastreabilidade": [
+    {
+      "etapa": "01_carga_bruta",
+      "descricao": "Leitura estrita do arquivo bruto Geral_de_OS",
+      "n_itens_entrada": 350737,
+      "n_itens_saida": 350737,
+      "n_os_entrada": 77867,
+      "n_os_saida": 77867,
+      "descarte_itens": 0,
+      "descarte_os": 0,
+      "justificativa": "Ponto de partida do pipeline."
+    },
+    {
+      "etapa": "02_expurgo_sem_identificador_ou_data",
+      "descricao": "Remoção de registros sem data temporal de referência ou sem placa veicular",
+      "n_itens_entrada": 350737,
+      "n_itens_saida": 350737,
+      "n_os_entrada": 77867,
+      "n_os_saida": 77867,
+      "descarte_itens": 0,
+      "descarte_os": 0,
+      "justificativa": "Impossibilidade de ordenação temporal ou atribuição a ativo da frota."
+    },
+    {
+      "etapa": "03_segmentacao_status_os",
+      "descricao": "Segregação das OSs consolidadas por natureza de faturamento contábil",
+      "n_os_total": 77867,
+      "n_os_cobradas_liquidadas": 60114,
+      "n_os_reprovadas_fiscalizacao": 11507,
+      "n_os_canceladas_outras": 6246,
+      "vl_cobradas_total": 131506578.94,
+      "vl_reprovadas_total": 1591516.64,
+      "justificativa": "Apenas ordens COBRADAS refletem dispêndio efetivo da frota para regressão e MILP; REPROVADAS servem para auditoria de risco."
+    },
+    {
+      "etapa": "04_painel_longitudinal_ml",
+      "descricao": "Agrupamento de veículo por mês com criação de lags e alvos no horizonte t+1",
+      "n_instancias_totais": 49569,
+      "n_instancias_finais_supervisionadas": 42278,
+      "n_veiculos_unicos": 5914,
+      "descarte_ultimos_meses_sem_alvo": 7291,
+      "justificativa": "Última observação de cada veículo não possui período futuro t+1 registrado para supervisão."
+    }
+  ]
+}

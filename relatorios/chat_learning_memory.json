@@ -1,0 +1,20 @@
+{
+  "total_consultas": 267,
+  "topicos_aprendidos": {
+    "poisson": 9,
+    "arima": 10,
+    "ets": 10,
+    "markov": 9,
+    "milp": 9
+  },
+  "parametros_preferidos": {
+    "alpha": 0.05,
+    "frequencia": "ME",
+    "horizonte": 6,
+    "modo_hipotese": "auto"
+  },
+  "conceitos_ensinados": {
+    "viatura operacional": "veículo policial de emergência"
+  },
+  "historico_recente": []
+}

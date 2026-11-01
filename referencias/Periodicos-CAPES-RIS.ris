@@ -1,0 +1,858 @@
+
+TY  - article
+ID  - W3168567278
+TI  - Adding interpretability to predictive maintenance by machine learning on sensor data
+AU  - Bram Steurtewagen, Dirk Van den Poel
+PY  - 2021
+JO  - Computers &amp; Chemical Engineering
+VL  - 152
+IS  - 
+SP  - 107381
+EP  - 107381
+DO  - 10.1016/j.compchemeng.2021.107381
+ER  -
+
+TY  - article
+ID  - W4391288069
+TI  - SHAP-based insights for aerospace PHM: Temporal feature importance, dependencies, robustness, and interaction analysis
+AU  - Yazan Alomari, Mátyás Andó
+PY  - 2024
+JO  - Results in Engineering
+VL  - 21
+IS  - 
+SP  - 101834
+EP  - 101834
+DO  - 10.1016/j.rineng.2024.101834
+ER  -
+
+TY  - article
+ID  - W4401891133
+TI  - An explainable artificial intelligence model for predictive maintenance and spare parts optimization
+AU  - Ufuk Dereci, Gülfem Tuzkaya
+PY  - 2024
+JO  - Supply Chain Analytics
+VL  - 8
+IS  - 
+SP  - 100078
+EP  - 100078
+DO  - 10.1016/j.sca.2024.100078
+ER  -
+
+TY  - article
+ID  - W4394939074
+TI  - Explainable Predictive Maintenance: A Survey of Current Methods, Challenges and Opportunities
+AU  - Logan Cummins, Alexander Sommers, Somayeh Bakhtiari Ramezani, Sudip Mittal, Joseph Jabour, Maria Seale, Shahram Rahimi
+PY  - 2024
+JO  - IEEE Access
+VL  - 12
+IS  - 
+SP  - 57574
+EP  - 57602
+DO  - 10.1109/access.2024.3391130
+ER  -
+
+TY  - Revisão
+ID  - W4313435269
+TI  - Condition-based maintenance using machine learning and role of interpretability: a review
+AU  - Jeetesh Sharma, Murari Lal Mittal, Gunjan Soni
+PY  - 2022
+JO  - International Journal of Systems Assurance Engineering and Management
+VL  - 15
+IS  - 4
+SP  - 1345
+EP  - 1360
+DO  - 10.1007/s13198-022-01843-7
+ER  -
+
+TY  - article
+ID  - W3133235685
+TI  - An Ensemble Learning Solution for Predictive Maintenance of Wind Turbines Main Bearing
+AU  - Mattia Beretta, Anatole Julian, Jose Sepulveda, Jordi Cusidó, Olga Porro
+PY  - 2021
+JO  - Sensors
+VL  - 21
+IS  - 4
+SP  - 1512
+EP  - 1512
+DO  - 10.3390/s21041512
+ER  -
+
+TY  - article
+ID  - W3212409379
+TI  - Data-driven strategies for predictive maintenance: Lesson learned from an automotive use case
+AU  - Danilo Giordano, Flavio Giobergia, Eliana Pastor, Antonio La Macchia, Tania Cerquitelli, Elena Baralis, Marco Mellia, Davide Tricarico
+PY  - 2021
+JO  - Computers in Industry
+VL  - 134
+IS  - 
+SP  - 103554
+EP  - 103554
+DO  - 10.1016/j.compind.2021.103554
+ER  -
+
+TY  - article
+ID  - W2914489277
+TI  - Predictive maintenance using tree-based classification techniques: A case of railway switches
+AU  - Zaharah Allah Bukhsh, Aaqib Saeed, Irina Stipanovic, Andre G. Doree
+PY  - 2019
+JO  - Transportation Research Part C Emerging Technologies
+VL  - 101
+IS  - 
+SP  - 35
+EP  - 54
+DO  - 10.1016/j.trc.2019.02.001
+ER  -
+
+TY  - article
+ID  - W4285267394
+TI  - Data-Driven Predictive Maintenance
+AU  - Joao Gama, Rita P. Ribeiro, Bruno Veloso
+PY  - 2022
+JO  - IEEE Intelligent Systems
+VL  - 37
+IS  - 4
+SP  - 27
+EP  - 29
+DO  - 10.1109/mis.2022.3167561
+ER  -
+
+TY  - article
+ID  - W3109310483
+TI  - Interpretable machine learning models for predicting and explaining vehicle fuel consumption anomalies
+AU  - Alberto Barbado, Óscar Corcho
+PY  - 2022
+JO  - Engineering Applications of Artificial Intelligence
+VL  - 115
+IS  - 
+SP  - 105222
+EP  - 105222
+DO  - 10.1016/j.engappai.2022.105222
+ER  -
+
+TY  - article
+ID  - W4403162989
+TI  - Harnessing machine learning for sustainable futures: advancements in renewable energy and climate change mitigation
+AU  - Kingsley Ukoba, Oluwatayo Racheal Onisuru, Tien-Chien Jen
+PY  - 2024
+JO  - Bulletin of the National Research Centre/Bulletin of the National Research Center
+VL  - 48
+IS  - 1
+SP  - 
+EP  - 
+DO  - 10.1186/s42269-024-01254-7
+ER  -
+
+TY  - article
+ID  - W4292972564
+TI  - Noise-Aware Sparse Gaussian Processes and Application to Reliable Industrial Machinery Health Monitoring
+AU  - Jingyu Yang, Zuogong Yue, Ye Yuan
+PY  - 2022
+JO  - IEEE Transactions on Industrial Informatics
+VL  - 19
+IS  - 4
+SP  - 5995
+EP  - 6005
+DO  - 10.1109/tii.2022.3200428
+ER  -
+
+TY  - article
+ID  - W4394707353
+TI  - A conceptual framework for machine learning algorithm selection for predictive maintenance
+AU  - Simone Arena, Eleonora Florian, Fabio Sgarbossa, Endre Sølvsberg, Ilenia Zennaro
+PY  - 2024
+JO  - Engineering Applications of Artificial Intelligence
+VL  - 133
+IS  - 
+SP  - 108340
+EP  - 108340
+DO  - 10.1016/j.engappai.2024.108340
+ER  -
+
+TY  - Pré-print
+ID  - W4396243770
+TI  - Cycling into the workshop: e-bike and m-bike mobility patterns for predictive maintenance in Barcelona’s bike-sharing system
+AU  - Jordi Grau-Escolano, Aleix Bassolas, Julian Vicens
+PY  - 2024
+JO  - EPJ Data Science
+VL  - 13
+IS  - 1
+SP  - 
+EP  - 
+DO  - 10.1140/epjds/s13688-024-00486-x
+ER  -
+
+TY  - article
+ID  - W4289813532
+TI  - Improved Color Defect Detection With Machine Learning for After Develop Inspections in Lithography
+AU  - Matthew P. McLaughlin, Petra Mennell, Andrew Stamper, Gabriel Barber, Janice Paduano, Emerson Benn, Michael Linnane, Justin Zwick, Chetan Khatumria, Robert L. Isaacson, Nathan Hoffman, Clayton Menser
+PY  - 2022
+JO  - IEEE Transactions on Semiconductor Manufacturing
+VL  - 35
+IS  - 3
+SP  - 418
+EP  - 424
+DO  - 10.1109/tsm.2022.3186607
+ER  -
+
+TY  - article
+ID  - W2971812024
+TI  - Dynamic condition monitoring method based on dimensionality reduction techniques for data-limited industrial environments
+AU  - Kerman López de Calle, Susana Ferreiro, Aitor Arnaiz, Basilio Sierra
+PY  - 2019
+JO  - Computers in Industry
+VL  - 112
+IS  - 
+SP  - 103114
+EP  - 103114
+DO  - 10.1016/j.compind.2019.07.004
+ER  -
+
+TY  - article
+ID  - W4297231499
+TI  - An improved first-principle model of AC powered solenoid operated valves for maintenance applications
+AU  - Georges Tod, Agusmian Partogi Ompusunggu, Erik Hostens
+PY  - 2022
+JO  - ISA Transactions
+VL  - 135
+IS  - 
+SP  - 551
+EP  - 566
+DO  - 10.1016/j.isatra.2022.09.032
+ER  -
+
+TY  - article
+ID  - W4389691282
+TI  - Unlocking the potential of artificial intelligence for big data analytics
+AU  - Rimma Zaripova, Valery Kosulin, Maksim Shkinderov, Ilgizar Rakhmatullin
+PY  - 2023
+JO  - E3S Web of Conferences
+VL  - 460
+IS  - 
+SP  - 04011
+EP  - 04011
+DO  - 10.1051/e3sconf/202346004011
+ER  -
+
+TY  - article
+ID  - W4399535174
+TI  - Logical analysis of data in predictive failure detection and diagnosis
+AU  - Zhixuan Shao, Mustafa Kumral
+PY  - 2024
+JO  - International Journal of Quality &amp; Reliability Management
+VL  - 42
+IS  - 2
+SP  - 401
+EP  - 424
+DO  - 10.1108/ijqrm-02-2024-0048
+ER  -
+
+TY  - article
+ID  - W4399896389
+TI  - Artificial Intelligence Approaches for Predictive Power Consumption Modeling in Machining-Short Review
+AU  - Shweta Singh, Satendra Singh, Rahul Pawar, Kuldeep Singh Kulhar
+PY  - 2024
+JO  - E3S Web of Conferences
+VL  - 540
+IS  - 
+SP  - 06015
+EP  - 06015
+DO  - 10.1051/e3sconf/202454006015
+ER  -
+
+TY  - article
+ID  - W4414908527
+TI  - Leveraging Physics-Based Features for Accurate Prediction of Remaining Useful Life of Bearing
+AU  - R. Surya, M. Saimurugan, S. Sowmya
+PY  - 2025
+JO  - IEEE Access
+VL  - 13
+IS  - 
+SP  - 182717
+EP  - 182736
+DO  - 10.1109/access.2025.3618698
+ER  -
+
+TY  - article
+ID  - W4415213868
+TI  - An interpretable and physics-informed adaptive multi-branch deep learning framework for intelligent fault diagnosis of large-scale multi-row tapered roller bearings
+AU  - Chao Ma, Jianliang Sun, Shuilin Lin, Wei Li, Yunfei Liu
+PY  - 2025
+JO  - Engineering Applications of Artificial Intelligence
+VL  - 162
+IS  - 
+SP  - 112501
+EP  - 112501
+DO  - 10.1016/j.engappai.2025.112501
+ER  -
+
+TY  - article
+ID  - W4416182306
+TI  - Interpretable ensemble remaining useful life prediction enables dynamic maintenance scheduling for aircraft engines
+AU  - Hikmetcan Özcan
+PY  - 2025
+JO  - Scientific Reports
+VL  - 15
+IS  - 1
+SP  - 39795
+EP  - 39795
+DO  - 10.1038/s41598-025-23473-2
+ER  -
+
+TY  - article
+ID  - W7158352656
+TI  - Proactive engine maintenance in aviation using data-driven remaining useful life estimation techniques
+AU  - Yankai Bi, Chao Wang, Yuan Chi
+PY  - 2026
+JO  - Journal of Engineering and Applied Science
+VL  - 73
+IS  - 1
+SP  - 
+EP  - 
+DO  - 10.1186/s44147-026-01021-7
+ER  -
+
+TY  - article
+ID  - W4404580564
+TI  - Decision-making systems improvement based on explainable artificial intelligence approaches for predictive maintenance
+AU  - Lala Rajaoarisoa, Raubertin Randrianandraina, Grzegorz J. Nalepa, João Gama
+PY  - 2024
+JO  - Engineering Applications of Artificial Intelligence
+VL  - 139
+IS  - 
+SP  - 109601
+EP  - 109601
+DO  - 10.1016/j.engappai.2024.109601
+ER  -
+
+TY  - article
+ID  - W7119956011
+TI  - An explainable data-driven optimization framework for industrial predictive maintenance scheduling
+AU  - Kassem Danach, Hassan Harb, Hamza Issa, Louai Saker
+PY  - 2026
+JO  - Results in Engineering
+VL  - 29
+IS  - 
+SP  - 109022
+EP  - 109022
+DO  - 10.1016/j.rineng.2026.109022
+ER  -
+
+TY  - article
+ID  - W4392824997
+TI  - ERF-XGB: An Edge-IoT-Based Explainable Model for Predictive Maintenance
+AU  - Yufeng Xiao, Yingzi Huo, Jiahong Cai, Yinyan Gong, Wei Liang, Joanna Kołodziej
+PY  - 2024
+JO  - IEEE Transactions on Consumer Electronics
+VL  - 70
+IS  - 1
+SP  - 4016
+EP  - 4025
+DO  - 10.1109/tce.2024.3371440
+ER  -
+
+TY  - article
+ID  - W4406970954
+TI  - Improving predictive maintenance: Evaluating the impact of preprocessing and model complexity on the effectiveness of eXplainable Artificial Intelligence methods
+AU  - Mouhamadou Lamine Ndao, Genane Youness, Ndeye Niang, Gilbert Saporta
+PY  - 2025
+JO  - Engineering Applications of Artificial Intelligence
+VL  - 144
+IS  - 
+SP  - 110144
+EP  - 110144
+DO  - 10.1016/j.engappai.2025.110144
+ER  -
+
+TY  - article
+ID  - W4405735937
+TI  - Hybrid Quantum Neural Network and Shapely Additive Explanations in Railway Track Geometry Modeling
+AU  - Dengimowei D. Alabintei, Nii Attoh-Okine
+PY  - 2024
+JO  - ASCE-ASME Journal of Risk and Uncertainty in Engineering Systems Part B Mechanical Engineering
+VL  - 11
+IS  - 3
+SP  - 
+EP  - 
+DO  - 10.1115/1.4067533
+ER  -
+
+TY  - article
+ID  - W7117887584
+TI  - Explainable AI for predictive maintenance: A review and standardized evaluation framework
+AU  - Leila Zemmouchi-Ghomari
+PY  - 2026
+JO  - Management Science Letters
+VL  - 16
+IS  - 1
+SP  - 15
+EP  - 36
+DO  - 10.5267/j.msl.2025.11.001
+ER  -
+
+TY  - Revisão
+ID  - W4390063968
+TI  - A review on the advancements and challenges of artificial intelligence based models for predictive maintenance of water injection pumps in the oil and gas industry
+AU  - Salama Mohamed Almazrouei, Fikri Dweiri, Ridvan Aydin, Abdalla Alnaqbi
+PY  - 2023
+JO  - SN Applied Sciences
+VL  - 5
+IS  - 12
+SP  - 
+EP  - 
+DO  - 10.1007/s42452-023-05618-y
+ER  -
+
+TY  - article
+ID  - W4408788157
+TI  - Explainable machine-learning tools for predictive maintenance of circulating water systems in nuclear power plants
+AU  - Linyu Lin, Cody Walker, Vivek Agarwal
+PY  - 2025
+JO  - Nuclear Engineering and Technology
+VL  - 57
+IS  - 9
+SP  - 103588
+EP  - 103588
+DO  - 10.1016/j.net.2025.103588
+ER  -
+
+TY  - article
+ID  - W4388090033
+TI  - Hierarchical framework for interpretable and specialized deep reinforcement learning-based predictive maintenance
+AU  - Ammar N. Abbas, Georgios C. Chasparis, John D. Kelleher
+PY  - 2023
+JO  - Data &amp; Knowledge Engineering
+VL  - 149
+IS  - 
+SP  - 102240
+EP  - 102240
+DO  - 10.1016/j.datak.2023.102240
+ER  -
+
+TY  - article
+ID  - W4401336809
+TI  - Reinforcement Learning for Autonomous Process Control in Industry 4.0: Advantages and Challenges
+AU  - Nuria Nievas, Adela Pagès-Bernaus, Francesc Bonada, Lluís Echeverria, Xavier Domingo
+PY  - 2024
+JO  - Applied Artificial Intelligence
+VL  - 38
+IS  - 1
+SP  - 
+EP  - 
+DO  - 10.1080/08839514.2024.2383101
+ER  -
+
+TY  - article
+ID  - W4399928828
+TI  - Unlocking renewable energy potential: Harnessing machine learning and intelligent algorithms
+AU  - Thanh Tuan Le, Prabhu Paramasivam, Elvis Adril, Van Quy Nguyen, Minh Xuan Le, Minh Thai Duong, Huu Cuong Le, Anh Quan Nguyen
+PY  - 2024
+JO  - International Journal of Renewable Energy Development
+VL  - 13
+IS  - 4
+SP  - 783
+EP  - 813
+DO  - 10.61435/ijred.2024.60387
+ER  -
+
+TY  - article
+ID  - W4400105251
+TI  - Enhancing Explainability in Predictive Maintenance : Investigating the Impact of Data Preprocessing Techniques on XAI Effectiveness
+AU  - Mouhamadou Lamine NDAO, Genane YOUNESS, Ndèye NIANG, Gilbert SAPORTA
+PY  - 2024
+JO  - Proceedings of the ... International Florida Artificial Intelligence Research Society Conference
+VL  - 37
+IS  - 
+SP  - 
+EP  - 
+DO  - 10.32473/flairs.37.1.135526
+ER  -
+
+TY  - article
+ID  - W4226355965
+TI  - Hybrid-augmented intelligence in predictive maintenance with digital intelligent assistants
+AU  - Stefan Wellsandt, Konstantin Klein, Karl Hribernik, Marco Lewandowski, Alexandros Bousdekis, Gregoris Mentzas, Klaus-Dieter Thoben
+PY  - 2022
+JO  - Annual Reviews in Control
+VL  - 53
+IS  - 
+SP  - 382
+EP  - 390
+DO  - 10.1016/j.arcontrol.2022.04.001
+ER  -
+
+TY  - article
+ID  - W4392875223
+TI  - Modeling failures in smart grids by a bilinear logistic regression approach
+AU  - Enrico De Santis, Antonello Rizzi
+PY  - 2024
+JO  - Neural Networks
+VL  - 174
+IS  - 
+SP  - 106245
+EP  - 106245
+DO  - 10.1016/j.neunet.2024.106245
+ER  -
+
+TY  - article
+ID  - W4400578894
+TI  - Machine learning applications in automotive engineering: Enhancing vehicle safety and performance
+AU  - Surajit Mondal, Shankha Goswami
+PY  - 2024
+JO  - Journal of Process Management New Technologies
+VL  - 12
+IS  - 1-2
+SP  - 61
+EP  - 71
+DO  - 10.5937/jpmnt12-50607
+ER  -
+
+TY  - article
+ID  - W7129688870
+TI  - Transformer insulation failure prediction based on insulating paper degradation diagnostics and ensemble machine learning
+AU  - Andrew Adewunmi Adekunle
+PY  - 2026
+JO  - Electric Power Systems Research
+VL  - 256
+IS  - 
+SP  - 112871
+EP  - 112871
+DO  - 10.1016/j.epsr.2026.112871
+ER  -
+
+TY  - article
+ID  - W4403169442
+TI  - Condition assessment and predictive maintenance for contact probe using health index and encoder‐decoder LSTM model
+AU  - Shun‐Sun Luk, Yanwen Jin, Xiaoge Zhang, Vincent To‐Yee Ng, Jingyuan Huang, Chak‐Nam Wong
+PY  - 2024
+JO  - Quality and Reliability Engineering International
+VL  - 41
+IS  - 1
+SP  - 154
+EP  - 173
+DO  - 10.1002/qre.3668
+ER  -
+
+TY  - article
+ID  - W4403907497
+TI  - Daily Engine Performance Trending Using Common Flight Regime Identification
+AU  - Declan P. Mallamo, Michael H. Azarian, Michael G. Pecht
+PY  - 2024
+JO  - ASCE-ASME Journal of Risk and Uncertainty in Engineering Systems Part B Mechanical Engineering
+VL  - 11
+IS  - 1
+SP  - 
+EP  - 
+DO  - 10.1115/1.4067057
+ER  -
+
+TY  - article
+ID  - W4406403122
+TI  - Fault Detection in Induction Machines Using Learning Models and Fourier Spectrum Image Analysis
+AU  - Kevin Barrera-Llanga, Jordi Burriel-Valencia, Angel Sapena-Bano, Javier Martinez-Roman
+PY  - 2025
+JO  - Sensors
+VL  - 25
+IS  - 2
+SP  - 471
+EP  - 471
+DO  - 10.3390/s25020471
+ER  -
+
+TY  - Paratexto
+ID  - W4394994370
+TI  - Call for Papers: Special Issue on Data-Driven Spatial and Temporal Anomaly Detection
+AU  - Xuyun Zhang, Ye Zhu, Aswani Cherukuri
+PY  - 2024
+JO  - Big Data Mining and Analytics
+VL  - 7
+IS  - 2
+SP  - 562
+EP  - 562
+DO  - 10.26599/bdma.2024.9020016
+ER  -
+
+TY  - article
+ID  - W3110587957
+TI  - A forest-based algorithm for selecting informative variables using Variable Depth Distribution
+AU  - Sergii Voronov, Daniel Jung, Erik Frisk
+PY  - 2020
+JO  - Engineering Applications of Artificial Intelligence
+VL  - 97
+IS  - 
+SP  - 104073
+EP  - 104073
+DO  - 10.1016/j.engappai.2020.104073
+ER  -
+
+TY  - article
+ID  - W4361284889
+TI  - A machine-learning based data-oriented pipeline for Prognosis and Health Management Systems
+AU  - Marcos Leandro Hoffmann Souza, Cristiano André da Costa, Gabriel de Oliveira Ramos
+PY  - 2023
+JO  - Computers in Industry
+VL  - 148
+IS  - 
+SP  - 103903
+EP  - 103903
+DO  - 10.1016/j.compind.2023.103903
+ER  -
+
+TY  - article
+ID  - W4200070426
+TI  - Sensor-Based Predictive Maintenance with Reduction of False Alarms—A Case Study in Heavy Industry
+AU  - Marek Hermansa, Michał Kozielski, Marcin Michalak, Krzysztof Szczyrba, Łukasz Wróbel, Marek Sikora
+PY  - 2021
+JO  - Sensors
+VL  - 22
+IS  - 1
+SP  - 226
+EP  - 226
+DO  - 10.3390/s22010226
+ER  -
+
+TY  - article
+ID  - W4385880554
+TI  - Hybrid machine condition monitoring based on interpretable dual tree methods using Wasserstein metrics
+AU  - Yuekai Liu, Tianyang Wang, Fulei Chu
+PY  - 2023
+JO  - Expert Systems with Applications
+VL  - 235
+IS  - 
+SP  - 121104
+EP  - 121104
+DO  - 10.1016/j.eswa.2023.121104
+ER  -
+
+TY  - article
+ID  - W3137984802
+TI  - Continuous improvement and adaptation of predictive models in smart manufacturing and model management
+AU  - Florian Bachinger, Gabriel Kronberger, Michael Affenzeller
+PY  - 2021
+JO  - IET Collaborative Intelligent Manufacturing
+VL  - 3
+IS  - 1
+SP  - 48
+EP  - 63
+DO  - 10.1049/cim2.12009
+ER  -
+
+TY  - article
+ID  - W4281393809
+TI  - From knowledge-based to big data analytic model: a novel IoT and machine learning based decision support system for predictive maintenance in Industry 4.0
+AU  - Riccardo Rosati, Luca Romeo, Gianalberto Cecchini, Flavio Tonetto, Paolo Viti, Adriano Mancini, Emanuele Frontoni
+PY  - 2022
+JO  - Journal of Intelligent Manufacturing
+VL  - 34
+IS  - 1
+SP  - 107
+EP  - 121
+DO  - 10.1007/s10845-022-01960-x
+ER  -
+
+TY  - article
+ID  - W3159545272
+TI  - Ethics-by-design: the next frontier of industrialization
+AU  - Aurélien Bourgais, Issam Ibnouhsein
+PY  - 2021
+JO  - AI and Ethics
+VL  - 2
+IS  - 2
+SP  - 317
+EP  - 324
+DO  - 10.1007/s43681-021-00057-0
+ER  -
+
+TY  - article
+ID  - W4387379157
+TI  - Remaining useful life with self-attention assisted physics-informed neural network
+AU  - Xinyuan Liao, Shaowei Chen, Pengfei Wen, Shuai Zhao
+PY  - 2023
+JO  - Advanced Engineering Informatics
+VL  - 58
+IS  - 
+SP  - 102195
+EP  - 102195
+DO  - 10.1016/j.aei.2023.102195
+ER  -
+
+TY  - article
+ID  - W4387849781
+TI  - Revolutionizing water treatment, conservation, and management: Harnessing the power of AI-driven ChatGPT solutions
+AU  - Abel U. Egbemhenghe, Toluwalase Ojeyemi, Kingsley O. Iwuozor, Ebuka Chizitere Emenike, Tolu I. Ogunsanya, Stella Ukamaka Anidiobi, Adewale George Adeniyi
+PY  - 2023
+JO  - Environmental Challenges
+VL  - 13
+IS  - 
+SP  - 100782
+EP  - 100782
+DO  - 10.1016/j.envc.2023.100782
+ER  -
+
+TY  - article
+ID  - W4389512212
+TI  - Open access dataset, code library and benchmarking deep learning approaches for state-of-health estimation of lithium-ion batteries
+AU  - Fujin Wang, Zhi Zhai, Bingchen Liu, Shiyu Zheng, Zhibin Zhao, Xuefeng Chen
+PY  - 2023
+JO  - Journal of Energy Storage
+VL  - 77
+IS  - 
+SP  - 109884
+EP  - 109884
+DO  - 10.1016/j.est.2023.109884
+ER  -
+
+TY  - article
+ID  - W4221006858
+TI  - Unsupervised anomaly detection in multivariate time series with online evolving spiking neural networks
+AU  - Dennis Bäßler, Tobias Kortus, Gabriele Gühring
+PY  - 2022
+JO  - Machine Learning
+VL  - 111
+IS  - 4
+SP  - 1377
+EP  - 1408
+DO  - 10.1007/s10994-022-06129-4
+ER  -
+
+TY  - article
+ID  - W4225966510
+TI  - Towards big industrial data mining through explainable automated machine learning
+AU  - Moncef Garouani, Adeel Ahmad, Mourad Bouneffa, Mohamed Hamlich, Gregory Bourguin, Arnaud Lewandowski
+PY  - 2022
+JO  - The International Journal of Advanced Manufacturing Technology
+VL  - 120
+IS  - 1-2
+SP  - 1169
+EP  - 1188
+DO  - 10.1007/s00170-022-08761-9
+ER  -
+
+TY  - article
+ID  - W3196259461
+TI  - Perception modelling by invariant representation of deep learning for automated structural diagnostic in aircraft maintenance: A study case using DeepSHM
+AU  - Vincentius Ewald, Ramanan Sridaran Venkat, Aadhik Asokkumar, Rinze Benedictus, Christian Boller, Roger M Groves
+PY  - 2021
+JO  - Mechanical Systems and Signal Processing
+VL  - 165
+IS  - 
+SP  - 108153
+EP  - 108153
+DO  - 10.1016/j.ymssp.2021.108153
+ER  -
+
+TY  - article
+ID  - W3195420587
+TI  - DBAM: Making Virtual Metrology/Soft sensing with time series data scalable through Deep Learning
+AU  - Natalie Gentner, Mattia Carletti, Andreas Kyek, Gian Antonio Susto, Yao Yang
+PY  - 2021
+JO  - Control Engineering Practice
+VL  - 116
+IS  - 
+SP  - 104914
+EP  - 104914
+DO  - 10.1016/j.conengprac.2021.104914
+ER  -
+
+TY  - article
+ID  - W4389462109
+TI  - Machine learning for enhancing transportation security: A comprehensive analysis of electric and flying vehicle systems
+AU  - Hamed Alqahtani, Gulshan Kumar
+PY  - 2023
+JO  - Engineering Applications of Artificial Intelligence
+VL  - 129
+IS  - 
+SP  - 107667
+EP  - 107667
+DO  - 10.1016/j.engappai.2023.107667
+ER  -
+
+TY  - article
+ID  - W4390086734
+TI  - Assets Performance Management systems for hydroelectric power plants—A survey
+AU  - Matheus Sartor, Leandro Souza, Arnaldo Júnior, Hugo Rebelo, Kleyton Cotta, Leonardo Vianna, Rafael Pereira, Marcelo Morais
+PY  - 2023
+JO  - Electric Power Systems Research
+VL  - 228
+IS  - 
+SP  - 110080
+EP  - 110080
+DO  - 10.1016/j.epsr.2023.110080
+ER  -
+
+TY  - article
+ID  - W3193093051
+TI  - Wind turbine failure prediction and health assessment based on adaptive maximum mean discrepancy
+AU  - Jieyang Peng, Andreas Kimmig, Zhibin Niu, Jiahai Wang, Xiufeng Liu, Dongkun Wang, Jivka Ovtcharova
+PY  - 2021
+JO  - International Journal of Electrical Power &amp; Energy Systems
+VL  - 134
+IS  - 
+SP  - 107391
+EP  - 107391
+DO  - 10.1016/j.ijepes.2021.107391
+ER  -
+
+TY  - article
+ID  - W4389396431
+TI  - Efficient health indicators for the prediction of the remaining useful life of proton exchange membrane fuel cells
+AU  - Zaid Allal, Hassan N. Noura, Khaled Chahine
+PY  - 2023
+JO  - Energy Conversion and Management X
+VL  - 21
+IS  - 
+SP  - 100503
+EP  - 100503
+DO  - 10.1016/j.ecmx.2023.100503
+ER  -
+
+TY  - Revisão
+ID  - W4281394637
+TI  - Remaining Useful Life prediction and challenges: A literature review on the use of Machine Learning Methods
+AU  - Carlos Ferreira, Gil Gonçalves
+PY  - 2022
+JO  - Journal of Manufacturing Systems
+VL  - 63
+IS  - 
+SP  - 550
+EP  - 562
+DO  - 10.1016/j.jmsy.2022.05.010
+ER  -
+
+TY  - article
+ID  - W7124829153
+TI  - Uncertainty aware predictive maintenance using a hybrid Transformer with Monte Carlo Dropout and conformal prediction
+AU  - Chao-Lung Yang, Tamrat Yifter Meles, Atinkut Atinafu Yilma, Melkamu Mengstnew Teshome
+PY  - 2026
+JO  - Ain Shams Engineering Journal
+VL  - 17
+IS  - 2
+SP  - 103992
+EP  - 103992
+DO  - 10.1016/j.asej.2026.103992
+ER  -
+
+TY  - article
+ID  - W7130555735
+TI  - Condition-Aware AI for Predictive Maintenance: Dual-Attention CNN-GRU with Per-Regime Scaling
+AU  - Aref Aasi, Sahar Ebrahimi Bajgani, Omid Mahdavi
+PY  - 2026
+JO  - Expert Systems with Applications
+VL  - 315
+IS  - 
+SP  - 131582
+EP  - 131582
+DO  - 10.1016/j.eswa.2026.131582
+ER  -
+
+TY  - article
+ID  - W3166223321
+TI  - Signal Pre-Selection for Monitoring and Prediction of Vehicle Powertrain Component Aging
+AU  - A. Udo Sass, E. Esatbeyoglu, T. Iwwerks
+PY  - 2019
+JO  - Science &amp; Technique
+VL  - 18
+IS  - 6
+SP  - 519
+EP  - 524
+DO  - 10.21122/2227-1031-2019-18-6-519-524
+ER  -

@@ -1,0 +1,102 @@
+{
+    "protocolo": "MILP Cenário de Referência S0 (Nominal, 36 meses)",
+    "horizonte_meses": 36,
+    "n_veiculos_instancia": 2000,
+    "solver": "HiGHS (C++ interior point / dual simplex)",
+    "status_otimizacao": "Optimal",
+    "highs_optimality_gap_certificado": 0.0,
+    "solucao_inteira_mip_brl": 43837633.31,
+    "relaxacao_linear_lp_brl": 43837384.79,
+    "integrality_gap_relativo": 0.000005669,
+    "integrality_gap_absoluto_brl": 248.52,
+    "tabela_resultados": [
+        {
+            "politica": "BL0 — As-Is (Histórica Nominal)",
+            "custo_intervencoes": 20777025.22,
+            "risco_residual": 32362755.35,
+            "custo_total_esperado": 53139780.57,
+            "disponibilidade_pct": 93.99,
+            "atendimento_obrigatorio_pct": 44.72,
+            "gap_otimalidade_pct": 0.0,
+            "tempo_solucao_s": 0.03,
+            "economia_relativa_pct": 0.0,
+            "economia_absoluta_rs": 0.0
+        },
+        {
+            "politica": "BL1 — Reativa (Falhas Críticas)",
+            "custo_intervencoes": 20222520.57,
+            "risco_residual": 33541143.85,
+            "custo_total_esperado": 53763664.42,
+            "disponibilidade_pct": 93.85,
+            "atendimento_obrigatorio_pct": 18.38,
+            "gap_otimalidade_pct": 0.0,
+            "tempo_solucao_s": 0.03,
+            "economia_relativa_pct": -1.1736,
+            "economia_absoluta_rs": -623883.85
+        },
+        {
+            "politica": "BL2 — Preventiva (Regras Fixas km/ano)",
+            "custo_intervencoes": 20779826.25,
+            "risco_residual": 36547304.83,
+            "custo_total_esperado": 57327131.08,
+            "disponibilidade_pct": 93.36,
+            "atendimento_obrigatorio_pct": 100.0,
+            "gap_otimalidade_pct": 0.0,
+            "tempo_solucao_s": 0.07,
+            "economia_relativa_pct": -7.8799,
+            "economia_absoluta_rs": -4187350.51
+        },
+        {
+            "politica": "BL3 — Maior Risco Previsto (Greedy)",
+            "custo_intervencoes": 20777953.23,
+            "risco_residual": 33312012.90,
+            "custo_total_esperado": 54089966.13,
+            "disponibilidade_pct": 93.86,
+            "atendimento_obrigatorio_pct": 18.48,
+            "gap_otimalidade_pct": 0.0,
+            "tempo_solucao_s": 0.05,
+            "economia_relativa_pct": -1.7881,
+            "economia_absoluta_rs": -950185.56
+        },
+        {
+            "politica": "BL4 — Benefício/Custo (Greedy)*",
+            "custo_intervencoes": 20776098.50,
+            "risco_residual": 22203715.02,
+            "custo_total_esperado": 42979813.52,
+            "disponibilidade_pct": 95.55,
+            "atendimento_obrigatorio_pct": 65.47,
+            "gap_otimalidade_pct": 0.0,
+            "tempo_solucao_s": 0.07,
+            "economia_relativa_pct": 19.1193,
+            "economia_absoluta_rs": 10159967.05,
+            "nota": "Inviável operacionalmente por violar 34.53% das manutenções mandatórias de segurança"
+        },
+        {
+            "politica": "MILP-0 — Otimização Sem ML (Médias Globais)",
+            "custo_intervencoes": 20768400.29,
+            "risco_residual": 27950611.39,
+            "custo_total_esperado": 48719011.68,
+            "disponibilidade_pct": 94.66,
+            "atendimento_obrigatorio_pct": 100.0,
+            "gap_otimalidade_pct": 0.0,
+            "tempo_solucao_s": 19.34,
+            "economia_relativa_pct": 8.3191,
+            "economia_absoluta_rs": 4420768.89
+        },
+        {
+            "politica": "MILP-1 — Otimização Prescritiva Integrada (com ML)",
+            "custo_intervencoes": 19265308.26,
+            "risco_residual": 24572325.05,
+            "custo_total_esperado": 43837633.31,
+            "disponibilidade_pct": 95.26,
+            "atendimento_obrigatorio_pct": 100.0,
+            "gap_otimalidade_pct": 0.0,
+            "tempo_solucao_s": 8.92,
+            "economia_relativa_pct": 17.5051,
+            "economia_absoluta_rs": 9302147.26,
+            "valor_incremental_ml_rs": 4881378.37,
+            "valor_incremental_ml_pct_total": 52.4758
+        }
+    ],
+    "conclusao_reconciliacao": "Todas as 7 políticas foram reconciliadas com fechamento aritmético exato ao centavo. Custo Total = Custo Intervenções + Risco Residual sem resíduo. Solução inteira ótima MILP-1: R$ 43.837.633,31; Relaxação Linear: R$ 43.837.384,79; Gap de Integralidade: R$ 248,52 (0,00057%); HiGHS Optimality Gap: 0,0000%."
+}

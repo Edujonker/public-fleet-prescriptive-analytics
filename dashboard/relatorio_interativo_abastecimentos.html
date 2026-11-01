@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Interativo de Gestão de Abastecimentos e Combustível • PPGCAP/UDESC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-primary: #0a0f1d;
+            --bg-secondary: #111827;
+            --bg-card: rgba(17, 24, 39, 0.75);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(56, 189, 248, 0.4);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-blue: #38bdf8;
+            --accent-indigo: #6366f1;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --glow-blue: rgba(56, 189, 248, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 40%);
+        }
+
+        /* Top Navigation Bar */
+        .navbar {
+            background: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 14px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .badge-academic {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(99, 102, 241, 0.15));
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: var(--accent-blue);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .brand-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            border: 1px solid transparent;
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--border-hover);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0284c7, #2563eb);
+            color: #ffffff;
+            box-shadow: 0 2px 10px rgba(2, 132, 199, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 16px rgba(2, 132, 199, 0.5);
+            transform: translateY(-1px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* Hero / Header Section */
+        .hero {
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            max-width: 900px;
+            line-height: 1.6;
+        }
+
+        /* Filter Toolbar */
+        .toolbar {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .select-custom {
+            background: #1e293b;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            outline: none;
+            cursor: pointer;
+            transition: border 0.2s;
+        }
+
+        .select-custom:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .search-input {
+            background: #1e293b;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            outline: none;
+            width: 240px;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-blue);
+            width: 300px;
+        }
+
+        /* KPI Grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .kpi-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-hover);
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-indigo));
+        }
+
+        .kpi-card.emerald::before { background: linear-gradient(90deg, var(--accent-emerald), #059669); }
+        .kpi-card.amber::before { background: linear-gradient(90deg, var(--accent-amber), #d97706); }
+        .kpi-card.rose::before { background: linear-gradient(90deg, var(--accent-rose), #e11d48); }
+
+        .kpi-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .kpi-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .kpi-sub {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Charts Grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .charts-row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-badge {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 280px;
+            width: 100%;
+        }
+
+        /* Data Tables */
+        .table-responsive {
+            overflow-x: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        thead th {
+            background: rgba(30, 41, 59, 0.7);
+            color: var(--text-secondary);
+            font-weight: 600;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border-color);
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+
+        tbody td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .badge-pill {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .badge-gasolina { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+        .badge-diesel { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+        .badge-etanol { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+        .badge-gnv { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+
+        .tag-danger {
+            background: rgba(244, 63, 94, 0.15);
+            color: #fb7185;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 900px) {
+            .charts-grid, .charts-row-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-brand">
+            <span class="badge-academic">PPGCAP • UDESC</span>
+            <div class="brand-title">Gestão Inteligente de Frotas • Combustível & Abastecimentos</div>
+        </div>
+        <div class="nav-actions">
+            <a href="index.html" class="btn btn-outline">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Painel Principal (OSs)
+            </a>
+            <a href="/relatorios_pdf/relatorio_gestao_completa_abastecimentos.pdf" target="_blank" class="btn btn-primary">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Baixar Laudo PDF
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Header -->
+        <section class="hero">
+            <h1>
+                ⛽ Análise Interativa de Combustível da Frota Pública Catarinense
+            </h1>
+            <p>
+                Visualização pericial e analítica com <strong>1.000.000 de abastecimentos</strong> (2019 a 2022).
+                Permite a exploração temporal, decomposição por derivado de petróleo, análise de eficiência (Km/L),
+                concentração geográfica e triagem forense de inconsistências de abastecimento.
+            </p>
+        </section>
+
+        <!-- Filters Toolbar -->
+        <div class="toolbar">
+            <div class="filter-group">
+                <span class="filter-label">Filtros:</span>
+                <select id="filter-ano" class="select-custom" onchange="aplicarFiltros()">
+                    <option value="TODOS">Todos os Anos (2019–2022)</option>
+                    <option value="2019">Ano 2019</option>
+                    <option value="2020">Ano 2020</option>
+                    <option value="2021">Ano 2021</option>
+                    <option value="2022">Ano 2022</option>
+                </select>
+
+                <select id="filter-combustivel" class="select-custom" onchange="aplicarFiltros()">
+                    <option value="TODOS">Todos os Combustíveis</option>
+                    <option value="GASOLINA">Gasolina</option>
+                    <option value="DIESEL">Diesel / Diesel S10</option>
+                    <option value="ETANOL">Etanol</option>
+                    <option value="GNV">GNV</option>
+                </select>
+
+                <select id="filter-unidade" class="select-custom" onchange="aplicarFiltros()">
+                    <option value="TODAS">Todas as Unidades Policiais</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <input type="text" id="search-input" class="search-input" placeholder="🔍 Buscar por Placa, Posto ou Cidade..." onkeyup="filtrarTabela()">
+                <button class="btn btn-outline" onclick="exportarCSV()">📥 Exportar CSV</button>
+            </div>
+        </div>
+
+        <!-- KPIs Cards -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-title">Despesa Total Combustível</div>
+                <div class="kpi-value" id="kpi-gasto">R$ 153,49M</div>
+                <div class="kpi-sub">Total faturado no período</div>
+            </div>
+            <div class="kpi-card emerald">
+                <div class="kpi-title">Volume Faturado</div>
+                <div class="kpi-value" id="kpi-litros">34,31M L</div>
+                <div class="kpi-sub">Litros de combustível fornecidos</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-title">Preço Médio Ponderado</div>
+                <div class="kpi-value" id="kpi-preco">R$ 4,47 / L</div>
+                <div class="kpi-sub">Média geral ponderada</div>
+            </div>
+            <div class="kpi-card amber">
+                <div class="kpi-title">Viaturas Únicas</div>
+                <div class="kpi-value" id="kpi-veiculos">12.291</div>
+                <div class="kpi-sub">Veículos ativos abastecidos</div>
+            </div>
+            <div class="kpi-card rose">
+                <div class="kpi-title">Anomalias Auditadas</div>
+                <div class="kpi-value" id="kpi-anomalias">8.835</div>
+                <div class="kpi-sub">Odômetro / Volume discrepante</div>
+            </div>
+        </div>
+
+        <!-- Charts Grid 1: Temporal & Combustíveis -->
+        <div class="charts-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">📈 Evolução Histórica de Gastos e Volume Mensal (2019–2022)</div>
+                    <span class="card-badge">Série Temporal</span>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chartTemporal"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">⛽ Matriz por Derivado</div>
+                    <span class="card-badge">Participação</span>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chartCombustivel"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Grid 2: Municípios & Unidades -->
+        <div class="charts-row-2">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🏙️ Top 10 Municípios Catarinenses em Despesa</div>
+                    <span class="card-badge">Geolocalização</span>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chartMunicipios"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🛡️ Top 10 Unidades e Batalhões Policiais</div>
+                    <span class="card-badge">Corporações</span>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chartUnidades"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- ML Section: Prophet Regressão & Tendência e Isolation Forest -->
+        <div style="margin-bottom: 24px;">
+            <h2 style="font-size: 20px; font-weight: 800; color: #ffffff; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                🤖 Modelos de Aprendizado de Máquina (Regressão Prophet & Isolation Forest)
+            </h2>
+            <div class="charts-row-2">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">📈 Regressão Linear e Projeção Prophet (2019–2024)</div>
+                        <span class="card-badge" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">Facebook Prophet</span>
+                    </div>
+                    <img src="../charts/fig98_tendencia_prophet_abastecimento.png" alt="Prophet Tendência" style="width: 100%; border-radius: 8px; margin-bottom: 10px;">
+                    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">
+                        Modelo linear com feriados e sazonalidades captando a inflexão de preços de 2021 e projetando a banda orçamentária com 95% de confiança para 24 meses.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">🛡️ Detecção e Espaço de Decisão do Isolation Forest</div>
+                        <span class="card-badge" style="background: rgba(244, 63, 94, 0.2); color: #f43f5e;">Isolation Forest</span>
+                    </div>
+                    <img src="../charts/fig100_isolation_forest_abastecimento.png" alt="Isolation Forest Fronteira" style="width: 100%; border-radius: 8px; margin-bottom: 10px;">
+                    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">
+                        Triagem de 13.936 transações atípicas (1,39%), separando sobrepreços severos (média de R$ 52,33/L vs R$ 5,41/L normal) e volumes incompatíveis com o tanque (&gt; 90L em veículos leves).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Painel Categoria e Secretaria -->
+            <div class="card" style="margin-top: 16px;">
+                <div class="card-header">
+                    <div class="card-title">🏢 Estratificação de Gastos: Categoria Veicular × Secretaria Estadual</div>
+                    <span class="card-badge">Figura 101</span>
+                </div>
+                <img src="../charts/fig101_custos_por_categoria_secretaria.png" alt="Custos por Categoria e Secretaria" style="width: 100%; border-radius: 8px;">
+            </div>
+        </div>
+
+        <!-- Data Table: Veículos de Maior Custo -->
+        <div class="card" style="margin-bottom: 24px;">
+            <div class="card-header">
+                <div class="card-title">🚗 Veículos de Maior Demanda Energética (Top Consumidores)</div>
+                <span class="card-badge" id="table-count-label">20 registros</span>
+            </div>
+            <div class="table-responsive">
+                <table id="table-veiculos">
+                    <thead>
+                        <tr>
+                            <th>Placa</th>
+                            <th>Modelo / Marca</th>
+                            <th>Unidade Policial</th>
+                            <th style="text-align: right;">Despesa Total (R$)</th>
+                            <th style="text-align: right;">Litros Consumidos</th>
+                            <th style="text-align: right;">Abastecimentos</th>
+                            <th style="text-align: center;">Status de Consumo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-veiculos-body">
+                        <!-- Preenchido via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Data Table: Postos Credenciados -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">⛽ Rede de Postos Credenciados com Maior Faturamento</div>
+                <span class="card-badge">Fornecedores</span>
+            </div>
+            <div class="table-responsive">
+                <table id="table-postos">
+                    <thead>
+                        <tr>
+                            <th>Razão Social / Posto</th>
+                            <th>Município</th>
+                            <th style="text-align: right;">Valor Faturado (R$)</th>
+                            <th style="text-align: right;">Litros Fornecidos</th>
+                            <th style="text-align: right;">Preço Médio (R$/L)</th>
+                            <th style="text-align: right;">Transações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-postos-body">
+                        <!-- Preenchido via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p><strong>PPGCAP / CCT / UDESC — 2026</strong> • Modelagem Analítica e Prescritiva para Gestão da Frota Pública de SC</p>
+            <p style="margin-top: 4px; color: var(--text-muted);">Mestrando: Eduardo Lopes Jonker • Orientadora: Profa. Dra. Vivian Kremer Kalempa • Coorientador: Prof. Dr. Yuri Kaszubowski Lopes</p>
+        </footer>
+    </div>
+
+    <!-- Scripts de Interatividade e Gráficos -->
+    <script>
+        let rawData = null;
+        let chartTemp = null;
+        let chartComb = null;
+        let chartMun = null;
+        let chartUni = null;
+
+        const formatBRL = (val) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val);
+        const formatNum = (val) => new Intl.NumberFormat('pt-BR').format(val);
+
+        async function carregarDados() {
+            try {
+                const res = await fetch('data/abastecimentos_stats.json');
+                if (!res.ok) throw new Error('Falha ao obter JSON de abastecimentos');
+                rawData = await res.json();
+                inicializarFiltros();
+                renderizarKPIs();
+                renderizarGraficos();
+                renderizarTabelas();
+            } catch (err) {
+                console.error('Erro ao carregar dados:', err);
+                document.getElementById('table-veiculos-body').innerHTML = `<tr><td colspan="7" style="text-align:center; color: #f43f5e; padding: 20px;">Falha ao carregar dados analíticos. Verifique se o backend está executando.</td></tr>`;
+            }
+        }
+
+        function inicializarFiltros() {
+            if (!rawData) return;
+            const selectUnidade = document.getElementById('filter-unidade');
+            const unidades = rawData.unidades || [];
+            unidades.forEach(u => {
+                const opt = document.createElement('option');
+                opt.value = u.unidade;
+                opt.textContent = u.unidade.length > 45 ? u.unidade.substring(0, 42) + '...' : u.unidade;
+                selectUnidade.appendChild(opt);
+            });
+        }
+
+        function renderizarKPIs() {
+            if (!rawData) return;
+            const k = rawData.kpis;
+            document.getElementById('kpi-gasto').innerText = `R$ ${(k.total_gasto_reais / 1e6).toFixed(2)}M`;
+            document.getElementById('kpi-litros').innerText = `${(k.total_litros / 1e6).toFixed(2)}M L`;
+            document.getElementById('kpi-preco').innerText = `R$ ${k.preco_medio_geral.toFixed(2)} / L`;
+            document.getElementById('kpi-veiculos').innerText = formatNum(k.veiculos_unicos);
+            document.getElementById('kpi-anomalias').innerText = formatNum(k.anomalias.total_anomalias_detectadas);
+        }
+
+        function renderizarGraficos() {
+            if (!rawData) return;
+
+            // 1. Gráfico Temporal
+            const ctxTemp = document.getElementById('chartTemporal').getContext('2d');
+            const mensal = rawData.mensal || [];
+            const labelsM = mensal.map(m => m.mes_ano);
+            const gastosM = mensal.map(m => m.total_gasto / 1e6);
+            const litrosM = mensal.map(m => m.total_litros / 1e6);
+
+            if (chartTemp) chartTemp.destroy();
+            chartTemp = new Chart(ctxTemp, {
+                type: 'line',
+                data: {
+                    labels: labelsM,
+                    datasets: [
+                        {
+                            label: 'Despesa (R$ Milhões)',
+                            data: gastosM,
+                            borderColor: '#38bdf8',
+                            backgroundColor: 'rgba(56, 189, 248, 0.1)',
+                            fill: true,
+                            tension: 0.35,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'Volume (Milhões Litros)',
+                            data: litrosM,
+                            borderColor: '#10b981',
+                            backgroundColor: 'transparent',
+                            borderDash: [4, 4],
+                            tension: 0.35,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: '#94a3b8', font: { size: 11 } } },
+                        tooltip: { mode: 'index', intersect: false }
+                    },
+                    scales: {
+                        x: { ticks: { color: '#64748b', maxTicksLimit: 12 }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        y: { position: 'left', ticks: { color: '#38bdf8', callback: v => `R$ ${v}M` }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        y1: { position: 'right', ticks: { color: '#10b981', callback: v => `${v}M L` }, grid: { drawOnChartArea: false } }
+                    }
+                }
+            });
+
+            // 2. Gráfico Donut de Combustíveis
+            const ctxComb = document.getElementById('chartCombustivel').getContext('2d');
+            const combs = (rawData.combustiveis || []).slice(0, 5);
+            if (chartComb) chartComb.destroy();
+            chartComb = new Chart(ctxComb, {
+                type: 'doughnut',
+                data: {
+                    labels: combs.map(c => c.combustivel),
+                    datasets: [{
+                        data: combs.map(c => c.total_gasto),
+                        backgroundColor: ['#38bdf8', '#10b981', '#f59e0b', '#a855f7', '#64748b'],
+                        borderColor: '#111827',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#94a3b8', boxWidth: 12, font: { size: 10 } } }
+                    },
+                    cutout: '65%'
+                }
+            });
+
+            // 3. Top Municípios
+            const ctxMun = document.getElementById('chartMunicipios').getContext('2d');
+            const muns = (rawData.municipios || []).slice(0, 8);
+            if (chartMun) chartMun.destroy();
+            chartMun = new Chart(ctxMun, {
+                type: 'bar',
+                data: {
+                    labels: muns.map(m => m.cidade_posto),
+                    datasets: [{
+                        label: 'Gasto (R$ Milhões)',
+                        data: muns.map(m => (m.total_gasto / 1e6).toFixed(2)),
+                        backgroundColor: '#38bdf8',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { color: '#64748b' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        y: { ticks: { color: '#cbd5e1', font: { size: 11 } }, grid: { display: false } }
+                    }
+                }
+            });
+
+            // 4. Top Unidades
+            const ctxUni = document.getElementById('chartUnidades').getContext('2d');
+            const unis = (rawData.unidades || []).slice(0, 8);
+            if (chartUni) chartUni.destroy();
+            chartUni = new Chart(ctxUni, {
+                type: 'bar',
+                data: {
+                    labels: unis.map(u => u.unidade.length > 25 ? u.unidade.substring(0, 22) + '...' : u.unidade),
+                    datasets: [{
+                        label: 'Despesa (R$ Milhões)',
+                        data: unis.map(u => (u.total_gasto / 1e6).toFixed(2)),
+                        backgroundColor: '#6366f1',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { color: '#64748b' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        y: { ticks: { color: '#cbd5e1', font: { size: 10 } }, grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function renderizarTabelas() {
+            if (!rawData) return;
+
+            // Tabela de Veículos
+            const tbodyVeiculos = document.getElementById('table-veiculos-body');
+            const veiculos = rawData.veiculos_top || [];
+            tbodyVeiculos.innerHTML = veiculos.map((v, i) => `
+                <tr>
+                    <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #38bdf8;">${v.placa}</td>
+                    <td><strong>${v.marca}</strong> ${v.modelo}</td>
+                    <td style="color: #94a3b8; font-size: 12px;">${v.unidade}</td>
+                    <td style="text-align: right; font-weight: 700; color: #f8fafc;">${formatBRL(v.total_gasto)}</td>
+                    <td style="text-align: right;">${formatNum(v.total_litros)} L</td>
+                    <td style="text-align: right;">${formatNum(v.abastecimentos)}</td>
+                    <td style="text-align: center;">
+                        <span class="badge-pill ${i < 5 ? 'tag-danger' : 'badge-gasolina'}">
+                            ${i < 5 ? 'Alto Consumo' : 'Operacional'}
+                        </span>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Tabela de Postos
+            const tbodyPostos = document.getElementById('table-postos-body');
+            const postos = rawData.postos || [];
+            tbodyPostos.innerHTML = postos.map(p => `
+                <tr>
+                    <td><strong>${p.posto}</strong></td>
+                    <td style="color: #94a3b8;">${p.cidade_posto}</td>
+                    <td style="text-align: right; font-weight: 700; color: #f8fafc;">${formatBRL(p.total_gasto)}</td>
+                    <td style="text-align: right;">${formatNum(p.total_litros)} L</td>
+                    <td style="text-align: right; color: #10b981; font-weight: 700;">R$ ${p.preco_medio.toFixed(2)}</td>
+                    <td style="text-align: right;">${formatNum(p.abastecimentos)}</td>
+                </tr>
+            `).join('');
+        }
+
+        function filtrarTabela() {
+            const termo = document.getElementById('search-input').value.toLowerCase();
+            const linhas = document.querySelectorAll('#table-veiculos-body tr');
+            linhas.forEach(linha => {
+                const texto = linha.innerText.toLowerCase();
+                linha.style.display = texto.includes(termo) ? '' : 'none';
+            });
+        }
+
+        function aplicarFiltros() {
+            const ano = document.getElementById('filter-ano').value;
+            const comb = document.getElementById('filter-combustivel').value;
+            // Efeito visual dinâmico nos KPIs
+            renderizarKPIs();
+        }
+
+        function exportarCSV() {
+            if (!rawData || !rawData.veiculos_top) return;
+            let csv = "Placa;Marca;Modelo;Unidade;Total_Gasto_R$;Litros;Abastecimentos\n";
+            rawData.veiculos_top.forEach(v => {
+                csv += `${v.placa};${v.marca};${v.modelo};${v.unidade};${v.total_gasto};${v.total_litros};${v.abastecimentos}\n`;
+            });
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.setAttribute("download", "ranking_consumo_combustivel_frota_sc.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        window.addEventListener('DOMContentLoaded', carregarDados);
+    </script>
+</body>
+</html>

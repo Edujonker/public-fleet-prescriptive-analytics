@@ -1,0 +1,99 @@
+%% main.tex - Dissertação de Mestrado PPGCAP / UDESC
+%% Autor: Eduardo Lopes Jonker
+%% Orientadora: Profa. Dra. Vivian Kremer Kalempa
+%% Ano: 2026
+
+\documentclass[
+    12pt,
+    openright,
+    oneside,
+    a4paper,
+    chapter=TITLE,
+    section=TITLE,
+    sumario=abnt-6027-2012,
+    english,
+    brazil,
+    fleqn
+]{abntex2}
+
+\input{PacotesBasicos}
+
+% -----------------------------------------------------------------
+% Informações Institucionais e Metadados do Trabalho
+% -----------------------------------------------------------------
+\titulo{ANALÍTICA PRESCRITIVA, TEORIA DOS GRAFOS E INTELIGÊNCIA ARTIFICIAL EXPLICÁVEL PARA A GESTÃO DE FROTA VEICULAR NO SETOR PÚBLICO}
+
+\autor{Eduardo Lopes {}Jonker}
+\orientador{Profa. Dra. Vivian Kremer {}Kalempa}
+\coorientador{Prof. Dr. Yuri Kaszubowski {}Lopes}
+
+\instituicao{Universidade do Estado de Santa Catarina -- UDESC\\Centro de Ciências Tecnológicas -- CCT\\Programa de Pós-Graduação em Computação Aplicada -- PPGCAP}
+
+\tipotrabalho{Dissertação (Mestrado)}
+
+\preambulo{Dissertação apresentada ao Programa de Pós-Graduação em Computação Aplicada do Centro de Ciências Tecnológicas da Universidade do Estado de Santa Catarina, como requisito parcial para a obtenção do grau de Mestre em Computação Aplicada.}
+
+\local{Joinville -- SC}
+\data{2026}
+
+\makeindex
+
+\begin{document}
+
+\selectlanguage{brazil}
+\frenchspacing
+
+% -----------------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS (Sem numeração impressa - NBR 14724)
+% -----------------------------------------------------------------
+\pretextual
+\pagestyle{empty}
+\aliaspagestyle{chapter}{empty}
+\aliaspagestyle{cleared}{empty}
+
+\include{PreTextuais/Capa}
+\include{PreTextuais/FolhadeRosto}
+\include{PreTextuais/FichaCatalografica}
+\include{PreTextuais/FolhadeAprovacao}
+\include{PreTextuais/Dedicatoria}
+\include{PreTextuais/Agradecimentos}
+\include{PreTextuais/Epigrafe}
+\include{PreTextuais/Resumo}
+\include{PreTextuais/Abstract}
+\include{PreTextuais/Listas}
+\include{PreTextuais/Sumario}
+
+% -----------------------------------------------------------------
+% ELEMENTOS TEXTUAIS (Numeração no canto superior direito a partir da Introdução)
+% -----------------------------------------------------------------
+\textual
+\pagestyle{PagNumReduzida}
+\aliaspagestyle{chapter}{PagNumReduzida}
+
+\include{Textuais/Capitulo01_Introducao}
+\include{Textuais/Capitulo02_Fundamentacao}
+\include{Textuais/Capitulo03_Metodologia}
+\include{Textuais/Capitulo04_DeteccaoAnomalias}
+\include{Textuais/Capitulo05_ClassificacaoRisco}
+\include{Textuais/Capitulo06_RegressaoCustos}
+\include{Textuais/Capitulo07_ModelagemTemporal}
+\include{Textuais/Capitulo08_XAI}
+\include{Textuais/Capitulo09_OtimizacaoPrescritiva}
+\include{Textuais/Capitulo10_TeoriaGrafos}
+\include{Textuais/Capitulo11_GovernancaPublica}
+\include{Textuais/Capitulo12_GaleriaFiguras}
+\include{Textuais/Capitulo13_Conclusoes}
+
+% -----------------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% -----------------------------------------------------------------
+\postextual
+
+% Referências Bibliográficas (NBR 6023)
+\bibliography{referencias}
+
+\include{PosTextuais/ApendiceA}
+\include{PosTextuais/ApendiceB}
+\include{PosTextuais/ApendiceC}
+
+\end{document}

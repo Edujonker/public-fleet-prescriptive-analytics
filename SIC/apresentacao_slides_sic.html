@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>34º SIC UDESC - Apresentação Oficial: Sistema Integrado de Analítica Prescritiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f2043;
+            --teal: #0a9396;
+            --gold: #d98324;
+            --dark: #1b263b;
+            --light: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-dark: #2b2d42;
+            --text-muted: #6c757d;
+            --border-color: rgba(10, 147, 150, 0.25);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0b1329;
+            color: var(--light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .presentation-container {
+            width: 100%;
+            max-width: 1240px;
+            aspect-ratio: 16 / 9;
+            background: #ffffff;
+            color: var(--text-dark);
+            border-radius: 16px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .slide {
+            display: none;
+            flex: 1;
+            flex-direction: column;
+            padding: 40px 50px;
+            position: relative;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+        }
+        .slide.active {
+            display: flex;
+            animation: fadeIn 0.35s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Capa */
+        .slide.capa {
+            background: linear-gradient(145deg, #091326 0%, #0f2043 60%, #17325c 100%);
+            color: #ffffff;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 60px 70px;
+        }
+        .capa .institution {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 8px;
+        }
+        .capa .seminar {
+            font-size: 14px;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+        .capa h1 {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #ffffff;
+            margin-bottom: 28px;
+            max-width: 900px;
+        }
+        .capa .meta-box {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 4px solid var(--gold);
+            padding: 18px 24px;
+            border-radius: 8px;
+            max-width: 750px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .capa .meta-box strong { color: #ffffff; }
+        .capa .keywords {
+            margin-top: 18px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Slide Normal Header */
+        .slide-header {
+            border-bottom: 2px solid var(--teal);
+            padding-bottom: 14px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .slide-header .title-area h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+        .slide-header .title-area p {
+            font-size: 14px;
+            color: var(--teal);
+            font-weight: 500;
+        }
+        .slide-header .slide-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--gold);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Grid de Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            flex: 1;
+            align-items: stretch;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(10, 147, 150, 0.12);
+        }
+        .card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-title::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background: var(--gold);
+            border-radius: 3px;
+        }
+        .card-body {
+            font-size: 14px;
+            line-height: 1.55;
+            color: #495057;
+            flex: 1;
+        }
+        .card-body ul {
+            padding-left: 18px;
+            margin-top: 6px;
+        }
+        .card-body li {
+            margin-bottom: 6px;
+        }
+
+        /* Footer */
+        .slide-footer {
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            font-size: 11px;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Controles de Navegação */
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .btn-nav {
+            background: var(--navy);
+            color: #ffffff;
+            border: 1px solid var(--teal);
+            padding: 10px 22px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Outfit', sans-serif;
+        }
+        .btn-nav:hover {
+            background: var(--teal);
+            transform: translateY(-1px);
+        }
+        .slide-counter {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gold);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .download-links {
+            margin-top: 12px;
+            display: flex;
+            gap: 12px;
+        }
+        .download-links a {
+            color: #a0aec0;
+            font-size: 12px;
+            text-decoration: none;
+            padding: 4px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .download-links a:hover {
+            color: #ffffff;
+            border-color: var(--teal);
+        }
+    </style>
+</head>
+<body>
+
+<div class="presentation-container">
+    <!-- Slide 1: Capa -->
+    <div class="slide capa active" data-slide="1">
+        <div class="institution">Universidade do Estado de Santa Catarina (UDESC) • CCT / PPGCAP</div>
+        <div class="seminar">34º Seminário de Iniciação Científica e Pós-Graduação</div>
+        <h1>SISTEMA INTEGRADO DE ANALÍTICA PRESCRITIVA E OTIMIZAÇÃO EXATA PARA GESTÃO E AUDITORIA DA FROTA PÚBLICA ESTADUAL</h1>
+        <div class="meta-box">
+            <div><strong>Bolsista / Mestrando:</strong> Eduardo Henrique dos Santos Lopes Jonker (PROBIC / FAPESC)</div>
+            <div><strong>Orientadora:</strong> Profa. Dra. Vivian Kremer Kalempa</div>
+            <div><strong>Coorientador:</strong> Prof. Dr. Yuri Kaszubowski Lopes</div>
+            <div><strong>Área:</strong> Ciências Exatas e da Terra • <strong>Sub-área:</strong> Ciência da Computação / Otimização</div>
+        </div>
+        <div class="keywords">Palavras-chave: Analítica Prescritiva, Otimização MILP, Governança Algorítmica.</div>
+        <div class="slide-footer" style="color: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.1);">
+            <span>UDESC • CCT • Joinville, SC</span>
+            <span>Slide 1 de 14</span>
+        </div>
+    </div>
+
+    <!-- Slide 2: Contextualização -->
+    <div class="slide" data-slide="2">
+        <div class="slide-header">
+            <div class="title-area">
+                <h2>Contextualização: O Desafio da Gestão de Frotas Públicas</h2>
+                <p>Tensão Estrutural entre Prontidão Operacional, Limites Fiscais e Compliance Jurídico</p>
+            </div>
+            <div class="slide-number">02</div>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-title">Prontidão Crítica Ininterrupta</div>
+                <div class="card-body">
+                    Viaturas da Polícia Militar (PMSC), Polícia Civil (PCSC) e ambulâncias do SAMU exigem prontidão física permanente (≥ 95%). A paralisação por quebra mecânica compromete diretamente a segurança e a vida dos cidadãos.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Arcabouço Normativo Rígido</div>
+                <div class="card-body">
+                    A Lei de Responsabilidade Fiscal (LC 101/2000), os tetos da LOA e a Nova Lei de Licitações (Lei 14.133/2021) impõem comprovação inequívoca de economicidade e vantajosidade em cada intervenção e descarte.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Ineficiência dos Modelos Tradicionais</div>
+                <div class="card-body">
+                    Regimes puramente reativos (reparo após quebra em rua) ou preventivos rígidos por tempo/quilometragem teórica geram custos astronômicos com reboques, peças prematuramente trocadas e veículos antieconômicos.
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>34º SIC UDESC • Autor: Eduardo Lopes Jonker • Orientadora: Profa. Dra. Vivian Kremer Kalempa</span>
+            <span>Slide 2 de 14</span>
+        </div>
+    </div>
+
+    <!-- Slide 3: Níveis de Maturidade -->
+    <div class="slide" data-slide="3">
+        <div class="slide-header">
+            <div class="title-area">
+                <h2>A Pirâmide de Maturidade Analítica em Frotas</h2>
+                <p>Por Que o Modelo Preditivo Isolado Não é o Ápice para o Setor Público</p>
+            </div>
+            <div class="slide-number">03</div>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-title">1. Descritivo (Passado)</div>
+                <div class="card-body">
+                    <strong>O que aconteceu?</strong> Aponta o histórico de falhas e despesas. Registra quebras pretéritas sem gerar inteligência decisória proativa.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">2. Diagnóstico Causal</div>
+                <div class="card-body">
+                    <strong>Por que aconteceu?</strong> Identifica as causas raízes e anomalias contratuais via Ciência de Redes e Teoria dos Jogos.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">3. Preditivo (Estimativa)</div>
+                <div class="card-body">
+                    <strong>O que vai acontecer?</strong> Antecipa falhas e custos futuros com Machine Learning. Porém, não diz como alocar recursos finitos sob a LOA!
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">4. Prescritivo (O Ápice)</div>
+                <div class="card-body">
+                    <strong>O que devemos fazer?</strong> Programação Linear Inteira Mista (MILP). Otimiza a decisão sob restrições fiscais, prontidão e descarte por leilão.
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>34º SIC UDESC • Autor: Eduardo Lopes Jonker • Orientadora: Profa. Dra. Vivian Kremer Kalempa</span>
+            <span>Slide 3 de 14</span>
+        </div>
+    </div>
+
+    <!-- Slide 4: Da Abordagem Empírica à Técnico-Científica -->
+    <div class="slide" data-slide="4">
+        <div class="slide-header">
+            <div class="title-area">
+                <h2>Da Abordagem Empírica à Formulação Técnico-Científica</h2>
+                <p>Superando Heurísticas Informais por Métodos Matematicamente Auditáveis</p>
+            </div>
+            <div class="slide-number">04</div>
+        </div>
+        <div class="cards-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="card" style="border-left: 4px solid #e63946;">
+                <div class="card-title">Diagnóstico Empírico de Mercado (Heurístico)</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Trocas de peças baseadas em palpites e regras de "km médio".</li>
+                        <li>Suposição errônea de intercambiabilidade entre SHAP e LIME.</li>
+                        <li>Otimizações locais míopes sem comprovação formal de cota dual.</li>
+                        <li>Decisões passíveis de anulação judicial por ausência de motivação técnica.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="border-left: 4px solid var(--teal);">
+                <div class="card-title">Abordagem Técnico-Científica (Nossa Proposta)</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Decomposição Causal:</strong> Teoria dos Jogos Cooperativos (Axiomas de Shapley: Eficiência, Simetria, Aditividade).</li>
+                        <li><strong>Redes Complexas:</strong> Grafos Bipartidos Veículo-Oficina e Modularidade Louvain (Q = 0,5646).</li>
+                        <li><strong>Calibração Estatística:</strong> Isotonic Regression reduz Brier Score para 0,1043 e ECE para 0,0174.</li>
+                        <li><strong>Otimização Exata MILP:</strong> Solver Branch-and-Cut provando cota ótima com gap de 0,000567%.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>34º SIC UDESC • Autor: Eduardo Lopes Jonker • Orientadora: Profa. Dra. Vivian Kremer Kalempa</span>
+            <span>Slide 4 de 14</span>
+        </div>
+    </div>
+
+    <!-- Slide 5: Nível 1 - Censo SC -->
+    <div class="slide" data-slide="5">
+        <div class="slide-header">
+            <div class="title-area">
+                <h2>Nível 1 – Diagnóstico Descritivo: Censo Exaustivo de SC</h2>
+                <p>Microdados Reais e Auditáveis do Governo do Estado de Santa Catarina</p>
+            </div>
+            <div class="slide-number">05</div>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-title">Dimensão Patrimonial</div>
+                <div class="card-body">
+                    <strong>34.280 veículos</strong> cadastrados no acervo patrimonial do Estado de SC, com <strong>17.252 veículos</strong> em circulação ativa com dados telemáticos e cadastrais validados.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Manutenção e Glosas</div>
+                <div class="card-body">
+                    <strong>77.867 ordens de serviço</strong> executadas, somando <strong>350.737 itens mecânicos</strong>. R$ 138,76M em dispêndios autorizados e <strong>R$ 60,05M em glosas retidas</strong> pela fiscalização.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Consumo de Combustíveis</div>
+                <div class="card-body">
+                    <strong>1.000.000 de transações</strong> de abastecimento mapeadas em postos credenciados, totalizando <strong>R$ 153,49 milhões</strong> rigorosamente auditados.
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>34º SIC UDESC • Autor: Eduardo Lopes Jonker • Orientadora: Profa. Dra. Vivian Kremer Kalempa</span>
+            <span>Slide 5 de 14</span>
+        </div>
+    </div>
+
+    <!-- Slide 6: Nível 2 - Redes Complexas -->
+    <div class="slide" data-slide="6">
+        <div class="slide-header">
+            <div class="title-area">
+                <h2>Nível 2 – Diagnóstico Causal I: Redes Complexas Bipartidas</h2>
+                <p>Identificação de Comunidades e Hubs Monopolistas em Contratações Públicas</p>
+            </div>
+            <div class="slide-number">06</div>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-title">Grafo Bipartido de Afiliação</div>
+                <div class="card-body">
+                    Modelagem matemática <code>G = (V, W, E)</code> conectando veículos públicos (V) às oficinas mecânicas (W), ponderado pelo montante financeiro faturado.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Modularidade de Louvain</div>
+                <div class="card-body">
+                    O algoritmo de Louvain decompõe o sistema em <strong>18 clusters modulares</strong> (Q = 0,5646), demonstrando forte segregação territorial e dependência técnica de fornecedores.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Detecção de Anomalias</div>
+                <div class="card-body">
+                    Métricas de centralidade de intermediação (Betweenness) isolam oficinas centrais de risco. Uma sub-rede induzida isolou <strong>R$ 4.180.250,00</strong> em dispêndios anômalos.
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>34º SIC UDESC • Autor: Eduardo Lopes Jonker • Orientadora: Profa. Dra. Vivian Kremer Kalempa</span>
+            <span>Slide 6 de 14</span>
+        </div>
+    </div>
+
+    <!-- Slide 7: Nível 2 - Teoria dos Jogos e XAI -->
+    <div class="slide" data-slide="7">
+        <div class="slide-header">
+            <div class="title-area">
+                <h2>Nível 2 – Diagnóstico Causal II: Teoria dos Jogos e Divergência XAI</h2>
+                <p>Por Que LIME Falha em Auditoria Pública e SHAP Garante o Devido Processo Algorítmico</p>
+            </div>
+            <div class="slide-number">07</div>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-title">Axiomas Globais de Shapley (SHAP)</div>
+                <div class="card-body">
+                    Fundamentado na Teoria dos Jogos Cooperativos, SHAP cumpre rigorosamente os 4 axiomas: Eficiência, Simetria, Dummy e Aditividade. Garante motivação jurídica inatacável.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Instabilidade Amostral do LIME</div>
+                <div class="card-body">
+                    O método LIME aplica perturbações gaussianas locais estocásticas, apresentando alta variância em dados administrativos de cauda pesada, gerando insegurança jurídica.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Refutação Empírica da Hipótese H4</div>
+                <div class="card-body">
+                    Auditoria em 77.867 OSs revelou similaridade de Jaccard no Top-5 de apenas <strong>39,29% [IC 95%: 37,82%; 40,75%]</strong> e Spearman ρ = 0,3680. SHAP é o padrão legalmente defensável.
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>34º SIC UDESC • Autor: Eduardo Lopes Jonker • Orientadora: Profa. Dra. Vivian Kremer Kalempa</span>
+            <span>Slide 7 de 14</span>
+        </div>
+    </div>
+
+    <!-- Slide 8: Nível 3 - Preditivo Calibrado -->
+    <div class="slide" data-slide="8">
+        <div class="slide-header">
+            <div class="title-area">
+                <h2>Nível 3 – Diagnóstico Preditivo: Aprendizado Calibrado</h2>
+                <p>Modelagem de Desgaste Físico de Weibull e Confiabilidade Probabilística</p>
+            </div>
+            <div class="slide-number">08</div>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-title">HistGradientBoosting</div>
+                <div class="card-body">
+                    Ensemble supervisionado de árvores de decisão alcança R² = 0,748 e Erro Médio Absoluto de R$ 2.236,06 [IC 95% BCa: 2.146,76; 2.321,17] sobre dados de teste fora da amostra.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Calibração Isotônica</div>
+                <div class="card-body">
+                    Redução drástica do Brier Score para <strong>0,1043</strong> e do Erro Esperado de Calibração (ECE) para <strong>0,0174</strong>, eliminando o viés de otimismo antes de alimentar o MILP.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Curvas de Weibull</div>
+                <div class="card-body">
+                    Modelagem estocástica de sobrevivência com parâmetro de forma β = 1,42 e censura temporal à direita, capturando o desgaste físico progressivo da frota policial.
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>34º SIC UDESC • Autor: Eduardo Lopes Jonker • Orientadora: Profa. Dra. Vivian Kremer Kalempa</span>
+            <span>Slide 8 de 14</span>
+        </div>
+    </div>
+
+    <!-- Slide 9: Nível 4 - Prescritivo MILP -->
+    <div class="slide" data-slide="9">
+        <div class="slide-header">
+            <div class="title-area">
+                <h2>Nível 4 – Analítica Prescritiva: Formulação MILP Exata</h2>
+                <p>Minimização do Custo Total de Propriedade (TCO) sob Restrições Jurídico-Operacionais</p>
+            </div>
+            <div class="slide-number">09</div>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-title">Função Objetivo Rigorosa</div>
+                <div class="card-body">
+                    Minimiza o TCO global: Despesas com preventiva + Risco calibrado de corretiva + Custo de indisponibilidade + Depreciação - Receita de leilão.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Restrições Fiscais e Operacionais</div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>LOA:</strong> Despesa mensal ≤ Teto orçamentário legal.</li>
+                        <li><strong>Prontidão PMSC:</strong> Disponibilidade física ≥ 95,26%.</li>
+                        <li><strong>Oficinas:</strong> Alocação ≤ Limite de boxes credenciados.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Prova Formal de Otimalidade</div>
+                <div class="card-body">
+                    Resolução via Branch-and-Cut (HiGHS / Dual Simplex). Custo ótimo: <strong>R$ 43.837.633,31</strong> frente à cota linear de R$ 43.837.384,79 (Gap de apenas 0,000567%).
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>34º SIC UDESC • Autor: Eduardo Lopes Jonker • Orientadora: Profa. Dra. Vivian Kremer Kalempa</span>
+            <span>Slide 9 de 14</span>
+        </div>
+    </div>
+
+    <!-- Slide 10: Resultados e Economia -->
+    <div class="slide" data-slide="10">
+        <div class="slide-header">
+            <div class="title-area">
+                <h2>Resultados de Impacto: Economia e Eficiência Comprovadas</h2>
+                <p>Comparativo Direto com a Política Inercial Praticada pelo Estado</p>
+            </div>
+            <div class="slide-number">10</div>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-title">Economia Direta de 17,51%</div>
+                <div class="card-body">
+                    Redução líquida de <strong>R$ 9.302.147,26</strong> no cenário canônico S0 (custo reduzido de R$ 53,14M praticados pelo Estado para R$ 43,84M ótimos).
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Estudo Ablativo em 5 Estágios</div>
+                <div class="card-body">
+                    A otimização linear ingênua captura 47,5% da economia. A integração com o aprendizado de máquina calibrado viabiliza os <strong>52,5% restantes (+ R$ 4,88M líquidos)</strong>.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Projeção Plurianual (2027-2029)</div>
+                <div class="card-body">
+                    Simulações estocásticas de Monte Carlo (1.000 rodadas) projetam economia acumulada de <strong>R$ 40.088.374,00</strong> no triênio sob inflação setorial de 6,08% a.a.
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>34º SIC UDESC • Autor: Eduardo Lopes Jonker • Orientadora: Profa. Dra. Vivian Kremer Kalempa</span>
+            <span>Slide 10 de 14</span>
+        </div>
+    </div>
+
+    <!-- Slide 11: Desincorporação e Leilão -->
+    <div class="slide" data-slide="11">
+        <div class="slide-header">
+            <div class="title-area">
+                <h2>Desincorporação Patrimonial e Leilão Inteligente</h2>
+                <p>Aplicação Contábil Exata do Art. 5º do Decreto Estadual nº 47.539/2018</p>
+            </div>
+            <div class="slide-number">11</div>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-title">Critério Legal de Antieconomicidade</div>
+                <div class="card-body">
+                    Veículos cuja despesa de manutenção acumulada ultrapassa 40% do seu valor venal de mercado (Tabela FIPE) são legalmente classificados como antieconômicos.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">313 Veículos Alienáveis</div>
+                <div class="card-body">
+                    O solver identifica e prescreve o leilão imediato de <strong>313 veículos obsoletos</strong>, estancando manutenções repetitivas que drenam os cofres públicos.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Maximização da Receita Pública</div>
+                <div class="card-body">
+                    Ao alienar os veículos antes do colapso físico terminal, o Estado maximiza a receita auferida nos lotes de leilão público, realimentando a renovação da frota.
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>34º SIC UDESC • Autor: Eduardo Lopes Jonker • Orientadora: Profa. Dra. Vivian Kremer Kalempa</span>
+            <span>Slide 11 de 14</span>
+        </div>
+    </div>
+
+    <!-- Slide 12: Arquitetura e Trilha Criptográfica -->
+    <div class="slide" data-slide="12">
+        <div class="slide-header">
+            <div class="title-area">
+                <h2>Arquitetura do Sistema e Integridade Criptográfica</h2>
+                <p>Trilha de Auditoria Imutável SHA-256 e Devido Processo Algorítmico</p>
+            </div>
+            <div class="slide-number">12</div>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-title">Blockchain Audit Trail SHA-256</div>
+                <div class="card-body">
+                    Cada ordem de serviço, transação de combustível e prescrição é registrada em blocos com hash criptográfico SHA-256 encadeado. Imutabilidade para o Tribunal de Contas.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Isolation Forest Calibrado</div>
+                <div class="card-body">
+                    Detecção multimodal não supervisionada (contaminação ν = 0,0085, estabilidade multiseed J = 0,8055) isola <strong>662 OSs anômalas (R$ 16,58M)</strong> e 13.936 abastecimentos suspeitos.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Governança Algorítmica e LGPD</div>
+                <div class="card-body">
+                    Anonimização estrita de identificadores sensíveis (VEIC-XXXX), conformidade com a LGPD e motivação técnica auditável para cada ato administrativo sancionatório.
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>34º SIC UDESC • Autor: Eduardo Lopes Jonker • Orientadora: Profa. Dra. Vivian Kremer Kalempa</span>
+            <span>Slide 12 de 14</span>
+        </div>
+    </div>
+
+    <!-- Slide 13: Conclusões -->
+    <div class="slide" data-slide="13">
+        <div class="slide-header">
+            <div class="title-area">
+                <h2>Conclusões e Contribuições Científico-Tecnológicas</h2>
+                <p>Inovação Científica com Retorno Direto à Sociedade Catarinense</p>
+            </div>
+            <div class="slide-number">13</div>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-title">Contribuição Científica</div>
+                <div class="card-body">
+                    Primeiro framework da literatura a articular censo exaustivo, Teoria dos Jogos XAI, Redes Complexas e MILP exato para a administração pública com gap comprovado < 0,001%.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Impacto Prático e Social</div>
+                <div class="card-body">
+                    Economia potencial superior a <strong>R$ 40 milhões</strong> aos cofres públicos de SC, convertidos em maior prontidão das viaturas para proteção da sociedade.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Disseminação e Pós-Graduação</div>
+                <div class="card-body">
+                    4 artigos internacionais completos produzidos para submissão em periódicos Qualis A1 (Gestão & Produção, Decision Support Systems, RAP, IEEE).
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>34º SIC UDESC • Autor: Eduardo Lopes Jonker • Orientadora: Profa. Dra. Vivian Kremer Kalempa</span>
+            <span>Slide 13 de 14</span>
+        </div>
+    </div>
+
+    <!-- Slide 14: Final / Agradecimentos -->
+    <div class="slide capa" data-slide="14" style="text-align: center; align-items: center;">
+        <div class="institution">Universidade do Estado de Santa Catarina (UDESC)</div>
+        <div class="seminar">34º Seminário de Iniciação Científica e Pós-Graduação</div>
+        <h1 style="font-size: 28px; margin-bottom: 20px;">AGRADECIMENTOS</h1>
+        <div class="meta-box" style="text-align: left; max-width: 800px; margin-bottom: 20px;">
+            <p style="margin-bottom: 10px;">Os autores agradecem penhoradamente à <strong>Universidade do Estado de Santa Catarina (UDESC)</strong>, ao <strong>Centro de Ciências Tecnológicas (CCT)</strong>, ao <strong>Programa de Pós-Graduação em Computação Aplicada (PPGCAP)</strong>, à <strong>FAPESC</strong> e ao <strong>CNPq</strong> pelo apoio institucional e fomento à pesquisa.</p>
+            <p>Especial reconhecimento à orientadora, <strong>Profa. Dra. Vivian Kremer Kalempa</strong>, e ao coorientador, <strong>Prof. Dr. Yuri Kaszubowski Lopes</strong>, pela orientação de excelência e rigor metodológico.</p>
+        </div>
+        <div class="meta-box" style="text-align: center; max-width: 600px;">
+            <div><strong>Contatos Institucionais:</strong></div>
+            <div>eduardo.jonker@edu.udesc.br • vivian.kalempa@udesc.br • yuri.lopes@udesc.br</div>
+        </div>
+        <div class="slide-footer" style="color: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.1); width: 100%;">
+            <span>UDESC • CCT • Joinville, SC</span>
+            <span>Slide 14 de 14</span>
+        </div>
+    </div>
+</div>
+
+<div class="controls">
+    <button class="btn-nav" id="prevBtn" onclick="prevSlide()">◀ Anterior</button>
+    <div class="slide-counter" id="slideCounter">Slide 1 / 14</div>
+    <button class="btn-nav" id="nextBtn" onclick="nextSlide()">Próximo ▶</button>
+    <button class="btn-nav" style="background: var(--teal);" onclick="toggleFullscreen()">⛶ Tela Cheia</button>
+</div>
+
+<div class="download-links">
+    <a href="Apresentacao_34_SIC_UDESC.pptx" download>📥 Baixar Apresentação PowerPoint (.pptx)</a>
+    <a href="Resumo_Expandido_34_SIC_UDESC.docx" download>📄 Baixar Resumo Expandido Word (.docx)</a>
+    <a href="Resumo_Expandido_34_SIC_UDESC.pdf" download>📑 Baixar Resumo Expandido PDF (.pdf)</a>
+</div>
+
+<script>
+    let currentSlide = 1;
+    const totalSlides = 14;
+
+    function showSlide(n) {
+        if (n < 1) n = 1;
+        if (n > totalSlides) n = totalSlides;
+        currentSlide = n;
+
+        document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+        const activeSlide = document.querySelector(`.slide[data-slide="${currentSlide}"]`);
+        if (activeSlide) activeSlide.classList.add('active');
+
+        document.getElementById('slideCounter').textContent = `Slide ${currentSlide} / ${totalSlides}`;
+        document.getElementById('prevBtn').disabled = (currentSlide === 1);
+        document.getElementById('nextBtn').disabled = (currentSlide === totalSlides);
+    }
+
+    function prevSlide() { showSlide(currentSlide - 1); }
+    function nextSlide() { showSlide(currentSlide + 1); }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') nextSlide();
+        if (e.key === 'ArrowLeft' || e.key === 'PageUp') prevSlide();
+    });
+
+    function toggleFullscreen() {
+        const container = document.querySelector('.presentation-container');
+        if (!document.fullscreenElement) {
+            container.requestFullscreen().catch(err => alert(`Erro ao entrar em tela cheia: ${err.message}`));
+        } else {
+            document.exitFullscreen();
+        }
+    }
+</script>
+
+</body>
+</html>

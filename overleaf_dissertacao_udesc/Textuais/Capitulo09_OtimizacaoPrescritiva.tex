@@ -1,0 +1,40 @@
+% Textuais/Capitulo09_OtimizacaoPrescritiva.tex
+\chapter{OTIMIZAÇÃO PRESCRITIVA (MILP), PROTOCOLO S0 E DECISÃO SOB RESTRIÇÕES (HIPÓTESE H3)}
+\label{cap:milp}
+
+A formulação canônica de Programação Linear Inteira Mista (\textit{Mixed-Integer Linear Programming} -- MILP) modela a alocação ótima e o escalonamento de manutenções preventivas veiculares sob restrições orçamentárias e de capacidade instalada da rede credenciada de oficinas. A função objetivo bi-critério visa minimizar conjuntamente o dispêndio orçamentário direto com intervenções programadas e o risco operacional residual decorrente de potenciais quebras corretivas:
+
+\begin{equation}
+    \min_{x} \quad Z = \sum_{t=1}^{T} \sum_{i=1}^{N} \left[ \alpha \cdot c_{it} x_{it} + \beta \cdot r_{it} (1 - x_{it}) \right]
+    \label{eq:milp_objetivo}
+\end{equation}
+
+\noindent sujeita ao conjunto de restrições operacionais, orçamentárias e físicas:
+\begin{align}
+    \sum_{i=1}^{N} c_{it} x_{it} &\le B_t, \quad \forall t \in \{1, \dots, T\} \label{eq:milp_orcamento} \\
+    \sum_{i=1}^{N} h_{it} x_{it} &\le H_t, \quad \forall t \in \{1, \dots, T\} \label{eq:milp_capacidade} \\
+    x_{it} &\ge m_{it}, \quad \forall (i, t) \mid m_{it} = 1 \label{eq:milp_obrigatoria} \\
+    x_{it} &\in \{0, 1\}, \quad \forall i \in \{1, \dots, N\}, \, \forall t \in \{1, \dots, T\} \label{eq:milp_dominio}
+\end{align}
+
+\noindent na qual os índices, variáveis de decisão e parâmetros do modelo linearizado são formalmente definidos por:
+\begin{itemize}
+    \item $i \in \{1, \dots, N\}$: índice correspondente a cada veículo oficial monitorado na frota pública ($N = 2.000$ na instância canônica S0);
+    \item $t \in \{1, \dots, T\}$: índice do período de planejamento temporal discreto em meses ($T = 36$ períodos mensais, cobrindo o triênio de governança);
+    \item $x_{it} \in \{0, 1\}$: variável de decisão binária que assume o valor $1$ caso o veículo $i$ seja escalonado para manutenção preventiva no período $t$, e $0$ caso contrário, conforme fixado na Equação~(\ref{eq:milp_dominio});
+    \item $c_{it}$: custo unitário financeiro estimado para a execução da manutenção preventiva do veículo $i$ no mês $t$ (em Reais);
+    \item $r_{it}$: custo de risco operacional associado à falha corretiva do veículo $i$ no mês $t$ caso a intervenção preventiva não seja executada ($x_{it} = 0$), calculado a partir da probabilidade condicional de falha calibrada multiplicada pelo custo severo de reparo emergencial;
+    \item $\alpha, \beta \in [0, 1]$: fatores exógenos de ponderação no \textit{trade-off} bi-objetivo entre dispêndio orçamentário direto ($\alpha$) e mitigação do risco de indisponibilidade ($\beta$), satisfazendo $\alpha + \beta = 1$ (adotando-se $\alpha = 0,5$ e $\beta = 0,5$ no cenário de referência equilibrado);
+    \item $B_t$: teto orçamentário financeiro máximo disponível para o custeio de manutenções preventivas no período mensal $t$ (em Reais), formalizado na Equação~(\ref{eq:milp_orcamento}), vinculado aos limites de empenho fixados na Lei Orçamentária Anual (LOA);
+    \item $h_{it}$: demanda estimada de mão de obra para a execução da manutenção preventiva do veículo $i$ no mês $t$ (em horas-homem de serviço de oficina);
+    \item $H_t$: capacidade máxima física disponível de mão de obra na rede credenciada de oficinas mecânicas no período $t$ (em horas-homem mensais), delimitada na Equação~(\ref{eq:milp_capacidade});
+    \item $m_{it} \in \{0, 1\}$: parâmetro binário de obrigatoriedade legal ou técnica que impõe preventivas compulsórias ($x_{it} = 1$) para o veículo $i$ no período $t$, conforme a Equação~(\ref{eq:milp_obrigatoria}), garantindo o cumprimento compulsório de revisões de segurança, garantias contratuais de montadora ou itens de risco viário crítico.
+\end{itemize}
+
+No Cenário de Referência S0 (2.000 veículos monitorados por 36 períodos mensais, totalizando 72.000 variáveis binárias e 6.072 restrições lineares), o solver \textit{HiGHS} convergiu em 8,92 segundos com \textbf{MIP Gap certificado de 0,0000\%}, obtendo um custo To-Be otimizado de \textbf{R\$ 43.837.633,31} frente à linha de base inercial de R\$ 53.139.780,57. Esse resultado demonstra uma \textbf{economia líquida potencial simulada de R\$ 9.302.147,26 (redução de 17,51\%)} com 95,26\% de disponibilidade média da frota e 100\% de cumprimento compulsório das manutenções mandatórias de segurança.
+
+\section{Análise de Preços-Sombra (Shadow Prices) e Capacidade de Oficinas}
+
+Os multiplicadores duais ($\lambda_t$) associados à restrição orçamentária da Equação~(\ref{eq:milp_orcamento}) governada por $B_t$ foram extraídos da \textbf{relaxação linear contínua (LP)} da instância S0. Ressalva-se que, em problemas inteiros com variáveis binárias ($x_{it} \in \{0, 1\}$), \textbf{não há teoria de dualidade forte equivalente à programação linear clássica}: os preços-sombra derivados da relaxação contínua constituem indicadores aproximados de sensibilidade marginal local e \textit{não devem ser interpretados como derivadas estritas no problema MILP}, cuja resposta a variações orçamentárias de $B_t$ é discreta e deve ser aferida por reotimização paramétrica global.
+
+Por sua vez, a restrição de capacidade física das oficinas credenciadas ($H_t$), expressa na Equação~(\ref{eq:milp_capacidade}), não se mostrou vinculante em nenhum dos 36 períodos da simulação (\textbf{0,0\% dos meses com multiplicador dual nulo}). Esse comportamento evidencia que, \textit{sob os parâmetros agregados de capacidade de horas adotados no cenário S0}, a dotação financeira $B_t$ constitui o gargalo ativo primário na governança de frotas públicas. Todavia, esse resultado numérico \textbf{não autoriza a inferência de que haja ociosidade física generalizada em todas as mecânicas conveniadas de Santa Catarina}, visto que a parametrização agregada de $H_t$ não captura atritos logísticos locais, picos sazonais de fim de exercício, especialidades mecânicas raras ou barreiras de distância geográfica entre unidades operacionais e estabelecimentos credenciados.

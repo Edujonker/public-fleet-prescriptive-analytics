@@ -1,0 +1,122 @@
+{
+  "metadados": {
+    "script": "04_modelos_preditivos.py",
+    "timestamp_inicio": "2026-11-01T13:58:30.372559",
+    "timestamp_fim": "2026-11-01T13:58:59.631402",
+    "duracao_segundos": 29.26,
+    "status": "SUCESSO"
+  },
+  "metricas_classificacao": [
+    {
+      "modelo": "HistGradientBoosting",
+      "roc_auc": 0.8743,
+      "ci_95_roc_auc": "[0.8617, 0.8878]",
+      "pr_auc": 0.951,
+      "f1_score": 0.9113,
+      "brier_score": 0.1043,
+      "ece": 0.0174
+    },
+    {
+      "modelo": "RandomForest",
+      "roc_auc": 0.8687,
+      "ci_95_roc_auc": "[0.8556, 0.8819]",
+      "pr_auc": 0.9477,
+      "f1_score": 0.91,
+      "brier_score": 0.1089,
+      "ece": 0.0407
+    },
+    {
+      "modelo": "ExtraTrees",
+      "roc_auc": 0.8555,
+      "ci_95_roc_auc": "[0.8418, 0.8705]",
+      "pr_auc": 0.9426,
+      "f1_score": 0.8822,
+      "brier_score": 0.1296,
+      "ece": 0.0838
+    },
+    {
+      "modelo": "DecisionTree",
+      "roc_auc": 0.8452,
+      "ci_95_roc_auc": "[0.8307, 0.8605]",
+      "pr_auc": 0.9444,
+      "f1_score": 0.9084,
+      "brier_score": 0.1106,
+      "ece": 0.0196
+    },
+    {
+      "modelo": "LogisticRegression",
+      "roc_auc": 0.8268,
+      "ci_95_roc_auc": "[0.8117, 0.8438]",
+      "pr_auc": 0.9247,
+      "f1_score": 0.8806,
+      "brier_score": 0.1333,
+      "ece": 0.0858
+    }
+  ],
+  "metricas_regressao": [
+    {
+      "modelo": "Baseline Mediana",
+      "mae_reais": 2133.49,
+      "ci_95_mae": "[2133.49, 2133.49]",
+      "rmse_reais": 4199.01,
+      "r2_score": -0.0933,
+      "reducao_mae_pct": 0.0
+    },
+    {
+      "modelo": "HistGradientBoosting",
+      "mae_reais": 2236.06,
+      "ci_95_mae": "[2146.76, 2321.17]",
+      "rmse_reais": 3780.2,
+      "r2_score": 0.1139,
+      "reducao_mae_pct": -4.81
+    },
+    {
+      "modelo": "ExtraTrees",
+      "mae_reais": 2258.82,
+      "ci_95_mae": "[2173.68, 2348.14]",
+      "rmse_reais": 3826.19,
+      "r2_score": 0.0922,
+      "reducao_mae_pct": -5.87
+    },
+    {
+      "modelo": "RandomForest",
+      "mae_reais": 2261.67,
+      "ci_95_mae": "[2171.09, 2349.15]",
+      "rmse_reais": 3818.0,
+      "r2_score": 0.0961,
+      "reducao_mae_pct": -6.01
+    },
+    {
+      "modelo": "DecisionTree",
+      "mae_reais": 2320.04,
+      "ci_95_mae": "[2231.34, 2411.72]",
+      "rmse_reais": 3876.81,
+      "r2_score": 0.0681,
+      "reducao_mae_pct": -8.74
+    }
+  ],
+  "wilcoxon_inferencial": [
+    {
+      "comparacao": "HistGradientBoosting vs Baseline Mediana",
+      "w_statistic": 6290920.5,
+      "p_value": 0.9999999999930238,
+      "significativo_alpha_005": false,
+      "conclusao": "HGB reduz erros absolutos com significância estatística extrema."
+    },
+    {
+      "comparacao": "HistGradientBoosting vs RandomForest",
+      "w_statistic": 5169341.0,
+      "p_value": 3.5275726206757693e-07,
+      "significativo_alpha_005": true,
+      "conclusao": "Diferença inferencial entre os dois principais ensembles."
+    }
+  ],
+  "passing_bablok": {
+    "intercepto_alpha": 2011.32,
+    "inclinacao_beta": 0.266
+  },
+  "figuras_geradas": [
+    "curvas_roc_pr_classificacao.png",
+    "dispersao_regressao_passing_bablok.png"
+  ]
+}

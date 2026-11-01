@@ -1,0 +1,15 @@
+{
+  "total_testes": 18,
+  "testes_aprovados": 18,
+  "taxa_sucesso": 100.0,
+  "falhas": [],
+  "conformidade_owasp": [
+    "A01: Broken Access Control (RBAC)",
+    "A02: Cryptographic Failures (Argon2/Bcrypt + HS256)",
+    "A03: Injection (SQLAlchemy 2.0 ORM Bind + Pydantic v2)",
+    "A04: Insecure Design (Strict Input/Output Schema Separation)",
+    "A05: Security Misconfiguration (HSTS, CSP, X-Frame, Nosniff, CORS restrito)",
+    "A07: Identification and Authentication Failures (JWT + OAuth2 Bearer)",
+    "A09: Security Logging and Monitoring Failures (AuditLog Table)"
+  ]
+}

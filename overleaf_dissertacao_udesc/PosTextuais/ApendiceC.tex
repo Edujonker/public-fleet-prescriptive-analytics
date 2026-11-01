@@ -1,0 +1,66 @@
+% PosTextuais/ApendiceC.tex
+\chapter{CADERNO METODOLÓGICO DE REPRODUTIBILIDADE (DIRETRIZES ACM E INFORMS)}
+\label{apendice:c}
+
+Em alinhamento com as diretrizes da ACM e da INFORMS, o framework disponibiliza semente determinística global (seed 42), dicionário de variáveis, linhagem completa de dados, código aberto dos modelos e suíte automatizada de testes com Pytest (10/10 testes aprovados).
+
+\section{Delimitação entre Protocolo A e Protocolo B na Portabilidade}
+
+\begin{itemize}
+    \item \textbf{Protocolo A (Base Processada em Parquet com Hashes SHA-256 e Anonimização LGPD):} Apresenta portabilidade plenamente verificada e congruência matemática absoluta entre os ambientes Linux e Windows 11 (zero drift e diferença de R\$ 0,00 no fechamento aritmético do solver HiGHS, com 20 de 20 checkpoints aprovados).
+    \item \textbf{Protocolo B (Ingestão Primária a partir do CSV Bruto de 1,2 GB):} O código de saída 1 observado no script preliminar no ambiente Windows decorreu exclusivamente da supressão deliberada do arquivo CSV desanonimizado, retido por imperativo de proteção de dados pessoais (LGPD). Portanto, o Protocolo B permanece condicionado à disponibilização institucional dos dados brutos.
+\end{itemize}
+
+\section{Comprovação de Reprodutibilidade via Trilha de Logs e Artefatos Originais (Protocolo A)}
+
+A reprodutibilidade experimental é rigorosamente bem delimitada no \textbf{Protocolo A}, assegurando portabilidade multiplataforma autônoma e congruência matemática absoluta (20 de 20 checkpoints aprovados, zero \textit{drift} e fechamento financeiro exato ao centavo de R\$ 9.302.147,26 no Cenário S0 do solver HiGHS). Contudo, em estrito rigor metodológico e pericial, a confirmação independente por pesquisadores externos e órgãos de controle público (TCE-SC) não se apoia em alegações abstratas: ela \textbf{depende diretamente da verificação e conferência cruzada dos logs de execução e da integridade criptográfica dos artefatos originais preservados no repositório}.
+
+Para viabilizar a auditoria forense integral sem necessidade de requisição à custódia restrita dos dados brutos (preservados sob sigilo da LGPD), disponibilizam-se as assinaturas digitais criptográficas SHA-256 calculadas sobre os arquivos originais persistidos no repositório:
+
+\begin{table}[H]
+\centering
+\small
+\caption{Matriz de Integridade Criptográfica dos Artefatos Originais e Logs Auditados (Protocolo A)}
+\label{tab:integridade_artefatos}
+\begin{tabularx}{\textwidth}{l c X l}
+\toprule
+\textbf{Artefato / Base de Dados} & \textbf{Tamanho} & \textbf{Conteúdo Científico Auditado} & \textbf{Hash SHA-256 (Truncado)} \\
+\midrule
+\texttt{os\_consolidadas\_processadas.parquet} & 6,41 MB & 77.867 ordens de serviço (2020--2026) & \texttt{0cedc6f73196...} \\
+\texttt{os\_itens\_processados.parquet} & 12,88 MB & 350.737 itens de peças e mão de obra & \texttt{fcc0797db4c8...} \\
+\texttt{painel\_veiculo\_mes\_longitudinal.parquet} & 1,79 MB & 42.278 pares veículo-mês para MILP & \texttt{98958c6016a5...} \\
+\texttt{os\_anomalias\_detectadas.parquet} & 7,15 MB & 662 anomalias (Isolation Forest) & \texttt{558d385dee6a...} \\
+\texttt{base\_institucional\_b\_benchmark.parquet} & 208 KB & 5.000 OSs / 500 veíc. (Benchmark Sintético) & \texttt{e6d710147e31...} \\
+\texttt{registro\_auditoria\_ocorrencias.jsonl} & 15,0 KB & Trilha append-only com timestamp UTC & \texttt{08c32134f31e...} \\
+\texttt{relatorio\_auditoria\_portabilidade.json} & 3,0 KB & 6 indicadores de portabilidade multi-OS & \texttt{78e52b96ca5b...} \\
+\texttt{certificado\_reprodutibilidade\_cientifica.json} & 3,9 KB & Certificação formal dos 20 checkpoints & \texttt{9f26499181ac...} \\
+\bottomrule
+\end{tabularx}
+\fonte{Trilha de auditoria criptográfica e artefatos de dados do projeto (2026).}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Trilha Auditada de Execução dos Scripts e Evidências Científicas Telemetrizadas (Protocolo A)}
+\label{tab:logs_execucao}
+\begin{tabularx}{\textwidth}{l c c X}
+\toprule
+\textbf{Script / Módulo} & \textbf{Duração} & \textbf{Status} & \textbf{Evidência Científica Extraída do Log de Execução} \\
+\midrule
+\texttt{01\_auditoria\_dados.py} & 7,98s & 0 (OK) & 77.867 OSs auditadas; R\$ 198,81M orçado = R\$ 60,05M glosas (30,2\%) + R\$ 138,76M liq. (69,8\%). \\
+\texttt{04\_modelos\_preditivos.py} & 33,76s & 0 (OK) & HistGB ROC-AUC 0,8743 / PR-AUC 0,9510; Wilcoxon $p = 1,00$ vs mediana; Passing-Bablok linear. \\
+\texttt{06\_teoria\_grafos.py} & 7,35s & 0 (OK) & 803 oficinas na rede projetada; 18 comunidades detectadas via Louvain com $Q = 0,5646$. \\
+\texttt{07\_explicabilidade\_xai.py} & 3,43s & 0 (OK) & SHAP vs LIME: Spearman $\rho = 0,3680$; Jaccard Top-5 = 39,29\% (divergência geométrica). \\
+\texttt{08\_otimizacao\_milp.py} & 9,15s & 0 (OK) & HiGHS Gap = 0,0000\% (Ótimo Provado); Economia Prescritiva S0: R\$ 9.302.147,26 (17,51\%). \\
+\texttt{09\_validacao\_estatistica.py} & 1,36s & 0 (OK) & Wilcoxon $p < 10^{-15}$; H1 Não Sustentada (meta 15\%); H2 Parcial; H3 Sustentada; H4 Não Sustentada. \\
+\texttt{verificar\_replicacao.py} & 3,34s & 0 (OK) & 20 de 20 Checkpoints Auditados com Sucesso (100\% REPRODUTÍVEL, zero drift entre OSs). \\
+\texttt{pytest tests/ -v} & 0,72s & 0 (OK) & 10/10 testes unitários formais aprovados; fechamento aritmético exato ao centavo verificado. \\
+\bottomrule
+\end{tabularx}
+\fonte{Log consolidado de execução computacional \texttt{results/logs/execucao\_log.json} (ID: RUN-20261022-114541-V1-B6D5D39).}
+\end{table}
+
+A validação autônoma para pesquisadores externos é executada via \texttt{pytest tests/test\_reproducibility.py -v} e \texttt{python scripts/11\_consolidar\_auditoria\_portabilidade.py}.
+
+\end{apendicesenv}

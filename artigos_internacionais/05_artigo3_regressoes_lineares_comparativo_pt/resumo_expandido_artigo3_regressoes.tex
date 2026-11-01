@@ -1,0 +1,68 @@
+\documentclass[10pt,a4paper,journal]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{setspace}
+\onehalfspacing
+
+\title{Resumo Expandido Artigo3 Regressoes}
+\author{Eduardo Lopes Jonker, Vivian Kremer Kalempa, Yuri Kaszubowski Lopes\\ \small Universidade do Estado de Santa Catarina (UDESC) -- PPGCAP}
+\date{2026}
+
+\begin{document}
+\maketitle
+
+\subsection{Do OLS aos Estimadores Robustos, Regularizados e Quantílicos sob Heterocedasticidade e Caudas Pesadas}
+**Evento/Destino:** Seminário de Pesquisa e Extensão / Pós-Graduação PPGCAP - UDESC
+
+**Autor:** Eduardo Lopes Jonker
+
+**Orientadora:** Profa. Dra. Vivian Kremer Kalempa
+
+**Coorientador:** Prof. Dr. Yuri Kaszubowski Lopes
+
+**Instituição:** Universidade do Estado de Santa Catarina (UDESC) - Centro de Educação Superior do Alto Vale do Itajaí (CEAVI) / Centro de Ciências Tecnológicas (CCT)
+
+\begin{abstract}
+Este resumo expandido apresenta um benchmark empírico exaustivo de 10 algoritmos de regressão linear avaliados sobre 60.000 ordens de serviço da frota pública de Santa Catarina, evidenciando a superioridade de estimadores robustos.
+
+**Palavras-chave:** Regressão Linear Robusta; M-Estimador de Huber; Regressão Quantílica; Gestão de Frotas Públicas; Avaliação de Modelos.
+
+---
+
+\end{abstract}
+
+\section{1. Problemática}
+A previsão de custos de manutenção veicular na administração pública é essencial para a elaboração do Plano Plurianual (PPA) e da Lei Orçamentária Anual (LOA). Contudo, os dados de frotas públicas apresentam distribuições acentuadamente assimétricas, heterocedasticidade pronunciada e caudas pesadas decorrentes de sinistros graves e superfaturamentos, desestabilizando modelos estatísticos tradicionais.
+
+\section{2. Problema Científico}
+Embora modelos complexos de inteligência artificial ofereçam alta capacidade de ajuste, a gestão pública exige explicabilidade intrínseca para atender aos órgãos de fiscalização e aos princípios do Devido Processo Algorítmico. O problema científico consiste em identificar qual formulação matemática da família da regressão linear oferece a melhor combinação entre acurácia preditiva, robustez a outliers de superfaturamento e estabilidade sob severa violação das premissas de Gauss-Markov.
+
+\section{3. Objetivo}
+O objetivo deste trabalho é comparar empiricamente o desempenho preditivo, a estabilidade e a sensibilidade a ruídos de dez formulações de regressão linear (OLS, Ridge, Lasso, ElasticNet, Huber, RANSAC, Theil-Sen, Bayesian Ridge, Regressão Quantílica tau=0,50 e GLM Gamma) aplicadas a microdados reais de frotas estatais.
+
+\section{4. Método}
+O estudo conduziu um benchmark controlado sobre uma amostra de 60.000 Ordens de Serviço faturadas da frota do Estado de Santa Catarina. Foram extraídas variáveis preditoras fundamentadas na idade do veículo, quilometragem acumulada, intensidade de uso anual, horas de mão de obra e categoria operacional. Os modelos foram avaliados via validação cruzada k-fold (k = 10) e partição holdout (80/20), mensurando R², MAE, RMSE, MedAE, MAPE e tempo de treinamento, complementados por testes não paramétricos pareados de Wilcoxon com correção de Holm.
+
+\section{5. Resultado}
+Os resultados comprovam a vulnerabilidade do OLS clássico (MAE de R\$ 414,95 e MedAE de R\$ 257,54) frente aos estimadores robustos. O Huber Regressor e a Regressão Quantílica (tau = 0,50) apresentaram desempenho nitidamente superior, reduzindo o MAE para R\$ 347,49 e R\$ 344,49, e o MedAE para R\$ 126,90 e R\$ 106,03, respectivamente (redução superior a 58\% no erro mediano). O teste pareado de Wilcoxon confirmou diferença estatisticamente significante (p < 0,001) em favor do Huber frente ao OLS. Conclui-se que o M-estimador de Huber e a perda em pinball quantílica devem ser adotados como padrão de modelagem para projeção orçamentária e detecção de glosas em frotas governamentais.
+
+\section{Referências Bibliográficas}
+\begin{itemize}
+\item Huber, P. J. (1981). Robust Statistics. John Wiley \& Sons, New York.
+\end{itemize}
+\begin{itemize}
+\item Koenker, R., \& Bassett, G. (1978). Regression quantiles. Econometrica, 46(1), 33-50.
+\end{itemize}
+\begin{itemize}
+\item Rousseeuw, P. J., \& Leroy, A. M. (1987). Robust Regression and Outlier Detection. John Wiley \& Sons.
+\end{itemize}
+\begin{itemize}
+\item Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. Journal of the Royal Statistical Society: Series B, 58(1), 267-288.
+\end{itemize}
+\end{document}

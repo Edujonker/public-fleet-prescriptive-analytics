@@ -1,0 +1,430 @@
+{
+  "metadados": {
+    "autor": "Eduardo Lopes Jonker",
+    "orientadora": "Profa. Dra. VIVIAN KREMER KALEMPA",
+    "coorientador": "Prof. Dr. YURI KASZUBOWSKI LOPES",
+    "instituicao": "UDESC / CCT / PPGCAP",
+    "linha_pesquisa": "Metodologia e Técnicas de Computação (MTC)",
+    "ano": 2026,
+    "solicitante_demanda": "Helio SEA DITI (Secretaria de Estado da Administração de Santa Catarina)",
+    "tema": "Aplicação de Metodologias Não Paramétricas em Dados Não Normais de Gestão de Frota Pública"
+  },
+  "testes_nao_normalidade": {
+    "target_custo_t1": {
+      "n": 6099,
+      "media": 2593.121467453681,
+      "mediana": 1209.2,
+      "desvio_padrao": 4598.757280062168,
+      "assimetria_skewness": 7.826692445210192,
+      "curtose_kurtosis": 115.60858792914256,
+      "dagostino_pearson_k2": 8423.824697204345,
+      "dagostino_pearson_p_valor": 0.0,
+      "shapiro_wilk_stat": 0.5035107271810302,
+      "shapiro_wilk_p_valor": 1.7638118916796275e-77,
+      "conclusao": "NÃO NORMAL (Rejeição categórica de H0 com p < 1e-16)"
+    },
+    "residuos_ols_parametrico": {
+      "assimetria": 7.734942682055381,
+      "curtose": 117.88374072950448,
+      "dagostino_pearson_p_valor": 0.0,
+      "violacao_pressuposto_normalidade": true
+    }
+  },
+  "passing_bablok": {
+    "predito_vs_real": {
+      "slope": 3.317994877789831,
+      "slope_ci": [
+        3.0520698714208536,
+        3.614491812125638
+      ],
+      "intercept": -5855.120556241516,
+      "intercept_ci": [
+        -6502.857834674922,
+        -5247.983170038893
+      ],
+      "max_cusum": 688.0,
+      "n_utilizado": 2500,
+      "pares_avaliados": 3123691
+    },
+    "orcado_vs_aprovado": {
+      "slope": 1.0,
+      "slope_ci": [
+        1.0,
+        1.0
+      ],
+      "intercept": 0.0,
+      "intercept_ci": [
+        0.0,
+        0.0
+      ],
+      "max_cusum": 2252.0,
+      "n_utilizado": 2500,
+      "pares_avaliados": 3116274
+    }
+  },
+  "correlacoes_associacao": {
+    "pares_avaliados": [
+      {
+        "var1": "Custo t+1",
+        "var2": "Custo Atual",
+        "pearson_r": 0.15806998363775707,
+        "spearman_rho": 0.11417023661506834,
+        "kendall_tau": 0.07409609647316756,
+        "delta_spearman_pearson": -0.04389974702268873,
+        "p_valor_spearman": 3.13248117479334e-148,
+        "p_valor_kendall": 9.763611865379208e-15
+      },
+      {
+        "var1": "Custo t+1",
+        "var2": "Corretivas",
+        "pearson_r": 0.08212752343526783,
+        "spearman_rho": 0.1018740253525269,
+        "kendall_tau": 0.08150358393584001,
+        "delta_spearman_pearson": 0.019746501917259074,
+        "p_valor_spearman": 2.8489733506453964e-118,
+        "p_valor_kendall": 3.247414758156781e-16
+      },
+      {
+        "var1": "Custo t+1",
+        "var2": "Odômetro",
+        "pearson_r": 0.05134752439996508,
+        "spearman_rho": 0.08851499502664972,
+        "kendall_tau": 0.04872999657639062,
+        "delta_spearman_pearson": 0.03716747062668464,
+        "p_valor_spearman": 1.1920196047690204e-89,
+        "p_valor_kendall": 2.875522515615631e-07
+      },
+      {
+        "var1": "Custo t+1",
+        "var2": "Idade Bem",
+        "pearson_r": 0.05590781187878231,
+        "spearman_rho": 0.019693089712073914,
+        "kendall_tau": 0.00010051520975630657,
+        "delta_spearman_pearson": -0.0362147221667084,
+        "p_valor_spearman": 8.262171622995637e-06,
+        "p_valor_kendall": 0.9918420307350666
+      },
+      {
+        "var1": "Custo t+1",
+        "var2": "Custo Lag1",
+        "pearson_r": 0.1641840448876495,
+        "spearman_rho": 0.14359379406090197,
+        "kendall_tau": 0.09578860159109842,
+        "delta_spearman_pearson": -0.020590250826747536,
+        "p_valor_spearman": 3.6342918398442155e-234,
+        "p_valor_kendall": 4.955750901617633e-23
+      },
+      {
+        "var1": "Custo t+1",
+        "var2": "Km Rodado",
+        "pearson_r": 0.010863628709880098,
+        "spearman_rho": 0.04355548238749099,
+        "kendall_tau": 0.03891045984685138,
+        "delta_spearman_pearson": 0.03269185367761089,
+        "p_valor_spearman": 5.95336785708576e-23,
+        "p_valor_kendall": 7.892933979046e-05
+      },
+      {
+        "var1": "Custo t+1",
+        "var2": "Valor Aquisição",
+        "pearson_r": NaN,
+        "spearman_rho": NaN,
+        "kendall_tau": NaN,
+        "delta_spearman_pearson": NaN,
+        "p_valor_spearman": NaN,
+        "p_valor_kendall": NaN
+      },
+      {
+        "var1": "Custo Atual",
+        "var2": "Corretivas",
+        "pearson_r": 0.477779583103556,
+        "spearman_rho": 0.5476367913223829,
+        "kendall_tau": 0.4193603465114141,
+        "delta_spearman_pearson": 0.06985720821882685,
+        "p_valor_spearman": 0.0,
+        "p_valor_kendall": 0.0
+      },
+      {
+        "var1": "Custo Atual",
+        "var2": "Odômetro",
+        "pearson_r": 0.06880857710786349,
+        "spearman_rho": 0.13022879428236556,
+        "kendall_tau": 0.08397916303459729,
+        "delta_spearman_pearson": 0.061420217174502065,
+        "p_valor_spearman": 1.2693998760208115e-192,
+        "p_valor_kendall": 1.0373405958719028e-18
+      },
+      {
+        "var1": "Custo Atual",
+        "var2": "Idade Bem",
+        "pearson_r": 0.06510884971572886,
+        "spearman_rho": 0.0364414214450417,
+        "kendall_tau": 0.01959094820011064,
+        "delta_spearman_pearson": -0.028667428270687162,
+        "p_valor_spearman": 1.559818262258146e-16,
+        "p_valor_kendall": 0.04658228266030041
+      },
+      {
+        "var1": "Custo Atual",
+        "var2": "Custo Lag1",
+        "pearson_r": 0.152407455635983,
+        "spearman_rho": 0.13165918287030948,
+        "kendall_tau": 0.09264856113220438,
+        "delta_spearman_pearson": -0.020748272765673537,
+        "p_valor_spearman": 7.209956303288427e-197,
+        "p_valor_kendall": 1.356826382516335e-21
+      },
+      {
+        "var1": "Custo Atual",
+        "var2": "Km Rodado",
+        "pearson_r": 0.021264078817114326,
+        "spearman_rho": 0.06696115186995742,
+        "kendall_tau": 0.052530734865098114,
+        "delta_spearman_pearson": 0.045697073052843096,
+        "p_valor_spearman": 5.1974763258942486e-52,
+        "p_valor_kendall": 1.025950219287852e-07
+      },
+      {
+        "var1": "Custo Atual",
+        "var2": "Valor Aquisição",
+        "pearson_r": NaN,
+        "spearman_rho": NaN,
+        "kendall_tau": NaN,
+        "delta_spearman_pearson": NaN,
+        "p_valor_spearman": NaN,
+        "p_valor_kendall": NaN
+      },
+      {
+        "var1": "Corretivas",
+        "var2": "Odômetro",
+        "pearson_r": 0.07155860233100202,
+        "spearman_rho": 0.1729097594851578,
+        "kendall_tau": 0.11932356266166963,
+        "delta_spearman_pearson": 0.10135115715415578,
+        "p_valor_spearman": 0.0,
+        "p_valor_kendall": 2.5228017013135604e-33
+      },
+      {
+        "var1": "Corretivas",
+        "var2": "Idade Bem",
+        "pearson_r": 0.15452750102857152,
+        "spearman_rho": 0.15870701173350188,
+        "kendall_tau": 0.11480936135410834,
+        "delta_spearman_pearson": 0.0041795107049303615,
+        "p_valor_spearman": 3.081000956635372e-286,
+        "p_valor_kendall": 5.12584498167835e-29
+      },
+      {
+        "var1": "Corretivas",
+        "var2": "Custo Lag1",
+        "pearson_r": 0.047750822528590635,
+        "spearman_rho": 0.06929139460003433,
+        "kendall_tau": 0.04676276716979708,
+        "delta_spearman_pearson": 0.0215405720714437,
+        "p_valor_spearman": 1.418151520845211e-55,
+        "p_valor_kendall": 3.867208368654702e-06
+      },
+      {
+        "var1": "Corretivas",
+        "var2": "Km Rodado",
+        "pearson_r": -0.008216219601921393,
+        "spearman_rho": 0.06282807699185267,
+        "kendall_tau": 0.04167504412597075,
+        "delta_spearman_pearson": 0.07104429659377406,
+        "p_valor_spearman": 5.462005652915878e-46,
+        "p_valor_kendall": 5.17792277569182e-05
+      },
+      {
+        "var1": "Corretivas",
+        "var2": "Valor Aquisição",
+        "pearson_r": NaN,
+        "spearman_rho": NaN,
+        "kendall_tau": NaN,
+        "delta_spearman_pearson": NaN,
+        "p_valor_spearman": NaN,
+        "p_valor_kendall": NaN
+      },
+      {
+        "var1": "Odômetro",
+        "var2": "Idade Bem",
+        "pearson_r": 0.20595065077257588,
+        "spearman_rho": 0.3741744069116588,
+        "kendall_tau": 0.2829577101042701,
+        "delta_spearman_pearson": 0.16822375613908294,
+        "p_valor_spearman": 0.0,
+        "p_valor_kendall": 1.7133744940933048e-184
+      },
+      {
+        "var1": "Odômetro",
+        "var2": "Custo Lag1",
+        "pearson_r": 0.09274526531857094,
+        "spearman_rho": 0.22901682217353028,
+        "kendall_tau": 0.1493463214303498,
+        "delta_spearman_pearson": 0.13627155685495934,
+        "p_valor_spearman": 0.0,
+        "p_valor_kendall": 3.1348161182799174e-54
+      },
+      {
+        "var1": "Odômetro",
+        "var2": "Km Rodado",
+        "pearson_r": 0.417702322460565,
+        "spearman_rho": 0.17689011233248017,
+        "kendall_tau": 0.11803970313785804,
+        "delta_spearman_pearson": -0.24081221012808482,
+        "p_valor_spearman": 0.0,
+        "p_valor_kendall": 1.8908918347933215e-33
+      },
+      {
+        "var1": "Odômetro",
+        "var2": "Valor Aquisição",
+        "pearson_r": NaN,
+        "spearman_rho": NaN,
+        "kendall_tau": NaN,
+        "delta_spearman_pearson": NaN,
+        "p_valor_spearman": NaN,
+        "p_valor_kendall": NaN
+      },
+      {
+        "var1": "Idade Bem",
+        "var2": "Custo Lag1",
+        "pearson_r": 0.05900253891199331,
+        "spearman_rho": 0.031088501683023812,
+        "kendall_tau": 0.013900844271354592,
+        "delta_spearman_pearson": -0.027914037228969495,
+        "p_valor_spearman": 1.93518062094845e-12,
+        "p_valor_kendall": 0.16324647972320883
+      },
+      {
+        "var1": "Idade Bem",
+        "var2": "Km Rodado",
+        "pearson_r": -0.025410859713666124,
+        "spearman_rho": -0.09285214732398961,
+        "kendall_tau": -0.07230434313722274,
+        "delta_spearman_pearson": -0.06744128761032349,
+        "p_valor_spearman": 1.6992439477957295e-98,
+        "p_valor_kendall": 9.9364104144684e-13
+      },
+      {
+        "var1": "Idade Bem",
+        "var2": "Valor Aquisição",
+        "pearson_r": NaN,
+        "spearman_rho": NaN,
+        "kendall_tau": NaN,
+        "delta_spearman_pearson": NaN,
+        "p_valor_spearman": NaN,
+        "p_valor_kendall": NaN
+      },
+      {
+        "var1": "Custo Lag1",
+        "var2": "Km Rodado",
+        "pearson_r": 0.02262696457776572,
+        "spearman_rho": 0.3591514441036519,
+        "kendall_tau": 0.23226930668996634,
+        "delta_spearman_pearson": 0.3365244795258862,
+        "p_valor_spearman": 0.0,
+        "p_valor_kendall": 2.026874533386429e-119
+      },
+      {
+        "var1": "Custo Lag1",
+        "var2": "Valor Aquisição",
+        "pearson_r": NaN,
+        "spearman_rho": NaN,
+        "kendall_tau": NaN,
+        "delta_spearman_pearson": NaN,
+        "p_valor_spearman": NaN,
+        "p_valor_kendall": NaN
+      },
+      {
+        "var1": "Km Rodado",
+        "var2": "Valor Aquisição",
+        "pearson_r": NaN,
+        "spearman_rho": NaN,
+        "kendall_tau": NaN,
+        "delta_spearman_pearson": NaN,
+        "p_valor_spearman": NaN,
+        "p_valor_kendall": NaN
+      }
+    ],
+    "resumo_divergencia": {
+      "maior_ganho_spearman_vs_pearson": {
+        "var1": "Custo Lag1",
+        "var2": "Km Rodado",
+        "pearson_r": 0.02262696457776572,
+        "spearman_rho": 0.3591514441036519,
+        "kendall_tau": 0.23226930668996634,
+        "delta_spearman_pearson": 0.3365244795258862,
+        "p_valor_spearman": 0.0,
+        "p_valor_kendall": 2.026874533386429e-119
+      },
+      "conclusao": "Spearman e Kendall revelam monotonicidade estatisticamente significante onde Pearson é atenuado por outliers."
+    }
+  },
+  "regressao_quantilica": {
+    "quantis_analisados": [
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      0.9
+    ],
+    "cobertura_empirica_percentual": {
+      "0.1": 11.149368748975242,
+      "0.25": 27.20118052139695,
+      "0.5": 50.81160846040335,
+      "0.75": 74.07771765863257,
+      "0.9": 88.55550090178717
+    },
+    "cobertura_faixa_interdecil_80": 87.73569437612724,
+    "pinball_loss": {
+      "0.1": 259.880605967425,
+      "0.25": 614.1716924128631,
+      "0.5": 1045.9201002651246,
+      "0.75": 1126.8624353869625,
+      "0.9": 840.0351740120134
+    },
+    "mae_mediana_tau_50": 2091.840200530249,
+    "medae_mediana_tau_50": 1041.4339601394017
+  },
+  "regressores_arvores_ml": {
+    "Árvore de Decisão": {
+      "MAE": 2382.6270633002455,
+      "MedAE": 1675.5211057513952,
+      "RMSE": 4617.685577717812,
+      "R2": -0.008414200568404917,
+      "sMAPE": 100.7242240618483,
+      "Spearman_rho": 0.22926243066461902
+    },
+    "Random Forest": {
+      "MAE": 2344.6896445894185,
+      "MedAE": 1644.6939380021497,
+      "RMSE": 4450.567323060524,
+      "R2": 0.06325585669120981,
+      "sMAPE": 100.23296599654563,
+      "Spearman_rho": 0.254782273322121
+    },
+    "Extra Trees": {
+      "MAE": 2360.0012327011136,
+      "MedAE": 1746.962532399572,
+      "RMSE": 4457.0655525484635,
+      "R2": 0.060518397896801135,
+      "sMAPE": 100.9843470146845,
+      "Spearman_rho": 0.24007876493630761
+    },
+    "HistGradientBoosting": {
+      "MAE": 2321.284698255307,
+      "MedAE": 1599.1687976116032,
+      "RMSE": 4395.294465834859,
+      "R2": 0.08637875670933326,
+      "sMAPE": 98.89987685619653,
+      "Spearman_rho": 0.2807444619021235
+    },
+    "Baseline OLS (Paramétrico)": {
+      "MAE": 2336.2921435935364,
+      "MedAE": 1637.183971885991,
+      "RMSE": 4442.830216970807,
+      "R2": 0.06650999864824136,
+      "sMAPE": 100.2975347705598,
+      "Spearman_rho": 0.2281174729488393
+    }
+  }
+}

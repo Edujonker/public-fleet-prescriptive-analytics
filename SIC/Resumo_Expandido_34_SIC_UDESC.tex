@@ -1,0 +1,40 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[top=3cm,bottom=2cm,left=3cm,right=2cm]{geometry}
+\usepackage{times}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{microtype}
+\singlespacing
+
+\begin{document}
+
+\begin{center}
+{\small \textbf{UNIVERSIDADE DO ESTADO DE SANTA CATARINA (UDESC)\\
+CENTRO DE CIÊNCIAS TECNOLÓGICAS (CCT) -- PPGCAP\\
+34º SEMINÁRIO DE INICIAÇÃO CIENTÍFICA E PÓS-GRADUAÇÃO}}\\[0.8cm]
+
+{\large \textbf{SISTEMA INTEGRADO DE ANALÍTICA PRESCRITIVA E OTIMIZAÇÃO EXATA PARA GESTÃO E AUDITORIA DA FROTA PÚBLICA ESTADUAL: DA ABORDAGEM EMPÍRICA À FORMULAÇÃO TÉCNICO-CIENTÍFICA EM QUATRO NÍVEIS DE MATURIDADE\footnote{Vinculado ao projeto de pesquisa institucional: Analítica Prescritiva e Governança Algorítmica em Frotas Governamentais (PPGCAP/CCT/UDESC).}}}\\[0.5cm]
+
+{\normalsize Eduardo Henrique dos Santos Lopes Jonker\footnote{Mestrando em Computação Aplicada (PPGCAP/CCT/UDESC), bolsista FAPESC/PROBIC, e-mail: eduardo.jonker@edu.udesc.br.}, Vivian Kremer Kalempa\footnote{Orientadora, Profa. Dra., Departamento de Ciência da Computação (DCC/CCT/UDESC), e-mail: vivian.kalempa@udesc.br.}, Yuri Kaszubowski Lopes\footnote{Coorientador, Prof. Dr., Departamento de Ciência da Computação (DCC/CCT/UDESC), e-mail: yuri.lopes@udesc.br.}}\\[0.8cm]
+\end{center}
+
+\noindent \textbf{1. INTRODUÇÃO E OBJETIVOS}\\
+A gestão logística de veículos no setor público impõe o desafio permanente de equilibrar prontidão física operacional para serviços essenciais da sociedade, estrita conformidade às leis de contratações públicas e observância aos limites fiscais orçamentários. Viaturas da Polícia Militar, da Polícia Civil e do SAMU demandam disponibilidade imediata. Concomitantemente, a Lei de Responsabilidade Fiscal (LC 101/2000), a Lei Orçamentária Anual e a Nova Lei de Licitações (Lei 14.133/2021) impõem limites rígidos de gastos e obrigação de justificar a vantajosidade de cada reparo ou alienação de ativo.
+
+Embora o diagnóstico preditivo fundamentado em aprendizado de máquina seja apontado no mercado como o modelo mais avançado, na administração pública a predição isolada da probabilidade de quebra é insuficiente para o ordenador de despesas. Prever falhas não soluciona o problema de alocação de recursos escassos sob capacidade finita de oficinas credenciadas. O gestor público necessita decidir formalmente quais veículos enviar para reparo preventivo, quais manter em circulação e quais leiloar por antieconomicidade. Este projeto tem como objetivo formular e validar um framework de analítica prescritiva e governança algorítmica auditável estruturado em quatro níveis de maturidade analítica, transitando do diagnóstico empírico para uma abordagem exata baseada em Programação Linear Inteira Mista (MILP), Teoria dos Jogos Cooperativos (SHAP), Ciência de Redes e calibração estatística.\\
+
+\noindent \textbf{2. METODOLOGIA E FORMULAÇÃO TÉCNICO-CIENTÍFICA}\\
+A metodologia estrutura-se em quatro níveis de maturidade interdependentes: (i) \textbf{Nível 1 (Descritivo):} Censo exaustivo de 350.737 itens de manutenção mecânica em 77.867 ordens de serviço (R\$ 138,76M autorizados e R\$ 60,05M em glosas retidas), 34.280 veículos e 1.000.000 de abastecimentos (R\$ 153,49M) da frota de Santa Catarina; (ii) \textbf{Nível 2 (Causal e Estrutural):} Grafos Bipartidos Veículo-Oficina com detecção de comunidades de Louvain ($Q = 0,5646$, 18 clusters modulares) e Teoria dos Jogos Cooperativos via valores de Shapley, refutando a intercambiabilidade com perturbações locais de LIME (Jaccard de 39,29\%); (iii) \textbf{Nível 3 (Preditivo Calibrado):} HistGradientBoosting com calibração isotônica de probabilidades ($Brier = 0,1043$, $ECE = 0,0174$) e degradação física de Weibull com censura à direita; (iv) \textbf{Nível 4 (Prescritivo Exato):} MILP resolvido por Branch-and-Cut (HiGHS Solver), minimizando o Custo Total de Propriedade sob tetos da LOA, capacidade de oficinas, prontidão policial ($\ge 95,26\%$) e leilão de veículos antieconômicos nos termos do Art. 5º do Decreto Estadual nº 47.539/2018.\\
+
+\noindent \textbf{3. RESULTADOS E DISCUSSÕES}\\
+No cenário canônico de auditoria, o modelo prescreveu a política ótima com custo total de R\$ 43.837.633,31 frente ao limite dual linear de R\$ 43.837.384,79 (gap de integralidade de 0,000567\%), proporcionando economia direta de 17,51\% (R\$ 9.302.147,26) em relação à política inercial praticada pelo Estado (R\$ 53.139.780,57). O estudo ablativo revelou que a otimização matemática tradicional captura 47,5\% do ganho potencial, enquanto o aprendizado de máquina calibrado desbloqueia os 52,5\% adicionais (R\$ 4.881.378,37). Foram identificadas 313 viaturas elegíveis para desincorporação e leilão imediato. Em simulações plurianuais de Monte Carlo, a economia acumulada atinge R\$ 40.088.374,00 no triênio 2027 a 2029 com cadeia de custódia imutável via hashing SHA-256.\\
+
+\noindent \textbf{4. CONCLUSÕES}\\
+A evolução do diagnóstico empírico para a prescrição exata comprova que a união entre aprendizado de máquina estatisticamente calibrado e Programação Linear Inteira Mista confere governança algorítmica, auditabilidade e substancial economia aos cofres públicos catarinenses.\\[0.5cm]
+
+\noindent \textbf{Palavras-chave:} Analítica Prescritiva. Otimização MILP. Governança Algorítmica.
+
+\end{document}

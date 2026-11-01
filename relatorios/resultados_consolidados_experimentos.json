@@ -1,0 +1,253 @@
+{
+  "auditoria": {
+    "total_registros": 350737,
+    "veiculos_unicos": 7580,
+    "periodo_inicio": "2020-10-14",
+    "periodo_fim": "2026-08-13",
+    "saltos_negativos_hodometro": 6841,
+    "veiculos_afetados_hodometro": 3116,
+    "status_cobradas": 267358,
+    "status_reprovadas": 55259,
+    "codigo_corretiva": 270510,
+    "codigo_preventiva": 37897,
+    "valor_total_aprovado": 138759653.82,
+    "valor_total_aprovado_reais": "R$ 138.759.653,82",
+    "valor_total_aprovado_extenso": "R$ 138,76 milhões"
+  },
+  "isolation_forest": {
+    "0.01": {
+      "jaccard_medio": 0.8640800331132464,
+      "anomalias_detectadas": 779,
+      "percentual": 1.0
+    },
+    "0.02": {
+      "jaccard_medio": 0.8677912166444184,
+      "anomalias_detectadas": 1557,
+      "percentual": 2.0
+    },
+    "0.05": {
+      "jaccard_medio": 0.8725043420798677,
+      "anomalias_detectadas": 3894,
+      "percentual": 5.0
+    },
+    "0.1": {
+      "jaccard_medio": 0.8810942628559634,
+      "anomalias_detectadas": 7787,
+      "percentual": 10.0
+    },
+    "teste_t_reprovadas": {
+      "media_score_reprovadas": -0.4122383996628612,
+      "media_score_aprovadas": -0.41504479070622247,
+      "t_statistic": 3.5240774934764,
+      "p_value": 0.00042618484596723666
+    }
+  },
+  "classificacao": {
+    "Regressão Logística": {
+      "PR-AUC": 0.8659656411620485,
+      "ROC-AUC": 0.7366302120714004,
+      "Brier Score": 0.1673166697615419,
+      "F1-Max": 0.8749628749132816,
+      "ECE": 0.22584848645202135,
+      "Precisao_otima": 0.8025790047221213,
+      "Recall_otimo": 0.9616974972796518
+    },
+    "Árvore de Decisão": {
+      "PR-AUC": 0.904087007114702,
+      "ROC-AUC": 0.7905050442201282,
+      "Brier Score": 0.13779090115997267,
+      "F1-Max": 0.8837019671298966,
+      "ECE": 0.13034062396059673,
+      "Precisao_otima": 0.8310966257668712,
+      "Recall_otimo": 0.9434167573449401
+    },
+    "Random Forest": {
+      "PR-AUC": 0.9080590428962558,
+      "ROC-AUC": 0.8016087676243836,
+      "Brier Score": 0.13619388515519765,
+      "F1-Max": 0.8872647176115126,
+      "ECE": 0.0660428320475895,
+      "Precisao_otima": 0.8216206193213424,
+      "Recall_otimo": 0.9643090315560392
+    },
+    "Extra Trees": {
+      "PR-AUC": 0.8795743257472521,
+      "ROC-AUC": 0.7631336385525431,
+      "Brier Score": 0.17104010208558948,
+      "F1-Max": 0.8777260981413402,
+      "ECE": 0.23814520353162152,
+      "Precisao_otima": 0.8358267716535434,
+      "Recall_otimo": 0.9240478781284004
+    },
+    "HistGradientBoosting": {
+      "PR-AUC": 0.9098813961116932,
+      "ROC-AUC": 0.8063813146806196,
+      "Brier Score": 0.1333562178188878,
+      "F1-Max": 0.888409814137615,
+      "ECE": 0.02378062212903083,
+      "Precisao_otima": 0.840847260007773,
+      "Recall_otimo": 0.9416757344940152
+    },
+    "Baseline Ingênuo": {
+      "PR-AUC": 0.7923579576918817,
+      "ROC-AUC": 0.5,
+      "Brier Score": 0.18730487779900853,
+      "F1-Max": 0.0,
+      "ECE": 0.03895576061039285,
+      "Precisao_otima": 0.7923579576918817,
+      "Recall_otimo": 1.0
+    }
+  },
+  "regressao": {
+    "Mediana Histórica (Baseline)": {
+      "MAE": 2209.0227135596,
+      "RMSE": 4811.12017643032,
+      "R2": -0.09466856556916792,
+      "sMAPE": 104.13339146521578
+    },
+    "Árvore de Regressão": {
+      "MAE": 2407.470050532298,
+      "RMSE": 4566.065593511843,
+      "R2": 0.014005417620824523,
+      "sMAPE": 101.12818047058131
+    },
+    "Random Forest": {
+      "MAE": 2353.309737091812,
+      "RMSE": 4426.4966151350145,
+      "R2": 0.07336113892915375,
+      "sMAPE": 99.86594024857273
+    },
+    "Extra Trees": {
+      "MAE": 2354.89250570054,
+      "RMSE": 4441.1975765202105,
+      "R2": 0.06719594586399102,
+      "sMAPE": 100.95532438061643
+    },
+    "HistGradientBoosting": {
+      "MAE": 2311.8192876509684,
+      "RMSE": 4363.7517485144535,
+      "R2": 0.09944486214316095,
+      "sMAPE": 98.51307602242298
+    }
+  },
+  "ablacao": {
+    "Classificação": {
+      "Metrica": "PR-AUC",
+      "Manutencao_M": 0.9060009777534825,
+      "Manutencao_Patrimonio_MP": 0.9098813961116932,
+      "Delta_Absoluto": 0.0038804183582106244,
+      "Ganho_Percentual": 0.42830178482064096
+    },
+    "Regressão": {
+      "Metrica": "MAE (R$)",
+      "Manutencao_M": 2321.284698255307,
+      "Manutencao_Patrimonio_MP": 2311.8192876509684,
+      "Delta_Absoluto": -9.465410604338558,
+      "Ganho_Percentual": 0.40776603625797486
+    }
+  },
+  "testes_estatisticos": {
+    "HistGradientBoosting vs Árvore de Regressão": {
+      "W_stat": 833682.5,
+      "p_value_raw": 1.0582119983205009e-10,
+      "diff_media_mae": -105.58755144952718,
+      "p_value_holm": 3.1746359949615025e-10,
+      "significativo_5pct": true
+    },
+    "HistGradientBoosting vs Random Forest": {
+      "W_stat": 886668.0,
+      "p_value_raw": 1.047919560041947e-05,
+      "diff_media_mae": -46.46023899979899,
+      "p_value_holm": 1.047919560041947e-05,
+      "significativo_5pct": true
+    },
+    "HistGradientBoosting vs Extra Trees": {
+      "W_stat": 885268.5,
+      "p_value_raw": 8.149289120558587e-06,
+      "diff_media_mae": -28.284154339592344,
+      "p_value_holm": 1.6298578241117175e-05,
+      "significativo_5pct": true
+    }
+  },
+  "prescricao": [
+    {
+      "Fator_Orcamento": 0.5,
+      "Orcamento_B": 137227.5,
+      "Intervencoes_Opt": 304,
+      "Custo_Esperado_Opt": 8330655.734215679,
+      "Risco_Residual_Opt": 0.7262028541866126,
+      "Custo_Esperado_Limiar": 8376375.310876678,
+      "Risco_Residual_Limiar": 0.7302548765971097,
+      "Custo_Status_Quo": 8516150.41977947,
+      "Delta_Economia_Opt": 0.0217815182236524
+    },
+    {
+      "Fator_Orcamento": 0.75,
+      "Orcamento_B": 205841.25,
+      "Intervencoes_Opt": 457,
+      "Custo_Esperado_Opt": 8240844.988205497,
+      "Risco_Residual_Opt": 0.7121411120303724,
+      "Custo_Esperado_Limiar": 8304852.181355104,
+      "Risco_Residual_Limiar": 0.7178139244231535,
+      "Custo_Status_Quo": 8516150.41977947,
+      "Delta_Economia_Opt": 0.032327450550257215
+    },
+    {
+      "Fator_Orcamento": 1.0,
+      "Orcamento_B": 274455.0,
+      "Intervencoes_Opt": 609,
+      "Custo_Esperado_Opt": 8152969.013175887,
+      "Risco_Residual_Opt": 0.6982907267186812,
+      "Custo_Esperado_Limiar": 8232076.871977311,
+      "Risco_Residual_Limiar": 0.7053018768674805,
+      "Custo_Status_Quo": 8516150.41977947,
+      "Delta_Economia_Opt": 0.042646194430768156
+    },
+    {
+      "Fator_Orcamento": 1.25,
+      "Orcamento_B": 343068.75,
+      "Intervencoes_Opt": 762,
+      "Custo_Esperado_Opt": 8065409.172232946,
+      "Risco_Residual_Opt": 0.6844284771746316,
+      "Custo_Esperado_Limiar": 8159274.824410162,
+      "Risco_Residual_Limiar": 0.6927475770870867,
+      "Custo_Status_Quo": 8516150.41977947,
+      "Delta_Economia_Opt": 0.05292781659887543
+    },
+    {
+      "Fator_Orcamento": 1.5,
+      "Orcamento_B": 411682.5,
+      "Intervencoes_Opt": 914,
+      "Custo_Esperado_Opt": 7979175.352430895,
+      "Risco_Residual_Opt": 0.6707236323571782,
+      "Custo_Esperado_Limiar": 8083357.56066501,
+      "Risco_Residual_Limiar": 0.6799570652402042,
+      "Custo_Status_Quo": 8516150.41977947,
+      "Delta_Economia_Opt": 0.063053732130119
+    }
+  ],
+  "xai_classificacao": {
+    "qtd_corretivas": 0.057550418101328084,
+    "corretivas_lag1": 0.03941629775373012,
+    "idade_veiculo": 0.00747663551401867,
+    "patrimonio_valor_entrada": 0.0054107230693556385,
+    "custo_lag1": 0.004131824889326108,
+    "custo_mes": 0.0028857189703230144,
+    "km_max": 0.00275454992621742,
+    "qtd_os": 0.002525004099032624,
+    "km_diff": 0.00183636661747828,
+    "os_lag1": 0.00183636661747828
+  },
+  "xai_regressao": {
+    "custo_mes": 0.056170958241714586,
+    "patrimonio_valor_entrada": 0.05291727267636752,
+    "qtd_corretivas": 0.047153635541323145,
+    "idade_veiculo": 0.025706457935230253,
+    "custo_lag1": 0.02362252957064881,
+    "custo_lag2": 0.020890184852523586,
+    "km_max": 0.019126529016435745,
+    "km_diff": 0.005232157386962833,
+    "os_lag1": 0.004538186640005026,
+    "corretivas_lag1": 0.003610141330127514
+  }
+}

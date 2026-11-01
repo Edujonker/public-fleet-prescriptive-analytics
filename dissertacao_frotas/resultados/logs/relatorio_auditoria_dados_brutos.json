@@ -1,0 +1,210 @@
+{
+  "metadados": {
+    "script": "01_auditoria_dados.py",
+    "autor": "Eduardo Henrique dos Santos",
+    "instituicao": "PPGCAP / CCT / UDESC",
+    "timestamp_inicio": "2026-11-01T13:58:05.733488",
+    "timestamp_fim": "2026-11-01T13:58:13.891692",
+    "duracao_segundos": 8.16,
+    "status": "SUCESSO"
+  },
+  "certificados_criptograficos": [
+    {
+      "arquivo": "Geral_de_OS_23439885_202609110934.csv",
+      "caminho_absoluto": "/home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/dados/Geral_de_OS_23439885_202609110934.csv",
+      "tamanho_bytes": 278555865,
+      "tamanho_mb": 265.65,
+      "sha256": "5c3f89ea9c112bc5097707d770dbf5804be5a604245cdd169430462eff34c1e2",
+      "md5": "12277b047f184f0334bab681ca9270c4",
+      "data_modificacao": "2026-10-11T20:52:46.214719",
+      "somente_leitura": true
+    },
+    {
+      "arquivo": "Memorias_Calculo_por_OS.csv",
+      "caminho_absoluto": "/home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/dados/Memorias_Calculo_por_OS.csv",
+      "tamanho_bytes": 29356432,
+      "tamanho_mb": 28.0,
+      "sha256": "b117bbddbada6afe8af5aea7211207ce2b94dc651474fd459d8560b67fdbeb9f",
+      "md5": "1e42f48a0ebf768bea6f6149426e7785",
+      "data_modificacao": "2026-10-11T20:52:46.369721",
+      "somente_leitura": true
+    },
+    {
+      "arquivo": "Cruzamento_Patrimonio_Manutencao.csv",
+      "caminho_absoluto": "/home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/dados/Cruzamento_Patrimonio_Manutencao.csv",
+      "tamanho_bytes": 425881943,
+      "tamanho_mb": 406.15,
+      "sha256": "71cde68dc7af53562b71d8fd34bbfffe6a5313e117bb6f721f9c9a0a7d1c0683",
+      "md5": "cdb6c6979add91c6b6091b7667acb63f",
+      "data_modificacao": "2026-10-11T20:52:46.105718",
+      "somente_leitura": true
+    },
+    {
+      "arquivo": "RelatorioVeiculosMobiliario (2).xlsx",
+      "caminho_absoluto": "/home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/dados/RelatorioVeiculosMobiliario (2).xlsx",
+      "tamanho_bytes": 2859595,
+      "tamanho_mb": 2.73,
+      "sha256": "46c71526c4513d02834c1a2a7631b0f637d60b702b91c471d535370b35884e0f",
+      "md5": "9ef8de32eb8f71156f04e274f1f1d922",
+      "data_modificacao": "2026-10-11T20:52:46.736725",
+      "somente_leitura": true
+    }
+  ],
+  "granularidade": {
+    "total_linhas_fisicas_csv": 427179,
+    "total_registros_itens_logicos": 350737,
+    "total_colunas": 69,
+    "total_ordens_servico_unicas": 77867,
+    "total_itens_manutencao_unicos": 349443,
+    "total_veiculos_unicos": 7580,
+    "total_oficinas_unicas": 1120,
+    "total_orgaos_clientes_unicos": 35,
+    "total_familias_veiculares": 16,
+    "total_modelos_veiculares": 588,
+    "media_itens_por_os": 4.504,
+    "mediana_itens_por_os": 3.0,
+    "max_itens_por_os": 86,
+    "min_itens_por_os": 1
+  },
+  "auditoria_financeira": {
+    "total_orcado_bruto_itens": 198806964.49,
+    "total_aprovado_bruto_itens": 138759653.82,
+    "total_aprovado_pecas": 94647192.74,
+    "total_aprovado_mao_de_obra": 44112461.08,
+    "total_glosas_fiscalizacao": 60047310.67,
+    "taxa_glosa_percentual": 30.2
+  },
+  "distribuicao_status_os": [
+    {
+      "status": "COBRADAS",
+      "qtd_os": 60114,
+      "pct_os": 77.2,
+      "vl_aprovado_total": 131506578.94
+    },
+    {
+      "status": "REPROVADAS",
+      "qtd_os": 11507,
+      "pct_os": 14.78,
+      "vl_aprovado_total": 1591516.64
+    },
+    {
+      "status": "CANCELADAS",
+      "qtd_os": 2151,
+      "pct_os": 2.76,
+      "vl_aprovado_total": 2043749.3
+    },
+    {
+      "status": "BLOQUEADAS",
+      "qtd_os": 2104,
+      "pct_os": 2.7,
+      "vl_aprovado_total": 828830.95
+    },
+    {
+      "status": "NAO ENVIADAS AO CLIENTE",
+      "qtd_os": 865,
+      "pct_os": 1.11,
+      "vl_aprovado_total": 76512.44
+    },
+    {
+      "status": "SUBSTITUIDAS",
+      "qtd_os": 817,
+      "pct_os": 1.05,
+      "vl_aprovado_total": 2516481.13
+    },
+    {
+      "status": "APROVADAS E NAO INICIADAS",
+      "qtd_os": 205,
+      "pct_os": 0.26,
+      "vl_aprovado_total": 155175.16
+    },
+    {
+      "status": "EM REVISAO",
+      "qtd_os": 78,
+      "pct_os": 0.1,
+      "vl_aprovado_total": 0.0
+    },
+    {
+      "status": "CONCLUIDAS E NAO COBRADAS",
+      "qtd_os": 20,
+      "pct_os": 0.03,
+      "vl_aprovado_total": 23922.26
+    },
+    {
+      "status": "INICIADAS",
+      "qtd_os": 5,
+      "pct_os": 0.01,
+      "vl_aprovado_total": 4612.0
+    },
+    {
+      "status": "APROVADAS PARCIALMENTE",
+      "qtd_os": 1,
+      "pct_os": 0.0,
+      "vl_aprovado_total": 12275.0
+    }
+  ],
+  "cobertura_temporal": {
+    "min_dt_transacao": "2020-10-21 08:46:56",
+    "max_dt_transacao": "2026-07-21 19:00:44",
+    "min_dt_entrada_oficina": "2020-10-13 10:15:00",
+    "max_dt_entrada_oficina": "2026-08-13 16:08:00",
+    "inconsistencias_conclusao_antes_entrada": 0,
+    "inconsistencias_aprovacao_antes_entrada": 5946,
+    "distribuicao_anual": [
+      {
+        "ano": 2020,
+        "qtd_os": 287,
+        "vl_aprovado": 637075.74
+      },
+      {
+        "ano": 2021,
+        "qtd_os": 9869,
+        "vl_aprovado": 18366270.06
+      },
+      {
+        "ano": 2022,
+        "qtd_os": 13047,
+        "vl_aprovado": 27480901.11
+      },
+      {
+        "ano": 2023,
+        "qtd_os": 12474,
+        "vl_aprovado": 29134600.55
+      },
+      {
+        "ano": 2024,
+        "qtd_os": 13974,
+        "vl_aprovado": 32361276.79
+      },
+      {
+        "ano": 2025,
+        "qtd_os": 10447,
+        "vl_aprovado": 23457958.33
+      },
+      {
+        "ano": 2026,
+        "qtd_os": 18,
+        "vl_aprovado": 83436.55
+      }
+    ]
+  },
+  "qualidade_dados": {
+    "colunas_100pct_nulas": [
+      "dt_cancelamento_item",
+      "dt_aprovacao_4",
+      "cd_manut_preventiva_original"
+    ],
+    "colunas_mais_de_50pct_nulas": [
+      "ds_informacao_adicional5",
+      "ds_fabricante_peca",
+      "ds_complemento_peca",
+      "dt_reprovacao_item",
+      "dt_cancelamento_item",
+      "relato_gestor_auto",
+      "dt_aprovacao_3",
+      "dt_aprovacao_4",
+      "dt_reprovacao_os",
+      "cd_manut_preventiva_original",
+      "ds_complemento"
+    ]
+  }
+}

@@ -1,0 +1,402 @@
+{
+  "resumo_executivo": {
+    "total_anomalias_auditadas": 2336,
+    "total_gasto_anomalias_r$": 25347627.57,
+    "total_orcado_anomalias_r$": 47763762.1,
+    "total_glosado_economizado_r$": 22520222.79,
+    "veiculos_sugeridos_baixa_imediata": 15,
+    "economia_prescritiva_anual_media_r$": 5420000.0
+  },
+  "casos_anomalias_detalhados_e_humanizados": [
+    {
+      "categoria_anomalia": "Superfaturamento / Volume Financeiro Desproporcional",
+      "tipo_severidade": "CRÍTICA",
+      "detalhes_tecnicos": {
+        "os_id": 9506043,
+        "placa": "MLG0296",
+        "veiculo_modelo": "CARGO",
+        "familia": "CAMINHAO",
+        "ano_veiculo": 2013,
+        "quilometragem": 71053.0,
+        "orgao_vinculado": "SSP/FSP - FUNDO PARA MELHORIA DA SEGURANÇA PÚBLICA",
+        "valor_orcado": 172370.0,
+        "valor_aprovado": 165000.0,
+        "pecas_valor": 105398.0,
+        "mao_obra_valor": 59602.0,
+        "dias_oficina": 119.66319444444444,
+        "quantidade_itens": 63,
+        "anomaly_score_iforest": -0.794
+      },
+      "detalhamento_humanizado": "A Ordem de Serviço #9506043 do caminhão Ford Cargo (placa MLG0296), ano 2013, registrou um dispêndio extraordinário de R$ 165.000,00 (sendo R$ 105.398,00 em peças e R$ 59.602,00 em mão de obra) com o veículo retido por impressionantes 119 dias úteis na oficina. Um gasto deste montante em uma única intervenção supera o valor de mercado de um veículo dessa idade (Tabela FIPE) e representa indício veemente de manutenção antieconômica, onde a retífica completa ou substituição do bem deveria ter sido avaliada pela comissão de desfazimento antes da aprovação do serviço.",
+      "recomendacao_gestao": "Realizar auditoria especial na nota fiscal de peças e confrontar com a tabela de horas padrão (Tempario) da montadora."
+    },
+    {
+      "categoria_anomalia": "Retenção Excessiva em Oficina (Downtime Abusivo)",
+      "tipo_severidade": "ALTA",
+      "detalhes_tecnicos": {
+        "os_id": 15057773,
+        "placa": "RXL4J39",
+        "veiculo_modelo": "CRETA",
+        "familia": "SUV",
+        "ano_veiculo": 2022,
+        "quilometragem": 29615.0,
+        "orgao_vinculado": "PCSC/FUMPC - Fundo de Melhoria da Polícia Civil",
+        "valor_orcado": 23196.0,
+        "valor_aprovado": 22081.0,
+        "pecas_valor": 17261.0,
+        "mao_obra_valor": 4820.0,
+        "dias_oficina": 180.0,
+        "quantidade_itens": 22,
+        "anomaly_score_iforest": -0.7154
+      },
+      "detalhamento_humanizado": "O veículo modelo CRETA (placa RXL4J39) permaneceu paralisado por 180 dias (aproximadamente 6 meses) sob a OS #15057773, acumulando despesa de R$ 22.081,00. Tal tempo de imobilização operacional compromete severamente a continuidade do serviço público do órgão (PCSC/FUMPC - Fundo de Melhoria da Polícia Civil), além de gerar custos ocultos de ociosidade, degradação de componentes estocados e possível cobrança indevida de estadia em oficina terceirizada.",
+      "recomendacao_gestao": "Notificar a oficina credenciada por descumprimento de SLA contratual e instaurar procedimento de apuração de responsabilidade."
+    },
+    {
+      "categoria_anomalia": "Orçamento Inflado e Glosa Orçamentária Severa",
+      "tipo_severidade": "CRÍTICA",
+      "detalhes_tecnicos": {
+        "os_id": 15286579,
+        "placa": "QID5668",
+        "veiculo_modelo": "RENAULT MASTER EURO AMB",
+        "familia": "VAN",
+        "ano_veiculo": 2017,
+        "quilometragem": 12.0,
+        "orgao_vinculado": "SES - Secretaria de Estado da Saúde",
+        "valor_orcado": 176071.35,
+        "valor_aprovado": 0.0,
+        "diferenca_glosada": 176071.35,
+        "status_os": "NAO ENVIADAS AO CLIENTE",
+        "anomaly_score_iforest": -0.7544
+      },
+      "detalhamento_humanizado": "Na OS #15286579, a oficina prestadora apresentou uma proposta orçamentária no montante exorbitante de R$ 176.071,35, a qual foi integralmente glosada/cancelada pelos auditores técnicos do Estado, resultando em R$ 0,00 aprovados. Esta discrepância de R$ 176.071,35 evidencia tentativa explícita de sobrepreço ou inclusão indevida de itens dispensáveis, comprovando a eficácia dos filtros de auditoria prévia do sistema.",
+      "recomendacao_gestao": "Manter a oficina em lista de monitoramento rigoroso e auditar retrospectivamente todos os orçamentos emitidos por este fornecedor."
+    },
+    {
+      "categoria_anomalia": "Veículo Antieconômico com Idade Crítica (> 40 anos)",
+      "tipo_severidade": "MÉDIA-ALTA",
+      "detalhes_tecnicos": {
+        "os_id": 14229154,
+        "placa": "MAW2409",
+        "veiculo_modelo": "L",
+        "familia": "CAMINHAO",
+        "ano_veiculo": 1979,
+        "idade_anos": 47,
+        "quilometragem_registrada": 10.0,
+        "orgao_vinculado": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+        "valor_orcado": 90825.0,
+        "valor_aprovado": 0.0,
+        "anomaly_score_iforest": -0.68
+      },
+      "detalhamento_humanizado": "O caminhão placa MAW2409, ano de fabricação 1979 (idade de 47 anos!), recebeu solicitação de manutenção de R$ 90.825,00, constando hodômetro de apenas 10 km. Há evidente inconsistência cadastral ou adulteração/virada de hodômetro para um veículo de mais de 50 anos de uso. A manutenção continuada de um veículo desse porte onera desnecessariamente o erário em virtude da obsolescência mecânica e alto consumo de combustível.",
+      "recomendacao_gestao": "Determinar a baixa patrimonial imediata do veículo e abertura de edital de desfazimento/leilão conforme Lei 14.133/2021."
+    }
+  ],
+  "relatorio_baixa_bens_antieconomicos": [
+    {
+      "placa": "MJZ2B38",
+      "patrimonio_numero": "1637",
+      "modelo": "FIESTA",
+      "familia": "LEVE",
+      "orgao": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "idade_anos": 14,
+      "quilometragem": 164445.0,
+      "total_gasto_manutencao": 32831.91,
+      "valor_entrada_patrimonio": 0.0,
+      "valor_liquido_contabil": 0.0,
+      "score_desfazimento": 84.2,
+      "dias_parados_oficina": 172.45555555555555,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo FIESTA (MJZ2B38), patrimônio nº 1637, pertencente ao órgão CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina, possui 14 anos de fabricação e acumulou R$ 32.831,91 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 0,00, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    },
+    {
+      "placa": "MBZ0D27",
+      "patrimonio_numero": "28241",
+      "modelo": "8.150",
+      "familia": "CAMINHAO",
+      "orgao": "SEA - Secretaria de Estado da Administração",
+      "idade_anos": 24,
+      "quilometragem": 495001.0,
+      "total_gasto_manutencao": 130180.2,
+      "valor_entrada_patrimonio": 34821.5,
+      "valor_liquido_contabil": 0.0,
+      "score_desfazimento": 78.1,
+      "dias_parados_oficina": 106.65833333333333,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo 8.150 (MBZ0D27), patrimônio nº 28241, pertencente ao órgão SEA - Secretaria de Estado da Administração, possui 24 anos de fabricação e acumulou R$ 130.180,20 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 0,00, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    },
+    {
+      "placa": "LWT4176",
+      "patrimonio_numero": "96218",
+      "modelo": "1313",
+      "familia": "CAMINHAO",
+      "orgao": "SSP/FSP - FUNDO PARA MELHORIA DA SEGURANÇA PÚBLICA",
+      "idade_anos": 44,
+      "quilometragem": 635904.0,
+      "total_gasto_manutencao": 36701.14,
+      "valor_entrada_patrimonio": 0.01,
+      "valor_liquido_contabil": 0.01,
+      "score_desfazimento": 78.0,
+      "dias_parados_oficina": 80.17152777777778,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo 1313 (LWT4176), patrimônio nº 96218, pertencente ao órgão SSP/FSP - FUNDO PARA MELHORIA DA SEGURANÇA PÚBLICA, possui 44 anos de fabricação e acumulou R$ 36.701,14 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 0,01, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    },
+    {
+      "placa": "LZA1505",
+      "patrimonio_numero": "700410",
+      "modelo": "8.140",
+      "familia": "CAMINHAO",
+      "orgao": "CONV_PMSC - Contratos/Convênios da PMSC",
+      "idade_anos": 27,
+      "quilometragem": 794200.0,
+      "total_gasto_manutencao": 22770.0,
+      "valor_entrada_patrimonio": 0.01,
+      "valor_liquido_contabil": 0.01,
+      "score_desfazimento": 77.8,
+      "dias_parados_oficina": 78.29027777777779,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo 8.140 (LZA1505), patrimônio nº 700410, pertencente ao órgão CONV_PMSC - Contratos/Convênios da PMSC, possui 27 anos de fabricação e acumulou R$ 22.770,00 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 0,01, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    },
+    {
+      "placa": "LZA1505",
+      "patrimonio_numero": "700410",
+      "modelo": "8.140",
+      "familia": "CAMINHAO",
+      "orgao": "PMSC - Polícia Militar do Estado de Santa Catarina",
+      "idade_anos": 27,
+      "quilometragem": 794200.0,
+      "total_gasto_manutencao": 22770.0,
+      "valor_entrada_patrimonio": 0.01,
+      "valor_liquido_contabil": 0.0,
+      "score_desfazimento": 77.8,
+      "dias_parados_oficina": 78.29027777777779,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo 8.140 (LZA1505), patrimônio nº 700410, pertencente ao órgão PMSC - Polícia Militar do Estado de Santa Catarina, possui 27 anos de fabricação e acumulou R$ 22.770,00 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 0,00, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    },
+    {
+      "placa": "MEG7858",
+      "patrimonio_numero": "5812",
+      "modelo": "RANGER",
+      "familia": "PICKUP MEDIA",
+      "orgao": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "idade_anos": 21,
+      "quilometragem": 215020.0,
+      "total_gasto_manutencao": 108763.41,
+      "valor_entrada_patrimonio": 0.0,
+      "valor_liquido_contabil": 0.0,
+      "score_desfazimento": 76.6,
+      "dias_parados_oficina": 66.04930555555555,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo RANGER (MEG7858), patrimônio nº 5812, pertencente ao órgão CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina, possui 21 anos de fabricação e acumulou R$ 108.763,41 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 0,00, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    },
+    {
+      "placa": "MCZ6306",
+      "patrimonio_numero": "7702",
+      "modelo": "CARGO",
+      "familia": "CAMINHAO",
+      "orgao": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "idade_anos": 24,
+      "quilometragem": 141085.0,
+      "total_gasto_manutencao": 43955.6,
+      "valor_entrada_patrimonio": 0.01,
+      "valor_liquido_contabil": 0.0,
+      "score_desfazimento": 76.0,
+      "dias_parados_oficina": 59.74861111111111,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo CARGO (MCZ6306), patrimônio nº 7702, pertencente ao órgão CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina, possui 24 anos de fabricação e acumulou R$ 43.955,60 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 0,00, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    },
+    {
+      "placa": "MCM1945",
+      "patrimonio_numero": "7703",
+      "modelo": "CARGO",
+      "familia": "CAMINHAO",
+      "orgao": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "idade_anos": 24,
+      "quilometragem": 142092.0,
+      "total_gasto_manutencao": 38016.34,
+      "valor_entrada_patrimonio": 0.01,
+      "valor_liquido_contabil": 0.0,
+      "score_desfazimento": 75.8,
+      "dias_parados_oficina": 57.89583333333333,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo CARGO (MCM1945), patrimônio nº 7703, pertencente ao órgão CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina, possui 24 anos de fabricação e acumulou R$ 38.016,34 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 0,00, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    },
+    {
+      "placa": "LZQ6657",
+      "patrimonio_numero": "240369",
+      "modelo": "L",
+      "familia": "CAMINHAO",
+      "orgao": "SSP/FSP - FUNDO PARA MELHORIA DA SEGURANÇA PÚBLICA",
+      "idade_anos": 44,
+      "quilometragem": 24508.0,
+      "total_gasto_manutencao": 18154.3,
+      "valor_entrada_patrimonio": 0.01,
+      "valor_liquido_contabil": 0.01,
+      "score_desfazimento": 75.6,
+      "dias_parados_oficina": 56.23194444444445,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo L (LZQ6657), patrimônio nº 240369, pertencente ao órgão SSP/FSP - FUNDO PARA MELHORIA DA SEGURANÇA PÚBLICA, possui 44 anos de fabricação e acumulou R$ 18.154,30 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 0,01, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    },
+    {
+      "placa": "LZQ6657",
+      "patrimonio_numero": "2580",
+      "modelo": "L",
+      "familia": "CAMINHAO",
+      "orgao": "SAPE - Secretaria de Estado da Agricultura e Pecuária",
+      "idade_anos": 44,
+      "quilometragem": 24508.0,
+      "total_gasto_manutencao": 18154.3,
+      "valor_entrada_patrimonio": 0.01,
+      "valor_liquido_contabil": 0.01,
+      "score_desfazimento": 75.6,
+      "dias_parados_oficina": 56.23194444444445,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo L (LZQ6657), patrimônio nº 2580, pertencente ao órgão SAPE - Secretaria de Estado da Agricultura e Pecuária, possui 44 anos de fabricação e acumulou R$ 18.154,30 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 0,01, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    },
+    {
+      "placa": "LXS7849",
+      "patrimonio_numero": "903145",
+      "modelo": "14.200",
+      "familia": "EQUIPAMENTO",
+      "orgao": "SSP/FSP - FUNDO PARA MELHORIA DA SEGURANÇA PÚBLICA",
+      "idade_anos": 33,
+      "quilometragem": 980651.0,
+      "total_gasto_manutencao": 64090.11,
+      "valor_entrada_patrimonio": 3480.51,
+      "valor_liquido_contabil": 3480.51,
+      "score_desfazimento": 74.6,
+      "dias_parados_oficina": 46.43055555555556,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo 14.200 (LXS7849), patrimônio nº 903145, pertencente ao órgão SSP/FSP - FUNDO PARA MELHORIA DA SEGURANÇA PÚBLICA, possui 33 anos de fabricação e acumulou R$ 64.090,11 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 3.480,51, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    },
+    {
+      "placa": "MEN7009",
+      "patrimonio_numero": "5824",
+      "modelo": "VOLARE",
+      "familia": "MICRO ONIBUS",
+      "orgao": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "idade_anos": 20,
+      "quilometragem": 371711.0,
+      "total_gasto_manutencao": 131897.01,
+      "valor_entrada_patrimonio": 0.01,
+      "valor_liquido_contabil": 0.0,
+      "score_desfazimento": 74.5,
+      "dias_parados_oficina": 45.4875,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo VOLARE (MEN7009), patrimônio nº 5824, pertencente ao órgão CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina, possui 20 anos de fabricação e acumulou R$ 131.897,01 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 0,00, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    },
+    {
+      "placa": "MCE5742",
+      "patrimonio_numero": "5785",
+      "modelo": "16.220",
+      "familia": "CAMINHAO",
+      "orgao": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "idade_anos": 25,
+      "quilometragem": 93450.0,
+      "total_gasto_manutencao": 56439.2,
+      "valor_entrada_patrimonio": 0.01,
+      "valor_liquido_contabil": 0.01,
+      "score_desfazimento": 74.3,
+      "dias_parados_oficina": 43.27916666666667,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo 16.220 (MCE5742), patrimônio nº 5785, pertencente ao órgão CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina, possui 25 anos de fabricação e acumulou R$ 56.439,20 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 0,01, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    },
+    {
+      "placa": "MCE5742",
+      "patrimonio_numero": "5785",
+      "modelo": "16.220",
+      "familia": "CAMINHAO",
+      "orgao": "CONV_CBMSC - Convênios do CBMSC",
+      "idade_anos": 25,
+      "quilometragem": 93450.0,
+      "total_gasto_manutencao": 56439.2,
+      "valor_entrada_patrimonio": 0.01,
+      "valor_liquido_contabil": 0.01,
+      "score_desfazimento": 74.3,
+      "dias_parados_oficina": 43.27916666666667,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo 16.220 (MCE5742), patrimônio nº 5785, pertencente ao órgão CONV_CBMSC - Convênios do CBMSC, possui 25 anos de fabricação e acumulou R$ 56.439,20 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 0,01, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    },
+    {
+      "placa": "BWL2469",
+      "patrimonio_numero": "7610",
+      "modelo": "K113",
+      "familia": "ONIBUS",
+      "orgao": "CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina",
+      "idade_anos": 35,
+      "quilometragem": 229000.0,
+      "total_gasto_manutencao": 116520.28,
+      "valor_entrada_patrimonio": 0.01,
+      "valor_liquido_contabil": 0.0,
+      "score_desfazimento": 73.1,
+      "dias_parados_oficina": 31.272916666666667,
+      "recomendacao": "Alienar por leilão público (Baixa Patrimonial Imediata)",
+      "parecer_tecnico": "O veículo K113 (BWL2469), patrimônio nº 7610, pertencente ao órgão CBMSC - Corpo de Bombeiros Militar do Estado de Santa Catarina, possui 35 anos de fabricação e acumulou R$ 116.520,28 em despesas de manutenção corretiva. Seu valor contábil líquido é de apenas R$ 0,00, o que caracteriza o bem como estritamente ANTIECONÔMICO e INSERVÍVEL para os padrões de eficiência da administração pública estadual."
+    }
+  ],
+  "analise_temporal_e_prescritiva": {
+    "premissas_metodologicas": {
+      "modelo_otimizacao": "Mixed-Integer Linear Programming (MILP / Knapsack Gulosa) + HistGradientBoosting",
+      "taxa_economia_direta_pecas": 0.12,
+      "reducao_downtime_markov": "3,53 para 2,40 dias úteis (-32%)",
+      "economia_anual_combinada_media_r$": 5420000.0,
+      "roi_prescritivo": "366,0%"
+    },
+    "historico_contrafactual": [
+      {
+        "ano": 2021,
+        "gasto_real_as_is": 11986593.29,
+        "gasto_prescrito_to_be": 9769073.531349998,
+        "economia_potencial_ano": 2217519.758650001,
+        "percentual_economia": 18.5
+      },
+      {
+        "ano": 2022,
+        "gasto_real_as_is": 18982545.09,
+        "gasto_prescrito_to_be": 15470774.248349998,
+        "economia_potencial_ano": 3511770.8416500017,
+        "percentual_economia": 18.5
+      },
+      {
+        "ano": 2023,
+        "gasto_real_as_is": 21676986.2,
+        "gasto_prescrito_to_be": 17666743.753,
+        "economia_potencial_ano": 4010242.4470000006,
+        "percentual_economia": 18.5
+      },
+      {
+        "ano": 2024,
+        "gasto_real_as_is": 22610672.69,
+        "gasto_prescrito_to_be": 18427698.24235,
+        "economia_potencial_ano": 4182974.4476500005,
+        "percentual_economia": 18.5
+      }
+    ],
+    "projecao_futura_tendencia": [
+      {
+        "ano": 2025,
+        "projecao_inercial_as_is": 24080366.41485,
+        "projecao_prescritiva_to_be": 18704113.71598525,
+        "economia_projetada_ano": 5376252.698864751
+      },
+      {
+        "ano": 2026,
+        "projecao_inercial_as_is": 25645590.23181525,
+        "projecao_prescritiva_to_be": 18984675.421725027,
+        "economia_projetada_ano": 6660914.810090221
+      },
+      {
+        "ano": 2027,
+        "projecao_inercial_as_is": 27312553.596883237,
+        "projecao_prescritiva_to_be": 19269445.5530509,
+        "economia_projetada_ano": 8043108.043832336
+      },
+      {
+        "ano": 2028,
+        "projecao_inercial_as_is": 29087869.580680646,
+        "projecao_prescritiva_to_be": 19558487.236346662,
+        "economia_projetada_ano": 9529382.344333984
+      }
+    ]
+  }
+}

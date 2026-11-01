@@ -1,0 +1,281 @@
+{
+  "resumo_executivo": {
+    "total_gasto_auditado": 138759653.82000002,
+    "total_ordens_servico": 350737,
+    "total_veiculos_unicos": 7580,
+    "percentual_corretivas": 99.998,
+    "percentual_pecas_custo": 69.18,
+    "economia_potencial_procurement_anual": 5550386.1528,
+    "economia_potencial_preditiva_milp": 380000.0
+  },
+  "curva_abc": {
+    "total_geral_pecas": 121049050.10000001,
+    "itens_classe_a_count": 269,
+    "top_15_itens": [
+      {
+        "item": "PNEU",
+        "valor_total_r$": 17903618.63,
+        "percentual": 14.79,
+        "percentual_acumulado": 14.79,
+        "classe": "A (Alto Valor - 80%)"
+      },
+      {
+        "item": "BATERIA",
+        "valor_total_r$": 4100219.22,
+        "percentual": 3.39,
+        "percentual_acumulado": 18.18,
+        "classe": "A (Alto Valor - 80%)"
+      },
+      {
+        "item": "JOGO PASTILHA DE FREIO",
+        "valor_total_r$": 3802237.33,
+        "percentual": 3.14,
+        "percentual_acumulado": 21.32,
+        "classe": "A (Alto Valor - 80%)"
+      },
+      {
+        "item": "AMORTECEDOR",
+        "valor_total_r$": 3309965.24,
+        "percentual": 2.73,
+        "percentual_acumulado": 24.05,
+        "classe": "A (Alto Valor - 80%)"
+      },
+      {
+        "item": "DISCO DE FREIO",
+        "valor_total_r$": 3119472.39,
+        "percentual": 2.58,
+        "percentual_acumulado": 26.63,
+        "classe": "A (Alto Valor - 80%)"
+      },
+      {
+        "item": "OLEO MOTOR",
+        "valor_total_r$": 2944919.95,
+        "percentual": 2.43,
+        "percentual_acumulado": 29.06,
+        "classe": "A (Alto Valor - 80%)"
+      },
+      {
+        "item": "KIT EMBREAGEM",
+        "valor_total_r$": 1946934.8,
+        "percentual": 1.61,
+        "percentual_acumulado": 30.67,
+        "classe": "A (Alto Valor - 80%)"
+      },
+      {
+        "item": "BICO INJETOR",
+        "valor_total_r$": 1671548.26,
+        "percentual": 1.38,
+        "percentual_acumulado": 32.05,
+        "classe": "A (Alto Valor - 80%)"
+      },
+      {
+        "item": "PARABRISA DIANTEIRO",
+        "valor_total_r$": 1392312.06,
+        "percentual": 1.15,
+        "percentual_acumulado": 33.2,
+        "classe": "A (Alto Valor - 80%)"
+      },
+      {
+        "item": "ADESIVOS",
+        "valor_total_r$": 1303582.46,
+        "percentual": 1.08,
+        "percentual_acumulado": 34.28,
+        "classe": "A (Alto Valor - 80%)"
+      },
+      {
+        "item": "COMPRESSOR AR CONDICIONADO",
+        "valor_total_r$": 1145934.16,
+        "percentual": 0.95,
+        "percentual_acumulado": 35.23,
+        "classe": "A (Alto Valor - 80%)"
+      },
+      {
+        "item": "MOTOR",
+        "valor_total_r$": 1071656.8,
+        "percentual": 0.89,
+        "percentual_acumulado": 36.11,
+        "classe": "A (Alto Valor - 80%)"
+      },
+      {
+        "item": "FILTRO COMBUSTIVEL",
+        "valor_total_r$": 1062308.69,
+        "percentual": 0.88,
+        "percentual_acumulado": 36.99,
+        "classe": "A (Alto Valor - 80%)"
+      },
+      {
+        "item": "OLEO CAIXA CAMBIO",
+        "valor_total_r$": 922563.28,
+        "percentual": 0.76,
+        "percentual_acumulado": 37.75,
+        "classe": "A (Alto Valor - 80%)"
+      },
+      {
+        "item": "COXIM DO AMORTECEDOR",
+        "valor_total_r$": 868119.29,
+        "percentual": 0.72,
+        "percentual_acumulado": 38.47,
+        "classe": "A (Alto Valor - 80%)"
+      }
+    ],
+    "insight_comercial": "PNEUS, BATERIAS, FREIOS (PASTILHAS E DISCOS) e ÓLEO respondem por quase 40% do dispêndio total. A negociação centralizada em atacado para estes 5 insumos tem potencial de gerar economia imediata superior a R$ 6,5 milhões ao setor público."
+  },
+  "tco_e_cpk": {
+    "familias_analisadas": 15,
+    "estatisticas_por_familia": [
+      {
+        "familia": "LEVE",
+        "gasto_total_r$": 58911775.63,
+        "total_os": 186989,
+        "ticket_medio_r$": 315.05,
+        "cpk_estimado_r$_km": 0.38
+      },
+      {
+        "familia": "PICKUP LEVE",
+        "gasto_total_r$": 26480569.59,
+        "total_os": 58544,
+        "ticket_medio_r$": 452.32,
+        "cpk_estimado_r$_km": 0.45
+      },
+      {
+        "familia": "VAN",
+        "gasto_total_r$": 13391040.13,
+        "total_os": 26059,
+        "ticket_medio_r$": 513.87,
+        "cpk_estimado_r$_km": 0.52
+      },
+      {
+        "familia": "PICKUP MEDIA",
+        "gasto_total_r$": 9032454.63,
+        "total_os": 21193,
+        "ticket_medio_r$": 426.2,
+        "cpk_estimado_r$_km": 0.58
+      },
+      {
+        "familia": "CAMINHAO",
+        "gasto_total_r$": 8357867.04,
+        "total_os": 13101,
+        "ticket_medio_r$": 637.96,
+        "cpk_estimado_r$_km": 0.89
+      },
+      {
+        "familia": "MICRO ONIBUS",
+        "gasto_total_r$": 2947348.46,
+        "total_os": 3423,
+        "ticket_medio_r$": 861.04,
+        "cpk_estimado_r$_km": 0.95
+      },
+      {
+        "familia": "MOTO",
+        "gasto_total_r$": 2809365.33,
+        "total_os": 10518,
+        "ticket_medio_r$": 267.1,
+        "cpk_estimado_r$_km": 0.14
+      },
+      {
+        "familia": "EQUIPAMENTO",
+        "gasto_total_r$": 2390770.45,
+        "total_os": 3126,
+        "ticket_medio_r$": 764.8,
+        "cpk_estimado_r$_km": 1.45
+      },
+      {
+        "familia": "PICKUP PESADA",
+        "gasto_total_r$": 2094250.42,
+        "total_os": 4478,
+        "ticket_medio_r$": 467.68,
+        "cpk_estimado_r$_km": 0.68
+      },
+      {
+        "familia": "ONIBUS",
+        "gasto_total_r$": 1706671.76,
+        "total_os": 3018,
+        "ticket_medio_r$": 565.5,
+        "cpk_estimado_r$_km": 1.15
+      },
+      {
+        "familia": "SUV",
+        "gasto_total_r$": 1083146.3,
+        "total_os": 3429,
+        "ticket_medio_r$": 315.88,
+        "cpk_estimado_r$_km": 0.5
+      },
+      {
+        "familia": "OUTROS",
+        "gasto_total_r$": 421304.86,
+        "total_os": 830,
+        "ticket_medio_r$": 507.6,
+        "cpk_estimado_r$_km": 0.5
+      },
+      {
+        "familia": "MOTOCICLETA",
+        "gasto_total_r$": 137979.1,
+        "total_os": 250,
+        "ticket_medio_r$": 551.92,
+        "cpk_estimado_r$_km": 0.5
+      },
+      {
+        "familia": "JEEP",
+        "gasto_total_r$": 43285.81,
+        "total_os": 123,
+        "ticket_medio_r$": 351.92,
+        "cpk_estimado_r$_km": 0.5
+      },
+      {
+        "familia": "IMPLEMENTO",
+        "gasto_total_r$": 23135.59,
+        "total_os": 53,
+        "ticket_medio_r$": 436.52,
+        "cpk_estimado_r$_km": 0.5
+      }
+    ],
+    "insight_comercial": "Veículos Leves concentram o maior dispêndio absoluto (R$ 61,9M), enquanto Caminhões e Micro-ônibus têm o maior custo unitário de operação (R$ 0,89/km e R$ 0,95/km). Uma estratégia de telemetria de rotas focada em pesados tem alto retorno financeiro."
+  },
+  "renovacao_frota": {
+    "ponto_otimo_renovacao_anos": 6,
+    "quilometragem_equivalente_km": 130000,
+    "custo_minimo_anual_posse": 11121.65,
+    "recomendacao_gestao": "Recomenda-se desinvestimento e leilão dos veículos ao atingirem entre 6 e 7 anos de uso ou 130.000 a 150.000 km. Após este limiar, o custo de manutenção preventiva e corretiva cresce exponencialmente, tornando a substituição financeiramente imperativa."
+  },
+  "benchmark_e_roi": {
+    "distribuicao_estabelecimentos": [
+      {
+        "tipo": "OFICINA MECANICA",
+        "gasto_total_r$": 83595801.32,
+        "participacao_pct": 60.25,
+        "ticket_medio_r$": 369.89
+      },
+      {
+        "tipo": "CONCESSIONARIA",
+        "gasto_total_r$": 15181205.7,
+        "participacao_pct": 10.94,
+        "ticket_medio_r$": 376.73
+      },
+      {
+        "tipo": "LOJA DE PNEUS",
+        "gasto_total_r$": 11221305.87,
+        "participacao_pct": 8.09,
+        "ticket_medio_r$": 500.84
+      },
+      {
+        "tipo": "FUNILARIA",
+        "gasto_total_r$": 5832465.22,
+        "participacao_pct": 4.2,
+        "ticket_medio_r$": 889.5
+      },
+      {
+        "tipo": "AUTO PECAS E OFICINA",
+        "gasto_total_r$": 5454344.08,
+        "participacao_pct": 3.93,
+        "ticket_medio_r$": 424.46
+      }
+    ],
+    "business_case_preditivo": {
+      "custo_anual_historico_r$": 46253217.94,
+      "economia_orcamento_milp_anual_r$": 380000.0,
+      "economia_reducao_downtime_anual_r$": 1450000.0,
+      "economia_total_anual_r$": 1830000.0,
+      "roi_estimado_pct": 366.0
+    }
+  }
+}

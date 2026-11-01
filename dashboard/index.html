@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analítica Prescritiva e Gestão da Frota Veicular Pública • PPGCAP/UDESC • Eduardo Lopes Jonker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3.5">
+</head>
+<body class="dark-theme">
+    <!-- Link de Acessibilidade para Salto de Conteúdo (WCAG 2.1) -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- Background Gradient Glows -->
+    <div class="glow-bg glow-1" aria-hidden="true"></div>
+    <div class="glow-bg glow-2" aria-hidden="true"></div>
+    <div class="glow-bg glow-3" aria-hidden="true"></div>
+
+    <!-- Navigation Header -->
+    <header class="app-header" role="banner">
+        <div class="header-container">
+            <div class="brand-block">
+                <div class="brand-badge">UDESC • CCT • PPGCAP 2026</div>
+                <h1 class="brand-title">Analítica Prescritiva & Gestão Inteligente da Frota Veicular Pública</h1>
+                <p class="brand-subtitle">Auditoria, Modelagem Preditiva e Otimização com Dados Reais de Santa Catarina (2020–2026)</p>
+                <div class="academic-authorship">
+                    <span class="author-tag"><strong>Autor:</strong> Eduardo Lopes Jonker</span>
+                    <span class="sep" aria-hidden="true">•</span>
+                    <span class="author-tag"><strong>Orientadora:</strong> Profa. Dra. VIVIAN KREMER KALEMPA</span>
+                    <span class="sep" aria-hidden="true">•</span>
+                    <span class="author-tag"><strong>Coorientador:</strong> Prof. Dr. YURI KASZUBOWSKI LOPES</span>
+                </div>
+            </div>
+            <div class="header-actions" role="toolbar" aria-label="Ações rápidas do sistema">
+                <button class="btn btn-action" id="btn-atualizar-graficos" onclick="atualizarGraficosPipeline()" title="Reexecuta os testes estatísticos e atualiza todos os gráficos" aria-label="Atualizar todos os gráficos do pipeline">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                    <span>Atualizar Gráficos</span>
+                </button>
+                <button type="button" class="btn btn-primary" id="btn-relatorio-academico" onclick="gerarRelatorioAcademicoPDF()" title="Gera e abre a Dissertação Acadêmica Completa em PDF com todos os 97 Gráficos, Fórmulas e Teoria de Grafos" aria-label="Gerar e Abrir Relatório Acadêmico da Dissertação em PDF" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                    <span>🎓 Relatório Acadêmico (PDF)</span>
+                </button>
+                <button type="button" class="btn btn-gerencial" id="btn-relatorio-gerencial" onclick="gerarRelatorioGerencialPDF()" title="Gera e abre o Relatório Gerencial Executivo de Frotas com indicadores GFI e explicação detalhada para cada gráfico" aria-label="Gerar e Abrir Relatório Gerencial Executivo de Frotas em PDF" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M9 14l2 2 4-4"></path></svg>
+                    <span>📊 Gerencial (PDF)</span>
+                </button>
+                <a href="relatorio_interativo_abastecimentos.html" class="btn" id="btn-relatorio-abastecimentos" title="Acessar Relatório Interativo com 1 Milhão de Abastecimentos, Consumo Km/L e Matriz de Combustível" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #059669, #0284c7); color: #ffffff; text-decoration: none; box-shadow: 0 2px 10px rgba(5, 150, 105, 0.35);">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"></path><path d="M19 10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2"></path><path d="M15 10h4"></path><path d="M3 22h18"></path></svg>
+                    <span>⛽ Combustível</span>
+                </a>
+                <a href="anomalias.html" class="btn" id="btn-painel-anomalias" title="Acessar Painel Forense Interativo de Anomalias com dados do CSV" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #e11d48, #d97706); color: #ffffff; text-decoration: none; box-shadow: 0 2px 10px rgba(225, 29, 72, 0.35);">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    <span>⚠ Painel de Anomalias (CSV)</span>
+                </a>
+                <div class="dropdown-container">
+                    <button type="button" class="btn btn-word" id="btn-dropdown-downloads" onclick="toggleDropdownDownloads(event)" title="Escolha baixar os relatórios em Word (.docx ABNT), PDF ou Planilhas (Excel/CSV)" aria-label="Baixar relatórios em Word, PDF ou Planilha" style="display: inline-flex; align-items: center; gap: 8px;">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        <span>📥 Baixar / Exportar ▼</span>
+                    </button>
+                    <div class="dropdown-menu" id="dropdown-downloads-menu" role="menu">
+                        <div class="dropdown-header-label">📄 Dissertação Acadêmica (Completa)</div>
+                        <button class="dropdown-item" onclick="baixarRelatorioWord()" role="menuitem">
+                            <span>📝 Dissertação ABNT</span>
+                            <span class="badge-format badge-word">WORD .DOCX</span>
+                        </button>
+                        <button class="dropdown-item" onclick="gerarRelatorioAcademicoPDF()" role="menuitem">
+                            <span>🎓 Dissertação Completa (97 Figuras)</span>
+                            <span class="badge-format badge-pdf">PDF 300 DPI</span>
+                        </button>
+                        
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-header-label">📊 Relatórios Setoriais Executivos</div>
+                        <a href="relatorio_interativo_abastecimentos.html" class="dropdown-item" style="text-decoration: none;" role="menuitem">
+                            <span>⛽ Relatório Interativo (Combustível)</span>
+                            <span class="badge-format" style="background: rgba(16,185,129,0.2); color: #10b981;">WEB INTERATIVO</span>
+                        </a>
+                        <a href="anomalias.html" class="dropdown-item" style="text-decoration: none;" role="menuitem">
+                            <span>⚠ Painel de Anomalias (CSV)</span>
+                            <span class="badge-format" style="background: rgba(225,29,72,0.2); color: #f43f5e;">WEB INTERATIVO</span>
+                        </a>
+                        <a href="/relatorios_pdf/relatorio_de_anomalias_detalhado.pdf" target="_blank" class="dropdown-item" style="text-decoration: none;" role="menuitem">
+                            <span>⚠ Relatório de Anomalias</span>
+                            <span class="badge-format badge-pdf">PDF</span>
+                        </a>
+                        <a href="/relatorios_pdf/relatorio_gestao_completa_abastecimentos.pdf" target="_blank" class="dropdown-item" style="text-decoration: none;" role="menuitem">
+                            <span>⛽ Laudo de Abastecimentos</span>
+                            <span class="badge-format badge-pdf">PDF 300 DPI</span>
+                        </a>
+                        <button class="dropdown-item" onclick="gerarRelatorioGerencialPDF()" role="menuitem">
+                            <span>📊 Relatório Gerencial (Frotas GFI)</span>
+                            <span class="badge-format badge-pdf">PDF</span>
+                        </button>
+                        <button class="dropdown-item" onclick="baixarRelatorioGerencialWord()" role="menuitem">
+                            <span>📝 Relatório Gerencial (Frotas GFI)</span>
+                            <span class="badge-format badge-word">WORD .DOCX</span>
+                        </button>
+                        <button class="dropdown-item" onclick="gerarRelatorioPrevisaoPDF()" role="menuitem">
+                            <span>📈 Previsão Orçamentária (2027–2029)</span>
+                            <span class="badge-format badge-pdf">PDF</span>
+                        </button>
+                        <button class="dropdown-item" onclick="abrirRelatorioGrafosPDF()" role="menuitem">
+                            <span>🕸️ Teoria dos Grafos & Redes</span>
+                            <span class="badge-format badge-pdf">PDF</span>
+                        </button>
+                        <button class="dropdown-item" onclick="abrirRelatorioTecnicoPDF()" role="menuitem">
+                            <span>⚙️ Relatório Técnico (Processamento & Hardware)</span>
+                            <span class="badge-format badge-pdf">PDF</span>
+                        </button>
+                        <button class="dropdown-item" onclick="abrirRelatorio40PDF()" role="menuitem">
+                            <span>⭐ As 40 Figuras & Tabelas Principais</span>
+                            <span class="badge-format badge-pdf">PDF 19 PÁG</span>
+                        </button>
+                        <button class="dropdown-item" onclick="abrirApendicePDF()" role="menuitem">
+                            <span>💻 Apêndice: Arquitetura & Códigos</span>
+                            <span class="badge-format badge-pdf">PDF</span>
+                        </button>
+
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-header-label">🌐 Artigos Científicos (Qualis A1)</div>
+                        <a href="/artigos_internacionais/artigo1_analitica_prescritiva_milp_gestao_frotas_pt.pdf" target="_blank" class="dropdown-item" style="text-decoration: none;" role="menuitem">
+                            <span>🇧🇷 Artigo 1: MILP Prescritivo &amp; TCO</span>
+                            <span class="badge-format" style="background: rgba(16,185,129,0.2); color: #10b981;">QUALIS A1 PT</span>
+                        </a>
+                        <a href="/artigos_internacionais/artigo2_auditoria_ia_xai_shap_lime_redes_complexas_pt.pdf" target="_blank" class="dropdown-item" style="text-decoration: none;" role="menuitem">
+                            <span>🇧🇷 Artigo 2: Auditoria de IA &amp; XAI (SHAP vs LIME)</span>
+                            <span class="badge-format" style="background: rgba(16,185,129,0.2); color: #10b981;">QUALIS A1 PT</span>
+                        </a>
+                        <a href="/artigos_internacionais/paper1_prescriptive_analytics_milp_fleet_management.pdf" target="_blank" class="dropdown-item" style="text-decoration: none;" role="menuitem">
+                            <span>🇬🇧 Paper 1: Prescriptive ML-MILP</span>
+                            <span class="badge-format" style="background: rgba(2,132,199,0.2); color: #0284c7;">ELSEVIER DSS</span>
+                        </a>
+                        <a href="/artigos_internacionais/paper2_xai_audit_shap_lime_network_graphs.pdf" target="_blank" class="dropdown-item" style="text-decoration: none;" role="menuitem">
+                            <span>🇬🇧 Paper 2: Auditing AI &amp; XAI (SHAP vs LIME)</span>
+                            <span class="badge-format" style="background: rgba(99,102,241,0.2); color: #818cf8;">IEEE TCSS</span>
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-header-label">📑 Planilhas de Dados & Modelos</div>
+                        <button class="dropdown-item" onclick="baixarPlanilhaExcel()" role="menuitem">
+                            <span>📑 Planilha Consolidada (8 Abas)</span>
+                            <span class="badge-format badge-excel">EXCEL .XLSX</span>
+                        </button>
+                        <button class="dropdown-item" onclick="baixarPlanilhaCSV('gfi')" role="menuitem">
+                            <span>📁 Indicadores GFI Consolidados</span>
+                            <span class="badge-format badge-csv">CSV</span>
+                        </button>
+                        <button class="dropdown-item" onclick="baixarPlanilhaCSV('leilao')" role="menuitem">
+                            <span>🚗 Bens para Leilão (Decreto 47.539)</span>
+                            <span class="badge-format badge-csv">CSV</span>
+                        </button>
+                        <button class="dropdown-item" onclick="baixarPlanilhaCSV('modelos')" role="menuitem">
+                            <span>🤖 Modelos ML & Métricas de Acurácia</span>
+                            <span class="badge-format badge-csv">CSV</span>
+                        </button>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="btn-recarregar-view" onclick="recarregarTodasImagens()" title="Força atualização imediata do cache de imagens" aria-label="Recarregar imagens e cache">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                    <span>Recarregar</span>
+                </button>
+                <button class="btn btn-ai" id="btn-abrir-chat" onclick="toggleAIChat()" title="Abre o Copiloto de IA para responder em linguagem natural" aria-label="Abrir Copiloto de IA">
+                    <span class="ai-pulse-dot" aria-hidden="true"></span>
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <span>Copiloto de IA</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Metric KPI Cards Bar -->
+        <div class="kpi-grid" role="region" aria-label="Indicadores Chave de Desempenho (KPIs)">
+            <div class="kpi-card">
+                <span class="kpi-label">Ordens de Serviço (OS)</span>
+                <span class="kpi-value" id="kpi-os">273.743</span>
+                <span class="kpi-meta badge-info">2020 a 2026 (Integral)</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">Bens Patrimoniais Tombados</span>
+                <span class="kpi-value" id="kpi-veiculos">31.849</span>
+                <span class="kpi-meta badge-info">Frota Estadual SC</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">Montante Financeiro Auditado</span>
+                <span class="kpi-value highlight-cyan" id="kpi-valor">R$ 483,84M</span>
+                <span class="kpi-meta badge-success">Gasto Efetivo em Manutenção</span>
+            </div>
+            <div class="kpi-card kpi-card-danger">
+                <span class="kpi-label">Gasto em Processos Anômalos</span>
+                <span class="kpi-value highlight-rose" id="kpi-anomalias">R$ 25,35M</span>
+                <span class="kpi-meta badge-danger">R$ 22,42M Glosados (46,9%)</span>
+            </div>
+            <div class="kpi-card kpi-card-warning">
+                <span class="kpi-label">Bens para Leilão Imediato</span>
+                <span class="kpi-value highlight-amber" id="kpi-leilao">427 Veículos</span>
+                <span class="kpi-meta badge-warning">Antieconômicos • Lei 14.133</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">Classificador Campeão (Risco)</span>
+                <span class="kpi-value highlight-emerald" id="kpi-pr-auc">0,8410</span>
+                <span class="kpi-meta badge-success">PR-AUC (HistGB) | ROC = 0,882</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">Erro Médio Absoluto (MAE)</span>
+                <span class="kpi-value highlight-blue" id="kpi-mae">R$ 895,40</span>
+                <span class="kpi-meta badge-info">Redução de -14,1% via M+P</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">Economia Prescritiva (MILP)</span>
+                <span class="kpi-value highlight-purple" id="kpi-economia">R$ 380 mil/ano</span>
+                <span class="kpi-meta badge-warning">+7,84% Ganho Contrafactual</span>
+            </div>
+        </div>
+
+        <!-- Main Navigation Tabs -->
+        <nav class="nav-tabs-wrapper" aria-label="Navegação por seções analíticas">
+            <div class="nav-tabs" role="tablist" aria-label="Abas de análise metodológica">
+                <button class="nav-tab active" data-tab="tab-auditoria" id="tab-btn-auditoria" role="tab" aria-selected="true" aria-controls="tab-auditoria" tabindex="0">📊 1. Governança & Auditoria</button>
+                <button class="nav-tab" data-tab="tab-iforest" id="tab-btn-iforest" role="tab" aria-selected="false" aria-controls="tab-iforest" tabindex="-1">🔍 2. Isolation Forest (Anomalias)</button>
+                <button class="nav-tab" data-tab="tab-prophet" id="tab-btn-prophet" role="tab" aria-selected="false" aria-controls="tab-prophet" tabindex="-1">📈 3. Séries Temporais (Prophet)</button>
+                <button class="nav-tab" data-tab="tab-classificacao" id="tab-btn-classificacao" role="tab" aria-selected="false" aria-controls="tab-classificacao" tabindex="-1">🤖 4. Risco & Calibração</button>
+                <button class="nav-tab" data-tab="tab-regressao" id="tab-btn-regressao" role="tab" aria-selected="false" aria-controls="tab-regressao" tabindex="-1">📉 5. Regressão & Veto Linear</button>
+                <button class="nav-tab" data-tab="tab-ablacao" id="tab-btn-ablacao" role="tab" aria-selected="false" aria-controls="tab-ablacao" tabindex="-1">🧪 6. Estudo Ablativo & Wilcoxon</button>
+                <button class="nav-tab" data-tab="tab-prescritiva" id="tab-btn-prescritiva" role="tab" aria-selected="false" aria-controls="tab-prescritiva" tabindex="-1">🎯 7. Prescrição Ótima (MILP)</button>
+                <button class="nav-tab" data-tab="tab-xai" id="tab-btn-xai" role="tab" aria-selected="false" aria-controls="tab-xai" tabindex="-1">💡 8. XAI, Confiabilidade & Síntese</button>
+                <button class="nav-tab" data-tab="tab-expansoes" id="tab-btn-expansoes" role="tab" aria-selected="false" aria-controls="tab-expansoes" tabindex="-1">🔬 9. Expansões (XAI, Quantílica & MILP)</button>
+                <button class="nav-tab" data-tab="tab-estatistica" id="tab-btn-estatistica" role="tab" aria-selected="false" aria-controls="tab-estatistica" tabindex="-1">📐 10. Pipeline Metodológico (Fig 76–79)</button>
+                <button class="nav-tab" data-tab="tab-comercial" id="tab-btn-comercial" role="tab" aria-selected="false" aria-controls="tab-comercial" tabindex="-1">💼 11. Gestão Comercial (Fig 80–83)</button>
+                <button class="nav-tab" data-tab="tab-anomalias-leilao" id="tab-btn-anomalias-leilao" role="tab" aria-selected="false" aria-controls="tab-anomalias-leilao" tabindex="-1">🛡️ 12. Gestão de Anomalias & Leilão (Fig 90–93)</button>
+                <button class="nav-tab nav-tab-highlight" data-tab="tab-grafos" id="tab-btn-grafos" role="tab" aria-selected="false" aria-controls="tab-grafos" tabindex="-1">🌐 13. Teoria dos Grafos & Redes Complexas (Fig 94–97)</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container com ID de Salto -->
+    <main class="app-main" id="main-content" tabindex="-1">
+
+        <!-- TAB 1: AUDITORIA E GOVERNANÇA CADASTRAL -->
+        <section id="tab-auditoria" class="tab-pane active">
+            <div class="section-header">
+                <h2>1. Auditoria Estrutural dos Dados e Qualidade Cadastral</h2>
+                <p>Auditoria exaustiva de 273.743 ordens de serviço (2020 a 2026), diagnóstico de inconsistências de hodômetro, concentração temporal e comportamento dos órgãos estaduais.</p>
+            </div>
+
+            <div class="charts-gallery">
+                <!-- Fig 01 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig01_status_distribuicao.png', 'Figura 01 — Distribuição de Frequência do Status Operacional das Ordens de Serviço')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Auditoria</span>
+                        <h4>Figura 01 — Distribuição de Frequência do Status Operacional das OS</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig01_status_distribuicao.png" alt="Figura 01" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Dados administrativos de OS / Governo de SC (2020–2026). Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 02 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig02_tipos_manutencao.png', 'Figura 02 — Proporção Histórica dos Tipos de Manutenção na Frota Estadual')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Confiabilidade</span>
+                        <h4>Figura 02 — Proporção Histórica dos Tipos de Manutenção na Frota</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig02_tipos_manutencao.png" alt="Figura 02" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Dados administrativos de OS / Governo de SC (2020–2026). Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 03 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig03_evolucao_temporal_os.png', 'Figura 03 — Evolução Temporal Mensal do Volume de Ordens de Serviço e Dispêndio Total (2020–2026)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Série Temporal</span>
+                        <h4>Figura 03 — Evolução Temporal Mensal de Volume e Dispêndio Total</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig03_evolucao_temporal_os.png" alt="Figura 03" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Dados administrativos de OS / Governo de SC (2020–2026). Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 04 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig04_auditoria_hodometro.png', 'Figura 04 — Auditoria de Integridade de Hodômetro: Ocorrência de Saltos Negativos e Inconsistências')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-warning">Qualidade de Dados</span>
+                        <h4>Figura 04 — Auditoria de Integridade de Hodômetro (Saltos Negativos)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig04_auditoria_hodometro.png" alt="Figura 04" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Auditoria temporal de odometria por placa / SC. Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 33 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig33_dispersao_km_vs_custo_os.png', 'Figura 33 — Dispersão e Curva de Tendência entre Odômetro e Custo da Ordem de Serviço')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Tendência Não Linear</span>
+                        <h4>Figura 33 — Dispersão e Tendência Odômetro vs Custo Total da OS</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig33_dispersao_km_vs_custo_os.png" alt="Figura 33" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Dados de OS / Governo de SC (2020–2026). Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 34 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig34_top10_orgaos_gastos_volume.png', 'Figura 34 — Ranking dos 10 Principais Órgãos da Administração Estadual por Dispêndio e Volume')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Governança Pública</span>
+                        <h4>Figura 34 — Ranking dos 10 Órgãos do Estado por Dispêndio e Volume</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig34_top10_orgaos_gastos_volume.png" alt="Figura 34" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Dados administrativos de OS / Governo de SC (2020–2026). Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 35 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig35_padrao_abertura_os_dia_semana.png', 'Figura 35 — Padrão Operacional de Emissão de Ordens de Serviço por Dia da Semana')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Rotina Operacional</span>
+                        <h4>Figura 35 — Padrão Operacional de Emissão de OS por Dia da Semana</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig35_padrao_abertura_os_dia_semana.png" alt="Figura 35" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Dados de OS / Governo de SC (2020–2026). Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 36 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig36_distribuicao_mtbf_dias_entre_os.png', 'Figura 36 — Distribuição Empírica do Tempo Médio Entre Manutenções (MTBF) na Frota')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Confiabilidade</span>
+                        <h4>Figura 36 — Distribuição do Tempo Médio Entre Manutenções (MTBF)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig36_distribuicao_mtbf_dias_entre_os.png" alt="Figura 36" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Análise empírica de intervalos entre passagens na oficina (2026).</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: DETECÇÃO DE ANOMALIAS E GLOSAS -->
+        <section id="tab-iforest" class="tab-pane">
+            <div class="section-header">
+                <h2>2. Detecção Não Supervisionada de Anomalias (Isolation Forest) & Glosas</h2>
+                <p>Identificação de comportamentos atípicos, superfaturamentos de autopeças e validação contra reprovações manuais e glosas da fiscalização estadual.</p>
+            </div>
+
+            <div class="charts-gallery">
+                <!-- Fig 05 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig05_iforest_estabilidade_jaccard.png', 'Figura 05 — Estabilidade Estocástica do Isolation Forest: Similaridade de Jaccard por Subamostragem')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-iforest">Estabilidade</span>
+                        <h4>Figura 05 — Estabilidade Estocástica do IForest (Índice de Jaccard)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig05_iforest_estabilidade_jaccard.png" alt="Figura 05" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Bootstrap com 50 subamostragens / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 06 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig06_iforest_scores_vs_reprovadas.png', 'Figura 06 — Distribuição Empírica de Anomaly Scores do Isolation Forest vs Reprovações na Auditoria')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-iforest">Validação Externa</span>
+                        <h4>Figura 06 — Anomaly Scores do IForest vs Reprovações na Auditoria</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig06_iforest_scores_vs_reprovadas.png" alt="Figura 06" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Teste t de Student bicaudal (t = 28,4; p < 0,001) / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 21 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig21_iforest_distribuicao_anomalias.png', 'Figura 21 — Distribuição do Score de Anomalia do Isolation Forest e Ponto de Corte')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-iforest">Limiar Contaminação</span>
+                        <h4>Figura 21 — Distribuição do Score de Anomalia e Limiar de 5%</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig21_iforest_distribuicao_anomalias.png" alt="Figura 21" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Base unificada de OS do Governo de SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 41 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig41_iforest_sensibilidade_contaminacao.png', 'Figura 41 — Análise de Sensibilidade do Isolation Forest à Taxa de Contaminação (ν)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-iforest">Sensibilidade ν</span>
+                        <h4>Figura 41 — Sensibilidade do IForest à Taxa de Contaminação (ν)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig41_iforest_sensibilidade_contaminacao.png" alt="Figura 41" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Avaliação de concordância com auditorias de SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 42 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig42_iforest_scores_por_familia.png', 'Figura 42 — Distribuição dos Scores de Anomalia do Isolation Forest por Família Veicular')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-iforest">Segmentação</span>
+                        <h4>Figura 42 — Scores de Anomalia do IForest por Família Veicular</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig42_iforest_scores_por_familia.png" alt="Figura 42" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Distribuição estratificada por classe veicular / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 43 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig43_dispersao_anomalias_km_custo.png', 'Figura 43 — Dispersão Bivariada de Anomalias no Espaço Odômetro vs Custo da Manutenção')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-iforest">Dispersão Bivariada</span>
+                        <h4>Figura 43 — Dispersão de Anomalias no Espaço Odômetro vs Custo</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig43_dispersao_anomalias_km_custo.png" alt="Figura 43" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Mapeamento de inliers vs outliers multidimensionais / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 44 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig44_glosas_cancelamentos_reprovacoes.png', 'Figura 44 — Volume Financeiro Anual Aprovado vs Glosado / Bloqueado pela Fiscalização')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-warning">Glosas Anuais</span>
+                        <h4>Figura 44 — Volume Financeiro Aprovado vs Glosado pela Auditoria</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig44_glosas_cancelamentos_reprovacoes.png" alt="Figura 44" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Dados administrativos de auditoria de OS / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 45 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig45_comparativo_orcado_vs_aprovado.png', 'Figura 45 — Comparativo Bivariado entre Valor Orçado Inicialmente e Valor Final Aprovado')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-iforest">Orçado vs Pago</span>
+                        <h4>Figura 45 — Comparativo entre Valor Orçado e Valor Final Aprovado</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig45_comparativo_orcado_vs_aprovado.png" alt="Figura 45" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Análise bivariada de orçamentos de oficinas / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 46 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig46_distribuicao_percentual_descontos.png', 'Figura 46 — Distribuição Percentual da Economia / Glosa Obtida nas Negociações de OS')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-success">Economia Direta</span>
+                        <h4>Figura 46 — Distribuição Percentual de Descontos e Glosas</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig46_distribuicao_percentual_descontos.png" alt="Figura 46" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Descontos médios obtidos por negociação técnica / SC (2026).</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: SÉRIES TEMPORAIS E PROPHET -->
+        <section id="tab-prophet" class="tab-pane">
+            <div class="section-header">
+                <h2>3. Modelagem Preditiva de Séries Temporais (Prophet)</h2>
+                <p>Previsão orçamentária prospectiva do tesouro estadual para 2025–2026, decomposição bayesiana de sazonalidades, bandas de incerteza e teste de ruído branco.</p>
+            </div>
+
+            <div class="charts-gallery">
+                <!-- Fig 18 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig18_prophet_previsao_gastos.png', 'Figura 18 — Previsão Prospectiva do Dispêndio Mensal com Manutenção da Frota (Prophet)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-prophet">Projeção LOA</span>
+                        <h4>Figura 18 — Previsão Prospectiva do Dispêndio Mensal da Frota</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig18_prophet_previsao_gastos.png" alt="Figura 18" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Modelo Prophet treinado com 56 meses reais de SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 19 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig19_prophet_componentes.png', 'Figura 19 — Decomposição Estrutural da Série Temporal pelo Prophet (Tendência e Sazonalidade)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-prophet">Decomposição</span>
+                        <h4>Figura 19 — Decomposição Estrutural: Tendência e Sazonalidade</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig19_prophet_componentes.png" alt="Figura 19" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Séries de Fourier e changepoints bayesianos (2026).</span></div>
+                </div>
+
+                <!-- Fig 20 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig20_prophet_demanda_os.png', 'Figura 20 — Previsão da Demanda Mensal de Ordens de Serviço da Frota Estadual (Prophet)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-prophet">Demanda Física</span>
+                        <h4>Figura 20 — Previsão da Demanda Mensal de Ordens de Serviço</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig20_prophet_demanda_os.png" alt="Figura 20" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Modelo de contagem de OS / Governo de SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 22 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig22_prophet_com_vs_sem_anomalias.png', 'Figura 22 — Impacto do Filtro de Anomalias na Previsão Orçamentária Futura do Prophet')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-success">Sinergia IForest</span>
+                        <h4>Figura 22 — Efeito do Filtro de Anomalias na Previsão Futura</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig22_prophet_com_vs_sem_anomalias.png" alt="Figura 22" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Redução de R$ 4,1M em superestimação orçamentária / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 28 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig28_sazonalidade_mensal_historica.png', 'Figura 28 — Perfil Sazonal do Dispêndio Médio Mensal e Variabilidade Histórica')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-prophet">Sazonalidade Mensal</span>
+                        <h4>Figura 28 — Perfil Sazonal do Dispêndio Médio Mensal (2021–2025)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig28_sazonalidade_mensal_historica.png" alt="Figura 28" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Médias mensais com barras de desvio padrão interanual / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 47 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig47_prophet_intervalos_confianca.png', 'Figura 47 — Faixas de Incerteza Amostral e Intervalos de Confiança Prospectivos (Prophet)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-prophet">Incerteza Amostral</span>
+                        <h4>Figura 47 — Faixas de Incerteza (80% vs 95%) das Previsões Prophet</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig47_prophet_intervalos_confianca.png" alt="Figura 47" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Simulações posteriores de Monte Carlo / Stan (2026).</span></div>
+                </div>
+
+                <!-- Fig 48 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig48_prophet_autocorrelacao_residuos.png', 'Figura 48 — Função de Autocorrelação (ACF) dos Resíduos da Previsão Temporal do Prophet')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-prophet">Diagnóstico ACF</span>
+                        <h4>Figura 48 — Autocorrelação (ACF) dos Resíduos do Prophet</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig48_prophet_autocorrelacao_residuos.png" alt="Figura 48" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Teste de ruído branco com limites de Bartlett (2026).</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: CLASSIFICAÇÃO DE RISCO E CALIBRAÇÃO -->
+        <section id="tab-classificacao" class="tab-pane">
+            <div class="section-header">
+                <h2>4. Classificação Supervisionada de Risco de Falha & Calibração</h2>
+                <p>Antecipação de quebras corretivas não planejadas (janela de 30 a 60 dias), curvas ROC/PR, diagramas de confiabilidade e trade-offs operacionais.</p>
+            </div>
+
+            <div class="charts-gallery">
+                <!-- Fig 07 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig07_classificacao_pr_curves.png', 'Figura 07 — Curvas Precision-Recall dos Modelos de Classificação de Risco de Falha')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-modelos">PR Curves</span>
+                        <h4>Figura 07 — Curvas Precision-Recall na Classificação de Risco</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig07_classificacao_pr_curves.png" alt="Figura 07" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Validação temporal pareada / Governo de SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 08 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig08_classificacao_roc_curves.png', 'Figura 08 — Curvas ROC dos Modelos de Classificação Supervisionada')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-modelos">ROC Curves</span>
+                        <h4>Figura 08 — Curvas ROC Comparativas dos Classificadores</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig08_classificacao_roc_curves.png" alt="Figura 08" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: HistGradientBoosting líder com AUC = 0,882 / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 09 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig09_calibracao_probabilidades.png', 'Figura 09 — Diagramas de Confiabilidade e Curvas de Calibração de Probabilidade')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-modelos">Calibração ECE</span>
+                        <h4>Figura 09 — Diagramas de Confiabilidade e Calibração (ECE)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig09_calibracao_probabilidades.png" alt="Figura 09" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: ECE = 0,028 e Brier Score = 0,112 (HistGB) / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 17 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig17_matriz_correlacao_features.png', 'Figura 17 — Matriz de Correlação Linear das Variáveis Preditivas e Financeiras')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-modelos">Correlação</span>
+                        <h4>Figura 17 — Matriz de Correlação das Features Preditivas</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig17_matriz_correlacao_features.png" alt="Figura 17" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Correlação de Pearson e Spearman das variáveis reais (2026).</span></div>
+                </div>
+
+                <!-- Fig 23 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig23_matrizes_confusao.png', 'Figura 23 — Matrizes de Confusão Normalizadas dos Algoritmos de Classificação de Risco')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-modelos">Matrizes de Confusão</span>
+                        <h4>Figura 23 — Matrizes de Confusão Normalizadas dos Classificadores</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig23_matrizes_confusao.png" alt="Figura 23" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Validação no conjunto de teste independente / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 30 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig30_tradeoff_limiar_decisao.png', 'Figura 30 — Trade-off de Limiares de Decisão na Classificação de Risco (HistGB)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-modelos">Limiar Ótimo τ</span>
+                        <h4>Figura 30 — Trade-off de Limiares de Decisão (Precision vs Recall)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig30_tradeoff_limiar_decisao.png" alt="Figura 30" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Ponto de máxima harmonia τ = 0,54 (F1 = 0,788) / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 38 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig38_roc_curves_por_segmento.png', 'Figura 38 — Curvas ROC Segmentadas por Categoria Operacional de Veículo (HistGB)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-modelos">Segmentação</span>
+                        <h4>Figura 38 — Curvas ROC Segmentadas por Categoria de Veículo</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig38_roc_curves_por_segmento.png" alt="Figura 38" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Leves (0,891), Pesados (0,864), Motos (0,832) / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 39 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig39_curva_aprendizado_classificacao.png', 'Figura 39 — Curva de Aprendizado (Learning Curve) do Classificador HistGradientBoosting')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-modelos">Learning Curve</span>
+                        <h4>Figura 39 — Curva de Aprendizado do HistGB Classifier</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig39_curva_aprendizado_classificacao.png" alt="Figura 39" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Convergência estável com 50.000 instâncias de treino (2026).</span></div>
+                </div>
+
+                <!-- Fig 49 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig49_matriz_custo_assimetrico_decisao.png', 'Figura 49 — Matriz de Penalidade Econômica Assimétrica das Decisões Operacionais')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-warning">Penalidade Financeira</span>
+                        <h4>Figura 49 — Matriz de Custo Financeiro Assimétrico (FP vs FN)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig49_matriz_custo_assimetrico_decisao.png" alt="Figura 49" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Falso Negativo acarreta custo 12x superior ao Falso Positivo (2026).</span></div>
+                </div>
+
+                <!-- Fig 50 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig50_calibracao_ece_por_familia.png', 'Figura 50 — Expected Calibration Error (ECE) Segmentado por Família Veicular')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-modelos">ECE Intra-classe</span>
+                        <h4>Figura 50 — Erro de Calibração (ECE) Segmentado por Família</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig50_calibracao_ece_por_familia.png" alt="Figura 50" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: ECE < 0,05 em todas as categorias da frota estadual (2026).</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: REGRESSÃO DE CUSTOS E VETO LINEAR -->
+        <section id="tab-regressao" class="tab-pane">
+            <div class="section-header">
+                <h2>5. Regressão Não Linear de Custos & Veto Metodológico à Regressão Linear</h2>
+                <p>Previsão contínua em R$ do valor das ordens de serviço, diagnóstico de resíduos leptocúrticos e comprovação de heterocedasticidade severa.</p>
+            </div>
+
+            <div class="charts-gallery">
+                <!-- Fig 10 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig10_regressao_comparativo_mae_rmse.png', 'Figura 10 — Comparativo de Desempenho dos Modelos de Regressão de Custos de OS')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-regressao">MAE & RMSE</span>
+                        <h4>Figura 10 — Comparativo de Desempenho dos Modelos de Regressão</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig10_regressao_comparativo_mae_rmse.png" alt="Figura 10" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: HistGB campeão com MAE = R$ 895,40 / Governo de SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 11 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig11_regressao_previsto_vs_real.png', 'Figura 11 — Dispersão entre Custo Real e Previsto por Ordem de Serviço (HistGradientBoosting)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-regressao">Real vs Previsto</span>
+                        <h4>Figura 11 — Dispersão Custo Real vs Previsto (Faixa ±20%)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig11_regressao_previsto_vs_real.png" alt="Figura 11" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: 74,6% das previsões contidas na banda de tolerância / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 16 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig16_distribuicao_custo_classes_veiculos.png', 'Figura 16 — Distribuição de Custos por Ordem de Serviço por Categoria de Veículo')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-regressao">Dispersão por Categoria</span>
+                        <h4>Figura 16 — Boxplot de Custos de Manutenção por Família</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig16_distribuicao_custo_classes_veiculos.png" alt="Figura 16" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Distribuição estratificada de gastos de OS / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 29 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig29_distribuicao_residuos_regressao.png', 'Figura 29 — Diagnóstico de Resíduos da Regressão (HistGradientBoosting)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-warning">Veto Metodológico</span>
+                        <h4>Figura 29 — Diagnóstico de Resíduos e Q-Q Plot Normal (Veto à OLS)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig29_distribuicao_residuos_regressao.png" alt="Figura 29" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Resíduos leptocúrticos e distribuição Laplace (2026).</span></div>
+                </div>
+
+                <!-- Fig 40 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig40_curva_aprendizado_regressao.png', 'Figura 40 — Curva de Aprendizado (Learning Curve) do Regressor de Custos (HistGB)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-regressao">Learning Curve</span>
+                        <h4>Figura 40 — Curva de Aprendizado do HistGB Regressor</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig40_curva_aprendizado_regressao.png" alt="Figura 40" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Convergência do erro MAE ao longo do volume de treino (2026).</span></div>
+                </div>
+
+                <!-- Fig 51 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig51_heterocedasticidade_residuos_decil.png', 'Figura 51 — Diagnóstico de Heterocedasticidade: Erro Absoluto Médio por Decil de Custo')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-warning">Heterocedasticidade</span>
+                        <h4>Figura 51 — Erro Residual por Decil de Valor da OS (HistGB vs OLS)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig51_heterocedasticidade_residuos_decil.png" alt="Figura 51" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Explosão do resíduo linear na cauda superior D10 / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 52 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig52_boxplot_residuos_modelos.png', 'Figura 52 — Dispersão dos Erros Residuais (y - ŷ) entre Modelos de Regressão')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-regressao">Dispersão Residual</span>
+                        <h4>Figura 52 — Boxplot Comparativo dos Resíduos (HistGB vs RF vs Ridge)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig52_boxplot_residuos_modelos.png" alt="Figura 52" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: HistGB com menor variância residual σ = R$ 580 / SC (2026).</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 6: ESTUDO ABLATIVO E WILCOXON -->
+        <section id="tab-ablacao" class="tab-pane">
+            <div class="section-header">
+                <h2>6. Estudo Ablativo das Fontes de Dados & Testes de Wilcoxon</h2>
+                <p>Comprovação experimental do ganho obtido ao enriquecer o histórico de manutenção (M) com os dados de patrimônio tombado (P), validado com testes não paramétricos de Wilcoxon.</p>
+            </div>
+
+            <!-- Tabela dos Testes Estatísticos -->
+            <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                    <h3>Tabela de Testes Não Paramétricos Pareados de Wilcoxon (Correção de Holm)</h3>
+                    <span class="badge badge-success">Significância Estrita (p &lt; 10⁻¹²)</span>
+                </div>
+                <div class="card-body">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Comparação Pareada de Modelos</th>
+                                <th>Estatística W de Wilcoxon</th>
+                                <th>p-valor Bruto</th>
+                                <th>p-valor Ajustado (Holm)</th>
+                                <th>Decisão Estatística Formal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>HistGB vs Árvore de Regressão</strong></td>
+                                <td><code>1.824.510,0</code></td>
+                                <td><code>&lt; 1,00e-15</code></td>
+                                <td><code>&lt; 1,00e-15</code></td>
+                                <td><span class="badge badge-success">Rejeita H0 (Superioridade Estrita)</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>HistGB vs Random Forest</strong></td>
+                                <td><code>2.412.890,0</code></td>
+                                <td><code>2,45e-14</code></td>
+                                <td><code>4,90e-14</code></td>
+                                <td><span class="badge badge-success">Rejeita H0 (Superioridade Estrita)</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>HistGB vs Extra Trees</strong></td>
+                                <td><code>2.685.120,0</code></td>
+                                <td><code>8,12e-13</code></td>
+                                <td><code>8,12e-13</code></td>
+                                <td><span class="badge badge-success">Rejeita H0 (Superioridade Estrita)</span></td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td><strong>Visão Integrada (M+P) vs Isolada (M)</strong></td>
+                                <td><code>2,41e+07</code></td>
+                                <td><code>&lt; 1,00e-12</code></td>
+                                <td><code>&lt; 1,00e-12</code></td>
+                                <td><span class="badge badge-success">Rejeita H0 (Ganho Patrimonial Comprovado)</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="charts-gallery">
+                <!-- Fig 12 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig12_ablativo_fontes_m_vs_mp.png', 'Figura 12 — Estudo Ablativo: Impacto da Integração dos Dados Patrimoniais aos de Manutenção')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-ablacao">Estudo Ablativo M vs MP</span>
+                        <h4>Figura 12 — Impacto da Integração Patrimonial (+8,8% F1 | -14,1% MAE)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig12_ablativo_fontes_m_vs_mp.png" alt="Figura 12" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Validação temporal pareada / Governo de SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 53 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig53_wilcoxon_distribuicao_deltas.png', 'Figura 53 — Distribuição das Diferenças Pareadas de Erro Absoluto (Teste de Wilcoxon M vs MP)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-ablacao">Distribuição Wilcoxon</span>
+                        <h4>Figura 53 — Distribuição das Diferenças Pareadas de Erro (|e_M| - |e_MP|)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig53_wilcoxon_distribuicao_deltas.png" alt="Figura 53" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Média Δ = +R$ 147,10 / OS; W = 2,41e7; p < 1e-12 (2026).</span></div>
+                </div>
+
+                <!-- Fig 54 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig54_reducao_custo_por_veiculo_mp.png', 'Figura 54 — Distribuição das Reduções Estimadas de Custo Operacional por Veículo (Visão M+P)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-success">Economia por Veículo</span>
+                        <h4>Figura 54 — Redução Estimada de Custo por Chassi (Mediana = R$ 882/ano)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig54_reducao_custo_por_veiculo_mp.png" alt="Figura 54" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Agregação por placa dos deltas de assertividade / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 63 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig63_ganho_explicabilidade_por_feature.png', 'Figura 63 — Ganho Incremental de Explicabilidade e Redução de MAE por Grupo de Variáveis')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-ablacao">Cascata de Atributos</span>
+                        <h4>Figura 63 — Ganho Incremental de Explicabilidade e Redução de MAE</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig63_ganho_explicabilidade_por_feature.png" alt="Figura 63" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Injeção progressiva dos 5 grupos de variáveis no modelo (2026).</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 7: PRESCRIÇÃO ÓTIMA (MILP) -->
+        <section id="tab-prescritiva" class="tab-pane">
+            <div class="section-header">
+                <h2>7. Otimização Prescritiva Estocástica (MILP) & Simulador Orçamentário</h2>
+                <p>Alocação ótima de intervenções preventivas sob restrição orçamentária rígida, fronteiras de Pareto e minimização simultânea de custo e quebras.</p>
+            </div>
+
+            <!-- Simulador Interativo Prescritivo -->
+            <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                    <h3>Simulador Interativo de Alocação Prescritiva (MILP)</h3>
+                    <span class="badge badge-prescritiva">Branch-and-Bound Ótimo</span>
+                </div>
+                <div class="card-body">
+                    <p style="margin-bottom: 12px; color: #94a3b8;">Ajuste o controle deslizante abaixo para simular a resposta da política ótima frente ao orçamento governamental disponível:</p>
+                    <div class="slider-container">
+                        <label for="budget-slider" class="slider-label">Teto Orçamentário Relativo:</label>
+                        <input type="range" id="budget-slider" min="50" max="150" step="25" value="100">
+                        <span id="slider-val-label" class="slider-value-display">100% (Cenário Base: R$ 274.455,00)</span>
+                    </div>
+
+                    <div class="sim-kpi-grid">
+                        <div class="sim-kpi-card">
+                            <span class="sim-label">Ações Preventivas Prescritas</span>
+                            <span class="sim-value" id="sim-intervencoes">609 veículos</span>
+                        </div>
+                        <div class="sim-kpi-card">
+                            <span class="sim-label">Custo Operacional Total Esperado</span>
+                            <span class="sim-value highlight-cyan" id="sim-custo">R$ 8.152.969,01</span>
+                        </div>
+                        <div class="sim-kpi-card">
+                            <span class="sim-label">Taxa Residual de Falhas Corretivas</span>
+                            <span class="sim-value highlight-warning" id="sim-risco">69,83%</span>
+                        </div>
+                        <div class="sim-kpi-card">
+                            <span class="sim-label">Economia Líquida vs Status Quo</span>
+                            <span class="sim-value highlight-emerald" id="sim-economia">+4,26% (R$ 363.181,41)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="charts-gallery">
+                <!-- Fig 14 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig14_otimizacao_sensibilidade_orcamento.png', 'Figura 14 — Curva de Sensibilidade Orçamentária na Alocação Ótima Prescritiva')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-prescritiva">Sensibilidade MILP</span>
+                        <h4>Figura 14 — Curva de Sensibilidade Orçamentária na Prescrição Ótima</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig14_otimizacao_sensibilidade_orcamento.png" alt="Figura 14" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Otimização MILP em 5 cenários orçamentários (2026).</span></div>
+                </div>
+
+                <!-- Fig 15 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig15_politicas_decisao_fronteira.png', 'Figura 15 — Fronteira de Eficiência de Pareto das Políticas de Decisão Prescritiva')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-prescritiva">Fronteira de Pareto</span>
+                        <h4>Figura 15 — Fronteira de Eficiência de Pareto das Políticas de Decisão</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig15_politicas_decisao_fronteira.png" alt="Figura 15" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: MILP domina estritamente o Status Quo e Heurísticas (2026).</span></div>
+                </div>
+
+                <!-- Fig 32 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig32_comparativo_economia_politicas.png', 'Figura 32 — Ganho de Economia Contrafactual (%) por Cenário Orçamentário')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-success">Ganho Contrafactual</span>
+                        <h4>Figura 32 — Ganho de Economia (%) por Cenário (MILP vs Heurística)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig32_comparativo_economia_politicas.png" alt="Figura 32" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Economia líquida contrafactual de até +7,84% / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 55 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig55_fronteira_pareto_custo_risco.png', 'Figura 55 — Fronteira de Pareto Prescritiva: Custo Operacional Total vs Taxa de Falhas Residuais')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-prescritiva">Trade-off Hiperbólico</span>
+                        <h4>Figura 55 — Fronteira de Pareto: Custo Total vs Risco Residual</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig55_fronteira_pareto_custo_risco.png" alt="Figura 55" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Otimização multiobjetivo ε-constraint / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 56 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig56_alocacao_orcamentaria_milp_cenarios.png', 'Figura 56 — Alocação Prescritiva Ótima do Orçamento entre Ações Preventivas e Corretivas (MILP)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-prescritiva">Alocação Ótima</span>
+                        <h4>Figura 56 — Alocação Ótima do Orçamento: Preventiva vs Corretiva</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig56_alocacao_orcamentaria_milp_cenarios.png" alt="Figura 56" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Proporção ótima de investimento profilático por cenário (2026).</span></div>
+                </div>
+
+                <!-- Fig 57 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig57_sensibilidade_custo_indisponibilidade.png', 'Figura 57 — Sensibilidade da Decisão Ótima ao Custo de Indisponibilidade Veicular')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-prescritiva">Indisponibilidade</span>
+                        <h4>Figura 57 — Sensibilidade da Prescrição ao Custo de Indisponibilidade</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig57_sensibilidade_custo_indisponibilidade.png" alt="Figura 57" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Resposta da política frente ao valor do dia parado / SC (2026).</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 8: XAI, CONFIABILIDADE E SÍNTESE -->
+        <section id="tab-xai" class="tab-pane">
+            <div class="section-header">
+                <h2>8. Interpretabilidade (XAI), Engenharia de Confiabilidade & Síntese</h2>
+                <p>Explicabilidade local e global (SHAP / Permutação), curva de Pareto 80/20, curva da banheira por idade veicular, distribuição espacial e arquitetura ponta a ponta.</p>
+            </div>
+
+            <div class="charts-gallery">
+                <!-- Fig 13 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig13_importancia_atributos_xai.png', 'Figura 13 — Importância Global dos Atributos por Permutação na Classificação de Risco (XAI)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-xai">XAI Classificação</span>
+                        <h4>Figura 13 — Importância Global dos Atributos por Permutação (Risco)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig13_importancia_atributos_xai.png" alt="Figura 13" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Redução média do F1-score por embaralhamento / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 31 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig31_xai_importancia_regressao.png', 'Figura 31 — Importância dos Atributos por Permutação na Regressão de Custos (XAI)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-xai">XAI Regressão</span>
+                        <h4>Figura 31 — Importância dos Atributos na Regressão de Custos (XAI)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig31_xai_importancia_regressao.png" alt="Figura 31" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Aumento médio no MAE ao permutar cada variável / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 62 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig62_xai_local_waterfall_casos_extremos.png', 'Figura 62 — Interpretabilidade Local Aditiva (XAI / SHAP) para Casos Extremos da Frota')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-xai">SHAP Waterfall</span>
+                        <h4>Figura 62 — Interpretabilidade Local (SHAP Waterfall) Casos Extremos</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig62_xai_local_waterfall_casos_extremos.png" alt="Figura 62" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Contribuições aditivas de Shapley para veículos reais de SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 24 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig24_distribuicao_tempo_reparo.png', 'Figura 24 — Distribuição do Tempo de Permanência na Oficina por Tipo de Manutenção')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Lead Time</span>
+                        <h4>Figura 24 — Tempo de Permanência na Oficina (Corretiva vs Preventiva)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig24_distribuicao_tempo_reparo.png" alt="Figura 24" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Lead time médio: 11,4 dias corretiva vs 3,8 preventiva (2026).</span></div>
+                </div>
+
+                <!-- Fig 25 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig25_composicao_custos_peca_vs_mo.png', 'Figura 25 — Decomposição Percentual de Custos: Peças vs Mão de Obra por Família Veicular')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Peças vs MO</span>
+                        <h4>Figura 25 — Decomposição de Custos: Peças vs Mão de Obra por Família</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig25_composicao_custos_peca_vs_mo.png" alt="Figura 25" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Participação percentual de insumos por classe de bem (2026).</span></div>
+                </div>
+
+                <!-- Fig 26 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig26_curva_pareto_gastos_veiculos.png', 'Figura 26 — Curva de Concentração de Pareto dos Custos de Manutenção na Frota')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-warning">Pareto 80/20</span>
+                        <h4>Figura 26 — Curva de Concentração de Pareto (Top 20% = 71,4% dos Gastos)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig26_curva_pareto_gastos_veiculos.png" alt="Figura 26" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Curva de Lorenz empírica da frota estadual / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 27 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig27_custo_por_idade_veiculo.png', 'Figura 27 — Relação entre Idade do Veículo e Custo de Intervenção de Manutenção')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Curva da Banheira</span>
+                        <h4>Figura 27 — Custo Médio por OS em Função da Idade do Veículo</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig27_custo_por_idade_veiculo.png" alt="Figura 27" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Cruzamento entre ano de tombamento e data da OS / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 37 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig37_evolucao_anual_pecas_vs_mo.png', 'Figura 37 — Evolução Histórica da Composição de Custos (Peças vs Mão de Obra) de 2020 a 2025')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Dinâmica Anual</span>
+                        <h4>Figura 37 — Evolução Anual da Composição Peças vs Mão de Obra</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig37_evolucao_anual_pecas_vs_mo.png" alt="Figura 37" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Série contínua de 2020 a 2025 / Governo de SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 58 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig58_distribuicao_regional_mesorregioes.png', 'Figura 58 — Distribuição Regional dos Gastos de Manutenção pelas Mesorregiões de Santa Catarina')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Geografia Fiscal</span>
+                        <h4>Figura 58 — Distribuição Regional de Gastos por Mesorregião de SC</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig58_distribuicao_regional_mesorregioes.png" alt="Figura 58" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Florianópolis (42,5%), Vale (22,8%), Norte (16,4%) / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 59 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig59_patrimonio_liquido_vs_gastos_manut.png', 'Figura 59 — Relação entre Valor Contábil Líquido do Bem e Gasto Histórico de Manutenção')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-warning">Alienação Patrimonial</span>
+                        <h4>Figura 59 — Valor Contábil Líquido vs Gasto Acumulado de Manutenção</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig59_patrimonio_liquido_vs_gastos_manut.png" alt="Figura 59" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Identificação de 1.412 veículos antieconômicos / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 60 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig60_taxa_severidade_custo_por_km.png', 'Figura 60 — Taxa de Severidade de Custo Operacional de Manutenção por Km Rodado')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Custo por Km</span>
+                        <h4>Figura 60 — Taxa de Severidade de Custo por Km Rodado (R$/km)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig60_taxa_severidade_custo_por_km.png" alt="Figura 60" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Caminhões R$ 1,42/km; Leves R$ 0,38/km / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 61 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig61_concentracao_estabelecimentos.png', 'Figura 61 — Eficiência Operacional das Oficinas: Volume de OS, Dispêndio e Tempo Médio')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Oficinas Credenciadas</span>
+                        <h4>Figura 61 — Eficiência das Oficinas: Volume, Custo e Lead Time</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig61_concentracao_estabelecimentos.png" alt="Figura 61" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Análise dos principais estabelecimentos faturadores / SC (2026).</span></div>
+                </div>
+
+                <!-- Fig 64 -->
+                <div class="chart-card" style="grid-column: 1 / -1;" onclick="openLightbox('../charts/fig64_pipeline_arquitetura_integrada.png', 'Figura 64 — Arquitetura Metodológica Ponta a Ponta: Pipeline Integrado de Auditoria, IA Preditiva e Prescrição Ótima')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-success">Arquitetura Integrada</span>
+                        <h4>Figura 64 — Arquitetura Metodológica Ponta a Ponta do Pipeline da Dissertação (UDESC)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig64_pipeline_arquitetura_integrada.png" alt="Figura 64" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Proposta metodológica desenvolvida no PPGCAP / UDESC (2026).</span></div>
+                </div>
+            </div>
+        </section>
+
+    
+        <!-- TAB 9: EXPANSÕES METODOLÓGICAS DO ANTEPROJETO -->
+        <section id="tab-expansoes" class="tab-pane">
+            <div class="section-header">
+                <h2>9. Expansões Metodológicas do Anteprojeto (PPGCAP/UDESC)</h2>
+                <p>Aprofundamento experimental dos 5 eixos: IA Explicável (SHAP vs LIME), Regressão Quantílica e Cauda Pesada, Sensibilidade Bidimensional e Horas no MILP, Módulo de Abastecimento (TCO) e Saneamento de Hodômetros.</p>
+            </div>
+
+            <!-- Painel de Destaques Métricos da Expansão -->
+            <div class="kpi-grid mb-4">
+                <div class="kpi-card">
+                    <span class="kpi-label">Concordância SHAP vs LIME</span>
+                    <span class="kpi-value highlight-cyan">ρ = 0,441</span>
+                    <span class="kpi-meta badge-info">Spearman Postos | Jaccard = 28,6%</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Regressão Quantílica (Mediana)</span>
+                    <span class="kpi-value highlight-emerald">R$ 2.091,84</span>
+                    <span class="kpi-meta badge-success">MAE - R$ 227 vs Média (HistGB)</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Sensibilidade MILP (η = 50%)</span>
+                    <span class="kpi-value highlight-purple">R$ 133,1k</span>
+                    <span class="kpi-meta badge-warning">196 Falhas Evitadas (500 veículos)</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Saneamento de Odometria</span>
+                    <span class="kpi-value highlight-blue">6.841 OS</span>
+                    <span class="kpi-meta badge-success">3.116 Veículos Corrigidos</span>
+                </div>
+            </div>
+
+            <div class="charts-gallery">
+                <!-- Fig 65 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig65_shap_summary_beeswarm.png', 'Figura 65 — Interpretabilidade Global XAI: SHAP Summary Beeswarm do Classificador de Falhas (HistGB)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-xai">SHAP Beeswarm</span>
+                        <h4>Figura 65 — Interpretabilidade Global XAI: SHAP Summary Beeswarm (HistGB)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig65_shap_summary_beeswarm.png" alt="Figura 65" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Amostra teste 2025–2026. TreeExplainer HistGB. Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 66 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig66_shap_dependence_idade_patrimonio.png', 'Figura 66 — Efeitos Não Lineares e Limiares Críticos: SHAP Dependence Plots')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-xai">Dependência Não Linear</span>
+                        <h4>Figura 66 — Efeitos Não Lineares e Limiares Críticos: SHAP Dependence Plots</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig66_shap_dependence_idade_patrimonio.png" alt="Figura 66" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Curva da banheira a partir de 7 anos. Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 67 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig67_lime_vs_shap_casos_criticos.png', 'Figura 67 — Validação Cruzada XAI em Instâncias Críticas Reais: SHAP vs LIME')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-xai">Validação Cruzada</span>
+                        <h4>Figura 67 — Validação Cruzada XAI em Instâncias Críticas: SHAP vs LIME</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig67_lime_vs_shap_casos_criticos.png" alt="Figura 67" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Concordância Spearman rho = 0,441; Jaccard = 28,6%. Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 68 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig68_distribuicao_cauda_pesada_custos.png', 'Figura 68 — Fundamentação Teórico-Empírica do Baixo R²: Distribuição de Custos com Cauda Pesada')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-regressao">Cauda Pesada</span>
+                        <h4>Figura 68 — Fundamentação Teórica do Baixo R²: Cauda Pesada de Custos</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig68_distribuicao_cauda_pesada_custos.png" alt="Figura 68" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Curtose = 34,2 com assinatura de Pareto/Log-Normal. Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 69 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig69_regressao_quantilica_previsao_intervalar.png', 'Figura 69 — Regressão Quantílica Não Linear: Previsão de Medianas e Limites Orçamentários de Risco')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-regressao">Regressão Quantílica</span>
+                        <h4>Figura 69 — Regressão Quantílica: Medianas e Limites Orçamentários de Risco</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig69_regressao_quantilica_previsao_intervalar.png" alt="Figura 69" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Pinball Loss (tau=0.50 MAE R$ 2.091,84 vs R$ 2.336 OLS). Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 70 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig70_milp_sensibilidade_bidimensional_eta_orcamento.png', 'Figura 70 — Análise de Sensibilidade Bidimensional do MILP: Impacto Conjunto de Orçamento e Eficácia (η)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-prescritiva">Sensibilidade Bidimensional</span>
+                        <h4>Figura 70 — Sensibilidade Bidimensional MILP: Orçamento vs Eficácia (η)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig70_milp_sensibilidade_bidimensional_eta_orcamento.png" alt="Figura 70" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Viabilidade preventiva comprovada para eta >= 30%. Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 71 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig71_milp_gargalo_horas_oficina.png', 'Figura 71 — Gargalo de Capacidade Operacional: Estrangulamento por Horas de Oficina (H_t)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-prescritiva">Gargalo de Horas</span>
+                        <h4>Figura 71 — Gargalo de Capacidade Operacional: Horas de Oficina (H_t)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig71_milp_gargalo_horas_oficina.png" alt="Figura 71" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Saturação da eficiência sob limitação de capacidade. Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 72 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig72_abastecimento_tco_e_emissao_co2.png', 'Figura 72 — Integração do Módulo de Abastecimento: TCO Operacional e Sustentabilidade da Frota')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Módulo Abastecimento</span>
+                        <h4>Figura 72 — Integração do Abastecimento: TCO e Emissões de CO₂</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig72_abastecimento_tco_e_emissao_co2.png" alt="Figura 72" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: TCO e pegada de carbono via PBEV/Inmetro e dados de SC. Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 73 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig73_algoritmo_saneamento_hodometro.png', 'Figura 73 — Algoritmo Metodológico de Saneamento de Hodômetros Não Monotônicos e Governança Pública')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-warning">Saneamento de Dados</span>
+                        <h4>Figura 73 — Algoritmo Metodológico de Saneamento de Hodômetros</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig73_algoritmo_saneamento_hodometro.png" alt="Figura 73" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Protocolo de 4 etapas para governança de odometria em SC. Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 10: PIPELINE METODOLÓGICO & MODELAGEM ESTOCÁSTICA (FIGURAS 76 A 79) -->
+        <section id="tab-estatistica" class="tab-pane">
+            <div class="section-header">
+                <h2>10. Pipeline Metodológico Estatístico e Modelagem Estocástica de Frotas</h2>
+                <p>Governança inferencial formal conforme diretrizes metodológicas da dissertação: Verificação de Normalidade (Lilliefors), Testes de Hipóteses Condicionais (Mann-Whitney / Kruskal-Wallis / Qui-Quadrado), Processos de Poisson, Cadeias de Markov de Prontidão e Previsão Temporal ETS vs ARIMA.</p>
+            </div>
+
+            <!-- Painel Interativo de Parâmetros Rápidos -->
+            <div class="interactive-panel" style="margin-bottom: 24px;">
+                <div class="panel-header">
+                    <h3>⚙️ Controle Parametrizado de Testes em Tempo Real</h3>
+                    <span class="badge-success">Motor Condicional Ativo</span>
+                </div>
+                <div class="panel-body" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; align-items: end;">
+                    <div>
+                        <label style="font-size: 11px; color: #94a3b8; font-weight: 600; display: block; margin-bottom: 4px;">Nível de Significância (α)</label>
+                        <select id="quick-param-alpha" class="custom-select" style="width: 100%; padding: 8px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff;">
+                            <option value="0.05" selected>α = 0.05 (Padrão 95%)</option>
+                            <option value="0.01">α = 0.01 (Rigoroso 99%)</option>
+                            <option value="0.10">α = 0.10 (Exploratório 90%)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 11px; color: #94a3b8; font-weight: 600; display: block; margin-bottom: 4px;">Frequência de Previsão</label>
+                        <select id="quick-param-freq" class="custom-select" style="width: 100%; padding: 8px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff;">
+                            <option value="ME" selected>Mensal (ME)</option>
+                            <option value="W">Semanal (W)</option>
+                            <option value="D">Diária (D)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 11px; color: #94a3b8; font-weight: 600; display: block; margin-bottom: 4px;">Horizonte de Teste (Passos)</label>
+                        <input type="number" id="quick-param-horizon" value="6" min="2" max="24" style="width: 100%; padding: 8px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff;">
+                    </div>
+                    <div>
+                        <button class="btn btn-action" onclick="executarPipelineComParametros()" style="width: 100%; justify-content: center;">
+                            ⚡ Aplicar & Recalcular Testes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="charts-gallery">
+                <!-- Fig 76 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig76_pipeline_normalidade_qqplots.png', 'Figura 76 — Passo 1: Diagnóstico de Normalidade e Q-Q Plots dos Indicadores da Frota (α = 0,05)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-warning">Passo 1: Normalidade</span>
+                        <h4>Figura 76 — Diagnóstico de Normalidade e Q-Q Plots</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig76_pipeline_normalidade_qqplots.png" alt="Figura 76" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Teste de Lilliefors e Q-Q plots teóricos (40.000 OS). Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 77 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig77_testes_hipoteses_subgrupos.png', 'Figura 77 — Passo 2: Execução de Testes de Hipóteses Condicionais à Normalidade entre Categorias')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Passo 2: Hipóteses</span>
+                        <h4>Figura 77 — Testes de Hipóteses Condicionais à Normalidade</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig77_testes_hipoteses_subgrupos.png" alt="Figura 77" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Mann-Whitney U, Kruskal-Wallis H e Qui-Quadrado (χ²). Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 78 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig78_processos_estocasticos_poisson_markov.png', 'Figura 78 — Passo 3.1: Modelagem Estocástica de Eventos de Falha e Cadeia de Markov de Prontidão')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-success">Passo 3.1: Estocástico</span>
+                        <h4>Figura 78 — Processo de Poisson e Cadeia de Markov</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig78_processos_estocasticos_poisson_markov.png" alt="Figura 78" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Falhas diárias (λ=19,7, VMR=1.592) e transição de estados operacionais. Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+
+                <!-- Fig 79 -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig79_series_temporais_ets_vs_arima.png', 'Figura 79 — Passo 3.2: Comparativo de Séries Temporais de Demanda: ETS (Holt-Winters) vs. ARIMA(p, d, q)')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-primary">Passo 3.2: Séries Temporais</span>
+                        <h4>Figura 79 — Séries Temporais: ETS vs. ARIMA(p, d, q)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig79_series_temporais_ets_vs_arima.png" alt="Figura 79" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Fonte: Teste ADF, seleção AIC e validação out-of-sample de demanda orçamentária. Autor: Eduardo Lopes Jonker (2026).</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- ABA 11: GESTÃO COMERCIAL, TCO & SETOR DE TRANSPORTE (FIG 80-83) -->
+        <!-- ============================================================== -->
+        <section id="tab-comercial" class="tab-pane">
+            <div class="tab-header">
+                <h2>💼 Inteligência Comercial, TCO e Estratégia no Setor de Transporte</h2>
+                <p>Análises financeiras e operacionais aplicadas para gestão de frotas corporativas e públicas: Curva ABC de compras (Pareto 80/20), Custo por km (CPK), Ponto Ótimo de Renovação e ROI da Manutenção Preditiva.</p>
+            </div>
+
+            <!-- KPI Row Comercial -->
+            <div class="kpi-grid" style="margin-bottom: 24px;">
+                <div class="kpi-card">
+                    <span class="kpi-label">Dispêndio em Peças (TCO)</span>
+                    <span class="kpi-value highlight-cyan">R$ 120,72M</span>
+                    <span class="kpi-meta badge-info">69,18% do Custo de Oficina</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Top 1 Pareto (Insumos)</span>
+                    <span class="kpi-value highlight-emerald">PNEUS (R$ 17,9M)</span>
+                    <span class="kpi-meta badge-success">14,8% de Toda a Despesa</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Ponto Ótimo de Troca</span>
+                    <span class="kpi-value highlight-purple">6 Anos / 130k km</span>
+                    <span class="kpi-meta badge-warning">Mínimo da Curva de Posse</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Economia Procurement</span>
+                    <span class="kpi-value highlight-emerald">R$ 5,55M / ano</span>
+                    <span class="kpi-meta badge-success">12% Desconto em Atacado</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">ROI da Preditiva/MILP</span>
+                    <span class="kpi-value highlight-blue">366,0%</span>
+                    <span class="kpi-meta badge-info">Economia R$ 1,83M / ano</span>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <!-- Figura 80: Curva ABC -->
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-primary">Estratégia de Compras</span>
+                        <h4>Figura 80 — Curva ABC de Pareto: Concentração de Gastos em Peças (Procurement)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig80_curva_abc_pecas_servicos.png" alt="Figura 80" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Top 5 insumos (Pneus, Baterias, Pastilhas, Amortecedores e Discos) concentram quase 30% do orçamento. Fonte: UDESC/PPGCAP (2026).</span></div>
+                </div>
+
+                <!-- Figura 81: TCO e CPK -->
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-primary">Eficiência Operacional</span>
+                        <h4>Figura 81 — TCO e Custo por Quilômetro Rodado (CPK - R$/km) por Família</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig81_tco_cpk_por_familia_km.png" alt="Figura 81" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Leves têm menor CPK (R$ 0,38/km) enquanto Caminhões e Micro-ônibus geram maior custo unitário (R$ 0,89 e R$ 0,95/km).</span></div>
+                </div>
+
+                <!-- Figura 82: Ciclo de Vida e Renovação -->
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-primary">Gestão de Ativos</span>
+                        <h4>Figura 82 — Ciclo de Vida da Frota: Curva em U e Ponto Ótimo de Renovação</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig82_ciclo_vida_renovacao_frota.png" alt="Figura 82" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Cruzamento entre depreciação e manutenção crescente define o limiar ideal aos 6 anos ou 130.000 km.</span></div>
+                </div>
+
+                <!-- Figura 83: Benchmark de Oficinas e ROI -->
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-primary">Inteligência de Mercado</span>
+                        <h4>Figura 83 — Benchmark de Fornecedores e Business Case da Analítica Prescritiva</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig83_benchmark_oficinas_roi_preditiva.png" alt="Figura 83" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Migração do modelo reativo (99,998% corretivo) para preditivo gera economia anual de R$ 1,83M e ROI de 366%.</span></div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- ABA 12: GESTÃO DE ANOMALIAS & LEILÃO DE FROTAS (FIG 90-92) -->
+        <!-- ============================================================== -->
+        <section id="tab-anomalias-leilao" class="tab-pane" role="tabpanel" aria-labelledby="tab-btn-anomalias-leilao" tabindex="0">
+            <div class="tab-header">
+                <div class="brand-badge badge-danger">Auditoria de Anomalias & Lei 14.133/2021</div>
+                <h2>🛡️ Custos em Processos com Anomalias & Gestão de Bens para Leilão</h2>
+                <p>Levantamento gerencial de processos anômalos auditados pelo <em>Isolation Forest</em>, estratificação do volume financeiro glosado pela fiscalização e identificação formal de bens antieconômicos recomendados para desfazimento e leilão público.</p>
+            </div>
+
+            <!-- KPI Row Anomalias e Leilão -->
+            <div class="kpi-grid" style="margin-bottom: 24px;" role="region" aria-label="Indicadores de Auditoria de Anomalias">
+                <div class="kpi-card kpi-card-danger">
+                    <span class="kpi-label">Gasto Aprovado em Anomalias</span>
+                    <span class="kpi-value highlight-rose">R$ 25,35M</span>
+                    <span class="kpi-meta badge-danger">18,2% do Dispêndio Auditado</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Orçado Inicial pelas Oficinas</span>
+                    <span class="kpi-value highlight-cyan">R$ 47,76M</span>
+                    <span class="kpi-meta badge-info">2.336 OSs Submetidas</span>
+                </div>
+                <div class="kpi-card kpi-card-success">
+                    <span class="kpi-label">Glosa / Economia Prévia Obtida</span>
+                    <span class="kpi-value highlight-emerald">R$ 22,42M</span>
+                    <span class="kpi-meta badge-success">46,9% Cortado na Fiscalização</span>
+                </div>
+                <div class="kpi-card kpi-card-warning">
+                    <span class="kpi-label">Bens Antieconômicos (Leilão)</span>
+                    <span class="kpi-value highlight-amber">427 Veículos</span>
+                    <span class="kpi-meta badge-warning">Custo OS &gt; Valor Patrimonial</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Downtime Médio em Anomalias</span>
+                    <span class="kpi-value highlight-purple">28,4 Dias</span>
+                    <span class="kpi-meta badge-warning">Picos de até 180 Dias</span>
+                </div>
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- SIMULADOR INTERATIVO DE PREVISÃO ORÇAMENTÁRIA (2027, 2028 E 2029) -->
+            <!-- ============================================================== -->
+            <div class="simulador-card" style="margin-bottom: 26px; border-left: 4px solid var(--accent-indigo);">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 18px;">
+                    <div>
+                        <span class="chart-badge badge-primary" style="margin-bottom: 6px; display: inline-block;">Planejamento LDO • LOA • PPA</span>
+                        <h3 style="font-size: 16px; font-weight: 800; color: #ffffff;">📈 Simulador Dinâmico de Gastos Plurianuais (2027, 2028 e 2029)</h3>
+                        <p style="font-size: 12.5px; color: var(--text-secondary); margin: 0;">Projeção econométrica ponderando a inflação de autopeças (69,18%), serviços de oficina (30,82%) e o fator de envelhecimento vegetativo dos veículos.</p>
+                    </div>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button type="button" id="btn-aba12-previsao" onclick="gerarRelatorioPrevisaoPDF()" class="btn btn-previsao" style="display: inline-flex; align-items: center; gap: 8px;">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                            <span>Previsão 2027–2029 (PDF)</span>
+                        </button>
+                        <button type="button" id="btn-aba12-gerencial" onclick="gerarRelatorioGerencialPDF()" class="btn btn-gerencial" style="display: inline-flex; align-items: center; gap: 8px;">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                            <span>Gerencial (PDF)</span>
+                        </button>
+                        <button type="button" id="btn-aba12-word" onclick="baixarRelatorioWord()" class="btn btn-word" style="display: inline-flex; align-items: center; gap: 8px;">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                            <span>Dissertação (Word ABNT)</span>
+                        </button>
+                        <button type="button" id="btn-aba12-excel" onclick="baixarPlanilhaExcel()" class="btn btn-excel" style="display: inline-flex; align-items: center; gap: 8px;">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line></svg>
+                            <span>Planilha (.xlsx)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Painel de Sliders e Parâmetros -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; background: rgba(15, 23, 42, 0.5); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                    <div class="sim-slider-group">
+                        <div class="sim-slider-label">
+                            <span>Inflação de Peças (69,2% peso):</span>
+                            <span class="sim-slider-val" id="lbl-sim-pecas">6,2% a.a.</span>
+                        </div>
+                        <input type="range" class="sim-slider" id="sim-pecas" min="2" max="15" step="0.1" value="6.2" oninput="atualizarSimulacaoOrcamento()" aria-label="Ajustar taxa de inflação de autopeças">
+                        <span style="font-size: 11px; color: #64748b;">Reflexo de câmbio, aço e resinas plásticas</span>
+                    </div>
+
+                    <div class="sim-slider-group">
+                        <div class="sim-slider-label">
+                            <span>Inflação Mão de Obra (30,8% peso):</span>
+                            <span class="sim-slider-val" id="lbl-sim-mo">5,8% a.a.</span>
+                        </div>
+                        <input type="range" class="sim-slider" id="sim-mo" min="2" max="15" step="0.1" value="5.8" oninput="atualizarSimulacaoOrcamento()" aria-label="Ajustar taxa de inflação de mão de obra de oficina">
+                        <span style="font-size: 11px; color: #64748b;">Dissídios sindicais e hora mecânica</span>
+                    </div>
+
+                    <div class="sim-slider-group">
+                        <div class="sim-slider-label">
+                            <span>Desgaste Vegetativo por Idade:</span>
+                            <span class="sim-slider-val" id="lbl-sim-idade">2,5% a.a.</span>
+                        </div>
+                        <input type="range" class="sim-slider" id="sim-idade" min="0.5" max="8" step="0.1" value="2.5" oninput="atualizarSimulacaoOrcamento()" aria-label="Ajustar taxa de desgaste vegetativo decorrente do envelhecimento da frota">
+                        <span style="font-size: 11px; color: #64748b;">Aceleração Weibull por idade média > 7 anos</span>
+                    </div>
+                </div>
+
+                <!-- KPIs Projetados para 2027, 2028 e 2029 -->
+                <div class="sim-kpi-grid">
+                    <div class="sim-kpi-item">
+                        <span class="kpi-label">Previsão Ano 2027</span>
+                        <span class="kpi-value highlight-cyan" id="val-sim-2027">R$ 40,74M</span>
+                        <span class="kpi-meta badge-info">vs R$ 30,02M Prescritivo</span>
+                    </div>
+                    <div class="sim-kpi-item">
+                        <span class="kpi-label">Previsão Ano 2028</span>
+                        <span class="kpi-value highlight-blue" id="val-sim-2028">R$ 44,30M</span>
+                        <span class="kpi-meta badge-info">vs R$ 31,03M Prescritivo</span>
+                    </div>
+                    <div class="sim-kpi-item">
+                        <span class="kpi-label">Previsão Ano 2029</span>
+                        <span class="kpi-value highlight-purple" id="val-sim-2029">R$ 48,17M</span>
+                        <span class="kpi-meta badge-warning">vs R$ 32,08M Prescritivo</span>
+                    </div>
+                    <div class="sim-kpi-item saving-item">
+                        <span class="kpi-label">Economia Triênio (2027–2029)</span>
+                        <span class="kpi-value highlight-emerald" id="val-sim-saving">R$ 40,09M</span>
+                        <span class="kpi-meta badge-success">Com Leilão dos 427 Bens</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galeria de Gráficos das Anomalias, Prescrição e Inflação -->
+            <div class="charts-grid">
+                <!-- Figura 93: Projeção Trienal 2027-2029 com Inflação e Idade -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig93_previsao_gastos_trienal_cenarios_inflacao.png', 'Figura 93 — Projeção Orçamentária de Gastos da Frota (2027–2029) com Sensibilidade Inflacionária e Degradação Etária')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-primary">Orçamento Plurianual (LOA)</span>
+                        <h4>Figura 93 — Projeção de Gastos para 2027, 2028 e 2029 com Inflação Setorial e Idade</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig93_previsao_gastos_trienal_cenarios_inflacao.png" alt="Figura 93: Projeção de gastos da frota de 2021 a 2029 nos cenários inercial, estresse e prescritivo com destaque para o triênio 2027 a 2029" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Comprova a economia potencial de R$ 40,09M no triênio 2027–2029 ao eliminar veículos obsoletos e centralizar compras.</span></div>
+                </div>
+
+                <!-- Figura 90: Trajetória Real vs Prescritiva -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig90_historico_despesas_vs_projecao_prescritiva.png', 'Figura 90 — Trajetória Financeira de Gastos da Frota: Real vs Analítica Prescritiva')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-success">What-If / Prescrição</span>
+                        <h4>Figura 90 — Trajetória Real vs Otimizada Prescritiva (Projeção Histórica)</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig90_historico_despesas_vs_projecao_prescritiva.png" alt="Figura 90: Gráfico de linhas mostrando a trajetória histórica e projeção prescritiva de gastos da frota" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Modelo prescritivo com MILP e compras centralizadas gera economia contrafactual de R$ 5,42 milhões anuais.</span></div>
+                </div>
+
+                <!-- Figura 91: Anomalias por Órgão -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig91_distribuicao_anomalias_por_categoria.png', 'Figura 91 — Concentração e Volume de Ordens de Serviço Anômalas por Órgão Governamental')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-danger">Auditoria por Pasta</span>
+                        <h4>Figura 91 — Concentração de OSs Anômalas por Órgão Governamental</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig91_distribuicao_anomalias_por_categoria.png" alt="Figura 91: Gráfico de barras horizontais indicando a quantidade de OSs anômalas por órgão de Santa Catarina" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>PMSC (854 OSs / R$ 9,6M) e CBMSC (215 OSs / R$ 3,2M) concentram o maior volume de anomalias detectadas.</span></div>
+                </div>
+
+                <!-- Figura 92: Antieconomicidade e Leilão -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig92_criterios_baixa_patrimonio_antieconomico.png', 'Figura 92 — Evidência de Antieconomicidade: Custo Acumulado de Manutenção vs Valor de Aquisição')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-warning">Desfazimento / Leilão</span>
+                        <h4>Figura 92 — Antieconomicidade: Custo de Manutenção vs Valor Patrimonial</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig92_criterios_baixa_patrimonio_antieconomico.png" alt="Figura 92: Gráfico comparativo entre o custo acumulado de manutenção e o valor de entrada patrimonial de bens críticos" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Veículos com idade superior a 15 anos consom até 10 vezes o seu valor residual contábil em manutenções corretivas.</span></div>
+                </div>
+            </div>
+
+            <!-- Tabela Interativa de Bens para Leilão -->
+            <div style="margin-top: 36px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 22px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 18px;">
+                    <div>
+                        <h3 style="font-size: 16px; font-weight: 700; color: #ffffff;">📋 Painel de Bens Recomendados para Leilão e Desincorporação Imediata</h3>
+                        <p style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">Critério legal: Custo de manutenção acumulado &ge; Valor de mercado ou bem com idade &gt; 7 anos em fase de desgaste acelerado.</p>
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <input type="text" id="search-leilao" onkeyup="filtrarTabelaLeilao()" placeholder="Filtrar por placa, modelo ou órgão..." style="background: #0f172a; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 8px 14px; color: #fff; font-size: 12px; min-width: 260px;" aria-label="Filtrar veículos da tabela de leilão">
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 12px;" role="table" aria-label="Tabela de veículos antieconômicos recomendados para leilão">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border-light); text-align: left;">
+                                <th style="padding: 10px 12px; color: var(--accent-cyan);">Placa</th>
+                                <th style="padding: 10px 12px; color: var(--accent-cyan);">Modelo</th>
+                                <th style="padding: 10px 12px; color: var(--accent-cyan);">Órgão / Secretaria</th>
+                                <th style="padding: 10px 12px; text-align: center; color: var(--accent-cyan);">Idade</th>
+                                <th style="padding: 10px 12px; text-align: right; color: var(--accent-cyan);">Gasto Acumulado</th>
+                                <th style="padding: 10px 12px; text-align: right; color: var(--accent-cyan);">Valor Contábil</th>
+                                <th style="padding: 10px 12px; text-align: center; color: var(--accent-cyan);">Decisão Sugerida</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-leilao-body">
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 10px 12px; font-weight: 700; color: #f87171;">MEN7009</td>
+                                <td style="padding: 10px 12px;">VOLARE MICRO-ÔNIBUS</td>
+                                <td style="padding: 10px 12px;">PMSC - Polícia Militar de SC</td>
+                                <td style="padding: 10px 12px; text-align: center;">20 anos</td>
+                                <td style="padding: 10px 12px; text-align: right; font-weight: 700; color: #ef4444;">R$ 39.569,10</td>
+                                <td style="padding: 10px 12px; text-align: right; color: #94a3b8;">R$ 0,00</td>
+                                <td style="padding: 10px 12px; text-align: center;"><span class="badge-danger" style="padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;">LEILÃO IMEDIATO</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 10px 12px; font-weight: 700; color: #f87171;">BWL2469</td>
+                                <td style="padding: 10px 12px;">SCANIA K113 ÔNIBUS</td>
+                                <td style="padding: 10px 12px;">PMSC - Polícia Militar de SC</td>
+                                <td style="padding: 10px 12px; text-align: center;">35 anos</td>
+                                <td style="padding: 10px 12px; text-align: right; font-weight: 700; color: #ef4444;">R$ 34.956,08</td>
+                                <td style="padding: 10px 12px; text-align: right; color: #94a3b8;">R$ 0,00</td>
+                                <td style="padding: 10px 12px; text-align: center;"><span class="badge-danger" style="padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;">LEILÃO IMEDIATO</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 10px 12px; font-weight: 700; color: #f87171;">MLG0296</td>
+                                <td style="padding: 10px 12px;">FORD CARGO CAMINHÃO</td>
+                                <td style="padding: 10px 12px;">SEJURI/FUPESC - Fundo Penitenciário</td>
+                                <td style="padding: 10px 12px; text-align: center;">13 anos</td>
+                                <td style="padding: 10px 12px; text-align: right; font-weight: 700; color: #ef4444;">R$ 165.000,00</td>
+                                <td style="padding: 10px 12px; text-align: right; color: #94a3b8;">R$ 28.500,00</td>
+                                <td style="padding: 10px 12px; text-align: center;"><span class="badge-danger" style="padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;">LEILÃO IMEDIATO</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 10px 12px; font-weight: 700; color: #f87171;">EQO0546</td>
+                                <td style="padding: 10px 12px;">BARCO DE RESGATE</td>
+                                <td style="padding: 10px 12px;">CBMSC - Corpo de Bombeiros</td>
+                                <td style="padding: 10px 12px; text-align: center;">16 anos</td>
+                                <td style="padding: 10px 12px; text-align: right; font-weight: 700; color: #ef4444;">R$ 380.200,00</td>
+                                <td style="padding: 10px 12px; text-align: right; color: #94a3b8;">R$ 45.000,00</td>
+                                <td style="padding: 10px 12px; text-align: center;"><span class="badge-danger" style="padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;">LEILÃO IMEDIATO</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 10px 12px; font-weight: 700; color: #f87171;">MCE5742</td>
+                                <td style="padding: 10px 12px;">VW 16.220 CAMINHÃO</td>
+                                <td style="padding: 10px 12px;">PMSC - Polícia Militar de SC</td>
+                                <td style="padding: 10px 12px; text-align: center;">25 anos</td>
+                                <td style="padding: 10px 12px; text-align: right; font-weight: 700; color: #ef4444;">R$ 56.439,20</td>
+                                <td style="padding: 10px 12px; text-align: right; color: #94a3b8;">R$ 0,00</td>
+                                <td style="padding: 10px 12px; text-align: center;"><span class="badge-danger" style="padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;">LEILÃO IMEDIATO</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 10px 12px; font-weight: 700; color: #f87171;">LXS8I58</td>
+                                <td style="padding: 10px 12px;">CAMINHÃO 1500 (1973)</td>
+                                <td style="padding: 10px 12px;">PMSC - Polícia Militar de SC</td>
+                                <td style="padding: 10px 12px; text-align: center;">53 anos</td>
+                                <td style="padding: 10px 12px; text-align: right; font-weight: 700; color: #ef4444;">R$ 54.060,00 (Orç.)</td>
+                                <td style="padding: 10px 12px; text-align: right; color: #94a3b8;">R$ 0,00</td>
+                                <td style="padding: 10px 12px; text-align: center;"><span class="badge-danger" style="padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;">LEILÃO IMEDIATO</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Pareceres Humanizados de Auditoria -->
+            <div style="margin-top: 30px;">
+                <h3 style="font-size: 16px; font-weight: 700; color: #ffffff; margin-bottom: 14px;">🔎 Pareceres Técnicos e Humanizados de Casos Críticos (Auditoria Explicável)</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
+                    <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: var(--radius-md); padding: 16px;">
+                        <span style="font-size: 10px; font-weight: 800; color: #ef4444; text-transform: uppercase;">Caso 1 • Superfaturamento e Retenção</span>
+                        <h4 style="font-size: 13.5px; font-weight: 700; color: #fff; margin: 4px 0 8px;">Caminhão Ford Cargo (MLG0296) • OS #9506043</h4>
+                        <p style="font-size: 12px; color: #cbd5e1; line-height: 1.5; font-style: italic;">
+                            "A OS registrou R$ 165.000,00 aprovados em uma única manutenção, retendo o caminhão por 119 dias na oficina. O valor supera o preço de mercado do bem na Tabela FIPE, caracterizando antieconomicidade severa e violação de SLA contratual."
+                        </p>
+                        <span style="font-size: 11px; color: #38bdf8; font-weight: 600; display: block; margin-top: 8px;">Recomendação: Notificar oficina credenciada e abrir processo de desincorporação.</span>
+                    </div>
+
+                    <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: var(--radius-md); padding: 16px;">
+                        <span style="font-size: 10px; font-weight: 800; color: #f59e0b; text-transform: uppercase;">Caso 2 • Downtime Abusivo (180 Dias)</span>
+                        <h4 style="font-size: 13.5px; font-weight: 700; color: #fff; margin: 4px 0 8px;">Veículo Leve (RYW5D02) • OS #16309799</h4>
+                        <p style="font-size: 12px; color: #cbd5e1; line-height: 1.5; font-style: italic;">
+                            "O veículo permaneceu imobilizado por 180 dias consecutivos (6 meses) para conserto no valor de R$ 21.854,80. Este tempo excessivo de retenção gera custos ocultos de ociosidade e possível cobrança indevida de estadia em oficina."
+                        </p>
+                        <span style="font-size: 11px; color: #38bdf8; font-weight: 600; display: block; margin-top: 8px;">Recomendação: Aplicação de sanção administrativa à oficina por descumprimento de prazos.</span>
+                    </div>
+
+                    <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-md); padding: 16px;">
+                        <span style="font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase;">Caso 3 • Glosa Orçamentária Preventiva</span>
+                        <h4 style="font-size: 13.5px; font-weight: 700; color: #fff; margin: 4px 0 8px;">Caminhão Tração (QID5668) • OS #15286579</h4>
+                        <p style="font-size: 12px; color: #cbd5e1; line-height: 1.5; font-style: italic;">
+                            "A oficina pleiteou orçamento inicial de R$ 176.071,35 com itens atípicos e sobrepreço. O sistema de auditoria e a fiscalização glosaram 100% da proposta abusiva, evitando prejuízo direto de R$ 176 mil ao tesouro estadual."
+                        </p>
+                        <span style="font-size: 11px; color: #38bdf8; font-weight: 600; display: block; margin-top: 8px;">Recomendação: Manter fornecedor sob monitoramento contínuo e bloqueio preventivo.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 13: TEORIA DOS GRAFOS & REDES COMPLEXAS NA GESTÃO DE FROTAS -->
+        <section id="tab-grafos" class="tab-pane" role="tabpanel" aria-labelledby="tab-btn-grafos" tabindex="0">
+            <div class="section-header">
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;">
+                    <span class="chart-badge badge-auditoria">Network Science</span>
+                    <span class="chart-badge badge-success">Grafo Bipartido</span>
+                    <span class="chart-badge badge-warning">Algoritmo Louvain (Q = 0,384)</span>
+                    <span class="chart-badge badge-danger">Detecção de Conluio</span>
+                    <span class="chart-badge badge-info">Markov 5 Estados</span>
+                </div>
+                <h2>13. Análise de Redes Complexas e Teoria dos Grafos Aplicada à Frota (Figuras 94 a 97)</h2>
+                <p>
+                    A modelagem por Teoria dos Grafos mapeia o fluxo financeiro e as relações estruturais de dependência entre veículos públicos e oficinas credenciadas, identifica falhas mecânicas em cadeia via detecção de comunidades (Louvain) e isola sub-redes densas com anomalias críticas do Isolation Forest.
+                </p>
+            </div>
+
+            <!-- KPIs de Redes Complexas -->
+            <div class="kpi-grid" style="margin-bottom: 24px;">
+                <div class="kpi-card">
+                    <span class="kpi-label">Densidade da Rede Bipartida</span>
+                    <span class="kpi-value highlight-blue">0,042</span>
+                    <span class="kpi-meta badge-info">Top Nós Selecionados</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Modularidade Louvain (Q)</span>
+                    <span class="kpi-value highlight-emerald">0,384</span>
+                    <span class="kpi-meta badge-success">4 Clusters Mecânicos</span>
+                </div>
+                <div class="kpi-card kpi-card-danger">
+                    <span class="kpi-label">Hub Máximo (Betweenness)</span>
+                    <span class="kpi-value highlight-rose">CB = 0,284</span>
+                    <span class="kpi-meta badge-danger">Oficina Hub Dominante</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Transição Markov (Downtime)</span>
+                    <span class="kpi-value highlight-purple">2,40 Dias</span>
+                    <span class="kpi-meta badge-warning">-32% Redução Prescritiva</span>
+                </div>
+            </div>
+
+            <!-- Visualizador Interativo de Grafos (HTML5 Canvas) -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 20px; margin-bottom: 28px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 14px;">
+                    <div>
+                        <h3 style="font-size: 15px; font-weight: 700; color: #ffffff;">🕸️ Explorador Interativo da Topologia de Redes da Frota</h3>
+                        <p style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">Navegue pelos nós da rede, inspecione conexões e identifique hubs de oficinas e veículos de alta criticidade.</p>
+                    </div>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <button class="btn btn-sm btn-secondary" onclick="alternarModoGrafo('bipartido')" id="btn-grafo-bipartido" style="padding: 6px 12px; font-size: 11px;">Oficinas × Veículos</button>
+                        <button class="btn btn-sm btn-secondary" onclick="alternarModoGrafo('coocorrencia')" id="btn-grafo-cooc" style="padding: 6px 12px; font-size: 11px;">Sistemas & Falhas</button>
+                        <button class="btn btn-sm btn-secondary" onclick="alternarModoGrafo('anomalias')" id="btn-grafo-anom" style="padding: 6px 12px; font-size: 11px;">Sub-rede Anomalias</button>
+                        <button class="btn btn-sm btn-primary" onclick="reiniciarAnimacaoGrafo()" style="padding: 6px 12px; font-size: 11px;">Reiniciar Física</button>
+                    </div>
+                </div>
+
+                <div style="position: relative; width: 100%; height: 380px; background: #090d16; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); overflow: hidden;">
+                    <canvas id="canvas-grafo" style="width: 100%; height: 100%; display: block;"></canvas>
+                    <div id="grafo-tooltip" style="position: absolute; display: none; background: rgba(15, 23, 42, 0.95); border: 1px solid #38bdf8; border-radius: 6px; padding: 8px 12px; color: #fff; font-size: 11px; pointer-events: none; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.5);"></div>
+                    <div style="position: absolute; bottom: 10px; left: 12px; font-size: 11px; color: #94a3b8; display: flex; gap: 14px; background: rgba(0,0,0,0.6); padding: 4px 10px; border-radius: 4px;">
+                        <span><strong style="color: #38bdf8;">●</strong> Oficinas Credenciadas</span>
+                        <span><strong style="color: #60a5fa;">●</strong> Veículos da Frota</span>
+                        <span><strong style="color: #ef4444;">●</strong> Nós Atípicos / Suspeitos</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galeria das 4 Figuras Científicas de Teoria dos Grafos -->
+            <div class="charts-gallery">
+                <!-- Figura 94: Grafo Bipartido Veículos x Oficinas -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig94_grafo_bipartido_veiculos_oficinas.png', 'Figura 94 — Grafo Bipartido de Afiliação: Veículos da Frota Estadual × Oficinas Credenciadas')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-auditoria">Figura 94 • Rede Bipartida</span>
+                        <h4>Figura 94 — Grafo Bipartido Veículos × Oficinas Credenciadas</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig94_grafo_bipartido_veiculos_oficinas.png" alt="Figura 94: Grafo Bipartido de Afiliação entre Veículos e Oficinas Credenciadas" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Mapeamento de centralidade de intermediação (Betweenness) e fluxo financeiro identificando hubs e dependência estrutural.</span></div>
+                </div>
+
+                <!-- Figura 95: Grafo de Co-ocorrência de Falhas Mecânicas -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig95_grafo_coocorrencia_sistemas_falhas.png', 'Figura 95 — Grafo de Co-ocorrência de Falhas e Associação de Sistemas Críticos')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-success">Figura 95 • Louvain Q = 0,384</span>
+                        <h4>Figura 95 — Co-ocorrência de Falhas e Associação de Sistemas</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig95_grafo_coocorrencia_sistemas_falhas.png" alt="Figura 95: Grafo de Co-ocorrência de Falhas Mecânicas e Comunidades Louvain" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Detecção de 4 clusters mecânicos: manutenção preventiva em freios evita 64,8% do desgaste severo em eixos e pneus.</span></div>
+                </div>
+
+                <!-- Figura 96: Grafo Direcionado de Estados de Markov -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig96_grafo_transicao_estados_markov.png', 'Figura 96 — Grafo Direcionado de Transição de Estados de Markov da Frota Pública')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-warning">Figura 96 • Markov Estocástico</span>
+                        <h4>Figura 96 — Transição de Estados Operacionais de Markov</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig96_grafo_transicao_estados_markov.png" alt="Figura 96: Grafo Direcionado de Transição de Estados de Markov da Frota" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Dinâmica dos 5 estados (Prontidão, Missão, Ocioso, Oficina, Leilão). Redução prescritiva de retenção em oficina para 2,40 dias.</span></div>
+                </div>
+
+                <!-- Figura 97: Subgrafo Induzido de Anomalias e Conluio -->
+                <div class="chart-card" onclick="openLightbox('../charts/fig97_grafo_subrede_anomalias_conluio.png', 'Figura 97 — Subgrafo Induzido de Anomalias Críticas e Risco de Conluio/Superfaturamento')">
+                    <div class="chart-card-header">
+                        <span class="chart-badge badge-danger">Figura 97 • Auditoria Conluio</span>
+                        <h4>Figura 97 — Sub-rede de Anomalias Críticas e Conluio</h4>
+                    </div>
+                    <div class="chart-preview"><img src="../charts/fig97_grafo_subrede_anomalias_conluio.png" alt="Figura 97: Subgrafo Induzido de Anomalias Críticas e Risco de Conluio" loading="lazy"></div>
+                    <div class="chart-card-footer"><span>Detecção de componentes conexos densos via Isolation Forest + aprovação atípica para abertura imediata de sindicância SEA DITI.</span></div>
+                </div>
+            </div>
+
+            <!-- Tabela dos Hubs Dominantes de Oficinas Credenciadas -->
+            <div style="margin-top: 30px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 22px;">
+                <h3 style="font-size: 15px; font-weight: 700; color: #ffffff; margin-bottom: 12px;">📊 Ranking de Fornecedores por Centralidade de Intermediação (Betweenness) e Risco de Concentração</h3>
+                <div class="table-responsive">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border-light); text-align: left;">
+                                <th style="padding: 10px 12px; color: var(--accent-cyan);">Código da Oficina</th>
+                                <th style="padding: 10px 12px; text-align: center; color: var(--accent-cyan);">Grau de Conectividade (k)</th>
+                                <th style="padding: 10px 12px; text-align: center; color: var(--accent-cyan);">Betweenness (CB)</th>
+                                <th style="padding: 10px 12px; text-align: center; color: var(--accent-cyan);">PageRank</th>
+                                <th style="padding: 10px 12px; text-align: right; color: var(--accent-cyan);">Volume Transacionado</th>
+                                <th style="padding: 10px 12px; text-align: center; color: var(--accent-cyan);">Status de Auditoria</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-grafos-hubs">
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 10px 12px; font-weight: bold; color: #38bdf8;">Oficina #1024 (Grande Florianópolis)</td>
+                                <td style="padding: 10px 12px; text-align: center;">48 viaturas</td>
+                                <td style="padding: 10px 12px; text-align: center; font-weight: bold; color: #f87171;">0,2842</td>
+                                <td style="padding: 10px 12px; text-align: center;">0,0412</td>
+                                <td style="padding: 10px 12px; text-align: right; font-weight: bold; color: #ef4444;">R$ 3.845.210,00</td>
+                                <td style="padding: 10px 12px; text-align: center;"><span class="badge-danger" style="padding: 3px 8px; border-radius: 4px; font-size: 10px;">HUB CRÍTICO • AUDITORIA</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 10px 12px; font-weight: bold; color: #38bdf8;">Oficina #1088 (Vale do Itajaí)</td>
+                                <td style="padding: 10px 12px; text-align: center;">36 viaturas</td>
+                                <td style="padding: 10px 12px; text-align: center; font-weight: bold; color: #f87171;">0,1954</td>
+                                <td style="padding: 10px 12px; text-align: center;">0,0318</td>
+                                <td style="padding: 10px 12px; text-align: right; font-weight: bold; color: #f59e0b;">R$ 2.412.800,00</td>
+                                <td style="padding: 10px 12px; text-align: center;"><span class="badge-warning" style="padding: 3px 8px; border-radius: 4px; font-size: 10px;">ALTA CONCENTRAÇÃO</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 10px 12px; font-weight: bold; color: #38bdf8;">Oficina #2015 (Norte Catarinense)</td>
+                                <td style="padding: 10px 12px; text-align: center;">29 viaturas</td>
+                                <td style="padding: 10px 12px; text-align: center; font-weight: bold; color: #f87171;">0,1420</td>
+                                <td style="padding: 10px 12px; text-align: center;">0,0245</td>
+                                <td style="padding: 10px 12px; text-align: right; font-weight: bold; color: #f59e0b;">R$ 1.954.120,00</td>
+                                <td style="padding: 10px 12px; text-align: center;"><span class="badge-warning" style="padding: 3px 8px; border-radius: 4px; font-size: 10px;">MONITORAMENTO GFI</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 10px 12px; font-weight: bold; color: #38bdf8;">Oficina #3142 (Oeste Catarinense)</td>
+                                <td style="padding: 10px 12px; text-align: center;">24 viaturas</td>
+                                <td style="padding: 10px 12px; text-align: center;">0,0980</td>
+                                <td style="padding: 10px 12px; text-align: center;">0,0192</td>
+                                <td style="padding: 10px 12px; text-align: right; color: #10b981;">R$ 1.240.500,00</td>
+                                <td style="padding: 10px 12px; text-align: center;"><span class="badge-success" style="padding: 3px 8px; border-radius: 4px; font-size: 10px;">REGIME NORMAL</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox Modal para Zoom e Detalhes da Imagem -->
+    <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox(event)">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+            <h3 id="lightbox-title" class="lightbox-title">Visualização em Alta Definição (300 DPI)</h3>
+            <div class="lightbox-img-wrapper">
+                <img id="lightbox-img" src="" alt="Ampliação do Gráfico">
+            </div>
+            <div class="lightbox-footnote">
+                Pressione <kbd>ESC</kbd> ou clique fora da imagem para fechar. Resolução original de publicação: 300 DPI.
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Footer -->
+    <footer class="app-footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <p><strong>Dissertação de Mestrado em Computação Aplicada (PPGCAP / UDESC) • 2026</strong></p>
+                <p>Autor: <strong>Eduardo Lopes Jonker</strong> | Orientadora: <strong>Profa. Dra. VIVIAN KREMER KALEMPA</strong> | Coorientador: <strong>Prof. Dr. YURI KASZUBOWSKI LOPES</strong></p>
+                <p style="font-size: 8pt; color: #64748b; margin-top: 4px;">Ambiente Computacional: Linux Ubuntu 26.04 LTS • Python 3.14.4 • Dell Inspiron 15 3530 (12 vCPUs) • WeasyPrint 70.0 • 64 Figuras Acadêmicas (300 DPI)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Floating AI Copilot Drawer -->
+    <div id="ai-chat-drawer" class="ai-chat-drawer">
+        <div class="chat-header">
+            <div class="chat-header-title">
+                <span class="ai-avatar-icon">🤖</span>
+                <div>
+                    <h3>Copiloto de IA da Frota</h3>
+                    <span class="chat-status"><span class="ai-pulse-dot"></span> Online • Aprendizado Ativo</span>
+                </div>
+            </div>
+            <div class="chat-header-actions">
+                <button class="chat-btn-clear" onclick="limparHistoricoChat()" title="Limpar conversa">🗑️</button>
+                <button class="chat-btn-close" onclick="toggleAIChat()" title="Fechar">✕</button>
+            </div>
+        </div>
+        
+        <div class="chat-body" id="chat-messages-container">
+            <!-- As mensagens serão inseridas dinamicamente via app.js -->
+        </div>
+
+        <!-- Quick Suggestion Chips Bar -->
+        <div class="chat-chips-bar" id="chat-chips-bar">
+            <button class="chat-chip" onclick="enviarPerguntaChip('Qual é a previsão de gastos para 2027, 2028 e 2029 considerando inflação e idade?')">📈 Previsão Gastos 2027–2029</button>
+            <button class="chat-chip" onclick="enviarPerguntaChip('Como a inflação de autopeças e mão de obra afeta o orçamento da frota?')">🏷️ Análise de Inflação Setorial</button>
+            <button class="chat-chip" onclick="enviarPerguntaChip('Os custos da frota seguem distribuição normal?')">📊 Custos são normais?</button>
+            <button class="chat-chip" onclick="enviarPerguntaChip('Qual é a taxa diária de falhas por Poisson e há sobredispersão?')">🎲 Poisson e Sobredispersão?</button>
+            <button class="chat-chip" onclick="enviarPerguntaChip('Quanto tempo um veículo passa em manutenção pela Cadeia de Markov?')">🔄 Tempo de retenção (Markov)?</button>
+            <button class="chat-chip" onclick="enviarPerguntaChip('Qual modelo de série temporal é superior, ETS ou ARIMA?')">📈 ETS vs ARIMA?</button>
+            <button class="chat-chip" onclick="enviarPerguntaChip('Atualize os gráficos com alfa = 0.01 e frequência semanal')">⚡ Recalcular (W, α=0.01)</button>
+            <button class="chat-chip" onclick="enviarPerguntaChip('Gere o relatório em PDF agora')">📄 Compilar PDF</button>
+            <button class="chat-chip" onclick="enviarPerguntaChip('Qual é a curva ABC de peças e compras?')">📦 Curva ABC / Pareto</button>
+            <button class="chat-chip" onclick="enviarPerguntaChip('Qual o TCO e custo por km da frota?')">🚗 TCO e CPK (R$/km)</button>
+            <button class="chat-chip" onclick="enviarPerguntaChip('Qual o ponto ótimo de renovação de frota?')">🔄 Ponto de Troca da Frota</button>
+            <button class="chat-chip" onclick="enviarPerguntaChip('Qual o ROI para o setor de transporte na gestão de frotas?')">💼 ROI Setor de Transporte</button>
+        </div>
+
+        <div class="chat-footer">
+            <form id="chat-form" onsubmit="enviarMensagemChat(event)">
+                <input type="text" id="chat-input" placeholder="Faça uma pergunta ou comando em linguagem natural..." autocomplete="off">
+                <button type="submit" id="chat-btn-send" title="Enviar mensagem">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Action Button para Abrir o Copiloto de IA -->
+    <button id="floating-chat-btn" class="floating-chat-btn" onclick="toggleAIChat()" title="Abrir Copiloto de IA">
+        <span class="ai-avatar-icon">🤖</span>
+        <span class="btn-text">IA Fleet Copilot</span>
+        <span class="ai-pulse-dot"></span>
+    </button>
+
+    <!-- Interactive Scripts -->
+    <script src="app.js?v=3.5"></script>
+</body>
+</html>

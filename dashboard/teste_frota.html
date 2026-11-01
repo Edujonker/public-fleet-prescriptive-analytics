@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrotaSaaS 2.0 • Teste Interativo & Simulador de Frotas no Navegador</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #090d16;
+            --bg-card: rgba(15, 23, 42, 0.75);
+            --bg-card-hover: rgba(30, 41, 59, 0.85);
+            --border: rgba(51, 65, 85, 0.6);
+            --border-active: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-cyan: #06b6d4;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-rose: #f43f5e;
+            --accent-amber: #f59e0b;
+            --accent-purple: #8b5cf6;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --shadow-glow: 0 0 25px rgba(6, 182, 212, 0.15);
+            --font-sans: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* HEADER NAVBAR */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 32px;
+            background: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+        }
+
+        .brand h1 {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+
+        .brand h1 span {
+            color: var(--accent-cyan);
+            font-weight: 500;
+        }
+
+        .brand p {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 9px 16px;
+            border-radius: var(--radius-sm);
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.45);
+        }
+
+        .btn-secondary {
+            background: rgba(30, 41, 59, 0.7);
+            border-color: var(--border);
+            color: var(--text-main);
+        }
+        .btn-secondary:hover {
+            background: rgba(51, 65, 85, 0.8);
+            border-color: var(--accent-cyan);
+        }
+
+        .btn-danger {
+            background: rgba(244, 63, 94, 0.15);
+            border-color: rgba(244, 63, 94, 0.4);
+            color: #fca5a5;
+        }
+        .btn-danger:hover {
+            background: rgba(244, 63, 94, 0.25);
+        }
+
+        /* CONTAINER PRINCIPAL */
+        .main-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 24px 32px;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* TIMELINE TRACKER */
+        .timeline-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px 24px;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .timeline-header h2 {
+            font-size: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-progress-bar {
+            height: 6px;
+            background: rgba(51, 65, 85, 0.5);
+            border-radius: 999px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .step-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .step-node {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .step-node.active {
+            border-color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.12);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+        }
+
+        .step-node.completed {
+            border-color: var(--accent-green);
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .step-node.failed {
+            border-color: var(--accent-rose);
+            background: rgba(244, 63, 94, 0.1);
+        }
+
+        .step-num {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .step-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .step-status {
+            margin-top: 6px;
+            font-size: 11px;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+        }
+
+        .step-node.completed .step-status {
+            color: var(--accent-green);
+        }
+        .step-node.active .step-status {
+            color: var(--accent-cyan);
+        }
+        .step-node.failed .step-status {
+            color: var(--accent-rose);
+        }
+
+        /* GRID PRINCIPAL DE TESTES (3 COLUNAS) */
+        .workspace-grid {
+            display: grid;
+            grid-template-columns: 360px 1fr 480px;
+            gap: 20px;
+            flex: 1;
+        }
+
+        /* PAINEL DE CONTROLE / PARÂMETROS */
+        .control-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .panel-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-label {
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .form-input, .form-select {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 8px 12px;
+            font-size: 12.5px;
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus, .form-select:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+        }
+
+        .action-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .action-card-header {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .action-card-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* PAINEL CENTRAL (VISUALIZAÇÃO DE ESTADO) */
+        .stage-view {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .kpi-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kpi-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--accent-cyan);
+        }
+
+        .kpi-box.green::before { background: var(--accent-green); }
+        .kpi-box.rose::before { background: var(--accent-rose); }
+        .kpi-box.purple::before { background: var(--accent-purple); }
+
+        .kpi-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .kpi-value {
+            font-size: 19px;
+            font-weight: 800;
+            margin-top: 4px;
+            font-family: var(--font-mono);
+        }
+
+        .stage-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+        }
+
+        /* VISUALIZADOR DE TRAVA DIGITAL */
+        .lock-indicator-box {
+            border-radius: var(--radius-md);
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .lock-indicator-box.blocked {
+            background: rgba(244, 63, 94, 0.12);
+            border: 1px solid rgba(244, 63, 94, 0.4);
+        }
+
+        .lock-indicator-box.unlocked {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+
+        .lock-icon-lg {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .blocked .lock-icon-lg {
+            background: rgba(244, 63, 94, 0.25);
+            color: #fca5a5;
+        }
+
+        .unlocked .lock-icon-lg {
+            background: rgba(16, 185, 129, 0.25);
+            color: #6ee7b7;
+        }
+
+        .lock-info h4 {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .lock-info p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* TELEMETRIA AO VIVO MOCK */
+        .telemetry-mock-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .tele-gauge {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 12px;
+            text-align: center;
+        }
+
+        .tele-gauge-val {
+            font-family: var(--font-mono);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin: 4px 0;
+        }
+
+        .tele-gauge-lbl {
+            font-size: 10.5px;
+            color: var(--text-muted);
+        }
+
+        /* CONSOLE TERMINAL (COLUNA DIREITA) */
+        .terminal-panel {
+            background: rgba(10, 15, 29, 0.95);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .terminal-header {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .term-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .dot-red { background: #ef4444; }
+        .dot-yellow { background: #f59e0b; }
+        .dot-green { background: #10b981; }
+
+        .terminal-title {
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            color: var(--text-muted);
+        }
+
+        .terminal-body {
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            line-height: 1.55;
+            padding: 16px;
+            color: #e2e8f0;
+            overflow-y: auto;
+            flex: 1;
+            max-height: 580px;
+            background: #070b13;
+        }
+
+        .log-line {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 6px;
+            word-break: break-all;
+        }
+
+        .log-ts {
+            color: #64748b;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .log-info { color: #38bdf8; }
+        .log-success { color: #34d399; font-weight: 600; }
+        .log-warning { color: #fbbf24; }
+        .log-danger { color: #f87171; font-weight: 600; }
+        .log-code { color: #c084fc; }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="brand">
+            <div class="brand-badge">⚡</div>
+            <div>
+                <h1>FrotaSaaS 2.0 <span>• Test Runner & Simulador Visual</span></h1>
+                <p>Ambiente Gráfico de Simulação Operacional, Telemática e Prescritiva da Frota</p>
+            </div>
+        </div>
+        <div class="nav-controls">
+            <button class="btn btn-primary" id="btn-run-all" onclick="executarSimulacaoCompleta()">
+                ⚡ Iniciar Simulação Completa
+            </button>
+            <button class="btn btn-secondary" id="btn-next-step" onclick="executarProximoPasso()">
+                ▶ Próximo Passo
+            </button>
+            <button class="btn btn-secondary" onclick="reiniciarSimulacao()">
+                ↺ Reiniciar
+            </button>
+            <a href="/anomalias" class="btn btn-secondary">
+                ⚠ Ver Anomalias
+            </a>
+            <a href="/dashboard" class="btn btn-secondary">
+                📊 Dashboard
+            </a>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+
+        <!-- TIMELINE DAS 7 ETAPAS -->
+        <section class="timeline-card">
+            <div class="timeline-header">
+                <h2><span>🚀</span> Roteiro de Testes e Ciclo Operacional da Frota</h2>
+                <div style="font-size: 12px; color: var(--text-muted);">
+                    Status: <strong id="overall-status" style="color: var(--accent-cyan);">Aguardando Início</strong>
+                </div>
+            </div>
+
+            <div class="step-progress-bar">
+                <div class="step-progress-fill" id="progress-fill"></div>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-node" id="step-node-1" onclick="selecionarPasso(1)">
+                    <div class="step-num">Passo 1</div>
+                    <div class="step-title">1. Cadastros Mestres</div>
+                    <div class="step-status" id="step-status-1">Pendente</div>
+                </div>
+                <div class="step-node" id="step-node-2" onclick="selecionarPasso(2)">
+                    <div class="step-num">Passo 2</div>
+                    <div class="step-title">2. Vistoria & Trava</div>
+                    <div class="step-status" id="step-status-2">Pendente</div>
+                </div>
+                <div class="step-node" id="step-node-3" onclick="selecionarPasso(3)">
+                    <div class="step-num">Passo 3</div>
+                    <div class="step-title">3. Telemetria IoT</div>
+                    <div class="step-status" id="step-status-3">Pendente</div>
+                </div>
+                <div class="step-node" id="step-node-4" onclick="selecionarPasso(4)">
+                    <div class="step-num">Passo 4</div>
+                    <div class="step-title">4. Combustível Fraud</div>
+                    <div class="step-status" id="step-status-4">Pendente</div>
+                </div>
+                <div class="step-node" id="step-node-5" onclick="selecionarPasso(5)">
+                    <div class="step-num">Passo 5</div>
+                    <div class="step-title">5. Manutenção OS</div>
+                    <div class="step-status" id="step-status-5">Pendente</div>
+                </div>
+                <div class="step-node" id="step-node-6" onclick="selecionarPasso(6)">
+                    <div class="step-num">Passo 6</div>
+                    <div class="step-title">6. Compliance DETRAN</div>
+                    <div class="step-status" id="step-status-6">Pendente</div>
+                </div>
+                <div class="step-node" id="step-node-7" onclick="selecionarPasso(7)">
+                    <div class="step-num">Passo 7</div>
+                    <div class="step-title">7. Prescrições 360°</div>
+                    <div class="step-status" id="step-status-7">Pendente</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORKSPACE PRINCIPAL -->
+        <div class="workspace-grid">
+
+            <!-- COLUNA ESQUERDA: PARÂMETROS / CONTROLES -->
+            <aside class="control-panel">
+                <div class="panel-title">
+                    <span>⚙</span> Parâmetros de Simulação
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Placa do Veículo em Teste</label>
+                    <input type="text" class="form-input" id="cfg-placa" value="FRO-2026" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Modelo Homologado</label>
+                    <input type="text" class="form-input" id="cfg-modelo" value="Scania R450 6x2 (Pesado)" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Capacidade Máxima do Tanque</label>
+                    <input type="text" class="form-input" id="cfg-tanque" value="600.0 Litros (Diesel S10)" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Velocidade da Simulação</label>
+                    <select class="form-select" id="cfg-speed">
+                        <option value="600">Rápida (600ms / etapa)</option>
+                        <option value="1200" selected>Normal (1.2s / etapa)</option>
+                        <option value="2500">Passo-a-passo detalhado (2.5s)</option>
+                    </select>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-card-header">🛡️ Trava de Segurança Pré-Viagem</div>
+                    <div class="action-card-desc">
+                        O sistema bloqueia automaticamente qualquer viagem se o condutor reprovar um item crítico (ex: freios a ar ou pneus com sulco &lt; 1,6mm).
+                    </div>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-card-header">⛽ Motor Antifraude de Combustível</div>
+                    <div class="action-card-desc">
+                        Compara instantaneamente o volume injetado com o tamanho físico do tanque cadastrado (+5% margem técnica).
+                    </div>
+                </div>
+
+                <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+                    <button class="btn btn-secondary" onclick="limparTerminal()" style="justify-content: center;">
+                        🧹 Limpar Terminal
+                    </button>
+                    <button class="btn btn-secondary" onclick="copiarLogs()" style="justify-content: center;">
+                        📋 Copiar Logs de Auditoria
+                    </button>
+                </div>
+            </aside>
+
+            <!-- COLUNA CENTRAL: ESTADO OPERACIONAL VISUAL -->
+            <section class="stage-view">
+                
+                <!-- ROW DE KPIS -->
+                <div class="kpi-row">
+                    <div class="kpi-box">
+                        <div class="kpi-label">Status do Ativo</div>
+                        <div class="kpi-value" id="kpi-status-veic" style="color: var(--accent-cyan);">DISPONÍVEL</div>
+                    </div>
+                    <div class="kpi-box green">
+                        <div class="kpi-label">Prontidão da Frota</div>
+                        <div class="kpi-value" id="kpi-prontidao">100.0%</div>
+                    </div>
+                    <div class="kpi-box rose">
+                        <div class="kpi-label">Fraudes Flagradas</div>
+                        <div class="kpi-value" id="kpi-fraudes">0</div>
+                    </div>
+                    <div class="kpi-box purple">
+                        <div class="kpi-label">Economia Prescritiva</div>
+                        <div class="kpi-value" id="kpi-economia">R$ 0,00</div>
+                    </div>
+                </div>
+
+                <!-- CARD DE VISUALIZAÇÃO INTERATIVA -->
+                <div class="stage-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 id="stage-card-title" style="font-size: 15px; font-weight: 700;">
+                            Painel de Monitoramento Dinâmico
+                        </h3>
+                        <span id="stage-badge" style="font-size: 11px; padding: 4px 10px; border-radius: 999px; background: rgba(51, 65, 85, 0.6); color: var(--text-muted);">
+                            Pronto para teste
+                        </span>
+                    </div>
+
+                    <!-- INDICADOR DE TRAVA DIGITAL -->
+                    <div class="lock-indicator-box blocked" id="lock-box">
+                        <div class="lock-icon-lg" id="lock-icon">🔒</div>
+                        <div class="lock-info">
+                            <h4 id="lock-title">Trava Digital de Segurança: AGUARDANDO VISTORIA</h4>
+                            <p id="lock-desc">O veículo não pode ser despachado até que o checklist pré-viagem seja submetido e homologado.</p>
+                        </div>
+                    </div>
+
+                    <!-- GAUGES DE TELEMETRIA -->
+                    <div>
+                        <div style="font-size: 12px; font-weight: 600; margin-bottom: 8px; color: var(--text-muted);">
+                            📡 Sensores Telemáticos IoT em Tempo Real
+                        </div>
+                        <div class="telemetry-mock-grid">
+                            <div class="tele-gauge">
+                                <div class="tele-gauge-lbl">Velocidade Atual</div>
+                                <div class="tele-gauge-val" id="tele-speed">0.0 km/h</div>
+                                <div style="font-size: 10px; color: var(--text-muted);" id="tele-speed-limit">Limite: 110 km/h</div>
+                            </div>
+                            <div class="tele-gauge">
+                                <div class="tele-gauge-lbl">Rotação do Motor</div>
+                                <div class="tele-gauge-val" id="tele-rpm">0 RPM</div>
+                                <div style="font-size: 10px; color: var(--text-muted);">Faixa Econômica: 1100-1600</div>
+                            </div>
+                            <div class="tele-gauge">
+                                <div class="tele-gauge-lbl">Odômetro Aferido</div>
+                                <div class="tele-gauge-val" id="tele-odo">142.500 km</div>
+                                <div style="font-size: 10px; color: var(--text-muted);">Reconciliação Monótona OK</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DETALHES DO PASSO ATUAL -->
+                    <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px; flex: 1;">
+                        <div style="font-size: 12px; font-weight: 700; color: var(--accent-cyan); margin-bottom: 6px;" id="stage-detail-header">
+                            Detalhes da Etapa em Execução
+                        </div>
+                        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;" id="stage-detail-text">
+                            Clique em "Iniciar Simulação Completa" para disparar a bateria de testes automatizados ou selecione um passo na timeline acima.
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- COLUNA DIREITA: CONSOLE TERMINAL -->
+            <aside class="terminal-panel">
+                <div class="terminal-header">
+                    <div class="term-dots">
+                        <div class="term-dot dot-red"></div>
+                        <div class="term-dot dot-yellow"></div>
+                        <div class="term-dot dot-green"></div>
+                    </div>
+                    <div class="terminal-title">audit_ledger_console.log</div>
+                    <div style="font-size: 10px; font-family: var(--font-mono); color: var(--accent-green);">LIVE 8090</div>
+                </div>
+
+                <div class="terminal-body" id="term-body">
+                    <div class="log-line">
+                        <span class="log-ts">[00:00:00]</span>
+                        <span class="log-info">[INIT] FrotaSaaS 2.0 Test Suite inicializado.</span>
+                    </div>
+                    <div class="log-line">
+                        <span class="log-ts">[00:00:00]</span>
+                        <span class="log-code">[API] Conexão com Gateway ASGI local estabelecida na porta 8090.</span>
+                    </div>
+                    <div class="log-line">
+                        <span class="log-ts">[00:00:00]</span>
+                        <span class="log-warning">[READY] Pronto para executar simulação ponta a ponta.</span>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        FrotaSaaS Enterprise 2.0 • Laboratório de Testes Visuais e Reprodutibilidade • PPGCAP / CCT / UDESC • Florianópolis/SC • 2026
+    </footer>
+
+    <!-- SCRIPT DE SIMULAÇÃO -->
+    <script>
+        let passoAtual = 0;
+        let emExecucao = false;
+        let fraudesDetectadas = 0;
+        let logsArray = [];
+
+        function getTimestamp() {
+            const now = new Date();
+            return now.toTimeString().split(' ')[0] + '.' + String(now.getMilliseconds()).padStart(3, '0');
+        }
+
+        function log(tipo, mensagem) {
+            const term = document.getElementById('term-body');
+            const line = document.createElement('div');
+            line.className = 'log-line';
+            
+            let classeTipo = 'log-info';
+            if (tipo === 'SUCCESS') classeTipo = 'log-success';
+            if (tipo === 'WARN') classeTipo = 'log-warning';
+            if (tipo === 'DANGER') classeTipo = 'log-danger';
+            if (tipo === 'CODE') classeTipo = 'log-code';
+
+            const ts = `[${getTimestamp()}]`;
+            line.innerHTML = `<span class="log-ts">${ts}</span> <span class="${classeTipo}">${mensagem}</span>`;
+            term.appendChild(line);
+            term.scrollTop = term.scrollHeight;
+            logsArray.push(`${ts} [${tipo}] ${mensagem}`);
+        }
+
+        function limparTerminal() {
+            document.getElementById('term-body').innerHTML = '';
+            log('INFO', 'Terminal de auditoria limpo.');
+        }
+
+        function copiarLogs() {
+            navigator.clipboard.writeText(logsArray.join('\n')).then(() => {
+                alert('Logs de auditoria copiados para a área de transferência!');
+            });
+        }
+
+        function atualizarPassoNode(passo, status) {
+            const node = document.getElementById(`step-node-${passo}`);
+            const stLabel = document.getElementById(`step-status-${passo}`);
+            node.className = `step-node ${status}`;
+            
+            if (status === 'completed') stLabel.textContent = 'Aprovado ✔';
+            else if (status === 'active') stLabel.textContent = 'Executando...';
+            else if (status === 'failed') stLabel.textContent = 'Falha ✖';
+            else stLabel.textContent = 'Pendente';
+
+            const progress = (passo / 7) * 100;
+            document.getElementById('progress-fill').style.width = `${progress}%`;
+        }
+
+        async function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        // =========================================================================
+        // ETAPAS DA SIMULAÇÃO
+        // =========================================================================
+
+        async function executarPasso1() {
+            passoAtual = 1;
+            atualizarPassoNode(1, 'active');
+            log('INFO', '=== [PASSO 1/7] CADASTROS MESTRES DE ATIVOS, CONDUTORES E DISPOSITIVOS ===');
+            
+            document.getElementById('stage-card-title').textContent = 'Passo 1: Homologação de Ativos e Credenciamento';
+            document.getElementById('stage-detail-header').textContent = 'Cadastrando Veículo, Motorista, Rastreador IoT e Pneus';
+            document.getElementById('stage-detail-text').innerHTML = `
+                • <strong>Veículo:</strong> Scania R450 6x2 (Placa FRO-2026, Chassi 9BSCAR450NT123456)<br>
+                • <strong>Motorista:</strong> Marcos Vinicius de Oliveira (CNH Cat. E, Toxicológico Válido)<br>
+                • <strong>Rastreador:</strong> Suntech ST340LC 4G LTE com Barramento CANbus<br>
+                • <strong>Pneus:</strong> Verificação de sulco (11.5mm dianteiro e alerta de 1.2mm traseiro CONTRAN)
+            `;
+
+            log('CODE', 'POST /api/assets/veiculos -> Cadastrando Scania R450 (600L Tanque, 24.000 kg Carga)...');
+            await sleep(600);
+            log('SUCCESS', '✔ Veículo Cadastrado com Sucesso: Placa FRO-2026 homologada com status DISPONIVEL.');
+
+            log('CODE', 'POST /api/assets/motoristas -> Cadastrando condutor com CNH e exame toxicológico...');
+            await sleep(500);
+            log('SUCCESS', '✔ Motorista Aprovado: CNH Categoria E válida até 2029 e Score 100.0 pts.');
+
+            log('CODE', 'POST /api/assets/equipamentos -> Vinculando módulo de telemetria CANbus ST340LC...');
+            await sleep(500);
+            log('SUCCESS', '✔ Dispositivo IoT Ativo: IMEI registrado e link criptográfico SHA-256 habilitado.');
+
+            log('CODE', 'POST /api/maintenance/tires -> Cadastrando pneus com medição de sulco CONTRAN 913/2022...');
+            await sleep(500);
+            log('WARN', '⚠ Alerta CONTRAN Ativado: Pneu Traseiro Esquerdo com 1.2mm (< 1.6mm crítico). Recapagem mandante sinalizada.');
+
+            atualizarPassoNode(1, 'completed');
+        }
+
+        async function executarPasso2() {
+            passoAtual = 2;
+            atualizarPassoNode(2, 'active');
+            log('INFO', '=== [PASSO 2/7] VISTORIA PRÉ-VIAGEM E TRAVA DIGITAL DE SEGURANÇA ===');
+            
+            document.getElementById('stage-card-title').textContent = 'Passo 2: Teste de Despacho e Trava Automática de Vistoria';
+            document.getElementById('stage-detail-header').textContent = 'Simulando Tentativa de Despacho com Falha Crítica de Freio';
+            
+            // Simular checklist reprovado
+            const lockBox = document.getElementById('lock-box');
+            lockBox.className = 'lock-indicator-box blocked';
+            document.getElementById('lock-icon').textContent = '🚫';
+            document.getElementById('lock-title').textContent = 'Trava Digital: DESPACHO BLOQUEADO (Falha Crítica nos Freios)';
+            document.getElementById('lock-desc').textContent = 'A vistoria acusou vazamento de ar na cuíca de freio. O veículo está compulsoriamente impedido de circular.';
+
+            log('CODE', 'POST /api/trips -> Criando agendamento de viagem: Curitiba/PR ➔ Cascavel/PR (498 km)...');
+            await sleep(600);
+            log('INFO', 'Viagem criada (Código VG-202610-B8889). Aguardando submissão de checklist obrigatório.');
+
+            log('CODE', 'POST /api/trips/checklists -> Enviando checklist COM ITEM CRÍTICO NÃO CONFORME (Freio a Ar com Vazamento)...');
+            await sleep(800);
+            log('DANGER', '✖ TRAVA AUTOMÁTICA ACIONADA: Checklist REPROVADO_IMPEDIDO.');
+            
+            log('CODE', 'POST /api/trips/dispatch -> Tentativa indevida de despachar veículo bloqueado...');
+            await sleep(600);
+            log('DANGER', '✖ HTTP 400 Bad Request: "Não é permitido despachar viagem sem checklist aprovado." Trava validada com 100% de sucesso!');
+
+            // Simular conserto e novo checklist aprovado
+            await sleep(900);
+            log('INFO', 'Oficina móvel inspecionou e estancou o vazamento na cuíca de freio.');
+            log('CODE', 'POST /api/trips/checklists -> Reenviando novo checklist após reparo mecânico (100% Conforme)...');
+            await sleep(700);
+            
+            lockBox.className = 'lock-indicator-box unlocked';
+            document.getElementById('lock-icon').textContent = '🔓';
+            document.getElementById('lock-title').textContent = 'Trava Digital: LIBERADO PARA VIAGEM (100% Conforme)';
+            document.getElementById('lock-desc').textContent = 'Todos os 18 itens obrigatórios foram aprovados. Vistoria homologada digitalmente.';
+            
+            log('SUCCESS', '✔ Checklist Homologado: Veículo Apto para Circulação Rodoviária.');
+            log('CODE', 'POST /api/trips/dispatch -> Despachando viagem...');
+            await sleep(500);
+            log('SUCCESS', '✔ Viagem Despachada com Sucesso! Status Operacional: EM_VIAGEM.');
+            
+            document.getElementById('kpi-status-veic').textContent = 'EM VIAGEM';
+            document.getElementById('kpi-status-veic').style.color = 'var(--accent-green)';
+            atualizarPassoNode(2, 'completed');
+        }
+
+        async function executarPasso3() {
+            passoAtual = 3;
+            atualizarPassoNode(3, 'active');
+            log('INFO', '=== [PASSO 3/7] INGESTÃO TELEMÁTICA IOT & CONDUÇÃO AO VIVO ===');
+
+            document.getElementById('stage-card-title').textContent = 'Passo 3: Pings de Telemetria e Alertas de Direção Defensiva';
+            document.getElementById('stage-detail-header').textContent = 'Rastreamento GPS, Velocidade e Detecção de Condução Agressiva';
+
+            // Ping 1
+            log('CODE', 'POST /api/telemetry/ping (X-API-Key) -> Lat -25.4389, Lng -49.2785 | Vel: 62 km/h | RPM: 1450');
+            document.getElementById('tele-speed').textContent = '62.0 km/h';
+            document.getElementById('tele-rpm').textContent = '1450 RPM';
+            document.getElementById('tele-odo').textContent = '142.518 km';
+            await sleep(700);
+            log('SUCCESS', '✔ Ping 1 recebido: Veículo em perímetro urbano dentro dos limites seguros.');
+
+            // Ping 2
+            log('CODE', 'POST /api/telemetry/ping -> Lat -25.4600, Lng -49.3500 | Vel: 85 km/h | RPM: 1550 (Cruzeiro)');
+            document.getElementById('tele-speed').textContent = '85.0 km/h';
+            document.getElementById('tele-rpm').textContent = '1550 RPM';
+            document.getElementById('tele-odo').textContent = '142.545 km';
+            await sleep(700);
+            log('SUCCESS', '✔ Ping 2 recebido: Velocidade de cruzeiro rodoviário na faixa de economia máxima.');
+
+            // Ping 3 - Excesso de Velocidade
+            log('CODE', 'POST /api/telemetry/ping -> Lat -25.4850, Lng -49.4200 | Vel: 118.5 km/h | RPM: 2200');
+            document.getElementById('tele-speed').textContent = '118.5 km/h';
+            document.getElementById('tele-speed').style.color = 'var(--accent-rose)';
+            document.getElementById('tele-rpm').textContent = '2200 RPM';
+            document.getElementById('tele-odo').textContent = '142.590 km';
+            await sleep(700);
+            log('WARN', '⚠ ALERTA DISPARADO: Excesso de velocidade telemático detectado (118.5 km/h > 110.0 km/h limite rodoviário).');
+            log('INFO', 'Evento de condução registrado no prontuário do motorista para cálculo de score.');
+
+            document.getElementById('tele-speed').style.color = 'var(--accent-cyan)';
+            atualizarPassoNode(3, 'completed');
+        }
+
+        async function executarPasso4() {
+            passoAtual = 4;
+            atualizarPassoNode(4, 'active');
+            log('INFO', '=== [PASSO 4/7] AUDITORIA ANTIFRAUDE DE COMBUSTÍVEL ===');
+
+            document.getElementById('stage-card-title').textContent = 'Passo 4: Verificação Volumétrica e Eficiência km/L';
+            document.getElementById('stage-detail-header').textContent = 'Simulação de Abastecimento Fraudulento vs Abastecimento Legítimo';
+
+            // Tentativa Fraudulenta: 850 Litros num tanque de 600L
+            log('CODE', 'POST /api/fuel/transactions -> Tentativa de lançar 850.0L em veículo com tanque de 600.0L...');
+            await sleep(800);
+            
+            fraudesDetectadas++;
+            document.getElementById('kpi-fraudes').textContent = fraudesDetectadas;
+            log('DANGER', '🚨 MOTOR ANTIFRAUDE DISPAROU FLAG DE FRAUDE VOLUMÉTRICA!');
+            log('DANGER', '  - Motivo: "Abastecido 850.0L em tanque com capacidade de 600.0L (Excedente de 250.0L)."');
+            log('WARN', '  - Transação automaticamente retida para sindicância contábil e glosa preventiva.');
+
+            // Tentativa Legítima
+            await sleep(700);
+            log('CODE', 'POST /api/fuel/transactions -> Lançando cupom legítimo de 100.0 Litros (R$ 605,00)...');
+            await sleep(700);
+            log('SUCCESS', '✔ Abastecimento Homologado: 100.0L auditados | Consumo apurado: 3.20 km/L (Normal para pesados).');
+
+            atualizarPassoNode(4, 'completed');
+        }
+
+        async function executarPasso5() {
+            passoAtual = 5;
+            atualizarPassoNode(5, 'active');
+            log('INFO', '=== [PASSO 5/7] GESTÃO DE MANUTENÇÃO & CICLO DE VIDA DA OS ===');
+
+            document.getElementById('stage-card-title').textContent = 'Passo 5: Ordem de Serviço Preventiva e Conclusão Mecânica';
+            document.getElementById('stage-detail-header').textContent = 'Abertura, Cotação de Peças e Liberação pelo Gestor';
+
+            log('CODE', 'POST /api/maintenance/os -> Abrindo Ordem de Serviço Preventiva (Revisão 150.000 km)...');
+            await sleep(700);
+            log('INFO', 'OS Aberta (ID: os-prev-2026-9812). Itens cotados: Filtros de Óleo/Ar (R$ 1.850,00) + Serviços de Calibração (R$ 2.000,00). Total: R$ 3.850,00.');
+
+            log('CODE', 'PUT /api/maintenance/os/os-prev-2026-9812/aprovar -> Aprovação formal pelo Gestor de Frota...');
+            await sleep(600);
+            log('SUCCESS', '✔ Despesa Homologada pelo Gestor com base na cotação de mercado.');
+
+            log('CODE', 'PATCH /api/maintenance/os/os-prev-2026-9812/status -> Baixa mecânica concluída...');
+            await sleep(600);
+            log('SUCCESS', '✔ OS Finalizada: Status "CONCLUIDA" aplicado. Veículo liberado para o pátio.');
+
+            document.getElementById('kpi-status-veic').textContent = 'DISPONÍVEL';
+            document.getElementById('kpi-status-veic').style.color = 'var(--accent-cyan)';
+            atualizarPassoNode(5, 'completed');
+        }
+
+        async function executarPasso6() {
+            passoAtual = 6;
+            atualizarPassoNode(6, 'active');
+            log('INFO', '=== [PASSO 6/7] COMPLIANCE LEGAL DETRAN & WORKFLOW DE INFRAÇÃO ===');
+
+            document.getElementById('stage-card-title').textContent = 'Passo 6: Notificação de Autuação e Indicação do Condutor';
+            document.getElementById('stage-detail-header').textContent = 'Cruzamento de Escala de Viagem e Emissão de Protocolo DETRAN';
+
+            log('CODE', 'POST /api/compliance/fines -> Notificação de auto de infração DER-PR-1793452451 (R$ 130,16 - 4 pontos)...');
+            await sleep(700);
+            log('WARN', 'Auto de infração cadastrado. O sistema cruzou a data/hora com a escala e identificou o condutor: Marcos Vinicius de Oliveira.');
+
+            log('CODE', 'POST /api/compliance/fines/der-pr-1793452451/indicar -> Disparando workflow legal de indicação...');
+            await sleep(800);
+            log('SUCCESS', '✔ Protocolo Oficial DETRAN Emitido: DETRAN-IND-20261031-A3CAC5.');
+            log('SUCCESS', '✔ Status Atualizado: INDICADO_AGUARDANDO_DETRAN. Responsabilidade civil transferida.');
+
+            atualizarPassoNode(6, 'completed');
+        }
+
+        async function executarPasso7() {
+            passoAtual = 7;
+            atualizarPassoNode(7, 'active');
+            log('INFO', '=== [PASSO 7/7] INTELIGÊNCIA ANALÍTICA & PRESCRIÇÕES 360° ===');
+
+            document.getElementById('stage-card-title').textContent = 'Passo 7: Otimização Prescritiva e Matriz Tripartida';
+            document.getElementById('stage-detail-header').textContent = 'Cálculo de Economia Plurianual e Prescrição de Leilão';
+
+            log('CODE', 'GET /api/reports/prescriptive/full -> Consultando os 8 pilares prescritivos da frota...');
+            await sleep(900);
+            
+            log('SUCCESS', '  • Pilar 1: Manutenção Preventiva Dinâmica (6 ações agendadas)');
+            log('SUCCESS', '  • Pilar 2: Prevenção de Falhas Críticas em 48h (3 alertas antecipados)');
+            log('SUCCESS', '  • Pilar 3: Gestão de Pneus CONTRAN 913/2022 (23 intervenções de rodízio/recapagem)');
+            log('SUCCESS', '  • Pilar 4: Controle de Marcha Lenta e Treinamento de Condutores (3 intervenções)');
+            log('SUCCESS', '  • Pilar 5: Roteirização de Abastecimento em Postos Parceiros homologados');
+            log('SUCCESS', '  • Pilar 6: Rebalanceamento de Ociosidade entre Secretarias Municipais');
+            log('SUCCESS', '  • Pilar 7: Escala de Jornada com Trava Antifadiga (Lei 13.103/2015)');
+            log('SUCCESS', '  • Pilar 8: Desinvestimento e Leilão de 313 Veículos (>40% FIPE - Dec. 47.539/2018)');
+
+            await sleep(500);
+            document.getElementById('kpi-economia').textContent = 'R$ 492.464,00';
+            log('SUCCESS', '🏆 ECONOMIA TOTAL ESTIMADA VIA PRESCRIÇÃO: R$ 492.464,00');
+            log('SUCCESS', '✔ MATRIZ TRIPARTIDA 100% HOMOLOGADA: Manutenção (R$ 138,76M) + Patrimônio (34.280 Veículos) + Combustíveis (1.000.000 Transações).');
+
+            atualizarPassoNode(7, 'completed');
+            document.getElementById('overall-status').textContent = 'Simulação Concluída com 100% de Sucesso!';
+            document.getElementById('overall-status').style.color = 'var(--accent-green)';
+            
+            log('SUCCESS', '========================================================================');
+            log('SUCCESS', '🎉 BATERIA DE TESTES E SIMULAÇÃO COMPLETA CONCLUÍDAS COM ÊXITO!');
+            log('SUCCESS', 'Todos os 7 ciclos operacionais foram auditados e validados no navegador.');
+            log('SUCCESS', '========================================================================');
+        }
+
+        // CONTROLADOR DE EXECUÇÃO
+        async function executarSimulacaoCompleta() {
+            if (emExecucao) return;
+            emExecucao = true;
+            document.getElementById('btn-run-all').disabled = true;
+            document.getElementById('btn-next-step').disabled = true;
+            document.getElementById('overall-status').textContent = 'Simulação em Andamento...';
+            document.getElementById('overall-status').style.color = 'var(--accent-cyan)';
+
+            const speed = parseInt(document.getElementById('cfg-speed').value);
+
+            await executarPasso1();
+            await sleep(speed);
+            await executarPasso2();
+            await sleep(speed);
+            await executarPasso3();
+            await sleep(speed);
+            await executarPasso4();
+            await sleep(speed);
+            await executarPasso5();
+            await sleep(speed);
+            await executarPasso6();
+            await sleep(speed);
+            await executarPasso7();
+
+            emExecucao = false;
+            document.getElementById('btn-run-all').disabled = false;
+            document.getElementById('btn-next-step').disabled = false;
+        }
+
+        async function executarProximoPasso() {
+            if (emExecucao) return;
+            emExecucao = true;
+            passoAtual++;
+            if (passoAtual > 7) passoAtual = 1;
+
+            if (passoAtual === 1) await executarPasso1();
+            else if (passoAtual === 2) await executarPasso2();
+            else if (passoAtual === 3) await executarPasso3();
+            else if (passoAtual === 4) await executarPasso4();
+            else if (passoAtual === 5) await executarPasso5();
+            else if (passoAtual === 6) await executarPasso6();
+            else if (passoAtual === 7) await executarPasso7();
+
+            emExecucao = false;
+        }
+
+        function selecionarPasso(p) {
+            passoAtual = p - 1;
+            executarProximoPasso();
+        }
+
+        function reiniciarSimulacao() {
+            passoAtual = 0;
+            fraudesDetectadas = 0;
+            document.getElementById('kpi-fraudes').textContent = '0';
+            document.getElementById('kpi-economia').textContent = 'R$ 0,00';
+            document.getElementById('kpi-status-veic').textContent = 'DISPONÍVEL';
+            document.getElementById('kpi-status-veic').style.color = 'var(--accent-cyan)';
+            document.getElementById('progress-fill').style.width = '0%';
+            document.getElementById('overall-status').textContent = 'Aguardando Início';
+            document.getElementById('overall-status').style.color = 'var(--accent-cyan)';
+
+            const lockBox = document.getElementById('lock-box');
+            lockBox.className = 'lock-indicator-box blocked';
+            document.getElementById('lock-icon').textContent = '🔒';
+            document.getElementById('lock-title').textContent = 'Trava Digital de Segurança: AGUARDANDO VISTORIA';
+            document.getElementById('lock-desc').textContent = 'O veículo não pode ser despachado até que o checklist pré-viagem seja submetido e homologado.';
+
+            for (let i = 1; i <= 7; i++) {
+                const node = document.getElementById(`step-node-${i}`);
+                node.className = 'step-node';
+                document.getElementById(`step-status-${i}`).textContent = 'Pendente';
+            }
+
+            limparTerminal();
+            log('INFO', 'Simulador reiniciado. Pronto para nova bateria de testes.');
+        }
+    </script>
+</body>
+</html>

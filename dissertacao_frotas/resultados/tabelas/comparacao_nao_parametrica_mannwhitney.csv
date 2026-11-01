@@ -1,0 +1,3 @@
+comparacao;grupo_1;n1;mediana_1;grupo_2;n2;mediana_2;u_statistic;p_value;diferenca_estatisticamente_significativa
+Corretiva vs Preventiva (Custo Aprovado);Corretiva;48958;1274.6;Preventiva;6365;1227.13;159058748.5;0.006699816014718464;True
+Pesados vs Leves (Custo Aprovado);Pesados/Equipamentos;4156;2017.18;Leves;33894;992.94;94535667.5;7.741428346704275e-285;True

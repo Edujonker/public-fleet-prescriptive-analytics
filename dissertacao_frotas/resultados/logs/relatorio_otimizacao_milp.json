@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-10-22T06:35:58.045890",
+  "duracao_segundos": 6.31,
+  "cenario": "Cenário de Referência S0 (Nominal, 36 meses)",
+  "solver": "HiGHS (C++ interior point / dual simplex)",
+  "dimensoes": {
+    "veiculos": 2000,
+    "periodos_meses": 36,
+    "total_variaveis_decisao": 72000
+  },
+  "solucao_inteira_mip_brl": 73084862.34,
+  "relaxacao_linear_lp_brl": 73082139.67,
+  "integrality_gap_relativo": 3.73e-05,
+  "integrality_gap_absoluto_brl": 2722.68,
+  "highs_optimality_gap_certificado": 0.0,
+  "gargalos_ativos": {
+    "restricao_orcamentaria_pct_periodos": 58.33,
+    "restricao_oficina_pct_periodos": 0.0
+  },
+  "confronto_inercial": {
+    "custo_inercial_as_is_brl": 83833921.93,
+    "economia_prescritiva_brl": 10749059.59,
+    "economia_pct": 12.82
+  },
+  "hipotese_h3_sustentada": true,
+  "conclusao_auditoria": "O modelo MILP convergiu para o ótimo global certificado (HiGHS optimality gap = 0,0000%) com Gap de Integralidade Poliedral de 0.00373% (R$ 2,722.68), comprovando formulação poliedral quase-ideal. A política prescritiva viabiliza economia estimada de R$ 10,749,059.59 (12.82%) sobre o baseline BL0 (R$ 83,833,921.93), sustentando a Hipótese H3 no Cenário S0."
+}

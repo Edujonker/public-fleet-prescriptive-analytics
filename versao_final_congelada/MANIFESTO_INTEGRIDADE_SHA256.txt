@@ -1,0 +1,36 @@
+================================================================================
+MANIFESTO DE INTEGRIDADE CRIPTOGRÁFICA (SHA-256) — VERSÃO FINAL CONGELADA
+DISSERTAÇÃO DE MESTRADO ACADÊMICO EM COMPUTAÇÃO APLICADA (PPGCAP / CCT / UDESC)
+AUTOR: EDUARDO LOPES JONKER
+ORIENTADORA: PROFA. DRA. VIVIAN CREMER KALEMPA
+COORIENTADOR: PROF. DR. YURI KASZUBOWSKI LOPES
+DATA DE CONGELAMENTO: 2026-10-23 17:56:04 UTC
+================================================================================
+
+ATENÇÃO: Todos os artefatos abaixo foram congelados e certificados com status FINAL.
+Qualquer alteração posterior invalidará as assinaturas digitais abaixo calculadas.
+
+1. FORMATO PDF MASTER (120 PÁGINAS EXATAS - ABNT NBR 14724):
+   Arquivo: PDF/dissertacao_versao_final_congelada.pdf
+   Tamanho: 30144184 bytes (28.75 MB)
+   SHA-256: a45e4d301a77e551f32785912f85118725ece6f509ed96660078a8406dee04d4
+
+2. FORMATO MICROSOFT WORD (.DOCX - ABNT NBR 14724):
+   Arquivo: WORD/dissertacao_versao_final_congelada.docx
+   Tamanho: 27383991 bytes (26.12 MB)
+   SHA-256: b9cbda6a4b2701c46b3fee358bd7b34d042be8cbd59f0de9f83fa2d31b25094d
+
+3. FORMATO LATEX OVERLEAF (PACOTE ZIP MODULAR COMPLETO):
+   Arquivo: LATEX/dissertacao_versao_final_congelada_latex.zip
+   Tamanho: 35075642 bytes (33.45 MB)
+   SHA-256: fbc578352f3d0524ecfb39bf66a2300ceb713cae05d6d7f45a0f2f8ef46add35
+
+================================================================================
+CERTIFICAÇÃO DAS 5 CORREÇÕES DA BANCA EXAMINADORA IMPLEMENTADAS:
+[X] PÁG. 63:  Conclusão sobre preços-sombra e capacidade H_t restrita ao modelo MILP.
+              Ausência de restrição ativa não comprova capacidade ociosa estadual.
+[X] PÁG. 111: "27 veículos sinalizados pelo critério simulado de antieconomicidade".
+[X] PÁG. 111: "modelo de contratação utilizado em diferentes administrações públicas".
+[X] PÁG. 12-13: Sumário automático com correspondência exata de todas as subseções.
+[X] PÁG. 4:   Folha de aprovação formal limpa sem marcadores provisórios.
+================================================================================

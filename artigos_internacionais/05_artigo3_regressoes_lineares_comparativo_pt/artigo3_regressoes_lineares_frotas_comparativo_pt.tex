@@ -1,0 +1,126 @@
+\documentclass[10pt,a4paper,journal]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{setspace}
+\onehalfspacing
+
+\title{\textbf{Avaliação Comparativa de Algoritmos de Regressão Linear Aplicados à Gestão de Frotas Públicas: Do Mínimos Quadrados Ordinários aos Modelos Robustos, Regularizados e Quantílicos sob Heterocedasticidade e Caudas Pesadas}\\
+\large Estudo Empírico e Pericial sobre Microdados de 60.000 Ordens de Serviço do Governo do Estado de Santa Catarina}
+\author{Eduardo Lopes Jonker\textsuperscript{1}, Vivian Kremer Kalempa\textsuperscript{1}, Yuri Kaszubowski Lopes\textsuperscript{1}\\
+\small \textsuperscript{1}Universidade do Estado de Santa Catarina (UDESC) -- PPGCAP / CEAVI / CCT}
+\date{2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A predição de custos operacionais e a modelagem do dispêndio de manutenção mecânica constituem elementos críticos para o planejamento orçamentário e a auditoria de frotas veiculares na administração pública. Embora modelos complexos de aprendizado profundo e conjuntos de árvores não lineares ofereçam flexibilidade empírica, os algoritmos da família da regressão linear permanecem indispensáveis no setor governamental em virtude de sua explicabilidade intrínseca, auditabilidade matemática direta perante os Tribunais de Contas e conformidade com o princípio do Devido Processo Algorítmico. Contudo, dados empíricos de ordens de serviço governamentais violam sistematicamente as premissas clássicas de Gauss-Markov e do modelo linear normal, exibindo severa heterocedasticidade, assimetria acentuada e distribuições de cauda pesada decorrentes de sinistros graves e distorções em orçamentos mecânicos. Este artigo apresenta uma avaliação comparativa de dez formulações de regressão linear: Mínimos Quadrados Ordinários (OLS), Regressão Ridge (penalização L2 de Tikhonov), Lasso (penalização L1 esparsa), ElasticNet (combinação L1+L2), Huber Regressor (M-estimador robusto), RANSAC (consenso amostral aleatório), Theil-Sen Espacial Multivariado (mediana não paramétrica), Bayesian Ridge (inferência probabilística a posteriori), Regressão Quantílica ($\tau = 0,50$ e $\tau = 0,95$) e Modelos Lineares Generalizados (GLM Gamma com ligação logarítmica). Apoiado no universo administrativo de 350.737 registros de itens consolidados em 77.867 ordens de serviço (OSs) únicas, o estudo utilizou uma partição cronológica 80/20 com corte temporal em 01/11/2024 sobre 60.000 ordens faturadas saneadas, estruturadas como um painel longitudinal desbalanceado de 5.914 veículos observados entre 2020 e 2026. Os resultados comprovam que estimadores robustos superam o OLS nas métricas de erro central e mediano: o Huber Regressor e a Regressão Quantílica ($\tau = 0,50$) reduziram o Erro Médio Absoluto (MAE) para R\$ 347,49 (redução de 16,3\%) e R\$ 344,49 (redução de 17,0\%), respectivamente, frente a R\$ 414,95 do OLS, enquanto o Erro Mediano Absoluto (MedAE) caiu de R\$ 257,54 para R\$ 126,90 com Huber (redução de 50,7\%) e para R\$ 106,03 com a Regressão Quantílica (redução de 58,8\%). Em contrapartida, o OLS preserva menor RMSE (R\$ 999,08) e maior R² (0,2650), evidenciando que a superioridade é específica da função de perda adotada. Para fins de triagem de auditoria, a Regressão Quantílica em $\tau = 0,95$ estabeleceu uma fronteira empírica de custo superior calibrada (taxa de excedência no teste de 5,04\%, fronteira teórica de 5,00\%), alcançando ROC-AUC de 0,9120 [IC 95\%: 0,9045; 0,9195] em escore contínuo padronizado, fornecendo subsídio técnico para triagem de perícia humana sem substituir o contraditório administrativo sob a Lei nº 14.133/2021.
+
+\vspace{0.3cm}
+\noindent\textbf{Palavras-chave:} Regressão Linear Robusta; M-Estimador de Huber; Regressão Quantílica; Regularização L1 e L2; Gestão de Frotas Públicas; Auditoria Governamental; Gauss-Markov.
+\end{abstract}
+
+\section{1. Problemática: Modelagem de Custos em Frotas sob Violação de Premissas Clássicas}
+A estimativa confiável de custos de manutenção de veículos é um dos maiores desafios da gestão pública contemporânea. No setor estatal, onde os recursos orçamentários são fixados anualmente pela Lei Orçamentária Anual (LOA) e disciplinados pela Lei de Responsabilidade Fiscal (LC nº 101/2000), desvios entre gastos previstos e desembolsos reais geram paralisação de viaturas operacionais ou déficits financeiros.
+
+Cabe distinguir com precisão conceitual: o Teorema de Gauss-Markov exige exogeneidade estrita ($E[\epsilon|X]=0$), ausência de multicolinearidade perfeita e erros esféricos (homocedasticidade $Var(\epsilon|X)=\sigma^2 I$ e ausência de autocorrelação serial $Cov(\epsilon_i, \epsilon_j|X)=0$), garantindo que o OLS seja o Melhor Estimador Linear Não Viesado (BLUE). A normalidade dos resíduos, por sua vez, não integra o Teorema de Gauss-Markov, constituindo hipótese adicional do modelo clássico normal (CNLRM) necessária para inferência exata com testes $t$ e $F$.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Diagnóstico das Premissas Clássicas da Regressão Linear e Gauss-Markov}
+\begin{tabular}{llll}
+\toprule
+Premissa Clássica Avaliada & Teste Estatístico Aplicado & Estatística / P-Valor & Diagnóstico Empírico \\
+\midrule
+Homocedasticidade & Breusch-Pagan & LM = 14.820,5 ($p < 0,0001$) & Heterocedasticidade severa \\
+Normalidade dos Erros (CNLRM) & D'Agostino-Pearson $K^2$ & $K^2 = 84,21$ ($p < 0,0001$) & Não normalidade (curtose = 48,6) \\
+Ausência de Multicolinearidade & VIF & $\text{VIF}_{\max} = 8,42$ (idade vs km) & Multicolinearidade moderada a alta \\
+Independência Serial Temporal & Durbin-Watson & $d = 1,48$ ($p < 0,001$) & Autocorrelação serial temporal positiva \\
+Insensibilidade a Outliers & Distância de Cook & $\text{Max Cook's } D = 3,45$ ($> 1,0$) & Presença de pontos de alta alavancagem \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{2. Método e Protocolo Experimental}
+\subsection{2.1 Base de Dados e Seleção da Amostra}
+A unidade de análise é a Ordem de Serviço (OS). O universo compreende 350.737 registros de itens consolidados em 77.867 OSs no SIGFrota/SC (2020 a 2026), com R\$ 138,76M pagos e R\$ 60,05M em glosas retidas:
+\begin{itemize}
+    \item 60.114 OSs cobradas/liquidadas (77,20\%);
+    \item 11.507 OSs reprovadas tecnicamente pela auditoria da SEA/SC (14,78\%);
+    \item 2.151 OSs canceladas (2,76\%) e 2.104 bloqueadas cautelarmente (2,70\%);
+    \item 1.991 OSs nos demais status (2,56\%).
+\end{itemize}
+Para treino da modelagem de mercado, ordens com reprovação ou litígio foram excluídas. Aplicou-se filtro de higienização ($Valor\_Aprovado > 0$, $anoveiculo \ge 1990$, $km \ge 0$), gerando o censo representativo de 60.000 ordens faturadas saneadas. A amostra estrutura-se como um \textbf{painel longitudinal desbalanceado} de 5.914 veículos monitorados ao longo de 75 meses (média de 10,14 OSs/veículo; mediana = 7).
+
+\subsection{2.2 Partição Cronológica Out-of-Time}
+A partição 80/20 fixou corte em \textbf{01 de novembro de 2024}:
+\begin{itemize}
+    \item \textbf{Treino ($N_{\text{treino}} = 48.000$ OSs):} 01/01/2020 a 31/10/2024;
+    \item \textbf{Teste Retido ($N_{\text{teste}} = 12.000$ OSs regulares):} 01/11/2024 a 31/03/2026.
+\end{itemize}
+Padronização ajustada unicamente no treino; hiperparâmetros obtidos por validação cruzada temporal de 5 blocos interna. Todos os resultados de desempenho, intervalos de confiança e testes foram apurados sobre esse mesmo teste.
+
+\section{3. Resultados e Discussão}
+\subsection{3.1 Benchmark Global e Delimitação por Métrica}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Desempenho Comparativo dos Estimadores no Teste Cronológico Independente ($N = 12.000$)}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Algoritmo de Regressão & R² Teste & MAE (R\$) & RMSE (R\$) & MedAE (R\$) & MAPE (\%) & Treino (s) & Latência (ms) \\
+\midrule
+1. OLS Clássico & \textbf{0,2650} & R\$ 414,95 & \textbf{R\$ 999,08} & R\$ 257,54 & 257,70\% & 0,018 & 0,001 \\
+2. Ridge Regression (L2) & 0,2650 & R\$ 414,93 & R\$ 999,06 & R\$ 257,62 & 257,86\% & 0,338 & 0,001 \\
+3. Lasso Regression (L1) & 0,2650 & R\$ 414,95 & R\$ 999,08 & R\$ 257,54 & 257,70\% & 1,550 & 0,000 \\
+4. ElasticNet (L1+L2) & 0,2649 & R\$ 414,66 & R\$ 999,14 & R\$ 261,02 & 262,64\% & 2,482 & 0,000 \\
+5. Huber Regressor (Robusto) & 0,2305 & \textbf{R\$ 347,49} & R\$ 1.022,24 & \textbf{R\$ 126,90} & 121,22\% & 0,561 & 0,001 \\
+6. RANSAC & 0,2598 & R\$ 400,68 & R\$ 1.002,58 & R\$ 228,05 & 221,76\% & 1,561 & 0,001 \\
+7. Theil-Sen Espacial & 0,2621 & R\$ 391,39 & R\$ 1.001,03 & R\$ 228,11 & 225,48\% & 0,501 & 0,000 \\
+8. Bayesian Ridge & 0,2650 & R\$ 414,95 & R\$ 999,08 & R\$ 257,59 & 257,75\% & 0,097 & 0,000 \\
+9. Quantílica ($\tau=0,50$) & 0,2211 & \textbf{R\$ 344,49} & R\$ 1.028,45 & \textbf{R\$ 106,03} & \textbf{96,60\%} & 9,502 & 0,000 \\
+10. Quantílica ($\tau=0,95$)* & -5,4540 & R\$ 1.359,40 & R\$ 2.922,66 & R\$ 1.035,50 & 84,20\% & 9,850 & 0,000 \\
+11. GLM Gamma & -4692,39 & R\$ 1.493,87 & R\$ 79.834,61 & R\$ 299,02 & 309,27\% & 0,328 & 0,001 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A redução no MedAE foi de 50,7\% para o Huber e de 58,8\% para a quantílica ($\tau=0,50$), acompanhada de quedas de 16,3\% e 17,0\% no MAE. OLS preserva menor RMSE porque minimiza erro quadrático; os modelos robustos comprimem desvios centrais.
+O intervalo pareado de bootstrap de 95\% da diferença de MAE (OLS - Huber) confirmou separação estrita: $[+\text{R\$ } 54,80 ; +\text{R\$ } 80,12]$. No teste de Wilcoxon, Quantílica vs Huber resultou em $p = 0,0294$, não permitindo inferir equivalência prática sem teste TOST.
+
+\subsection{3.2 Reconciliação Diagnóstica e Triagem de Glosas}
+Para triagem, utilizou-se o escore contínuo $S_{im} = (y_i - \hat{y}_{im})/s_m$, com $s_m = \text{MAE}_{\text{treino}, m}$. A amostra de teste conteve $N = 14.301$ OSs ($12.000$ regulares e $2.301$ reprovadas), com prevalência real de $16,09\%$.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Matriz de Confusão e Métricas Diagnósticas Reconciliadas sob Prevalência Única de 16,09\% ($N = 14.301$)}
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+Modelo & Limiar & TP & FP & FN & TN & Recall & FPR & Precisão & F1 & ROC-AUC [IC 95\%] \\
+\midrule
+OLS Clássico & 1,5 & 1.437 & 2.208 & 864 & 9.792 & 62,45\% & 18,40\% & 39,42\% & 0,4834 & 0,7412 [0,7302; 0,7522] \\
+Ridge (L2) & 1,5 & 1.438 & 2.202 & 863 & 9.798 & 62,49\% & 18,35\% & 39,51\% & 0,4841 & 0,7415 [0,7305; 0,7525] \\
+Lasso (L1) & 1,5 & 1.436 & 2.210 & 865 & 9.790 & 62,41\% & 18,42\% & 39,39\% & 0,4829 & 0,7409 [0,7299; 0,7519] \\
+Huber Regressor & 1,5 & 1.936 & 494 & 365 & 11.506 & \textbf{84,14\%} & \textbf{4,12\%} & \textbf{79,67\%} & \textbf{0,8184} & \textbf{0,8845 [0,8758; 0,8932]} \\
+Theil-Sen Espacial & 1,5 & 1.799 & 852 & 502 & 11.148 & 78,18\% & 7,10\% & 67,86\% & 0,7266 & 0,8340 [0,8245; 0,8435] \\
+Quantílica ($\tau=0,50$) & 1,5 & 2.034 & 696 & 267 & 11.304 & \textbf{88,40\%} & \textbf{5,80\%} & \textbf{74,51\%} & \textbf{0,8086} & \textbf{0,8790 [0,8701; 0,8879]} \\
+Quantílica ($\tau=0,95$) & 1,0 & 2.168 & 588 & 133 & 11.412 & \textbf{94,22\%} & \textbf{4,90\%} & \textbf{78,66\%} & \textbf{0,8574} & \textbf{0,9120 [0,9045; 0,9195]} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A Regressão Quantílica ($\tau = 0,95$) apresentou cobertura empírica de $5,04\%$ de ordens faturadas excedentes (teórico: $5,00\%$). Sob a Lei nº 14.133/2021, o quantil superior funciona como filtro de triagem preliminar para auditoria de engenharia mecânica, assegurando ampla defesa e contraditório.
+
+\section{4. Conclusões}
+Demonstrou-se de forma consistente que estimadores robustos superam o OLS nas dimensões central e mediana: Huber e Regressão Quantílica reduzem o MedAE em 50,7\% e 58,8\%, respectivamente, enquanto o OLS mantém menor RMSE por imposição da perda L2. A parametrização orçamentária via Huber elimina folgas financeiras, e a Regressão Quantílica ($\tau = 0,95$) viabiliza triagem técnica de glosas com 94,22\% de sensibilidade e 4,90\% de falsos alarmes, preservando a governança pública e o devido processo legal.
+
+\end{document}

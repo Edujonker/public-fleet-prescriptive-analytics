@@ -1,0 +1,23 @@
+% Textuais/Capitulo09_OtimizacaoPrescritiva.tex
+\chapter{OTIMIZAÇÃO PRESCRITIVA (MILP), PROTOCOLO S0 E DECISÃO SOB RESTRIÇÕES (HIPÓTESE H3)}
+\label{cap:milp}
+
+A formulação canônica de Programação Linear Inteira Mista (MILP) modela a alocação de manutenções preventivas sob restrições orçamentárias e de capacidade instalada:
+
+\begin{equation}
+    \min \sum_{t=1}^{T} \sum_{i=1}^{N} \left[ \alpha \cdot c_{it} x_{it} + \beta \cdot r_{it} (1 - x_{it}) \right]
+\end{equation}
+
+\noindent Sujeito a:
+\begin{align}
+    \sum_{i=1}^{N} c_{it} x_{it} &\le B_t, \quad \forall t \in \{1, \dots, T\} \\
+    \sum_{i=1}^{N} h_{it} x_{it} &\le H_t, \quad \forall t \in \{1, \dots, T\} \\
+    x_{it} &\ge m_{it}, \quad \forall (i, t) \mid m_{it} = 1 \\
+    x_{it} &\in \{0, 1\}, \quad \forall i, t
+\end{align}
+
+No Cenário de Referência S0 (2.000 veículos monitorados por 36 períodos), o solver HiGHS convergiu em 8,92 segundos com \textbf{MIP Gap de 0,0000\%}, obtendo custo To-Be de \textbf{R\$ 43.837.633,31} frente à base inercial de R\$ 53.139.780,57, proporcionando uma \textbf{economia líquida simulada de R\$ 9.302.147,26 (17,51\%)} com 95,26\% de disponibilidade média da frota e 100\% de cumprimento compulsório das manutenções de segurança.
+
+\section{Análise de Preços-Sombra (Shadow Prices) e Capacidade de Oficinas}
+
+Os multiplicadores duais foram extraídos da \textbf{relaxação linear contínua (LP)} da instância S0. Ressalva-se que, em problemas inteiros, \textbf{não há teoria de dualidade forte equivalente}: os preços-sombra da LP constituem indicadores aproximados de sensibilidade e \textit{não devem ser interpretados como efeitos marginais exatos no problema MILP}, cuja resposta a variações orçamentárias é descontínua e deve ser aferida por reotimização paramétrica. Por sua vez, a restrição de capacidade das oficinas ($H_t$) não foi vinculante em nenhum mês da simulação (\textbf{0,0\% dos meses}, multiplicador dual nulo). Esse resultado indica apenas que, \textit{sob os parâmetros agregados de capacidade adotados no cenário S0}, o orçamento antecede a capacidade como restrição limitante; ele \textbf{não comprova a existência de capacidade ociosa real em toda a rede credenciada catarinense}, pois $H_t$ foi parametrizado de forma agregada e não captura gargalos locais, sazonais, de especialidade mecânica ou de distância geográfica entre unidades e oficinas.

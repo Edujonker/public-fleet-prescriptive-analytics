@@ -1,0 +1,410 @@
+{
+  "metadata": {
+    "dissertacao": "Analítica Preditiva e Prescritiva em Gestão de Frotas",
+    "autor": "Eduardo Lopes Jonker",
+    "instituicao": "PPGCAP / CCT / UDESC - 2026",
+    "configuracao_utilizada": {
+      "alpha": "0.05",
+      "limiar_shapiro": "2000",
+      "teste_variancia": "levene",
+      "modo_hipotese": "auto",
+      "coluna_alvo": "Valor_Aprovado",
+      "coluna_categoria": "ds_familia",
+      "categorias": "None",
+      "grupo_1": "Veículos Leves",
+      "grupo_2": "Veículos Comerciais/Pesados",
+      "tipo_manutencao": "TODAS",
+      "data_inicio": "None",
+      "data_fim": "None",
+      "frequencia": "ME",
+      "horizonte": "6",
+      "sazonalidade": "12",
+      "arima_ordem": "auto",
+      "estados_markov": "Em Trânsito,Ocioso,Em Manutenção",
+      "unidade_poisson": "D",
+      "chi2_x": "ds_familia",
+      "chi2_y": "ds_fabricante_peca",
+      "amostra": "40000",
+      "csv": "/home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/dados/os_dataset_limpo.csv",
+      "saida_json": "/home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/relatorios/pipeline_metodologico_estatistico.json",
+      "gerar_graficos": "True",
+      "etapas": "['normalidade', 'hipoteses', 'estocastico', 'series-temporais']"
+    }
+  },
+  "passo_1_normalidade": {
+    "Custos de Manutenção (R$)": {
+      "variable": "Custos de Manutenção (R$)",
+      "n": 40000,
+      "test_applied": "Kolmogorov-Smirnov Lilliefors (n >= 2000)",
+      "statistic": 0.3328744710995855,
+      "p_value": 0.0009999999999998899,
+      "alpha": 0.05,
+      "limiar_shapiro": 2000,
+      "is_normal": false,
+      "decision": "Rejeita H0 (Não Normal)",
+      "mean": 342.2116705,
+      "median": 120.0,
+      "std": 792.1756406144372,
+      "skewness": 9.227280277406999,
+      "kurtosis": 168.08180488206372
+    },
+    "Quilometragem no Evento (km)": {
+      "variable": "Quilometragem no Evento (km)",
+      "n": 40000,
+      "test_applied": "Kolmogorov-Smirnov Lilliefors (n >= 2000)",
+      "statistic": 0.17678887412656952,
+      "p_value": 0.0009999999999998899,
+      "alpha": 0.05,
+      "limiar_shapiro": 2000,
+      "is_normal": false,
+      "decision": "Rejeita H0 (Não Normal)",
+      "mean": 172951.729975,
+      "median": 130272.0,
+      "std": 173371.02321739882,
+      "skewness": 2.3049782159362393,
+      "kurtosis": 6.501090830581399
+    },
+    "Consumo de Combustível (km/L)": {
+      "variable": "Consumo de Combustível (km/L)",
+      "n": 40000,
+      "test_applied": "Kolmogorov-Smirnov Lilliefors (n >= 2000)",
+      "statistic": 0.029573778655099248,
+      "p_value": 0.0009999999999998899,
+      "alpha": 0.05,
+      "limiar_shapiro": 2000,
+      "is_normal": false,
+      "decision": "Rejeita H0 (Não Normal)",
+      "mean": 11.49681423934703,
+      "median": 11.642047484560948,
+      "std": 3.069020159267927,
+      "skewness": -0.2216970884428888,
+      "kurtosis": 0.4146142859152664
+    },
+    "Tempo de Ociosidade (h/dia)": {
+      "variable": "Tempo de Ociosidade (h/dia)",
+      "n": 40000,
+      "test_applied": "Kolmogorov-Smirnov Lilliefors (n >= 2000)",
+      "statistic": 0.09852300453497226,
+      "p_value": 0.0009999999999998899,
+      "alpha": 0.05,
+      "limiar_shapiro": 2000,
+      "is_normal": false,
+      "decision": "Rejeita H0 (Não Normal)",
+      "mean": 2.5170714896906965,
+      "median": 2.0829819706058057,
+      "std": 1.8693379738866518,
+      "skewness": 1.4948029247718773,
+      "kurtosis": 3.45516259613576
+    },
+    "Valor_Aprovado": {
+      "variable": "Valor_Aprovado",
+      "n": 40000,
+      "test_applied": "Kolmogorov-Smirnov Lilliefors (n >= 2000)",
+      "statistic": 0.3328744710995855,
+      "p_value": 0.0009999999999998899,
+      "alpha": 0.05,
+      "limiar_shapiro": 2000,
+      "is_normal": false,
+      "decision": "Rejeita H0 (Não Normal)",
+      "mean": 342.2116705,
+      "median": 120.0,
+      "std": 792.1756406144372,
+      "skewness": 9.227280277406999,
+      "kurtosis": 168.08180488206372
+    }
+  },
+  "passo_2_testes_hipoteses": {
+    "two_groups": {
+      "type": "two_groups",
+      "metric": "Valor_Aprovado",
+      "group_1": "Veículos Leves",
+      "group_2": "Veículos Comerciais/Pesados",
+      "n1": 32880,
+      "n2": 7120,
+      "mean_1": 302.3665009124088,
+      "mean_2": 526.2157682584269,
+      "median_1": 110.0,
+      "median_2": 176.0,
+      "both_normal": false,
+      "modo_executado": "não paramétrico",
+      "test_applied": "Teste U de Mann-Whitney (Não Paramétrico)",
+      "statistic": 95741081.0,
+      "p_value": 1.5964153052202017e-129,
+      "significant": true,
+      "decision": "Diferença Estatisticamente Significativa (Rejeita H0)",
+      "effect_metric": "Efeito r (Z / sqrt(N))",
+      "effect_size": 0.12062512685708031
+    },
+    "multi_groups": {
+      "type": "multiple_groups",
+      "metric": "Valor_Aprovado",
+      "groups": {
+        "LEVE": {
+          "n": 20515,
+          "mean": 238.8054213989764,
+          "median": 100.0,
+          "std": 456.22279114877375
+        },
+        "PICKUP LEVE": {
+          "n": 7210,
+          "mean": 344.8278099861303,
+          "median": 120.0,
+          "std": 724.6330786040629
+        },
+        "VAN": {
+          "n": 5631,
+          "mean": 485.839547149707,
+          "median": 153.0,
+          "std": 1094.9523048313144
+        },
+        "PICKUP MEDIA": {
+          "n": 1617,
+          "mean": 363.2833024118738,
+          "median": 150.0,
+          "std": 681.2653669036971
+        }
+      },
+      "all_normal": false,
+      "modo_executado": "não paramétrico",
+      "test_applied": "Teste de Kruskal-Wallis H (Não Paramétrico)",
+      "statistic": 568.9380875420599,
+      "p_value": 5.456296014126224e-123,
+      "significant": true,
+      "decision": "Diferença Global Significativa entre Subgrupos",
+      "effect_metric": "Epsilon-squared (ε²)",
+      "effect_size": 0.016183994038778914
+    },
+    "chi2": {
+      "type": "categorical_chi2",
+      "col_x": "ds_familia",
+      "col_y": "ds_fabricante_peca",
+      "n_total": 3733,
+      "contingency_table": {
+        "AC DELCO": {
+          "LEVE": 278,
+          "PICKUP LEVE": 41,
+          "VAN": 26
+        },
+        "AXIOS": {
+          "LEVE": 314,
+          "PICKUP LEVE": 83,
+          "VAN": 37
+        },
+        "BOSCH": {
+          "LEVE": 1533,
+          "PICKUP LEVE": 466,
+          "VAN": 361
+        },
+        "TECFIL": {
+          "LEVE": 314,
+          "PICKUP LEVE": 134,
+          "VAN": 146
+        }
+      },
+      "chi2_statistic": 103.16068493680257,
+      "p_value": 5.49181342142631e-20,
+      "dof": 6,
+      "cramers_v": 0.11754742386512301,
+      "significant": true,
+      "decision": "Associação Estatisticamente Significativa"
+    }
+  },
+  "passo_3_processos_estocasticos": {
+    "poisson": {
+      "tipo": "poisson_events",
+      "time_unit": "Dia",
+      "n_periodos": 1955,
+      "taxa_lambda": 20.460358056265985,
+      "variancia_amostral": 36015.788985542145,
+      "razao_variancia_media_vmr": 1760.2716866683722,
+      "estatistica_dispersao_fisher": 3439570.8757499997,
+      "p_valor_dispersao": 0.0,
+      "sobredispersao": true,
+      "diagnostico": "Sobredispersão Detectada (VMR > 1, p < 0.05): Recomenda-se modelo Binomial Negativo ou Poisson Composto devido ao agrupamento estocástico de falhas.",
+      "distribuicao_k": [
+        {
+          "k_eventos": 0,
+          "prob_teorica_poisson": 1.3007067631280263e-09,
+          "freq_observada": 0.319693094629156
+        },
+        {
+          "k_eventos": 1,
+          "prob_teorica_poisson": 2.6612926099806138e-08,
+          "freq_observada": 0.03375959079283888
+        },
+        {
+          "k_eventos": 2,
+          "prob_teorica_poisson": 2.722549984634901e-07,
+          "freq_observada": 0.021483375959079284
+        },
+        {
+          "k_eventos": 3,
+          "prob_teorica_poisson": 1.8568115837237203e-06,
+          "freq_observada": 0.021483375959079284
+        },
+        {
+          "k_eventos": 4,
+          "prob_teorica_poisson": 9.497757461502396e-06,
+          "freq_observada": 0.019948849104859334
+        },
+        {
+          "k_eventos": 5,
+          "prob_teorica_poisson": 3.8865503678782176e-05,
+          "freq_observada": 0.022506393861892585
+        },
+        {
+          "k_eventos": 6,
+          "prob_teorica_poisson": 0.00013253368688416787,
+          "freq_observada": 0.020460358056265986
+        },
+        {
+          "k_eventos": 7,
+          "prob_teorica_poisson": 0.00038738381259530207,
+          "freq_observada": 0.01687979539641944
+        },
+        {
+          "k_eventos": 8,
+          "prob_teorica_poisson": 0.000990751438862664,
+          "freq_observada": 0.01381074168797954
+        },
+        {
+          "k_eventos": 9,
+          "prob_teorica_poisson": 0.002252347687098981,
+          "freq_observada": 0.012276214833759591
+        },
+        {
+          "k_eventos": 10,
+          "prob_teorica_poisson": 0.00460838401452476,
+          "freq_observada": 0.017902813299232736
+        },
+        {
+          "k_eventos": 11,
+          "prob_teorica_poisson": 0.008571744272540843,
+          "freq_observada": 0.015856777493606138
+        },
+        {
+          "k_eventos": 12,
+          "prob_teorica_poisson": 0.014615079748577809,
+          "freq_observada": 0.019437340153452685
+        },
+        {
+          "k_eventos": 13,
+          "prob_teorica_poisson": 0.023002289590521738,
+          "freq_observada": 0.015345268542199489
+        },
+        {
+          "k_eventos": 14,
+          "prob_teorica_poisson": 0.03361679150971386,
+          "freq_observada": 0.015345268542199489
+        },
+        {
+          "k_eventos": 15,
+          "prob_teorica_poisson": 0.04585410606610564,
+          "freq_observada": 0.015345268542199489
+        }
+      ]
+    },
+    "markov": {
+      "tipo": "markov_chain",
+      "states": [
+        "Em Trânsito",
+        "Ocioso",
+        "Em Manutenção"
+      ],
+      "transicao_probabilidades_P": [
+        [
+          0.768,
+          0.096,
+          0.136
+        ],
+        [
+          0.1509433962264151,
+          0.7830188679245284,
+          0.0660377358490566
+        ],
+        [
+          0.08955223880597014,
+          0.08208955223880597,
+          0.8283582089552238
+        ]
+      ],
+      "distribuicao_estacionaria_pi": {
+        "Em Trânsito": 0.3338690996761765,
+        "Ocioso": 0.29001110927269724,
+        "Em Manutenção": 0.37611979105112625
+      },
+      "tempo_medio_permanencia_periodos": {
+        "Em Trânsito": 4.310344827586207,
+        "Ocioso": 4.608695652173914,
+        "Em Manutenção": 5.8260869565217375
+      },
+      "tempo_medio_retorno_periodos": {
+        "Em Trânsito": 2.995185840707965,
+        "Ocioso": 3.4481437711398177,
+        "Em Manutenção": 2.6587274155538103
+      },
+      "interpretacao": "Distribuição de equilíbrio a longo prazo da frota sob regime markoviano estacionário."
+    }
+  },
+  "passo_3_series_temporais": {
+    "stationarity_test": {
+      "adf_statistic": -5.455306579088714,
+      "p_value": 2.5896815921420547e-06,
+      "critical_values": {
+        "1%": -3.548493559596539,
+        "5%": -2.912836594776334,
+        "10%": -2.594129155766944
+      },
+      "is_stationary": true,
+      "decision": "Série Estacionária (Rejeita H0, d=0 indicado para ARIMA)",
+      "recommended_d": 0
+    },
+    "test_horizon": 6,
+    "seasonal_periods": 12,
+    "train_size": 59,
+    "test_size": 6,
+    "ets": {
+      "model": "ETS (trend=add, seasonal=add)",
+      "metrics": {
+        "RMSE": 175726.2377421911,
+        "MAE": 166124.30352681057,
+        "MAPE_pct": 7852.746736806641,
+        "AIC": 1365.5864998802094,
+        "BIC": 1398.827098982701
+      },
+      "forecast": {
+        "2025-10-31 00:00:00": 212337.17656952178,
+        "2025-11-30 00:00:00": 174770.18986793282,
+        "2025-12-31 00:00:00": 205632.66431336573,
+        "2026-01-31 00:00:00": 206323.279946727,
+        "2026-02-28 00:00:00": 128438.75957611663,
+        "2026-03-31 00:00:00": 229735.9908871995
+      }
+    },
+    "arima": {
+      "model": "ARIMA(1, 0, 0)",
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "metrics": {
+        "RMSE": 221310.63164586024,
+        "MAE": 218352.04388469344,
+        "MAPE_pct": 8208.721603712394,
+        "AIC": 1513.6471193494351,
+        "BIC": 1519.8797316811522
+      },
+      "forecast": {
+        "2025-10-31 00:00:00": 290453.4114614598,
+        "2025-11-30 00:00:00": 251102.52838722174,
+        "2025-12-31 00:00:00": 237067.98811134326,
+        "2026-01-31 00:00:00": 232062.5522642325,
+        "2026-02-28 00:00:00": 230277.35748570436,
+        "2026-03-31 00:00:00": 229640.66559819895
+      }
+    },
+    "recommended_model": "ETS",
+    "justification": "ETS superou ARIMA no conjunto de validação out-of-sample (RMSE: 175726.24 vs 221310.63)."
+  }
+}

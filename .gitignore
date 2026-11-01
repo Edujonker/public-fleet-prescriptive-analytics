@@ -1,0 +1,46 @@
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Large Database files (> 100MB blocked by GitHub)
+*.db
+*.sqlite
+*.sqlite3
+dados/backups_dr/
+*.db-journal
+*.db-wal
+
+# Large Raw Datasets & Binary Microdata (> 100MB blocked by GitHub)
+dados/
+dissertacao_frotas/dados/
+resultados/dados_processados.csv
+*.xlsb
+*.parquet
+*.feather
+*.AppImage
+
+# Large Archives & Binaries (> 100MB blocked by GitHub)
+archives/
+*.tar.gz
+*.zip
+*.tar
+*.iso
+ISO/
+
+# Virtual Environments & Python Cache
+.venv/
+env/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# IDE & OS files
+.vscode/
+.kilo/
+.DS_Store
+Thumbs.db
+.~lock.*
+public-fleet-prescriptive-analytics/

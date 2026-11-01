@@ -1,0 +1,729 @@
+UNIVERSIDADE DO ESTADO DE SANTA CATARINA — UDESC
+CENTRO DE CIÊNCIAS TECNOLÓGICAS — CCT
+PROGRAMA DE PÓS-GRADUAÇÃO EM COMPUTAÇÃO APLICADA — PPGCAP
+MESTRADO ACADÊMICO EM COMPUTAÇÃO APLICADA
+LINHA DE PESQUISA: METODOLOGIA E TÉCNICAS DE COMPUTAÇÃO (MTC)
+
+ANALÍTICA PRESCRITIVA E INTELIGÊNCIA ARTIFICIAL
+EXPLICÁVEL PARA A GESTÃO DE FROTA VEICULAR NO
+SETOR PÚBLICO
+Estudo comparativo com dados de manutenção, patrimônio e abastecimento
+
+FLORIANÓPOLIS — SC
+2026
+
+PPGCAP | ANTEPROJETO DE PESQUISA — GESTÃO DE FROTA VEICULAR
+
+RESUMO
+A gestão de frotas públicas reúne informações dispersas em cadastros patrimoniais, registros
+de manutenção e comprovantes de abastecimento. A fragmentação dificulta estimar risco de
+falha, custo operacional e prioridade de intervenção, e limita a conversão de previsões em
+decisões justificáveis. Este anteprojeto propõe desenvolver e avaliar uma arquitetura de
+analítica prescritiva, com inteligência artificial explicável, para apoiar a programação de
+manutenção preventiva e o planejamento de custos de uma frota institucional. Serão
+integradas, mediante autorização, extrações administrativas de patrimônio, manutenção e
+abastecimento, com identificação pseudonimizada dos veículos e alinhamento temporal. Serão
+comparados, sem uso de regressão linear, múltiplos métodos para tarefas de classificação de
+risco e regressão de consumo/custo, incluindo Random Forest, Extra Trees, Gradient
+Boosting/HistGradientBoosting, XGBoost quando disponível e Support Vector Regression
+com kernel RBF. A explicabilidade será examinada por SHAP, LIME e importância por
+permutação. Em seguida, as previsões alimentarão um modelo de otimização inteira mista
+para priorizar intervenções sob limites de orçamento, horas de oficina e elegibilidade
+operacional; a política otimizada será comparada com a prática histórica e regras heurísticas.
+A avaliação empregará validação temporal, métricas adequadas a dados desbalanceados e
+regressão, comparação estatística pareada, análise de sensibilidade e avaliação da qualidade
+das explicações. O estudo não presume acesso já concedido nem promete economia causal: a
+unidade de análise e o horizonte dependerão da disponibilidade, qualidade e autorização dos
+dados. Espera-se produzir evidência comparativa, um artefato computacional auditável e
+recomendações condicionadas aos limites empíricos do caso.
+Palavras-chave: analítica prescritiva; gestão de frotas; manutenção preditiva; inteligência
+artificial explicável; otimização; setor público.
+
+1 INTRODUÇÃO
+A gestão de uma frota institucional exige conciliar disponibilidade dos veículos, segurança,
+manutenção, consumo de combustível e limites orçamentários. Essas dimensões deixam
+vestígios em sistemas distintos: o cadastro patrimonial identifica características e situação do
+bem; as ordens de serviço registram intervenções, falhas e custos; e os abastecimentos
+informam volume, valor e, em alguns casos, hodômetro. Sem integração temporal e sem uma
+chave confiável de veículo, a administração tende a analisar os dados em relatórios isolados,
+
+UDESC • Florianópolis | 2
+
+PPGCAP | ANTEPROJETO DE PESQUISA — GESTÃO DE FROTA VEICULAR
+
+dificultando detectar padrões de desgaste ou comparar o custo de operação entre unidades e
+períodos.
+A literatura de manutenção preditiva veicular reúne métodos de aprendizado de máquina,
+dados de sensores e históricos de oficina, mas destaca desafios de qualidade, integração e
+explicabilidade. Uma revisão sistemática recente sobre manutenção preditiva em veículos
+examina 94 estudos e aponta que a disponibilidade de dados e a adoção de XAI permanecem
+questões relevantes (MAHALE; KOLHAR; MORE, 2025). Em estudo empírico com
+caminhões, modelos de floresta aleatória, XGBoost, redes neurais e combinação de modelos
+foram comparados para estimar custos por distância, ilustrando tanto a viabilidade de modelos
+não lineares quanto a relevância de dados reais e validação em veículos não vistos
+(KATREDDI et al., 2023).
+Prever um risco ou um custo não determina, por si só, qual intervenção deve ser executada.
+Analítica prescritiva associa estimativas a decisões sujeitas a objetivos e restrições; sua
+qualidade deve ser medida pelo desempenho da política, e não apenas pelo erro preditivo
+(BERTSIMAS; KALLUS, 2020). Neste estudo, a previsão de risco e custo será integrada a
+uma recomendação de priorização de manutenção, com limites explícitos de orçamento e
+capacidade. As previsões de combustível serão usadas para caracterizar a operação e apoiar o
+planejamento orçamentário. Só será atribuído efeito de uma manutenção sobre o consumo se
+os dados e o desenho empírico permitirem sustentar essa relação.
+A pesquisa mantém o enquadramento em Computação Aplicada e na linha de Metodologia e
+Técnicas de Computação (MTC), deslocando o objeto do projeto original — analítica ampla
+para processos administrativos — para um caso delimitado de frota. O recorte aplicado será
+definido junto ao órgão custodiante, preferencialmente no contexto da administração pública
+estadual de Santa Catarina, condicionado à autorização formal de acesso e à viabilidade dos
+registros disponíveis.
+1.1 Problema de pesquisa
+Como integrar dados de patrimônio, manutenção e abastecimento para comparar modelos não
+lineares de previsão e métodos de explicabilidade e, a partir deles, gerar e avaliar
+recomendações de manutenção para uma frota pública sob restrições de custo, capacidade de
+oficina e segurança?
+
+UDESC • Florianópolis | 3
+
+PPGCAP | ANTEPROJETO DE PESQUISA — GESTÃO DE FROTA VEICULAR
+
+1.2 Hipóteses de trabalho
+1. H1 — A integração de atributos patrimoniais, históricos de manutenção e medidas de
+abastecimento melhora, em comparação com modelos treinados apenas com manutenção,
+pelo menos uma métrica principal de previsão fora do tempo de treinamento; a magnitude
+e a incerteza dessa diferença serão reportadas.
+2. H2 — Ensembles de árvores (Random Forest, Extra Trees e Gradient Boosting)
+apresentam desempenho competitivo frente a SVR-RBF em dados tabulares da frota; não
+se pressupõe previamente um vencedor.
+3. H3 — Sob o mesmo orçamento, capacidade e nível de risco admissível, a política de
+otimização reduz o custo total esperado no experimento retrospectivo em relação à prática
+reconstruída e a regras heurísticas. A conclusão será descrita como contrafactual
+simulado, salvo validação prospectiva ou evidência causal.
+4. H4 — As explicações SHAP e LIME podem representar fatores locais e globais das
+previsões com fidelidade e estabilidade suficientes para revisão por especialistas; a sua
+utilidade não será inferida apenas por gráficos de importância.
+
+2 JUSTIFICATIVA
+A relevância científica decorre da avaliação conjunta de três camadas que frequentemente são
+estudadas em separado: integração de dados administrativos da frota; comparação controlada
+de modelos preditivos; e otimização de decisões apoiada por explicações. A contribuição não
+será simplesmente aplicar um classificador, mas documentar como as escolhas de preparação
+dos dados, validação temporal, representação do risco e restrições operacionais alteram as
+recomendações.
+A relevância institucional está em apoiar priorização transparente quando vários veículos
+disputam orçamento e horas de oficina. Uma estimativa calibrada de risco pode antecipar
+inspeções, enquanto previsões de custo e abastecimento podem qualificar cenários
+orçamentários. As recomendações permanecerão como apoio ao gestor e não substituirão
+critérios de segurança, normas do fabricante, decisões de manutenção obrigatória ou
+julgamento técnico.
+A justificativa de XAI é especialmente importante quando modelos não lineares são usados
+para orientar decisões sobre bens públicos. SHAP distribui a contribuição das variáveis para
+cada predição dentro de uma estrutura aditiva, enquanto LIME aproxima localmente o
+comportamento do modelo por um explicador simples (LUNDBERG; LEE, 2017; RIBEIRO;
+SINGH; GUESTRIN, 2016). As explicações serão apresentadas como evidência sobre o
+comportamento do modelo, não como prova causal.
+
+UDESC • Florianópolis | 4
+
+PPGCAP | ANTEPROJETO DE PESQUISA — GESTÃO DE FROTA VEICULAR
+
+A execução depende de viabilidade documental: autorização do órgão, definição do período,
+dicionário de dados, qualidade da identificação de veículos e cobertura suficiente de
+hodômetro, abastecimentos e ordens de serviço. Se não houver variável confiável de falha ou
+de manutenção corretiva, o desfecho será reformulado para estimar a ocorrência registrada de
+serviço não programado ou o intervalo/custo até o próximo evento, sem alegar falha mecânica
+não observada.
+
+3 OBJETIVOS
+3.1 Objetivo geral
+Desenvolver e avaliar uma arquitetura computacional de analítica prescritiva e IA explicável
+para apoiar a gestão de frota veicular pública, integrando dados de patrimônio, manutenção e
+abastecimento e comparando múltiplos algoritmos não lineares quanto à previsão,
+explicabilidade e qualidade das decisões recomendadas.
+3.2 Objetivos específicos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Caracterizar as fontes, o período, a unidade de análise, os identificadores e as limitações
+dos arquivos de cadastro patrimonial, manutenção e abastecimento autorizados para a
+pesquisa.
+Construir uma base analítica longitudinal por veículo e período, com regras rastreáveis de
+integração, validação de hodômetro, tratamento de faltantes e proteção de dados.
+Definir alvos mensuráveis para risco de manutenção registrada e consumo/custo
+operacional, evitando vazamento temporal e escolhendo horizontes compatíveis com a
+periodicidade dos registros.
+Treinar e comparar, sem regressão linear, pelo menos quatro métodos por tarefa
+compatível: Random Forest, Extra Trees, Gradient Boosting/HistGradientBoosting,
+XGBoost se disponível, e SVM/SVR com kernel RBF; comparar também uma referência
+ingênua ou regra operacional.
+Avaliar SHAP, LIME e importância por permutação em explicações globais e locais,
+medindo fidelidade, estabilidade e legibilidade junto a avaliadores técnicos quando viável.
+Formular um problema de otimização inteira mista para priorizar manutenção em períodos
+sucessivos, sujeito a orçamento, capacidade de oficina, elegibilidade e requisitos
+obrigatórios.
+Comparar a política otimizada com a prática histórica reconstruída, uma regra por limiar
+de risco e uma heurística de prioridade risco-custo, reportando custo esperado, risco
+residual, intervenções e sensibilidade.
+Produzir documentação reprodutível do pipeline, modelos, pressupostos, métricas,
+explicações, riscos de privacidade e limites de validade externa.
+
+UDESC • Florianópolis | 5
+
+PPGCAP | ANTEPROJETO DE PESQUISA — GESTÃO DE FROTA VEICULAR
+
+4 FUNDAMENTAÇÃO TEÓRICA
+4.1 Dados integrados e ciclo de vida da frota
+O cadastro patrimonial oferece atributos relativamente estáveis — classe, marca/modelo, ano,
+combustível, situação, unidade, data de incorporação e eventual valor contábil — e permite
+definir a população de veículos elegíveis. Os registros de manutenção adicionam data,
+hodômetro, tipo de serviço, natureza preventiva/corretiva, componentes, custo, duração e
+oficina, quando disponíveis. Os abastecimentos podem conter data, litros, valor, combustível,
+hodômetro, posto e indicação de tanque completo. A integração requer uma chave
+harmonizada e um calendário consistente; duplicidades, mudanças de identificador, registros
+sem hodômetro e diferenças de granularidade serão documentados.
+A informação de abastecimento, isoladamente, não garante consumo real. O cálculo
+litros/quilômetro exige leituras sucessivas e coerentes do odômetro e, idealmente,
+abastecimentos de tanque completo ou uma agregação que reduza o erro de abastecimentos
+parciais. Se essa condição não estiver disponível, a pesquisa usará uma medida agregada de
+litros ou custo por intervalo/veículo, qualificando-a como proxy e não como eficiência física
+precisa. A mesma cautela vale para custo de manutenção por quilômetro: só será calculado em
+intervalos com distância válida.
+4.2 Aprendizado de máquina para previsão
+Modelos baseados em árvores particionam o espaço de atributos e capturam interações e não
+linearidades sem exigir uma forma funcional linear. Random Forest agrega árvores treinadas
+com amostras e subconjuntos aleatórios de atributos (BREIMAN, 2001); Extra Trees amplia a
+aleatorização dos cortes (GEURTS; ERNST; WEHENKEL, 2006); Gradient Boosting ajusta
+sequencialmente árvores para reduzir o erro (FRIEDMAN, 2001), e XGBoost é uma
+implementação de boosting com regularização e otimizações computacionais (CHEN;
+GUESTRIN, 2016). SVM com kernel RBF e SVR oferecem comparação baseada em margens
+e funções de similaridade não lineares (CORTES; VAPNIK, 1995). Esses métodos são
+candidatos, não garantias de superioridade: a comparação empírica é central.
+Os problemas serão separados por finalidade. Classificação estimará a probabilidade de um
+evento de manutenção corretiva ou não programada em horizonte fixo; regressão estimará
+custo normalizado ou consumo. Se a qualidade temporal e o volume permitirem, poderá haver
+previsão de demanda mensal por classe de veículo e combustível, comparada com referência
+UDESC • Florianópolis | 6
+
+PPGCAP | ANTEPROJETO DE PESQUISA — GESTÃO DE FROTA VEICULAR
+
+sazonal e modelos com atributos defasados. As saídas não serão misturadas: um AUC alto na
+classificação não equivale a baixo erro de custo nem a melhor decisão.
+4.3 Analítica prescritiva e otimização
+Na formulação prescritiva, o modelo de aprendizado fornece probabilidades, custos e
+parâmetros que alimentam uma decisão sujeita a recursos limitados. Bertsimas e Kallus
+(2020) formalizam essa passagem como otimização estocástica condicionada a informações
+preditivas e defendem avaliar políticas pela qualidade operacional da decisão. Para a frota, o
+problema será programar quais veículos receberão manutenção preventiva em quais períodos,
+evitando que a previsão seja tratada como uma ordem automática.
+A função objetivo deve explicitar custos de intervenção, risco de falha, indisponibilidade e
+penalidades por manutenção obrigatória vencida. Limites de orçamento e horas de oficina
+evitam recomendações inviáveis. Uma política retrospectiva pode parecer econômica por usar
+informação que não existia no momento da decisão; por isso, a simulação reconstruirá apenas
+as variáveis observáveis até cada data de corte e reportará a natureza contrafactual do
+resultado.
+4.4 IA explicável e governança
+SHAP será empregado para decomposição local e agregação global; LIME, para aproximar
+predições em vizinhanças de casos selecionados; e a importância por permutação, como
+comparação model-agnostic. A pesquisa confrontará divergências entre métodos e verificará a
+consistência das explicações em reamostragens ou pequenas perturbações plausíveis. As
+explicações não revelam causalidade e podem ser instáveis quando as variáveis são
+correlacionadas. Relatórios do modelo descreverão população, finalidade, dados, métricas,
+limites e condições de uso.
+Dados de frota podem conter elementos associados a servidores ou condutores. A pesquisa
+aplicará minimização de dados, pseudonimização de identificadores, controle de acesso,
+armazenamento seguro e retenção limitada; variáveis pessoais não necessárias serão
+excluídas. A autorização institucional, o enquadramento ético e a conformidade com a Lei
+Geral de Proteção de Dados (Lei nº 13.709/2018) serão verificados antes do tratamento
+analítico. A pseudonimização não equivale a anonimização irreversível.
+
+UDESC • Florianópolis | 7
+
+PPGCAP | ANTEPROJETO DE PESQUISA — GESTÃO DE FROTA VEICULAR
+
+5 METODOLOGIA E SOLUÇÃO PROPOSTA
+5.1 Delineamento
+Pesquisa aplicada, quantitativa, com estudo de caso instrumental e desenvolvimento/avaliação
+de artefato computacional. O fluxo de trabalho seguirá etapas compatíveis com CRISP-DM:
+compreensão do problema, compreensão dos dados, preparação, modelagem, avaliação e
+implantação experimental em modo retrospectivo ou sombra (SHEARER, 2000). A unidade
+de análise será veículo-período, com grão temporal mensal ou intervalo entre eventos
+determinado após inspeção dos registros. O caso será realizado com uma frota institucional de
+órgão público a ser formalmente definido; a referência à administração estadual de Santa
+Catarina permanece como cenário prioritário, condicionada à autorização de acesso.
+5.2 Fontes e preparação dos dados
+Serão solicitados, preferencialmente em extrações CSV/XLSX ou acesso controlado ao
+banco, três grupos de arquivos: (i) patrimônio: código interno, categoria, fabricante/modelo,
+ano, combustível, situação, lotação e datas relevantes; (ii) manutenção: veículo,
+abertura/fechamento, hodômetro, descrição/categoria, preventiva/corretiva, custo de peças e
+serviço, duração e oficina; (iii) abastecimento: veículo, data, litros, preço/valor, combustível,
+hodômetro, posto e indicador de tanque completo. O conjunto mínimo e o período serão
+definidos pelo dicionário efetivamente recebido, não presumidos neste anteprojeto.
+A preparação incluirá padronização de chaves e unidades, deduplicação, verificação de datas
+e hodômetros monotônicos, detecção de litros/valores fora de faixa, conciliação de códigos de
+combustível, identificação de intervalos sem distância válida e criação de variáveis defasadas.
+Todas as transformações serão ajustadas somente no conjunto de treino quando envolverem
+parâmetros estimados. Imputação, codificação e seleção de atributos serão encapsuladas na
+pipeline para evitar contaminação entre treino e teste.
+Variáveis derivadas candidatas incluem idade e classe do veículo, quilômetros desde a última
+manutenção, número e custo de serviços em janelas passadas, proporção de eventos
+corretivos, tempo desde a última intervenção, consumo observado por intervalo, litros e gasto
+por veículo/mês e sazonalidade. Custos poderão ser corrigidos pelo índice escolhido e pela
+data-base, se a série permitir; a escolha e a justificativa serão documentadas. Dados futuros,
+como custo de ordem ainda não encerrada, serão excluídos dos atributos usados em previsões
+emitidas antes da intervenção.
+UDESC • Florianópolis | 8
+
+PPGCAP | ANTEPROJETO DE PESQUISA — GESTÃO DE FROTA VEICULAR
+
+5.3 Tarefas preditivas e algoritmos comparados
+A tabela resume a matriz experimental planejada. O conjunto final de candidatos será
+restringido por disponibilidade, volume, cobertura das classes e custo computacional. Em
+cada tarefa haverá busca de hiperparâmetros dentro dos dados de treino e comparação com
+linha de base apropriada. Não será usado o modelo de regressão linear. Regressão SVR não é
+regressão linear: usa função kernel RBF; ainda assim, o termo “regressão linear” será
+excluído para atender ao recorte solicitado.
+Tarefa e alvo
+
+Candidatos não lineares
+
+Referência e métricas principais
+
+Risco de manutenção corretiva no horizonte
+H: evento binário por veículo-período. H
+será escolhido com gestores e distribuição
+dos registros.
+
+Random Forest Classifier; Extra Trees
+Classifier; Gradient
+Boosting/HistGradientBoosting; XGBoost
+Classifier se disponível; SVC com kernel
+RBF.
+
+Regra histórica/limiar e classificador
+ingênuo. PR-AUC, recall, precisão, F1,
+Brier e calibração; matriz de confusão no
+limiar operacional.
+
+Custo normalizado de manutenção:
+R$/1.000 km ou custo por veículo-mês,
+conforme cobertura de hodômetro.
+
+Random Forest Regressor; Extra Trees
+Regressor; HistGradientBoosting/Gradient
+Boosting Regressor; XGBoost Regressor se
+disponível; SVR-RBF.
+
+Mediana histórica por classe e período
+como baseline. MAE, RMSE, R² e erro
+absoluto por classe; MAPE só se alvo
+estritamente positivo e longe de zero.
+
+Consumo/dispêndio de combustível: L/100
+km apenas quando odômetros/tanque
+permitirem; caso contrário, litros ou
+R$/veículo-período.
+
+Random Forest Regressor; Extra Trees
+Regressor; Gradient
+Boosting/HistGradientBoosting; XGBoost;
+SVR-RBF. Para previsão mensal: árvores
+com lags e referência sazonal;
+ETS/SARIMA somente se houver série
+suficiente.
+
+Persistência ou média sazonal. MAE,
+RMSE e sMAPE com cautela; comparação
+por veículo e horizonte.
+
+Recomendação de manutenção preventiva
+por período, com orçamento e horas de
+oficina.
+
+Programação inteira mista (MILP) com
+solver disponível; CP-SAT como
+formulação alternativa quando compatível;
+heurística gulosa risco-custo e regra por
+limiar.
+
+Política histórica reconstruída, regra de
+risco e baseline “não alterar”. Custo
+esperado, risco residual, veículos
+intervencionados, horas e violações.
+
+Explicação das previsões selecionadas.
+
+SHAP; LIME; importância por permutação.
+Aplicação sobre modelos campeões e
+amostra de casos de alto/baixo risco.
+
+Fidelidade local, estabilidade sob
+perturbações, concordância entre métodos e
+revisão interpretativa por especialistas, se
+viável.
+
+A seleção de H (por exemplo, próximo mês, 30 dias ou uma faixa de quilômetros) não será
+fixada sem conhecer a cadência dos registros e a utilidade operacional. O rótulo será
+“manutenção corretiva/não programada registrada”, não “falha” em sentido mecânico, a
+menos que a base permita distinguir falha confirmada de serviço ordinário. Caso a classe
+positiva seja rara, será reportada a prevalência e usada PR-AUC; ajuste de pesos ou limiar
+será feito apenas no treino/validação.
+5.4 Formulação matemática da decisão
+Considere i = 1,…,N veículos e t = 1,…,T períodos. Seja xᵢₜ = 1 se a manutenção preventiva
+do veículo i for programada no período t e 0 caso contrário. Seja p ⁰ᵢₜ a probabilidade de
+evento corretivo sem intervenção, estimada pelo modelo; p¹ᵢₜ a probabilidade residual sob
+UDESC • Florianópolis | 9
+
+PPGCAP | ANTEPROJETO DE PESQUISA — GESTÃO DE FROTA VEICULAR
+
+intervenção; cᴹᵢₜ o custo da manutenção programada; cᶠᵢₜ o custo de reparo corretivo; c ᴰᵢₜ o
+custo de indisponibilidade, se puder ser estimado; hᵢₜ as horas de oficina; B ₜ o orçamento
+disponível; Hₜ a capacidade de oficina; e eᵢₜ ∈ {0,1} um indicador de elegibilidade.
+O problema inicial de programação será:
+
+minimizar Σᵢ Σₜ [cᴹᵢₜ xᵢₜ + ((1 − xᵢₜ)p⁰ᵢₜ + xᵢₜp¹ᵢₜ)(cᶠᵢₜ + cᴰᵢₜ)]
+
+sujeito a: Σᵢ cᴹᵢₜ xᵢₜ ≤ Bₜ; Σᵢ hᵢₜ xᵢₜ ≤ Hₜ; xᵢₜ ≤ eᵢₜ; xᵢₜ ∈ {0,1}.
+
+Regras obrigatórias do fabricante/segurança serão representadas como restrições de
+elegibilidade e prazos, após validação por responsáveis técnicos. A eficácia da intervenção ηᵢₜ
+pode ser expressa por p¹ᵢₜ = (1 − ηᵢₜ)p⁰ᵢₜ. Se η não puder ser estimada com dados
+observacionais comparáveis, não será apresentada como fato: serão executados cenários de
+sensibilidade (por exemplo, eficácia baixa, moderada e alta), com limites claramente
+identificados. Assim se evita converter associação histórica entre manutenção e falha em
+efeito causal sem desenho apropriado.
+As previsões de combustível servirão para projeção de despesa e análise por veículo/classe.
+Não se incluirá combustível no objetivo como se a programação de manutenção reduzisse
+consumo sem evidência de efeito. Caso dados permitam estimar diferenças antes/depois com
+controle de sazonalidade, intensidade de uso e outros confundidores, essa análise será
+secundária e explicitamente observacional. A solução MILP será comparada a
+CP-SAT/heurísticas sob os mesmos parâmetros, orçamento e informações disponíveis em
+cada data de corte.
+5.5 Validação e análises matemáticas
+A divisão treino-validação-teste respeitará o tempo: períodos mais antigos treinam, períodos
+subsequentes selecionam hiperparâmetros e o bloco mais recente fica retido para teste final.
+Serão repetidas origens móveis (rolling-origin) quando houver extensão temporal suficiente.
+Sempre que vários registros de um mesmo veículo puderem aparecer em ambos os lados,
+serão reportados resultados com separação temporal e análise por grupos de veículos, para
+distinguir generalização para o futuro da generalização para veículos não observados. Em
+séries temporais, embaralhamento aleatório pode inflar o desempenho por permitir que
+informação temporalmente próxima apareça nos conjuntos de treino e teste; a validação
+temporal é, portanto, necessária (SCIKIT-LEARN, s.d.).
+Para regressão, sejam yⱼ o valor observado e ŷⱼ a previsão, para n observações de teste:
+UDESC • Florianópolis | 10
+
+PPGCAP | ANTEPROJETO DE PESQUISA — GESTÃO DE FROTA VEICULAR
+
+MAE = (1/n) Σⱼ |yⱼ − ŷⱼ|;
+
+RMSE = √[(1/n) Σⱼ (yⱼ − ŷⱼ)²];
+Σⱼ(yⱼ − ȳ)².
+
+R² = 1 − Σⱼ(yⱼ − ŷⱼ)² /
+
+MAE resume erro absoluto na unidade do desfecho; RMSE penaliza mais erros grandes; R²
+mede variação explicada relativamente à média do conjunto de teste, podendo ser negativo
+fora da amostra. MAPE não será usada quando y=0 ou próximo de zero. Se aplicável, sMAPE
+será reportada como medida complementar e acompanhada de MAE em unidade natural.
+Para classificação, a matriz de confusão determina VP, FP, VN e FN. Precisão =
+VP/(VP+FP); recall = VP/(VP+FN); F1 = 2·precisão·recall/(precisão+recall). A área sob a
+curva precisão-recall é prioritária quando positivos são raros. Para probabilidades p ⱼ e rótulos
+zⱼ ∈ {0,1}, o escore de Brier é BS = (1/n)Σⱼ(pⱼ−zⱼ)². A calibração será examinada por
+agrupamento de probabilidades e inclinação/intercepto, sem selecionar limiar no conjunto de
+teste.
+A otimização será avaliada em simulação retrospectiva por custo esperado, risco residual
+ponderado, quantidade de ações e aderência aos limites. Uma métrica operacional
+comparativa será Δ = (C_base − C_política)/C_base, em que C inclui apenas parcelas com
+definição e cobertura adequadas. Δ é uma diferença simulada com as hipóteses declaradas e
+não uma estimativa de economia efetivamente realizada. Serão apresentados intervalos de
+confiança obtidos por reamostragem em blocos ou por veículo quando apropriado e análise de
+sensibilidade para orçamento, horas de oficina, limiar de risco e eficácia da manutenção.
+Para comparar modelos, cada método será avaliado nos mesmos blocos temporais. Serão
+apresentados média/mediana, dispersão e diferenças pareadas com intervalo de confiança;
+teste de Wilcoxon pareado poderá ser utilizado se o número e a independência efetiva dos
+blocos forem adequados, com correção de Holm para comparações múltiplas. A relevância
+prática e a calibração terão peso junto ao valor-p. A análise de ablação comparará atributos de
+manutenção apenas, patrimônio + manutenção e integração completa; nenhuma melhoria será
+afirmada antecipadamente.
+5.6 Explicabilidade e avaliação humana
+Para o modelo selecionado por tarefa, SHAP fornecerá decomposições locais e sumários
+globais, LIME produzirá aproximações locais para casos representativos e de maior risco, e
+permutação oferecerá uma referência global independente da arquitetura. A decomposição
+SHAP será expressa como f(x) = E[f(X)] + Σⱼ φⱼ, onde φ ⱼ representa a contribuição atribuída
+ao atributo j para a predição x. A pesquisa comparará rankings globais e explicações de casos;
+UDESC • Florianópolis | 11
+
+PPGCAP | ANTEPROJETO DE PESQUISA — GESTÃO DE FROTA VEICULAR
+
+mensurará fidelidade local do surrogate LIME no entorno avaliado, estabilidade das
+importâncias a reamostragens e sensibilidade a atributos correlacionados. Gestores/mecânicos
+poderão avaliar clareza, plausibilidade operacional e utilidade com roteiro estruturado, sem
+apresentar a explicação como causalidade.
+5.7 Ética, privacidade e reprodutibilidade
+Antes da extração, serão definidos finalidade, controlador/custodiante, base legal aplicável e
+condições de compartilhamento com as unidades competentes. IDs de veículo e, se inevitável,
+de unidade serão pseudonimizados; identificadores de servidores/condutores e texto livre com
+dados pessoais serão excluídos ou tratados sob protocolo específico. O acesso será restrito,
+com registro de versão e linhagem das transformações; resultados públicos serão agregados
+para reduzir reidentificação. A necessidade de apreciação ética será consultada junto às
+instâncias responsáveis. O pipeline, configurações e métricas serão documentados com dados
+sintéticos ou exemplos não sensíveis quando a publicação da base real não for autorizada.
+
+6 RESULTADOS ESPERADOS E CONTRIBUIÇÕES
+Espera-se obter uma base analítica longitudinal documentada e uma arquitetura experimental
+que conecte as três fontes administrativas, respeitando a qualidade observada e as regras de
+proteção de dados. A pesquisa apresentará uma comparação reprodutível de algoritmos não
+lineares por tarefa, incluindo métricas fora do tempo de treinamento, explicações
+locais/globais e análise de estabilidade. O resultado pode revelar que uma família de modelos
+é superior em determinada tarefa, que não há diferença material ou que dados insuficientes
+impedem comparação conclusiva; todos são resultados cientificamente válidos.
+O artefato prescritivo deverá produzir cenários de priorização de manutenção coerentes com
+limites de orçamento e capacidade e comparáveis à prática histórica e a heurísticas. A
+principal contribuição metodológica será explicitar as condições sob as quais essas
+recomendações são válidas: horizonte, cobertura dos dados, tratamento de rótulos, parâmetros
+de eficácia e restrições. A contribuição aplicada será um protótipo de suporte à decisão ou
+relatório reproduzível, sem implantação automática em produção e sem substituição da
+decisão humana.
+Como produtos acadêmicos, prevê-se a dissertação, repositório de código sem dados restritos,
+documentação técnica do modelo/explicações e submissão de pelo menos um artigo
+
+UDESC • Florianópolis | 12
+
+PPGCAP | ANTEPROJETO DE PESQUISA — GESTÃO DE FROTA VEICULAR
+
+científico, condicionada aos resultados e às regras do programa. Nenhum ganho financeiro ou
+percentual de economia é antecipado.
+
+7 LIMITAÇÕES, RISCOS E MITIGAÇÕES
+Risco ou limitação
+
+Efeito potencial
+
+Mitigação prevista
+
+Acesso formal aos três arquivos não
+concedido ou autorização tardia.
+
+Impossibilidade de estudo de caso ou
+redução do escopo.
+
+Formalizar consulta institucional no início;
+negociar base agregada ou amostra
+pseudonimizada; se inviável, reformular
+para dados públicos/abertos e declarar a
+mudança.
+
+Chaves distintas, hodômetros ausentes ou
+inconsistentes.
+
+Junções erradas e alvos de consumo/custo
+imprecisos.
+
+Auditar cobertura, reconciliar chaves com
+custodiante, excluir intervalos inválidos e
+manter análises alternativas por
+veículo/período.
+
+Rótulos raros ou ambíguos de falha.
+
+Baixo poder preditivo e métricas instáveis.
+
+Definir evento com especialista; usar PRAUC/calibração; reportar prevalência;
+ajustar alvo para manutenção corretiva
+registrada, não falha mecânica.
+
+Sobreajuste e baixa validade externa.
+
+Reduzir número de parâmetros, priorizar
+modelos tabulares, comparar por
+grupos/períodos e declarar insuficiência de
+evidência.
+
+Custo otimizado excessivamente otimista.
+
+Usar cenários de eficácia, reportar análise
+de sensibilidade e não alegar economia real
+sem validação prospectiva/quaseexperimental.
+
+Risco de exposição e desconformidade.
+
+Minimização, revisão de campos,
+pseudonimização, acesso restrito e
+validação institucional/ética antes da
+extração.
+
+Poucos veículos ou pouco histórico.
+
+Eficácia causal da manutenção não
+identificável.
+
+Dados pessoais embutidos em texto livre ou
+vínculos.
+
+UDESC • Florianópolis | 13
+
+PPGCAP | ANTEPROJETO DE PESQUISA — GESTÃO DE FROTA VEICULAR
+
+8 CRONOGRAMA PROPOSTO
+Planejamento estimado para 24 meses, ajustável ao calendário do PPGCAP e à data efetiva de
+ingresso. A solicitação de acesso e a análise de privacidade iniciam-se antes da coleta e
+condicionam as etapas empíricas.
+Atividade
+
+M1–3
+
+M4–6
+
+M13–15
+
+M16–18
+
+Revisão
+bibliográfica
+e
+delimitação
+do caso
+
+●
+
+●
+
+Autorização,
+governança,
+dicionário e
+diagnóstico
+dos dados
+
+●
+
+●
+
+●
+
+●
+
+●
+
+●
+
+●
+
+XAI, testes
+de
+estabilidade
+e avaliação
+com
+especialistas
+
+●
+
+●
+
+●
+
+Otimização,
+cenários e
+comparação
+de políticas
+
+●
+
+●
+
+●
+
+●
+
+●
+
+●
+
+●
+
+●
+
+Integração,
+limpeza e
+engenharia
+de atributos
+Modelagem
+preditiva,
+ajuste e
+validação
+temporal
+
+M7–9
+
+M10–12
+
+M19–21
+
+M22–24
+
+●
+
+●
+
+Análise
+estatística,
+escrita e
+submissão
+de artigo
+Redação
+final,
+revisão,
+defesa e
+entrega
+
+UDESC • Florianópolis | 14
+
+PPGCAP | ANTEPROJETO DE PESQUISA — GESTÃO DE FROTA VEICULAR
+
+REFERÊNCIAS
+BERTSIMAS, Dimitris; KALLUS, Nathan. From predictive to prescriptive analytics. Management
+Science, v. 66, n. 3, p. 1025–1044, 2020. DOI: https://doi.org/10.1287/mnsc.2018.3253.
+BRASIL. Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD).
+Brasília, DF, 2018. Disponível em:
+https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm. Acesso em: 11 out. 2026.
+BREIMAN, Leo. Random forests. Machine Learning, v. 45, p. 5–32, 2001. DOI:
+https://doi.org/10.1023/A:1010933404324.
+CHEN, Tianqi; GUESTRIN, Carlos. XGBoost: a scalable tree boosting system. In: ACM SIGKDD
+INTERNATIONAL CONFERENCE ON KNOWLEDGE DISCOVERY AND DATA MINING, 22., 2016.
+Proceedings [...]. New York: ACM, 2016. p. 785–794. DOI: https://doi.org/10.1145/2939672.2939785.
+CORTES, Corinna; VAPNIK, Vladimir. Support-vector networks. Machine Learning, v. 20, p. 273–297,
+1995. DOI: https://doi.org/10.1007/BF00994018.
+FRIEDMAN, Jerome H. Greedy function approximation: a gradient boosting machine. The Annals of
+Statistics, v. 29, n. 5, p. 1189–1232, 2001. DOI: https://doi.org/10.1214/aos/1013203451.
+GEURTS, Pierre; ERNST, Damien; WEHENKEL, Louis. Extremely randomized trees. Machine Learning,
+v. 63, p. 3–42, 2006. DOI: https://doi.org/10.1007/s10994-006-6226-1.
+KATREDDI, Sasanka; THIRUVENGADAM, Arvind; THOMPSON, Gregory; SCHMID, Natalia;
+PADMANABHAN, Vishnu. Machine learning models for maintenance cost estimation in delivery trucks
+using diesel and natural gas fuels. Frontiers in Mechanical Engineering, v. 9, art. 1201068, 2023. DOI:
+https://doi.org/10.3389/fmech.2023.1201068.
+LUNDBERG, Scott M.; LEE, Su-In. A unified approach to interpreting model predictions. In:
+ADVANCES IN NEURAL INFORMATION PROCESSING SYSTEMS, 30., 2017. Proceedings [...].
+2017. Disponível em: https://arxiv.org/abs/1705.07874. Acesso em: 11 out. 2026.
+MAHALE, Yashashree; KOLHAR, Shrikrishna; MORE, Anjali S. A comprehensive review on artificial
+intelligence driven predictive maintenance in vehicles: technologies, challenges and future research
+directions. Discover Applied Sciences, v. 7, art. 243, 2025. DOI: https://doi.org/10.1007/s42452-02506681-3.
+RIBEIRO, Marco Tulio; SINGH, Sameer; GUESTRIN, Carlos. “Why should I trust you?”: explaining the
+predictions of any classifier. In: ACM SIGKDD INTERNATIONAL CONFERENCE ON KNOWLEDGE
+DISCOVERY AND DATA MINING, 22., 2016. Proceedings [...]. New York: ACM, 2016. p. 1135–1144.
+DOI: https://doi.org/10.1145/2939672.2939778.
+SCIKIT-LEARN DEVELOPERS. Cross-validation: evaluating estimator performance — time series split.
+Documentação técnica. Disponível em: https://scikit-learn.org/stable/modules/cross_validation.html#timeseries-split. Acesso em: 11 out. 2026.
+SHEARER, Colin. The CRISP-DM model: the new blueprint for data mining. Journal of Data
+Warehousing, v. 5, n. 4, p. 13–22, 2000.
+
+UDESC • Florianópolis | 15
+
+

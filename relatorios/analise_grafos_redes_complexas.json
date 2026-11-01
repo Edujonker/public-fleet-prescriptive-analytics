@@ -1,0 +1,159 @@
+{
+  "status": "sucesso",
+  "timestamp": "2026-10-17T08:15:00-03:00",
+  "grafo_bipartido": {
+    "num_nodes": 73,
+    "num_edges": 164,
+    "density": 0.0624048706240487,
+    "top_oficinas": [
+      {
+        "oficina": "Ofic_12752997",
+        "grau": 11,
+        "betweenness": 0.8453,
+        "pagerank": 0.0131
+      },
+      {
+        "oficina": "Ofic_11396941",
+        "grau": 25,
+        "betweenness": 0.3876,
+        "pagerank": 0.0486
+      },
+      {
+        "oficina": "Ofic_11383297",
+        "grau": 9,
+        "betweenness": 0.3022,
+        "pagerank": 0.0053
+      },
+      {
+        "oficina": "Ofic_11673546",
+        "grau": 5,
+        "betweenness": 0.1766,
+        "pagerank": 0.0052
+      },
+      {
+        "oficina": "Ofic_12018533",
+        "grau": 7,
+        "betweenness": 0.0982,
+        "pagerank": 0.0068
+      },
+      {
+        "oficina": "Ofic_979520",
+        "grau": 7,
+        "betweenness": 0.0866,
+        "pagerank": 0.0049
+      },
+      {
+        "oficina": "Ofic_1190970",
+        "grau": 6,
+        "betweenness": 0.062,
+        "pagerank": 0.0247
+      },
+      {
+        "oficina": "Ofic_11381057",
+        "grau": 26,
+        "betweenness": 0.0538,
+        "pagerank": 0.1105
+      },
+      {
+        "oficina": "Ofic_6103545",
+        "grau": 5,
+        "betweenness": 0.0436,
+        "pagerank": 0.0041
+      },
+      {
+        "oficina": "Ofic_12043414",
+        "grau": 7,
+        "betweenness": 0.0376,
+        "pagerank": 0.0226
+      }
+    ]
+  },
+  "grafo_coocorrencia_falhas": {
+    "modularity_q": 0.3891,
+    "num_clusters": 3,
+    "clusters": [
+      [
+        "Sistema de Freios",
+        "Pneus & Alinhamento",
+        "Climatização & AC",
+        "Suspensão & Direção",
+        "Funilaria & Pintura"
+      ],
+      [
+        "Injeção Eletrônica",
+        "Motor & Cabeçote",
+        "Sistema Elétrico & Bateria",
+        "Escapamento & Catalisador",
+        "Arrefecimento & Radiador"
+      ],
+      [
+        "Transmissão & Câmbio",
+        "Embreagem"
+      ]
+    ]
+  },
+  "grafo_transicao_markov": {
+    "matriz_transicao_P": [
+      [
+        0.45,
+        0.4,
+        0.1,
+        0.05,
+        0.0
+      ],
+      [
+        0.35,
+        0.48,
+        0.05,
+        0.12,
+        0.0
+      ],
+      [
+        0.25,
+        0.15,
+        0.52,
+        0.08,
+        0.0
+      ],
+      [
+        0.68,
+        0.0,
+        0.08,
+        0.2,
+        0.04
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "estados": [
+      "S1: Prontidão",
+      "S2: Missão / Trânsito",
+      "S3: Pátio Ocioso",
+      "S4: Oficina Mecânica",
+      "S5: Inservível / Leilão"
+    ],
+    "pi_quasi_estacionario": [
+      0.482,
+      0.315,
+      0.113,
+      0.09,
+      0.0
+    ]
+  },
+  "grafo_anomalias_conluio": {
+    "num_oficinas_criticas": 12,
+    "num_veiculos_criticos": 42,
+    "total_arestas_atipicas": 45
+  },
+  "figuras_geradas": [
+    "fig94_grafo_bipartido_veiculos_oficinas.png",
+    "fig95_grafo_coocorrencia_sistemas_falhas.png",
+    "fig96_grafo_transicao_estados_markov.png",
+    "fig97_grafo_subrede_anomalias_conluio.png"
+  ]
+}

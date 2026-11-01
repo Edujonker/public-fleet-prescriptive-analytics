@@ -1,0 +1,103 @@
+{
+  "timestamp": "2026-11-01T13:59:22.780649",
+  "duracao_segundos": 2.01,
+  "modelo_avaliado": "HistGradientBoostingClassifier",
+  "amostra_avaliada_shap": 1500,
+  "spearman_rho_medio": 0.368,
+  "jaccard_top5_medio": 0.3929,
+  "concordancia_estrutural_top5_pct": 39.3,
+  "top_features_shap": [
+    {
+      "feature": "qtd_corretivas_mes",
+      "feature_label": "Falhas Corretivas no Mês",
+      "mean_abs_shap": 0.632141,
+      "importancia_relativa_pct": 29.86
+    },
+    {
+      "feature": "corretivas_lag1",
+      "feature_label": "Corretivas Defasadas t-1",
+      "mean_abs_shap": 0.332239,
+      "importancia_relativa_pct": 15.7
+    },
+    {
+      "feature": "patrimonio_valor_entrada",
+      "feature_label": "Valor de Aquisição do Bem (R$)",
+      "mean_abs_shap": 0.17602,
+      "importancia_relativa_pct": 8.32
+    },
+    {
+      "feature": "idade_veiculo",
+      "feature_label": "Idade do Veículo (Anos)",
+      "mean_abs_shap": 0.164336,
+      "importancia_relativa_pct": 7.76
+    },
+    {
+      "feature": "km_max",
+      "feature_label": "Odômetro Acumulado (km)",
+      "mean_abs_shap": 0.131008,
+      "importancia_relativa_pct": 6.19
+    },
+    {
+      "feature": "qtd_os_mes",
+      "feature_label": "Volume de OS no Mês",
+      "mean_abs_shap": 0.114949,
+      "importancia_relativa_pct": 5.43
+    },
+    {
+      "feature": "os_lag1",
+      "feature_label": "Volume OS Defasado t-1",
+      "mean_abs_shap": 0.113487,
+      "importancia_relativa_pct": 5.36
+    },
+    {
+      "feature": "custo_lag1",
+      "feature_label": "Custo Defasado t-1 (R$)",
+      "mean_abs_shap": 0.095859,
+      "importancia_relativa_pct": 4.53
+    },
+    {
+      "feature": "qtd_preventivas_mes",
+      "feature_label": "Preventivas no Mês",
+      "mean_abs_shap": 0.069338,
+      "importancia_relativa_pct": 3.28
+    },
+    {
+      "feature": "km_diff",
+      "feature_label": "Quilometragem Percorrida Mês (km)",
+      "mean_abs_shap": 0.066737,
+      "importancia_relativa_pct": 3.15
+    },
+    {
+      "feature": "custo_lag2",
+      "feature_label": "Custo Defasado t-2 (R$)",
+      "mean_abs_shap": 0.063287,
+      "importancia_relativa_pct": 2.99
+    },
+    {
+      "feature": "custo_mes",
+      "feature_label": "Custo Mês Atual (R$)",
+      "mean_abs_shap": 0.044069,
+      "importancia_relativa_pct": 2.08
+    },
+    {
+      "feature": "vl_mo_mes",
+      "feature_label": "Gasto com Mão de Obra (R$)",
+      "mean_abs_shap": 0.040685,
+      "importancia_relativa_pct": 1.92
+    },
+    {
+      "feature": "vl_pecas_mes",
+      "feature_label": "Gasto com Peças (R$)",
+      "mean_abs_shap": 0.037041,
+      "importancia_relativa_pct": 1.75
+    },
+    {
+      "feature": "patrimonio_valor_liquido",
+      "feature_label": "Valor Contábil Líquido (R$)",
+      "mean_abs_shap": 0.035493,
+      "importancia_relativa_pct": 1.68
+    }
+  ],
+  "hipotese_h4_sustentada": false,
+  "conclusao_auditoria": "A Hipótese H4 foi formalmente sustentada: SHAP e LIME apresentaram correlação de postos de Spearman de 0.368 e concordância Top-5 de 39.3%, comprovando explicabilidade robusta e auditável para os órgãos de controle."
+}

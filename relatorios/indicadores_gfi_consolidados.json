@@ -1,0 +1,699 @@
+{
+  "normativa": {
+    "fonte": "Secretaria de Estado de Planejamento e Gestão (Seplag/SEA) - Cartilha GFI Abr/2026",
+    "decreto_regente": "Decreto Estadual nº 47.539/2018",
+    "regra_manutencao_onerosa": "Soma de manutenções em 12 meses superior a 40% do valor venal do veículo",
+    "regra_auditoria_hodometro": "Confiabilidade aceitável na faixa de 80% a 120% entre fontes independentes",
+    "regimes_operacionais": "Regime Padrão (8h/dia x dias úteis) e Regime Integral (24h/dia - PMSC, PC, CBMSC)",
+    "total_indicadores_apurados": 38
+  },
+  "tema_1_dados_situacao_kpis": {
+    "IND-01": {
+      "nome": "Total de Bens Registrados no Patrimônio",
+      "valor": 34280,
+      "valor_fmt": "34,280 bens",
+      "ref": "Inventário Geral Siad",
+      "status": "Consolidado"
+    },
+    "IND-02": {
+      "nome": "Veículos Ativos em Circulação",
+      "valor": 12707,
+      "valor_fmt": "12,707 (37.1%)",
+      "ref": "Operação Regular",
+      "status": "Ativo"
+    },
+    "IND-03": {
+      "nome": "Veículos Baixados ou em Desfazimento",
+      "valor": 21306,
+      "valor_fmt": "21,306 (62.2%)",
+      "ref": "Histórico Acumulado",
+      "status": "Inativo"
+    },
+    "IND-04": {
+      "nome": "Veículos Doados a Municípios e Entidades",
+      "valor": 260,
+      "valor_fmt": "260 (0.76%)",
+      "ref": "Alienação Gratuita",
+      "status": "Doados"
+    },
+    "IND-05": {
+      "nome": "Taxa de Crescimento Anual da Frota",
+      "valor": 2.1,
+      "valor_fmt": "+2,10% a.a.",
+      "ref": "Evolução Histórica",
+      "status": "Expansão Controlada"
+    },
+    "IND-06": {
+      "nome": "Idade Média da Frota Geral",
+      "valor": 8.7,
+      "valor_fmt": "8,7 anos",
+      "ref": "Meta de Referência < 7,0 anos",
+      "status": "Envelhecida"
+    },
+    "IND-07": {
+      "nome": "Idade Média de Veículos Leves",
+      "valor": 6.8,
+      "valor_fmt": "6,8 anos",
+      "ref": "Meta de Referência < 5,0 anos",
+      "status": "Atenção Moderada"
+    },
+    "IND-08": {
+      "nome": "Veículos Paralisados no Sistema há >12 Meses",
+      "valor": 1420,
+      "valor_fmt": "1.420 veículos",
+      "ref": "Art. 5º Dec. 47.539",
+      "status": "Passíveis de Baixa/Leilão"
+    }
+  },
+  "tema_2_manutencao_kpis": {
+    "IND-09": {
+      "nome": "Dispêndio Total em Manutenção Aprovada",
+      "valor": 97667184.59,
+      "valor_fmt": "R$ 97.667.184,59",
+      "ref": "Base Transacional 350k OSs",
+      "status": "Auditado"
+    },
+    "IND-10": {
+      "nome": "Gasto com Aquisição de Peças",
+      "valor": 65805967.3,
+      "valor_fmt": "R$ 65.805.967,30 (67.4%)",
+      "ref": "68,2% do total",
+      "status": "Aderente"
+    },
+    "IND-11": {
+      "nome": "Gasto com Mão de Obra e Serviços",
+      "valor": 31861217.29,
+      "valor_fmt": "R$ 31.861.217,29 (32.6%)",
+      "ref": "31,8% do total",
+      "status": "Aderente"
+    },
+    "IND-12": {
+      "nome": "Razão Mão de Obra / Peças (Razão MO)",
+      "valor": 0.484,
+      "valor_fmt": "0,466",
+      "ref": "Faixa Aceitável: 0,40 a 0,55",
+      "status": "Equilibrado"
+    },
+    "IND-13": {
+      "nome": "Gasto Médio por Veículo que Realizou Manutenção",
+      "valor": 19710.83,
+      "valor_fmt": "R$ 19.710,83",
+      "ref": "7.580 veículos atendidos",
+      "status": "Média Global"
+    },
+    "IND-14": {
+      "nome": "Gasto Médio de Veículos Leves",
+      "valor": 7789.76,
+      "valor_fmt": "R$ 7.789,76",
+      "ref": "Passeio, Utilitários e Motos",
+      "status": "Dentro da Faixa"
+    },
+    "IND-15": {
+      "nome": "Gasto Médio de Veículos Pesados",
+      "valor": 20743.47,
+      "valor_fmt": "R$ 20.743,47",
+      "ref": "Caminhões, Ônibus e Viaturas Pesadas",
+      "status": "Custo Elevado"
+    },
+    "IND-16": {
+      "nome": "Cobertura do Modelo Centralizado GTM",
+      "valor": 98.4,
+      "valor_fmt": "98,4%",
+      "ref": "Meta de Centralização > 95%",
+      "status": "Alta Conformidade"
+    }
+  },
+  "tema_3_abastecimento_kpis": {
+    "IND-17": {
+      "nome": "Consumo Total de Combustível em Valor",
+      "valor": 184250800.0,
+      "valor_fmt": "R$ 184.250.800,00",
+      "ref": "Faturamento Integrado de Combustíveis",
+      "status": "Auditado"
+    },
+    "IND-18": {
+      "nome": "Consumo Total de Combustível em Volume",
+      "valor": 32840500.0,
+      "valor_fmt": "32.840.500 Litros",
+      "ref": "Gasolina, Etanol, Diesel S10",
+      "status": "Consolidado"
+    },
+    "IND-19": {
+      "nome": "Abastecimentos com Preço Acima do Teto ANP",
+      "valor": 0.42,
+      "valor_fmt": "0,42% (1.380 reg.)",
+      "ref": "Limite: Preço Médio Municipal ANP",
+      "status": "Baixo Risco"
+    },
+    "IND-20": {
+      "nome": "Cobertura do Modelo Cartão de Abastecimento",
+      "valor": 94.2,
+      "valor_fmt": "94,2%",
+      "ref": "Rede Credenciada Integrada",
+      "status": "Majoritário"
+    },
+    "IND-21": {
+      "nome": "Cobertura do Modelo GTA (Postos Próprios)",
+      "valor": 5.8,
+      "valor_fmt": "5,8%",
+      "ref": "Guia de Tráfego e Abastecimento",
+      "status": "Específico"
+    },
+    "IND-22": {
+      "nome": "Volume de Abastecimentos Fora do GTA",
+      "valor": 94.2,
+      "valor_fmt": "94,2%",
+      "ref": "Abastecimento Externo em Viagem",
+      "status": "Conforme Rede"
+    },
+    "IND-23": {
+      "nome": "Desempenhos Improváveis de Consumo (<50% ou >150%)",
+      "valor": 1.85,
+      "valor_fmt": "1,85%",
+      "ref": "Desvios severos de km/L homologado",
+      "status": "Em Monitoramento"
+    },
+    "IND-24": {
+      "nome": "Desempenho Médio Geral da Frota (km/L)",
+      "valor": 9.4,
+      "valor_fmt": "9,40 km/L",
+      "ref": "Média Ponderada da Frota Ativa",
+      "status": "Padrão Aceitável"
+    },
+    "IND-25": {
+      "nome": "Desempenho Médio de Veículos a Diesel (km/L)",
+      "valor": 7.8,
+      "valor_fmt": "7,80 km/L",
+      "ref": "Caminhões e Camionetes Operacionais",
+      "status": "Eficiente"
+    }
+  },
+  "tema_4_atendimento_uso_kpis": {
+    "IND-26": {
+      "nome": "Atendimentos Improváveis (Velocidade ou Duração Atípica)",
+      "valor": 1.42,
+      "valor_fmt": "1,42%",
+      "ref": "Duração <4,8min ou >30d; Vel <1 ou >75 km/h",
+      "status": "Sob Controle"
+    },
+    "IND-27": {
+      "nome": "Quilometragem Total Percorrida Anual",
+      "valor": 48200000.0,
+      "valor_fmt": "48.200.000 km",
+      "ref": "Consolidação de Ordens e Hodômetros",
+      "status": "Consolidado"
+    },
+    "IND-28": {
+      "nome": "Horas Efetivas Trabalhadas com a Frota",
+      "valor": 3840000.0,
+      "valor_fmt": "3.840.000 h/ano",
+      "ref": "Jornadas em Operação Oficial",
+      "status": "Consolidado"
+    },
+    "IND-29": {
+      "nome": "Taxa de Ociosidade em Regime Padrão (8h/dia)",
+      "valor": 31.4,
+      "valor_fmt": "31,4%",
+      "ref": "Órgãos Administrativos Diretos (SEA/SED/SES)",
+      "status": "Potencial Otimização"
+    },
+    "IND-30": {
+      "nome": "Taxa de Ociosidade em Regime Integral (24h/dia)",
+      "valor": 12.8,
+      "valor_fmt": "12,8%",
+      "ref": "Forças de Segurança e Prontidão (PMSC/PC/CBMSC)",
+      "status": "Alta Demanda"
+    },
+    "IND-31": {
+      "nome": "Downtime Médio de Oficina (Dias Imobilizado)",
+      "valor": 23.5,
+      "valor_fmt": "23.5 dias (P90: 72.9d)",
+      "ref": "SLA Máximo Desejável: 15 dias",
+      "status": "Crítico / SLA Estourado"
+    },
+    "IND-32": {
+      "nome": "Confiabilidade da km Percorrida (Triangulação Hodômetro)",
+      "valor": 84.6,
+      "valor_fmt": "84.6%",
+      "ref": "Faixa 80% a 120% entre OSs e Abastecimento",
+      "status": "Aceitável / Guia GFI"
+    }
+  },
+  "tema_5_integridade_prescricao_kpis": {
+    "IND-33": {
+      "nome": "Ordens de Serviço com Anomalias Severas Auditadas",
+      "valor": 2336,
+      "valor_fmt": "2,336 OSs (1.04%)",
+      "ref": "Detecção Isolation Forest + Regras Especialistas",
+      "status": "Auditadas"
+    },
+    "IND-34": {
+      "nome": "Veículos com Manutenção Onerosa (>40% do Valor Venal)",
+      "valor": 313,
+      "valor_fmt": "313 veículos (R$ 11.689.836,17)",
+      "ref": "Art. 5º Decreto Estadual nº 47.539/2018",
+      "status": "Leilão Imediato"
+    },
+    "IND-35": {
+      "nome": "Volume Total Orçado Inicial em Processos Auditados",
+      "valor": 47763762.1,
+      "valor_fmt": "R$ 47.763.762,10",
+      "ref": "Propostas Iniciais de Oficinas Credenciadas",
+      "status": "Auditado"
+    },
+    "IND-36": {
+      "nome": "Glosa Técnica e Economia Efetiva da Fiscalização SEA",
+      "valor": 22416134.53,
+      "valor_fmt": "R$ 22.416.134,53 (46.93%)",
+      "ref": "Corte de Itens Indevidos e Sobrepreço",
+      "status": "Economia Gerada"
+    },
+    "IND-37": {
+      "nome": "Taxa Ponderada de Inflação Setorial de Frotas",
+      "valor": 6.08,
+      "valor_fmt": "6,08% ao ano",
+      "ref": "69,18% Autopeças (6,2%) + 30,82% MO (5,8%)",
+      "status": "Parâmetro LDO/LOA"
+    },
+    "IND-38": {
+      "nome": "Economia Trienal Prescritiva Acumulada (2027–2029)",
+      "valor": 40088374.0,
+      "valor_fmt": "R$ 40.088.374,00",
+      "ref": "Modelo Prescritivo To-Be MILP vs Tendência Inercial",
+      "status": "Meta Estratégica"
+    }
+  },
+  "matriz_exaustiva_38_indicadores": [
+    {
+      "id": "IND-01",
+      "tema": "1. Dados / Situação",
+      "nome": "Total de Bens Registrados no Patrimônio",
+      "valor": 34280,
+      "valor_fmt": "34,280 bens",
+      "ref": "Inventário Geral Siad",
+      "status": "Consolidado"
+    },
+    {
+      "id": "IND-02",
+      "tema": "1. Dados / Situação",
+      "nome": "Veículos Ativos em Circulação",
+      "valor": 12707,
+      "valor_fmt": "12,707 (37.1%)",
+      "ref": "Operação Regular",
+      "status": "Ativo"
+    },
+    {
+      "id": "IND-03",
+      "tema": "1. Dados / Situação",
+      "nome": "Veículos Baixados ou em Desfazimento",
+      "valor": 21306,
+      "valor_fmt": "21,306 (62.2%)",
+      "ref": "Histórico Acumulado",
+      "status": "Inativo"
+    },
+    {
+      "id": "IND-04",
+      "tema": "1. Dados / Situação",
+      "nome": "Veículos Doados a Municípios e Entidades",
+      "valor": 260,
+      "valor_fmt": "260 (0.76%)",
+      "ref": "Alienação Gratuita",
+      "status": "Doados"
+    },
+    {
+      "id": "IND-05",
+      "tema": "1. Dados / Situação",
+      "nome": "Taxa de Crescimento Anual da Frota",
+      "valor": 2.1,
+      "valor_fmt": "+2,10% a.a.",
+      "ref": "Evolução Histórica",
+      "status": "Expansão Controlada"
+    },
+    {
+      "id": "IND-06",
+      "tema": "1. Dados / Situação",
+      "nome": "Idade Média da Frota Geral",
+      "valor": 8.7,
+      "valor_fmt": "8,7 anos",
+      "ref": "Meta de Referência < 7,0 anos",
+      "status": "Envelhecida"
+    },
+    {
+      "id": "IND-07",
+      "tema": "1. Dados / Situação",
+      "nome": "Idade Média de Veículos Leves",
+      "valor": 6.8,
+      "valor_fmt": "6,8 anos",
+      "ref": "Meta de Referência < 5,0 anos",
+      "status": "Atenção Moderada"
+    },
+    {
+      "id": "IND-08",
+      "tema": "1. Dados / Situação",
+      "nome": "Veículos Paralisados no Sistema há >12 Meses",
+      "valor": 1420,
+      "valor_fmt": "1.420 veículos",
+      "ref": "Art. 5º Dec. 47.539",
+      "status": "Passíveis de Baixa/Leilão"
+    },
+    {
+      "id": "IND-09",
+      "tema": "2. Manutenção",
+      "nome": "Dispêndio Total em Manutenção Aprovada",
+      "valor": 97667184.59,
+      "valor_fmt": "R$ 97.667.184,59",
+      "ref": "Base Transacional 350k OSs",
+      "status": "Auditado"
+    },
+    {
+      "id": "IND-10",
+      "tema": "2. Manutenção",
+      "nome": "Gasto com Aquisição de Peças",
+      "valor": 65805967.3,
+      "valor_fmt": "R$ 65.805.967,30 (67.4%)",
+      "ref": "68,2% do total",
+      "status": "Aderente"
+    },
+    {
+      "id": "IND-11",
+      "tema": "2. Manutenção",
+      "nome": "Gasto com Mão de Obra e Serviços",
+      "valor": 31861217.29,
+      "valor_fmt": "R$ 31.861.217,29 (32.6%)",
+      "ref": "31,8% do total",
+      "status": "Aderente"
+    },
+    {
+      "id": "IND-12",
+      "tema": "2. Manutenção",
+      "nome": "Razão Mão de Obra / Peças (Razão MO)",
+      "valor": 0.484,
+      "valor_fmt": "0,466",
+      "ref": "Faixa Aceitável: 0,40 a 0,55",
+      "status": "Equilibrado"
+    },
+    {
+      "id": "IND-13",
+      "tema": "2. Manutenção",
+      "nome": "Gasto Médio por Veículo que Realizou Manutenção",
+      "valor": 19710.83,
+      "valor_fmt": "R$ 19.710,83",
+      "ref": "7.580 veículos atendidos",
+      "status": "Média Global"
+    },
+    {
+      "id": "IND-14",
+      "tema": "2. Manutenção",
+      "nome": "Gasto Médio de Veículos Leves",
+      "valor": 7789.76,
+      "valor_fmt": "R$ 7.789,76",
+      "ref": "Passeio, Utilitários e Motos",
+      "status": "Dentro da Faixa"
+    },
+    {
+      "id": "IND-15",
+      "tema": "2. Manutenção",
+      "nome": "Gasto Médio de Veículos Pesados",
+      "valor": 20743.47,
+      "valor_fmt": "R$ 20.743,47",
+      "ref": "Caminhões, Ônibus e Viaturas Pesadas",
+      "status": "Custo Elevado"
+    },
+    {
+      "id": "IND-16",
+      "tema": "2. Manutenção",
+      "nome": "Cobertura do Modelo Centralizado GTM",
+      "valor": 98.4,
+      "valor_fmt": "98,4%",
+      "ref": "Meta de Centralização > 95%",
+      "status": "Alta Conformidade"
+    },
+    {
+      "id": "IND-17",
+      "tema": "3. Abastecimento",
+      "nome": "Consumo Total de Combustível em Valor",
+      "valor": 184250800.0,
+      "valor_fmt": "R$ 184.250.800,00",
+      "ref": "Faturamento Integrado de Combustíveis",
+      "status": "Auditado"
+    },
+    {
+      "id": "IND-18",
+      "tema": "3. Abastecimento",
+      "nome": "Consumo Total de Combustível em Volume",
+      "valor": 32840500.0,
+      "valor_fmt": "32.840.500 Litros",
+      "ref": "Gasolina, Etanol, Diesel S10",
+      "status": "Consolidado"
+    },
+    {
+      "id": "IND-19",
+      "tema": "3. Abastecimento",
+      "nome": "Abastecimentos com Preço Acima do Teto ANP",
+      "valor": 0.42,
+      "valor_fmt": "0,42% (1.380 reg.)",
+      "ref": "Limite: Preço Médio Municipal ANP",
+      "status": "Baixo Risco"
+    },
+    {
+      "id": "IND-20",
+      "tema": "3. Abastecimento",
+      "nome": "Cobertura do Modelo Cartão de Abastecimento",
+      "valor": 94.2,
+      "valor_fmt": "94,2%",
+      "ref": "Rede Credenciada Integrada",
+      "status": "Majoritário"
+    },
+    {
+      "id": "IND-21",
+      "tema": "3. Abastecimento",
+      "nome": "Cobertura do Modelo GTA (Postos Próprios)",
+      "valor": 5.8,
+      "valor_fmt": "5,8%",
+      "ref": "Guia de Tráfego e Abastecimento",
+      "status": "Específico"
+    },
+    {
+      "id": "IND-22",
+      "tema": "3. Abastecimento",
+      "nome": "Volume de Abastecimentos Fora do GTA",
+      "valor": 94.2,
+      "valor_fmt": "94,2%",
+      "ref": "Abastecimento Externo em Viagem",
+      "status": "Conforme Rede"
+    },
+    {
+      "id": "IND-23",
+      "tema": "3. Abastecimento",
+      "nome": "Desempenhos Improváveis de Consumo (<50% ou >150%)",
+      "valor": 1.85,
+      "valor_fmt": "1,85%",
+      "ref": "Desvios severos de km/L homologado",
+      "status": "Em Monitoramento"
+    },
+    {
+      "id": "IND-24",
+      "tema": "3. Abastecimento",
+      "nome": "Desempenho Médio Geral da Frota (km/L)",
+      "valor": 9.4,
+      "valor_fmt": "9,40 km/L",
+      "ref": "Média Ponderada da Frota Ativa",
+      "status": "Padrão Aceitável"
+    },
+    {
+      "id": "IND-25",
+      "tema": "3. Abastecimento",
+      "nome": "Desempenho Médio de Veículos a Diesel (km/L)",
+      "valor": 7.8,
+      "valor_fmt": "7,80 km/L",
+      "ref": "Caminhões e Camionetes Operacionais",
+      "status": "Eficiente"
+    },
+    {
+      "id": "IND-26",
+      "tema": "4. Atendimento / Uso",
+      "nome": "Atendimentos Improváveis (Velocidade ou Duração Atípica)",
+      "valor": 1.42,
+      "valor_fmt": "1,42%",
+      "ref": "Duração <4,8min ou >30d; Vel <1 ou >75 km/h",
+      "status": "Sob Controle"
+    },
+    {
+      "id": "IND-27",
+      "tema": "4. Atendimento / Uso",
+      "nome": "Quilometragem Total Percorrida Anual",
+      "valor": 48200000.0,
+      "valor_fmt": "48.200.000 km",
+      "ref": "Consolidação de Ordens e Hodômetros",
+      "status": "Consolidado"
+    },
+    {
+      "id": "IND-28",
+      "tema": "4. Atendimento / Uso",
+      "nome": "Horas Efetivas Trabalhadas com a Frota",
+      "valor": 3840000.0,
+      "valor_fmt": "3.840.000 h/ano",
+      "ref": "Jornadas em Operação Oficial",
+      "status": "Consolidado"
+    },
+    {
+      "id": "IND-29",
+      "tema": "4. Atendimento / Uso",
+      "nome": "Taxa de Ociosidade em Regime Padrão (8h/dia)",
+      "valor": 31.4,
+      "valor_fmt": "31,4%",
+      "ref": "Órgãos Administrativos Diretos (SEA/SED/SES)",
+      "status": "Potencial Otimização"
+    },
+    {
+      "id": "IND-30",
+      "tema": "4. Atendimento / Uso",
+      "nome": "Taxa de Ociosidade em Regime Integral (24h/dia)",
+      "valor": 12.8,
+      "valor_fmt": "12,8%",
+      "ref": "Forças de Segurança e Prontidão (PMSC/PC/CBMSC)",
+      "status": "Alta Demanda"
+    },
+    {
+      "id": "IND-31",
+      "tema": "4. Atendimento / Uso",
+      "nome": "Downtime Médio de Oficina (Dias Imobilizado)",
+      "valor": 23.5,
+      "valor_fmt": "23.5 dias (P90: 72.9d)",
+      "ref": "SLA Máximo Desejável: 15 dias",
+      "status": "Crítico / SLA Estourado"
+    },
+    {
+      "id": "IND-32",
+      "tema": "4. Atendimento / Uso",
+      "nome": "Confiabilidade da km Percorrida (Triangulação Hodômetro)",
+      "valor": 84.6,
+      "valor_fmt": "84.6%",
+      "ref": "Faixa 80% a 120% entre OSs e Abastecimento",
+      "status": "Aceitável / Guia GFI"
+    },
+    {
+      "id": "IND-33",
+      "tema": "5. Integridade e Prescrição",
+      "nome": "Ordens de Serviço com Anomalias Severas Auditadas",
+      "valor": 2336,
+      "valor_fmt": "2,336 OSs (1.04%)",
+      "ref": "Detecção Isolation Forest + Regras Especialistas",
+      "status": "Auditadas"
+    },
+    {
+      "id": "IND-34",
+      "tema": "5. Integridade e Prescrição",
+      "nome": "Veículos com Manutenção Onerosa (>40% do Valor Venal)",
+      "valor": 313,
+      "valor_fmt": "313 veículos (R$ 11.689.836,17)",
+      "ref": "Art. 5º Decreto Estadual nº 47.539/2018",
+      "status": "Leilão Imediato"
+    },
+    {
+      "id": "IND-35",
+      "tema": "5. Integridade e Prescrição",
+      "nome": "Volume Total Orçado Inicial em Processos Auditados",
+      "valor": 47763762.1,
+      "valor_fmt": "R$ 47.763.762,10",
+      "ref": "Propostas Iniciais de Oficinas Credenciadas",
+      "status": "Auditado"
+    },
+    {
+      "id": "IND-36",
+      "tema": "5. Integridade e Prescrição",
+      "nome": "Glosa Técnica e Economia Efetiva da Fiscalização SEA",
+      "valor": 22416134.53,
+      "valor_fmt": "R$ 22.416.134,53 (46.93%)",
+      "ref": "Corte de Itens Indevidos e Sobrepreço",
+      "status": "Economia Gerada"
+    },
+    {
+      "id": "IND-37",
+      "tema": "5. Integridade e Prescrição",
+      "nome": "Taxa Ponderada de Inflação Setorial de Frotas",
+      "valor": 6.08,
+      "valor_fmt": "6,08% ao ano",
+      "ref": "69,18% Autopeças (6,2%) + 30,82% MO (5,8%)",
+      "status": "Parâmetro LDO/LOA"
+    },
+    {
+      "id": "IND-38",
+      "tema": "5. Integridade e Prescrição",
+      "nome": "Economia Trienal Prescritiva Acumulada (2027–2029)",
+      "valor": 40088374.0,
+      "valor_fmt": "R$ 40.088.374,00",
+      "ref": "Modelo Prescritivo To-Be MILP vs Tendência Inercial",
+      "status": "Meta Estratégica"
+    }
+  ],
+  "tema_1_dados_situacao": {
+    "total_bens_patrimonio": 34280,
+    "veiculos_ativos": 12707,
+    "pct_ativos": 37.07,
+    "veiculos_baixados_ou_desfazimento": 21306,
+    "pct_baixados": 62.15,
+    "veiculos_doados": 260,
+    "idade_media_frota_anos": 8.7,
+    "idade_media_veiculos_leves_anos": 6.8,
+    "veiculos_paralisados_mais_12m": 1420
+  },
+  "tema_2_manutencao": {
+    "gasto_total_aprovado_rs": 97667184.59,
+    "gasto_total_aprovado_fmt": "R$ 97.667.184,59",
+    "gasto_pecas_rs": 65805967.3,
+    "gasto_pecas_fmt": "R$ 65.805.967,30",
+    "pct_pecas": 67.38,
+    "gasto_mao_obra_rs": 31861217.29,
+    "gasto_mao_obra_fmt": "R$ 31.861.217,29",
+    "pct_mao_obra": 32.62,
+    "veiculos_atendidos": 4955,
+    "gasto_medio_geral_por_veiculo_rs": 19710.83,
+    "gasto_medio_geral_por_veiculo_fmt": "R$ 19.710,83",
+    "gasto_medio_leves_rs": 7789.76,
+    "gasto_medio_leves_fmt": "R$ 7.789,76",
+    "gasto_medio_pesados_rs": 20743.47,
+    "gasto_medio_pesados_fmt": "R$ 20.743,47",
+    "cobertura_modelo_centralizado_gtm_pct": 98.4,
+    "manutencoes_improsaveis": {
+      "total_os_anomalas": 2336,
+      "pct_sobre_amostra_auditada": 0.85,
+      "casos_duracao_1d_valor_excessivo": 204,
+      "casos_downtime_extremo_mais_30d": 578,
+      "casos_hodometro_invalido": 2,
+      "gasto_comprometido_em_anomalias_rs": 25347627.57,
+      "gasto_comprometido_em_anomalias_fmt": "R$ 25.347.627,57"
+    },
+    "manutencao_onerosa_decreto_47539": {
+      "limiar_decreto": "40% do valor venal contábil",
+      "veiculos_enquadrados": 313,
+      "economia_potencial_desincorporacao_rs": 11689836.169999998,
+      "economia_potencial_desincorporacao_fmt": "R$ 11.689.836,17",
+      "recomendacao": "Desincorporação imediata e encaminhamento para leilão público (Lei 14.133/2021)"
+    }
+  },
+  "tema_3_atendimento_uso": {
+    "downtime_medio_oficina_dias": 23.5,
+    "downtime_mediana_oficina_dias": 4.2,
+    "downtime_p90_oficina_dias": 72.9,
+    "pico_downtime_dias": 180,
+    "confiabilidade_hodometro": {
+      "indice_conformidade_80_120_pct": 84.6,
+      "indice_desvio_inconsistente_pct": 15.4,
+      "status": "Faixa aceitável em conformidade com o Guia GFI Seplag"
+    },
+    "regimes_analisados": {
+      "regime_padrao_8h": "Órgãos Administrativos Diretos (SEA, SED, SES, SAPE)",
+      "regime_integral_24h": "Forças de Segurança e Prontidão (PMSC, PC, CBMSC)"
+    }
+  },
+  "tema_4_integridade_e_glosas": {
+    "total_orcado_processos_anomalos_rs": 47763762.1,
+    "total_orcado_processos_anomalos_fmt": "R$ 47.763.762,10",
+    "total_aprovado_processos_anomalos_rs": 25347627.57,
+    "total_aprovado_processos_anomalos_fmt": "R$ 25.347.627,57",
+    "glosa_fiscalizacao_tecnica_rs": 22416134.53,
+    "glosa_fiscalizacao_tecnica_fmt": "R$ 22.416.134,53",
+    "taxa_glosa_pct": 46.93
+  }
+}

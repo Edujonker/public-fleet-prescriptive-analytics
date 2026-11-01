@@ -1,0 +1,15 @@
+{
+  "total_os_auditadas": 77867,
+  "contaminacao_assumida": 0.03,
+  "num_estimadores": 250,
+  "total_anomalias": 2336,
+  "percentual_anomalias": 2.9999871575892225,
+  "media_valor_normal": 1501.529520991381,
+  "media_valor_anomalo": 10850.867966609589,
+  "mediana_valor_normal": 728.0,
+  "mediana_valor_anomalo": 8636.3,
+  "media_dias_normal": 10.880062880593362,
+  "media_dias_anomalo": 23.518489015074042,
+  "taxa_reprovadas_em_normais": 14.543697289854496,
+  "taxa_reprovadas_em_anomalas": 22.345890410958905
+}

@@ -1,0 +1,182 @@
+{
+  "metadados": {
+    "script": "03_analise_descritiva.py",
+    "timestamp_inicio": "2026-11-01T13:58:27.932939",
+    "timestamp_fim": "2026-11-01T13:58:29.071244",
+    "duracao_segundos": 1.14,
+    "status": "SUCESSO"
+  },
+  "estatisticas_gerais": [
+    {
+      "variavel": "Valor Aprovado por OS (R$)",
+      "n_observacoes": 60114,
+      "media": 2187.62,
+      "desvio_padrao": 3577.09,
+      "minimo": 8.42,
+      "q25": 410.0,
+      "mediana": 1149.0,
+      "q75": 2665.97,
+      "iqr": 2255.97,
+      "maximo": 165000.0,
+      "assimetria_skewness": 9.123,
+      "curtose": 207.277
+    },
+    {
+      "variavel": "Valor Orçado por OS (R$)",
+      "n_observacoes": 60114,
+      "media": 2241.52,
+      "desvio_padrao": 3676.05,
+      "minimo": 0.0,
+      "q25": 420.0,
+      "mediana": 1170.3,
+      "q75": 2722.95,
+      "iqr": 2302.95,
+      "maximo": 172370.0,
+      "assimetria_skewness": 8.984,
+      "curtose": 202.304
+    },
+    {
+      "variavel": "Subtotal Peças Aprovadas (R$)",
+      "n_observacoes": 60114,
+      "media": 1490.79,
+      "desvio_padrao": 2653.56,
+      "minimo": 0.0,
+      "q25": 106.2,
+      "mediana": 700.0,
+      "q75": 1831.87,
+      "iqr": 1725.67,
+      "maximo": 105398.0,
+      "assimetria_skewness": 8.136,
+      "curtose": 152.956
+    },
+    {
+      "variavel": "Subtotal Mão de Obra Aprovada (R$)",
+      "n_observacoes": 60114,
+      "media": 696.83,
+      "desvio_padrao": 1581.81,
+      "minimo": 0.0,
+      "q25": 108.5,
+      "mediana": 280.0,
+      "q75": 720.0,
+      "iqr": 611.5,
+      "maximo": 99990.0,
+      "assimetria_skewness": 15.055,
+      "curtose": 530.859
+    },
+    {
+      "variavel": "Quantidade de Itens por OS",
+      "n_observacoes": 60114,
+      "media": 4.45,
+      "desvio_padrao": 5.06,
+      "minimo": 1.0,
+      "q25": 1.0,
+      "mediana": 3.0,
+      "q75": 6.0,
+      "iqr": 5.0,
+      "maximo": 86.0,
+      "assimetria_skewness": 2.8,
+      "curtose": 12.313
+    },
+    {
+      "variavel": "Hodômetro Registrado (km)",
+      "n_observacoes": 60114,
+      "media": 154242.53,
+      "desvio_padrao": 186981.98,
+      "minimo": 0.0,
+      "q25": 44338.75,
+      "mediana": 103502.5,
+      "q75": 178980.0,
+      "iqr": 134641.25,
+      "maximo": 999999.0,
+      "assimetria_skewness": 2.657,
+      "curtose": 7.609
+    },
+    {
+      "variavel": "Duração de Reparo (horas)",
+      "n_observacoes": 60114,
+      "media": 323.51,
+      "desvio_padrao": 421.26,
+      "minimo": 0.02,
+      "q25": 67.0,
+      "mediana": 173.38,
+      "q75": 385.66,
+      "iqr": 318.66,
+      "maximo": 2160.0,
+      "assimetria_skewness": 2.512,
+      "curtose": 6.859
+    },
+    {
+      "variavel": "Idade do Veículo (anos)",
+      "n_observacoes": 60114,
+      "media": 9.12,
+      "desvio_padrao": 5.3,
+      "minimo": 0.0,
+      "q25": 5.0,
+      "mediana": 8.0,
+      "q75": 12.0,
+      "iqr": 7.0,
+      "maximo": 50.0,
+      "assimetria_skewness": 1.897,
+      "curtose": 8.85
+    }
+  ],
+  "testes_normalidade": [
+    {
+      "variavel": "Valor Aprovado",
+      "tamanho_amostra_teste": 5000,
+      "shapiro_wilk_w": 0.5563,
+      "shapiro_wilk_p_value": 1.3774315800706605e-77,
+      "dagostino_k2": 6136.63534,
+      "dagostino_p_value": 0.0,
+      "hipotese_gaussiana_rejeitada": true
+    },
+    {
+      "variavel": "Duração Reparo",
+      "tamanho_amostra_teste": 5000,
+      "shapiro_wilk_w": 0.68363,
+      "shapiro_wilk_p_value": 1.449665362119641e-70,
+      "dagostino_k2": 2644.77553,
+      "dagostino_p_value": 0.0,
+      "hipotese_gaussiana_rejeitada": true
+    },
+    {
+      "variavel": "Hodômetro",
+      "tamanho_amostra_teste": 5000,
+      "shapiro_wilk_w": 0.68866,
+      "shapiro_wilk_p_value": 3.059459967786497e-70,
+      "dagostino_k2": 2788.30362,
+      "dagostino_p_value": 0.0,
+      "hipotese_gaussiana_rejeitada": true
+    }
+  ],
+  "comparacoes_mann_whitney": [
+    {
+      "comparacao": "Corretiva vs Preventiva (Custo Aprovado)",
+      "grupo_1": "Corretiva",
+      "n1": 48958,
+      "mediana_1": 1274.6,
+      "grupo_2": "Preventiva",
+      "n2": 6365,
+      "mediana_2": 1227.13,
+      "u_statistic": 159058748.5,
+      "p_value": 0.006699816014718464,
+      "diferenca_estatisticamente_significativa": true
+    },
+    {
+      "comparacao": "Pesados vs Leves (Custo Aprovado)",
+      "grupo_1": "Pesados/Equipamentos",
+      "n1": 4156,
+      "mediana_1": 2017.18,
+      "grupo_2": "Leves",
+      "n2": 33894,
+      "mediana_2": 992.94,
+      "u_statistic": 94535667.5,
+      "p_value": 7.741428346704275e-285,
+      "diferenca_estatisticamente_significativa": true
+    }
+  ],
+  "figuras_geradas": [
+    "distribuicao_custos_log_boxplot.png",
+    "serie_temporal_mensal_despesas.png"
+  ]
+}

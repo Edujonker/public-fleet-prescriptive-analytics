@@ -1,0 +1,35 @@
+% Textuais/Capitulo13_Conclusoes.tex
+\chapter{CONCLUSÕES, SUSTENTAÇÃO DAS HIPÓTESES E RECOMENDAÇÕES ACADÊMICAS}
+\label{cap:conclusoes}
+
+A presente dissertação investigou a aplicação integrada de técnicas de aprendizado de máquina, inteligência artificial explicável, teoria dos grafos e programação matemática à gestão de frotas públicas. Os experimentos permitiram avaliar as quatro hipóteses formuladas, identificando resultados favoráveis à otimização prescritiva no cenário simulado, ganhos preditivos modestos decorrentes da integração de bases administrativas e limitações na concordância entre métodos de explicabilidade. Os resultados devem ser interpretados à luz das condições experimentais, das características dos dados utilizados e da ausência de validação prospectiva da economia projetada.
+
+\section{Síntese da Sustentação das Hipóteses}
+
+\begin{enumerate}
+    \item \textbf{Hipótese H1 -- NÃO SUSTENTADA SEGUNDO O CRITÉRIO DE RELEVÂNCIA PRÁTICA (apesar de ganho estatístico significante com $p < 10^{-6}$):}
+    \textit{Classificação epistemológica:} Sob a ótica puramente inferencial/estatística, a hipótese de ganho preditivo foi formalmente confirmada (Wilcoxon pareado $p < 10^{-6}$). Contudo, sob o critério de relevância prática e operacional previamente estabelecido (limiar mínimo de 15,0\% de redução do erro para justificar a sobrecarga de governança e engenharia de dados de integração contínua de bases heterogêneas), a hipótese H1 classifica-se formal e conclusivamente como \textbf{NÃO SUSTENTADA} (ganho observado de apenas 1,13\% no teste out-of-time e 0,41\% no estudo ablativo).
+    
+    \item \textbf{Hipótese H2 -- PARCIALMENTE SUSTENTADA:}
+    Os modelos ensemble baseados em árvores superaram categoricamente o regressor vetorial de suporte (SVR-RBF) em precisão preditiva (MAE de R\$ 2.236,06 vs R\$ 2.569,20; $p < 10^{-4}$) e em tempo computacional (1,8s vs inviabilidade $O(N^2)$). Na classificação de risco, o HistGB superou amplamente a Regressão Logística (ROC-AUC de 0,8743 vs 0,8268; $p < 10^{-50}$). Na regressão direta em MAE, a mediana teórica apresentou menor erro devido à forte assimetria ($L_1$), mas o HistGB reduziu o RMSE em 9,97\%.
+    
+    \item \textbf{Hipótese H3 -- SUSTENTADA NO CENÁRIO S0 E SIMULAÇÃO TRIENAL:}
+    O modelo prescritivo MILP convergiu para o ótimo global com Gap de Otimalidade certificado pelo solver HiGHS de 0,0000\% e diferença para a relaxação linear de 0,00057\% (R\$ 248,52), propiciando economia simulada de R\$ 9.302.147,26 (17,51\% sobre a linha de base inercial) no Cenário S0 com 100\% de cumprimento compulsório das manutenções de segurança.
+    
+    \item \textbf{Hipótese H4 -- NÃO SUSTENTADA NO LIMIAR A PRIORI ($>$85\%):}
+    A similaridade de Jaccard Top-5 entre SHAP e LIME foi de 39,29\% e correlação de Spearman de $\rho = 0,3680$, demonstrando a necessidade imperativa de protocolos de triangulação analítica multimetodológica na governança pública.
+\end{enumerate}
+
+\section{Validade Externa, Condições de Contorno e Generalização}
+
+A arquitetura apresenta potencial de adaptação a outros entes federativos, condicionado à compatibilidade estrutural e semântica das bases administrativas, à disponibilidade dos atributos requeridos e à parametrização das restrições normativas e operacionais locais. Conforme as características dos sistemas institucionais, poderão ser necessárias adaptações nas rotinas de ingestão, integração, processamento e validação dos dados.
+
+O arcabouço metodológico ancora-se em quatro dimensões:
+\begin{itemize}
+    \item \textbf{Diversidade Amostral Interna:} Cobertura de 34.280 veículos e 77.867 ordens de serviço (regimes severos, saúde, fiscalização e administrativos leves).
+    \item \textbf{Parametrização Exógena:} Desacoplamento entre formulação matemática e parâmetros normativos locais (teto de 40\% de antieconomicidade, orçamentos e prazos de desincorporação).
+    \item \textbf{Compatibilidade Contratual:} O arcabouço analítico ancora-se no modelo de contratação de manutenção terceirizada mediante catálogos de tempo-padrão de montadora e tabelas referenciais de peças (como Sintec e Audatex), \textbf{modelo de contratação utilizado em diferentes administrações públicas} sob a Lei Federal nº 14.133/2021.
+    \item \textbf{Resiliência sob Estresse Macroeconômico:} Estabilidade de 96,4\% da base de variáveis ativas de decisão em 1.000 iterações de Monte Carlo com inflação setorial de 6,08\% a.a.
+\end{itemize}
+
+No benchmark computacional sintético calibrado (Base B), \textbf{27 veículos (5,4\% da frota sintética) foram sinalizados pelo critério simulado de antieconomicidade}. Ressalva-se que esse teste em benchmark sintético demonstra a execução do pipeline no cenário sintético avaliado e a estabilidade numérica das formulações, mas não substitui validações empíricas prospectivas em bases administrativas de outros entes federativos.

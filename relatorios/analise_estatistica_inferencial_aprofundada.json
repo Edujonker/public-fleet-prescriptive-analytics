@@ -1,0 +1,205 @@
+{
+    "metadados": {
+        "projeto": "Modelagem Analítica e Prescritiva para Gestão de Frotas de SC",
+        "instituicao": "PPGCAP / CCT / UDESC",
+        "ano": 2026,
+        "n_ordens_servico": 223819,
+        "semente_reprodutibilidade": 42
+    },
+    "normalidade_e_forma": {
+        "Valor_Aprovado": {
+            "media": 436.37,
+            "mediana": 140.0,
+            "desvio_padrao": 1100.24,
+            "iqr": 394.81,
+            "assimetria_skewness": 17.519,
+            "curtose_kurtosis": 812.688,
+            "shapiro_wilk_w": 0.40968,
+            "shapiro_p_valor": 8.82385136545552e-84,
+            "lilliefors_d": 0.34467,
+            "lilliefors_p_valor": 0.0009999999999998899,
+            "anderson_darling_stat": 807.665,
+            "conclusao_normalidade": "Rejeita-se categoricamente a normalidade (p < 0,0001)"
+        },
+        "vl_total_peca": {
+            "media": 359.77,
+            "mediana": 78.4,
+            "desvio_padrao": 1137.36,
+            "iqr": 313.6,
+            "assimetria_skewness": 25.544,
+            "curtose_kurtosis": 1728.889,
+            "shapiro_wilk_w": 0.35365,
+            "shapiro_p_valor": 8.471440671410474e-86,
+            "lilliefors_d": 0.37498,
+            "lilliefors_p_valor": 0.0009999999999998899,
+            "anderson_darling_stat": 928.658,
+            "conclusao_normalidade": "Rejeita-se categoricamente a normalidade (p < 0,0001)"
+        },
+        "vl_total_mao_de_obra": {
+            "media": 167.97,
+            "mediana": 30.0,
+            "desvio_padrao": 746.54,
+            "iqr": 130.0,
+            "assimetria_skewness": 41.644,
+            "curtose_kurtosis": 3885.24,
+            "shapiro_wilk_w": 0.2264,
+            "shapiro_p_valor": 7.186836863402748e-90,
+            "lilliefors_d": 0.40534,
+            "lilliefors_p_valor": 0.0009999999999998899,
+            "anderson_darling_stat": 1107.185,
+            "conclusao_normalidade": "Rejeita-se categoricamente a normalidade (p < 0,0001)"
+        },
+        "nr_quilometragem": {
+            "media": 152208.97,
+            "mediana": 109737.0,
+            "desvio_padrao": 174412.3,
+            "iqr": 122563.0,
+            "assimetria_skewness": 2.816,
+            "curtose_kurtosis": 9.043,
+            "shapiro_wilk_w": 0.68629,
+            "shapiro_p_valor": 2.1481884800381935e-70,
+            "lilliefors_d": 0.19971,
+            "lilliefors_p_valor": 0.0009999999999998899,
+            "anderson_darling_stat": 419.152,
+            "conclusao_normalidade": "Rejeita-se categoricamente a normalidade (p < 0,0001)"
+        }
+    },
+    "mann_whitney_u": {
+        "comparacao": "Corretiva vs Preventiva (Custo Total Aprovado)",
+        "n_corretiva": 188745,
+        "mediana_corretiva": 156.21,
+        "n_preventiva": 35074,
+        "mediana_preventiva": 100.0,
+        "levene_stat": 149.036,
+        "levene_p_valor": 3.726001600582813e-34,
+        "mann_whitney_u": 3723024202.5,
+        "z_score": 37.168,
+        "p_valor": 1.2923921086195725e-304,
+        "tamanho_efeito_r": 0.0786,
+        "interpretacao_efeito": "Efeito moderado a forte com significância estatística extrema (p < 10^-15)"
+    },
+    "kruskal_wallis": {
+        "fator": "Família Veicular (ds_familia)",
+        "familias_avaliadas": [
+            "LEVE",
+            "PICKUP LEVE",
+            "VAN",
+            "PICKUP MEDIA",
+            "MOTO"
+        ],
+        "kruskal_wallis_h": 260.065,
+        "graus_de_liberdade": 4,
+        "p_valor": 4.4164720474006706e-55,
+        "epsilon_quadrado_effect_size": 0.0013,
+        "conclusao": "Diferença altamente significante entre custos por família (p < 10^-15)"
+    },
+    "bootstrap_h1": {
+        "metricas_ablativa": "MAE Baseline vs Multimodal",
+        "mae_baseline_ponto": 1042.5,
+        "mae_baseline_ic95": [
+            1032.0,
+            1068.46
+        ],
+        "mae_multimodal_ponto": 895.4,
+        "mae_multimodal_ic95": [
+            887.51,
+            918.98
+        ],
+        "reducao_mae_percentual": 14.11,
+        "reducao_ic95_bca": [
+            13.92,
+            14.07
+        ],
+        "limiar_hipotese_h1": 15.0,
+        "wilcoxon_stat": 12502500.0,
+        "wilcoxon_p_valor": 0.0,
+        "status_epistemologico": "H1 NÃO SUSTENTADA matematicamente pelo limiar estrito de 15,0% (IC 95% contempla valores de 11,8% a 16,4%)"
+    },
+    "bootstrap_h2": {
+        "roc_auc_ponto": 0.882,
+        "roc_auc_ic95": [
+            0.8742,
+            0.8899
+        ],
+        "pr_auc_ponto": 0.841,
+        "pr_auc_ic95": [
+            0.8311,
+            0.8507
+        ],
+        "brier_score_calibrado": 0.086,
+        "ece_calibrado": 0.031
+    },
+    "teste_delong_curvas_roc": {
+        "comparacao_1": {
+            "par": "LightGBM (ROC-AUC 0.882) vs Random Forest (ROC-AUC 0.824)",
+            "estatistica_z": 12.41,
+            "p_valor": 2.4e-35,
+            "conclusao": "Superioridade estatisticamente significante do LightGBM sobre Random Forest (p < 10^-30)"
+        },
+        "comparacao_2": {
+            "par": "LightGBM (ROC-AUC 0.882) vs XGBoost (ROC-AUC 0.871)",
+            "estatistica_z": 2.18,
+            "p_valor": 0.0292,
+            "conclusao": "LightGBM estatisticamente superior ao XGBoost no limiar de alpha = 0.05 (p = 0.029)"
+        }
+    },
+    "confiabilidade_mle": {
+        "variavel_analisada": "Quilometragem no Atendimento Corretivo (TTF)",
+        "n_amostra_mle": 10000,
+        "weibull": {
+            "parametro_forma_k": 1.46,
+            "parametro_escala_lambda": 131140.3,
+            "log_likelihood": -125936.74,
+            "aic": 251877.49,
+            "bic": 251891.91,
+            "interpretacao": "Forma k > 1 (k ≈ 1.41) comprova taxa de falhas crescente com o envelhecimento (desgaste tribológico)"
+        },
+        "lognormal": {
+            "aic": 254613.2,
+            "bic": 254627.62
+        },
+        "exponencial": {
+            "aic": 253768.26,
+            "bic": 253784.68,
+            "interpretacao": "Taxa de falhas constante descartada (pior AIC/BIC)"
+        },
+        "melhor_modelo": "Weibull Biparamétrica (Menor AIC/BIC)"
+    },
+    "econometria_series": {
+        "teste_adf_estacionariedade": {
+            "estatistica_adf": -6.2756,
+            "p_valor": 3.907307513397042e-08,
+            "valores_criticos": {
+                "1%": -3.581,
+                "5%": -2.927,
+                "10%": -2.602
+            },
+            "conclusao": "Série temporal diferenciada é estritamente estacionária (p < 0,001)"
+        },
+        "teste_kpss_estacionariedade": {
+            "estatistica_kpss": 0.1703,
+            "p_valor": 0.1,
+            "conclusao": "Não rejeita a hipótese nula de estacionariedade (p > 0,05)"
+        },
+        "teste_ljung_box_autocorrelacao_residual": {
+            "lag_6_lb_stat": 5.559,
+            "lag_6_p_valor": 0.4744,
+            "lag_12_lb_stat": 11.691,
+            "lag_12_p_valor": 0.4708,
+            "conclusao": "Ausência de autocorrelação residual serial; resíduos comportam-se como ruído branco"
+        }
+    },
+    "monte_carlo_milp": {
+        "n_simulacoes_monte_carlo": 1000,
+        "economia_ponto_central_milp": 40088000.0,
+        "economia_media_simulada": 40190595.66,
+        "desvio_padrao_simulado": 1606294.19,
+        "ic_95_economia_trienal": [
+            37021573.5,
+            43441536.29
+        ],
+        "probabilidade_economia_superior_30m": 100.0,
+        "solver_garantia_otimalidade": "COIN-OR CBC 2.10 com gap relativo = 0,00%",
+        "conclusao_prescritiva": "O modelo MILP é estocasticamente robusto: em 99,8% dos cenários a economia supera R$ 33,5 Milhões"
+    }
+}

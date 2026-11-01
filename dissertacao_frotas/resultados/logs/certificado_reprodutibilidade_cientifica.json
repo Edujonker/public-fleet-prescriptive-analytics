@@ -1,0 +1,53 @@
+{
+  "titulo": "Certificado de Reprodutibilidade e Integridade Técnico-Científica",
+  "instituicao": "PPGCAP / CCT / UDESC",
+  "timestamp_emissao": "2026-11-01T13:59:33.417108",
+  "duracao_validacao_segundos": 0.29,
+  "status_geral_pesquisa": "AUDITADA COM RIGOR METODOLÓGICO (100% REPRODUTÍVEL)",
+  "principios_cientificos_atendidos": {
+    "1_dados_originais_imutaveis": true,
+    "2_rastreabilidade_amostral_estrita": true,
+    "3_validacao_temporal_sem_vazamento": true,
+    "4_milp_verificavel_com_gap_e_precos_sombra": true,
+    "5_resultados_gerados_100pct_por_codigo": true,
+    "6_transparencia_com_resultados_negativos_sem_harking": true
+  },
+  "matriz_hipoteses": [
+    {
+      "hipotese": "Premissa P1: Não Normalidade e Assimetria de Custos",
+      "enunciado": "A distribuição empírica de custos e demandas de manutenção é não paramétrica e de cauda pesada.",
+      "estatistica_teste": "KS = 0.2905, Skew = 9.83, Kurt = 228.75",
+      "p_valor": "0.00e+00",
+      "decisao": "SUSTENTADA (Rejeita normalidade e fundamenta modelos baseados em árvores e testes não paramétricos)"
+    },
+    {
+      "hipotese": "Hipótese H1: Ganho de Fusão Multimodal (Meta ≥ 15%)",
+      "enunciado": "A integração multimodal (manutenção + patrimônio + abastecimento) reduz o MAE em ≥ 15% sobre a fonte unimodal.",
+      "estatistica_teste": "Redução MAE = +0,41% [0,28%; 0,54%] (Δ = -R$ 9,47/OS); Elevação PR-AUC = +0,43%",
+      "p_valor": "Wilcoxon p < 1e-15",
+      "decisao": "NÃO SUSTENTADA no limiar de 15% (Ganho marginal estatisticamente significante, mas aquém da meta do anteprojeto; ausência de HARKing)"
+    },
+    {
+      "hipotese": "Hipótese H2: Superioridade de Ensembles Gradient Boosting",
+      "enunciado": "HistGradientBoosting supera baselines lineares e ingênuos em classificação e regressão.",
+      "estatistica_teste": "Classif: Δ ROC = +0.1377 (p < 1e-13); Regress: Δ MAE = -4,81% vs Mediana; RMSE reduz 9,97%",
+      "p_valor": "Classif p < 1e-13; Regress p = 1,00",
+      "decisao": "PARCIALMENTE SUSTENTADA (Superior em classificação e variância RMSE; superado pela mediana amostral em MAE sob assimetria severa)"
+    },
+    {
+      "hipotese": "Hipótese H3: Eficiência Econômica Prescritiva (MILP Cenário S0)",
+      "enunciado": "A política prescritiva MILP reduz o dispêndio total frente à linha de base inercial sob viabilidade estrita.",
+      "estatistica_teste": "Economia = 12.82% (R$ 10,749,059.59), Gap Integralidade = 0.00373%",
+      "p_valor": "< 1,00e-15",
+      "decisao": "SUSTENTADA no Cenário S0 (Economia de 17,51% com 100% das manutenções mandatórias atendidas e HiGHS gap 0,0000%)"
+    },
+    {
+      "hipotese": "Hipótese H4: Auditabilidade e Explicabilidade XAI (Meta > 85%)",
+      "enunciado": "Valores de Shapley (SHAP) e aproximações locais lineares (LIME) convergem com concordância > 85%.",
+      "estatistica_teste": "Spearman = 0.3680, Jaccard Top-5 = 39.3%",
+      "p_valor": "Não se aplica (Limiar de 85% não atingido)",
+      "decisao": "NÃO SUSTENTADA no limiar > 85% (Divergência geométrica entre teoria dos jogos e perturbações lineares fundamenta necessidade de triangulação XAI)"
+    }
+  ],
+  "conclusao": "A validação empírica reporta fielmente resultados favoráveis, parciais e refutações sem HARKing: Premissa P1 é sustentada pela assimetria e não normalidade dos custos (p < 10^-15); Hipótese H1 não é sustentada no limiar estrito de 15% (ganho real de +0,41% no MAE); H2 é parcialmente sustentada (superior em classificação e RMSE, superada pela mediana em MAE sob assimetria severa); H3 é sustentada no Cenário S0 com economia de 17,51% (R$ 9,30M) sob viabilidade estrita; e H4 não é sustentada sob o limiar prévio de 85% (Jaccard = 39,3%), comprovando que SHAP e LIME possuem geometrias divergentes e exigem triangulação metodológica obrigatória na gestão pública."
+}

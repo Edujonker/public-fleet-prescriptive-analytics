@@ -1,0 +1,39 @@
+﻿Código;Tema GFI;Indicador Monitorado;Valor Apurado;Parâmetro Normativo;Status;Criticidade
+IND-01;1. Dados / Situação;Total de Bens Registrados no Patrimônio;34,280 bens;Inventário Geral Siad;Consolidado;NORMAL
+IND-02;1. Dados / Situação;Veículos Ativos em Circulação;12,707 (37.1%);Operação Regular;Ativo;NORMAL
+IND-03;1. Dados / Situação;Veículos Baixados ou em Desfazimento;21,306 (62.2%);Histórico Acumulado;Inativo;NORMAL
+IND-04;1. Dados / Situação;Veículos Doados a Municípios e Entidades;260 (0.76%);Alienação Gratuita;Doados;NORMAL
+IND-05;1. Dados / Situação;Taxa de Crescimento Anual da Frota;+2,10% a.a.;Evolução Histórica;Expansão Controlada;NORMAL
+IND-06;1. Dados / Situação;Idade Média da Frota Geral;8,7 anos;Meta de Referência < 7,0 anos;Envelhecida;ALERTA
+IND-07;1. Dados / Situação;Idade Média de Veículos Leves;6,8 anos;Meta de Referência < 5,0 anos;Atenção Moderada;ALERTA
+IND-08;1. Dados / Situação;Veículos Paralisados no Sistema há >12 Meses;1.420 veículos;Art. 5º Dec. 47.539;Passíveis de Baixa/Leilão;CRITICA
+IND-09;2. Manutenção;Dispêndio Total em Manutenção Aprovada;R$ 138.759.653,82;Base Transacional 350k OSs;Auditado;NORMAL
+IND-10;2. Manutenção;Gasto com Aquisição de Peças;R$ 94.647.192,74 (68.2%);68,2% do total;Aderente;NORMAL
+IND-11;2. Manutenção;Gasto com Mão de Obra e Serviços;R$ 44.112.461,08 (31.8%);31,8% do total;Aderente;NORMAL
+IND-12;2. Manutenção;Razão Mão de Obra / Peças (Razão MO);0,466;Faixa Aceitável: 0,40 a 0,55;Equilibrado;NORMAL
+IND-13;2. Manutenção;Gasto Médio por Veículo que Realizou Manutenção;R$ 18.306,02;7.580 veículos atendidos;Média Global;NORMAL
+IND-14;2. Manutenção;Gasto Médio de Veículos Leves;R$ 7.415,08;Passeio, Utilitários e Motos;Dentro da Faixa;NORMAL
+IND-15;2. Manutenção;Gasto Médio de Veículos Pesados;R$ 18.946,49;Caminhões, Ônibus e Viaturas Pesadas;Custo Elevado;NORMAL
+IND-16;2. Manutenção;Cobertura do Modelo Centralizado GTM;98,4%;Meta de Centralização > 95%;Alta Conformidade;NORMAL
+IND-17;3. Abastecimento;Consumo Total de Combustível em Valor;R$ 184.250.800,00;Faturamento Integrado de Combustíveis;Auditado;NORMAL
+IND-18;3. Abastecimento;Consumo Total de Combustível em Volume;32.840.500 Litros;Gasolina, Etanol, Diesel S10;Consolidado;NORMAL
+IND-19;3. Abastecimento;Abastecimentos com Preço Acima do Teto ANP;0,42% (1.380 reg.);Limite: Preço Médio Municipal ANP;Baixo Risco;NORMAL
+IND-20;3. Abastecimento;Cobertura do Modelo Cartão de Abastecimento;94,2%;Rede Credenciada Integrada;Majoritário;NORMAL
+IND-21;3. Abastecimento;Cobertura do Modelo GTA (Postos Próprios);5,8%;Guia de Tráfego e Abastecimento;Específico;NORMAL
+IND-22;3. Abastecimento;Volume de Abastecimentos Fora do GTA;94,2%;Abastecimento Externo em Viagem;Conforme Rede;NORMAL
+IND-23;3. Abastecimento;Desempenhos Improváveis de Consumo (<50% ou >150%);1,85%;Desvios severos de km/L homologado;Em Monitoramento;ALERTA
+IND-24;3. Abastecimento;Desempenho Médio Geral da Frota (km/L);9,40 km/L;Média Ponderada da Frota Ativa;Padrão Aceitável;NORMAL
+IND-25;3. Abastecimento;Desempenho Médio de Veículos a Diesel (km/L);7,80 km/L;Caminhões e Camionetes Operacionais;Eficiente;NORMAL
+IND-26;4. Atendimento / Uso;Atendimentos Improváveis (Velocidade ou Duração Atípica);1,42%;"Duração <4,8min ou >30d; Vel <1 ou >75 km/h";Sob Controle;NORMAL
+IND-27;4. Atendimento / Uso;Quilometragem Total Percorrida Anual;48.200.000 km;Consolidação de Ordens e Hodômetros;Consolidado;NORMAL
+IND-28;4. Atendimento / Uso;Horas Efetivas Trabalhadas com a Frota;3.840.000 h/ano;Jornadas em Operação Oficial;Consolidado;NORMAL
+IND-29;4. Atendimento / Uso;Taxa de Ociosidade em Regime Padrão (8h/dia);31,4%;Órgãos Administrativos Diretos (SEA/SED/SES);Potencial Otimização;ALERTA
+IND-30;4. Atendimento / Uso;Taxa de Ociosidade em Regime Integral (24h/dia);12,8%;Forças de Segurança e Prontidão (PMSC/PC/CBMSC);Alta Demanda;NORMAL
+IND-31;4. Atendimento / Uso;Downtime Médio de Oficina (Dias Imobilizado);23.5 dias (P90: 72.9d);SLA Máximo Desejável: 15 dias;Crítico / SLA Estourado;CRITICA
+IND-32;4. Atendimento / Uso;Confiabilidade da km Percorrida (Triangulação Hodômetro);84.6%;Faixa 80% a 120% entre OSs e Abastecimento;Aceitável / Guia GFI;NORMAL
+IND-33;5. Integridade e Prescrição;Ordens de Serviço com Anomalias Severas Auditadas;2,336 OSs (0.67%);Detecção Isolation Forest + Regras Especialistas;Auditadas;NORMAL
+IND-34;5. Integridade e Prescrição;Veículos com Manutenção Onerosa (>40% do Valor Venal);313 veículos (R$ 11.689.836,17);Art. 5º Decreto Estadual nº 47.539/2018;Leilão Imediato;CRITICA
+IND-35;5. Integridade e Prescrição;Volume Total Orçado Inicial em Processos Auditados;R$ 47.763.762,10;Propostas Iniciais de Oficinas Credenciadas;Auditado;NORMAL
+IND-36;5. Integridade e Prescrição;Glosa Técnica e Economia Efetiva da Fiscalização SEA;R$ 22.416.134,53 (46.93%);Corte de Itens Indevidos e Sobrepreço;Economia Gerada;NORMAL
+IND-37;5. Integridade e Prescrição;Taxa Ponderada de Inflação Setorial de Frotas;6,08% ao ano;69,18% Autopeças (6,2%) + 30,82% MO (5,8%);Parâmetro LDO/LOA;NORMAL
+IND-38;5. Integridade e Prescrição;Economia Trienal Prescritiva Acumulada (2027–2029);R$ 40.088.374,00;Modelo Prescritivo To-Be MILP vs Tendência Inercial;Meta Estratégica;NORMAL

@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-11-01T14:18:18.600123",
+  "score_seguranca": 100.0,
+  "total_arquivos_analisados": 359,
+  "distribuicao_linguagens": {
+    ".py": 209,
+    ".env": 2,
+    ".sh": 8,
+    ".example": 2,
+    ".json": 119,
+    ".html": 9,
+    ".yml": 2,
+    ".yaml": 2,
+    ".css": 2,
+    ".js": 4
+  },
+  "bancos_dados": [
+    {
+      "motor": "Mongita Disk Engine (MongoDB Compatible)",
+      "caminho": "sistema_gestao_frotas/dados/mongodb_data",
+      "tamanho_mb": 0.0,
+      "criptografia_repouso": "Ativa (Controle de acesso por permissão de SO e Argon2id para senhas)",
+      "politica_senhas": "Mínimo 8 caracteres, maiúscula, minúscula, números e caractere especial (rejeita puramente numéricas)",
+      "isolamento_rede": "Execução Local Standalone (Sem exposição de porta TCP desprotegida para a Internet)",
+      "indices_unicos": "Ativos (Unique Index em 'cpf' e 'username')",
+      "status": "APROVADO"
+    },
+    {
+      "motor": "SQLite 3 (sistema_seguro.db)",
+      "caminho": "dados/sistema_seguro.db",
+      "tamanho_mb": 0.05,
+      "tabelas_auditadas": 5,
+      "criptografia_repouso": "Modo Read-Only / Analítico Confinado",
+      "status": "APROVADO"
+    },
+    {
+      "motor": "SQLite 3 (resultados_dissertacao.db)",
+      "caminho": "dados/resultados_dissertacao.db",
+      "tamanho_mb": 566.83,
+      "tabelas_auditadas": 24,
+      "criptografia_repouso": "Modo Read-Only / Analítico Confinado",
+      "status": "APROVADO"
+    }
+  ],
+  "total_achados": 0,
+  "achados": []
+}

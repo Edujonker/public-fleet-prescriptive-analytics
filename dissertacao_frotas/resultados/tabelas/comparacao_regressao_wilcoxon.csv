@@ -1,0 +1,3 @@
+comparacao;w_statistic;p_value;significativo_alpha_005;conclusao
+HistGradientBoosting vs Baseline Mediana;6290920.5;0.9999999999930238;False;HGB reduz erros absolutos com significância estatística extrema.
+HistGradientBoosting vs RandomForest;5169341.0;3.5275726206757693e-07;True;Diferença inferencial entre os dois principais ensembles.

@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Sistema Integrado de Gestão de Frotas, Rastreamento GPS em Tempo Real, Telemetria IoT, Abastecimento Antifraude, Manutenção Preventiva e Compliance.">
+  <title>FrotaSaaS Enterprise | Gestão de Frotas & Telemetria IoT</title>
+
+  <!-- PWA Manifest & Favicon -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text x='50' y='65' font-size='50' text-anchor='middle' fill='white'>🚛</text></svg>">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Leaflet.js para Rastreamento GPS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Estilos Customizados -->
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       TELA DE LOGIN OBRIGATÓRIA - FROTAGOV (GOVERNO DE SC)
+       ===================================================================== -->
+  <div id="auth-screen" class="auth-screen-overlay">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-badge-icon">🏛️</div>
+        <h2 class="auth-title">FROTAGOV</h2>
+        <p class="auth-subtitle">Gestão Integrada de Frotas Públicas & Telemetria IoT<br>Governo do Estado de Santa Catarina</p>
+      </div>
+
+      <form id="form-login-frotagov" class="auth-form" onsubmit="event.preventDefault(); executarLoginFROTAGOV();">
+        <div class="auth-field">
+          <label class="auth-label" for="login-cpf-usuario">
+            <span>Identificação (CPF do Usuário)</span>
+            <span style="font-size: 11px; color: #1e40af; cursor: pointer;" onclick="preencherDemoLogin('admin', 'Iprev@2021')">Preencher Admin</span>
+          </label>
+          <div class="auth-input-wrapper">
+            <span class="auth-input-icon">👤</span>
+            <input 
+              type="text" 
+              id="login-cpf-usuario" 
+              class="auth-input" 
+              placeholder="Digite seu CPF (ou 'admin')" 
+              required 
+              autocomplete="username"
+              autofocus
+            />
+          </div>
+        </div>
+
+        <div class="auth-field">
+          <label class="auth-label" for="login-senha-usuario">
+            <span>Senha de Acesso</span>
+          </label>
+          <div class="auth-input-wrapper">
+            <span class="auth-input-icon">🔒</span>
+            <input 
+              type="password" 
+              id="login-senha-usuario" 
+              class="auth-input" 
+              placeholder="Digite sua senha forte" 
+              required 
+              autocomplete="current-password"
+              oninput="verificarForcaSenhaFrontend(this.value)"
+            />
+            <button type="button" class="auth-toggle-pass" onclick="alternarVisibilidadeSenha()" title="Mostrar/Ocultar Senha">👁️</button>
+          </div>
+        </div>
+
+        <!-- Indicador Dinâmico de Força de Senha -->
+        <div class="password-criteria-box">
+          <div style="font-weight: 700; color: #1e293b; margin-bottom: 2px;">Critérios de Segurança da Senha (ISO 27001):</div>
+          <div id="crit-length" class="criteria-item invalid">
+            <span class="criteria-dot"></span> Mínimo de 8 caracteres
+          </div>
+          <div id="crit-not-numeric" class="criteria-item invalid">
+            <span class="criteria-dot"></span> Não aceita senha apenas numérica
+          </div>
+          <div id="crit-upper-lower" class="criteria-item invalid">
+            <span class="criteria-dot"></span> Letras maiúscula (A-Z) e minúscula (a-z)
+          </div>
+          <div id="crit-number-special" class="criteria-item invalid">
+            <span class="criteria-dot"></span> Número (0-9) e caractere especial (@, #, $, etc.)
+          </div>
+        </div>
+
+        <!-- Card de Demonstração Rápida -->
+        <div class="demo-hint-card">
+          <strong>🔐 Acesso Inicial de Administrador:</strong>
+          <div>Usuário / CPF: <code>000.000.000-00</code> ou <code>admin</code></div>
+          <div>Senha Padrão: <code>Iprev@2021</code></div>
+          <button type="button" class="demo-credentials-btn" onclick="preencherDemoLogin('000.000.000-00', 'Iprev@2021')">
+            ⚡ Usar Credenciais Oficiais (Iprev@2021)
+          </button>
+        </div>
+
+        <button type="submit" id="btn-submit-login" class="btn-auth-submit">
+          <span>Acessar Módulos do FROTAGOV</span>
+          <span>➔</span>
+        </button>
+      </form>
+
+      <div class="auth-footer-info">
+        Protegido por Criptografia Argon2id & Tokens HMAC-SHA256 • Conformidade LGPD & ISO/IEC 25010
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       SIDEBAR DE NAVEGAÇÃO DESKTOP (FROTAGOV)
+       ===================================================================== -->
+  <aside class="sidebar">
+    <div class="brand-container">
+      <div class="brand-icon">🏛️</div>
+      <div>
+        <div class="brand-title">FROTAGOV</div>
+        <div class="brand-subtitle">Governo de SC • Gestão 2.0</div>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <div class="nav-section-label">Visão Geral</div>
+      <a class="nav-item active" data-tab="dashboard">
+        <span class="icon">📊</span> Painel Executivo
+      </a>
+      <a class="nav-item" data-tab="rastreamento">
+        <span class="icon">🛰️</span> Telemetria & Mapa
+
+      </a>
+
+      <div class="nav-section-label">Operação & Custos</div>
+      <a class="nav-item" data-tab="cadastro-veiculos" style="border-left: 3px solid #10b981; background: rgba(16, 185, 129, 0.08);">
+        <span class="icon">📝</span> Cadastro Manual & IoT
+      </a>
+      <a class="nav-item" data-tab="abastecimento">
+        <span class="icon">⛽</span> Abastecimento & Postos
+      </a>
+      <a class="nav-item" data-tab="manutencao">
+        <span class="icon">🔧</span> Manutenção & Pneus
+      </a>
+      <a class="nav-item" data-tab="viagens">
+        <span class="icon">🚀</span> Viagens & Checklist
+      </a>
+
+      <div class="nav-section-label">Gestão & Inteligência</div>
+      <a class="nav-item" data-tab="compliance">
+        <span class="icon">⚖️</span> Compliance & Multas
+      </a>
+      <a class="nav-item" data-tab="relatorios">
+        <span class="icon">📈</span> Relatórios & TCO
+      </a>
+      <a class="nav-item" data-tab="prescritivo">
+        <span class="icon">🎯</span> Prescrição 360° IA
+      </a>
+      <a class="nav-item" data-tab="seguranca">
+        <span class="icon">🔑</span> Segurança & API Keys
+      </a>
+      <a class="nav-item" data-tab="ai-copilot" style="border-left: 3px solid #38bdf8; background: rgba(56, 189, 248, 0.08);">
+        <span class="icon">🤖</span> Copilot IA & Chat
+      </a>
+      <a class="nav-item" data-tab="iso25010-sc" style="border-left: 3px solid #f59e0b; background: rgba(245, 158, 11, 0.08);">
+        <span class="icon">🏛️</span> ISO 25010 & Contrato SC
+      </a>
+    </nav>
+
+
+    <div class="sidebar-footer">
+      <div class="user-profile-badge">
+        <div class="user-avatar" id="sidebar-user-avatar">AG</div>
+        <div class="user-info">
+          <div class="user-name" id="sidebar-user-name">Administrador Geral</div>
+          <div class="user-role" id="sidebar-user-cpf">CPF: 000.000.000-00 • ADMIN</div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline" onclick="executarLogoutFROTAGOV();" style="width: 100%; margin-top: 10px; font-size: 12px; padding: 6px 10px; color: #dc2626; border-color: #fecaca; background: #fff5f5; display: flex; align-items: center; justify-content: center; gap: 6px;">
+        <span>🚪</span> Sair do Sistema
+      </button>
+    </div>
+  </aside>
+
+  <!-- =====================================================================
+       MAIN WRAPPER & CABEÇALHO SUPERIOR
+       ===================================================================== -->
+  <div class="main-wrapper">
+    <header class="top-header">
+      <div class="header-left">
+        <h1 class="page-title" id="current-page-title">Painel Executivo & Indicadores</h1>
+        
+        <!-- Seletor Multi-Secretaria -->
+        <select class="secretaria-select" id="select-secretaria" title="Filtrar por Secretaria / Departamento">
+          <option value="">🏢 Todas as Secretarias (Visão Global)</option>
+          <option value="SECRETARIA_OBRAS">🚜 Secretaria de Obras & Infraestrutura</option>
+          <option value="SECRETARIA_SAUDE">🚑 Secretaria Municipal de Saúde</option>
+          <option value="SECRETARIA_EDUCACAO">🚌 Secretaria Municipal de Educação</option>
+          <option value="SECRETARIA_SEGURANCA">🚔 Secretaria de Segurança Pública</option>
+          <option value="SECRETARIA_ADMINISTRACAO">🏛️ Secretaria de Administração Geral</option>
+        </select>
+      </div>
+
+      <div class="header-right">
+        <!-- Badge IoT Gateway Online -->
+        <div class="status-indicator">
+          <span class="pulse-dot"></span>
+          <span>IoT Gateway Ativo | Dados Brasil (LGPD)</span>
+        </div>
+
+        <!-- Link para Documentação Swagger Interativa -->
+        <a href="/api/docs" target="_blank" class="btn btn-outline" style="text-decoration:none;" title="Abrir Documentação Interativa Swagger da REST API">
+          📖 Swagger API
+        </a>
+
+        <!-- Botão de Sair / Logout Rápido -->
+        <button class="btn btn-outline" onclick="executarLogoutFROTAGOV();" style="color: #dc2626; border-color: #fecaca; background: #fff5f5;" title="Encerrar sessão segura">
+          🚪 Sair
+        </button>
+      </div>
+    </header>
+
+
+    <!-- =====================================================================
+         ÁREA DE CONTEÚDO (PAINÉIS SPA)
+         ===================================================================== -->
+    <main class="content-container">
+
+      <!-- -------------------------------------------------------------
+           1. PAINEL DASHBOARD
+           ------------------------------------------------------------- -->
+      <section class="tab-pane active" id="pane-dashboard">
+        <!-- Grid de KPIs Executivos -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-info-title">Total de Ativos</div>
+              <div class="kpi-value" id="kpi-total-veiculos">0</div>
+              <div class="kpi-subtext">Veículos cadastrados</div>
+            </div>
+            <div class="kpi-icon-box" style="background: rgba(37,99,235,0.15); color:#60a5fa;">🚛</div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-info-title">Em Trânsito</div>
+              <div class="kpi-value" id="kpi-em-viagem" style="color:#10b981;">0</div>
+              <div class="kpi-subtext">Com ignição e velocidade</div>
+            </div>
+            <div class="kpi-icon-box" style="background: rgba(16,185,129,0.15); color:#34d399;">🟢</div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-info-title">Disponíveis no Pátio</div>
+              <div class="kpi-value" id="kpi-disponiveis" style="color:#60a5fa;">0</div>
+              <div class="kpi-subtext">Aguardando despacho</div>
+            </div>
+            <div class="kpi-icon-box" style="background: rgba(59,130,246,0.15); color:#60a5fa;">🅿️</div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-info-title">Em Manutenção</div>
+              <div class="kpi-value" id="kpi-manutencao" style="color:#f59e0b;">0</div>
+              <div class="kpi-subtext">Oficina ou revisão</div>
+            </div>
+            <div class="kpi-icon-box" style="background: rgba(245,158,11,0.15); color:#fbbf24;">🛠️</div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-info-title">Custo Total do Mês</div>
+              <div class="kpi-value" id="kpi-custo-mes" style="font-size:20px;">R$ 0,00</div>
+              <div class="kpi-subtext">Combustível + OS + Pedágios</div>
+            </div>
+            <div class="kpi-icon-box" style="background: rgba(139,92,246,0.15); color:#c084fc;">💰</div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-info-title">Consumo Médio</div>
+              <div class="kpi-value" id="kpi-consumo-medio" style="color:#38bdf8;">0 km/L</div>
+              <div class="kpi-subtext">Autonomia da frota</div>
+            </div>
+            <div class="kpi-icon-box" style="background: rgba(6,182,212,0.15); color:#38bdf8;">⛽</div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-info-title">Score de Segurança</div>
+              <div class="kpi-value" id="kpi-score-medio" style="color:#34d399;">0 pts</div>
+              <div class="kpi-subtext">Média geral condutores</div>
+            </div>
+            <div class="kpi-icon-box" style="background: rgba(16,185,129,0.15); color:#34d399;">🛡️</div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-info-title">Alertas Hoje</div>
+              <div class="kpi-value" id="kpi-alertas-hoje" style="color:#ef4444;">0</div>
+              <div class="kpi-subtext">Eventos de telemetria</div>
+            </div>
+            <div class="kpi-icon-box" style="background: rgba(239,68,68,0.15); color:#f87171;">🚨</div>
+          </div>
+        </div>
+
+        <!-- Seção de Alertas Rápidos Preventivos -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">⚠️ Diagnóstico Preventivo & Alertas Críticos de Vencimento</h2>
+          </div>
+          <div id="dashboard-alerts-list">
+            <div style="color: #64748b; font-size: 13px;">Carregando diagnósticos de frota...</div>
+          </div>
+        </div>
+
+        <!-- Tabela Mestre de Veículos -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">🚛 Inventário Mestre de Ativos da Frota</h2>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Placa</th>
+                  <th>Marca / Modelo</th>
+                  <th>Categoria</th>
+                  <th>Secretaria / Lotação</th>
+                  <th>Odômetro</th>
+                  <th>Tanque</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="vehicles-table-body">
+                <tr><td colspan="8" style="text-align:center; color:#64748b;">Carregando frota...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------------
+           2. PAINEL RASTREAMENTO & TELEMETRIA REALTIME
+           ------------------------------------------------------------- -->
+      <section class="tab-pane" id="pane-rastreamento">
+        <div class="map-container-wrapper">
+          <div id="fleet-map"></div>
+          <div class="map-floating-overlay">
+            <strong style="font-size:12px; color:#ffffff; display:block; margin-bottom:8px;">Legenda Operacional</strong>
+            <div class="map-legend-item">
+              <span class="legend-color" style="background:#10b981;"></span>
+              <span>Em Movimento (Velocidade > 5 km/h)</span>
+            </div>
+            <div class="map-legend-item">
+              <span class="legend-color" style="background:#f59e0b;"></span>
+              <span>Motor Ligado / Marcha Lenta (0 km/h)</span>
+            </div>
+            <div class="map-legend-item">
+              <span class="legend-color" style="background:#3b82f6;"></span>
+              <span>Estacionado / Ignição Desligada</span>
+            </div>
+            <div class="map-legend-item">
+              <span class="legend-color" style="background:#ef4444;"></span>
+              <span>Cerca Proibida (Zona de Restrição)</span>
+            </div>
+            <div class="map-legend-item">
+              <span class="legend-color" style="background:#10b981; border: 1px dashed white;"></span>
+              <span>Cerca Autorizada (Hub / Portos)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 20px;">
+          <div class="card-header">
+            <h2 class="card-title">🚨 Feed de Condução Agressiva & Violações de Cerca em Tempo Real</h2>
+          </div>
+          <div id="telemetry-events-list">
+            <div style="color:#64748b; font-size:13px;">Carregando telemetria...</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------------
+           3. PAINEL ABASTECIMENTO & POSTOS CREDENCIADOS
+           ------------------------------------------------------------- -->
+      <section class="tab-pane" id="pane-abastecimento">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">⛽ Registros de Abastecimento com Auditoria Antifraude</h2>
+            <button class="btn btn-primary" onclick="openNovoAbastecimentoModal()">+ Novo Abastecimento</button>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Data/Hora</th>
+                  <th>Placa</th>
+                  <th>Motorista</th>
+                  <th>Posto Fornecedor</th>
+                  <th>Volume</th>
+                  <th>Valor Total</th>
+                  <th>Odômetro</th>
+                  <th>Consumo Médio</th>
+                  <th>Auditoria Antifraude</th>
+                </tr>
+              </thead>
+              <tbody id="fuel-table-body">
+                <tr><td colspan="9" style="text-align:center; color:#64748b;">Carregando transações...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">📍 Rede de Postos Fornecedores Credenciados (Geolocalização GPS)</h2>
+          </div>
+          <div id="fuel-stations-list">
+            <div style="color:#64748b; font-size:13px;">Carregando postos credenciados...</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------------
+           4. PAINEL MANUTENÇÃO & GESTÃO DE PNEUS
+           ------------------------------------------------------------- -->
+      <section class="tab-pane" id="pane-manutencao">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">🛠️ Ordens de Serviço (OS) Preventivas & Corretivas</h2>
+            <button class="btn btn-primary" onclick="openNovaOSModal()">+ Abrir Ordem de Serviço</button>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Nº OS</th>
+                  <th>Placa</th>
+                  <th>Tipo</th>
+                  <th>Oficina Credenciada</th>
+                  <th>Valor Total</th>
+                  <th>Previsão</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="os-table-body">
+                <tr><td colspan="8" style="text-align:center; color:#64748b;">Carregando ordens de serviço...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">🛞 Gestão Técnica de Pneus & Limite Legal CONTRAN (< 1.6 mm)</h2>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Nº Fogo</th>
+                  <th>Marca / Modelo</th>
+                  <th>Veículo / Posição</th>
+                  <th>Pressão (PSI)</th>
+                  <th>Sulco Atual (mm)</th>
+                  <th>KM Rodado</th>
+                  <th>Status CONTRAN</th>
+                </tr>
+              </thead>
+              <tbody id="tires-table-body">
+                <tr><td colspan="7" style="text-align:center; color:#64748b;">Carregando pneus...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">🏢 Oficinas Mecânicas & Fornecedores Credenciados</h2>
+          </div>
+          <div id="workshops-list">
+            <div style="color:#64748b; font-size:13px;">Carregando oficinas credenciadas...</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------------
+           5. PAINEL VIAGENS & CHECKLIST DIGITAL
+           ------------------------------------------------------------- -->
+      <section class="tab-pane" id="pane-viagens">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">📋 Solicitações de Viagem & Despacho com Roteirização</h2>
+            <button class="btn btn-emerald" onclick="openChecklistModal()">+ Realizar Checklist Digital</button>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Placa</th>
+                  <th>Motorista</th>
+                  <th>Rota (Origem ➔ Destino)</th>
+                  <th>Distância / ETA</th>
+                  <th>Status</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody id="trips-table-body">
+                <tr><td colspan="7" style="text-align:center; color:#64748b;">Carregando viagens...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">🔍 Histórico de Vistorias e Checklists Digitais Pré/Pós-Viagem</h2>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Data/Hora</th>
+                  <th>Placa</th>
+                  <th>Tipo</th>
+                  <th>Condutor Vistoriador</th>
+                  <th>Status de Aprovação</th>
+                  <th>Parecer de Segurança</th>
+                </tr>
+              </thead>
+              <tbody id="checklists-table-body">
+                <tr><td colspan="6" style="text-align:center; color:#64748b;">Carregando checklists...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------------
+           6. PAINEL COMPLIANCE & MULTAS
+           ------------------------------------------------------------- -->
+      <section class="tab-pane" id="pane-compliance">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">⚖️ Workflow de Multas & Indicação Legal de Condutor Infrator (CTB/DETRAN)</h2>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Auto Infração</th>
+                  <th>Placa</th>
+                  <th>Infração</th>
+                  <th>Valor Multa</th>
+                  <th>Prazo Limite Indicação</th>
+                  <th>Status Indicação</th>
+                  <th>Workflow DETRAN</th>
+                </tr>
+              </thead>
+              <tbody id="fines-table-body">
+                <tr><td colspan="7" style="text-align:center; color:#64748b;">Carregando autuações...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------------
+           7. PAINEL RELATÓRIOS & TCO
+           ------------------------------------------------------------- -->
+      <section class="tab-pane" id="pane-relatorios">
+        <!-- BARRA DE FILTROS TEMPORAIS: POR MÊS OU POR PERÍODO DE TEMPO -->
+        <div class="card" style="margin-bottom: 20px; border-left: 4px solid var(--primary);">
+          <div class="card-header" style="flex-wrap: wrap; gap: 12px;">
+            <div>
+              <h2 class="card-title">📅 Emissão de Relatórios & Extrato Temporal de Lançamentos</h2>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
+                Filtre por mês de competência ou por período customizado. Todas as emissões contêm as datas e horas oficiais de lançamento.
+              </p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap: wrap;">
+              <button class="btn btn-outline" onclick="exportarLancamentosCSVPeriodo()" title="Exportar todas as linhas com datas de lançamento em CSV">
+                📥 Exportar Lançamentos (CSV)
+              </button>
+              <button class="btn btn-primary" onclick="filtrarRelatoriosPeriodo()" title="Aplicar filtros de data">
+                🔍 Filtrar Relatório
+              </button>
+            </div>
+          </div>
+
+          <!-- Formulário de Filtro Temporal -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; padding: 16px 0 6px 0;">
+            <div>
+              <label class="form-label" style="font-size: 11.5px; font-weight: 700;">Modo de Filtragem:</label>
+              <select class="form-control" id="rel-modo-filtro" onchange="alternarModoFiltroRelatorio(this.value)">
+                <option value="MES" selected>🗓️ Por Mês de Competência</option>
+                <option value="PERIODO">📆 Por Intervalo de Datas</option>
+                <option value="TODOS">🌐 Todo o Período Histórico</option>
+              </select>
+            </div>
+
+            <div id="box-filtro-mes" style="display: flex; gap: 8px;">
+              <div style="flex: 1;">
+                <label class="form-label" style="font-size: 11.5px; font-weight: 700;">Mês:</label>
+                <select class="form-control" id="rel-filtro-mes">
+                  <option value="1">01 - Janeiro</option>
+                  <option value="2">02 - Fevereiro</option>
+                  <option value="3">03 - Março</option>
+                  <option value="4">04 - Abril</option>
+                  <option value="5">05 - Maio</option>
+                  <option value="6">06 - Junho</option>
+                  <option value="7">07 - Julho</option>
+                  <option value="8">08 - Agosto</option>
+                  <option value="9">09 - Setembro</option>
+                  <option value="10">10 - Outubro</option>
+                  <option value="11" selected>11 - Novembro</option>
+                  <option value="12">12 - Dezembro</option>
+                </select>
+              </div>
+              <div style="width: 85px;">
+                <label class="form-label" style="font-size: 11.5px; font-weight: 700;">Ano:</label>
+                <select class="form-control" id="rel-filtro-ano">
+                  <option value="2026" selected>2026</option>
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="box-filtro-periodo" style="display: none; gap: 8px;">
+              <div style="flex: 1;">
+                <label class="form-label" style="font-size: 11.5px; font-weight: 700;">Data Inicial:</label>
+                <input type="date" class="form-control" id="rel-data-inicio" value="2026-11-01">
+              </div>
+              <div style="flex: 1;">
+                <label class="form-label" style="font-size: 11.5px; font-weight: 700;">Data Final:</label>
+                <input type="date" class="form-control" id="rel-data-fim" value="2026-11-30">
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label" style="font-size: 11.5px; font-weight: 700;">Tipo de Operação:</label>
+              <select class="form-control" id="rel-filtro-tipo">
+                <option value="TODOS" selected>Todos os Lançamentos</option>
+                <option value="CARTAO_COMBUSTIVEL_SC">💳 Cartão Frota SEA/SC (Postos)</option>
+                <option value="ABASTECIMENTO">⛽ Abastecimento Direto</option>
+                <option value="ORDEM_SERVICO">🔧 Ordens de Serviço (Manutenção)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="form-label" style="font-size: 11.5px; font-weight: 700;">Secretaria / Órgão:</label>
+              <select class="form-control" id="rel-filtro-secretaria">
+                <option value="">🏢 Todas as Secretarias</option>
+                <option value="POLICIA_MILITAR_SC">🚔 Polícia Militar de SC</option>
+                <option value="SAMU_SAUDE_SC">🚑 SAMU / Saúde SC</option>
+                <option value="DEFESA_CIVIL_SC">⚠️ Defesa Civil SC</option>
+                <option value="INFRAESTRUTURA_SIE">🚜 Infraestrutura (SIE)</option>
+                <option value="SECRETARIA_ADMINISTRACAO">🏛️ Administração Geral (SEA)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Resumo de Auditoria do Período -->
+          <div id="rel-banner-resumo" style="margin-top: 10px; padding: 10px 14px; background: var(--bg-card-hover); border-radius: 8px; font-size: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <strong>Período Auditado:</strong> <span id="rel-resumo-periodo" style="color: var(--primary); font-weight: 700;">Novembro/2026 (Mensal)</span>
+              &nbsp;|&nbsp; <strong>Data/Hora de Emissão:</strong> <span id="rel-resumo-data-emissao">01/11/2026 10:15:00</span>
+            </div>
+            <div>
+              <strong>Lançamentos:</strong> <span id="rel-resumo-total-lanc" style="font-weight: 700;">0</span>
+              &nbsp;|&nbsp; <strong>Valor Total:</strong> <span id="rel-resumo-valor-total" style="color: var(--emerald); font-weight: 800; font-size: 13px;">R$ 0,00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABELA DETALHADA: EXTRATO COM DATAS DE LANÇAMENTOS OBRIGATÓRIAS -->
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-header">
+            <h2 class="card-title">📝 Extrato de Lançamentos Analíticos com Datas de Registro</h2>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="background-color: #eff6ff; color: #1e40af;">📅 Data e Hora do Lançamento</th>
+                  <th>Competência</th>
+                  <th>Tipo Operação</th>
+                  <th>Ativo / Placa</th>
+                  <th>Secretaria / Órgão</th>
+                  <th>Documento / Autorização</th>
+                  <th>Descrição do Fornecimento / Serviço</th>
+                  <th>Qtd / Litros</th>
+                  <th>Valor Total (R$)</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="lancamentos-table-body">
+                <tr><td colspan="10" style="text-align:center; color:#64748b;">Carregando extrato de lançamentos com datas...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TABELA 2: AUDITORIA CONSOLIDADA POR SECRETARIA -->
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-header">
+            <h2 class="card-title">🏛️ Auditoria Orçamentária Consolidada por Secretaria</h2>
+            <div style="display:flex; gap:10px;">
+              <button class="btn btn-outline" onclick="exportarRelatorioCSV()">📥 Exportar TCO Geral (CSV)</button>
+              <button class="btn btn-primary" onclick="imprimirRelatorioPDF()">🖨️ Imprimir / PDF</button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Secretaria / Órgão</th>
+                  <th>Veículos</th>
+                  <th>KM Total Rodado</th>
+                  <th>Gasto Combustível</th>
+                  <th>Gasto Manutenção</th>
+                  <th>Pedágios</th>
+                  <th>Gasto Total</th>
+                  <th>Custo/KM</th>
+                  <th>Média Consumo</th>
+                </tr>
+              </thead>
+              <tbody id="secretarias-table-body">
+                <tr><td colspan="9" style="text-align:center; color:#64748b;">Carregando relatório por secretaria...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TABELA 3: TCO & CPK POR VEÍCULO -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">📊 Total Cost of Ownership (TCO) & Custo Por KM (CPK) por Veículo</h2>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Placa</th>
+                  <th>Modelo</th>
+                  <th>KM Total</th>
+                  <th>Combustível</th>
+                  <th>Manutenção</th>
+                  <th>Pneus</th>
+                  <th>Pedágios</th>
+                  <th>Custo Total</th>
+                  <th>CPK (R$/km)</th>
+                </tr>
+              </thead>
+              <tbody id="tco-table-body">
+                <tr><td colspan="9" style="text-align:center; color:#64748b;">Carregando relatório de TCO...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="national-compliance-info"></div>
+      </section>
+
+
+      <!-- -------------------------------------------------------------
+           8. PAINEL INTELIGÊNCIA PRESCRITIVA AVANÇADA 360°
+           ------------------------------------------------------------- -->
+      <section class="tab-pane" id="pane-prescritivo">
+        <!-- Banner de Destaque Prescritivo e Economia Total Evitada -->
+        <div class="card" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); border-left: 4px solid #8b5cf6;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <span class="status-pill info" style="background: rgba(139, 92, 246, 0.2); color: #c4b5fd; font-weight: 700;">
+                MOTOR PRESCRITIVO MILP & TELEMETRIA IOT ATIVOS
+              </span>
+              <h2 style="font-size: 1.35rem; color: #f8fafc; margin-top: 6px; font-weight: 800;">
+                🎯 Prescrições Operacionais Automatizadas para Tomada de Decisão
+              </h2>
+              <p style="font-size: 13px; color: #94a3b8; margin: 0; max-width: 780px;">
+                Recomendações ativas que cruzam telemetria em tempo real, estilo de condução, predição de falhas e algoritmos de otimização de custos para mitigar riscos e maximizar a disponibilidade da frota pública.
+              </p>
+            </div>
+            <div style="text-align: right; background: rgba(255,255,255,0.06); padding: 10px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+              <div style="font-size: 11px; text-transform: uppercase; color: #a78bfa; font-weight: 700;">Economia Potencial Prescrita</div>
+              <div style="font-size: 1.55rem; font-weight: 900; color: #4ade80;" id="presc-total-economy">R$ 0,00</div>
+              <div style="font-size: 10px; color: #94a3b8;"><span id="presc-total-count">0</span> prescrições ativas</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1. Alertas de Falhas Críticas 48h (Destaque Vermelho Urgente) -->
+        <div class="card" style="border-left: 4px solid #ef4444;">
+          <div class="card-header">
+            <h2 class="card-title" style="color: #f87171;">🚨 Prevenção de Falhas Críticas na Estrada (Janela 48 Horas)</h2>
+            <span class="status-pill danger" id="badge-critical-failures">3 Veículos em Risco Iminente</span>
+          </div>
+          <p style="font-size: 13px; color: #94a3b8; margin-bottom: 12px;">
+            Alertas preditivos indicando substituição obrigatória de componentes antes de pane rodoviária que acarretaria reboque e prejuízo severo.
+          </p>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Placa / Modelo</th>
+                  <th>Componente em Fadiga</th>
+                  <th>Janela Limite</th>
+                  <th>Probabilidade</th>
+                  <th>Custo Pane Estrada</th>
+                  <th>Custo Troca Prev.</th>
+                  <th>Economia Evitada</th>
+                  <th>Mensagem Prescritiva</th>
+                </tr>
+              </thead>
+              <tbody id="presc-critical-table-body">
+                <tr><td colspan="8" style="text-align:center; color:#64748b;">Carregando alertas de falhas críticas...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 2. Plano de Manutenção Preventiva Dinâmico & Gestão de Pneus Otimizada -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <!-- Manutenção Dinâmica -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">🔧 Manutenção Preventiva Dinâmica</h2>
+            </div>
+            <p style="font-size: 12px; color: #94a3b8; margin-bottom: 10px;">
+              Parada recomendada por dia e hora exatos no vale de menor demanda operacional.
+            </p>
+            <div class="table-responsive">
+              <table class="data-table" style="font-size: 12px;">
+                <thead>
+                  <tr>
+                    <th>Placa</th>
+                    <th>Dia & Hora Recomendada</th>
+                    <th>Downtime</th>
+                    <th>Fator Condução</th>
+                    <th>Oficina Sugerida</th>
+                  </tr>
+                </thead>
+                <tbody id="presc-maint-table-body">
+                  <tr><td colspan="5" style="text-align:center; color:#64748b;">Carregando plano dinâmico...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Gestão de Pneus -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">🛞 Gestão de Pneus Otimizada</h2>
+            </div>
+            <p style="font-size: 12px; color: #94a3b8; margin-bottom: 10px;">
+              Projeções de desgaste para rotação cruzada, recauchutagem ou reposição pelo menor CPK.
+            </p>
+            <div class="table-responsive">
+              <table class="data-table" style="font-size: 12px;">
+                <thead>
+                  <tr>
+                    <th>Nº Fogo / Placa</th>
+                    <th>Sulco mm</th>
+                    <th>Ação Recomendada</th>
+                    <th>Próxima Ação (km)</th>
+                    <th>Marca Sugerida (Menor CPK)</th>
+                  </tr>
+                </thead>
+                <tbody id="presc-tires-table-body">
+                  <tr><td colspan="5" style="text-align:center; color:#64748b;">Carregando análise de pneus...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Consumo de Combustível (Marcha Lenta) & Estratégia de Abastecimento em Rota -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <!-- Redução de Combustível -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">⛽ Ações de Redução de Combustível</h2>
+            </div>
+            <p style="font-size: 12px; color: #94a3b8; margin-bottom: 10px;">
+              Detecção de desvios por marcha lenta excessiva e acelerações com prescrição corretiva.
+            </p>
+            <div id="presc-fuel-actions-container">
+              <div style="color:#64748b; font-size:12px;">Carregando ações de redução de combustível...</div>
+            </div>
+          </div>
+
+          <!-- Estratégia de Abastecimento -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">🗺️ Estratégia de Abastecimento em Rota</h2>
+            </div>
+            <p style="font-size: 12px; color: #94a3b8; margin-bottom: 10px;">
+              Cruzamento de autonomia e preços em postos parceiros conveniados para menor custo total de viagem.
+            </p>
+            <div id="presc-fuel-routes-container">
+              <div style="color:#64748b; font-size:12px;">Carregando roteirização de postos...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Roteirização Dinâmica & Dimensionamento da Frota (Ociosidade) -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <!-- Redirecionamento -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">🛣️ Redirecionamento em Tempo Real</h2>
+            </div>
+            <p style="font-size: 12px; color: #94a3b8; margin-bottom: 10px;">
+              Alterações prescritas devido a acidentes, lentidão severa ou risco meteorológico.
+            </p>
+            <div id="presc-rerouting-container">
+              <div style="color:#64748b; font-size:12px;">Carregando redirecionamentos de rotas...</div>
+            </div>
+          </div>
+
+          <!-- Dimensionamento da Frota -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">📐 Dimensionamento da Frota & Ociosidade</h2>
+            </div>
+            <p style="font-size: 12px; color: #94a3b8; margin-bottom: 10px;">
+              Análise de capacidade por secretaria para venda, redistribuição ou agregação de terceiros.
+            </p>
+            <div class="table-responsive">
+              <table class="data-table" style="font-size: 12px;">
+                <thead>
+                  <tr>
+                    <th>Secretaria</th>
+                    <th>Ocupação</th>
+                    <th>Ociosidade</th>
+                    <th>Prescrição Operacional</th>
+                    <th>Impacto Anual</th>
+                  </tr>
+                </thead>
+                <tbody id="presc-dimensioning-table-body">
+                  <tr><td colspan="5" style="text-align:center; color:#64748b;">Carregando dimensionamento...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Comportamento e Segurança: Treinamento Sob Medida & Escala Anti-Fadiga -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <!-- Treinamento Motoristas -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">👤 Plano de Treinamento Personalizado</h2>
+            </div>
+            <p style="font-size: 12px; color: #94a3b8; margin-bottom: 10px;">
+              Módulos de reciclagem direcionados para os desvios comportamentais de cada condutor.
+            </p>
+            <div id="presc-training-container">
+              <div style="color:#64748b; font-size:12px;">Carregando planos de capacitação...</div>
+            </div>
+          </div>
+
+          <!-- Escala Anti-Fadiga -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">⏱️ Escala de Trabalho Inteligente Anti-Fadiga</h2>
+            </div>
+            <p style="font-size: 12px; color: #94a3b8; margin-bottom: 10px;">
+              Bloqueio preventivo e alocação por horas de descanso e afinidade de rota (Lei 13.103/2015).
+            </p>
+            <div class="table-responsive">
+              <table class="data-table" style="font-size: 12px;">
+                <thead>
+                  <tr>
+                    <th>Motorista</th>
+                    <th>Descanso 24h</th>
+                    <th>Score Fadiga</th>
+                    <th>Status Escala</th>
+                    <th>Diretriz de Segurança</th>
+                  </tr>
+                </thead>
+                <tbody id="presc-schedule-table-body">
+                  <tr><td colspan="5" style="text-align:center; color:#64748b;">Carregando escalas inteligentes...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Desinvestimento e Renovação da Frota TCO -->
+        <div class="card" style="border-left: 4px solid #f59e0b;">
+          <div class="card-header">
+            <h2 class="card-title">📊 Momento Ideal de Desinvestimento & Renovação de Frota (TCO)</h2>
+            <span class="status-pill warning">Critério de Manutenção &gt; 40% Venal</span>
+          </div>
+          <p style="font-size: 13px; color: #94a3b8; margin-bottom: 12px;">
+            Cruzamento da curva de depreciação de mercado (FIPE) com os custos crescentes de manutenção para identificar o mês exato de venda em leilão antes que o bem gere déficit contínuo ao erário.
+          </p>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Placa / Modelo</th>
+                  <th>Ano Fab.</th>
+                  <th>Valor FIPE</th>
+                  <th>Manutenção Acumulada</th>
+                  <th>Razão Gasto/Venal</th>
+                  <th>Mês Ideal de Venda</th>
+                  <th>Retorno em Leilão</th>
+                  <th>Perda Evitada</th>
+                  <th>Prescrição Decisória</th>
+                </tr>
+              </thead>
+              <tbody id="presc-divestment-table-body">
+                <tr><td colspan="9" style="text-align:center; color:#64748b;">Carregando análise de desinvestimento...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------------
+           9. PAINEL SEGURANÇA & API KEYS IOT
+           ------------------------------------------------------------- -->
+      <section class="tab-pane" id="pane-seguranca">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">🔑 Chaves de API para Rastreamento e Ingestão de Dispositivos IoT</h2>
+          </div>
+          <p style="font-size: 13px; color: #94a3b8; margin-bottom: 16px;">
+            Rastreadores automotivos (Teltonika, Queclink, Coban) utilizam cabeçalho <code>X-API-Key: flt_...</code> com hash seguro SHA-256 no banco de dados.
+          </p>
+          <div id="api-keys-list">
+            <div style="color:#64748b; font-size:13px;">Carregando chaves registradas...</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">🛡️ Matriz de Controle de Acesso Baseado em Perfis (RBAC)</h2>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Perfil / Role</th>
+                  <th>Descrição</th>
+                  <th>Permissões Operacionais</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="status-pill danger">ADMIN</span></td>
+                  <td>Administrador Geral da Frota</td>
+                  <td>Controle irrestrito, gestão de credenciais, API keys e auditoria.</td>
+                </tr>
+                <tr>
+                  <td><span class="status-pill warning">GESTOR_FROTA</span></td>
+                  <td>Gestor Executivo de Frotas</td>
+                  <td>Aprovação de manutenções, credenciamento, indicação de condutor e relatórios.</td>
+                </tr>
+                <tr>
+                  <td><span class="status-pill info">OPERADOR</span></td>
+                  <td>Controlador de Tráfego / CCO</td>
+                  <td>Despacho de viagens, registro de abastecimentos e abertura de OS.</td>
+                </tr>
+                <tr>
+                  <td><span class="status-pill success">MOTORISTA</span></td>
+                  <td>Condutor Operacional</td>
+                  <td>Preenchimento obrigatório de checklist digital e acompanhamento de viagem.</td>
+                </tr>
+                <tr>
+                  <td><span class="status-pill violet">AUDITOR</span></td>
+                  <td>Auditor Contábil e de Compliance</td>
+                  <td>Acesso somente leitura para extração de TCO, relatórios e conformidade LGPD.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           MÓDULO: CADASTRO DE VEÍCULOS (MANUAL & POR IOT / CANBUS)
+           ===================================================================== -->
+      <section class="tab-pane" id="pane-cadastro-veiculos">
+        
+        <!-- Header & Seletor de Modo de Cadastro -->
+        <div class="card" style="margin-bottom: 20px; background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,58,138,0.3)); border-left: 4px solid #10b981;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+            <div>
+              <h2 style="font-size:20px; font-weight:800; color:#fff; margin-bottom:4px; display:flex; align-items:center; gap:8px;">
+                <span>📝</span> Central de Cadastro de Ativos Veiculares & IoT
+              </h2>
+              <p style="font-size:13px; color:#94a3b8; margin:0;">
+                Cadastramento manual de veículos com validação estrita e auto-descoberta plug-and-play via telemetria IoT / barramento CANbus.
+              </p>
+            </div>
+            <div style="display:flex; gap:10px;">
+              <button class="btn btn-emerald" id="btn-toggle-modo-manual" onclick="alternarModoCadastro('manual')">
+                📋 Cadastro Manual
+              </button>
+              <button class="btn btn-outline" id="btn-toggle-modo-iot" onclick="alternarModoCadastro('iot')">
+                🛰️ Auto-Descoberta IoT / CANbus
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ABA 1: FORMULÁRIO DE CADASTRO MANUAL -->
+        <div id="container-cadastro-manual">
+          <div class="card" style="margin-bottom: 20px;">
+            <div class="card-header">
+              <h3 class="card-title">📋 Formulário de Cadastro Manual de Veículo (Registro Oficial)</h3>
+            </div>
+            <form id="form-cadastro-manual-veiculo" onsubmit="event.preventDefault(); submeterCadastroManual();">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">Placa do Veículo (Mercosul ou Padrão) *</label>
+                  <input type="text" class="form-control" id="cad-placa" placeholder="ex: BRA2E19 ou QHA8421" required style="font-weight:700; text-transform:uppercase;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Número do Chassi (VIN 17 caracteres) *</label>
+                  <input type="text" class="form-control" id="cad-chassi" placeholder="ex: 9BFZZZ24ZPB084219" maxlength="17" required style="text-transform:uppercase;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Código RENAVAM (9 a 11 dígitos) *</label>
+                  <input type="text" class="form-control" id="cad-renavam" placeholder="ex: 00984210981" required>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">Marca Fabricante *</label>
+                  <input type="text" class="form-control" id="cad-marca" placeholder="ex: Ford, Toyota, Renault, VW" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Modelo / Versão *</label>
+                  <input type="text" class="form-control" id="cad-modelo" placeholder="ex: Transit Minibus 2.0 TDCI" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Ano Fabricação / Ano Modelo *</label>
+                  <div style="display:flex; gap:8px;">
+                    <input type="number" class="form-control" id="cad-ano-fab" placeholder="Fab: 2023" min="1995" max="2030" value="2023" required>
+                    <input type="number" class="form-control" id="cad-ano-mod" placeholder="Mod: 2024" min="1995" max="2030" value="2024" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">Categoria do Veículo *</label>
+                  <select class="form-control" id="cad-categoria" required>
+                    <option value="LEVE">🚗 Veículo Leve / Passeio</option>
+                    <option value="UTILITARIO" selected>🚐 Utilitário / Van / Furgão</option>
+                    <option value="CAMINHAO">🚛 Caminhão / Transporte Pesado</option>
+                    <option value="AMBULANCIA">🚑 Ambulância / Resgate Samu</option>
+                    <option value="ONIBUS_ESCOLAR">🚌 Transporte Escolar / Ônibus</option>
+                    <option value="MAQUINA_TRATOR">🚜 Máquina Pesada / Trator / Retro</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Tipo de Combustível *</label>
+                  <select class="form-control" id="cad-combustivel" required>
+                    <option value="DIESEL_S10" selected>Diesel S10</option>
+                    <option value="GASOLINA">Gasolina Comum</option>
+                    <option value="ETANOL">Etanol</option>
+                    <option value="FLEX">Flex (Gasolina/Etanol)</option>
+                    <option value="ELETRICO">Elétrico / Híbrido</option>
+                    <option value="GNV">GNV</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Capacidade do Tanque (Litros) *</label>
+                  <input type="number" step="0.5" class="form-control" id="cad-tanque" value="80.0" required>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">Capacidade de Carga (kg) *</label>
+                  <input type="number" class="form-control" id="cad-carga" value="1450" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Odômetro Atual (km) *</label>
+                  <input type="number" step="0.1" class="form-control" id="cad-odometro" value="45200.0" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Secretaria / Órgão de Lotação *</label>
+                  <select class="form-control" id="cad-secretaria" required>
+                    <option value="SECRETARIA_OBRAS">🚜 Secretaria de Obras & Infraestrutura</option>
+                    <option value="SECRETARIA_SAUDE">🚑 Secretaria Municipal de Saúde</option>
+                    <option value="SECRETARIA_EDUCACAO">🚌 Secretaria Municipal de Educação</option>
+                    <option value="SECRETARIA_SEGURANCA">🚔 Secretaria de Segurança Pública</option>
+                    <option value="SECRETARIA_ADMINISTRACAO" selected>🏛️ Secretaria de Administração Geral</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:20px;">
+                <button type="reset" class="btn btn-outline">Limpar Campos</button>
+                <button type="submit" class="btn btn-emerald">💾 Salvar e Cadastrar Veículo na Frota</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- ABA 2: AUTO-DESCOBERTA & PAREAMENTO IOT -->
+        <div id="container-cadastro-iot" style="display:none;">
+          <div class="card" style="margin-bottom: 20px; border-left: 4px solid #38bdf8;">
+            <div class="card-header" style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <h3 class="card-title">🛰️ Auto-Descoberta de Rastreadores & Módulos CANbus (Plug-and-Play)</h3>
+                <p style="font-size:12px; color:#94a3b8; margin:0;">Dispositivos telemáticos detectados na rede enviando pings sem veículo atribuído.</p>
+              </div>
+              <button class="btn btn-outline" onclick="carregarDispositivosDescobertosIoT()">
+                🔄 Atualizar Scanner de Rede
+              </button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table" style="font-size:13px;">
+                <thead>
+                  <tr>
+                    <th>Dispositivo / Modelo</th>
+                    <th>Serial / IMEI</th>
+                    <th>Protocolo</th>
+                    <th>Leitura ECU / CANbus</th>
+                    <th>Sinal GSM / GPS</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                  </tr>
+                </thead>
+                <tbody id="iot-descobertos-tbody">
+                  <tr><td colspan="7" style="text-align:center; color:#64748b; padding:16px;">Varrendo rede em busca de novos módulos IoT...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Formulário Rápido de Pareamento Automático -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">⚡ Pareamento Rápido & Cadastro Veicular por Telemetria</h3>
+            </div>
+            <form id="form-pareamento-iot" onsubmit="event.preventDefault(); submeterPareamentoIoT();">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">Serial do Rastreador Selecionado *</label>
+                  <input type="text" class="form-control" id="iot-serial" placeholder="Selecione na tabela acima" required readonly style="background:#0f172a; color:#38bdf8; font-weight:700;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Protocolo Telemático *</label>
+                  <input type="text" class="form-control" id="iot-protocolo" value="CANBUS_OBD2_HEX" required readonly style="background:#0f172a;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Chassi / VIN Lido pela ECU *</label>
+                  <input type="text" class="form-control" id="iot-chassi" placeholder="Lido da ECU" maxlength="17" required style="font-weight:700; text-transform:uppercase;">
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">Placa Atribuída ao Veículo *</label>
+                  <input type="text" class="form-control" id="iot-placa" placeholder="ex: SC-IOT-2026" required style="font-weight:700; text-transform:uppercase;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Marca e Modelo do Veículo *</label>
+                  <div style="display:flex; gap:8px;">
+                    <input type="text" class="form-control" id="iot-marca" placeholder="Marca (ex: Toyota)" required>
+                    <input type="text" class="form-control" id="iot-modelo" placeholder="Modelo (ex: Hilux 2.8 4x4)" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Odômetro Lido do Sensor ECU (km) *</label>
+                  <input type="number" step="0.1" class="form-control" id="iot-odometro" value="185420.5" required>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">Secretaria / Destinação *</label>
+                  <select class="form-control" id="iot-secretaria" required>
+                    <option value="SECRETARIA_OBRAS" selected>🚜 Secretaria de Obras & Infraestrutura</option>
+                    <option value="SECRETARIA_SAUDE">🚑 Secretaria Municipal de Saúde</option>
+                    <option value="SECRETARIA_EDUCACAO">🚌 Secretaria Municipal de Educação</option>
+                    <option value="SECRETARIA_SEGURANCA">🚔 Secretaria de Segurança Pública</option>
+                    <option value="SECRETARIA_ADMINISTRACAO">🏛️ Secretaria de Administração Geral</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Capacidade do Tanque (Litros)</label>
+                  <input type="number" step="0.5" class="form-control" id="iot-tanque" value="80.0">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Capacidade de Carga (kg)</label>
+                  <input type="number" class="form-control" id="iot-carga" value="1190.0">
+                </div>
+              </div>
+
+              <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:20px;">
+                <button type="submit" class="btn btn-emerald" style="padding:12px 24px; font-weight:700;">
+                  🚀 Ativar, Parear Dispositivo e Cadastrar Veículo
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- LISTA CONSOLIDADA DE VEÍCULOS CADASTRADOS -->
+        <div class="card" style="margin-top:20px;">
+          <div class="card-header" style="display:flex; justify-content:space-between; align-items:center;">
+            <h3 class="card-title">🚗 Veículos Cadastrados no Sistema (Ativos & Pareados)</h3>
+            <button class="btn btn-outline" onclick="carregarTabelaVeiculosCadastrados()">🔄 Atualizar Relação</button>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table" style="font-size:13px;">
+              <thead>
+                <tr>
+                  <th>Placa</th>
+                  <th>Marca / Modelo</th>
+                  <th>Chassi (VIN)</th>
+                  <th>Categoria</th>
+                  <th>Combustível</th>
+                  <th>Odômetro</th>
+                  <th>Secretaria</th>
+                  <th>Método de Cadastro</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="veiculos-cadastrados-tbody">
+                <tr><td colspan="9" style="text-align:center; color:#64748b; padding:16px;">Carregando frota cadastrada...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- =====================================================================
+           MÓDULO: COPILOT DE INTELIGÊNCIA ARTIFICIAL & DIAGNÓSTICO
+           ===================================================================== -->
+      <section class="tab-pane" id="pane-ai-copilot">
+        
+        <div class="card" style="margin-bottom:20px; background:linear-gradient(135deg, rgba(15,23,42,0.95), rgba(2,132,199,0.25)); border-left:4px solid #38bdf8;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <div>
+              <h2 style="font-size:20px; font-weight:800; color:#fff; margin-bottom:4px; display:flex; align-items:center; gap:8px;">
+                <span>🤖</span> Copilot de IA & Diagnóstico Prescritivo
+              </h2>
+              <p style="font-size:13px; color:#94a3b8; margin:0;">
+                Assistente de linguagem natural com aprendizado sobre 9.514 OS, 6.954 anomalias, antifraude de combustível e otimização MILP.
+              </p>
+            </div>
+            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.4); padding:6px 14px; border-radius:20px; font-size:12px; font-weight:700;">
+              ● Motor IA Online (PPGCAP / UDESC)
+            </span>
+          </div>
+        </div>
+
+        <!-- Chat Interativo -->
+        <div class="card" style="margin-bottom:20px;">
+          <div class="card-header">
+            <h3 class="card-title">💬 Conversação em Linguagem Natural com o Copilot</h3>
+          </div>
+
+          <!-- Sugestões Rápidas -->
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+            <button class="btn btn-outline" style="font-size:11px; padding:4px 10px;" onclick="sendAIChatMessage('Qual a economia obtida pelo modelo prescritivo MILP?')">
+              💰 Economia MILP (R$ 492k)
+            </button>
+            <button class="btn btn-outline" style="font-size:11px; padding:4px 10px;" onclick="sendAIChatMessage('Quais secretarias possuem maior volume de anomalias?')">
+              🏢 Anomalias por Secretaria
+            </button>
+            <button class="btn btn-outline" style="font-size:11px; padding:4px 10px;" onclick="sendAIChatMessage('Como funciona a trava do checklist digital?')">
+              🔒 Trava do Checklist
+            </button>
+            <button class="btn btn-outline" style="font-size:11px; padding:4px 10px;" onclick="sendAIChatMessage('Quantas inconsistências de hodômetro foram detectadas?')">
+              ⛽ Auditoria de Combustível
+            </button>
+            <button class="btn btn-outline" style="font-size:11px; padding:4px 10px;" onclick="sendAIChatMessage('Qual a projeção de gastos da frota de 2027 a 2029?')">
+              📈 Projeção Orçamentária Trienal
+            </button>
+          </div>
+
+          <!-- Janela de Mensagens -->
+          <div id="ai-chat-messages" style="height:320px; overflow-y:auto; background:#0b1120; border:1px solid #1e293b; border-radius:8px; padding:16px; margin-bottom:14px;"></div>
+
+          <!-- Input de Chat -->
+          <form onsubmit="event.preventDefault(); sendAIChatMessage();" style="display:flex; gap:10px;">
+            <input type="text" class="form-control" id="ai-chat-input" placeholder="Digite sua dúvida sobre a frota, manutenção, despesas ou auditoria..." style="flex:1;">
+            <button type="submit" class="btn btn-emerald" style="padding:10px 20px; font-weight:700;">
+              Enviar 🚀
+            </button>
+          </form>
+        </div>
+
+        <!-- Ferramentas Analíticas de IA -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+          <!-- Diagnóstico Prescritivo de Veículo -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">⚡ Diagnóstico Prescritivo de Veículo (TCO & Leilão)</h3>
+            </div>
+            <div class="form-grid" style="grid-template-columns:1fr 1fr; margin-bottom:12px;">
+              <div class="form-group">
+                <label class="form-label">Placa</label>
+                <input type="text" class="form-control" id="diag-placa" value="QHA-8421">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Hodômetro (km)</label>
+                <input type="number" class="form-control" id="diag-km" value="195000">
+              </div>
+            </div>
+            <div class="form-grid" style="grid-template-columns:1fr 1fr; margin-bottom:14px;">
+              <div class="form-group">
+                <label class="form-label">Idade (anos)</label>
+                <input type="number" class="form-control" id="diag-anos" value="8">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Custo Manutenção (R$)</label>
+                <input type="number" class="form-control" id="diag-custo" value="34500">
+              </div>
+            </div>
+            <button class="btn btn-emerald" style="width:100%; margin-bottom:14px;" onclick="runAIDiagnostic()">
+              ⚡ Executar Avaliação de Risco Prescritivo
+            </button>
+            <div id="diag-resultado"></div>
+          </div>
+
+          <!-- Auditor Antifraude de Combustível -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">🛡️ Auditoria Antifraude em Tempo Real</h3>
+            </div>
+            <div class="form-grid" style="grid-template-columns:1fr 1fr; margin-bottom:12px;">
+              <div class="form-group">
+                <label class="form-label">Placa</label>
+                <input type="text" class="form-control" id="audit-placa" value="BRA-2E19">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Litros Faturados</label>
+                <input type="number" step="0.5" class="form-control" id="audit-litros" value="85">
+              </div>
+            </div>
+            <div class="form-grid" style="grid-template-columns:1fr 1fr; margin-bottom:14px;">
+              <div class="form-group">
+                <label class="form-label">Capacidade Tanque (L)</label>
+                <input type="number" class="form-control" id="audit-capacidade" value="65">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Km Atual / Anterior</label>
+                <div style="display:flex; gap:6px;">
+                  <input type="number" class="form-control" id="audit-km-atual" value="105200">
+                  <input type="number" class="form-control" id="audit-km-anterior" value="105240">
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-amber" style="width:100%; margin-bottom:14px;" onclick="runAIAuditFuel()">
+              🛡️ Auditar Transação com os 4 Algoritmos
+            </button>
+            <div id="audit-resultado"></div>
+          </div>
+        </div>
+
+      </section>
+      <!-- =====================================================================
+           MÓDULO: MATRIZ DE QUALIDADE ISO/IEC 25010 & CONTRATO GOVERNO SC (SEA/SC)
+           ===================================================================== -->
+      <section class="tab-pane" id="pane-iso25010-sc">
+        
+        <!-- Header Hero do Contrato & Selo de Qualidade -->
+        <div class="card" style="margin-bottom:20px; background:linear-gradient(135deg, rgba(15,23,42,0.95), rgba(245,158,11,0.20)); border-left:4px solid #f59e0b;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
+            <div style="flex:1; min-width:320px;">
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="font-size:26px;">🏛️</span>
+                <div>
+                  <h2 style="font-size:20px; font-weight:800; color:#fff; margin:0;">
+                    Governo do Estado de Santa Catarina • SEA/SC
+                  </h2>
+                  <span style="font-size:12px; color:#f59e0b; font-weight:600;">
+                    Gestão Integrada de Frotas, Cartões de Abastecimento & Matriz ISO/IEC 25010
+                  </span>
+                </div>
+              </div>
+              <p style="font-size:13px; color:#cbd5e1; line-height:1.6; margin:0 0 10px 0; background:rgba(0,0,0,0.25); padding:10px 14px; border-radius:8px; border:1px solid rgba(245,158,11,0.2);">
+                <strong>Objeto Contratual:</strong> <em>"Serviços continuados de administração, gerenciamento e controle de frota, com implantação, intermediação e administração por meio de sistema informatizado integrado, com tecnologia de pagamento por meio de cartão magnético ou micro processado de gerenciamento em rede de postos credenciados para aquisição de combustíveis em geral, lubrificantes, aditivos e óleos para abastecer os veículos, embarcações, geradores máquinas e equipamentos do Governo do Estado de Santa Catarina"</em>
+              </p>
+            </div>
+            
+            <!-- Badge Score Global ISO 25010 -->
+            <div style="background:rgba(15,23,42,0.9); border:2px solid #10b981; border-radius:14px; padding:16px 20px; text-align:center; min-width:200px; box-shadow:0 8px 24px rgba(16,185,129,0.2);">
+              <div style="font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#94a3b8; font-weight:700;">Score Global ISO 25010</div>
+              <div id="iso-score-global" style="font-size:36px; font-weight:900; color:#34d399; margin:4px 0;">98.9%</div>
+              <div id="iso-status-badge" style="display:inline-block; font-size:11px; font-weight:700; color:#10b981; background:rgba(16,185,129,0.15); padding:3px 10px; border-radius:12px;">
+                ✓ Totalmente Conforme
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="loadISO25010Module()">
+              🔄 Atualizar Auditoria ISO 25010
+            </button>
+            <button class="btn btn-outline" onclick="abrirModalNovaTransacaoCartaoSC()" style="border-color:#f59e0b; color:#fbbf24;">
+              💳 Simular Transação com Cartão
+            </button>
+            <button class="btn btn-outline" onclick="exportarRelatorioTecnicoISO()">
+              📄 Exportar Laudo Técnico ABNT
+            </button>
+          </div>
+        </div>
+
+        <!-- Grid de 4 Tipos de Ativos do Contrato de Santa Catarina -->
+        <h3 style="font-size:16px; font-weight:700; color:#f8fafc; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+          <span>📦</span> Ativos Contemplados no Escopo Licitatório Estadual (SEA/SC)
+        </h3>
+        <div class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-bottom:24px;">
+          <!-- 1. Veículos -->
+          <div class="kpi-card" style="border-top:3px solid #3b82f6;">
+            <div>
+              <div class="kpi-info-title">1. Veículos Terrestres</div>
+              <div class="kpi-value" id="sc-total-veiculos">17</div>
+              <div class="kpi-subtext">Viaturas PMSC, SAMU, vans e leves (Medição: <strong>Odômetro Km</strong>)</div>
+            </div>
+            <div class="kpi-icon-box" style="background:rgba(59,130,246,0.15); color:#60a5fa;">🚛</div>
+          </div>
+          <!-- 2. Embarcações -->
+          <div class="kpi-card" style="border-top:3px solid #06b6d4;">
+            <div>
+              <div class="kpi-info-title">2. Embarcações Náuticas</div>
+              <div class="kpi-value" id="sc-total-embarcacoes">1</div>
+              <div class="kpi-subtext">Lanchas PMSC Ambiental, resgate CBMSC (Medição: <strong>Horímetro h</strong>)</div>
+            </div>
+            <div class="kpi-icon-box" style="background:rgba(6,182,212,0.15); color:#22d3ee;">🚤</div>
+          </div>
+          <!-- 3. Geradores -->
+          <div class="kpi-card" style="border-top:3px solid #f59e0b;">
+            <div>
+              <div class="kpi-info-title">3. Geradores de Energia</div>
+              <div class="kpi-value" id="sc-total-geradores">1</div>
+              <div class="kpi-subtext">Hospital Regional São José & Defesa Civil (Medição: <strong>Horímetro h / L/h</strong>)</div>
+            </div>
+            <div class="kpi-icon-box" style="background:rgba(245,158,11,0.15); color:#fbbf24;">⚡</div>
+          </div>
+          <!-- 4. Máquinas e Equipamentos -->
+          <div class="kpi-card" style="border-top:3px solid #10b981;">
+            <div>
+              <div class="kpi-info-title">4. Máquinas & Equipamentos</div>
+              <div class="kpi-value" id="sc-total-maquinas">1</div>
+              <div class="kpi-subtext">Motoniveladoras e pás-carregadeiras SIE (Medição: <strong>Horímetro h</strong>)</div>
+            </div>
+            <div class="kpi-icon-box" style="background:rgba(16,185,129,0.15); color:#34d399;">🚜</div>
+          </div>
+        </div>
+
+        <!-- 4 Famílias de Insumos Licitados -->
+        <h3 style="font-size:16px; font-weight:700; color:#f8fafc; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+          <span>⛽</span> Famílias de Insumos & Derivados Autorizados
+        </h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:24px;">
+          <div class="card" style="padding:16px; background:rgba(15,23,42,0.7); border:1px solid rgba(59,130,246,0.3);">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+              <span style="font-size:20px;">⛽</span>
+              <strong style="color:#60a5fa; font-size:14px;">Combustíveis em Geral</strong>
+            </div>
+            <p style="font-size:12px; color:#cbd5e1; line-height:1.5; margin:0;">
+              Diesel S10, Diesel S500, Diesel Marítimo (embarcações), Gasolina Comum/Aditivada, Etanol Comum, GNV e AvGas.
+            </p>
+          </div>
+          <div class="card" style="padding:16px; background:rgba(15,23,42,0.7); border:1px solid rgba(139,92,246,0.3);">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+              <span style="font-size:20px;">🛢️</span>
+              <strong style="color:#c084fc; font-size:14px;">Lubrificantes Homologados</strong>
+            </div>
+            <p style="font-size:12px; color:#cbd5e1; line-height:1.5; margin:0;">
+              Óleo Motor 15W40 Mineral, 5W30 100% Sintético, Óleos de Câmbio/Diferencial e Fluido Hidráulico ISO VG 68 para máquinas SIE.
+            </p>
+          </div>
+          <div class="card" style="padding:16px; background:rgba(15,23,42,0.7); border:1px solid rgba(16,185,129,0.3);">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+              <span style="font-size:20px;">🧪</span>
+              <strong style="color:#34d399; font-size:14px;">Aditivos de Controle Ambiental</strong>
+            </div>
+            <p style="font-size:12px; color:#cbd5e1; line-height:1.5; margin:0;">
+              Agente Redutor Líquido Automotivo Arla 32 (Normas Proconve P7/Euro 5/6), Fluido de Arrefecimento Long Life e Descarbonizantes.
+            </p>
+          </div>
+          <div class="card" style="padding:16px; background:rgba(15,23,42,0.7); border:1px solid rgba(245,158,11,0.3);">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+              <span style="font-size:20px;">🛥️</span>
+              <strong style="color:#fbbf24; font-size:14px;">Óleos Especiais 2T / 4T</strong>
+            </div>
+            <p style="font-size:12px; color:#cbd5e1; line-height:1.5; margin:0;">
+              Óleo 2 Tempos Náutico TC-W3 para motores de popa da Polícia Ambiental/Bombeiros, motosserras Defesa Civil e motores 4T.
+            </p>
+          </div>
+        </div>
+
+        <!-- Seção de Cartões Magnéticos e Microprocessados com Chip -->
+        <div class="card" style="margin-bottom:24px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+            <div>
+              <h3 style="font-size:16px; font-weight:700; color:#fff; margin:0; display:flex; align-items:center; gap:8px;">
+                <span>💳</span> Cartões Magnéticos & Microprocessados (Chip EMV) Emitidos
+              </h3>
+              <p style="font-size:12px; color:#94a3b8; margin:2px 0 0 0;">
+                Tecnologia de pagamento seguro integrada com cota orçamentária e travas automáticas por órgão demandante.
+              </p>
+            </div>
+            <button class="btn btn-outline" onclick="carregarTabelaCartoesSC()" style="font-size:12px;">
+              🔄 Atualizar Cartões
+            </button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table" id="tabela-cartoes-sc" style="font-size:12px;">
+              <thead>
+                <tr>
+                  <th>Nº do Cartão</th>
+                  <th>Tecnologia</th>
+                  <th>Tipo / Ativo</th>
+                  <th>Órgão / Secretaria</th>
+                  <th>Limite Mensal</th>
+                  <th>Saldo Disponível</th>
+                  <th>Insumos Autorizados</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-cartoes-sc">
+                <!-- Inserido dinamicamente via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Transações Realizadas em Santa Catarina com Cartão -->
+        <div class="card" style="margin-bottom:24px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
+            <div>
+              <h3 style="font-size:16px; font-weight:700; color:#fff; margin:0; display:flex; align-items:center; gap:8px;">
+                <span>🧾</span> Extrato de Transações em Rede Credenciada SC (Postos de Combustíveis)
+              </h3>
+              <p style="font-size:12px; color:#94a3b8; margin:2px 0 0 0;">
+                Auditoria de comprovantes fiscais, código de autorização SEA/SC e detecção instantânea de desvios.
+              </p>
+            </div>
+            <span style="font-size:12px; color:#34d399; font-weight:600;">Desconto Contratual Médio: 4.5% sobre ANP</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table" id="tabela-transacoes-sc" style="font-size:12px;">
+              <thead>
+                <tr>
+                  <th>Código Autorização</th>
+                  <th>Data/Hora</th>
+                  <th>Ativo / Placa</th>
+                  <th>Posto Credenciado / Cidade</th>
+                  <th>Insumo</th>
+                  <th>Qtd / Litros</th>
+                  <th>Valor Total</th>
+                  <th>Odôm./Horímetro</th>
+                  <th>Status Auditoria</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-transacoes-sc">
+                <!-- Inserido dinamicamente via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- =====================================================================
+             MATRIZ DOS 8 PILARES DA ISO/IEC 25010
+             ===================================================================== -->
+        <div style="margin-bottom:16px;">
+          <h3 style="font-size:18px; font-weight:800; color:#f8fafc; margin-bottom:4px; display:flex; align-items:center; gap:8px;">
+            <span>🛡️</span> Matriz de Qualidade de Produto de Software ISO/IEC 25010
+          </h3>
+          <p style="font-size:13px; color:#94a3b8; margin:0;">
+            Avaliação técnica automatizada das 8 características fundamentais e evidências de código implementadas.
+          </p>
+        </div>
+
+        <div id="iso25010-pilares-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(360px, 1fr)); gap:16px; margin-bottom:24px;">
+          <!-- Preenchido via JS com os 8 pilares -->
+        </div>
+
+        <!-- =====================================================================
+             NORMAS CORRELATAS DE PROCESSO, SEGURANÇA E CICLO DE VIDA
+             ===================================================================== -->
+        <div class="card" style="margin-bottom:24px;">
+          <h3 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:14px; display:flex; align-items:center; gap:8px;">
+            <span>📜</span> Alinhamento com Normas Integradas de Engenharia de Software e Gestão
+          </h3>
+          
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;" id="normas-correlatas-container">
+            <!-- Inserido dinamicamente via JS -->
+          </div>
+        </div>
+
+      </section>
+
+  </div>
+
+  <!-- =====================================================================
+       BARRA DE NAVEGAÇÃO INFERIOR PARA DISPOSITIVOS MÓVEIS (ANDROID / IOS)
+       ===================================================================== -->
+  <nav class="mobile-bottom-nav">
+    <button class="mobile-nav-btn active" data-tab="dashboard">
+      <span>📊</span> Início
+    </button>
+    <button class="mobile-nav-btn" data-tab="rastreamento">
+      <span>🛰️</span> Mapa
+    </button>
+    <button class="mobile-nav-btn" data-tab="abastecimento">
+      <span>⛽</span> Abastecer
+    </button>
+    <button class="mobile-nav-btn" data-tab="manutencao">
+      <span>🔧</span> OS
+    </button>
+    <button class="mobile-nav-btn" data-tab="relatorios">
+      <span>📈</span> Custos
+    </button>
+  </nav>
+
+  <!-- =====================================================================
+       MODAL: NOVO ABASTECIMENTO
+       ===================================================================== -->
+  <div class="modal-backdrop" id="modal-novo-abastecimento">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">⛽ Registrar Abastecimento de Combustível</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form id="form-novo-abastecimento">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Placa do Veículo *</label>
+            <input type="text" class="form-control" id="abast-placa" placeholder="ex: BRA2E19" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Identificação do Motorista *</label>
+            <input type="text" class="form-control" id="abast-motorista" placeholder="Nome ou CPF" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Posto Fornecedor *</label>
+            <input type="text" class="form-control" id="abast-posto" placeholder="Nome do Posto Credenciado" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tipo de Combustível *</label>
+            <select class="form-control" id="abast-combustivel">
+              <option value="DIESEL">Diesel</option>
+              <option value="GASOLINA">Gasolina</option>
+              <option value="ETANOL">Etanol</option>
+              <option value="FLEX">Flex</option>
+              <option value="ELETRICO">Elétrico</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Volume (Litros) *</label>
+            <input type="number" step="0.1" class="form-control" id="abast-litros" placeholder="ex: 150.0" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Valor por Litro (R$) *</label>
+            <input type="number" step="0.01" class="form-control" id="abast-valor-litro" placeholder="ex: 6.19" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Odômetro Atual (KM) *</label>
+            <input type="number" class="form-control" id="abast-odometro" placeholder="ex: 143100" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Cartão de Combustível *</label>
+            <select class="form-control" id="abast-cartao">
+              <option value="TICKET_LOG">Ticket Log</option>
+              <option value="ALELO">Alelo Frota</option>
+              <option value="VR_AUTO">VR Auto</option>
+              <option value="SODEXO_WEX">Sodexo / WEX</option>
+              <option value="OUTRO">Outro / Cartão Corporativo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">GPS Latitude</label>
+            <input type="number" step="0.0001" class="form-control" id="abast-lat" value="-25.5312">
+          </div>
+          <div class="form-group">
+            <label class="form-label">GPS Longitude</label>
+            <input type="number" step="0.0001" class="form-control" id="abast-lng" value="-49.2010">
+          </div>
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+          <button type="button" class="btn btn-outline modal-close">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Registrar & Auditar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       MODAL: NOVA ORDEM DE SERVIÇO
+       ===================================================================== -->
+  <div class="modal-backdrop" id="modal-nova-os">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">🛠️ Abertura de Ordem de Serviço</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form id="form-nova-os">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Placa do Veículo *</label>
+            <input type="text" class="form-control" id="os-placa" placeholder="ex: QNY7J12" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tipo de Manutenção *</label>
+            <select class="form-control" id="os-tipo">
+              <option value="CORRETIVA">Corretiva</option>
+              <option value="PREVENTIVA">Preventiva</option>
+              <option value="PREDITIVA">Preditiva</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Data de Previsão de Conclusão *</label>
+            <input type="date" class="form-control" id="os-previsao" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Oficina Mecânica Credenciada *</label>
+            <input type="text" class="form-control" id="os-oficina" placeholder="Nome da oficina" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Valor Orçado (R$)</label>
+            <input type="number" step="0.01" class="form-control" id="os-valor" placeholder="0.00">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Odômetro no Momento (KM)</label>
+            <input type="number" class="form-control" id="os-odometro" placeholder="ex: 68900">
+          </div>
+          <div class="form-group col-full">
+            <label class="form-label">Diagnóstico e Observações Técnicas</label>
+            <textarea class="form-control" id="os-obs" rows="3" placeholder="Descreva os serviços e peças necessárias..."></textarea>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+          <button type="button" class="btn btn-outline modal-close">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Abrir OS</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       MODAL: CHECKLIST DIGITAL PRÉ-VIAGEM COM TRAVA DE SEGURANÇA
+       ===================================================================== -->
+  <div class="modal-backdrop" id="modal-checklist-digital">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">🔍 Checklist Digital de Segurança Veicular</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form id="form-checklist-digital">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Placa do Veículo *</label>
+            <input type="text" class="form-control" id="chk-placa" placeholder="ex: BCX9D45" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Condutor Vistoriador *</label>
+            <input type="text" class="form-control" id="chk-motorista" placeholder="Nome do motorista" required>
+          </div>
+          <div class="form-group col-full">
+            <label class="form-label">Tipo de Vistoria *</label>
+            <select class="form-control" id="chk-tipo">
+              <option value="PRE_VIAGEM">Pré-Viagem (Obrigatório para Liberação de Despacho)</option>
+              <option value="POS_VIAGEM">Pós-Viagem (Retorno ao Pátio)</option>
+            </select>
+          </div>
+          <div class="form-group col-full" style="background: rgba(0,0,0,0.2); padding: 14px; border-radius: 8px;">
+            <div style="font-weight: 700; font-size: 13px; margin-bottom: 10px; color: #60a5fa;">Itens de Inspeção Obrigatória:</div>
+            <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px; font-size:13px; cursor:pointer;">
+              <input type="checkbox" id="chk-farois" checked> 💡 Faróis, Lanternas e Setas em Funcionamento
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px; font-size:13px; cursor:pointer;">
+              <input type="checkbox" id="chk-freios" checked> 🛑 Sistema de Freios (Pedal firme, sem vazamento)
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px; font-size:13px; cursor:pointer;">
+              <input type="checkbox" id="chk-pneus" checked> 🛞 Pneus e Estepe (Sem bolhas, sulco > 1.6mm CONTRAN)
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px; font-size:13px; cursor:pointer;">
+              <input type="checkbox" id="chk-oleo" checked> 🛢️ Nível de Óleo do Motor e Arrefecimento Verificados
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;">
+              <input type="checkbox" id="chk-lataria" checked> 🚗 Lataria, Espelhos Retrovisores e Cintos de Segurança
+            </label>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+          <button type="button" class="btn btn-outline modal-close">Cancelar</button>
+          <button type="submit" class="btn btn-emerald">Registrar Vistoria</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       MODAL: INDICAÇÃO DE CONDUTOR INFRATOR (DETRAN)
+       ===================================================================== -->
+  <div class="modal-backdrop" id="modal-indicar-condutor">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">⚖️ Indicação de Condutor Infrator DETRAN</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form id="form-indicar-condutor">
+        <input type="hidden" id="indicar-multa-id">
+        <div id="indicar-info-multa" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); padding: 10px; border-radius: 6px; font-size: 12px; margin-bottom: 14px; color: #fbbf24;"></div>
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label class="form-label">Nome Completo do Condutor Infrator *</label>
+          <input type="text" class="form-control" id="indicar-condutor-nome" placeholder="ex: Sebastião da Silva" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label class="form-label">Número do Registro CNH *</label>
+          <input type="text" class="form-control" id="indicar-condutor-cnh" placeholder="ex: 04981274610" required>
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+          <button type="button" class="btn btn-outline modal-close">Cancelar</button>
+          <button type="submit" class="btn btn-amber">Emitir Protocolo DETRAN</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       WIDGET FLUTUANTE DO COPILOT IA (ACESSO GLOBAL EM TODAS AS TELAS)
+       ===================================================================== -->
+  <div id="floating-ai-btn" onclick="toggleFloatingAIChat()" style="position:fixed; bottom:24px; right:24px; z-index:9998; background:linear-gradient(135deg, #0284c7, #2563eb); color:#fff; padding:12px 18px; border-radius:30px; box-shadow:0 8px 24px rgba(2,132,199,0.4); cursor:pointer; display:flex; align-items:center; gap:8px; font-weight:700; font-size:13px; transition:transform 0.2s, box-shadow 0.2s; border:1px solid rgba(255,255,255,0.2);">
+    <span style="font-size:18px;">🤖</span>
+    <span>Copilot IA</span>
+    <span style="width:8px; height:8px; border-radius:50%; background:#4ade80;"></span>
+  </div>
+
+  <!-- Janela Flutuante do Chat IA -->
+  <div id="floating-ai-window" style="display:none; position:fixed; bottom:80px; right:24px; z-index:9999; width:380px; height:500px; background:#0f172a; border:1px solid #334155; border-radius:14px; box-shadow:0 16px 40px rgba(0,0,0,0.6); flex-direction:column; overflow:hidden;">
+    <div style="background:linear-gradient(135deg, #1e293b, #0f172a); border-bottom:1px solid #334155; padding:12px 16px; display:flex; justify-content:space-between; align-items:center;">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span style="font-size:18px;">🤖</span>
+        <div>
+          <strong style="font-size:13px; color:#fff; display:block;">Copilot IA FrotaSaaS</strong>
+          <span style="font-size:10px; color:#38bdf8;">Conhecimento Empírico • 9.514 OS</span>
+        </div>
+      </div>
+      <button onclick="toggleFloatingAIChat()" style="background:none; border:none; color:#94a3b8; font-size:20px; cursor:pointer;">&times;</button>
+    </div>
+    <div id="floating-ai-messages" style="flex:1; padding:14px; overflow-y:auto; display:flex; flex-direction:column;">
+      <div style="background:#1e293b; color:#f1f5f9; padding:10px 14px; border-radius:12px 12px 12px 2px; font-size:12px; margin-bottom:10px; border:1px solid #334155;">
+        Olá! Sou o <strong>Copilot IA do FrotaSaaS</strong>. Como posso ajudar com métricas, manutenções, leilões ou desvios de combustível da frota?
+      </div>
+    </div>
+    <form onsubmit="event.preventDefault(); sendFloatingAIChat();" style="padding:10px; background:#1e293b; border-top:1px solid #334155; display:flex; gap:6px;">
+      <input type="text" id="floating-ai-input" class="form-control" placeholder="Dúvida sobre a frota..." style="flex:1; font-size:12px; padding:8px 10px;">
+      <button type="submit" class="btn btn-emerald" style="padding:8px 14px; font-size:12px;">Enviar</button>
+    </form>
+  </div>
+
+  <!-- Container de Toasts -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Leaflet Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Scripts da Aplicação -->
+  <script src="/js/api.js"></script>
+  <script src="/js/map.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "Regressão Logística": {
+    "Verdadeiros_Negativos_VN": 11,
+    "Falsos_Positivos_FP": 1493,
+    "Falsos_Negativos_FN": 0,
+    "Verdadeiros_Positivos_VP": 4595,
+    "Acuracia": 0.7552057714379407,
+    "Sensibilidade_Recall": 1.0,
+    "Especificidade": 0.007313829787234043,
+    "Precisao": 0.7547634691195795,
+    "F1_Score": 0.8602452494617616,
+    "Limiar_Decisao": 0.5
+  },
+  "Árvore de Decisão": {
+    "Verdadeiros_Negativos_VN": 567,
+    "Falsos_Positivos_FP": 937,
+    "Falsos_Negativos_FN": 234,
+    "Verdadeiros_Positivos_VP": 4361,
+    "Acuracia": 0.8080013116904411,
+    "Sensibilidade_Recall": 0.9490750816104462,
+    "Especificidade": 0.37699468085106386,
+    "Precisao": 0.8231408078520196,
+    "F1_Score": 0.8816334782169211,
+    "Limiar_Decisao": 0.5
+  },
+  "Random Forest": {
+    "Verdadeiros_Negativos_VN": 602,
+    "Falsos_Positivos_FP": 902,
+    "Falsos_Negativos_FN": 220,
+    "Verdadeiros_Positivos_VP": 4375,
+    "Acuracia": 0.8160354156419085,
+    "Sensibilidade_Recall": 0.9521218715995647,
+    "Especificidade": 0.4002659574468085,
+    "Precisao": 0.8290695470911503,
+    "F1_Score": 0.8863452188006483,
+    "Limiar_Decisao": 0.5
+  },
+  "Extra Trees": {
+    "Verdadeiros_Negativos_VN": 0,
+    "Falsos_Positivos_FP": 1504,
+    "Falsos_Negativos_FN": 0,
+    "Verdadeiros_Positivos_VP": 4595,
+    "Acuracia": 0.7534021970814888,
+    "Sensibilidade_Recall": 1.0,
+    "Especificidade": 0.0,
+    "Precisao": 0.7534021970814888,
+    "F1_Score": 0.8593603890031793,
+    "Limiar_Decisao": 0.5
+  },
+  "HistGradientBoosting": {
+    "Verdadeiros_Negativos_VN": 678,
+    "Falsos_Positivos_FP": 826,
+    "Falsos_Negativos_FN": 267,
+    "Verdadeiros_Positivos_VP": 4328,
+    "Acuracia": 0.8207902934907362,
+    "Sensibilidade_Recall": 0.9418933623503809,
+    "Especificidade": 0.4507978723404255,
+    "Precisao": 0.8397361272797826,
+    "F1_Score": 0.8878859370191814,
+    "Limiar_Decisao": 0.5
+  }
+}

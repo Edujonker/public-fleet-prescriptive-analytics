@@ -1,0 +1,15 @@
+{
+  "total_registros": 350737,
+  "veiculos_unicos": 7580,
+  "periodo_inicio": "2020-10-14",
+  "periodo_fim": "2026-08-13",
+  "saltos_negativos_hodometro": 6841,
+  "veiculos_afetados_hodometro": 3116,
+  "status_cobradas": 267358,
+  "status_reprovadas": 55259,
+  "codigo_corretiva": 270510,
+  "codigo_preventiva": 37897,
+  "valor_total_aprovado": 138759653.82,
+  "valor_total_aprovado_reais": "R$ 138.759.653,82",
+  "valor_total_aprovado_extenso": "R$ 138,76 milhões"
+}

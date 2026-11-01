@@ -1,0 +1,24 @@
+% PosTextuais/ApendiceA.tex
+\begin{apendicesenv}
+\partapendices
+
+\chapter{FORMULAÇÃO MATEMÁTICA COMPLETA E LINEARIZADA DO SOLVER MILP}
+\label{apendice:a}
+
+O problema de alocação ótima e escalonamento de manutenções com restrição de capacidade e orçamento para a frota do Estado de Santa Catarina é formulado canonicamente como segue:
+
+\begin{equation}
+    \min \sum_{t=1}^T \sum_{i=1}^N \left[ \alpha \cdot c_{it} x_{it} + \beta \cdot r_{it} (1 - x_{it}) \right]
+\end{equation}
+
+\noindent Restrições Operacionais e Orçamentárias:
+\begin{enumerate}
+    \item Teto Orçamentário Mensal: $\sum_{i=1}^N c_{it} x_{it} \le B_t, \quad \forall t \in \{1, \dots, T\}$
+    \item Capacidade Operacional de Oficinas: $\sum_{i=1}^N h_{it} x_{it} \le H_t, \quad \forall t \in \{1, \dots, T\}$
+    \item Manutenções Mandatórias de Segurança: $x_{it} \ge m_{it}, \quad \forall (i, t) \mid m_{it} = 1$
+    \item Integralidade e Domínio: $x_{it} \in \{0, 1\}, \quad \forall i, t$
+\end{enumerate}
+
+\noindent\textbf{Métricas Poliedrais e Complexidade Computacional da Instância S0:}
+
+A instância canônica S0 contempla 72.000 variáveis binárias de decisão, correspondentes a 2.000 veículos avaliados ao longo de 36 períodos mensais. O modelo apresenta 6.072 restrições lineares reportadas, compreendendo limites orçamentários, capacidades operacionais e exigências de manutenção mandatória. A quantidade de restrições efetivamente ativas na solução ótima deverá ser determinada a partir dos resultados do solver, não podendo ser inferida exclusivamente da formulação matemática.

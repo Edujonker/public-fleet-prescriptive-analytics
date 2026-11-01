@@ -1,0 +1,13 @@
+{
+  "total_meses_historico": 57,
+  "periodo_inicio": "2021-01-01",
+  "periodo_fim": "2025-09-01",
+  "horizonte_previsao_meses": 12,
+  "cv_mae_reais": 694764.2936957524,
+  "cv_rmse_reais": 814889.0516160111,
+  "cv_smape_percentual": 26.972240338890245,
+  "projecao_anual_bruta": 39607018.018027835,
+  "projecao_anual_saneada": 32008291.661034707,
+  "diferenca_anomalias_anual": 7598726.356993128,
+  "impacto_anomalias_percentual": 19.185302850960486
+}

@@ -1,0 +1,33 @@
+% PosTextuais/ApendiceA.tex
+\begin{apendicesenv}
+\partapendices
+
+\chapter{FORMULAÇÃO MATEMÁTICA COMPLETA E LINEARIZADA DO SOLVER MILP}
+\label{apendice:a}
+
+O problema de alocação ótima e escalonamento de manutenções com restrição de capacidade física e teto orçamentário para a frota do Estado de Santa Catarina é formulado canonicamente como um modelo de Programação Linear Inteira Mista (\textit{Mixed-Integer Linear Programming} -- MILP), estruturado pela função objetivo multiobjetivo linearizada:
+
+\begin{equation}
+    \min_{x} \quad Z = \sum_{t=1}^T \sum_{i=1}^N \left[ \alpha \cdot c_{it} x_{it} + \beta \cdot r_{it} (1 - x_{it}) \right]
+    \label{eq:apendice_milp_obj}
+\end{equation}
+
+\noindent sujeita às restrições estruturais de governança e viabilidade física:
+\begin{align}
+    \sum_{i=1}^N c_{it} x_{it} &\le B_t, \quad \forall t \in \{1, \dots, T\} \label{eq:apendice_milp_bt} \\
+    \sum_{i=1}^N h_{it} x_{it} &\le H_t, \quad \forall t \in \{1, \dots, T\} \label{eq:apendice_milp_ht} \\
+    x_{it} &\ge m_{it}, \quad \forall (i, t) \mid m_{it} = 1 \label{eq:apendice_milp_mit} \\
+    x_{it} &\in \{0, 1\}, \quad \forall i \in \{1, \dots, N\}, \, \forall t \in \{1, \dots, T\} \label{eq:apendice_milp_dom}
+\end{align}
+
+\noindent nas quais:
+\begin{itemize}
+    \item A Equação~(\ref{eq:apendice_milp_bt}) estabelece a restrição de teto orçamentário financeiro mensal, impondo que o somatório dos custos de intervenção preventiva $c_{it}$ de todos os veículos $i \in \{1, \dots, N\}$ escalonados no período $t$ ($x_{it} = 1$) não exceda a dotação financeira disponível $B_t$;
+    \item A Equação~(\ref{eq:apendice_milp_ht}) formaliza o limite de capacidade instalada da rede credenciada de mecânicas, garantindo que a demanda agregada em horas de mão de obra $h_{it}$ não ultrapasse o teto mensal $H_t$;
+    \item A Equação~(\ref{eq:apendice_milp_mit}) impõe o cumprimento compulsório das manutenções mandatórias de segurança e revisões contratuais obrigatórias de garantia ($m_{it} = 1$), vedando a postergação de serviços críticos pelo solver;
+    \item A Equação~(\ref{eq:apendice_milp_dom}) define o domínio binário de decisão integral das variáveis $x_{it}$.
+\end{itemize}
+
+\noindent\textbf{Métricas Poliedrais e Complexidade Computacional da Instância S0:}
+
+A instância canônica S0 contempla 72.000 variáveis binárias de decisão, correspondentes a 2.000 veículos avaliados ao longo de 36 períodos mensais. O modelo apresenta 6.072 restrições lineares reportadas, compreendendo limites orçamentários ($B_t$), capacidades operacionais ($H_t$) e exigências de manutenção mandatória ($m_{it}$). A quantidade de restrições efetivamente ativas na solução ótima foi determinada a partir dos resultados do solver \textit{HiGHS}, demonstrando que o teto orçamentário $B_t$ é vinculante nos meses de maior demanda de revisão preventiva, enquanto a capacidade agregada $H_t$ operou com folga sob os parâmetros vigentes da rede credenciada catarinense.

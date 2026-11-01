@@ -1,0 +1,3 @@
+metrica,solucao_inteira_mip,relaxacao_linear_lp,gap_integralidade,diagnostico_poliedral
+Custo Total Otimizado da Frota (Cenário S0),"R$ 43,837,633.31","R$ 43,837,384.79",0.00057% (R$ 248.52),"Formulação Quase-Ideal (Gap < 0,001%)"
+Tempo Computacional de Processamento,8.92 s,0.56 s,Δ = 8.36 s,Convergência Instantânea Dual Simplex

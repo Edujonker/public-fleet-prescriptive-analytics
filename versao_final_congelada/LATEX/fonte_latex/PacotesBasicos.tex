@@ -1,0 +1,50 @@
+% PacotesBasicos.tex
+% Configuração de pacotes para o modelo UDESC / ABNT (Overleaf TeX Live)
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{indentfirst}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{bookmark}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Citações ABNT NBR 10520:2023 e Referências NBR 6023
+\usepackage[alf,abnt-emphasize=bf,abnt-thesis-year=both,abnt-repeated-title-omission=yes,abnt-last-names=bibtex,abnt-etal-cite=3,abnt-etal-list=3,abnt-etal-text=it]{abntex2cite}
+
+% Configurações de margens (UDESC: Sup/Esq 3cm, Inf/Dir 2cm)
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout
+
+% Espaçamento entre linhas 1.5 e recuo de parágrafo 1.25cm
+\setstretch{1.5}
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.0cm}
+
+% Estilo de numeração de página reduzida (10pt no canto superior direito)
+\makepagestyle{PagNumReduzida}
+\makeevenhead{PagNumReduzida}{\small\thepage}{}{}
+\makeoddhead{PagNumReduzida}{}{}{\small\thepage}
+\makeevenfoot{PagNumReduzida}{}{}{}
+\makeoddfoot{PagNumReduzida}{}{}{}
+
+% Cores para links
+\definecolor{blueUDESC}{RGB}{0,51,102}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blueUDESC,
+    bookmarksdepth=4
+}

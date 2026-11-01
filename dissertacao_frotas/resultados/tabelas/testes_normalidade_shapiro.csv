@@ -1,0 +1,4 @@
+variavel;tamanho_amostra_teste;shapiro_wilk_w;shapiro_wilk_p_value;dagostino_k2;dagostino_p_value;hipotese_gaussiana_rejeitada
+Valor Aprovado;5000;0.5563;1.3774315800706605e-77;6136.63534;0.0;True
+Duração Reparo;5000;0.68363;1.449665362119641e-70;2644.77553;0.0;True
+Hodômetro;5000;0.68866;3.059459967786497e-70;2788.30362;0.0;True

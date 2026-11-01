@@ -1,0 +1,67 @@
+{
+  "metadados": {
+    "protocolo": "Estudo de Robustez, Ablação Multimodal e Generalização Out-of-Sample",
+    "horizonte_treino": "2020-10 a 2024-12",
+    "horizonte_teste": "2025-01 a 2026-02",
+    "algoritmo": "HistGradientBoosting (Champion)",
+    "semente": 42
+  },
+  "estudo_ablativo_3_espacos": [
+    {
+      "espaco": "M (Manutenção Pura)",
+      "n_features": 10,
+      "pr_auc": 0.9060009777534825,
+      "roc_auc": 0.8006678599541592,
+      "mae": 2321.284698255307,
+      "rmse": 4395.294465834859,
+      "r2": 0.08637875670933326,
+      "smape": 98.89987685619653,
+      "delta_mae_reais": 0.0,
+      "ganho_mae_pct": 0.0,
+      "delta_pr_auc": 0.0,
+      "ganho_pr_auc_pct": 0.0
+    },
+    {
+      "espaco": "M+P (Manutenção + Patrimônio)",
+      "n_features": 12,
+      "pr_auc": 0.9060009777534825,
+      "roc_auc": 0.8006678599541592,
+      "mae": 2321.284698255307,
+      "rmse": 4395.294465834859,
+      "r2": 0.08637875670933326,
+      "smape": 98.89987685619653,
+      "delta_mae_reais": 0.0,
+      "ganho_mae_pct": 0.0,
+      "delta_pr_auc": 0.0,
+      "ganho_pr_auc_pct": 0.0
+    },
+    {
+      "espaco": "M+P+A (Manutenção + Patrimônio + Abastecimento)",
+      "n_features": 15,
+      "pr_auc": 0.9055216821066521,
+      "roc_auc": 0.8005462401315029,
+      "mae": 2326.4371347956385,
+      "rmse": 4411.999578912452,
+      "r2": 0.07942079310793804,
+      "smape": 99.12986582626246,
+      "delta_mae_reais": -5.152436540331564,
+      "ganho_mae_pct": -0.22196486903153972,
+      "delta_pr_auc": -0.00047929564683046877,
+      "ganho_pr_auc_pct": -0.05290233218278957
+    }
+  ],
+  "generalizacao_out_of_sample": {
+    "n_in_sample": 5737,
+    "mae_in_sample": 2355.776399022923,
+    "n_out_of_sample": 362,
+    "mae_out_of_sample": 1774.657937747526,
+    "degradacao_percentual": -24.6678106426578,
+    "diagnostico": "Robusto a novos veículos (degradação inferior a 2,0%)"
+  },
+  "generalizacao_inter_familias": {
+    "n_leves": 4466,
+    "mae_leves": 2158.208062971681,
+    "n_pesados": 1633,
+    "mae_pesados": 2767.2738306353876
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "metadados": {
+    "solver": "HiGHS (Simplex Dual / Branch-and-Cut)",
+    "versao_scipy": "1.16+",
+    "tolerancia_otimalidade": 1e-07,
+    "n_veiculos": 2000,
+    "horizonte_meses": 36,
+    "variaveis_decisao": 72000,
+    "restricoes_totais": 6072
+  },
+  "auditoria_relaxacao_linear": {
+    "custo_total_mip_inteiro": 43837633.31,
+    "custo_total_lp_relaxado": 43837384.79,
+    "integrality_gap_absoluto": 248.52,
+    "integrality_gap_relativo_pct": 0.0005669114,
+    "tempo_mip_segundos": 8.92,
+    "tempo_lp_segundos": 0.56
+  },
+  "restricoes_ativas": {
+    "propensao_orcamento_ativo_pct": 58.33,
+    "propensao_horas_ativas_pct": 0.0,
+    "gargalo_dominante": "Orçamento Financeiro Mensal (B_t)"
+  },
+  "confronto_baselines_cenario_s0": {
+    "bl0_as_is": 53139780.57,
+    "milp0_sem_ml": 48719011.68,
+    "milp1_com_ml": 43837633.31,
+    "economia_total_brl": 9302147.26,
+    "economia_total_pct": 17.51,
+    "valor_incremental_ml_brl": 4881378.37
+  },
+  "sensibilidade_orcamentaria": [
+    {
+      "fator_orcamento": 0.7,
+      "fator_descricao": "70% do Orçamento Nominal",
+      "orcamento_total_trienal": 14546615.40,
+      "custo_intervencoes": 14392050.96,
+      "risco_residual": 32621978.27,
+      "custo_total": 47014029.23,
+      "disponibilidade_pct": 94.26,
+      "intervencoes_realizadas": 28878
+    },
+    {
+      "fator_orcamento": 0.85,
+      "fator_descricao": "85% do Orçamento Nominal",
+      "orcamento_total_trienal": 17663747.27,
+      "custo_intervencoes": 17038531.51,
+      "risco_residual": 28214494.40,
+      "custo_total": 45253025.91,
+      "disponibilidade_pct": 94.81,
+      "intervencoes_realizadas": 35267
+    },
+    {
+      "fator_orcamento": 1.0,
+      "fator_descricao": "100% do Orçamento Nominal (Cenário S0)",
+      "orcamento_total_trienal": 20780879.14,
+      "custo_intervencoes": 19265308.26,
+      "risco_residual": 24572325.05,
+      "custo_total": 43837633.31,
+      "disponibilidade_pct": 95.26,
+      "intervencoes_realizadas": 40194
+    },
+    {
+      "fator_orcamento": 1.15,
+      "fator_descricao": "115% do Orçamento Nominal",
+      "orcamento_total_trienal": 23898011.01,
+      "custo_intervencoes": 20674571.46,
+      "risco_residual": 22335326.63,
+      "custo_total": 43009898.09,
+      "disponibilidade_pct": 95.54,
+      "intervencoes_realizadas": 42758
+    },
+    {
+      "fator_orcamento": 1.3,
+      "fator_descricao": "130% do Orçamento Nominal",
+      "orcamento_total_trienal": 27015142.89,
+      "custo_intervencoes": 20674575.21,
+      "risco_residual": 22335322.89,
+      "custo_total": 43009898.09,
+      "disponibilidade_pct": 95.54,
+      "intervencoes_realizadas": 42758
+    }
+  ]
+}

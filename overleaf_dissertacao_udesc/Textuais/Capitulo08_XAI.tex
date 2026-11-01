@@ -1,0 +1,16 @@
+% Textuais/Capitulo08_XAI.tex
+\chapter{INTELIGÊNCIA ARTIFICIAL EXPLICÁVEL (XAI), TRIANGULAÇÃO E CONFIABILIDADE (HIPÓTESE H4)}
+\label{cap:xai}
+
+A explicabilidade dos modelos preditivos foi avaliada via valores de Shapley (SHAP) e aproximações locais lineares (LIME). Ao confrontar os rankings de relevância de atributos sobre as instâncias auditadas, obteve-se \textbf{similaridade de Jaccard Top-5 de 39,29\% (39,3\%)} e \textbf{correlação de postos de Spearman de $\rho = 0,3680$}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Comparativo de Importância de Features entre SHAP e LIME}
+    \includegraphics[width=0.85\textwidth]{figuras/fig13_concordancia_shap_lime.png}
+    \vspace{0.2cm}
+    \fonte{Dados empíricos da frota pública de Santa Catarina processados pelo autor (2026).}
+    \label{fig:xai}
+\end{figure}
+
+Em decorrência dessa divergência geométrica intrínseca, a \textbf{Hipótese H4 NÃO FOI SUSTENTADA} sob o limiar a priori de alta concordância ($>$85\%), fundamentando a necessidade de protocolos de triangulação explicativa multimetodológica na administração pública.

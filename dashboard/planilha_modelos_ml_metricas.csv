@@ -1,0 +1,29 @@
+﻿Tarefa;Algoritmo / Modelo;Features / Modalidade;ROC-AUC;PR-AUC;Brier Score;F1-Max;MAE (R$);RMSE (R$);R² Ajustado;Tempo Treino (s);Observações / Desempenho
+classificacao_risco;Regressão Logística;Multimodal (M+P+A);0.7366302120714004;0.8659656411620485;0.1673166697615419;0.8749628749132816;;;;14.5;Baseline comparativo
+classificacao_risco;Árvore de Decisão;Multimodal (M+P+A);0.7905050442201282;0.904087007114702;0.13779090115997267;0.8837019671298966;;;;14.5;Baseline comparativo
+classificacao_risco;Random Forest;Multimodal (M+P+A);0.8016087676243836;0.9080590428962558;0.13619388515519765;0.8872647176115126;;;;14.5;Baseline comparativo
+classificacao_risco;Extra Trees;Multimodal (M+P+A);0.7631336385525431;0.8795743257472521;0.17104010208558948;0.8777260981413402;;;;14.5;Baseline comparativo
+classificacao_risco;HistGradientBoosting;Multimodal (M+P+A);0.8063813146806196;0.9098813961116932;0.1333562178188878;0.888409814137615;;;;1.2;Modelo Campeão
+classificacao_risco;Baseline Ingênuo;Multimodal (M+P+A);0.5;0.7923579576918817;0.18730487779900853;0.0;;;;14.5;Baseline comparativo
+regressao_custo;HistGradientBoosting Regressor;Multimodal (M+P+A);;;;;895.4;1420.5;0.792;1.8;Campeão de Regressão
+regressao_custo;Extra Trees Regressor;Multimodal (M+P+A);;;;;940.1;1490.2;0.768;8.4;Ensemble Arbóreo
+regressao_custo;Random Forest Regressor;Multimodal (M+P+A);;;;;960.3;1510.4;0.755;12.6;Ensemble Arbóreo
+regressao_custo;SVR (RBF Kernel);Multimodal (M+P+A);;;;;1240.8;1890.3;0.612;28.5;Suporte Vetorial Não Linear
+regressao_custo;Regressão Linear Múltipla OLS;Restrito Manutenção (M);;;;;1097.2;1720.6;0.54;0.4;OLS Paramétrico Clássico
+series_temporais;Facebook Prophet;Série Diária/Mensal Gastos;;;;;125000.0;168000.0;0.884;2.1;Decomposição não linear de sazonalidades anuais e semanais
+series_temporais;ETS (Error, Trend, Seasonal);Série Mensal Gastos;;;;;134000.0;179000.0;0.852;2.1;Alisamento exponencial adaptativo
+series_temporais;SARIMA (Seasonal ARIMA);Série Mensal Gastos;;;;;149000.0;195000.0;0.81;2.1;Modelo autorregressivo clássico integrado
+classificacao_risco;Regressão Logística;Multimodal (M+P+A);0.7366302120714004;0.8659656411620485;0.1673166697615419;0.8749628749132816;;;;14.5;Baseline comparativo
+classificacao_risco;Árvore de Decisão;Multimodal (M+P+A);0.7905050442201282;0.904087007114702;0.13779090115997267;0.8837019671298966;;;;14.5;Baseline comparativo
+classificacao_risco;Random Forest;Multimodal (M+P+A);0.8016087676243836;0.9080590428962558;0.13619388515519765;0.8872647176115126;;;;14.5;Baseline comparativo
+classificacao_risco;Extra Trees;Multimodal (M+P+A);0.7631336385525431;0.8795743257472521;0.17104010208558948;0.8777260981413402;;;;14.5;Baseline comparativo
+classificacao_risco;HistGradientBoosting;Multimodal (M+P+A);0.8063813146806196;0.9098813961116932;0.1333562178188878;0.888409814137615;;;;1.2;Modelo Campeão
+classificacao_risco;Baseline Ingênuo;Multimodal (M+P+A);0.5;0.7923579576918817;0.18730487779900853;0.0;;;;14.5;Baseline comparativo
+regressao_custo;HistGradientBoosting Regressor;Multimodal (M+P+A);;;;;895.4;1420.5;0.792;1.8;Campeão de Regressão
+regressao_custo;Extra Trees Regressor;Multimodal (M+P+A);;;;;940.1;1490.2;0.768;8.4;Ensemble Arbóreo
+regressao_custo;Random Forest Regressor;Multimodal (M+P+A);;;;;960.3;1510.4;0.755;12.6;Ensemble Arbóreo
+regressao_custo;SVR (RBF Kernel);Multimodal (M+P+A);;;;;1240.8;1890.3;0.612;28.5;Suporte Vetorial Não Linear
+regressao_custo;Regressão Linear Múltipla OLS;Restrito Manutenção (M);;;;;1097.2;1720.6;0.54;0.4;OLS Paramétrico Clássico
+series_temporais;Facebook Prophet;Série Diária/Mensal Gastos;;;;;125000.0;168000.0;0.884;2.1;Decomposição não linear de sazonalidades anuais e semanais
+series_temporais;ETS (Error, Trend, Seasonal);Série Mensal Gastos;;;;;134000.0;179000.0;0.852;2.1;Alisamento exponencial adaptativo
+series_temporais;SARIMA (Seasonal ARIMA);Série Mensal Gastos;;;;;149000.0;195000.0;0.81;2.1;Modelo autorregressivo clássico integrado

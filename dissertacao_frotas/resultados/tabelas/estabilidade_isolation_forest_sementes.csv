@@ -1,0 +1,6 @@
+contaminacao_nominal;contaminacao_pct;anomalias_detectadas;jaccard_medio_sementes;estabilidade_certificada
+0.005;0.5;390;0.7883;False
+0.0085;0.85;662;0.8055;True
+0.01;1.0;779;0.8239;True
+0.02;2.0;1558;0.8323;True
+0.05;5.0;3894;0.8393;True

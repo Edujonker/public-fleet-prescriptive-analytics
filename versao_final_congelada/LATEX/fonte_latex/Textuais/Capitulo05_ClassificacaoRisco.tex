@@ -1,0 +1,16 @@
+% Textuais/Capitulo05_ClassificacaoRisco.tex
+\chapter{CLASSIFICAÇÃO NÃO LINEAR DE RISCO OPERACIONAL, ACURÁCIA E CALIBRAÇÃO (HIPÓTESE H2)}
+\label{cap:classificacao}
+
+O modelo \textit{HistGradientBoosting} sagrou-se campeão absoluto na classificação de risco com PR-AUC de \textbf{0,9510}, ROC-AUC de \textbf{0,8743} [IC 95\%: 0,8617; 0,8878], F1-Score de \textbf{0,9113} e ECE de \textbf{0,0174}. A calibração de probabilidades reduziu o Brier Score de 0,1695 para 0,1043.
+
+\begin{figure}[H]
+    \centering
+    \caption{Curvas ROC e Precision-Recall dos Classificadores de Risco}
+    \includegraphics[width=0.85\textwidth]{figuras/fig07_curvas_roc_modelos.png}
+    \vspace{0.2cm}
+    \fonte{Dados empíricos da frota pública de Santa Catarina processados pelo autor (2026).}
+    \label{fig:roc}
+\end{figure}
+
+O teste não paramétrico de DeLong et al. (1988) confirmou a superioridade estatística frente à Regressão Logística ($Z = 16,39; p < 10^{-50}$).

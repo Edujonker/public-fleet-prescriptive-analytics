@@ -1,0 +1,72 @@
+coluna;tipo_dado;valores_ausentes;pct_ausente;cardinalidade;exemplo
+cd_cliente;int64;0;0.0;35;180897
+ds_nomereduzido;str;0;0.0;35;MANUTENCAO SEA SC
+ds_placa;str;0;0.0;7580;EQP2138
+ds_veiculomodelo;str;0;0.0;588;EMPILHADEIRA
+ds_familia;str;0;0.0;16;EQUIPAMENTO
+nr_anoveiculo;int64;0;0.0;52;2010
+ds_informacao_adicional1;str;15599;4.45;1811;SEA
+ds_informacao_adicional2;str;1535;0.44;165;ND
+ds_informacao_adicional3;str;56594;16.14;797;ND
+ds_informacao_adicional4;str;163781;46.7;278;JOINVILLE
+ds_informacao_adicional5;str;206985;59.01;18;A CONFIRMAR
+cd_manutencao_oficina;int64;0;0.0;77867;9383765
+tipo_manutencao_oficina;str;0;0.0;2;CORRETIVA
+TRIM(F_MANUTENCAO_OFICINA.ds_codigo_manutencao);str;32474;9.26;9;CORRETIVA
+cd_estabelecimento;int64;0;0.0;1120;11396941
+ds_nomereduzido.1;str;0;0.0;1059;RETIFICA DE MOTORES CONTINENTE
+ds_grupo_peca;str;0;0.0;16;ACESSORIOS
+ds_peca;str;0;0.0;4097;ADESIVOS
+ds_fabricante_peca;str;191410;54.57;2017;SABO
+ds_complemento_peca;str;305034;86.97;27542;COLA SILICONE
+cd_manutencao_oficina_item;int64;0;0.0;349443;41585880
+dt_aprovacao_item;str;74387;21.21;235841;2021-07-29 16:19:26.043
+dt_reprovacao_item;str;317158;90.43;28987;2023-07-27 14:46:53.440
+dt_cancelamento_item;float64;350737;100.0;0;TOTALMENTE_NULO
+ds_mao_de_obra;str;0;0.0;116;COLAR
+nr_quantidade_pecas;str;1272;0.36;197;1,00
+valor_peca_orcado;str;1272;0.36;36363;24,0000
+Valor_Aprovado_Peca;str;0;0.0;29789;24,00
+vl_total_mao_de_obra;str;0;0.0;8167;0,00
+nr_quantidade_hora_mao_de_obra;str;1272;0.36;2023;0,00
+valor_mo_orcado;str;1272;0.36;8758;0,0000
+Valor_Aprovado_MaoDeObra;str;0;0.0;7394;0,00
+vl_orcado;str;0;0.0;48388;24,00
+Valor_Aprovado;str;0;0.0;40169;24,00
+dt_transacao;str;83375;23.77;59997;2021-08-04 15:20:49.000
+ds_cidade;str;0;0.0;122;PALHOCA
+CD_TITULO;float64;147;0.04;4221;34771352.0
+dt_envio_orcamento;str;7187;2.05;75621;2021-07-29 16:11:06.503
+dt_entrada_veiculo_oficina;str;0;0.0;73478;2021-07-26 17:52:00.000
+ds_fabricante;str;0;0.0;135;AMEISE
+cd_cgc;int64;0;0.0;1114;80679491000188
+relato_gestor_auto;str;304616;86.85;7988;SOLICITAÇÃO DE SERVIÇO DE GUINCHO REFERENTE AO TRANSLADO DA EXTINTA ADR DE CURITIBANOS PARA O ALMOXARIFADO DA PALHOÇA (GEMOV/SEA)
+sum(F_MANUTENCAO_OFICINA.vl_total);str;0;0.0;45455;24,00
+ds_os_status;str;0;0.0;11;COBRADAS
+ds_uf;str;0;0.0;6;SC
+ds_tipoestabelecimento;str;0;0.0;22;OFICINA MECANICA
+nr_quilometragem;int64;0;0.0;47175;21
+vl_total_peca;str;0;0.0;33872;24,00
+vl_unitario_peca;str;0;0.0;33707;24,00
+vl_unitario_mao_de_obra;str;0;0.0;3594;0,00
+dt_aprovacao_1;str;62857;17.92;63464;2021-07-29 16:23:10.000
+dt_aprovacao_2;str;139838;39.87;46742;2021-02-18 15:49:49.000
+dt_aprovacao_3;str;344379;98.19;1733;2025-04-04 18:24:52.000
+dt_aprovacao_4;str;350732;100.0;1;2021-07-06 15:11:08.000
+dt_aprovacao_os;str;74522;21.25;61886;2021-07-29 16:23:10.890
+dt_conclusao_servico;str;82377;23.49;50456;2021-08-04 08:15:00.000
+dt_retirada_veiculo;str;82470;23.51;52330;2021-08-04 08:20:00.000
+dt_reprovacao_os;str;295448;84.24;11510;2021-05-31 15:30:16.796
+nome_completo;str;0;0.0;931;MAYCON VIEIRA
+nivel_aprovador_1;str;0;0.0;36;GESTAO DE FROTAS                                  
+nivel_aprovador_2;str;0;0.0;13;Não Informado
+nivel_aprovador_3;str;0;0.0;6;Não Informado
+nivel_aprovador_4;str;0;0.0;3;Não Informado
+cd_transacao;float64;83375;23.77;60116;734657997.0
+ds_motorista;str;0;0.0;4396;DIOLI NICOLAU DOS SANTOS
+ds_tipofrota;str;70952;20.23;15;PROPRIO
+cd_manut_preventiva_original;float64;350737;100.0;0;TOTALMENTE_NULO
+ds_complemento;str;208929;59.57;3080;Posição: Completa / Retentores: Sem Retentores
+fl_aprovacao_atipica;str;112398;32.05;1;N
+_vl_aprov_num;float64;0;0.0;40169;24.0
+_vl_orc_num;float64;0;0.0;48388;24.0

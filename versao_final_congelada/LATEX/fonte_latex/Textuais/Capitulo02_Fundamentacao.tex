@@ -1,0 +1,40 @@
+% Textuais/Capitulo02_Fundamentacao.tex
+\chapter{FUNDAMENTAÇÃO TEÓRICA, MARCO REGULATÓRIO E REVISÃO DA LITERATURA}
+\label{cap:fundamentacao}
+
+\section{Marco Regulatório e Governança da Gestão de Frotas Públicas em Santa Catarina}
+
+A transição paradigmática da engenharia de manutenção veicular desdobra-se em quatro estágios evolutivos fundamentais:
+(1) \textbf{Reativa/Corretiva} (intervenção emergencial pós-falha, caracterizada por indisponibilidade prolongada do veículo e custos elevados de guincho e reparo);
+(2) \textbf{Preventiva Periódica} (intervenções baseadas em cronogramas rígidos de tempo transcorrido ou quilometragem acumulada, incorrendo frequentemente em intervenções desnecessárias ou substituição prematura de componentes íntegros);
+(3) \textbf{Preditiva} (monitoramento contínuo de sinais e diagnóstico precoce para estimar a probabilidade condicional de falha em horizontes futuros); e
+(4) \textbf{Prescritiva} (integração entre modelos preditivos probabilísticos e programação matemática para determinar não apenas \textit{quando} uma falha poderá ocorrer, mas \textit{qual ação ótima} deve ser executada sob restrições orçamentárias rígidas, capacidade instalada de oficinas e prioridades operacionais de interesse público).
+
+No contexto da administração pública do Estado de Santa Catarina, a governança patrimonial e logística é balizada por normativas específicas:
+\begin{itemize}
+    \item \textbf{Marco Regulatório Catarinense e Parâmetro Comparativo de Antieconomicidade:} No âmbito do Estado de Santa Catarina, a governança patrimonial, o uso e a gestão de veículos oficiais são estritamente regidos pelos Decretos Estaduais nº 1.488/2008 e nº 2.056/2009. O critério quantitativo de \textbf{40\% do valor venal contábil} -- originário do Artigo 5º do Decreto Estadual nº 47.539/2018 do Estado de Minas Gerais -- é adotado nesta pesquisa estritamente como parâmetro comparativo de simulação analítica e benchmarking interfederativo (conforme referenciado na Cartilha GFI da SEA/SC), e \textbf{não como determinação automática ou obrigação legal impositiva de baixa e leilão para os órgãos do Estado de Santa Catarina}. O limiar de 40\% opera como um indicador preditivo de antieconomicidade para triagem de portfólio, cabendo a decisão administrativa às comissões da SEA/SC.
+    \item \textbf{Cartilha de Gestão de Frota por Indicadores (GFI -- SEA, 2026):} Formaliza a matriz oficial de 38 indicadores de desempenho para auditoria de consumo volumétrico de combustível, validação cruzada de hodômetros e regularidade de manutenções.
+    \item \textbf{Normas Fiscais (LRF e Lei nº 14.133/2021):} A Lei de Responsabilidade Fiscal e a Nova Lei de Licitações exigem planejamento prévio e comprovação de vantajosidade econômica.
+\end{itemize}
+
+\section{Revisão Estruturada da Literatura e Análise Crítica de 40 Trabalhos}
+
+Para delimitar o estado da arte e situar a originalidade desta dissertação, procedeu-se a uma revisão estruturada da literatura contemplando \textbf{40 obras científicas de referência}, cobrindo o período de 1998 a 2026. A taxonomia adotada na matriz bibliográfica classificou os estudos em três extratos de aderência:
+(a) \textbf{Classe A (Fundamentais -- 13 obras, 32,5\%):} Trabalhos que fornecem formulações teóricas diretas, modelagens matemáticas ou trade-offs de confiabilidade essenciais à arquitetura proposta;
+(b) \textbf{Classe B (Complementares Relevantes -- 17 obras, 42,5\%):} Estudos que abordam modelagens correlatas, técnicas heurísticas pontuais ou taxonomias de roteamento e despacho; e
+(c) \textbf{Classe C (Contextuais -- 10 obras, 25,0\%):} Pesquisas em domínios adjacentes que provêm subsídios conceituais.
+
+Dentre os estudos que conectam a previsão à decisão operacional, \citeonline{chien2012} e \citeonline{cao2023} modelam políticas sob deterioração e choques aleatórios; \citeonline{zheng2022} analisam políticas híbridas de reparo sob modelo de riscos proporcionais; e \citeonline{hu2012} consideram manutenção oportunística em sistemas complexos com dependências entre componentes.
+
+\section{Fundamentos Teóricos Estruturantes Complementares}
+
+Além dos 40 estudos aplicados mapeados na matriz, a presente pesquisa ancora-se em referenciais teóricos seminais da literatura científica:
+\begin{enumerate}
+    \item \textbf{Transição da Predição à Prescrição Ótima \cite{bertsimas2020}:} Estabelece a teoria matemática da analítica prescritiva orientada por dados com garantia de otimalidade assintótica.
+    \item \textbf{Prevenção de Vazamento de Dados e Reprodutibilidade \cite{kapoor2023}:} Mapeia as causas de falha de generalização por \textit{data leakage} temporal.
+    \item \textbf{Interpretabilidade no Setor Público \cite{rudin2019}:} Fundamenta a necessidade de escrutínio rigoroso sobre modelos black-box em decisões públicas.
+    \item \textbf{Valores de Shapley \cite{lundberg2017}:} Propriedades axiomáticas de aditividade e simetria do SHAP.
+    \item \textbf{Aproximações Locais Interpretáveis \cite{ribeiro2016}:} Formulação agnóstica do algoritmo LIME.
+    \item \textbf{Detecção de Comunidades em Redes Complexas \cite{blondel2008}:} Otimização de modularidade via algoritmo de Louvain.
+    \item \textbf{Validação Sequencial Temporal \cite{bergmeir2012}:} Protocolo \textit{walk-forward} sem antecipação cronológica (\textit{lookahead bias}).
+\end{enumerate}

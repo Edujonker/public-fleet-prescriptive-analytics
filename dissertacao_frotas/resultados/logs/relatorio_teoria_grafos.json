@@ -1,0 +1,29 @@
+{
+  "metadados": {
+    "script": "06_teoria_grafos.py",
+    "timestamp_inicio": "2026-11-01T13:59:13.069940",
+    "timestamp_fim": "2026-11-01T13:59:19.477441",
+    "duracao_segundos": 6.41,
+    "status": "SUCESSO"
+  },
+  "topologia_rede": {
+    "nos_oficinas": 803,
+    "arestas": 6937,
+    "densidade": 0.02154,
+    "coeficiente_clustering": 0.0164,
+    "modularidade_louvain_q": 0.5646,
+    "total_comunidades": 18,
+    "maiores_comunidades_tamanho": [
+      187,
+      102,
+      95,
+      85,
+      83,
+      72
+    ]
+  },
+  "figuras_geradas": [
+    "distribuicao_graus_lei_potencia.png",
+    "rede_oficinas_comunidades_louvain.png"
+  ]
+}

@@ -1,0 +1,16 @@
+% Textuais/Capitulo04_DeteccaoAnomalias.tex
+\chapter{DETECÇÃO NÃO SUPERVISIONADA DE ANOMALIAS E AUDITORIA FISCAL}
+\label{cap:anomalias}
+
+O algoritmo \textit{Isolation Forest} isolou atipicidades multidimensionais no espaço contínuo composto por custo aprovado, valor orçado, duração de reparo, quilometragem, idade veicular e quantidade de itens. Com parâmetro de contaminação calibrado em $\nu = 0,0085$ (0,85\%) sobre o universo de \textbf{77.867 Ordens de Serviço consolidadas}, foram isoladas \textbf{662 ordens de serviço anômalas} (com índice de similaridade de Jaccard multissemente certificado em 0,8055), que concentraram R\$ 17,10 milhões em orçamentos cotados pelas oficinas e R\$ 16,58 milhões em dispêndio aprovado.
+
+\begin{figure}[H]
+    \centering
+    \caption{Distribuição dos Escores de Anomalia do Isolation Forest}
+    \includegraphics[width=0.85\textwidth]{figuras/fig05_distribuicao_escores_anomalia.png}
+    \vspace{0.2cm}
+    \fonte{Dados empíricos da frota pública de Santa Catarina processados pelo autor (2026).}
+    \label{fig:iforest}
+\end{figure}
+
+Ressalta-se que o algoritmo atua como instrumento de triagem prioritária para fiscalização técnica, e não como comprovação jurídica autônoma de ilicitude.

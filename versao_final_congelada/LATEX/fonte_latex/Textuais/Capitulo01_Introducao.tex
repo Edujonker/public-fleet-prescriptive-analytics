@@ -1,0 +1,19 @@
+% Textuais/Capitulo01_Introducao.tex
+\chapter{INTRODUÇÃO, CONTEXTUALIZAÇÃO E ANTEPROJETO DE PESQUISA}
+\label{cap:introducao}
+
+A gestão de uma frota institucional no setor público exige conciliar disponibilidade física dos veículos, segurança dos servidores e cidadãos, manutenção mecânica, consumo de combustíveis e rigorosos limites orçamentários fixados pela Lei de Responsabilidade Fiscal (LRF) e pela Nova Lei de Licitações (Lei Federal nº 14.133/2021). Essas dimensões deixam vestígios em sistemas administrativos distintos: o cadastro patrimonial identifica características do bem; as ordens de serviço registram peças, mão de obra e falhas; e o módulo de abastecimento informa volume, preço e odômetro.
+
+Historicamente, a fragmentação cadastral e a ausência de modelos analíticos integrados limitaram a gestão a rotinas reativas emergenciais. A literatura aponta que a manutenção preditiva e a analítica prescritiva oferecem meios para antecipar falhas e otimizar recursos, mas enfrentam desafios de qualidade de dados, explicabilidade perante órgãos de controle e formulação sob restrições reais de governo \cite{mahale2025}.
+
+\section{As Quatro Hipóteses Centrais de Pesquisa e Critérios Formais}
+
+\begin{itemize}
+    \item \textbf{Hipótese H1 (Integração Multimodal):} Conforme formulada originalmente no anteprojeto de pesquisa, a modelagem preditiva multimodal (integrando manutenção, cadastro patrimonial e abastecimento) propõe que a fusão de bases heterogêneas reduz o erro de predição de custo e eleva o PR-AUC frente a modelos restritos exclusivamente a ordens de serviço. Na avaliação experimental, separa-se a comprovação de significância estatística do teste pareado da sua relevância prática operacional (adotando-se na discussão o patamar referencial de 15,0\% de ganho como critério analítico de corte para justificar os custos operacionais de integração contínua de dados legados no setor público).
+    
+    \item \textbf{Hipótese H2 (Superioridade dos Modelos Não Lineares):} Modelos ensemble baseados em árvores (\textit{HistGradientBoosting} e \textit{Extra Trees}) superam o regressor vetorial de suporte com núcleo radial (\textit{Support Vector Regression -- SVR-RBF}) e baselines lineares paramétricos em tempo de treinamento computacional e métricas preditivas de erro sob distribuição empírica assimétrica não Gaussiana.
+    
+    \item \textbf{Hipótese H3 (Eficácia Prescritiva do MILP):} A programação linear inteira mista (MILP) orientada por previsões probabilísticas calibradas gera um plano ótimo de intervenções preventivas com custo total esperado estimado como inferior à política inercial em cenário simulado sob os mesmos limites orçamentários, garantindo disponibilidade operacional e cumprimento das revisões obrigatórias.
+    
+    \item \textbf{Hipótese H4 (Concordância e Auditabilidade da XAI):} As atribuições de importância local e global produzidas pelos métodos de inteligência artificial explicável SHAP (valores de Shapley) e LIME (aproximação linear local) exibem convergência estrutural estrita ($>$85\% de similaridade de Jaccard Top-5), viabilizando sua intercambialidade direta e auditabilidade perante órgãos de controle público (TCE-SC).
+\end{itemize}

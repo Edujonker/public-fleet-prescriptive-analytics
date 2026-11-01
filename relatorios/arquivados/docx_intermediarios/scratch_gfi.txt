@@ -1,0 +1,625 @@
+GUIA PARA
+GESTORES DE FROTA
+
+1
+
+SUMÁRIO
+1. Apresentação .......................................................................................................... 3
+1.1. Objetivo do guia .............................................................................................. 3
+1.2. O que é o GFI? ................................................................................................. 3
+1.3. O que são indicadores? ............................................................................. 4
+1.4. Legislação .......................................................................................................... 4
+2. GFI na prática: como utilizar os indicadores .................................. 5
+2.1. Planejamento .................................................................................................. 5
+2.1 Monitoramento ............................................................................................... 6
+2.2 Ação ........................................................................................................................ 8
+3. Temas e indicadores monitorados ........................................................ 9
+3.1. Dados/Situação ............................................................................................... 9
+3.2. Abastecimento ............................................................................................. 10
+3.3. Atendimento/Uso ....................................................................................... 12
+3.4. Manutenção .................................................................................................. 14
+4. Entendendo os indicadores ...................................................................... 16
+4.1. Bases de dados ............................................................................................. 16
+4.2. Apuração e Disponibilização dos Dados ..................................... 17
+5. Navegando nos painéis ............................................................................... 18
+5.1. Informações gerais ..................................................................................... 18
+5.2. Filtros ................................................................................................................... 21
+5.3. Visualizações e indicadores resumidos ...................................... 22
+5.4. Fichas descritivas ...................................................................................... 22
+6. Boas práticas de uso ...................................................................................... 23
+7. Contato ..................................................................................................................... 23
+
+2
+
+1. APRESENTAÇÃO
+1.1. Objetivo do guia
+Este guia da Secretaria de Estado de Planejamento e Gestão (Seplag-MG)
+mostra como utilizar o sistema Gestão de Frota por Indicadores (GFI).
+O material apresenta os temas e indicadores monitorados, explica como
+os dados são organizados nos painéis e oferece orientações para sua
+interpretação e seu uso na rotina de gestão.
+O objetivo é apoiar os gestores de frotas dos órgãos e entidades do
+Poder Executivo estadual na utilização estratégica dessas informações.
+O GFI contribui para o monitoramento da frota, para a melhoria da
+qualidade dos registros nos sistemas, bem como para o planejamento e
+a tomada de decisão relacionados a uso, abastecimento, manutenção e
+dimensionamento da frota oficial.
+Embora seja recomendada a leitura integral para uma visão abrangente dos
+indicadores, o guia foi estruturado para servir também como instrumento
+de consulta prática na rotina do gestor.
+
+1.2. O que é o GFI?
+O Projeto Gestão de Frota por Indicadores (GFI), iniciado em 2017 pela
+Seplag-MG, apresenta 26 indicadores relacionados a quatro temas: Dados/
+Situação, Abastecimento, Atendimento/Uso e Manutenção. A iniciativa
+busca fortalecer a gestão da frota, apoiar o planejamento de políticas e ações,
+e qualificar a tomada de decisão com informações atualizadas e acessíveis.
+Em 2025, o projeto foi retomado e os painéis revisados, a partir de uma análise
+crítica dos dados.
+São objetivos do GFI:
+• Otimizar o uso e os custos, além de reduzir os desvios relacionados à
+frota de veículos oficiais do Poder Executivo Estadual;
+• Estimular o uso apropriado dos sistemas de gestão, com o consequente
+aumento de informações confiáveis;
+• Gerar informações de forma rápida para a alta Administração e para
+tomada de decisões.
+
+3
+
+1.3. O que são indicadores?
+Indicadores são medidas (numéricas ou qualitativas) usadas para
+avaliar, acompanhar e comparar aspectos relevantes ao longo do tempo.
+Para serem eficazes, precisam ser específicos, mensuráveis e ligados aos
+objetivos da política pública.
+O monitoramento constante mostra se as ações adotadas estão produzindo os resultados esperados. Em resumo, indicadores são usados para
+demonstrar se algo está indo bem, mal ou se precisa melhorar.
+Para que servem os indicadores de frota?
+• Monitorar a frota periodicamente;
+• Identificar irregularidades e inconsistências;
+• Avaliar custos e apoiar a tomada de decisão;
+• Realizar estudos de eficiência, análises anuais e projeções;
+• Planejar substituições de veículos e políticas de gestão.
+
+1.4. Legislação
+De acordo com o Decreto Estadual nº 47.539/2018:
+Art. 5º - A gestão da frota estará sujeita à política de indicadores de
+desempenho, a ser estabelecida em norma específica da Seplag-MG,
+a fim de otimizar o uso dos veículos oficiais e o gasto público.
+Parágrafo único: A política citada no caput incluirá diretrizes e regras a
+serem observadas para a ampliação da frota e a substituição de seus
+veículos, bem como para a contratação de serviços de transportes.
+Nesse sentido, a Seplag-MG já utiliza os indicadores de desempenho
+da frota para controle e monitoramento de provimento de veículos e
+contratação de serviços de transporte. O órgão também usa a avaliação
+de manutenção veicular quando a soma de manutenções dos 12 últimos
+meses ultrapassa 40% do valor venal do veículo, e para análises diversas
+relacionadas à gestão de frota estadual.
+
+4
+
+2. GFI NA PRÁTICA: COMO UTILIZAR OS INDICADORES
+Para os gestores de frota, o GFI possibilita transformar dados e indicadores disponíveis em ações concretas de gestão, apoiando processos
+de planejamento, monitoramento e atuação sobre a frota.
+
+2.1. Planejamento
+• Revisar o planejamento anual de frota
+Por meio de indicadores como percentual de ociosidade, quilometragem
+percorrida com o veículo e veículos paralisados, o gestor de frota pode
+refletir sobre a demanda para fornecimento de veículos no órgão ou
+na entidade. Se há registro de veículos locados ociosos, por exemplo, é
+importante analisar, para uma futura contratação, se faz sentido manter
+a quantidade de veículos ou estudar eventual redução de quantitativo do
+contrato vigente.
+Para os casos de aquisições, além dos dados mencionados anteriormente,
+é fundamental se atentar para a idade dos veículos e os gastos com
+manutenção e abastecimento.
+A renovação gradual da frota, por meio de aquisições fragmentadas,
+não deve se guiar apenas pela demanda pontual das unidades administrativas, mas também se basear no gasto que um veículo mais antigo representa aos cofres públicos. Os indicadores “km/l (Desempenho)” e “Gasto
+com Manutenção” contribuem com essa análise.
+• Elaborar estudos de viabilidade e eficiência
+Os indicadores do GFI fornecem dados importantes que auxiliam o
+gestor de frota a justificar tecnicamente suas decisões. Indicadores
+como ociosidade do veículo, desempenho (km/l), gasto com manutenção
+e quilometragem (km) percorrida com o veículo permitem comparar
+cenários, por exemplo: aquisição versus locação, ou manutenção de
+veículos antigos versus substituição.
+No tema abastecimento, a partir de estudo comparativo de consumo, por
+volume e valor, combinado com a análise de desempenho, o gestor pode
+identificar necessidade de expandir ou reduzir o gasto em abastecimento
+no modelo de cartão, ou ainda de redirecionar a demanda para o modelo
+Gestão Total dos Abastecimentos (GTA), e vice-versa.
+5
+
+• Mapear veículos subutilizados (passíveis de remanejamento) e
+unidades com sobrecarga operacional
+A partir de indicadores como percentual de ociosidade, km percorrida com
+o veículo e veículos paralisados, o gestor pode identificar veículos com
+baixa utilização e outros que operam acima da média da frota.
+Essa leitura permite promover o remanejamento de veículos entre
+unidades de frota antes de novas contratações ou aquisições, equilibrando
+a distribuição da frota internamente. Além de otimizar o uso dos ativos
+disponíveis, essa prática reduz custos e aumenta a eficiência operacional
+da frota, ao direcionar os veículos para onde há maior demanda.
+
+2.1 Monitoramento
+• Solicitar intervenções rápidas quando indicadores críticos aparecerem
+Ao acompanhar periodicamente os indicadores, o gestor de frota consegue
+identificar mudanças no comportamento da frota e agir com rapidez
+quando necessário.
+Por exemplo, ao identificar aumento no volume de abastecimentos via
+cartão em município que possui ponto de abastecimento da rede GTA,
+o gestor pode: 1) conferir se o posto GTA está em funcionamento e com
+combustível disponível; 2) orientar a unidade sobre o abastecimento
+preferencial na rede de postos próprios do Estado, conforme previsto no
+Decreto Estadual nº 47.539/2018 e 3) avaliar a necessidade de bloquear o
+uso do cartão naquele município.
+Além disso, registros de desempenhos improváveis no indicador “Quantidade/
+Percentual de desempenhos improváveis”, disponível no painel de Abastecimento, podem mostrar que determinado veículo precisa de atenção quanto
+aos dados registrados no Sistema Integrado de Administração de Materiais e
+Serviços (Siad) e quanto aos abastecimentos realizados no período analisado.
+6
+
+• Conferir registros inconsistentes no Siad
+A falta de registros imediatos e consistentes no Siad pode gerar dados
+distorcidos sobre a frota de veículos oficiais.
+Um exemplo disso é o indicador “Quantidade/percentual de veículos
+locados”, no tema Dados/Situação. A ausência da baixa tempestiva de
+veículos locados já devolvidos à locadora (de contratos encerrados ou
+mesmo veículos substitutos) resulta em uma frota virtual maior que a real.
+Cabe ao gestor identificar esses veículos e proceder com a baixa do
+bem no Siad.
+No tema Abastecimento, é possível consultar o volume abastecido por cada
+veículo mensalmente por meio do indicador “Consumo de Combustível
+(Volume)”. Ao identificar consumos incompatíveis (como consumo
+excessivamente alto em determinado mês), o gestor pode verificar se
+houve erro no lançamento do volume de combustível abastecido.
+Outro caso comum é a ausência de lançamento no Siad de manutenções
+realizadas fora do modelo Gestão Total da Manutenção (GTM). Ao avaliar
+o indicador “Gasto com Manutenção”, é importante observar se o valor
+registrado reflete a realidade de manutenções da frota do órgão/unidade.
+Nessa situação, o gestor pode solicitar a conferência dos dados no Siad e
+orientar a unidade a corrigir os registros, garantindo maior precisão para o
+acompanhamento dos indicadores.
+• Reforçar rotinas de controle e monitoramento da frota
+O acompanhamento dos indicadores também ajuda o gestor a identificar
+falhas nas rotinas de controle e a reforçar procedimentos junto às unidades.
+Por exemplo, ao observar a baixa frequência de lançamentos de
+atendimentos ou o atraso no registro de baixa de veículos locados já
+devolvidos no Siad, que impactam diretamente o indicador de veículos
+paralisados do tema “Dados/Situação”, o gestor pode orientar as unidades
+sobre a importância da atualização periódica dos dados e estabelecer
+prazos para regularização.
+Por outro lado, o indicador de veículos paralisados também pode revelar
+veículos com baixa ou nenhuma utilização. Nesses casos, o gestor pode
+solicitar à unidade responsável a verificação da real necessidade do veículo,
+avaliar possibilidades de remanejamento e reforçar a importância sobre o
+controle e o uso adequado da frota oficial.
+7
+
+No tema Abastecimento, o indicador “Quantidade/Percentual de
+abastecimentos com preço acima da ANP” é um grande aliado do
+gestor no monitoramento de contratos de abastecimento por cartão.
+É possível analisar a quantidade de abastecimentos com preço maiores
+do que os do Levantamento de Preços de Combustíveis (LPC) da Agência
+Nacional do Petróleo, Gás Natural e Biocombustíveis (ANP) por município,
+unidade e veículo.
+Ao observar um município com número elevado de abastecimentos
+com essa característica, o gestor pode avaliar se há outros postos da rede
+credenciada no município ou adjacências que pratiquem preços mais
+baixos e que poderiam ser priorizados, ou até mesmo mapear eventuais
+práticas de preços abusivos ou desvios.
+
+2.2 Ação
+• Priorizar substituição de veículos antigos
+O indicador “Idade média da frota de veículos”, no tema Dados/Situação,
+permite ao gestor acompanhar a idade média da frota por tipo de
+veículo (motocicleta, automóvel, caminhão, ônibus, trator etc) e comparála com a idade de veículos específicos. Ao filtrar por placa e selecionar o
+mês atual, é possível visualizar a idade de cada veículo.
+Na prática, esse indicador, conjugado aos indicadores que apresentam
+os gastos com manutenção e abastecimento, pode apoiar a tomada de
+decisão do gestor de frota sobre a priorização de substituições.
+• Otimizar o uso da frota com base em padrões de consumo e desempenho
+A análise dos indicadores de desempenho (km/l), consumo de combustível
+e quilometragem percorrida permite ao gestor atuar diretamente na
+forma como os veículos estão sendo utilizados.
+Por exemplo, ao identificar veículos com desempenho inferior à média
+da frota ou consumo elevado de combustível, o gestor pode orientar a
+unidade responsável pelo veículo quanto a boas práticas de condução,
+verificar possíveis problemas mecânicos ou avaliar se o tipo de uso está
+adequado ao perfil do veículo.
+Além disso, a comparação entre veículos similares pode ajudar a identificar
+desvios de uso, permitindo ajustes que tornem a operação mais eficiente
+e econômica.
+8
+
+• Regularizar a situação de veículos paralisados
+Os indicadores permitem ao gestor identificar veículos que permanecem
+paralisados por longos períodos, possibilitando a adoção de providências
+para sua regularização.
+Por exemplo, ao observar aumento na quantidade de veículos do indicador
+“Veículos paralisados ou não complementados em sistema há 12 meses”
+ou a permanência de determinados veículos nessa condição por vários
+meses, o gestor pode verificar a causa (manutenção pendente, falta de
+demanda, questões administrativas) e adotar medidas como priorizar
+o reparo, remanejar o veículo para outra unidade ou iniciar processo de
+desfazimento, quando aplicável.
+Essa atuação contribui para reduzir a ociosidade da frota, melhorar o
+aproveitamento dos ativos disponíveis e evitar custos desnecessários com
+veículos sem utilização.
+
+3. TEMAS E INDICADORES MONITORADOS
+3.1. Dados/Situação
+Os indicadores do tema Dados/Situação oferecem uma visão geral da frota
+de veículos do Estado e de alguns aspectos da qualidade da sua gestão. Por
+meio deles, é possível acompanhar o tamanho da frota, a idade média dos
+veículos, a distribuição entre órgãos e unidades, identificar a incidência de
+veículos por tipo (automóvel, caminhão, caminhonete, micro-ônibus, etc),
+por tipo de bem (próprios, locados, outros) e por tipo de destinação (em uso,
+manutenção/acidentado, a doar, cedido, dentre outros).
+Esses indicadores também permitem analisar os veículos que se encontram
+paralisados, sem qualquer movimentação, há 30 dias e há 12 meses.
+O tema Dados/Situação é dividido em seis indicadores:
+• Crescimento da frota de veículos;
+• Quantidade/Percentual de veículos locados;
+• Idade média da frota de veículos;
+• Idade média da frota de veículos leves;
+• Quantidade/Percentual de veículos paralisados ou não complementados
+em sistema (30 dias);
+• Quantidade/Percentual de veículos paralisados em sistema há 12 meses.
+
+9
+
+Para os indicadores relacionados à idade média, são considerados os
+veículos leves como ciclomotor, motoneta, motocicleta, automóvel,
+camioneta, caminhonete e utilitário. Os demais — micro-ônibus, ônibus,
+reboque, caminhão, caminhão trator e motor-casa — são classificados
+como veículos pesados e não entram no cálculo do indicador “Idade
+média da frota de veículos leves”.
+Para os indicadores relacionados à situação “paralisado”, além dos dados
+do Armazém, são utilizados dados dos sistemas de terceiros para a apuração.
+O Siad apresenta uma consulta no módulo Frotas de Veículos paralisados
+por órgão e unidade. O critério para classificação de um veículo como
+paralisado, pelo Siad, é exclusivamente a falta de registros de atendimento,
+abastecimento e manutenção dentro do próprio Siad. Portanto, os
+abastecimentos e as manutenções que não são registradas no Siad não
+são computadas na análise.
+Por outro lado, para o GFI, um veículo é considerado paralisado quando não
+possui qualquer registro de abastecimentos, atendimentos e manutenções
+no Siad e nos demais sistemas de gestão de frota. A análise de paralisados
+é feita para dois períodos distintos: 30 dias e 12 meses.
+
+3.2. Abastecimento
+O painel Abastecimento reúne indicadores que permitem acompanhar
+o consumo de combustível da frota, tanto em valor quanto em volume,
+além de avaliar o desempenho dos veículos e a utilização dos diferentes
+modelos de abastecimento.
+Por meio desses indicadores é possível verificar a cobertura dos modelos de
+cartão e GTA, identificar abastecimentos realizados fora desses modelos, analisar preços pagos em comparação aos valores de referência da ANP e monitorar o desempenho dos veículos em km/L, inclusive para veículos a diesel.
+As informações também permitem identificar registros com características
+atípicas, como abastecimentos duplicados, valores unitários fora do padrão e
+desempenhos considerados improváveis, contribuindo para melhorar a qualidade dos dados e apoiar o controle dos gastos com combustível.
+
+10
+
+O tema Abastecimento é dividido em nove indicadores:
+• Consumo de combustível (Valor);
+• Consumo de combustível (Volume);
+• Quantidade/Percentual de abastecimentos com preço acima ao ANP;
+• Cobertura do modelo cartão;
+• Cobertura do modelo GTA;
+• Volume/Percentual de abastecimentos fora do GTA;
+• Quantidade/Percentual de desempenhos improváveis;
+• km/Litro (Desempenho);
+• km/Litro (Desempenho) - Veículos Diesel.
+Os abastecimentos duplicados são desconsiderados para o cálculo de
+todos os indicadores desse tema. O abastecimento é classificado como
+duplicado quando uma placa possui dois abastecimentos consecutivos
+com hodômetros iguais ou com diferença de até um quilômetro, volumes
+iguais ou diferença de até um litro e que não são do tipo GTA nem Cartão.
+
+FIQUE ATENTO!
+Os abastecimentos realizados no GTA são registrados automaticamente
+no Siad, sem necessidade de lançamento manual pelo gestor de frota.
+Já os abastecimentos feitos com cartão na rede credenciada não são
+integrados ao Siad, mas ficam disponíveis no sistema da contratada.
+Caso o gestor opte por registrá-los manualmente no Siad, para controle
+interno, é fundamental que as informações sejam fiéis aos dados reais
+(origem, data, hora, hodômetro, quantidade e valor unitário).
+Para fins de apuração do GFI, que utiliza dados do sistema da contratada,
+os abastecimentos com cartão cadastrados manualmente no Siad são
+considerados duplicados e desconsiderados. No entanto, se houver
+divergência entre os registros - sistema da contratada e Siad - existe o
+risco de ambos serem contabilizados.
+
+11
+
+Além dos abastecimentos duplicados, outras variáveis são desconsideradas para o cálculo dos indicadores:
+• Despesas de adiantamento de combustível em viagens, pois elas se
+encontram registradas apenas no Sistema Integrado de Administração
+Financeira (Siafi);
+• O valor unitário do litro do combustível é classificado como “Valor Unitário
+Baixo” quando for menor ou igual a R$ 1,00 e “Valor Unitário Alto” quando
+for maior ou igual a 150% do preço máximo da ANP para o combustível, no
+munícipio e no mês analisados. Desconsiderados no cálculo do “Consumo
+de combustível (Valor)” e de “Quantidade/Percentual de abastecimentos
+com preço acima ao ANP”;
+• Um abastecimento é classificado como “Partida a Frio”, quando realizado no
+reservatório para essa finalidade, se ele atende todas as condições a seguir:
+• É do mesmo veículo;
+• Ocorreu na mesma data;
+• Tem o mesmo hodômetro do abastecimento anterior;
+• O combustível do abastecimento é igual a “Gasolina”;
+• O volume abastecido é menor ou igual a dois litros.
+Para o cálculo do indicador “Quantidade/Percentual de desempenhos
+improváveis” é considerado “Anormal” e, portanto, classificado como
+desempenho improvável, o caso em que o consumo do veículo (km/L)
+fica mais de 50% abaixo ou mais de 150% acima do desempenho de
+referência da sua marca e modelo ou do tipo de veículo. Nos demais casos,
+o desempenho é considerado “Normal”.
+Os dados de abastecimentos realizados por veículos não cadastrados no
+Siad, ou que tiveram a quilometragem percorrida igual a zero, por serem o
+primeiro registro de abastecimento do veículo, serão desconsiderados do
+cálculo dos indicadores de desempenho.
+
+3.3. Atendimento/Uso
+Os indicadores de Atendimento/Uso medem como os veículos oficiais
+estão sendo utilizados. Eles permitem analisar a intensidade e o perfil
+de uso da frota, ajudando a identificar possíveis gargalos, ociosidade ou
+
+12
+
+desperdícios. Esses indicadores mostram, por exemplo, a quantidade de
+atendimentos realizados, a quilometragem percorrida, as horas de uso dos
+veículos e o nível de ociosidade da frota.
+O tema Atendimento/Uso é dividido em cinco indicadores:
+• Quantidade/Percentual de atendimentos improváveis;
+• Quilometragem percorrida com o veículo;
+• Horas trabalhadas com o veículo;
+• Quantidade/Percentual de ociosidade do veículo;
+• Confiabilidade da km percorrida do veículo.
+
+FIQUE ATENTO!
+Para os indicadores de Atendimento/Uso, alguns dados são desconsiderados da análise por conter inconsistências que podem distorcer os indicadores da frota. É primordial que o gestor de frota registre e atualize as
+informações no Siad de forma rápida e frequente.
+Para o cálculo do indicador “Quantidade/Percentual de atendimentos
+improváveis”, um atendimento é classificado como “Improvável” se
+atender a, pelo menos, um dos critérios abaixo:
+• Quilometragem rodada menor ou igual a 0 ou maior ou igual a 10.000 km;
+• Duração menor ou igual a 4,8 min ou maior ou igual a 30 dias;
+• Velocidade média menor ou igual a 1 km/h ou maior ou igual a 75 km/h.
+Apenas são calculadas as horas trabalhadas dos veículos que não
+apresentaram atendimentos com duração ou velocidade média
+consideradas improváveis no período analisado. Ou seja, entram no
+cálculo apenas os veículos cujos atendimentos foram 100% classificados
+como “normais” nesses aspectos. Também não são considerados os
+veículos que foram movimentados de uma unidade para outra ou que
+não realizaram atendimentos durante o período de análise.
+
+13
+
+Para o cálculo do indicador “Quilometragem percorrida com o veículo”,
+alguns veículos são desconsiderados. Isso ocorre quando o veículo foi movimentado entre unidades durante o mês, quando apresentou atendimento com quilometragem rodada ou velocidade consideradas anormais,
+ou quando não realizou nenhum atendimento no período analisado.
+Para o cálculo dos indicadores “Horas trabalhadas com o veículo” e
+“Quantidade/Percentual de ociosidade do veículo”, são considerados dois
+regimes de trabalho para os veículos: (1) padrão: 8 horas por dia x quantidade
+de dias úteis do mês e (2) integral: veículos disponíveis 24 horas por dia x
+quantidade de dias do mês. O regime 1 se aplica a todos os órgãos e entidades,
+exceto PMMG, PCMG e CBMMG, que são enquadrados no regime 2.
+O indicador “Confiabilidade da quilometragem percorrida do veículo”
+está em fase de validação e será disponibilizado oportunamente. Ele é
+utilizado para comparar a quilometragem percorrida nos atendimentos
+e a percorrida entre abastecimentos. Entende-se como confiável aquela
+quilometragem que, mesmo quando obtida de diferentes fontes, apresenta
+valores similares. Para este indicador, a quilometragem é classificada como
+confiável quando a razão entre o km mensal da fonte: atendimentos e o
+km mensal da fonte: abastecimentos está entre 80% e 120%.
+
+3.4. Manutenção
+O tema Manutenção reúne indicadores que permitem acompanhar os
+gastos com manutenção da frota e avaliar a qualidade e a consistência
+desses registros. Por meio desses indicadores é possível analisar quanto está
+sendo gasto com manutenção, o gasto médio por veículo (considerando
+também separadamente os veículos leves), a cobertura do modelo GTM,
+além de identificar manutenções com características improváveis e
+veículos cujo custo de manutenção é elevado em relação ao seu valor venal.
+
+14
+
+O tema Manutenção é dividido em seis indicadores:
+• Gasto com manutenção;
+• Gasto médio dos veículos que realizaram manutenção;
+• Gasto médio dos veículos leves que realizaram manutenção;
+• Cobertura do modelo GTM;
+• Quantidade/Percentual de manutenções improváveis;
+• Quantidade/Percentual de veículos com manutenções onerosas.
+O indicador “Gasto médio dos veículos que realizaram manutenção” é
+calculado dividindo o gasto total com manutenção pela quantidade de
+veículos que passaram por manutenção no período, obtendo assim o
+gasto médio por veículo.
+Para o indicador “Gasto médio dos veículos leves que realizaram manutenção”, são considerados veículos leves dos tipos ciclomotor, motoneta,
+motocicleta, automóvel, camioneta, caminhonete e utilitário. Os demais,
+classificados como pesados, não entram no cálculo do indicador.
+São consideradas manutenções improváveis as que apresentam pelo
+menos uma das seguintes situações:
+• Valor menor que R$1,00;
+• Quilometragem entre manutenções menor ou igual a 0 km ou maior
+ou igual a 100.000 km;
+• Duração negativa;
+• Duração menor que um dia ou maior ou igual a 365 dias;
+• Duração de um dia com valor acima de R$500,00 para veículos leves ou
+R$1.000,00 para veículos pesados;
+• Ou quando o evento ocorre ao mesmo tempo que outra manutenção.
+Também não são consideradas no cálculo as manutenções que aparecem
+em duplicidade parcial ou total no Siad.
+O indicador “Quantidade/Percentual de veículos com manutenções
+onerosas” está em fase de validação e será disponibilizado oportunamente.
+Este indicador verifica em que medida o valor acumulado em manutenções
+dos veículos está de fato tornando o veículo oneroso.
+
+15
+
+Para o cálculo desse indicador são desconsiderados os veículos classificados
+como “locado”, “não informado” ou “inválido”, assim como as manutenções
+em duplicidade e as manutenções com valor menor que R$1,00 e concomitantes. Um veículo é considerado oneroso quando possui valor venal e valor
+acumulado de manutenção maiores que zero e quando o valor gasto com
+manutenção corresponde a mais de 40% do valor venal do veículo.
+
+4. ENTENDENDO OS INDICADORES
+4.1. Bases de dados
+O GFI utiliza relatórios do Sistema Integrado de Administração de Materiais
+e Serviços (Siad), e dados de fornecedores dos modelos centralizados
+de abastecimento e manutenção veicular, além do levantamento de
+preços de combustíveis da Agência Nacional do Petróleo, Gás Natural e
+Biocombustíveis (ANP).
+Atualmente, as informações que compõem o GFI são extraídas dos sistemas:
+• Armazém de Informações (Siad);
+• SGTA (Abastek);
+• Prime;
+• Soulog (Ticket Log);
+• Siag (Valecard); e
+• ANP (relatório semanal extraído do site oficial).
+
+16
+
+4.2. Apuração e Disponibilização dos Dados
+Os painéis de indicadores são disponibilizados até o décimo dia útil de
+cada mês. A data de referência dos dados varia conforme o tema, devido
+às diferenças no tempo necessário para consolidação das informações nos
+sistemas de origem.
+Dados/Situação
+Apresenta o retrato atual da frota, por isso, os dados disponibilizados são
+sempre do mês corrente.
+Demais temas (Abastecimento, Atendimento/Uso e Manutenção)
+Dependem de alguns registros operacionais que podem ser atualizados retroativamente. Assim, os dados disponibilizados possuem defasagem de quatro
+meses, de modo a aproximar os indicadores do cenário real observado.
+Exemplo: se acessar o painel no dia 15 de janeiro, estarão disponíveis os
+dados do mês de janeiro daquele ano para o tema Dados/Situação, mas,
+para os demais temas, os dados disponíveis nos indicadores serão de quatro meses atrás - portanto, setembro do ano anterior.
+Tema
+
+Período de referência dos dados disponibilizados
+
+Dados/Situação
+
+Mês corrente
+
+Abastecimento
+
+4 meses anteriores
+
+Atendimento/Uso
+
+4 meses anteriores
+
+Manutenção
+
+4 meses anteriores
+
+Para o cálculo desse indicador são desconsiderados os veículos classificados
+como “locado”, “não informado” ou “inválido”, assim como as manutenções
+em duplicidade e as manutenções com valor menor que R$1,00 e concomitantes. Um veículo é considerado oneroso quando possui valor venal e valor
+acumulado de manutenção maiores que zero e quando o valor gasto com
+manutenção corresponde a mais de 40% do valor venal do veículo.
+
+17
+
+5. NAVEGANDO NOS PAINÉIS
+5.1. Informações gerais
+Os temas estão separados por painéis. A página inicial apresenta os quatro
+temas
+Dados/Situação, Abastecimento, Atendimento/Uso e Manutenção:
+
+Ao clicar no ícone correspondente ao tema, o usuário será redirecionado
+para o painel específico com os indicadores daquele tema.
+Ao acessar o painel, os indicadores aparecem em um menu em lista e são
+separados por páginas. Alguns indicadores estão agrupados na mesma
+página para possibilitar comparações entre eles, como no caso dos indicadores “Cobertura do modelo cartão” e “Cobertura do modelo GTA”, que
+constam na visualização no tema Abastecimento.
+Estrutura do painel de Dados/Situação:
+
+18
+
+Estrutura do painel de Abastecimento:
+
+Estrutura do painel de Atendimento/Uso:
+
+Estrutura do painel de Manutenção:
+
+19
+
+É possível navegar pelas páginas dos indicadores clicando sobre a lista que
+é apresentada na página inicial ou pelas setas que são exibidas no rodapé
+das páginas:
+
+Além disso, ao clicar sobre os números que indicam o intervalo das páginas, é exibido um menu de navegação do painel:
+
+20
+
+5.2. Filtros
+Filtros superiores para refinamento: na parte superior da página do indicador é possível aplicar filtros comuns - período, órgão, código unidade e placa
+- e filtros específicos do indicador como, por exemplo “Tipo Combustível” ou
+“Tipo Destinação”.
+
+Combinação de filtros: ao abrir uma página, o painel mostra por padrão o
+último mês apurado. O usuário pode combinar filtros (exemplo: órgão + tipo
+de veículo + período) para análises específicas. Cada página é independente,
+ou seja: filtros aplicados a um indicador não se estendem às demais páginas.
+
+Limpeza de filtros: para remover filtros aplicados, utilize a opção “Limpar todos os filtros” ao lado do campo de filtros em cada página. A tela retorna às
+informações do último mês apurado.
+
+21
+
+5.3. Visualizações e
+indicadores resumidos
+As visualizações são interativas: ao
+clicar em uma categoria, todo o painel
+se ajusta automaticamente. Por exemplo, ao selecionar uma placa específica,
+todos os gráficos passam a exibir informações daquela placa.
+Todas as páginas apresentam cartões com indicadores resumidos, seja
+na lateral ou no topo da página, que
+oferecem um panorama rápido da
+situação da frota no período selecionado, com informações sintetizadas.
+
+5.4. Fichas descritivas
+Ao final do painel são apresentadas fichas para cada indicador contendo descrição,
+interpretação de uso, problema a ser resolvido, objetivo a
+ser alcançado, desagregação
+quantitativa, periodicidade de
+consolidação, fonte de dados e
+observações importantes.
+
+22
+
+6. BOAS PRÁTICAS DE USO
+Para que os indicadores sejam utilizados de forma adequada, é
+importante observar algumas boas práticas de uso e interpretação. Essas orientações contribuem para melhorar a qualidade dos registros, garantir a correta leitura dos dados e garantir o melhor aproveitamento das informações para apoiar a gestão da frota.
+• Mantenha os dados do Siad atualizados: os indicadores dependem
+da qualidade dos registros. Assim, registre os atendimentos tempestivamente e monitore os veículos que estão na carga da unidade de frota,
+efetuando a baixa do bem, quando necessário;
+• Verifique sempre o intervalo de dados: alguns indicadores exigem
+consolidação de período maior, então, estarão disponíveis nos painéis
+em períodos diferentes. Além disso, ao fazer uma busca pelo painel, filtre
+pelo período específico de análise;
+• Procure padrões e não apenas números isolados: alto consumo pode
+indicar problema mecânico; alta ociosidade pode sinalizar distribuição
+inadequada de veículos, desempenhos improváveis podem indicar inconsistências nos dados registrados no Siad e/ou volume de abastecimentos anormal;
+• Use indicadores em conjunto: alto gasto de manutenção combinado
+com idade elevada pode indicar veículo a ser substituído; desempenho
+improvável combinado com abastecimento fora do GTA indica inconsistências a verificar;
+• Acompanhe variações mensais: mudanças abruptas de um mês para
+outro podem indicar erro de registro, mudança na operação da frota ou
+alteração de contexto externo (como reajuste de preços ou mudança
+contratual). Por isso, mais do que olhar o número do mês, observe a tendência: o indicador está melhorando, piorando ou estável? Essa leitura
+temporal é o que transforma o dado em insumo para decisão.
+
+7. CONTATO
+Dúvidas? Envie um e-mail para a equipe do GFI:
+
+gfi@planejamento.mg.gov.br
+23
+
+24
+
+

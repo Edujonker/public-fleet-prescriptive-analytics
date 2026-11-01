@@ -1,0 +1,858 @@
+{
+  "metadata": {
+    "gerado_em": "2026-11-01T14:01:57.953377",
+    "total_registros": 1000000,
+    "periodo_inicio": "2019-01-01",
+    "periodo_fim": "2022-02-05",
+    "versao": "PPGCAP-2026-Abastecimentos"
+  },
+  "kpis": {
+    "total_gasto_reais": 153488476.95999998,
+    "total_litros": 34311319.0,
+    "veiculos_unicos": 12291,
+    "postos_unicos": 1722,
+    "cidades_unicas": 614,
+    "preco_medio_geral": 4.47,
+    "anomalias": {
+      "volume_suspeito": 3912,
+      "kml_discrepante": 29059,
+      "preco_discrepante": 36138,
+      "total_anomalias_detectadas": 67559
+    }
+  },
+  "anual": [
+    {
+      "ano": 2019,
+      "total_gasto": 46585731.76,
+      "total_litros": 12457349.4,
+      "abastecimentos": 351158,
+      "preco_medio": 5.2
+    },
+    {
+      "ano": 2020,
+      "total_gasto": 39991773.35,
+      "total_litros": 9751489.12,
+      "abastecimentos": 295927,
+      "preco_medio": 5.66
+    },
+    {
+      "ano": 2021,
+      "total_gasto": 59736353.97,
+      "total_litros": 10981256.09,
+      "abastecimentos": 319878,
+      "preco_medio": 7.17
+    },
+    {
+      "ano": 2022,
+      "total_gasto": 7174617.88,
+      "total_litros": 1121224.39,
+      "abastecimentos": 33037,
+      "preco_medio": 8.2
+    }
+  ],
+  "mensal": [
+    {
+      "mes_ano": "2019-01",
+      "total_gasto": 3564645.73,
+      "total_litros": 911130.96,
+      "abastecimentos": 28240
+    },
+    {
+      "mes_ano": "2019-02",
+      "total_gasto": 3565746.58,
+      "total_litros": 914294.55,
+      "abastecimentos": 27676
+    },
+    {
+      "mes_ano": "2019-03",
+      "total_gasto": 3849424.14,
+      "total_litros": 963728.55,
+      "abastecimentos": 28937
+    },
+    {
+      "mes_ano": "2019-04",
+      "total_gasto": 3987338.06,
+      "total_litros": 966392.29,
+      "abastecimentos": 28879
+    },
+    {
+      "mes_ano": "2019-05",
+      "total_gasto": 4237199.01,
+      "total_litros": 1003050.04,
+      "abastecimentos": 30481
+    },
+    {
+      "mes_ano": "2019-06",
+      "total_gasto": 3715279.52,
+      "total_litros": 904249.72,
+      "abastecimentos": 27671
+    },
+    {
+      "mes_ano": "2019-07",
+      "total_gasto": 3763471.34,
+      "total_litros": 1941607.03,
+      "abastecimentos": 29329
+    },
+    {
+      "mes_ano": "2019-08",
+      "total_gasto": 3799256.04,
+      "total_litros": 958852.47,
+      "abastecimentos": 29718
+    },
+    {
+      "mes_ano": "2019-09",
+      "total_gasto": 3828115.98,
+      "total_litros": 951813.67,
+      "abastecimentos": 29074
+    },
+    {
+      "mes_ano": "2019-10",
+      "total_gasto": 4144292.06,
+      "total_litros": 1019027.03,
+      "abastecimentos": 31192
+    },
+    {
+      "mes_ano": "2019-11",
+      "total_gasto": 4106106.08,
+      "total_litros": 989319.76,
+      "abastecimentos": 30532
+    },
+    {
+      "mes_ano": "2019-12",
+      "total_gasto": 4024857.22,
+      "total_litros": 933883.33,
+      "abastecimentos": 29429
+    },
+    {
+      "mes_ano": "2020-01",
+      "total_gasto": 3911483.54,
+      "total_litros": 897501.08,
+      "abastecimentos": 28625
+    },
+    {
+      "mes_ano": "2020-02",
+      "total_gasto": 3890105.36,
+      "total_litros": 907328.45,
+      "abastecimentos": 28272
+    },
+    {
+      "mes_ano": "2020-03",
+      "total_gasto": 3733580.41,
+      "total_litros": 889132.05,
+      "abastecimentos": 27555
+    },
+    {
+      "mes_ano": "2020-04",
+      "total_gasto": 2539685.58,
+      "total_litros": 666985.51,
+      "abastecimentos": 20426
+    },
+    {
+      "mes_ano": "2020-05",
+      "total_gasto": 2711717.75,
+      "total_litros": 744411.59,
+      "abastecimentos": 22699
+    },
+    {
+      "mes_ano": "2020-06",
+      "total_gasto": 2841768.95,
+      "total_litros": 741909.86,
+      "abastecimentos": 22650
+    },
+    {
+      "mes_ano": "2020-07",
+      "total_gasto": 3175878.28,
+      "total_litros": 795064.17,
+      "abastecimentos": 23872
+    },
+    {
+      "mes_ano": "2020-08",
+      "total_gasto": 3136094.03,
+      "total_litros": 768281.39,
+      "abastecimentos": 23149
+    },
+    {
+      "mes_ano": "2020-09",
+      "total_gasto": 3243226.76,
+      "total_litros": 776670.15,
+      "abastecimentos": 23245
+    },
+    {
+      "mes_ano": "2020-10",
+      "total_gasto": 3423958.01,
+      "total_litros": 824758.34,
+      "abastecimentos": 24352
+    },
+    {
+      "mes_ano": "2020-11",
+      "total_gasto": 3558268.38,
+      "total_litros": 844894.48,
+      "abastecimentos": 24813
+    },
+    {
+      "mes_ano": "2020-12",
+      "total_gasto": 3826006.3,
+      "total_litros": 894552.05,
+      "abastecimentos": 26269
+    },
+    {
+      "mes_ano": "2021-01",
+      "total_gasto": 3731869.13,
+      "total_litros": 846427.54,
+      "abastecimentos": 25509
+    },
+    {
+      "mes_ano": "2021-02",
+      "total_gasto": 4116034.48,
+      "total_litros": 875847.85,
+      "abastecimentos": 25967
+    },
+    {
+      "mes_ano": "2021-03",
+      "total_gasto": 4700989.64,
+      "total_litros": 910678.85,
+      "abastecimentos": 26887
+    },
+    {
+      "mes_ano": "2021-04",
+      "total_gasto": 4176472.49,
+      "total_litros": 830968.66,
+      "abastecimentos": 24408
+    },
+    {
+      "mes_ano": "2021-05",
+      "total_gasto": 4778253.3,
+      "total_litros": 920773.15,
+      "abastecimentos": 26545
+    },
+    {
+      "mes_ano": "2021-06",
+      "total_gasto": 4705706.79,
+      "total_litros": 886676.81,
+      "abastecimentos": 25504
+    },
+    {
+      "mes_ano": "2021-07",
+      "total_gasto": 5011034.14,
+      "total_litros": 928999.64,
+      "abastecimentos": 26696
+    },
+    {
+      "mes_ano": "2021-08",
+      "total_gasto": 5241712.51,
+      "total_litros": 944715.33,
+      "abastecimentos": 27104
+    },
+    {
+      "mes_ano": "2021-09",
+      "total_gasto": 5286570.86,
+      "total_litros": 936209.01,
+      "abastecimentos": 27669
+    },
+    {
+      "mes_ano": "2021-10",
+      "total_gasto": 5591862.12,
+      "total_litros": 943312.73,
+      "abastecimentos": 27294
+    },
+    {
+      "mes_ano": "2021-11",
+      "total_gasto": 6063126.25,
+      "total_litros": 956570.02,
+      "abastecimentos": 27447
+    },
+    {
+      "mes_ano": "2021-12",
+      "total_gasto": 6332722.26,
+      "total_litros": 1000076.5,
+      "abastecimentos": 28848
+    },
+    {
+      "mes_ano": "2022-01",
+      "total_gasto": 5989612.04,
+      "total_litros": 936309.22,
+      "abastecimentos": 27730
+    },
+    {
+      "mes_ano": "2022-02",
+      "total_gasto": 1185005.84,
+      "total_litros": 184915.17,
+      "abastecimentos": 5307
+    }
+  ],
+  "combustiveis": [
+    {
+      "combustivel": "GASOLINA",
+      "total_gasto": 115049699.38,
+      "total_litros": 24393213.37,
+      "abastecimentos": 790649,
+      "preco_medio": 4.7
+    },
+    {
+      "combustivel": "DIESEL S10",
+      "total_gasto": 34222683.83,
+      "total_litros": 8707451.93,
+      "abastecimentos": 170566,
+      "preco_medio": 3.93
+    },
+    {
+      "combustivel": "ÓLEO DE MOTOR",
+      "total_gasto": 3260652.3,
+      "total_litros": 1120295.23,
+      "abastecimentos": 23034,
+      "preco_medio": 45.58
+    },
+    {
+      "combustivel": "FILTRO DE ÓLEO",
+      "total_gasto": 519141.69,
+      "total_litros": 18315.6,
+      "abastecimentos": 12027,
+      "preco_medio": 40.99
+    },
+    {
+      "combustivel": "ÓLEO HIDRÁULICO",
+      "total_gasto": 189526.21,
+      "total_litros": 16396.92,
+      "abastecimentos": 1140,
+      "preco_medio": 78.5
+    },
+    {
+      "combustivel": "ALCOOL",
+      "total_gasto": 137685.29,
+      "total_litros": 32519.57,
+      "abastecimentos": 970,
+      "preco_medio": 4.22
+    },
+    {
+      "combustivel": "ARLA 32",
+      "total_gasto": 48344.57,
+      "total_litros": 16750.95,
+      "abastecimentos": 852,
+      "preco_medio": 24.93
+    },
+    {
+      "combustivel": "ÓLEO DE CÂMBIO",
+      "total_gasto": 23623.4,
+      "total_litros": 377.24,
+      "abastecimentos": 67,
+      "preco_medio": 224.35
+    },
+    {
+      "combustivel": "ADITIVO",
+      "total_gasto": 20155.16,
+      "total_litros": 683.89,
+      "abastecimentos": 297,
+      "preco_medio": 31.7
+    },
+    {
+      "combustivel": "GNV",
+      "total_gasto": 16965.13,
+      "total_litros": 5314.3,
+      "abastecimentos": 398,
+      "preco_medio": 3.3
+    }
+  ],
+  "municipios": [
+    {
+      "cidade_posto": "FLORIANOPOLIS",
+      "total_gasto": 20158388.48,
+      "total_litros": 4198092.9,
+      "abastecimentos": 124809
+    },
+    {
+      "cidade_posto": "SAO JOSE",
+      "total_gasto": 7825909.72,
+      "total_litros": 1689669.21,
+      "abastecimentos": 44613
+    },
+    {
+      "cidade_posto": "JOINVILLE",
+      "total_gasto": 7027446.86,
+      "total_litros": 2559029.81,
+      "abastecimentos": 45243
+    },
+    {
+      "cidade_posto": "LAGES",
+      "total_gasto": 5994332.54,
+      "total_litros": 1310099.4,
+      "abastecimentos": 33980
+    },
+    {
+      "cidade_posto": "CHAPECO",
+      "total_gasto": 5958447.82,
+      "total_litros": 1302266.44,
+      "abastecimentos": 36613
+    },
+    {
+      "cidade_posto": "CRICIUMA",
+      "total_gasto": 4035322.33,
+      "total_litros": 880834.86,
+      "abastecimentos": 34668
+    },
+    {
+      "cidade_posto": "BLUMENAU",
+      "total_gasto": 3924583.88,
+      "total_litros": 860919.47,
+      "abastecimentos": 27721
+    },
+    {
+      "cidade_posto": "ITAJAI",
+      "total_gasto": 3332120.52,
+      "total_litros": 727174.13,
+      "abastecimentos": 20515
+    },
+    {
+      "cidade_posto": "PALHOCA",
+      "total_gasto": 3252396.28,
+      "total_litros": 704636.44,
+      "abastecimentos": 19378
+    },
+    {
+      "cidade_posto": "TUBARAO",
+      "total_gasto": 2931363.59,
+      "total_litros": 649291.89,
+      "abastecimentos": 20502
+    },
+    {
+      "cidade_posto": "BALNEARIO CAMBORIU",
+      "total_gasto": 2738773.16,
+      "total_litros": 583515.21,
+      "abastecimentos": 16720
+    },
+    {
+      "cidade_posto": "JARAGUA DO SUL",
+      "total_gasto": 2268873.99,
+      "total_litros": 493857.32,
+      "abastecimentos": 15913
+    },
+    {
+      "cidade_posto": "CACADOR",
+      "total_gasto": 2149379.36,
+      "total_litros": 476733.45,
+      "abastecimentos": 14853
+    },
+    {
+      "cidade_posto": "CANOINHAS",
+      "total_gasto": 2076207.78,
+      "total_litros": 461945.76,
+      "abastecimentos": 13143
+    },
+    {
+      "cidade_posto": "BIGUACU",
+      "total_gasto": 1974831.67,
+      "total_litros": 426036.81,
+      "abastecimentos": 12333
+    }
+  ],
+  "unidades": [
+    {
+      "unidade": "56020000 - SEC DE EST DA ADM PRIS E SOCIOEDUCATIVA",
+      "total_gasto": 14245114.09,
+      "total_litros": 3185336.18,
+      "abastecimentos": 79305,
+      "veiculos_distintos": 983
+    },
+    {
+      "unidade": "PMSC/7RPM BLUMENAU 1904 - 1602",
+      "total_gasto": 7658927.46,
+      "total_litros": 1634719.96,
+      "abastecimentos": 61883,
+      "veiculos_distintos": 390
+    },
+    {
+      "unidade": "PMSC/3RPM BALNEARIO CAMBORIU 1904 - 1635",
+      "total_gasto": 7138495.25,
+      "total_litros": 1526566.65,
+      "abastecimentos": 48484,
+      "veiculos_distintos": 344
+    },
+    {
+      "unidade": "PMSC/6RPM CRICIUMA 1904 -1233",
+      "total_gasto": 7112567.9,
+      "total_litros": 1513743.33,
+      "abastecimentos": 65091,
+      "veiculos_distintos": 330
+    },
+    {
+      "unidade": "PMSC/2RPM LAGES 1904 - 2117",
+      "total_gasto": 6719085.45,
+      "total_litros": 1389132.8,
+      "abastecimentos": 47234,
+      "veiculos_distintos": 355
+    },
+    {
+      "unidade": "PMSC/4RPM CHAPECO 1904 - 1216",
+      "total_gasto": 6569528.84,
+      "total_litros": 1374943.69,
+      "abastecimentos": 47810,
+      "veiculos_distintos": 354
+    },
+    {
+      "unidade": "PMSC/5RPM JOINVILLE 1904 - 1340",
+      "total_gasto": 6392760.15,
+      "total_litros": 2379942.58,
+      "abastecimentos": 44715,
+      "veiculos_distintos": 324
+    },
+    {
+      "unidade": "1684-16846014 DPOL",
+      "total_gasto": 5667152.52,
+      "total_litros": 1231603.03,
+      "abastecimentos": 35133,
+      "veiculos_distintos": 677
+    },
+    {
+      "unidade": "PMSC/1RPM FLORIANOPOLIS 1904 - 111",
+      "total_gasto": 5457227.03,
+      "total_litros": 1101101.78,
+      "abastecimentos": 37453,
+      "veiculos_distintos": 355
+    },
+    {
+      "unidade": "POLICIA MILITAR RODOVIARIA 1904 - 5060",
+      "total_gasto": 5351350.29,
+      "total_litros": 1239474.44,
+      "abastecimentos": 34579,
+      "veiculos_distintos": 243
+    },
+    {
+      "unidade": "PMSC/11RPM SAO JOSE 1904 - 3276",
+      "total_gasto": 5075655.68,
+      "total_litros": 1059558.6,
+      "abastecimentos": 35252,
+      "veiculos_distintos": 245
+    },
+    {
+      "unidade": "PMSC/8RPM TUBARAO 1904 - 1247",
+      "total_gasto": 4849269.86,
+      "total_litros": 1042542.11,
+      "abastecimentos": 37069,
+      "veiculos_distintos": 273
+    },
+    {
+      "unidade": "1802 - SECRETARIA DE ESTADO DA SAUDE",
+      "total_gasto": 4191534.06,
+      "total_litros": 907852.14,
+      "abastecimentos": 20462,
+      "veiculos_distintos": 211
+    },
+    {
+      "unidade": "PMSC/10RPM JOACABA 1904 - 2225",
+      "total_gasto": 3975168.54,
+      "total_litros": 822181.85,
+      "abastecimentos": 29348,
+      "veiculos_distintos": 198
+    },
+    {
+      "unidade": "1684-16847013 DPOI",
+      "total_gasto": 3623466.2,
+      "total_litros": 775096.26,
+      "abastecimentos": 23110,
+      "veiculos_distintos": 407
+    }
+  ],
+  "postos": [
+    {
+      "posto": "POSTO COQUEIROS",
+      "cidade_posto": "FLORIANOPOLIS",
+      "total_gasto": 4106891.27,
+      "total_litros": 852806.6,
+      "abastecimentos": 25614,
+      "preco_medio": 6.18
+    },
+    {
+      "posto": "POSTO V8",
+      "cidade_posto": "CHAPECO",
+      "total_gasto": 2769526.85,
+      "total_litros": 582623.18,
+      "abastecimentos": 17641,
+      "preco_medio": 6.77
+    },
+    {
+      "posto": "DELTA POSTO DELTA",
+      "cidade_posto": "CHAPECO",
+      "total_gasto": 2224932.05,
+      "total_litros": 529631.32,
+      "abastecimentos": 13269,
+      "preco_medio": 4.85
+    },
+    {
+      "posto": "POSTO DE SERVICOS ILHA BELA",
+      "cidade_posto": "FLORIANOPOLIS",
+      "total_gasto": 2161280.46,
+      "total_litros": 436698.92,
+      "abastecimentos": 13193,
+      "preco_medio": 6.33
+    },
+    {
+      "posto": "POSTO CHILE",
+      "cidade_posto": "CRICIUMA",
+      "total_gasto": 1939452.86,
+      "total_litros": 412407.81,
+      "abastecimentos": 16970,
+      "preco_medio": 6.49
+    },
+    {
+      "posto": "POSTO MARQUINHO CAPOEIRAS",
+      "cidade_posto": "FLORIANOPOLIS",
+      "total_gasto": 1713736.72,
+      "total_litros": 377110.36,
+      "abastecimentos": 10944,
+      "preco_medio": 6.3
+    },
+    {
+      "posto": "POSTO AGRICOPEL FILIAL 53 MIME RITA MARIA",
+      "cidade_posto": "FLORIANOPOLIS",
+      "total_gasto": 1540319.54,
+      "total_litros": 352836.51,
+      "abastecimentos": 10244,
+      "preco_medio": 5.24
+    },
+    {
+      "posto": "POSTO MARQUINHO BR",
+      "cidade_posto": "SAO JOSE",
+      "total_gasto": 1534412.92,
+      "total_litros": 318475.23,
+      "abastecimentos": 7729,
+      "preco_medio": 8.25
+    },
+    {
+      "posto": "DELTA POSTO DELTA",
+      "cidade_posto": "CACADOR",
+      "total_gasto": 1500445.5,
+      "total_litros": 337570.61,
+      "abastecimentos": 11378,
+      "preco_medio": 5.61
+    },
+    {
+      "posto": "POSTO RITA MARIA",
+      "cidade_posto": "FLORIANOPOLIS",
+      "total_gasto": 1481499.61,
+      "total_litros": 296581.76,
+      "abastecimentos": 8953,
+      "preco_medio": 6.46
+    },
+    {
+      "posto": "AUTO POSTO EXPRESS",
+      "cidade_posto": "BIGUACU",
+      "total_gasto": 1327556.89,
+      "total_litros": 281969.1,
+      "abastecimentos": 8700,
+      "preco_medio": 6.2
+    },
+    {
+      "posto": "POSTOS NICO",
+      "cidade_posto": "SAO JOSE",
+      "total_gasto": 1326668.48,
+      "total_litros": 275768.59,
+      "abastecimentos": 8680,
+      "preco_medio": 5.47
+    },
+    {
+      "posto": "POSTO ZIMMER",
+      "cidade_posto": "BLUMENAU",
+      "total_gasto": 1301303.34,
+      "total_litros": 277138.68,
+      "abastecimentos": 10570,
+      "preco_medio": 5.23
+    },
+    {
+      "posto": "POSTO ESTADIO",
+      "cidade_posto": "LAGES",
+      "total_gasto": 1279946.83,
+      "total_litros": 292561.73,
+      "abastecimentos": 7992,
+      "preco_medio": 4.53
+    },
+    {
+      "posto": "COMERCIAL MAZZUCO",
+      "cidade_posto": "ARARANGUA",
+      "total_gasto": 1211943.22,
+      "total_litros": 279131.47,
+      "abastecimentos": 8942,
+      "preco_medio": 6.49
+    }
+  ],
+  "veiculos_top": [
+    {
+      "placa": "EQU1610",
+      "modelo": "NTA 855 G 3 STEMAC (1997/1997)",
+      "marca": "STEMAC",
+      "unidade": "1802 - SECRETARIA DE ESTADO DA SAUDE",
+      "total_gasto": 344271.6,
+      "total_litros": 71400.0,
+      "abastecimentos": 238
+    },
+    {
+      "placa": "EQU1611",
+      "modelo": "CVSHP4000 ACQUATERMUS (2003/2003)",
+      "marca": "ACQUATERMUS",
+      "unidade": "1802 - SECRETARIA DE ESTADO DA SAUDE",
+      "total_gasto": 232380.7,
+      "total_litros": 48300.0,
+      "abastecimentos": 242
+    },
+    {
+      "placa": "LXS7849",
+      "modelo": "14.200 VW (1993/1993)",
+      "marca": "VOLKSWAGEN",
+      "unidade": "56020000 - SEC DE EST DA ADM PRIS E SOCIOEDUCATIVA",
+      "total_gasto": 172004.81,
+      "total_litros": 40723.94,
+      "abastecimentos": 272
+    },
+    {
+      "placa": "QIH7427",
+      "modelo": "TOYOTA HILUX CDSRVA4GF I",
+      "marca": "TOYOTA",
+      "unidade": "PMSC/2RPM LAGES 1904 - 2117",
+      "total_gasto": 158019.74,
+      "total_litros": 33181.7,
+      "abastecimentos": 784
+    },
+    {
+      "placa": "QJW4549",
+      "modelo": "DUSTER",
+      "marca": "RENAULT",
+      "unidade": "PMSC/6RPM CRICIUMA 1904 -1233",
+      "total_gasto": 139120.7,
+      "total_litros": 30337.89,
+      "abastecimentos": 1482
+    },
+    {
+      "placa": "MMI8826",
+      "modelo": "CARGO 1719 FORD (2014/2014)",
+      "marca": "FORD",
+      "unidade": "56020000 - SEC DE EST DA ADM PRIS E SOCIOEDUCATIVA",
+      "total_gasto": 135221.54,
+      "total_litros": 32666.77,
+      "abastecimentos": 302
+    },
+    {
+      "placa": "QII5219",
+      "modelo": "FORD RANGER XLSCD2 25C I",
+      "marca": "FORD",
+      "unidade": "PMSC/6RPM CRICIUMA 1904 -1233",
+      "total_gasto": 126764.36,
+      "total_litros": 27611.21,
+      "abastecimentos": 646
+    },
+    {
+      "placa": "MIC9219",
+      "modelo": "CARGO 1722 E FORD",
+      "marca": "FORD",
+      "unidade": "PM/SC / 1904-4004 DALF SEDE FLORIANOPOLIS",
+      "total_gasto": 120802.16,
+      "total_litros": 29151.48,
+      "abastecimentos": 110
+    },
+    {
+      "placa": "QJI4436",
+      "modelo": "WEEKEND ADVENTURE FIAT",
+      "marca": "FIAT",
+      "unidade": "PMSC/11RPM SAO JOSE 1904 - 3276",
+      "total_gasto": 117926.46,
+      "total_litros": 24847.94,
+      "abastecimentos": 882
+    },
+    {
+      "placa": "DTA3915",
+      "modelo": "15.180 CNM VW (2008/2007)",
+      "marca": "VOLKSWAGEN",
+      "unidade": "1684-16840090 DIAF",
+      "total_gasto": 115082.96,
+      "total_litros": 30674.13,
+      "abastecimentos": 269
+    },
+    {
+      "placa": "QJW6629",
+      "modelo": "DUSTER",
+      "marca": "RENAULT",
+      "unidade": "PMSC/6RPM CRICIUMA 1904 -1233",
+      "total_gasto": 113380.81,
+      "total_litros": 25401.76,
+      "abastecimentos": 1402
+    },
+    {
+      "placa": "QJS4B44",
+      "modelo": "DUSTER DYN16 SCE RENAULT",
+      "marca": "RENAULT",
+      "unidade": "PMSC/6RPM CRICIUMA 1904 -1233",
+      "total_gasto": 109473.01,
+      "total_litros": 22336.61,
+      "abastecimentos": 1200
+    },
+    {
+      "placa": "QJW6199",
+      "modelo": "DUSTER",
+      "marca": "RENAULT",
+      "unidade": "PMSC/6RPM CRICIUMA 1904 -1233",
+      "total_gasto": 104287.48,
+      "total_litros": 23152.79,
+      "abastecimentos": 1323
+    },
+    {
+      "placa": "QJR7I54",
+      "modelo": "DUSTER DYN16 SCE RENAULT",
+      "marca": "RENAULT",
+      "unidade": "PMSC/6RPM CRICIUMA 1904 -1233",
+      "total_gasto": 102686.6,
+      "total_litros": 21123.12,
+      "abastecimentos": 1129
+    },
+    {
+      "placa": "QJC4278",
+      "modelo": "ECOSPORT STM4AT 2.0 FORD",
+      "marca": "FORD",
+      "unidade": "PMSC/4RPM CHAPECO 1904 - 1216",
+      "total_gasto": 102059.32,
+      "total_litros": 26041.71,
+      "abastecimentos": 744
+    },
+    {
+      "placa": "QHS6F25",
+      "modelo": "TUCSON GLSB HYUNDAI (2016/2015)",
+      "marca": "HYUNDAI",
+      "unidade": "1802 - SECRETARIA DE ESTADO DA SAUDE",
+      "total_gasto": 101860.39,
+      "total_litros": 21162.94,
+      "abastecimentos": 488
+    },
+    {
+      "placa": "QJU1854",
+      "modelo": "CRETA 16A SMART",
+      "marca": "HYUNDAI",
+      "unidade": "1802 - SECRETARIA DE ESTADO DA SAUDE",
+      "total_gasto": 101395.4,
+      "total_litros": 20220.28,
+      "abastecimentos": 661
+    },
+    {
+      "placa": "PBJ8303",
+      "modelo": "RANGER XLTCD FORD",
+      "marca": "FORD",
+      "unidade": "PMSC/4RPM CHAPECO 1904 - 1216",
+      "total_gasto": 98922.7,
+      "total_litros": 24206.1,
+      "abastecimentos": 636
+    },
+    {
+      "placa": "QJJ8236",
+      "modelo": "COMPASS LONGITUDE F JEEP (2018/2018)",
+      "marca": "JEEP",
+      "unidade": "56020000 - SEC DE EST DA ADM PRIS E SOCIOEDUCATIVA",
+      "total_gasto": 98073.6,
+      "total_litros": 22031.23,
+      "abastecimentos": 639
+    },
+    {
+      "placa": "QJI5986",
+      "modelo": "WEEKEND ADVENTURE FIAT",
+      "marca": "FIAT",
+      "unidade": "PMSC/6RPM CRICIUMA 1904 -1233",
+      "total_gasto": 97223.64,
+      "total_litros": 21422.29,
+      "abastecimentos": 1076
+    }
+  ]
+}

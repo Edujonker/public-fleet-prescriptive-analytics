@@ -1,0 +1,16 @@
+{
+  "total_registros": 223819,
+  "total_colunas": 46,
+  "veiculos_unicos": 4955,
+  "os_unicas": 51371,
+  "periodo_ini": "2020-10-21 16:44:56",
+  "periodo_fim": "2026-07-21 19:00:44",
+  "ano_veiculo_min": 1973,
+  "ano_veiculo_max": 2026,
+  "ano_veiculo_mean": 2016.5,
+  "quilometragem_min": 0,
+  "quilometragem_max": 999999,
+  "quilometragem_mean": 152209.0,
+  "valor_medio": 11836.53,
+  "valor_total": 2649241313.0
+}

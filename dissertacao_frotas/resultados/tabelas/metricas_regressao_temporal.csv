@@ -1,0 +1,6 @@
+modelo;mae_reais;ci_95_mae;rmse_reais;r2_score;reducao_mae_pct
+Baseline Mediana;2133.49;[2133.49, 2133.49];4199.01;-0.0933;0.0
+HistGradientBoosting;2236.06;[2146.76, 2321.17];3780.2;0.1139;-4.81
+ExtraTrees;2258.82;[2173.68, 2348.14];3826.19;0.0922;-5.87
+RandomForest;2261.67;[2171.09, 2349.15];3818.0;0.0961;-6.01
+DecisionTree;2320.04;[2231.34, 2411.72];3876.81;0.0681;-8.74

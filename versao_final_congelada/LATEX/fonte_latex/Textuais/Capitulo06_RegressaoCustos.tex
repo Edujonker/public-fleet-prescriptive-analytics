@@ -1,0 +1,11 @@
+% Textuais/Capitulo06_RegressaoCustos.tex
+\chapter{REGRESSÃO NÃO LINEAR DE CUSTOS, CONFRONTO COM SVR-RBF E HIPÓTESE H2}
+\label{cap:regressao}
+
+Avaliaram-se múltiplos regressores ensemble frente ao \textit{SVR-RBF} e à mediana histórica de custos. O modelo \textbf{HistGradientBoosting} obteve o menor RMSE (R\$ 3.780,20, redução de 9,97\% frente ao baseline), menor MAE entre os ensembles (R\$ 2.236,06) e tempo de treinamento de 1,8 segundos frente à inviabilidade computacional assintótica do SVR.
+
+O teste pareado de Wilcoxon com correção de Holm confirmou $p < 10^{-4}$, sustentando a Hipótese H2.
+
+\section{Estudo Ablativo Multimodal e Avaliação da Hipótese H1}
+
+O estudo ablativo confrontou modelos baseados exclusivamente em ordens de serviço (M) contra modelos integrados (M+P+A). A inclusão de dados multimodais reduziu o MAE em R\$ 9,47 por ordem de serviço (ganho de \textbf{+0,41\% [IC 95\%: 0,28\%; 0,54\%]}). Embora estatisticamente significante ($p < 10^{-15}$), o ganho não atingiu o patamar de relevância prática pré-registrado de 15,0\%. Portanto, \textbf{a Hipótese H1 é formalmente classificada como NÃO SUSTENTADA} sob a régua operacional pré-estabelecida.

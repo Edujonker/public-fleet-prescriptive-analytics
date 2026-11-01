@@ -1,0 +1,28 @@
+{
+  "0.01": {
+    "jaccard_medio": 0.8640800331132464,
+    "anomalias_detectadas": 779,
+    "percentual": 1.0
+  },
+  "0.02": {
+    "jaccard_medio": 0.8677912166444184,
+    "anomalias_detectadas": 1557,
+    "percentual": 2.0
+  },
+  "0.05": {
+    "jaccard_medio": 0.8725043420798677,
+    "anomalias_detectadas": 3894,
+    "percentual": 5.0
+  },
+  "0.1": {
+    "jaccard_medio": 0.8810942628559634,
+    "anomalias_detectadas": 7787,
+    "percentual": 10.0
+  },
+  "teste_t_reprovadas": {
+    "media_score_reprovadas": -0.4122383996628612,
+    "media_score_aprovadas": -0.41504479070622247,
+    "t_statistic": 3.5240774934764,
+    "p_value": 0.00042618484596723666
+  }
+}

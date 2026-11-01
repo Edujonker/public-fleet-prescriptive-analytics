@@ -1,0 +1,14 @@
+{
+  "total_os": 77867,
+  "total_anomalias": 3894,
+  "percentual_anomalias": 5.000834756700527,
+  "contaminacao": 0.05,
+  "features_usadas": [
+    "total_pecas",
+    "total_orcado",
+    "total_peca",
+    "total_mao_obra",
+    "quilometragem_max",
+    "ano_veiculo"
+  ]
+}

@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Anomalias de Frota | Auditoria Forense e Evidências dos Dados</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --bg-body: #0b0f19;
+            --bg-card: #111827;
+            --bg-card-hover: #1e293b;
+            --border-color: #1f2937;
+            --border-highlight: #374151;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-primary: #0284c7;
+            --accent-primary-hover: #0369a1;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --accent-purple: #8b5cf6;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+        }
+
+        body.light-theme {
+            --bg-body: #f1f5f9;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f8fafc;
+            --border-color: #e2e8f0;
+            --border-highlight: #cbd5e1;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        /* Top Navbar */
+        .navbar {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            backdrop-filter: blur(8px);
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--accent-rose), var(--accent-amber));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 18px;
+            box-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
+        }
+
+        .brand-text h1 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-text p {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: var(--radius-md);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-card);
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-card-hover);
+            border-color: var(--border-highlight);
+        }
+
+        /* Container Principal */
+        .main-container {
+            flex: 1;
+            max-width: 1560px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* Header e Banner */
+        .banner-header {
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(30, 41, 59, 0.8));
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--accent-rose);
+            border-radius: var(--radius-lg);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .banner-info h2 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .banner-info p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            max-width: 900px;
+        }
+
+        .banner-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .badge-tag {
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            background-color: rgba(2, 132, 199, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(2, 132, 199, 0.3);
+        }
+
+        .badge-combustivel-tag {
+            background-color: rgba(16, 185, 129, 0.15);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        /* Grid de KPIs */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .kpi-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 16px 20px;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-highlight);
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+        }
+
+        .kpi-card.rose::before { background-color: var(--accent-rose); }
+        .kpi-card.amber::before { background-color: var(--accent-amber); }
+        .kpi-card.cyan::before { background-color: var(--accent-cyan); }
+        .kpi-card.emerald::before { background-color: var(--accent-emerald); }
+        .kpi-card.purple::before { background-color: var(--accent-purple); }
+
+        .kpi-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .kpi-value {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            margin-bottom: 4px;
+        }
+
+        .kpi-desc {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        /* Seção de Gráficos */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 1080px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chart-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 18px 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chart-box-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .chart-box-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chart-box-subtitle {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 280px;
+            width: 100%;
+        }
+
+        /* Barra de Filtros */
+        .filters-container {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filters-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 2;
+            min-width: 260px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 9px 14px 9px 36px;
+            color: var(--text-primary);
+            font-size: 13px;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-primary);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .filter-select {
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 9px 12px;
+            color: var(--text-primary);
+            font-size: 12px;
+            outline: none;
+            cursor: pointer;
+            min-width: 160px;
+        }
+
+        .filter-select:focus {
+            border-color: var(--accent-primary);
+        }
+
+        .filter-counter {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-left: auto;
+            font-weight: 600;
+        }
+
+        /* Tabela Forense */
+        .table-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 24px;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 12px;
+        }
+
+        th {
+            background-color: rgba(17, 24, 39, 0.95);
+            padding: 12px 14px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-size: 10.5px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+            vertical-align: middle;
+        }
+
+        tr:hover td {
+            background-color: var(--bg-card-hover);
+        }
+
+        .badge-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 8px;
+            border-radius: var(--radius-md);
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        .cat-manut {
+            background-color: rgba(2, 132, 199, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(2, 132, 199, 0.3);
+        }
+
+        .cat-combust {
+            background-color: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .plate-cell {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--accent-cyan);
+            font-size: 13px;
+        }
+
+        .plate-model {
+            font-size: 10.5px;
+            color: var(--text-muted);
+            font-family: var(--font-main);
+            font-weight: normal;
+        }
+
+        .money-cell {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--accent-emerald);
+            white-space: nowrap;
+        }
+
+        .money-sub {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+        }
+
+        .badge-severity {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 8px;
+            border-radius: var(--radius-full);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .badge-critica {
+            background-color: rgba(244, 63, 94, 0.15);
+            color: #fb7185;
+            border: 1px solid rgba(244, 63, 94, 0.3);
+        }
+
+        .badge-grave {
+            background-color: rgba(245, 158, 11, 0.15);
+            color: #fcd34d;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .badge-moderada {
+            background-color: rgba(2, 132, 199, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(2, 132, 199, 0.3);
+        }
+
+        .cause-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            max-width: 420px;
+        }
+
+        .cause-tag {
+            background-color: rgba(30, 41, 59, 0.8);
+            border: 1px solid var(--border-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10.5px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .cause-tag.highlight {
+            border-color: rgba(244, 63, 94, 0.4);
+            color: #fca5a5;
+        }
+
+        .cause-tag.combust {
+            border-color: rgba(16, 185, 129, 0.4);
+            color: #a7f3d0;
+        }
+
+        /* Paginação */
+        .pagination-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .pagination-btns {
+            display: flex;
+            gap: 6px;
+        }
+
+        .page-btn {
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 5px 10px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .page-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .page-btn.active {
+            background-color: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: #ffffff;
+        }
+
+        /* Modal Forense */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-highlight);
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 720px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            padding: 24px;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-body-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .modal-item {
+            background-color: var(--bg-body);
+            padding: 10px 14px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-item-lbl {
+            font-size: 10.5px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .modal-item-val {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 2px;
+        }
+
+        .modal-section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-causes-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .modal-cause-item {
+            background-color: rgba(244, 63, 94, 0.08);
+            border-left: 3px solid var(--accent-rose);
+            padding: 10px 14px;
+            margin-bottom: 8px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+
+        .modal-cause-title {
+            font-weight: 700;
+            font-size: 12.5px;
+            color: #fca5a5;
+        }
+
+        .modal-cause-desc {
+            font-size: 11.5px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            padding: 16px 24px;
+            text-align: center;
+            font-size: 11.5px;
+            color: var(--text-muted);
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAVBAR -->
+    <header class="navbar">
+        <div class="brand-container">
+            <div class="brand-icon">⚠</div>
+            <div class="brand-text">
+                <h1>FrotaSaaS Anomalias <span>AI Forensics</span></h1>
+                <p>Auditoria Unificada de Desvios em Manutenção (Oficinas) e Combustíveis (Postos)</p>
+            </div>
+        </div>
+        <div class="nav-actions">
+            <a href="/relatorios_pdf/relatorio_de_anomalias_detalhado.pdf" target="_blank" class="btn btn-primary" id="btn-download-pdf">
+                📄 Baixar Relatório PDF
+            </a>
+            <a href="/relatorios/relatorio_anomalias_detalhado.csv" download class="btn btn-secondary" id="btn-download-csv">
+                📊 Exportar CSV
+            </a>
+            <a href="/dashboard/" class="btn btn-secondary" id="btn-voltar-dash">
+                🏠 Painel Geral
+            </a>
+            <button class="btn btn-secondary" id="btn-toggle-theme" onclick="toggleTheme()">
+                🌓 Tema
+            </button>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-container">
+
+        <!-- BANNER DE RESUMO AUDITORIAL -->
+        <section class="banner-header">
+            <div class="banner-info">
+                <h2>Painel Executivo de Triagem de Anomalias (Manutenção & Combustíveis)</h2>
+                <p>
+                    Detecção e análise multivariada baseada estritamente em evidências nos dados primários do CSV: identificação de veículos, secretarias solicitantes, oficinas credenciadas, postos de abastecimento, condutores registrados e tipologias de distorção orçamentária, volumétrica e operacional.
+                </p>
+            </div>
+            <div class="banner-badges">
+                <span class="badge-tag">Isolation Forest iForest</span>
+                <span class="badge-tag">9.514 Registros Auditados</span>
+                <span class="badge-tag" id="badge-total-anom">6.954 Transações Anômalas</span>
+                <span class="badge-tag" style="background: rgba(2,132,199,0.2); color: #38bdf8;">🔧 948 Manutenção</span>
+                <span class="badge-tag badge-combustivel-tag">⛽ 6.006 Combustíveis</span>
+            </div>
+        </section>
+
+        <!-- CARDS DE KPIS -->
+        <section class="kpi-grid">
+            <div class="kpi-card rose">
+                <div class="kpi-title">Total de Anomalias Mapeadas</div>
+                <div class="kpi-value" id="kpi-total-os">6.954</div>
+                <div class="kpi-desc" id="kpi-sub-anom">948 OS + 6.006 Abastecimentos</div>
+            </div>
+            <div class="kpi-card amber">
+                <div class="kpi-title">Volume Financeiro Auditado</div>
+                <div class="kpi-value" id="kpi-total-valor">R$ 13,29 M</div>
+                <div class="kpi-desc" id="kpi-orcado-desc">Manutenção: R$ 3,84M | Postos: R$ 9,45M</div>
+            </div>
+            <div class="kpi-card cyan">
+                <div class="kpi-title">Veículos com Anomalias</div>
+                <div class="kpi-value" id="kpi-total-veiculos">1.240</div>
+                <div class="kpi-desc">Veículos identificados com reincidência</div>
+            </div>
+            <div class="kpi-card emerald">
+                <div class="kpi-title">Estabelecimentos Mapeados</div>
+                <div class="kpi-value" id="kpi-total-oficinas">842</div>
+                <div class="kpi-desc">184 Oficinas + 658 Postos Credenciados</div>
+            </div>
+            <div class="kpi-card purple">
+                <div class="kpi-title">Secretarias / Unidades</div>
+                <div class="kpi-value" id="kpi-total-sec">38</div>
+                <div class="kpi-desc">Órgãos públicos estaduais cobertos</div>
+            </div>
+        </section>
+
+        <!-- GRÁFICOS INTERATIVOS -->
+        <section class="charts-grid">
+            <div class="chart-box">
+                <div class="chart-box-header">
+                    <div>
+                        <div class="chart-box-title">🏢 Volume Financeiro por Secretaria / Órgão</div>
+                        <div class="chart-box-subtitle">Distribuição dos valores auditados em anomalias (Top 8)</div>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chart-secretarias"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-box">
+                <div class="chart-box-header">
+                    <div>
+                        <div class="chart-box-title">🔍 Tipologia das Causas Detectadas</div>
+                        <div class="chart-box-subtitle">Frequência das evidências empíricas identificadas nos dados</div>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chart-causas"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-box">
+                <div class="chart-box-header">
+                    <div>
+                        <div class="chart-box-title">🏪 Top 8 Oficinas e Postos com Maior Volume</div>
+                        <div class="chart-box-subtitle">Estabelecimentos com maior concentração de desvios financeiros</div>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chart-oficinas"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-box">
+                <div class="chart-box-header">
+                    <div>
+                        <div class="chart-box-title">📊 Dispersão: Valor vs Quilometragem</div>
+                        <div class="chart-box-subtitle">Relação entre hodômetro e custo por transação anômala</div>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chart-dispersao"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             CENTRAL DE RANKINGS FORENSES: OFICINAS, POSTOS, VEÍCULOS E MOTORISTAS
+             ===================================================================== -->
+        <section class="rankings-section" style="margin-bottom: 24px;">
+            <div class="card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 22px; box-shadow: var(--shadow-md);">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 18px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px;">
+                    <div>
+                        <h3 style="font-size: 16px; font-weight: 800; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
+                            <span>🏆</span> Ranking Forense de Concentração de Anomalias (Top 10)
+                        </h3>
+                        <p style="font-size: 12.5px; color: var(--text-secondary); margin-top: 3px;">
+                            Identificação e triagem dos 10 polos mais críticos com reincidência de distorções em oficinas mecânicas, postos de combustíveis, veículos e condutores.
+                        </p>
+                    </div>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <button class="btn btn-primary" id="btn-rank-oficinas" onclick="trocarAbaRanking('oficinas')">
+                            🔧 Top 10 Oficinas
+                        </button>
+                        <button class="btn btn-secondary" id="btn-rank-postos" onclick="trocarAbaRanking('postos')">
+                            ⛽ Top 10 Postos
+                        </button>
+                        <button class="btn btn-secondary" id="btn-rank-veiculos" onclick="trocarAbaRanking('veiculos')">
+                            🚗 Top 10 Veículos
+                        </button>
+                        <button class="btn btn-secondary" id="btn-rank-motoristas" onclick="trocarAbaRanking('motoristas')">
+                            👤 Top 10 Motoristas
+                        </button>
+                        <button class="btn btn-secondary" id="btn-rank-triades" onclick="trocarAbaRanking('triades')" style="border-color: rgba(244,63,94,0.5); color: var(--accent-rose); font-weight: 700;">
+                            🎯 Tríades (Motorista × Veículo × Posto/Oficina)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Painel de Métricas Rápidas do Ranking Selecionado -->
+                <div id="ranking-kpis-header" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px;">
+                    <div style="background: var(--bg-body); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 12px 14px;">
+                        <div style="font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Categoria Analisada</div>
+                        <div id="rank-kpi-categoria" style="font-size: 14px; font-weight: 800; color: var(--accent-primary); margin-top: 2px;">Oficinas Mecânicas</div>
+                    </div>
+                    <div style="background: var(--bg-body); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 12px 14px;">
+                        <div style="font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Anomalias no Top 10</div>
+                        <div id="rank-kpi-total-anom" style="font-size: 14px; font-weight: 800; color: var(--accent-rose); margin-top: 2px;">-</div>
+                    </div>
+                    <div style="background: var(--bg-body); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 12px 14px;">
+                        <div style="font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Valor Total no Top 10</div>
+                        <div id="rank-kpi-total-valor" style="font-size: 14px; font-weight: 800; color: var(--accent-amber); margin-top: 2px;">-</div>
+                    </div>
+                    <div style="background: var(--bg-body); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 12px 14px;">
+                        <div style="font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Líder de Reincidência</div>
+                        <div id="rank-kpi-lider" style="font-size: 13px; font-weight: 800; color: var(--accent-emerald); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">-</div>
+                    </div>
+                </div>
+
+                <!-- Tabela Forense do Ranking -->
+                <div class="table-responsive">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+                        <thead>
+                            <tr>
+                                <th style="width: 70px; text-align: center;">Posição</th>
+                                <th id="th-col-nome">Oficina Credenciada</th>
+                                <th id="th-col-detalhe">Lotação / Cidade</th>
+                                <th style="text-align: right; width: 130px;">Qtd. Anomalias</th>
+                                <th style="text-align: right; width: 150px;">Valor Auditado</th>
+                                <th style="text-align: right; width: 120px;">Ticket Médio</th>
+                                <th style="width: 180px;">Concentração Visual</th>
+                                <th style="text-align: center; width: 110px;">Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ranking-tbody">
+                            <tr><td colspan="8" style="text-align:center; padding: 24px; color: var(--text-muted);">Calculando rankings empíricos da base...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- BARRA DE FILTROS -->
+        <section class="filters-container">
+            <div class="filters-row">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="input-busca" class="search-input" placeholder="Buscar por placa, modelo, motorista, oficina, posto ou cidade..." oninput="filtrarDados()">
+                </div>
+                <select id="select-categoria" class="filter-select" onchange="filtrarDados()" style="font-weight: 600; border-color: var(--accent-primary);">
+                    <option value="">Todos os Tipos (Manutenção & Combustíveis)</option>
+                    <option value="MANUTENÇÃO">🔧 Apenas Manutenção (Oficinas)</option>
+                    <option value="COMBUSTÍVEL">⛽ Apenas Combustíveis (Postos)</option>
+                </select>
+                <select id="select-secretaria" class="filter-select" onchange="filtrarDados()">
+                    <option value="">Todas as Secretarias</option>
+                </select>
+                <select id="select-severidade" class="filter-select" onchange="filtrarDados()">
+                    <option value="">Todas as Severidades</option>
+                    <option value="CRITICA">Crítica (Alto Vulto / Múltiplas Causas)</option>
+                    <option value="GRAVE">Grave (Glosa Expressiva / Fraude Tanque)</option>
+                    <option value="MODERADA">Moderada</option>
+                </select>
+                <select id="select-causa" class="filter-select" onchange="filtrarDados()">
+                    <option value="">Todas as Tipologias de Causa</option>
+                    <option value="COMBUSTIVEL">Volume Físico Anômalo / Capacidade</option>
+                    <option value="DESPROPORCAO_MO">Desproporção Mão de Obra/Peças</option>
+                    <option value="GLOSA_ORCAMENTO">Glosa / Discrepância Orçamentária</option>
+                    <option value="HIPER_SUBSTITUICAO">Hiper-substituição Simultânea</option>
+                    <option value="HODOMETRO_ZERADO">Inconsistência de Hodômetro</option>
+                    <option value="IFOREST_EXTREMO">Desvio Extremo iForest</option>
+                </select>
+                <select id="select-ordenacao" class="filter-select" onchange="filtrarDados()">
+                    <option value="maior_valor">Maior Valor Aprovado</option>
+                    <option value="menor_valor">Menor Valor Aprovado</option>
+                    <option value="score_anomalia">Maior Severidade Estatística</option>
+                    <option value="mais_itens">Mais Itens / Volume Litros</option>
+                    <option value="km_decrescente">Maior Quilometragem</option>
+                </select>
+                <div class="filter-counter" id="lbl-contador-filtros">
+                    Exibindo 6.954 de 6.954 registros
+                </div>
+            </div>
+        </section>
+
+        <!-- TABELA DE ANOMALIAS -->
+        <section class="table-card">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 85px; text-align: center;">Tipo</th>
+                            <th style="width: 110px;">Placa / Modelo</th>
+                            <th>Secretaria / Órgão</th>
+                            <th>Posto ou Oficina Credenciada & Cidade</th>
+                            <th>Motorista / Condutor</th>
+                            <th style="text-align: right;">Valores / Litros</th>
+                            <th style="text-align: center;">Km / Autonomia</th>
+                            <th style="text-align: center;">Severidade</th>
+                            <th>Causas Evidenciadas nos Dados</th>
+                            <th style="text-align: center; width: 70px;">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-anomalias">
+                        <!-- Linhas injetadas via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- PAGINAÇÃO -->
+            <div class="pagination-container">
+                <div id="lbl-paginacao-info">Página 1 de 464</div>
+                <div class="pagination-btns">
+                    <button class="page-btn" id="btn-pag-ant" onclick="mudarPagina(-1)">Anterior</button>
+                    <span id="container-paginas-botoes" style="display: flex; gap: 4px;"></span>
+                    <button class="page-btn" id="btn-pag-prox" onclick="mudarPagina(1)">Próximo</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL DE FICHA FORENSE -->
+    <div class="modal-overlay" id="modal-forense" onclick="fecharModalFora(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModal()">&times;</button>
+            <div class="modal-header">
+                <div class="modal-title">
+                    <span id="modal-placa" style="font-family: var(--font-mono); color: var(--accent-cyan);">PLACA</span>
+                    <span id="modal-tipo-badge" class="badge-category cat-manut">TIPO</span>
+                    <span id="modal-severidade-badge" class="badge-severity badge-critica">CRÍTICA</span>
+                </div>
+                <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;" id="modal-subtitulo">
+                    Ficha Forense da Transação #000000
+                </div>
+            </div>
+
+            <div class="modal-body-grid">
+                <div class="modal-item">
+                    <div class="modal-item-lbl">Veículo / Modelo</div>
+                    <div class="modal-item-val" id="modal-modelo">-</div>
+                </div>
+                <div class="modal-item">
+                    <div class="modal-item-lbl">Secretaria / Órgão</div>
+                    <div class="modal-item-val" id="modal-secretaria">-</div>
+                </div>
+                <div class="modal-item">
+                    <div class="modal-item-lbl" id="modal-estab-lbl">Posto / Oficina Credenciada</div>
+                    <div class="modal-item-val" id="modal-oficina">-</div>
+                </div>
+                <div class="modal-item">
+                    <div class="modal-item-lbl">Motorista / Condutor</div>
+                    <div class="modal-item-val" id="modal-motorista">-</div>
+                </div>
+                <div class="modal-item">
+                    <div class="modal-item-lbl">Valor Aprovado Liquidado</div>
+                    <div class="modal-item-val" style="color: var(--accent-emerald);" id="modal-valor-aprovado">-</div>
+                </div>
+                <div class="modal-item">
+                    <div class="modal-item-lbl" id="modal-volume-lbl">Volume / Proposta Orçada</div>
+                    <div class="modal-item-val" id="modal-valor-orcado">-</div>
+                </div>
+                <div class="modal-item">
+                    <div class="modal-item-lbl">Composição / Detalhamento</div>
+                    <div class="modal-item-val" id="modal-composicao">-</div>
+                </div>
+                <div class="modal-item">
+                    <div class="modal-item-lbl">Hodômetro Registrado</div>
+                    <div class="modal-item-val" id="modal-km">-</div>
+                </div>
+            </div>
+
+            <div class="modal-section-title">Evidências e Causas Identificadas nos Dados</div>
+            <ul class="modal-causes-list" id="modal-lista-causas">
+                <!-- Injetado dinamicamente -->
+            </ul>
+
+            <div class="modal-section-title" id="modal-pecas-sec-title">Peças / Combustíveis Envolvidos</div>
+            <div id="modal-pecas-tags" style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;">
+                <!-- Tags de peças -->
+            </div>
+
+            <div style="text-align: right;">
+                <button class="btn btn-secondary" onclick="fecharModal()">Fechar Ficha</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        Plataforma FrotaSaaS Analytics & Telemetria IoT | Universidade do Estado de Santa Catarina (UDESC) - PPGCAP 2026 | Auditoria de Frotas Públicas
+    </footer>
+
+    <!-- SCRIPT DE LÓGICA E DADOS -->
+    <script>
+        let todasAnomalias = [];
+        let anomaliasFiltradas = [];
+        let paginaAtual = 1;
+        const itensPorPagina = 15;
+
+        // Gráficos instanciados
+        let chartSec = null;
+        let chartCausas = null;
+        let chartOfic = null;
+        let chartDisp = null;
+
+        function formatarMoeda(val) {
+            return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val || 0);
+        }
+
+        function formatarNumero(val) {
+            return new Intl.NumberFormat('pt-BR').format(val || 0);
+        }
+
+        async function carregarDados() {
+            try {
+                const res = await fetch('data/anomalias_data.json');
+                if (!res.ok) throw new Error('Não foi possível carregar via data/anomalias_data.json');
+                const data = await res.json();
+                todasAnomalias = data.anomalias || [];
+                inicializarPainel(data.estatisticas);
+            } catch (err) {
+                console.warn('Carregando via fallback relativo...', err);
+                try {
+                    const res2 = await fetch('../relatorios/relatorio_anomalias_por_secretaria.json');
+                    const data2 = await res2.json();
+                    todasAnomalias = data2.amostra_anomalias_manutencao || [];
+                    inicializarPainel(null);
+                } catch (e2) {
+                    console.error('Falha crítica ao carregar dados:', e2);
+                }
+            }
+        }
+
+        function inicializarPainel(stats) {
+            if (stats) {
+                document.getElementById('kpi-total-os').textContent = formatarNumero(stats.total_registros || todasAnomalias.length);
+                document.getElementById('kpi-sub-anom').textContent = `${formatarNumero(stats.total_manutencao || 0)} Manutenção | ${formatarNumero(stats.total_combustivel || 0)} Combustíveis`;
+                document.getElementById('kpi-total-valor').textContent = `R$ ${((stats.total_valor || 0) / 1000000).toFixed(2)} M`;
+                document.getElementById('kpi-total-veiculos').textContent = formatarNumero(stats.total_veiculos || 0);
+                document.getElementById('kpi-total-oficinas').textContent = formatarNumero(stats.total_estabelecimentos || 0);
+                document.getElementById('kpi-total-sec').textContent = formatarNumero(stats.total_secretarias || 0);
+            }
+            popularFiltroSecretarias();
+            filtrarDados();
+            renderizarGraficos();
+            renderizarRanking(rankingAtualTipo);
+        }
+
+        function popularFiltroSecretarias() {
+            const selectSec = document.getElementById('select-secretaria');
+            const secretarias = [...new Set(todasAnomalias.map(a => a.secretaria).filter(Boolean))].sort();
+            secretarias.forEach(sec => {
+                const opt = document.createElement('option');
+                opt.value = sec;
+                opt.textContent = sec.length > 40 ? sec.substring(0, 38) + '...' : sec;
+                selectSec.appendChild(opt);
+            });
+        }
+
+        let rankingAtualTipo = 'oficinas';
+
+        function trocarAbaRanking(tipo) {
+            rankingAtualTipo = tipo;
+            ['oficinas', 'postos', 'veiculos', 'motoristas', 'triades'].forEach(t => {
+                const btn = document.getElementById(`btn-rank-${t}`);
+                if (btn) {
+                    btn.className = (t === tipo) ? 'btn btn-primary' : 'btn btn-secondary';
+                }
+            });
+            renderizarRanking(tipo);
+        }
+
+        function renderizarRanking(tipo) {
+            const tbody = document.getElementById('ranking-tbody');
+            if (!tbody) return;
+
+            const baseDados = todasAnomalias;
+            if (!baseDados || baseDados.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:20px; color:var(--text-muted);">Nenhum dado disponível para ranking.</td></tr>';
+                return;
+            }
+
+            const agrupamento = {};
+
+            baseDados.forEach(a => {
+                let chave = '';
+                let detalhe = '';
+                let isValid = false;
+
+                if (tipo === 'oficinas') {
+                    const est = a.oficina || '';
+                    const isPosto = est.toUpperCase().includes('POSTO') || (a.tipo_registro === 'COMBUSTÍVEL');
+                    if (!isPosto && est.trim()) {
+                        chave = est.trim();
+                        detalhe = a.cidade ? `${a.cidade} • ${a.secretaria ? a.secretaria.substring(0, 25) : 'SC'}` : (a.secretaria || 'SC');
+                        isValid = true;
+                    }
+                } else if (tipo === 'postos') {
+                    const est = a.oficina || '';
+                    const isPosto = est.toUpperCase().includes('POSTO') || (a.tipo_registro === 'COMBUSTÍVEL');
+                    if (isPosto && est.trim()) {
+                        chave = est.trim();
+                        detalhe = a.cidade ? `${a.cidade} • Rede Credenciada` : 'Rede de Abastecimento';
+                        isValid = true;
+                    }
+                } else if (tipo === 'veiculos') {
+                    const placa = a.placa || '';
+                    if (placa.trim()) {
+                        chave = placa.trim();
+                        detalhe = `${a.modelo || 'Veículo'} • ${a.secretaria ? a.secretaria.substring(0, 30) : 'Lotação Geral'}`;
+                        isValid = true;
+                    }
+                } else if (tipo === 'motoristas') {
+                    const mot = a.motorista || '';
+                    if (mot.trim() && mot !== 'NÃO INFORMADO' && mot !== 'None' && mot !== '-') {
+                        chave = mot.trim();
+                        detalhe = a.secretaria ? a.secretaria.substring(0, 35) : 'Condutor da Frota';
+                        isValid = true;
+                    }
+                } else if (tipo === 'triades') {
+                    const mot = a.motorista || '';
+                    const placa = a.placa || '';
+                    const est = a.oficina || '';
+                    if (mot.trim() && mot !== 'NÃO INFORMADO' && mot !== 'None' && mot !== '-' && placa.trim() && est.trim()) {
+                        chave = `${mot.trim()} ### ${placa.trim()} ### ${est.trim()}`;
+                        detalhe = `${a.secretaria ? a.secretaria.substring(0, 35) : 'SC'}`;
+                        isValid = true;
+                    }
+                }
+
+                if (isValid && chave) {
+                    if (!agrupamento[chave]) {
+                        agrupamento[chave] = {
+                            nome: chave,
+                            detalhe: detalhe,
+                            qtd: 0,
+                            valorTotal: 0.0,
+                            tipoRegistro: a.tipo_registro || '',
+                            motorista: (a.motorista || '').trim(),
+                            placa: (a.placa || '').trim(),
+                            modelo: a.modelo || '',
+                            estabelecimento: (a.oficina || '').trim(),
+                            secretaria: a.secretaria || '',
+                            amostras: []
+                        };
+                    }
+                    agrupamento[chave].qtd += 1;
+                    agrupamento[chave].valorTotal += (parseFloat(a.valor_aprovado) || 0.0);
+                    if (agrupamento[chave].amostras.length < 3) {
+                        agrupamento[chave].amostras.push(a);
+                    }
+                }
+            });
+
+            const listaOrdenada = Object.values(agrupamento)
+                .sort((a, b) => b.qtd - a.qtd || b.valorTotal - a.valorTotal)
+                .slice(0, 10);
+
+            if (listaOrdenada.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:20px; color:var(--text-muted);">Nenhum registro encontrado nesta categoria.</td></tr>';
+                return;
+            }
+
+            const maxQtd = listaOrdenada[0].qtd || 1;
+            const somaTop10Qtd = listaOrdenada.reduce((acc, curr) => acc + curr.qtd, 0);
+            const somaTop10Valor = listaOrdenada.reduce((acc, curr) => acc + curr.valorTotal, 0);
+
+            // Atualizar cabeçalhos e KPIs de resumo
+            const nomesHeaders = {
+                'oficinas': { cat: 'Oficinas Mecânicas', colNome: 'Oficina Mecânica Credenciada', colDet: 'Cidade / Secretaria' },
+                'postos': { cat: 'Postos de Combustível', colNome: 'Posto de Abastecimento', colDet: 'Localização / Rede' },
+                'veiculos': { cat: 'Veículos com Reincidência', colNome: 'Placa e Identificação', colDet: 'Modelo / Secretaria' },
+                'motoristas': { cat: 'Condutores / Motoristas', colNome: 'Condutor / Motorista', colDet: 'Lotação / Órgão' },
+                'triades': { cat: 'Tríades e Clusters Forenses (Motorista × Veículo × Estabelecimento)', colNome: 'Condutor & Veículo (Placa / Modelo)', colDet: 'Estabelecimento Vinculado (Posto/Oficina) & Órgão' }
+            };
+
+            const cfg = nomesHeaders[tipo] || nomesHeaders['oficinas'];
+            const catElem = document.getElementById('rank-kpi-categoria');
+            if (catElem) catElem.textContent = cfg.cat;
+            const anomElem = document.getElementById('rank-kpi-total-anom');
+            if (anomElem) anomElem.textContent = `${formatarNumero(somaTop10Qtd)} anomalias`;
+            const valElem = document.getElementById('rank-kpi-total-valor');
+            if (valElem) valElem.textContent = formatarMoeda(somaTop10Valor);
+            const lidElem = document.getElementById('rank-kpi-lider');
+            if (lidElem) {
+                if (tipo === 'triades') {
+                    lidElem.textContent = `${listaOrdenada[0].motorista} + ${listaOrdenada[0].placa} (${listaOrdenada[0].qtd})`;
+                } else {
+                    lidElem.textContent = `${listaOrdenada[0].nome} (${listaOrdenada[0].qtd})`;
+                }
+            }
+
+            const colNomeElem = document.getElementById('th-col-nome');
+            if (colNomeElem) colNomeElem.textContent = cfg.colNome;
+            const colDetElem = document.getElementById('th-col-detalhe');
+            if (colDetElem) colDetElem.textContent = cfg.colDet;
+
+            // Cores das barras de progresso
+            const coresProgresso = {
+                'oficinas': 'linear-gradient(90deg, #0284c7, #38bdf8)',
+                'postos': 'linear-gradient(90deg, #10b981, #34d399)',
+                'veiculos': 'linear-gradient(90deg, #f43f5e, #fb7185)',
+                'motoristas': 'linear-gradient(90deg, #8b5cf6, #c084fc)',
+                'triades': 'linear-gradient(90deg, #f43f5e, #f59e0b)'
+            };
+            const gradBarra = coresProgresso[tipo] || coresProgresso['oficinas'];
+
+            tbody.innerHTML = listaOrdenada.map((item, idx) => {
+                let badgePos = '';
+                if (idx === 0) badgePos = '<span style="background:rgba(245,158,11,0.2); color:#fbbf24; border:1px solid rgba(245,158,11,0.4); padding:3px 8px; border-radius:12px; font-weight:800;">🥇 1º</span>';
+                else if (idx === 1) badgePos = '<span style="background:rgba(148,163,184,0.2); color:#cbd5e1; border:1px solid rgba(148,163,184,0.4); padding:3px 8px; border-radius:12px; font-weight:800;">🥈 2º</span>';
+                else if (idx === 2) badgePos = '<span style="background:rgba(217,119,6,0.2); color:#f59e0b; border:1px solid rgba(217,119,6,0.4); padding:3px 8px; border-radius:12px; font-weight:800;">🥉 3º</span>';
+                else badgePos = `<span style="color:var(--text-muted); font-weight:700;">#${idx+1}</span>`;
+
+                const perc = Math.round((item.qtd / maxQtd) * 100);
+                const ticketMedio = item.valorTotal / item.qtd;
+
+                let colNomeHtml = `<strong style="color:var(--text-primary); font-size:12.5px;">${escapeHtml(item.nome)}</strong>`;
+                let colDetHtml = `<span style="color:var(--text-secondary);">${escapeHtml(item.detalhe)}</span>`;
+                let termoFiltro = item.nome;
+
+                if (tipo === 'triades') {
+                    colNomeHtml = `
+                        <div style="font-weight:800; color:var(--text-primary); font-size:12px; display:flex; align-items:center; gap:6px;">
+                            <span>👤</span> <span>${escapeHtml(item.motorista)}</span>
+                        </div>
+                        <div style="margin-top:3px; display:flex; gap:6px; align-items:center; flex-wrap:wrap;">
+                            <span class="badge-tag" style="font-size:10px; padding:2px 6px;">🚗 ${escapeHtml(item.placa)}</span>
+                            <span style="font-size:11px; color:var(--text-muted);">${escapeHtml(item.modelo || '')}</span>
+                        </div>
+                    `;
+                    const iconEstab = (item.tipoRegistro === 'COMBUSTÍVEL') ? '⛽' : '🔧';
+                    colDetHtml = `
+                        <div style="font-weight:700; color:var(--text-primary); font-size:12px;">
+                            ${iconEstab} ${escapeHtml(item.estabelecimento)}
+                        </div>
+                        <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">
+                            ${escapeHtml(item.secretaria)}
+                        </div>
+                    `;
+                    termoFiltro = item.placa || item.motorista;
+                }
+
+                return `
+                    <tr>
+                        <td style="text-align:center;">${badgePos}</td>
+                        <td>${colNomeHtml}</td>
+                        <td>${colDetHtml}</td>
+                        <td style="text-align:right;">
+                            <span style="font-weight:800; font-size:13px; color:var(--accent-rose);">${formatarNumero(item.qtd)}</span>
+                        </td>
+                        <td style="text-align:right; font-weight:700; color:var(--text-primary);">${formatarMoeda(item.valorTotal)}</td>
+                        <td style="text-align:right; color:var(--text-secondary);">${formatarMoeda(ticketMedio)}</td>
+                        <td style="vertical-align:middle;">
+                            <div style="background:var(--bg-body); border-radius:10px; height:8px; width:100%; overflow:hidden; border:1px solid var(--border-color); margin-bottom:4px;">
+                                <div style="background:${gradBarra}; height:100%; width:${perc}%; border-radius:10px;"></div>
+                            </div>
+                            <div style="font-size:10px; color:var(--text-muted); text-align:right;">${perc}% do polo líder</div>
+                        </td>
+                        <td style="text-align:center;">
+                            <button class="btn btn-secondary" style="font-size:11px; padding:4px 8px;" onclick="filtrarPorTermo('${termoFiltro.replace(/'/g, "\\'")}')">
+                                🔍 Filtrar
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function filtrarPorTermo(termo) {
+            const inputBusca = document.getElementById('input-busca');
+            if (inputBusca) {
+                inputBusca.value = termo;
+                filtrarDados();
+                const tableCard = document.querySelector('.table-card');
+                if (tableCard) {
+                    tableCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }
+
+        function escapeHtml(str) {
+            return String(str || '').replace(/[&<>'"]/g, tag => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                "'": '&#39;',
+                '"': '&quot;'
+            }[tag] || tag));
+        }
+
+        function filtrarDados() {
+            const busca = document.getElementById('input-busca').value.toLowerCase().trim();
+            const catSel = document.getElementById('select-categoria').value;
+            const secSel = document.getElementById('select-secretaria').value;
+            const sevSel = document.getElementById('select-severidade').value;
+            const causaSel = document.getElementById('select-causa').value;
+            const ordenacao = document.getElementById('select-ordenacao').value;
+
+            anomaliasFiltradas = todasAnomalias.filter(item => {
+                if (catSel && item.tipo_registro !== catSel) return false;
+                if (secSel && item.secretaria !== secSel) return false;
+                if (sevSel && item.severidade !== sevSel) return false;
+                if (causaSel) {
+                    const temCausa = (item.causas || []).some(c => c.tipo.includes(causaSel));
+                    if (!temCausa) return false;
+                }
+                if (busca) {
+                    const str = `${item.placa} ${item.modelo} ${item.secretaria} ${item.oficina} ${item.motorista} ${item.cidade}`.toLowerCase();
+                    if (!str.includes(busca)) return false;
+                }
+                return true;
+            });
+
+            // Ordenação
+            if (ordenacao === 'maior_valor') {
+                anomaliasFiltradas.sort((a, b) => (b.valor_aprovado || 0) - (a.valor_aprovado || 0));
+            } else if (ordenacao === 'menor_valor') {
+                anomaliasFiltradas.sort((a, b) => (a.valor_aprovado || 0) - (b.valor_aprovado || 0));
+            } else if (ordenacao === 'score_anomalia') {
+                anomaliasFiltradas.sort((a, b) => (a.anomaly_score || 0) - (b.anomaly_score || 0));
+            } else if (ordenacao === 'mais_itens') {
+                anomaliasFiltradas.sort((a, b) => ((b.qtd_itens || 0) + (b.litros || 0)) - ((a.qtd_itens || 0) + (a.litros || 0)));
+            } else if (ordenacao === 'km_decrescente') {
+                anomaliasFiltradas.sort((a, b) => (b.km || 0) - (a.km || 0));
+            }
+
+            paginaAtual = 1;
+            atualizarTabela();
+            atualizarContador();
+        }
+
+        function atualizarContador() {
+            const lbl = document.getElementById('lbl-contador-filtros');
+            lbl.textContent = `Exibindo ${formatarNumero(anomaliasFiltradas.length)} de ${formatarNumero(todasAnomalias.length)} registros`;
+        }
+
+        function atualizarTabela() {
+            const tbody = document.getElementById('tbody-anomalias');
+            tbody.innerHTML = '';
+
+            const inicio = (paginaAtual - 1) * itensPorPagina;
+            const fim = inicio + itensPorPagina;
+            const paginaItens = anomaliasFiltradas.slice(inicio, fim);
+
+            if (paginaItens.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="10" style="text-align: center; padding: 30px; color: var(--text-muted);">Nenhuma anomalia encontrada com os filtros selecionados.</td></tr>`;
+                atualizarPaginacao();
+                return;
+            }
+
+            paginaItens.forEach(item => {
+                const tr = document.createElement('tr');
+                const isCombust = item.tipo_registro === 'COMBUSTÍVEL';
+
+                // Badge de Categoria
+                const catHtml = isCombust 
+                    ? `<span class="badge-category cat-combust">⛽ Posto</span>`
+                    : `<span class="badge-category cat-manut">🔧 Oficina</span>`;
+
+                // Badge de Severidade
+                let sevClass = 'badge-moderada';
+                if (item.severidade === 'CRITICA') sevClass = 'badge-critica';
+                else if (item.severidade === 'GRAVE') sevClass = 'badge-grave';
+
+                // Tags das Causas
+                const tagsHtml = (item.causas || []).slice(0, 3).map(c => {
+                    const isHigh = c.tipo.includes('EXTREMO') || c.tipo.includes('DESPROPORCAO') || c.tipo.includes('HIPER') || c.tipo.includes('VOLUME');
+                    return `<span class="cause-tag ${isHigh ? 'highlight' : (isCombust ? 'combust' : '')}">${c.titulo}</span>`;
+                }).join('');
+
+                const subVal = isCombust 
+                    ? (item.litros > 0 ? `<div class="money-sub">${formatarNumero(item.litros)} L</div>` : '')
+                    : (item.valor_orcado > 0 ? `<div class="money-sub">Orç: ${formatarMoeda(item.valor_orcado)}</div>` : '');
+
+                const kmTxt = item.km > 0 ? `${formatarNumero(item.km)} km` : `<span style="color: var(--accent-rose);">Zerado/ND</span>`;
+
+                tr.innerHTML = `
+                    <td style="text-align: center;">${catHtml}</td>
+                    <td>
+                        <div class="plate-cell">${item.placa || 'N/D'}</div>
+                        <div class="plate-model">${(item.modelo || '').substring(0, 22)}</div>
+                    </td>
+                    <td>
+                        <strong style="color: var(--text-primary); font-size: 11px;">${(item.secretaria || 'N/D').substring(0, 32)}</strong>
+                    </td>
+                    <td>
+                        <strong>${(item.oficina || '').substring(0, 26)}</strong>
+                        <div style="font-size: 10.5px; color: var(--text-muted);">${item.cidade || 'SC'}</div>
+                    </td>
+                    <td>
+                        <span style="color: var(--text-primary); font-weight: 500;">
+                            ${item.motorista ? item.motorista.substring(0, 26) : '<span style="color: var(--text-muted); font-style: italic;">Não Identificado</span>'}
+                        </span>
+                    </td>
+                    <td style="text-align: right;">
+                        <div class="money-cell">${formatarMoeda(item.valor_aprovado)}</div>
+                        ${subVal}
+                    </td>
+                    <td style="text-align: center; font-family: var(--font-mono); font-size: 11px;">
+                        ${kmTxt}
+                    </td>
+                    <td style="text-align: center;">
+                        <span class="badge-severity ${sevClass}">${item.severidade || 'MODERADA'}</span>
+                    </td>
+                    <td>
+                        <div class="cause-tags">${tagsHtml}</div>
+                    </td>
+                    <td style="text-align: center;">
+                        <button class="btn btn-secondary" style="padding: 4px 8px; font-size: 11px;" onclick="abrirModal('${item.os_id}')">
+                            Detalhes
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            atualizarPaginacao();
+        }
+
+        function atualizarPaginacao() {
+            const totalPaginas = Math.ceil(anomaliasFiltradas.length / itensPorPagina) || 1;
+            document.getElementById('lbl-paginacao-info').textContent = `Página ${paginaAtual} de ${formatarNumero(totalPaginas)}`;
+            document.getElementById('btn-pag-ant').disabled = paginaAtual <= 1;
+            document.getElementById('btn-pag-prox').disabled = paginaAtual >= totalPaginas;
+
+            const containerBtns = document.getElementById('container-paginas-botoes');
+            containerBtns.innerHTML = '';
+
+            const rangeMax = 5;
+            let start = Math.max(1, paginaAtual - 2);
+            let end = Math.min(totalPaginas, start + rangeMax - 1);
+            if (end - start < rangeMax - 1) {
+                start = Math.max(1, end - rangeMax + 1);
+            }
+
+            for (let i = start; i <= end; i++) {
+                const btn = document.createElement('button');
+                btn.className = `page-btn ${i === paginaAtual ? 'active' : ''}`;
+                btn.textContent = i;
+                btn.onclick = () => { paginaAtual = i; atualizarTabela(); };
+                containerBtns.appendChild(btn);
+            }
+        }
+
+        function mudarPagina(delta) {
+            const totalPaginas = Math.ceil(anomaliasFiltradas.length / itensPorPagina) || 1;
+            const novaPag = paginaAtual + delta;
+            if (novaPag >= 1 && novaPag <= totalPaginas) {
+                paginaAtual = novaPag;
+                atualizarTabela();
+            }
+        }
+
+        function abrirModal(osId) {
+            const item = todasAnomalias.find(a => String(a.os_id) === String(osId));
+            if (!item) return;
+
+            const isCombust = item.tipo_registro === 'COMBUSTÍVEL';
+            document.getElementById('modal-placa').textContent = item.placa;
+            document.getElementById('modal-subtitulo').textContent = `Ficha Forense da Transação #${item.os_id} | Data: ${item.data || 'Registrada'}`;
+            document.getElementById('modal-modelo').textContent = `${item.modelo || ''} (${item.familia || 'Geral'})`;
+            document.getElementById('modal-secretaria').textContent = item.secretaria || 'N/D';
+            document.getElementById('modal-oficina').textContent = `${item.oficina || 'N/D'} (${item.cidade || 'SC'})`;
+            document.getElementById('modal-motorista').textContent = item.motorista || 'Condutor Não Identificado no Lançamento';
+            document.getElementById('modal-valor-aprovado').textContent = formatarMoeda(item.valor_aprovado);
+            document.getElementById('modal-km').textContent = item.km > 0 ? `${formatarNumero(item.km)} km` : 'Odômetro Zerado/Inconsistente';
+
+            const badgeCat = document.getElementById('modal-tipo-badge');
+            badgeCat.className = `badge-category ${isCombust ? 'cat-combust' : 'cat-manut'}`;
+            badgeCat.textContent = isCombust ? '⛽ COMBUSTÍVEL (POSTO)' : '🔧 MANUTENÇÃO (OFICINA)';
+
+            if (isCombust) {
+                document.getElementById('modal-volume-lbl').textContent = 'Volume Abastecido';
+                document.getElementById('modal-valor-orcado').textContent = `${formatarNumero(item.litros)} Litros`;
+                document.getElementById('modal-composicao').textContent = `Combustível: ${(item.pecas && item.pecas[0]) || 'DIESEL / GASOLINA'}`;
+                document.getElementById('modal-pecas-sec-title').textContent = 'Tipo de Combustível e Transação';
+            } else {
+                document.getElementById('modal-volume-lbl').textContent = 'Proposta Orçada Original';
+                document.getElementById('modal-valor-orcado').textContent = formatarMoeda(item.valor_orcado);
+                document.getElementById('modal-composicao').textContent = `Peças: ${formatarMoeda(item.valor_pecas)} | MO: ${formatarMoeda(item.valor_mo)}`;
+                document.getElementById('modal-pecas-sec-title').textContent = 'Peças e Componentes Envolvidos';
+            }
+
+            // Severidade Badge
+            const badge = document.getElementById('modal-severidade-badge');
+            badge.className = `badge-severity ${item.severidade === 'CRITICA' ? 'badge-critica' : item.severidade === 'GRAVE' ? 'badge-grave' : 'badge-moderada'}`;
+            badge.textContent = item.severidade;
+
+            // Lista de Causas
+            const listaCausas = document.getElementById('modal-lista-causas');
+            listaCausas.innerHTML = '';
+            (item.causas || []).forEach(c => {
+                const li = document.createElement('li');
+                li.className = 'modal-cause-item';
+                li.innerHTML = `
+                    <div class="modal-cause-title">${c.titulo}</div>
+                    <div class="modal-cause-desc">${c.descricao}</div>
+                `;
+                listaCausas.appendChild(li);
+            });
+
+            // Peças / Combustíveis Tags
+            const pecasContainer = document.getElementById('modal-pecas-tags');
+            pecasContainer.innerHTML = '';
+            const listaPecas = item.pecas || [];
+            if (listaPecas.length > 0) {
+                listaPecas.forEach(p => {
+                    const span = document.createElement('span');
+                    span.className = `cause-tag ${isCombust ? 'combust' : ''}`;
+                    span.textContent = p;
+                    pecasContainer.appendChild(span);
+                });
+            } else {
+                pecasContainer.innerHTML = '<span style="font-size: 11px; color: var(--text-muted);">Nenhum detalhamento específico nos registros.</span>';
+            }
+
+            document.getElementById('modal-forense').classList.add('active');
+        }
+
+        function fecharModal() {
+            document.getElementById('modal-forense').classList.remove('active');
+        }
+
+        function fecharModalFora(e) {
+            if (e.target.id === 'modal-forense') {
+                fecharModal();
+            }
+        }
+
+        function renderizarGraficos() {
+            const isDark = !document.body.classList.contains('light-theme');
+            const gridColor = isDark ? '#1f2937' : '#e2e8f0';
+            const textColor = isDark ? '#94a3b8' : '#475569';
+
+            // 1. Gráfico Secretarias
+            const secMap = {};
+            todasAnomalias.forEach(a => {
+                const s = (a.secretaria || 'Outros').replace('MANUTENCAO ', '').substring(0, 24);
+                secMap[s] = (secMap[s] || 0) + (a.valor_aprovado || 0);
+            });
+            const topSec = Object.entries(secMap).sort((a, b) => b[1] - a[1]).slice(0, 8);
+
+            const ctxSec = document.getElementById('chart-secretarias').getContext('2d');
+            if (chartSec) chartSec.destroy();
+            chartSec = new Chart(ctxSec, {
+                type: 'bar',
+                data: {
+                    labels: topSec.map(s => s[0]),
+                    datasets: [{
+                        label: 'Valor Total Auditado (R$)',
+                        data: topSec.map(s => s[1]),
+                        backgroundColor: '#0284c7',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { label: ctx => `Total: ${formatarMoeda(ctx.raw)}` } }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: gridColor },
+                            ticks: { color: textColor, callback: v => `R$ ${(v/1000).toFixed(0)}k` }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: textColor, font: { size: 10 } }
+                        }
+                    }
+                }
+            });
+
+            // 2. Gráfico Tipologia de Causas
+            const causasCount = {
+                'Volume Físico Anômalo (Tanque)': 0,
+                'Consumo / Autonomia Atípica': 0,
+                'Desproporção MO/Peça': 0,
+                'Glosa Orçamentária': 0,
+                'Hiper-substituição de Peças': 0,
+                'Desvio iForest Extremo': 0
+            };
+
+            todasAnomalias.forEach(a => {
+                (a.causas || []).forEach(c => {
+                    const desc = c.descricao.toLowerCase();
+                    if (desc.includes('volume') || desc.includes('tanque')) causasCount['Volume Físico Anômalo (Tanque)']++;
+                    else if (desc.includes('autonomia') || desc.includes('km/l')) causasCount['Consumo / Autonomia Atípica']++;
+                    else if (desc.includes('mão de obra') || desc.includes('desproporção')) causasCount['Desproporção MO/Peça']++;
+                    else if (desc.includes('glosa') || desc.includes('orçado')) causasCount['Glosa Orçamentária']++;
+                    else if (desc.includes('hiper') || desc.includes('substituição')) causasCount['Hiper-substituição de Peças']++;
+                    else if (desc.includes('iforest') || desc.includes('desvio')) causasCount['Desvio iForest Extremo']++;
+                });
+            });
+
+            const ctxCausas = document.getElementById('chart-causas').getContext('2d');
+            if (chartCausas) chartCausas.destroy();
+            chartCausas = new Chart(ctxCausas, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(causasCount),
+                    datasets: [{
+                        data: Object.values(causasCount),
+                        backgroundColor: ['#10b981', '#06b6d4', '#f43f5e', '#f59e0b', '#8b5cf6', '#0284c7'],
+                        borderWidth: 2,
+                        borderColor: isDark ? '#111827' : '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { color: textColor, boxWidth: 12, font: { size: 10 } }
+                        }
+                    }
+                }
+            });
+
+            // 3. Gráfico Top Oficinas e Postos
+            const oficMap = {};
+            todasAnomalias.forEach(a => {
+                const o = (a.oficina || 'Outros').substring(0, 18);
+                oficMap[o] = (oficMap[o] || 0) + (a.valor_aprovado || 0);
+            });
+            const topOfic = Object.entries(oficMap).sort((a, b) => b[1] - a[1]).slice(0, 8);
+
+            const ctxOfic = document.getElementById('chart-oficinas').getContext('2d');
+            if (chartOfic) chartOfic.destroy();
+            chartOfic = new Chart(ctxOfic, {
+                type: 'bar',
+                data: {
+                    labels: topOfic.map(o => o[0]),
+                    datasets: [{
+                        label: 'Valor Auditado (R$)',
+                        data: topOfic.map(o => o[1]),
+                        backgroundColor: '#f59e0b',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { label: ctx => formatarMoeda(ctx.raw) } }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: textColor, font: { size: 9.5 } }
+                        },
+                        y: {
+                            grid: { color: gridColor },
+                            ticks: { color: textColor, callback: v => `R$ ${(v/1000).toFixed(0)}k` }
+                        }
+                    }
+                }
+            });
+
+            // 4. Gráfico Dispersão Valor vs Km
+            const scatterData = todasAnomalias.slice(0, 200).map(a => ({
+                x: a.km || 0,
+                y: a.valor_aprovado || 0,
+                placa: a.placa,
+                tipo: a.tipo_registro,
+                severidade: a.severidade
+            }));
+
+            const ctxDisp = document.getElementById('chart-dispersao').getContext('2d');
+            if (chartDisp) chartDisp.destroy();
+            chartDisp = new Chart(ctxDisp, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Transação Anômala',
+                        data: scatterData,
+                        backgroundColor: ctx => {
+                            const raw = ctx.raw;
+                            if (!raw) return '#0284c7';
+                            if (raw.tipo === 'COMBUSTÍVEL') return '#10b981';
+                            if (raw.severidade === 'CRITICA') return '#f43f5e';
+                            if (raw.severidade === 'GRAVE') return '#f59e0b';
+                            return '#0284c7';
+                        },
+                        pointRadius: 4.5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: ctx => `[${ctx.raw.tipo}] ${ctx.raw.placa}: ${formatarNumero(ctx.raw.x)} km | ${formatarMoeda(ctx.raw.y)}`
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: gridColor },
+                            title: { display: true, text: 'Quilometragem (km)', color: textColor, font: { size: 10 } },
+                            ticks: { color: textColor }
+                        },
+                        y: {
+                            grid: { color: gridColor },
+                            title: { display: true, text: 'Valor Auditado (R$)', color: textColor, font: { size: 10 } },
+                            ticks: { color: textColor, callback: v => `R$ ${(v/1000).toFixed(0)}k` }
+                        }
+                    }
+                }
+            });
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            renderizarGraficos();
+        }
+
+        // Inicialização automática
+        window.addEventListener('DOMContentLoaded', () => {
+            carregarDados();
+        });
+    </script>
+</body>
+</html>

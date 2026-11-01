@@ -1,0 +1,69 @@
+{
+  "parametros_utilizados": {
+    "ipca_anual": 0.045,
+    "inflacao_pecas": 0.062,
+    "inflacao_mao_de_obra": 0.058,
+    "inflacao_ponderada_frota": 0.0608,
+    "fator_envelhecimento_base": 0.025,
+    "peso_pecas": 0.6918,
+    "peso_mao_de_obra": 0.3082
+  },
+  "estatisticas_idade": {
+    "idade_media_historica": 6.28,
+    "idade_mediana_historica": 5.0,
+    "veiculos_acima_7_anos_pct": 48.6,
+    "veiculos_acima_12_anos_pct": 14.8,
+    "fator_aceleracao_weibull_beta": 2.34
+  },
+  "historico_base": {
+    "2021.0": 11986593.29,
+    "2022.0": 18982545.09,
+    "2023.0": 21676986.2,
+    "2024.0": 22610672.69,
+    "2025": 34464759.78
+  },
+  "projecao_inercial": {
+    "2026": {
+      "valor_projetado": 37473063.898765795,
+      "limite_inferior_95": 35224680.06483985,
+      "limite_superior_95": 39721447.73269174,
+      "taxa_composta_ano": 0.0873
+    },
+    "2027": {
+      "valor_projetado": 40823452.38813237,
+      "limite_inferior_95": 37761693.45902245,
+      "limite_superior_95": 43885211.317242295,
+      "taxa_composta_ano": 0.0894
+    },
+    "2028": {
+      "valor_projetado": 44603304.662615255,
+      "limite_inferior_95": 40589007.242979884,
+      "limite_superior_95": 48617602.08225063,
+      "taxa_composta_ano": 0.0926
+    },
+    "2029": {
+      "valor_projetado": 48922389.16603144,
+      "limite_inferior_95": 43785538.30359814,
+      "limite_superior_95": 54059240.02846474,
+      "taxa_composta_ano": 0.0968
+    }
+  },
+  "projecao_estresse_inflacionario": {
+    "2026": 38305438.122921124,
+    "2027": 42669297.28265404,
+    "2028": 47689340.38530871,
+    "2029": 53536994.9375093
+  },
+  "projecao_prescritiva_otimizada": {
+    "2026": 29036775.519398622,
+    "2027": 30016766.693178326,
+    "2028": 31029832.569073092,
+    "2029": 32077089.41827931
+  },
+  "economia_trienio_2027_2029": {
+    "2027": 10806685.694954045,
+    "2028": 13573472.093542162,
+    "2029": 16845299.747752134,
+    "total_acumulado_2027_2029": 41225457.53624834
+  }
+}
