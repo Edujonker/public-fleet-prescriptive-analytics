@@ -1,0 +1,35 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sbc-template}[2003/04/24 - SBC style template]
+
+\RequirePackage[a4paper,top=3.5cm,left=3cm,right=3cm,bottom=2.5cm]{geometry}
+\RequirePackage{times}
+\RequirePackage{url}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{caption}
+\RequirePackage{setspace}
+
+\setlength{\parindent}{1.27cm}
+\setlength{\parskip}{0.0cm}
+
+\pagestyle{empty}
+
+\newcommand{\email}[1]{\texttt{#1}}
+
+\renewcommand{\section}{\@startsection {section}{1}{\z@}%
+  {-3.5ex \@plus -1ex \@minus -.2ex}%
+  {2.3ex \@plus.2ex}%
+  {\normalfont\bfseries}}
+
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\bfseries}}
+
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\bfseries}}
+
+\endinput
