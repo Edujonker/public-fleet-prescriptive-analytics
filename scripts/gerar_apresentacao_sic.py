@@ -1,4 +1,4 @@
-pip install scholarly requests pandas tqdm#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Gera Apresentacao_36_SIC_UDESC_nova.pptx
@@ -438,7 +438,7 @@ contrib = [
     ("Empírica", "Base longitudinal com 350.737 itens em 77.867 OS;\nauditoria de 6.841 regressões de hodômetro;\ncorreção do campo de tipo de manutenção."),
     ("Metodológica", "Arquitetura completa auditoria → ML → XAI → MILP\ncom validação Rolling-Origin e testes estatísticos\npareados (Wilcoxon + Holm-Bonferroni)."),
     ("Compu-\ntacional", "Artefato reprodutível (repositório público);\nhomologado Linux × Windows 11 — resultados\nexatos ao centavo em 3 baterias independentes."),
-    ("XAI", "Mede quanto SHAP e LIME concordam\nem dados reais de frota pública:\nJaccard Top-5 = 39,29%; Spearman ρ = 0,3680."),
+    ("XAI", "Mede quanto SHAP e LIME concordam\nem dados reais de frota pública:\nJaccard Top-5 = 45,48%; Spearman ρ = 0,2869."),
 ]
 for i, (tipo, desc) in enumerate(contrib):
     t = 2.02 + i * 1.12
@@ -459,9 +459,9 @@ inovacoes = [
     ("🔗 Integração aplicada",
      "Conecta 3 fontes administrativas heterogêneas\n(manutenção + patrimônio + abastecimento)\nem uma base única por veículo e mês."),
     ("💰 Prescritiva orçamentária",
-     "Economia contrafactual no cenário S0:\nR$ 9.302.147,26 (17,51%) vs. linha de base.\nProjeção trienal 2027–29: R$ 40,09 mi.\n⚠ Resultado simulado — não é economia realizada."),
+     "Economia contrafactual no cenário S0:\nR$ 6.990.613,11 (13,66%) vs. linha de base.\nProjeção trienal 2027–29: R$ 40,09 mi.\n⚠ Resultado simulado — não é economia realizada."),
     ("🏛 Gestão pública",
-     "313 veículos sinalizados para avaliação patrimonial.\n662 OS e 13.936 abastecimentos atípicos triados.\nFluxo: dados → análise → opções viáveis → gestor."),
+     "242 veículos sinalizados para avaliação patrimonial.\n662 OS e 13.936 abastecimentos atípicos triados.\nFluxo: dados → análise → opções viáveis → gestor."),
     ("🔁 Reprodutibilidade",
      "Pipeline com 20 checkpoints validados.\n100% PASS em Linux e Windows 11.\nSub-repositório público para replicação."),
 ]
@@ -527,18 +527,18 @@ header_bar(s, "07", "Cap. 1 | Hipóteses de Trabalho",
            "Quatro hipóteses com metas definidas: o que cada resultado mostrou")
 
 for i, (hid, en, r, ev) in enumerate([
-    ("H1", "Integrar patrimônio reduz o erro de custo (MAE) em pelo menos 15%",
-     "✗ Não sustentada",
-     "Obtido: 0,41% no MAE (−R$ 9,47 por veículo-mês) e +0,43% no PR-AUC. Ganho real, mas pequeno"),
-    ("H2", "HistGB supera baselines lineares e ingênuos (classificação e regressão)",
+    ("H1", "Integrar o patrimônio melhora a previsão (anteprojeto) e reduz o MAE em ≥ 15% (limiar)",
      "◐ Parcial",
-     "Supera na classificação e reduz o RMSE; não supera a mediana no MAE (custos de cauda longa)"),
-    ("H3", "Política MILP reduz o custo total frente à linha de base (cenário S0)",
-     "✓ Sustentada",
-     "S0: R$ 9,30 mi a menos (17,51%), com 100% das obrigações atendidas"),
-    ("H4", "SHAP e LIME concordam em mais de 85% nos 5 fatores principais",
+     "ROC-AUC +0,0095 (IC exclui zero); MAE 0,62% (meta 15%). Melhora real, mas pequena"),
+    ("H2", "Ensembles de árvores são competitivos frente ao SVR-RBF (anteprojeto)",
      "✗ Não sustentada",
-     "Jaccard Top-5 = 39,29%; Spearman ρ = 0,3680"),
+     "Superam o SVC-RBF na classificação (AUC +0,0463); erram 8,65% a mais que o SVR na regressão"),
+    ("H3", "Política MILP reduz o custo frente à prática reconstruída e a heurísticas",
+     "✓ Sustentada",
+     "S0: R$ 6,99 mi a menos (13,66%); heurística gulosa chega ao mesmo custo"),
+    ("H4", "SHAP e LIME fiéis e estáveis (anteprojeto); concordância > 0,85 (limiar)",
+     "✗ Não sustentada",
+     "LIME pouco fiel (R² 0,243); Jaccard 45,48%; Spearman 0,2869"),
 ]):
     hipotese_row(s, hid, en, r, ev, 1.52 + i * 0.78)
 
@@ -554,7 +554,7 @@ adendo = [
      "pesaram em cada previsão do modelo. Esperávamos que as duas apontassem "
      "os mesmos fatores."),
     ("O QUE ENCONTRAMOS",
-     "Nos 5 fatores mais importantes, a coincidência foi de apenas 39,29% "
+     "Nos 5 fatores mais importantes, a coincidência foi de apenas 45,48% "
      "(índice de Jaccard). A concordância na ordem também foi fraca: 0,37, numa "
      "escala em que 1 seria concordância total."),
     ("POR QUE ISSO IMPORTA",
@@ -594,7 +594,7 @@ blocos_h4 = [
      "SHAP e LIME recebem a mesma previsão e apontam os 5 fatores que mais "
      "pesaram nela. Cada um usa um método diferente."),
     ("A META NÃO FOI ATINGIDA", VERMELHO,
-     "A meta da hipótese era concordância acima de 85%. Resultado: 39,3% de "
+     "A meta da hipótese era concordância acima de 85%. Resultado: 45,5% de "
      "coincidência e correlação de 0,37 (meta: 0,85)."),
     ("O QUE MUDA NA PRÁTICA", VERDE,
      "Um método não confirma o outro. Por isso, recomenda-se usar os dois em "
@@ -632,15 +632,15 @@ for x, w, h in zip(cols_x, cols_w, ["", "Meta", "Obtido", "O que aprendemos"]):
         size=13, bold=True, color=BRANCO, font="Calibri")
 
 linhas_nc = [
-    ("H1", LARANJA, "Reduzir o erro de custo (MAE) em pelo menos 15%",
-     "Redução de 0,41% (−R$ 9,47 por veículo-mês)",
-     "Integrar patrimônio ajuda, mas pouco. O ganho é real, só não chega à meta."),
-    ("H2", LARANJA, "Superar baselines lineares e ingênuos",
-     "Supera na classificação; não supera a mediana no MAE",
-     "Custos têm cauda longa: um modelo complexo nem sempre vence a mediana."),
-    ("H4", VERMELHO, "SHAP e LIME concordarem em mais de 85%",
-     "Coincidência de 39,29% no Top-5",
-     "Um método não valida o outro. Usar os dois em conjunto (triangulação)."),
+    ("H1", LARANJA, "Melhorar a previsão; reduzir o MAE em ≥ 15%",
+     "ROC-AUC +0,0095; MAE 0,62%",
+     "Integrar patrimônio ajuda pouco. A melhora existe, mas não chega à meta."),
+    ("H2", VERMELHO, "Ser competitivo frente ao SVR-RBF",
+     "Melhor na classificação; 8,65% pior na regressão",
+     "Não há modelo campeão único: a escolha depende da tarefa."),
+    ("H4", VERMELHO, "Explicações fiéis e estáveis; concordância > 0,85",
+     "LIME R² 0,243; Jaccard 45,48%",
+     "O LIME é estável, mas não reproduz o modelo. Usar o SHAP na auditoria."),
 ]
 for i, (hid, cor, meta, obt, apr) in enumerate(linhas_nc):
     t = 1.98 + i * 1.20
@@ -688,8 +688,8 @@ for i, (tit, cor, corpo) in enumerate(blocos_nc):
     txt(s, corpo, 8.55, t + 0.44, 4.33, 1.16,
         size=13, color=CINZA_ESC, font="Calibri Light")
 
-nota(s, "O anteprojeto pedia, na H1, melhora em ao menos uma métrica (houve, pequena); os limiares numéricos "
-        "vêm da dissertação. H3: sustentada no S0 (simulação).")
+nota(s, "Critérios fixados antes dos resultados: texto do anteprojeto e limiar da qualificação. "
+        "Sustentada = atende os dois; parcial = atende um. H3: sustentada no S0 (simulação).")
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SLIDE 10 — CONCEITOS FUNDAMENTAIS (Cap. 2)
@@ -758,12 +758,12 @@ rows = [
      "Dados de SC; S0 é simulação,\nnão piloto operacional"),
     ("Explicabilidade",
      "Lundberg & Lee (2017): SHAP;\nRibeiro et al. (2016): LIME;\nRudin (2019): cautela em decisões",
-     "Compara SHAP e LIME com\nconcordância Jaccard: 39,29%",
+     "Compara SHAP e LIME com\nconcordância Jaccard: 45,48%",
      "Comparação não prova causalidade\nnem superioridade universal"),
     ("Validação e redes",
      "Bergmeir & Benítez (2012): validação\ntemporal; Blondel et al. (2008): Louvain;\nGarcia (2019): TCU",
      "Avaliação temporal + protótipo\nNeo4j local para relações de frota",
-     "Neo4j persiste rede; Louvain\nvem do pipeline original"),
+     "Louvain reproduzido no grafo\nNeo4j e testado contra nulo"),
     ("Manutenção preditiva\nveicular",
      "Mahale et al. (2025): revisão de\n94 estudos; Katreddi et al. (2023):\ncaminhões XGBoost vs RF",
      "Dados tabulares reais de frota\npública com validação OOT estrita",
@@ -877,7 +877,7 @@ rows_cl = [
     ("Random Forest", "0,9081", "0,8016", "0,1362", "0,0660", CINZA_ESC),
     ("Árvore Decisão", "0,9041", "0,7905", "0,1378", "0,1303", CINZA_ESC),
     ("Extra Trees",    "0,8796", "0,7631", "0,1710", "0,2381", CINZA_ESC),
-    ("Reg. Logística", "0,8660", "0,7366", "0,1673", "0,2258", CINZA_ESC),
+    ("Reg. Logística", "0,8660", "0,8292", "0,1673", "0,2258", CINZA_ESC),
     ("Baseline",       "0,7924", "0,5000", "0,1873", "0,0390", LARANJA),
 ]
 for i, (m, pr, roc, br, ece, cor) in enumerate(rows_cl):
@@ -931,17 +931,17 @@ box(s, 0.35, 5.22, 12.63, 0.36, fill_color=AZUL_MED)
 txt(s, "ESTUDO DE ABLAÇÃO — Fontes M vs M+P", 0.45, 5.25, 7.00, 0.28,
     size=11, bold=True, color=BRANCO, font="Calibri")
 txt(s, "Classificação: PR-AUC 0,9060 → 0,9099  (+0,43%)    "
-       "Regressão: MAE R$ 2.321,28 → R$ 2.311,82  (−R$ 9,47/mês)",
+       "Regressão: MAE R$ 2.237,81 → R$ 2.223,84  (−R$ 13,97/mês)",
     0.45, 5.62, 12.45, 0.35,
     size=12, bold=False, color=AZUL_ESC, font="Calibri")
 
 txt(s, "Outro protocolo do projeto (5 dobras temporais, usado na homologação Linux × Windows) reporta "
-       "ROC-AUC 0,8743 e PR-AUC 0,9510. Valores de protocolos diferentes não se comparam.",
+       "ROC-AUC 0,8737 e PR-AUC 0,9510. Valores de protocolos diferentes não se comparam.",
     0.45, 6.02, 12.45, 0.62,
     size=11, italic=True, color=CINZA_ESC, font="Calibri Light")
 
 nota(s, "Wilcoxon + Holm: HistGB difere de Árvore, Extra Trees e Random Forest (p ajustado < 10⁻⁴). "
-        "A mediana histórica tem MAE menor que o HistGB (H2 parcial).")
+        "Frente ao SVR-RBF, os ensembles perdem na regressão (H2 não sustentada).")
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SLIDE 13 — ANOMALIAS, GRAFOS E XAI (Cap. 5)
@@ -965,15 +965,15 @@ bullet_col(s, "TEORIA DOS GRAFOS",
             "Protótipo Neo4j: 7.291 veículos com serviço · 1.039 oficinas",
             "25.122 ligações veículo–oficina observadas",
             "Louvain: Q = 0,5646 · 18 comunidades",
-            "Métricas: betweenness, PageRank, degree",
+            "Validado: Q nulo 0,392 (z = 39,9), estável",
             "⚠ Descreve a rede — não prova conluio"],
            4.50, 1.55, 4.15, 5.17, titulo_size=13, bullet_size=12)
 
 bullet_col(s, "EXPLICABILIDADE XAI",
            ["SHAP TreeExplainer: valores de Shapley globais e locais",
             "LIME: surrogate local por perturbação sintética",
-            "Concordância Jaccard Top-5: 39,29%",
-            "Spearman ρ = 0,3680",
+            "Concordância Jaccard Top-5: 45,48%",
+            "Spearman ρ = 0,2869",
             "→ H4 NÃO SUSTENTADA: os dois métodos divergem",
             "⚠ Importância preditiva ≠ efeito causal"],
            8.68, 1.55, 4.30, 5.17, titulo_size=13, bullet_size=12)
@@ -986,14 +986,14 @@ nota(s, "Resultados da rede Neo4j (protótipo local): IDs pseudonimizados com HM
 s = blank(prs)
 bg(s, BRANCO)
 header_bar(s, "14", "Cap. 5 | Otimização Prescritiva — MILP",
-           "Dois experimentos simulados, resolvidos com o solver HiGHS")
+           "Custo esperado por política no cenário S0 (solver HiGHS)")
 
 # Tabela de cenários — Experimento A (sensibilidade ao orçamento)
-txt(s, "A · Sensibilidade ao orçamento preventivo (teste retido: 6.099 veículo-mês)",
+txt(s, "A · Políticas comparadas sob o mesmo orçamento e capacidade",
     0.35, 1.48, 10.33, 0.36,
     size=13, bold=True, color=AZUL_ESC, font="Calibri")
 
-hds = ["Orçamento", "Valor Bₜ", "Ações", "Risco residual", "Redução de custo"]
+hds = ["Política", "Custo (36 meses)", "Obrig.", "Dif. p/ MILP", "Economia"]
 ws  = [2.60, 2.30, 1.30, 2.10, 1.95]
 ls  = [0.35, 2.97, 5.29, 6.61, 8.73]
 TAB_T = 1.88
@@ -1004,12 +1004,9 @@ for lft, wid, h in zip(ls, ws, hds):
         size=11, bold=True, color=BRANCO, align=PP_ALIGN.CENTER, font="Calibri")
 
 cen_rows = [
-    ("Sem preventiva (atual)", "R$ 0,00", "0", "78,77%", "0,00%", LARANJA),
-    ("50% do Base", "R$ 137.227,50", "304", "72,62%", "2,18%", CINZA_ESC),
-    ("75% do Base", "R$ 205.841,25", "457", "71,21%", "3,23%", CINZA_ESC),
-    ("100% — Base", "R$ 274.455,00", "609", "69,83%", "4,26%", CINZA_ESC),
-    ("125% do Base", "R$ 343.068,75", "762", "68,44%", "5,29%", CINZA_ESC),
-    ("150% do Base ★", "R$ 411.682,50", "914", "67,07%", "6,31%", VERDE),
+    ("Prática reconstruída", "R$ 51.180.733,62", "100%", "R$ 6.990.613,11", "—", LARANJA),
+    ("Heurística gulosa", "R$ 44.190.884,80", "100%", "R$ 764,29", "6,99 mi", CINZA_ESC),
+    ("MILP (HiGHS) ★", "R$ 44.190.120,51", "100%", "—", "13,66%", VERDE),
 ]
 for i, row_data in enumerate(cen_rows):
     vals = row_data[:-1]; cor = row_data[-1]
@@ -1018,7 +1015,7 @@ for i, row_data in enumerate(cen_rows):
     box(s, 0.35, t, 10.33, 0.56, fill_color=bg_c,
         border_color=CINZA_BOX, border_pt=0.2)
     for lft, wid, val in zip(ls, ws, vals):
-        bold_v = (i == 5)
+        bold_v = (i == len(cen_rows) - 1)
         txt(s, val, lft+0.06, t+0.12, wid-0.12, 0.34,
             size=12, bold=bold_v, color=cor, align=PP_ALIGN.CENTER,
             font="Calibri" if bold_v else "Calibri Light")
@@ -1029,14 +1026,13 @@ txt(s, "B · Cenário S0", 10.80, 1.48, 2.20, 0.36,
 box(s, 10.80, 1.88, 2.18, 4.60, fill_color=AZUL_ESC)
 txt_multi(s,
     ["2.000 veículos", "36 meses", "",
-     "Linha de base", "R$ 53,14 mi", "MILP", "R$ 43,84 mi", "",
-     "Redução", "R$ 9,30 mi (17,51%)", "",
-     "Gap do solver: 0,0000%", "Mesmo resultado em", "Linux e Windows"],
+     "Prática reconstruída", "R$ " + "51,18 mi", "MILP", "R$ 44,19 mi", "",
+     "Redução", "R$ 6,99 mi (13,66%)", "",
+     "Instância", "semissintética", "(custos por fórmula)"],
     10.88, 1.96, 2.04, 4.46,
     size=12, color=BRANCO, font="Calibri", spacing_pt=2)
 
-nota(s, "A e B são simulações diferentes (A: teste retido; B: frota de referência por 36 meses). "
-        "Nenhuma das duas é economia realizada.")
+nota(s, "Simulação com 2.000 veículos reais e custos gerados por fórmula. Não é economia realizada.")
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SLIDE 15 — DISCUSSÃO (Cap. 6)
@@ -1051,7 +1047,7 @@ bullet_col(s, "LIMITAÇÕES RECONHECIDAS",
             "Eficácia da manutenção preventiva não foi medida com dados reais; usaram-se cenários",
             "H1 e H2 não atingiram as metas: integrar patrimônio ajuda pouco e a mediana vence no MAE",
             "Resultados valem para a frota de SC no período auditado",
-            "313 veículos são candidatos à avaliação, não decisão de leilão"],
+            "242 veículos são candidatos à avaliação, não decisão de leilão"],
            0.35, 1.55, 6.10, 4.60, titulo_size=13, bullet_size=12)
 
 bullet_col(s, "LEITURA À LUZ DA LITERATURA",
@@ -1080,8 +1076,8 @@ bullet_col(s, "PRINCIPAIS CONTRIBUIÇÕES",
            ["Empírica: base de 350.737 itens em 77.867 OS, com correção do tipo de manutenção",
             "Metodológica: auditoria → ML → XAI → MILP com validação temporal e Wilcoxon",
             "Computacional: artefato reprodutível, homologado Linux × Windows, exato ao centavo",
-            "XAI: SHAP e LIME concordaram só 39,29% no Top-5; usar os dois em conjunto",
-            "Gestão pública: política prescritiva R$ 9,30 mi (17,51%) no cenário S0, como simulação"],
+            "XAI: SHAP e LIME concordaram só 45,48% no Top-5; usar os dois em conjunto",
+            "Gestão pública: política prescritiva R$ 6,99 mi (13,66%) no cenário S0, como simulação"],
            0.35, 1.55, 6.10, 4.70, titulo_size=13, bullet_size=12)
 
 bullet_col(s, "TRABALHOS FUTUROS",

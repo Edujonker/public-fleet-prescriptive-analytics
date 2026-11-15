@@ -1,0 +1,79 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2074 400' font-family='Arial' font-size='10'>
+<defs><marker id='a' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto'><path d='M0,0L10,5L0,10z' fill='#333'/></marker></defs>
+<rect x='40' y='0' width='2024' height='390' fill='#fff' stroke='#333'/>
+<rect x='40' y='0' width='34' height='130' fill='#00693e' stroke='#333'/>
+<rect x='74' y='0' width='1990' height='130' fill='#fff' stroke='#999'/>
+<text transform='translate(61.0,65.0) rotate(-90)' text-anchor='middle' fill='#fff' font-size='9' font-weight='bold'><tspan x='0' dy='0'>Bases SEA/SC</tspan></text>
+<rect x='40' y='130' width='34' height='130' fill='#00693e' stroke='#333'/>
+<rect x='74' y='130' width='1990' height='130' fill='#f6faf8' stroke='#999'/>
+<text transform='translate(61.0,195.0) rotate(-90)' text-anchor='middle' fill='#fff' font-size='9' font-weight='bold'><tspan x='0' dy='0'>Pipeline</tspan><tspan x='0' dy='10'>(dissertacao_frotas/src)</tspan></text>
+<rect x='40' y='260' width='34' height='130' fill='#00693e' stroke='#333'/>
+<rect x='74' y='260' width='1990' height='130' fill='#fff' stroke='#999'/>
+<text transform='translate(61.0,325.0) rotate(-90)' text-anchor='middle' fill='#fff' font-size='9' font-weight='bold'><tspan x='0' dy='0'>Resultados</tspan></text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='170,65 207,65 207,195 244,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='362,195 431,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='453,173 453,82'/>
+<text x='456' y='124' font-size='8.5' fill='#b04a3a'>não</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='475,195 544,195'/>
+<text x='512' y='191' font-size='8.5' fill='#b04a3a'>sim</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='662,195 694,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='812,195 844,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='962,195 994,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1112,195 1144,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1262,195 1294,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1412,195 1444,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1562,195 1594,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1712,195 1728,195 1728,325 1744,325'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1862,325 1936,325'/>
+<circle cx='153.0' cy='65.0' r='17.0' fill='#fff' stroke='#00693e' stroke-width='1.5'/>
+<text x='153.0' y='93.0' text-anchor='middle' font-size='8.5'>Bases brutas</text>
+<text x='153.0' y='103.0' text-anchor='middle' font-size='8.5'>disponíveis</text>
+<rect x='244.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='254.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='303.0' y='193.0' text-anchor='middle' font-size='9'>01 Auditoria dos</text>
+<text x='303.0' y='203.0' text-anchor='middle' font-size='9'>dados (SHA-256)</text>
+<polygon points='453.0,173.0 475.0,195.0 453.0,217.0 431.0,195.0' fill='#fff7e0' stroke='#d99a00' stroke-width='1.5'/><text x='453.0' y='200.0' text-anchor='middle' font-size='14' fill='#d99a00'>×</text>
+<text x='453.0' y='159.0' text-anchor='middle' font-size='8.5'>Integridade ok?</text>
+<circle cx='453.0' cy='65.0' r='17.0' fill='#fff' stroke='#b04a3a' stroke-width='3'/>
+<text x='453.0' y='93.0' text-anchor='middle' font-size='8.5'>Interromper e</text>
+<text x='453.0' y='103.0' text-anchor='middle' font-size='8.5'>corrigir fonte</text>
+<rect x='544.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='554.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='603.0' y='188.0' text-anchor='middle' font-size='9'>02</text>
+<text x='603.0' y='198.0' text-anchor='middle' font-size='9'>Pré-processamento e</text>
+<text x='603.0' y='208.0' text-anchor='middle' font-size='9'>exclusões</text>
+<rect x='694.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='704.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='753.0' y='193.0' text-anchor='middle' font-size='9'>03 Estatística</text>
+<text x='753.0' y='203.0' text-anchor='middle' font-size='9'>descritiva</text>
+<rect x='844.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='854.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='903.0' y='193.0' text-anchor='middle' font-size='9'>04 Modelos</text>
+<text x='903.0' y='203.0' text-anchor='middle' font-size='9'>preditivos</text>
+<rect x='994.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='1004.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='1053.0' y='193.0' text-anchor='middle' font-size='9'>05 Detecção de</text>
+<text x='1053.0' y='203.0' text-anchor='middle' font-size='9'>anomalias</text>
+<rect x='1144.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='1154.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='1203.0' y='193.0' text-anchor='middle' font-size='9'>06 Grafos e</text>
+<text x='1203.0' y='203.0' text-anchor='middle' font-size='9'>comunidades</text>
+<rect x='1294.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='1304.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='1353.0' y='193.0' text-anchor='middle' font-size='9'>07 XAI (SHAP ×</text>
+<text x='1353.0' y='203.0' text-anchor='middle' font-size='9'>LIME)</text>
+<rect x='1444.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='1454.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='1503.0' y='198.0' text-anchor='middle' font-size='9'>08 Otimização MILP</text>
+<rect x='1594.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='1604.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='1653.0' y='193.0' text-anchor='middle' font-size='9'>09 Validação das</text>
+<text x='1653.0' y='203.0' text-anchor='middle' font-size='9'>hipóteses</text>
+<rect x='1744.0' y='294.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='1754.0' cy='304.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='1803.0' y='323.0' text-anchor='middle' font-size='9'>Certificado e</text>
+<text x='1803.0' y='333.0' text-anchor='middle' font-size='9'>tabela oficial</text>
+<circle cx='1953.0' cy='325.0' r='17.0' fill='#fff' stroke='#b04a3a' stroke-width='3'/>
+<text x='1953.0' y='353.0' text-anchor='middle' font-size='8.5'>Resultados</text>
+<text x='1953.0' y='363.0' text-anchor='middle' font-size='8.5'>publicados</text>
+</svg>

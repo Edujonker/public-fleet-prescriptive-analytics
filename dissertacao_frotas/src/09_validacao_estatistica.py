@@ -93,42 +93,57 @@ def executar_validacao_estatistica():
     skewness = float(stats.skew(valores_aprovados))
     kurtosis = float(stats.kurtosis(valores_aprovados))
 
-    h1_sustentada = bool(ks_pval < 0.05 and abs(skewness) > 1.0)
+    # Este teste é a premissa P1 (não normalidade), não a hipótese H1 (fusão multimodal).
+    p1_sustentada = bool(ks_pval < 0.05 and abs(skewness) > 1.0)
     print(f"  -> KS Stat: {ks_stat:.4f} | p-valor: {ks_pval:.2e}")
     print(f"  -> Assimetria (Skewness): {skewness:.2f} | Curtose: {kurtosis:.2f}")
-    print(f"  -> Hipótese H1 Sustentada: {h1_sustentada}")
+    print(f"  -> Premissa P1 (não normalidade) sustentada: {p1_sustentada}")
 
     # 3. Testar Hipótese H2: Superioridade Preditiva de Ensembles
     print("\n[3/5] Testando Hipótese H2 (Superioridade Preditiva de Gradient Boosting)...")
     res_pred = relatorios.get("04_preditivos", {})
-    tabela_cls = res_pred.get("tabela_classificacao", [])
-
-    roc_hist = 0.8743
-    roc_logreg = 0.7366
-    for row in tabela_cls:
-        if row.get("modelo") == "HistGradientBoosting":
-            roc_hist = row.get("roc_auc", roc_hist)
-        elif row.get("modelo") == "LogisticRegression":
-            roc_logreg = row.get("roc_auc", roc_logreg)
+    # Correção (15/11/2026): a chave gravada pela etapa 04 é "metricas_classificacao"; a leitura de
+    # "tabela_classificacao" falhava em silêncio e usava valores digitados (ROC LogReg = 0,7366).
+    tabela_cls = {r["modelo"]: r for r in res_pred.get("metricas_classificacao", [])}
+    tabela_reg = {r["modelo"]: r for r in res_pred.get("metricas_regressao", [])}
+    if "HistGradientBoosting" not in tabela_cls or "LogisticRegression" not in tabela_cls or "Baseline Mediana" not in tabela_reg:
+        raise SystemExit("[ERRO] relatorio_modelagem_preditiva.json sem as métricas esperadas; rode a etapa 04.")
+    roc_hist = tabela_cls["HistGradientBoosting"]["roc_auc"]
+    roc_logreg = tabela_cls["LogisticRegression"]["roc_auc"]
 
     diff_roc = roc_hist - roc_logreg
-    z_delong = diff_roc / 0.0084  # erro padrão assintótico estimado
+    z_delong = diff_roc / 0.0084  # erro padrão assintótico aproximado (constante; não é o teste de DeLong exato)
     pval_delong = float(2 * (1 - stats.norm.cdf(abs(z_delong))))
 
-    # Avaliação da Regressão (HistGB vs Mediana)
-    mae_histgb = 2236.06
-    mae_mediana = 2133.49
-    wilcoxon_pval = 1.00  # Não rejeita a hipótese de que HistGB tem erro absoluto maior ou igual à mediana
-    reducao_mae_pct = -4.81
-    reducao_rmse_pct = 9.97  # HistGB supera em variância / RMSE
+    # Avaliação da Regressão (HistGB vs Mediana), lida da etapa 04
+    mae_histgb = tabela_reg["HistGradientBoosting"]["mae_reais"]
+    mae_mediana = tabela_reg["Baseline Mediana"]["mae_reais"]
+    rmse_histgb = tabela_reg["HistGradientBoosting"]["rmse_reais"]
+    rmse_mediana = tabela_reg["Baseline Mediana"]["rmse_reais"]
+    wil = next((w for w in res_pred.get("wilcoxon_inferencial", []) if "Mediana" in w.get("comparacao", "")), {})
+    wilcoxon_pval = float(wil.get("p_value", float("nan")))
+    reducao_mae_pct = (mae_mediana - mae_histgb) / mae_mediana * 100.0
+    reducao_rmse_pct = (rmse_mediana - rmse_histgb) / rmse_mediana * 100.0
+
+    # H1 (fusão multimodal) lida do estudo ablativo da etapa 04b
+    abl = json.loads((res_logs / "relatorio_ablacao_h1.json").read_text(encoding="utf-8")) \
+        if (res_logs / "relatorio_ablacao_h1.json").exists() else None
+    if abl is None:
+        raise SystemExit("[ERRO] relatorio_ablacao_h1.json ausente; rode a etapa 04b.")
+    h1_ganho = abl["ganho_mae_pct"] * 100.0
+    h1_ic = [x * 100.0 for x in abl["ic95_ganho_bootstrap_pareado"]]
+    h1_meta = abl["meta_h1"] * 100.0
+    h1_sustentada = bool(abl["h1_sustentada"])
+    br = lambda x, nd=2: f"{x:,.{nd}f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
     cls_sustentada = bool(diff_roc > 0.05 and pval_delong < 0.001)
     reg_sustentada = bool(reducao_mae_pct > 0 and wilcoxon_pval < 0.05)
     h2_sustentada = cls_sustentada and reg_sustentada
     h2_parcial = cls_sustentada and not reg_sustentada
 
-    print(f"  -> Classificação: HistGB ROC-AUC ({roc_hist:.4f}) vs LogReg ({roc_logreg:.4f}) | Δ = +{diff_roc:.4f} (p < 1e-13)")
+    print(f"  -> Classificação: HistGB ROC-AUC ({roc_hist:.4f}) vs LogReg ({roc_logreg:.4f}) | Δ = +{diff_roc:.4f} (p = {pval_delong:.2e})")
     print(f"  -> Regressão: HistGB MAE (R$ {mae_histgb:,.2f}) vs Mediana (R$ {mae_mediana:,.2f}) | Δ MAE = {reducao_mae_pct:.2f}% (p = {wilcoxon_pval:.2f})")
+    print(f"  -> H1: ganho MAE M+P = {h1_ganho:+.2f}% [IC95 {h1_ic[0]:+.2f}%; {h1_ic[1]:+.2f}%] | meta {h1_meta:.1f}% | sustentada: {h1_sustentada}")
     print(f"  -> Hipótese H2 Status: {'PARCIALMENTE SUSTENTADA' if h2_parcial else ('SUSTENTADA' if h2_sustentada else 'REJEITADA')}")
 
     # 4. Testar Hipótese H3: Eficiência Econômica Prescritiva (MILP Cenário S0)
@@ -157,98 +172,108 @@ def executar_validacao_estatistica():
     print(f"  -> Hipótese H4 Sustentada no limiar de 85%: {h4_sustentada} (NÃO SUSTENTADA)")
 
     # Matriz Consolidada de Decisão Hipotética
-    # Matriz Consolidada de Decisão Hipotética
-    matriz_hipoteses = [
-        {
-            "hipotese": "Premissa P1: Não Normalidade e Assimetria de Custos",
-            "enunciado": "A distribuição empírica de custos e demandas de manutenção é não paramétrica e de cauda pesada.",
-            "estatistica_teste": f"KS = {ks_stat:.4f}, Skew = {skewness:.2f}, Kurt = {kurtosis:.2f}",
-            "p_valor": f"{ks_pval:.2e}",
-            "decisao": "SUSTENTADA (Rejeita normalidade e fundamenta modelos baseados em árvores e testes não paramétricos)"
-        },
-        {
-            "hipotese": "Hipótese H1: Ganho de Fusão Multimodal (Meta ≥ 15%)",
-            "enunciado": "A integração multimodal (manutenção + patrimônio + abastecimento) reduz o MAE em ≥ 15% sobre a fonte unimodal.",
-            "estatistica_teste": "Redução MAE = +0,41% [0,28%; 0,54%] (Δ = -R$ 9,47/OS); Elevação PR-AUC = +0,43%",
-            "p_valor": "Wilcoxon p < 1e-15",
-            "decisao": "NÃO SUSTENTADA no limiar de 15% (Ganho marginal estatisticamente significante, mas aquém da meta do anteprojeto; ausência de HARKing)"
-        },
-        {
-            "hipotese": "Hipótese H2: Superioridade de Ensembles Gradient Boosting",
-            "enunciado": "HistGradientBoosting supera baselines lineares e ingênuos em classificação e regressão.",
-            "estatistica_teste": f"Classif: Δ ROC = +{diff_roc:.4f} (p < 1e-13); Regress: Δ MAE = -4,81% vs Mediana; RMSE reduz 9,97%",
-            "p_valor": "Classif p < 1e-13; Regress p = 1,00",
-            "decisao": "PARCIALMENTE SUSTENTADA (Superior em classificação e variância RMSE; superado pela mediana amostral em MAE sob assimetria severa)"
-        },
-        {
-            "hipotese": "Hipótese H3: Eficiência Econômica Prescritiva (MILP Cenário S0)",
-            "enunciado": "A política prescritiva MILP reduz o dispêndio total frente à linha de base inercial sob viabilidade estrita.",
-            "estatistica_teste": f"Economia = {economia_pct:.2f}% (R$ {economia_brl:,.2f}), Gap Integralidade = {gap_integralidade*100:.5f}%",
-            "p_valor": "< 1,00e-15",
-            "decisao": "SUSTENTADA no Cenário S0 (Economia de 17,51% com 100% das manutenções mandatórias atendidas e HiGHS gap 0,0000%)"
-        },
-        {
-            "hipotese": "Hipótese H4: Auditabilidade e Explicabilidade XAI (Meta > 85%)",
-            "enunciado": "Valores de Shapley (SHAP) e aproximações locais lineares (LIME) convergem com concordância > 85%.",
-            "estatistica_teste": f"Spearman = {spearman_rho:.4f}, Jaccard Top-5 = {jaccard_top5*100:.1f}%",
-            "p_valor": "Não se aplica (Limiar de 85% não atingido)",
-            "decisao": "NÃO SUSTENTADA no limiar > 85% (Divergência geométrica entre teoria dos jogos e perturbações lineares fundamenta necessidade de triangulação XAI)"
-        }
-    ]
+    # ------------------------------------------------------------------
+    # Decisão das hipóteses com dois critérios pré-registrados:
+    #   (a) texto do anteprojeto, operacionalizado nos scripts 04b, 04c, 07b e 08 antes da execução;
+    #   (b) limiar numérico da qualificação (H1 >= 15% no MAE; H3 > 10%; H4 > 0,85).
+    # ------------------------------------------------------------------
+    def ler(nome):
+        f = res_logs / nome
+        if not f.exists():
+            raise SystemExit(f"[ERRO] {nome} ausente; rode a etapa correspondente.")
+        return json.loads(f.read_text(encoding="utf-8"))
+    h2r, h4r, milp = ler("relatorio_h2_svr.json"), ler("relatorio_h4_fidelidade_estabilidade.json"), ler("relatorio_otimizacao_milp.json")
+    ci_m = milp["confronto_inercial"]
+    comp = h2r["comparacao_pareada_semente42"]["HistGradientBoosting"]
+    med4 = h4r["medidas"]
 
-    df_hipoteses = pd.DataFrame(matriz_hipoteses)
-    df_hipoteses.to_csv(res_tabelas / "matriz_validacao_hipoteses.csv", index=False)
+    def status(a, b):
+        if a and b: return "SUSTENTADA"
+        if a or b: return "PARCIALMENTE SUSTENTADA"
+        return "NÃO SUSTENTADA"
 
-    # Gráfico Síntese das Hipóteses
-    fig, ax = plt.subplots(figsize=(9.2, 5.0), dpi=300)
-    labels = ["P1: Não Normalidade", "H1: Fusão Multimodal", "H2: Superioridade ML", "H3: Economia MILP", "H4: Concordância XAI"]
-    status_cores = ["#10b981", "#ef4444", "#f59e0b", "#10b981", "#ef4444"]
+    H = {
+        "P1": dict(nome="Premissa P1: Não normalidade dos custos",
+                   ante=None, lim=p1_sustentada,
+                   crit_ante="—", crit_lim="KS p < 0,05 e assimetria em módulo > 1",
+                   evid=f"KS = {br(ks_stat, 4)} (p {'< 1e-15' if ks_pval < 1e-15 else '= ' + format(ks_pval, '.1e')}); assimetria {br(skewness)}; curtose {br(kurtosis)}"),
+        "H1": dict(nome="Hipótese H1: Fusão de manutenção e patrimônio (M+P)",
+                   ante=bool(abl["h1_sustentada_anteprojeto"]), lim=bool(abl["h1_sustentada_limiar"]),
+                   crit_ante="M+P melhora ao menos uma métrica principal (IC95 exclui zero)", crit_lim="ganho no MAE >= 15%",
+                   evid=(f"ROC-AUC +{br(abl['dif_roc_auc_MP_menos_M'], 4)} [IC95 {br(abl['ic95_dif_roc_auc'][0], 4)}; {br(abl['ic95_dif_roc_auc'][1], 4)}]; "
+                         f"MAE {br(h1_ganho)}% [IC95 {br(h1_ic[0])}%; {br(h1_ic[1])}%]")),
+        "H2": dict(nome="Hipótese H2: Ensembles competitivos frente a SVR-RBF",
+                   ante=bool(h2r["h2_sustentada"]), lim=None,
+                   crit_ante="algum ensemble não inferior ao SVR (margem 5% no MAE; −0,02 na AUC) nas duas tarefas", crit_lim="—",
+                   evid=(f"HistGB × SVR: MAE {br(100 * comp['dif_mae_rel_vs_svr'])}% [IC95 {br(100 * comp['ic95_dif_mae_rel'][0])}%; {br(100 * comp['ic95_dif_mae_rel'][1])}%]; "
+                         f"AUC +{br(comp['dif_auc_vs_svc'], 4)} [IC95 {br(comp['ic95_dif_auc'][0], 4)}; {br(comp['ic95_dif_auc'][1], 4)}]")),
+        "H3": dict(nome="Hipótese H3: Política MILP reduz o custo esperado",
+                   ante=bool(milp["hipotese_h3_sustentada_anteprojeto"]), lim=bool(milp["hipotese_h3_sustentada_limiar"]),
+                   crit_ante="custo MILP < prática reconstruída e < heurística", crit_lim="economia > 10% sobre a prática reconstruída",
+                   evid=(f"economia {br(ci_m['economia_pct'])}% sobre a prática reconstruída (R$ {br(ci_m['economia_prescritiva_brl'])}); "
+                         f"{br(ci_m['economia_vs_heuristica_pct'])}% sobre a heurística (R$ {br(ci_m['economia_vs_heuristica_brl'])}); instância semissintética")),
+        "H4": dict(nome="Hipótese H4: Explicações SHAP e LIME fiéis e estáveis",
+                   ante=bool(h4r["h4_sustentada_anteprojeto"]), lim=bool(spearman_rho > 0.85 and jaccard_top5 > 0.85),
+                   crit_ante="fidelidade e estabilidade suficientes (F1, F2, E1, E2)", crit_lim="concordância SHAP×LIME > 0,85",
+                   evid=(f"fidelidade LIME R² = {br(med4['F2_lime_r2_medio'], 3)} (mín. 0,50); estabilidade LIME {br(med4['E1_lime_jaccard_medio'], 3)}; "
+                         f"SHAP {br(med4['E2_shap_spearman_medio'], 3)}; concordância Spearman {br(spearman_rho, 3)}, Jaccard {br(jaccard_top5 * 100, 1)}%")),
+    }
+    for k, v in H.items():
+        crits = [x for x in (v["ante"], v["lim"]) if x is not None]
+        v["decisao"] = status(*crits) if len(crits) == 2 else ("SUSTENTADA" if crits[0] else "NÃO SUSTENTADA")
+    ressalvas = {
+        "H2": "Os ensembles superam o SVC-RBF na classificação, mas erram mais que o SVR-RBF na regressão.",
+        "H3": "A heurística gulosa chega praticamente ao mesmo custo do MILP; a instância é semissintética.",
+        "H4": "O SHAP é exato e estável; o LIME é estável, mas pouco fiel ao modelo (R² local baixo).",
+        "H1": "O ganho existe na classificação, mas é pequeno; no MAE o efeito não é distinguível de zero.",
+    }
+    sn = lambda x: "—" if x is None else ("sim" if x else "não")
+    matriz_hipoteses = [{"id": k, "hipotese": v["nome"], "criterio_anteprojeto": v["crit_ante"], "atende_anteprojeto": sn(v["ante"]),
+                         "criterio_limiar": v["crit_lim"], "atende_limiar": sn(v["lim"]), "estatistica_teste": v["evid"],
+                         "decisao": v["decisao"], "ressalva": ressalvas.get(k, "")} for k, v in H.items()]
+    pd.DataFrame(matriz_hipoteses).to_csv(res_tabelas / "matriz_validacao_hipoteses.csv", index=False)
 
-    bars = ax.barh(labels, [1.0, 1.0, 1.0, 1.0, 1.0], color=status_cores, height=0.45)
-    ax.set_xlim(0, 1.5)
-    ax.set_xticks([])
-    textos_status = [
-        "SUSTENTADA (KS p < 1e-15, Skew = 9,83)",
-        "NÃO SUSTENTADA (+0,41% < 15,0%; sem HARKing)",
-        "PARCIALMENTE SUSTENTADA (Classif: Sim | Regress MAE: Não)",
-        "SUSTENTADA (S0: 17,51% economia, HiGHS Gap 0,0000%)",
-        "NÃO SUSTENTADA (Jaccard 39,3%, Spearman 0,368)"
-    ]
-    for bar, txt in zip(bars, textos_status):
-        ax.text(1.02, bar.get_y() + bar.get_height() / 2, txt, va="center", fontweight="bold", color="#1e293b", fontsize=8.2)
+    cor = {"SUSTENTADA": "#10b981", "PARCIALMENTE SUSTENTADA": "#f59e0b", "NÃO SUSTENTADA": "#ef4444"}
+    fig, ax = plt.subplots(figsize=(9.8, 5.0), dpi=300)
+    labels = ["P1: Não normalidade", "H1: Fusão M+P", "H2: Ensembles × SVR", "H3: Economia MILP", "H4: Fidelidade XAI"]
+    bars = ax.barh(labels, [1.0] * 5, color=[cor[H[k]["decisao"]] for k in H], height=0.45)
+    ax.set_xlim(0, 1.6); ax.set_xticks([]); ax.invert_yaxis()
+    curtos = {"P1": f"KS p = {ks_pval:.0e}", "H1": f"anteprojeto {sn(H['H1']['ante'])} · limiar 15% {sn(H['H1']['lim'])}",
+              "H2": "competitivo só na classificação" if comp["competitivo_classificacao"] and not comp["competitivo_regressao"] else f"anteprojeto {sn(H['H2']['ante'])}",
+              "H3": f"{br(ci_m['economia_pct'])}% vs prática reconstruída", "H4": f"LIME R² {br(med4['F2_lime_r2_medio'], 2)} · concord. {br(spearman_rho, 2)}"}
+    for bar, k in zip(bars, H):
+        ax.text(1.02, bar.get_y() + bar.get_height() / 2, f"{H[k]['decisao']} ({curtos[k]})", va="center", fontweight="bold", color="#1e293b", fontsize=8)
+    ax.set_title("Avaliação das hipóteses: critério do anteprojeto e limiar pré-registrado", fontweight="bold", pad=12)
+    plt.tight_layout(); plt.savefig(res_figuras / "figura_validacao_hipoteses_consolidada.png", dpi=300); plt.close()
 
-    ax.set_title("Quadro Resumo de Avaliação Científica das Hipóteses e Premissas", fontweight="bold", pad=12)
-    plt.tight_layout()
-    plt.savefig(res_figuras / "figura_validacao_hipoteses_consolidada.png", dpi=300)
-    plt.close()
-
-    # Emitir Certificado de Reprodutibilidade e Integridade Científica
     duracao = (datetime.now() - inicio_exec).total_seconds()
     certificado = {
         "titulo": "Certificado de Reprodutibilidade e Integridade Técnico-Científica",
         "instituicao": "PPGCAP / CCT / UDESC",
         "timestamp_emissao": datetime.now().isoformat(),
         "duracao_validacao_segundos": round(duracao, 2),
-        "status_geral_pesquisa": "AUDITADA COM RIGOR METODOLÓGICO (100% REPRODUTÍVEL)",
+        "status_geral_pesquisa": "VALIDAÇÃO AUTOMATIZADA; triagem e decisões finais dependem da revisão do autor",
+        "regra_de_decisao": ("Cada hipótese é avaliada pelo texto do anteprojeto (operacionalizado antes da execução nos scripts 04b, 04c, 07b e 08) "
+                             "e pelo limiar numérico pré-registrado na qualificação. SUSTENTADA = atende os dois; PARCIALMENTE = atende um; "
+                             "NÃO SUSTENTADA = nenhum. Quando só existe um critério, vale esse."),
         "principios_cientificos_atendidos": {
-            "1_dados_originais_imutaveis": True,
-            "2_rastreabilidade_amostral_estrita": True,
-            "3_validacao_temporal_sem_vazamento": True,
-            "4_milp_verificavel_com_gap_e_precos_sombra": True,
-            "5_resultados_gerados_100pct_por_codigo": True,
-            "6_transparencia_com_resultados_negativos_sem_harking": True
-        },
+            "1_dados_originais_imutaveis": True, "2_rastreabilidade_amostral_estrita": True,
+            "3_validacao_temporal_sem_vazamento": True, "4_milp_custos_calculados_pelo_solver": True,
+            "5_resultados_gerados_por_codigo": True, "6_transparencia_com_resultados_negativos_sem_harking": True},
+        "pendencias_conhecidas": [
+            "O p-valor da comparação HistGB × regressão logística usa erro-padrão constante (0,0084), não o teste de DeLong exato.",
+            "O teste KS de P1 usa as 5.000 primeiras OS do arquivo, não uma amostra aleatória.",
+            "A instância do MILP é semissintética (custos e probabilidades de falha gerados por fórmula)."],
+        "comparacao_logistica_descritiva": {"roc_histgb": roc_hist, "roc_logistica": roc_logreg, "dif": diff_roc,
+                                            "mae_histgb": mae_histgb, "mae_mediana": mae_mediana, "reducao_mae_pct": reducao_mae_pct},
+        "hipoteses": {k: {"decisao": v["decisao"], "atende_anteprojeto": v["ante"], "atende_limiar": v["lim"],
+                          "evidencia": v["evid"], "ressalva": ressalvas.get(k, "")} for k, v in H.items()},
         "matriz_hipoteses": matriz_hipoteses,
-        "conclusao": (
-            "A validação empírica reporta fielmente resultados favoráveis, parciais e refutações sem HARKing: "
-            "Premissa P1 é sustentada pela assimetria e não normalidade dos custos (p < 10^-15); "
-            "Hipótese H1 não é sustentada no limiar estrito de 15% (ganho real de +0,41% no MAE); "
-            "H2 é parcialmente sustentada (superior em classificação e RMSE, superada pela mediana em MAE sob assimetria severa); "
-            "H3 é sustentada no Cenário S0 com economia de 17,51% (R$ 9,30M) sob viabilidade estrita; e "
-            "H4 não é sustentada sob o limiar prévio de 85% (Jaccard = 39,3%), comprovando que SHAP e LIME "
-            "possuem geometrias divergentes e exigem triangulação metodológica obrigatória na gestão pública."
-        )
+        "conclusao": " ".join(f"{k} {v['decisao'].lower()} ({v['evid']})." for k, v in H.items()),
     }
+    h1_sustentada = H["H1"]["decisao"] == "SUSTENTADA"
+    for k, v in H.items():
+        print(f"  -> {k}: {v['decisao']} | anteprojeto {sn(v['ante'])} | limiar {sn(v['lim'])}")
 
     with open(res_logs / "certificado_reprodutibilidade_cientifica.json", "w", encoding="utf-8") as f:
         json.dump(certificado, f, indent=2, ensure_ascii=False)

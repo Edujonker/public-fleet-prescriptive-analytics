@@ -1,0 +1,71 @@
+PAGINA 222 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+D + Recursos de Todas as Fontes
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORG. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO | OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.7.9.1.99.0.1.99 Outras Transferências de Pessoas Físicas - FR 821.322 821.322
+1.749.269
+1.9.0.0.00.0.0.00 Outras Receitas Correntes 214.740.652 195.613.220 126.463 88.406.948 498.887.283
+1.9.1.0.00.0.0.00 Multas Administrativas, Contratuais e Judiciais 97.554.601 54.471.788 126.463 961.822 153.114.674
+1.9.1.1.00.0.0.00 Multas Administrativas, Contratuais e Judiciais 97.554.601 54.471.788 126.463 961.822 153.114.674
+1.9.1.1.01.0.0.00 Multas Previstas em Legislação Específica 94.069.841 38.594.248 126.463 316.538 133.107.090
+1.9.1.1.01.0.1.00 Multas Previstas em Legislação Específica - 83.874.841 38.139.248 126.463 295.080 122.435.632
+Principal
+1.9.1.1.01.0.1.01 Multas por Infração à Legislação de Trânsito - FR 6.623.912 15.455.794 22.079.706
+1.752.269
+1.9.1.1.01.0.1.03 Multas por Auto de Infração - FR 1.501.169 100.000 100.000
+1.9.1.1.01.0.1.04 Multas por Auto de Infração - FR 1.799.269 717.362 717.362
+1.9.1.1.01.0.1.05 Multas - Medidas Compensatórias - Termos de Ajuste 15.000.000 15.000.000
+de Conduta
+1.9.1.1.01.0.1.06 Multas por Infração a Legislação da Vigilância Sanitária 156.490 156.490
+- FR 1.799.269
+1.9.1.1.01.0.1.08 Multas por Infração à Legislação de Trânsito - FR 76.285.832 76.285.832
+1.752.169
+1.9.1.1.01.0.1.11 Prestações Pecuniárias - MP/SC - FR 1.749.234 4.691.042 4.691.042
+1.9.1.1.01.0.1.13 Prestações Pecuniárias - Convênio TJSC - FR 100.000 100.000
+1.749.234
+1.9.1.1.01.0.1.14 Multas por Auto de Infração - FR 1.501.269 865.097 2.018.560 2.883.657
+1.9.1.1.01.0.1.15 Multas por Infração a Legislação da Vigilância Sanitária 126.463 295.080 421.543
+- FR 1.659.269
+51
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+D g Recursos de Todas as Fontes
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORG. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO | OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.9.1.1.01.0.3.00 Multas Previstas em Legislação Específica - 10.045.000 105.000 10.150.000
+Dívida Ativa
+1.9.1.1.01.0.3.03 Dívida Ativa de Multas por Auto de Infração - FR 10.000.000 10.000.000
+1.501.169
+1.9.1.1.01.0.3.14 Dívida Ativa de Multas por Auto de Infração - FR 45.000 105.000 150.000
+1.501.269
+1.9.1.1.01.0.4.00 Multas Previstas em Legislação Específica 150.000 350.000 21.458 521.458
+-Dívida Ativa - Multas e Juros de Mora da Dívi
+1.9.1.1.01.0.4.14 Multas e Juros da Dívida Ativa de Multas por Auto de 150.000 350.000 500.000
+Infração - FR 1.501.269
+1.9.1.1.01.0.4.15 Multas e Juros Dív.Ativa Multas por Infração à Leg. 21.458 21.458
+Vigilância Sanitária - FR 1.659.269
+1.9.1.1.04.0.0.00 Multas Previstas na Legislação sobre Defesa dos 700.000 700.000
+Direitos Difusos
+1.9.1.1.04.0.3.00 Multas Previstas na Legislação sobre Defesa dos 600.000 600.000
+Direitos Difusos - Dívida Ativa
+1.9.1.1.04.0.3.01 Dívida Ativa de Multas Aplicadas pelo PROCON 600.000 600.000
+1.9.1.1.04.0.4.00 Multas Previstas Legislação sobre Defesa dos 100.000 100.000
+Direitos Difusos -Dív.Ativa -Multas e Juros
+1.9.1.1.04.0.4.01 Multas e Juros da Dívida Ativa de Multas Aplicadas pelo 100.000 100.000
+PROCON
+1.9.1.1.06.0.0.00 Multas por Danos Ambientais 3.321.385 7.749.898 11.071.283
+1.9.1.1.06.1.1.00 Multas Administrativas por Danos Ambientais - 2.197.084 5.126.528 7.323.612
+Principal
+1.9.1.1.06.1.1.01 Multas por Danos ao Meio Ambiente 2.197.084 5.126.528 7.323.612
+52
+>] LDO
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

@@ -1,0 +1,85 @@
+teste;modelo;mes;previsto;realizado
+BT1 (treino até dez/2023 → 2024);SNg (sazonal ingênuo com crescimento);2024-01;1102352,5248865269;1020148,33
+BT1 (treino até dez/2023 → 2024);SNg (sazonal ingênuo com crescimento);2024-02;1177609,40603179;1538825,72
+BT1 (treino até dez/2023 → 2024);SNg (sazonal ingênuo com crescimento);2024-03;2748462,9670095793;2052398,66
+BT1 (treino até dez/2023 → 2024);SNg (sazonal ingênuo com crescimento);2024-04;2565859,0243160375;3396639,48
+BT1 (treino até dez/2023 → 2024);SNg (sazonal ingênuo com crescimento);2024-05;2913167,8809003923;3190357,35
+BT1 (treino até dez/2023 → 2024);SNg (sazonal ingênuo com crescimento);2024-06;2544735,2578224866;2609435,95
+BT1 (treino até dez/2023 → 2024);SNg (sazonal ingênuo com crescimento);2024-07;2555931,4954597177;2298430,59
+BT1 (treino até dez/2023 → 2024);SNg (sazonal ingênuo com crescimento);2024-08;2507834,239176895;3616361,4
+BT1 (treino até dez/2023 → 2024);SNg (sazonal ingênuo com crescimento);2024-09;2729681,1370446174;2866568,57
+BT1 (treino até dez/2023 → 2024);SNg (sazonal ingênuo com crescimento);2024-10;2767177,0970438523;3354408,73
+BT1 (treino até dez/2023 → 2024);SNg (sazonal ingênuo com crescimento);2024-11;2881419,8982688044;2779779,78
+BT1 (treino até dez/2023 → 2024);SNg (sazonal ingênuo com crescimento);2024-12;4361912,256266756;3637922,23
+BT1 (treino até dez/2023 → 2024);ETS amortecido (log);2024-01;1367638,1665004008;1020148,33
+BT1 (treino até dez/2023 → 2024);ETS amortecido (log);2024-02;1701897,7084230254;1538825,72
+BT1 (treino até dez/2023 → 2024);ETS amortecido (log);2024-03;3908380,448786657;2052398,66
+BT1 (treino até dez/2023 → 2024);ETS amortecido (log);2024-04;4367946,737566679;3396639,48
+BT1 (treino até dez/2023 → 2024);ETS amortecido (log);2024-05;4574143,736515807;3190357,35
+BT1 (treino até dez/2023 → 2024);ETS amortecido (log);2024-06;4640714,483087031;2609435,95
+BT1 (treino até dez/2023 → 2024);ETS amortecido (log);2024-07;4591620,723120786;2298430,59
+BT1 (treino até dez/2023 → 2024);ETS amortecido (log);2024-08;4960730,723366115;3616361,4
+BT1 (treino até dez/2023 → 2024);ETS amortecido (log);2024-09;5540762,197300531;2866568,57
+BT1 (treino até dez/2023 → 2024);ETS amortecido (log);2024-10;5340417,556652432;3354408,73
+BT1 (treino até dez/2023 → 2024);ETS amortecido (log);2024-11;5648377,859244869;2779779,78
+BT1 (treino até dez/2023 → 2024);ETS amortecido (log);2024-12;8434859,953361144;3637922,23
+BT1 (treino até dez/2023 → 2024);SARIMA (log);2024-01;1148464,647411865;1020148,33
+BT1 (treino até dez/2023 → 2024);SARIMA (log);2024-02;1096439,9785195843;1538825,72
+BT1 (treino até dez/2023 → 2024);SARIMA (log);2024-03;2756979,692534678;2052398,66
+BT1 (treino até dez/2023 → 2024);SARIMA (log);2024-04;2281038,7782880194;3396639,48
+BT1 (treino até dez/2023 → 2024);SARIMA (log);2024-05;2968876,3303275974;3190357,35
+BT1 (treino até dez/2023 → 2024);SARIMA (log);2024-06;2354964,603371519;2609435,95
+BT1 (treino até dez/2023 → 2024);SARIMA (log);2024-07;2523265,4950103085;2298430,59
+BT1 (treino até dez/2023 → 2024);SARIMA (log);2024-08;2356097,2953895363;3616361,4
+BT1 (treino até dez/2023 → 2024);SARIMA (log);2024-09;2610310,798194471;2866568,57
+BT1 (treino até dez/2023 → 2024);SARIMA (log);2024-10;2897562,2033535866;3354408,73
+BT1 (treino até dez/2023 → 2024);SARIMA (log);2024-11;3083725,9846843686;2779779,78
+BT1 (treino até dez/2023 → 2024);SARIMA (log);2024-12;4895682,684273379;3637922,23
+BT1 (treino até dez/2023 → 2024);Média dos três;2024-01;1206151,7795995977;1020148,33
+BT1 (treino até dez/2023 → 2024);Média dos três;2024-02;1325315,697658133;1538825,72
+BT1 (treino até dez/2023 → 2024);Média dos três;2024-03;3137941,0361103048;2052398,66
+BT1 (treino até dez/2023 → 2024);Média dos três;2024-04;3071614,846723579;3396639,48
+BT1 (treino até dez/2023 → 2024);Média dos três;2024-05;3485395,9825812653;3190357,35
+BT1 (treino até dez/2023 → 2024);Média dos três;2024-06;3180138,1147603453;2609435,95
+BT1 (treino até dez/2023 → 2024);Média dos três;2024-07;3223605,9045302705;2298430,59
+BT1 (treino até dez/2023 → 2024);Média dos três;2024-08;3274887,419310849;3616361,4
+BT1 (treino até dez/2023 → 2024);Média dos três;2024-09;3626918,044179873;2866568,57
+BT1 (treino até dez/2023 → 2024);Média dos três;2024-10;3668385,6190166236;3354408,73
+BT1 (treino até dez/2023 → 2024);Média dos três;2024-11;3871174,580732681;2779779,78
+BT1 (treino até dez/2023 → 2024);Média dos três;2024-12;5897484,96463376;3637922,23
+BT2 (treino até dez/2024 → jan–sep/2025);SNg (sazonal ingênuo com crescimento);2025-01;1133711,7969732482;744732,68
+BT2 (treino até dez/2024 → jan–sep/2025);SNg (sazonal ingênuo com crescimento);2025-02;1710128,6361463265;1718660,66
+BT2 (treino até dez/2024 → jan–sep/2025);SNg (sazonal ingênuo com crescimento);2025-03;2280872,7951689996;2525083,91
+BT2 (treino até dez/2024 → jan–sep/2025);SNg (sazonal ingênuo com crescimento);2025-04;3774755,2344089802;2987692,59
+BT2 (treino até dez/2024 → jan–sep/2025);SNg (sazonal ingênuo com crescimento);2025-05;3545509,6654966935;2766908,63
+BT2 (treino até dez/2024 → jan–sep/2025);SNg (sazonal ingênuo com crescimento);2025-06;2899919,7792747407;1662557,04
+BT2 (treino até dez/2024 → jan–sep/2025);SNg (sazonal ingênuo com crescimento);2025-07;2554293,1334379413;1523907,28
+BT2 (treino até dez/2024 → jan–sep/2025);SNg (sazonal ingênuo com crescimento);2025-08;4018936,7180542187;3504250,36
+BT2 (treino até dez/2024 → jan–sep/2025);SNg (sazonal ingênuo com crescimento);2025-09;3185676,5423923545;4508621,67
+BT2 (treino até dez/2024 → jan–sep/2025);ETS amortecido (log);2025-01;1202621,5784385935;744732,68
+BT2 (treino até dez/2024 → jan–sep/2025);ETS amortecido (log);2025-02;1528986,6463419364;1718660,66
+BT2 (treino até dez/2024 → jan–sep/2025);ETS amortecido (log);2025-03;2810911,2919000783;2525083,91
+BT2 (treino até dez/2024 → jan–sep/2025);ETS amortecido (log);2025-04;3440355,0413943217;2987692,59
+BT2 (treino até dez/2024 → jan–sep/2025);ETS amortecido (log);2025-05;3343022,777148453;2766908,63
+BT2 (treino até dez/2024 → jan–sep/2025);ETS amortecido (log);2025-06;3041509,5123873134;1662557,04
+BT2 (treino até dez/2024 → jan–sep/2025);ETS amortecido (log);2025-07;2793350,779843373;1523907,28
+BT2 (treino até dez/2024 → jan–sep/2025);ETS amortecido (log);2025-08;3305492,937432626;3504250,36
+BT2 (treino até dez/2024 → jan–sep/2025);ETS amortecido (log);2025-09;3186808,8806077093;4508621,67
+BT2 (treino até dez/2024 → jan–sep/2025);SARIMA (log);2025-01;1195988,138664954;744732,68
+BT2 (treino até dez/2024 → jan–sep/2025);SARIMA (log);2025-02;1480250,7913846879;1718660,66
+BT2 (treino até dez/2024 → jan–sep/2025);SARIMA (log);2025-03;2737267,7150587775;2525083,91
+BT2 (treino até dez/2024 → jan–sep/2025);SARIMA (log);2025-04;3345489,66855514;2987692,59
+BT2 (treino até dez/2024 → jan–sep/2025);SARIMA (log);2025-05;3255752,668873172;2766908,63
+BT2 (treino até dez/2024 → jan–sep/2025);SARIMA (log);2025-06;2967054,095545644;1662557,04
+BT2 (treino até dez/2024 → jan–sep/2025);SARIMA (log);2025-07;2731950,4850380295;1523907,28
+BT2 (treino até dez/2024 → jan–sep/2025);SARIMA (log);2025-08;3243342,970557127;3504250,36
+BT2 (treino até dez/2024 → jan–sep/2025);SARIMA (log);2025-09;3138744,1699441825;4508621,67
+BT2 (treino até dez/2024 → jan–sep/2025);Média dos três;2025-01;1177440,5046922655;744732,68
+BT2 (treino até dez/2024 → jan–sep/2025);Média dos três;2025-02;1573122,024624317;1718660,66
+BT2 (treino até dez/2024 → jan–sep/2025);Média dos três;2025-03;2609683,934042618;2525083,91
+BT2 (treino até dez/2024 → jan–sep/2025);Média dos três;2025-04;3520199,981452814;2987692,59
+BT2 (treino até dez/2024 → jan–sep/2025);Média dos três;2025-05;3381428,370506106;2766908,63
+BT2 (treino até dez/2024 → jan–sep/2025);Média dos três;2025-06;2969494,462402566;1662557,04
+BT2 (treino até dez/2024 → jan–sep/2025);Média dos três;2025-07;2693198,1327731144;1523907,28
+BT2 (treino até dez/2024 → jan–sep/2025);Média dos três;2025-08;3522590,8753479905;3504250,36
+BT2 (treino até dez/2024 → jan–sep/2025);Média dos três;2025-09;3170409,8643147484;4508621,67

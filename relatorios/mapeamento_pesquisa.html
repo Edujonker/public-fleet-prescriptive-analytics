@@ -688,7 +688,7 @@
 
     <h2>2.4 MP-04: Estruturação de Painel Longitudinal e Protocolos Temporais</h2>
     <p>
-        <strong>Objetivo:</strong> Consolidar o painel longitudinal veículo-mês (51.244 instâncias) com 35 atributos operacionais e implementar o protocolo <em>Walk-Forward</em> em 5 dobras sob embargo estrito de 30 dias para eliminação de <em>lookahead bias</em>.
+        <strong>Objetivo:</strong> Consolidar o painel longitudinal veículo-mês (42.278 instâncias, 15 atributos usados nos modelos) e implementar o protocolo <em>Walk-Forward</em> em 5 dobras sob embargo estrito de 30 dias para eliminação de <em>lookahead bias</em>.
     </p>
 
     <table class="sipoc">
@@ -763,8 +763,8 @@
         <tr>
             <td>MP-05 (Modelos Preditivos);<br>Cadastro Patrimonial SEA/SC.</td>
             <td>Espaço M (apenas OS mecânicas);<br>Espaço M+P (OS + Cadastro do Ativo).</td>
-            <td>1. Treinamento paralelo em M e M+P;<br>2. Cálculo do ganho marginal (&Delta;MAE e &Delta;AUC);<br>3. Teste pareado de Wilcoxon;<br>4. Confronto com o limiar de 15% de corte.</td>
-            <td>Ganho real medido: +0,41%;<br>Deliberação formal: Hipótese H1 classificada como NÃO SUSTENTADA.</td>
+            <td>1. Treinamento paralelo em M e M+P;<br>2. Cálculo do ganho marginal (&Delta;MAE e &Delta;AUC);<br>3. IC 95% por bootstrap pareado (MAE e ROC-AUC);<br>4. Confronto com o anteprojeto e com o limiar de 15%.</td>
+            <td>ROC-AUC +0,0095 (IC 95% 0,0045 a 0,0146); MAE 0,62% (IC 95% -0,26% a 1,52%);<br>Decisão: Hipótese H1 PARCIALMENTE SUSTENTADA (atende o anteprojeto, não o limiar de 15%).</td>
             <td>Banca Examinadora;<br>Gestores Públicos da SEA/SC;<br>Artigo Científico.</td>
         </tr>
     </table>
@@ -792,7 +792,7 @@
             <td>MP-05 (Probabilidades Calibradas);<br>Secretaria de Estado da Fazenda (SEF/SC).</td>
             <td>Probabilidades preditas p_{it};<br>Custos de manutenção preventiva e corretiva;<br>Limites orçamentários mensais B_t.</td>
             <td>1. Formulação da função objetivo bi-critério;<br>2. Inserção de restrições de LOA e oficinas;<br>3. Resolução exata com solver HiGHS;<br>4. Análise de relaxação LP e shadow prices.</td>
-            <td>Plano Ótimo Prescritivo;<br>Economia contrafactual de R$ 9.302.147,26 (17,51%);<br>MIP Gap certificado de 0,0000%.</td>
+            <td>Plano prescritivo;<br>Custo 13,66% (R$ 6,99 mi) abaixo da prática reconstruída, em instância semissintética;<br>Heurística gulosa: diferença de R$ 764,29.</td>
             <td>Diretoria de Frotas SEA/SC;<br>Secretarias Operacionais;<br>TCE-SC.</td>
         </tr>
     </table>
@@ -819,8 +819,8 @@
         <tr>
             <td>MP-05 (Modelo Campeão HistGB);<br>Casos Críticos de Auditoria.</td>
             <td>Instâncias veiculares auditadas;<br>Modelos treinados serializados.</td>
-            <td>1. Cálculo de Shapley Values (TreeExplainer);<br>2. Ajuste de aproximações locais LIME;<br>3. Cálculo de similaridade Jaccard e Spearman;<br>4. Deliberação sobre a Hipótese H4.</td>
-            <td>Ranking auditável de atributos;<br>Jaccard Top-5 de 39,29% (H4 REJEITADA);<br>Parecer de cautela técnica para o TCE-SC.</td>
+            <td>1. Cálculo de Shapley Values (TreeExplainer);<br>2. Ajuste de aproximações locais LIME;<br>3. Cálculo de similaridade Jaccard e Spearman;<br>4. Medição da fidelidade (R² local do LIME, aditividade do SHAP) e da estabilidade;<br>5. Deliberação sobre a Hipótese H4</td>
+            <td>Ranking auditável de atributos;<br>Jaccard Top-5 de 45,48% e LIME com R² local de 0,243 (H4 NÃO SUSTENTADA);<br>Parecer de cautela técnica para o TCE-SC.</td>
             <td>Tribunal de Contas (TCE-SC);<br>Fiscais de Contrato;<br>Banca PPGCAP.</td>
         </tr>
     </table>
@@ -903,7 +903,7 @@
             <td>Ambiente Linux Ubuntu x86_64;<br>Ambiente Windows 11 Pro (Máquina N-0781).</td>
             <td>Código-fonte integral da dissertação;<br>Suíte de testes automatizados Pytest.</td>
             <td>1. Execução paralela nas duas plataformas;<br>2. Confronto dos resultados ao centavo;<br>3. Auditoria de 20 checkpoints de integridade;<br>4. Verificação de fechamento do MIP Gap (0,0000%).</td>
-            <td>Economia E5 confirmada em R$ 9.302.147,26 em ambas as máquinas;<br>Certificado de Reprodutibilidade Zero Drift.</td>
+            <td>Economia E5 confirmada em R$ 6.990.613,11 em ambas as máquinas;<br>Certificado de Reprodutibilidade Zero Drift.</td>
             <td>Banca Examinadora do PPGCAP;<br>Auditoria Externa de Reprodutibilidade.</td>
         </tr>
     </table>
@@ -1069,7 +1069,7 @@
             <td><strong>MP-03 (Anomalias)</strong></td>
             <td>Concordância com Glosas Administrativas</td>
             <td>p-valor &lt; 0,01</td>
-            <td><strong class="badge-check">p = 0,000426 (t = 3,52) — Altamente Significante</strong></td>
+            <td><strong>Não confirmada:</strong> OS glosadas têm escores <em>menos</em> atípicos (t = 26.08; Mann-Whitney unilateral p = 1.00). Tratada como hipótese exploratória E2.</td>
         </tr>
         <tr>
             <td><strong>MP-04 (Anti-Vazamento)</strong></td>
@@ -1093,7 +1093,7 @@
             <td><strong>MP-07 (Impacto Fiscal)</strong></td>
             <td>Economia Contrafactual Líquida</td>
             <td>Economia &ge; 10,0%</td>
-            <td><strong class="badge-check">17,51% de economia (R$ 9.302.147,26)</strong></td>
+            <td><strong class="badge-check">13,66% de economia (R$ 6.990.613,11)</strong></td>
         </tr>
         <tr>
             <td><strong>MP-09 (Redes de Oficinas)</strong></td>

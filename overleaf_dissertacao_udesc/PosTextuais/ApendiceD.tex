@@ -1,0 +1,33 @@
+% Gerado por scripts/gerar_blocos_hipoteses.py a partir do certificado da etapa 09. Não editar à mão.
+
+\chapter{DESVIOS DO PROTOCOLO, CORREÇÕES E HIPÓTESES EXPLORATÓRIAS}
+\label{ap:desvios}
+
+\section{Regra de decisão}
+Cada hipótese foi avaliada por dois critérios definidos antes dos resultados: o texto do anteprojeto, transformado em teste nos scripts 04b, 04c, 07b e 08 antes da primeira execução de cada um, e o limiar numérico da qualificação (H1: ganho de pelo menos 15\% no MAE; H3: economia acima de 10\%; H4: concordância SHAP $\times$ LIME acima de 0,85). Uma hipótese é SUSTENTADA quando atende os dois, PARCIALMENTE SUSTENTADA quando atende um e NÃO SUSTENTADA quando não atende nenhum.
+
+\section{Testes acrescentados para cumprir o anteprojeto}
+\begin{itemize}
+\item H1: estudo ablativo M $\times$ M+P com IC 95\% por bootstrap pareado em MAE e ROC-AUC. O abastecimento não pôde entrar: a base cobre jan/2019 a fev/2022 e não se sobrepõe ao período de teste (2025–2026).
+\item H2: comparação dos ensembles com SVR-RBF e SVC-RBF, como prevê o anteprojeto, por não inferioridade (margem de 5\% no MAE e de -0,02 na AUC), com todos os modelos treinados na mesma subamostra de 12.000 linhas.
+\item H3: custos calculados pelo solver HiGHS, comparados à prática reconstruída (apenas manutenções obrigatórias, R\$ 51.180.733,62) e a uma heurística gulosa benefício/custo (R\$ 44.190.884,80).
+\item H4: fidelidade (aditividade do SHAP; R$^2$ local do LIME = 0,243) e estabilidade (LIME entre sementes = 1,000; SHAP entre modelos re-treinados = 0,979).
+\end{itemize}
+
+\section{Erros corrigidos que alteraram resultados}
+\begin{enumerate}
+\item Valores patrimoniais: o pré-processamento interpretava “R\$ 48,010.00” como R\$ 48,01, deixando o patrimônio do painel cerca de mil vezes menor.
+\item Ablação de H1: o ganho de +0,41\% estava digitado na tabela de resultados, sem código que o produzisse.
+\item Explicabilidade: a figura local SHAP $\times$ LIME exibia valores SHAP multiplicados por um fator aleatório no lugar do LIME.
+\item Otimização: o script do MILP descartava o resultado do solver e usava custos fixos (economia de 17,51\%, R\$ 9,30 milhões).
+\item Validação: a etapa 09 lia uma chave inexistente e usava a ROC-AUC 0,7366 para a regressão logística (valor real: 0,8292).
+\item Indicador de antieconomicidade: o número de veículos era limitado entre 313 e 427 no código; o valor calculado é 242.
+\end{enumerate}
+
+\section{Hipóteses exploratórias com teste confirmatório pré-registrado}
+As hipóteses abaixo surgiram da análise da base atual e são exploratórias nela. Elas foram registradas em 15/11/2026 (docs/hipoteses/preregistro\_hipoteses\_exploratorias\_2026.md, com hash SHA-256) para teste na extração de 2026 da SEA/SC, ainda não recebida.
+\begin{itemize}
+\item E1: a rede de oficinas de 2026 tem modularidade acima de 30 redes nulas e os 10\% maiores concentram mais de 50\% do gasto.
+\item E2: o escore do Isolation Forest não separa OS glosadas (IC 95\% da AUC entre 0,40 e 0,60).
+\item E3: o total realizado em 2026 fica a menos de 10\% da proposta de LOA calculada (R\$ 33.594.176,58).
+\end{itemize}

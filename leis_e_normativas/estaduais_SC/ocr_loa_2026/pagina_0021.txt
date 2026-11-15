@@ -1,0 +1,72 @@
+PAGINA 216 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+D + Recursos de Todas as Fontes
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORÇ. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO [| OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.6.1.1.01.0.1.19 Serviços Educacionais - FR 1.599.240 126.558 126.558
+1.6.1.1.01.0.1.20 Serviços de Consultoria ou Assessoria Técnica - FR 530.913 530.913
+1.599.240
+1.6.1.1.01.0.1.21 Serviços de Elaboração Folha Pagamento - Taxa 13.786.248 13.786.248
+Adm.s/Consignações - RPPS-Fundo Repartição
+1.6.1.1.01.0.1.22 Venda de Livros, Revistas, Publicações e Impressos - 801.267 1.869.622 2.670.889
+Fundos
+1.6.1.1.01.0.1.99 Outros Serviços Administrativos e Comerciais - FR 66.191 194.446 260.637
+1.501.240
+1.6.1.1.02.0.0.00 Inscrição em Concursos e Processos Seletivos 7.331.376 7.331.376
+1.6.1.1.02.0.1.00 Inscrição em Concursos e Processos Seletivos - 7.331.376 7.331.376
+Principal
+1.6.1.1.02.0.1.02 Serviços de Inscrição em Concursos Públicos - FR 6.866.420 6.866.420
+1.501.240
+1.6.1.1.02.0.1.05 Serviços de Inscrição em Concursos Públicos - 68.685 68.685
+Vinculados à Educação - FR 1.599.240
+1.6.1.1.02.0.1.06 Serviços de Inscrição no Vestibular - FR 1.599.240 396.271 396.271
+1.6.1.1.03.0.0.00 Serviços de Registro, Certificação e Fiscalização 14.724.945 35.410.388 50.135.333
+1.6.1.1.03.0.1.00 Serviços de Registro, Certificação e Fiscalização - 14.724.945 35.410.388 50.135.333
+Principal
+1.6.1.1.03.0.1.01 Serviços de Registro do Comércio 14.720.893 34.348.751 49.069.644
+1.6.1.1.03.0.1.03 Serviços de Inspeção de Produtos de Origem Animal 65.757 65.757
+1.6.1.1.03.0.1.06 Defesa Sanitária Animal 4.052 9.455 13.507
+1.6.1.1.03.0.1.07 Classificação de Produtos de Origem Vegetal 986.425 986.425
+1.6.3.0.00.0.0.00 Serviços e Atividades Referentes à Saúde 575.656.648 575.656.648
+39
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+D g Recursos de Todas as Fontes
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORÇ. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO [| OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.6.3.2.00.0.0.00 Serviços de Assistência à Saúde de Servidores Civis 575.656.648 575.656.648
+e Militares
+1.6.3.2.01.0.0.00 Serviços de Assistência à Saúde Suplementar de 464.345.040 464.345.040
+Servidores Civis
+1.6.3.2.01.0.1.00 Serviços de Assistência à Saúde Suplementar do 464.342.201 464.342.201
+Servidor Civil - Principal
+1.6.3.2.01.0.1.01 Contribuição do Associado Ativo - Poder Executivo 101.483.504 101.483.504
+(exceto Autarquias)
+1.6.3.2.01.0.1.02 Contribuição do Associado Ativo - Poder Judiciário 10.219.003 10.219.003
+1.6.3.2.01.0.1.03 Contribuição do Associado Ativo - Poder Legislativo 3.285.748 3.285.748
+1.6.3.2.01.0.1.04 Contribuição do Associado Ativo - Ministério Público 2.293.311 2.293.311
+1.6.3.2.01.0.1.05 Contribuição do Associado Ativo- Tribunal de Contas 492.840 492.840
+1.6.3.2.01.0.1.06 Contribuição do Associado Ativo - Autarquias 2.438.054 2.438.054
+1.6.3.2.01.0.1.07 Contribuição do Associado Ativo - Segurados 547.246 547.246
+Licenciados
+1.6.3.2.01.0.1.10 Contribuição do Associado Inativo - Poder Executivo 145.883.687 145.883.687
+(exceto Autarquias)
+1.6.3.2.01.0.1.11 Contribuição do Associado Inativo - Poder Judiciário 5.715.887 5.715.887
+1.6.3.2.01.0.1.12 Contribuição do Associado Inativo - Poder Legislativo 1.599.158 1.599.158
+1.6.3.2.01.0.1.13 Contribuição do Associado Inativo - Ministério Público 219.743 219.743
+1.6.3.2.01.0.1.14 Contribuição do Associado Inativo - Tribunal de Contas 352.633 352.633
+1.6.3.2.01.0.1.16 Contribuição do Associado Inativo - Serventuários da 1.275.367 1.275.367
+Justiça
+1.6.3.2.01.0.1.20 Contribuição do Associado Pensionista - Poder 18.077.608 18.077.608
+Executivo (exceto Autarquias)
+40
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

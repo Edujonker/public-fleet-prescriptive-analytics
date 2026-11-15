@@ -2,7 +2,7 @@
 \chapter{INTELIGÊNCIA ARTIFICIAL EXPLICÁVEL (XAI), TRIANGULAÇÃO E CONFIABILIDADE (HIPÓTESE H4)}
 \label{cap:xai}
 
-A explicabilidade dos modelos preditivos foi avaliada via valores de Shapley (SHAP) e aproximações locais lineares (LIME). Ao confrontar os rankings de relevância de atributos sobre as instâncias auditadas, obteve-se \textbf{similaridade de Jaccard Top-5 de 39,29\% (39,3\%)} e \textbf{correlação de postos de Spearman de $\rho = 0,3680$}.
+A explicabilidade dos modelos preditivos foi avaliada via valores de Shapley (SHAP) e aproximações locais lineares (LIME). Ao confrontar os rankings de relevância de atributos sobre as instâncias auditadas, obteve-se \textbf{similaridade de Jaccard Top-5 de 45,48\%} e \textbf{correlação de postos de Spearman de $\rho = 0,2869$} nas 25 instâncias de maior risco. Para avaliar o que o anteprojeto pede (fidelidade e estabilidade), mediu-se ainda (etapa 07b): a aditividade do SHAP, exata para árvores (erro máximo da ordem de $10^{-15}$); a estabilidade do SHAP global entre cinco modelos re-treinados (Spearman médio 0,979); a estabilidade do LIME entre cinco sementes (Jaccard 1,000); e a fidelidade local do LIME, medida pelo R\textsuperscript{2} do modelo linear local, de apenas 0,243, abaixo do mínimo fixado de 0,50. O LIME é estável, mas não reproduz bem o modelo, o que explica a baixa concordância com o SHAP.
 
 \begin{figure}[H]
     \centering

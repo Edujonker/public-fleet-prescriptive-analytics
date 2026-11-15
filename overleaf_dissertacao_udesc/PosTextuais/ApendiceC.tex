@@ -13,7 +13,7 @@ Em alinhamento com as diretrizes da ACM e da INFORMS, o framework disponibiliza 
 
 \section{Comprovação de Reprodutibilidade via Trilha de Logs e Artefatos Originais (Protocolo A)}
 
-A reprodutibilidade experimental é rigorosamente bem delimitada no \textbf{Protocolo A}, assegurando portabilidade multiplataforma autônoma e congruência matemática absoluta (20 de 20 checkpoints aprovados, zero \textit{drift} e fechamento financeiro exato ao centavo de R\$ 9.302.147,26 no Cenário S0 do solver HiGHS). Contudo, em estrito rigor metodológico e pericial, a confirmação independente por pesquisadores externos e órgãos de controle público (TCE-SC) não se apoia em alegações abstratas: ela \textbf{depende diretamente da verificação e conferência cruzada dos logs de execução e da integridade criptográfica dos artefatos originais preservados no repositório}.
+A reprodutibilidade experimental é rigorosamente bem delimitada no \textbf{Protocolo A}, assegurando portabilidade multiplataforma autônoma e congruência matemática absoluta (20 de 20 checkpoints aprovados, zero \textit{drift} e fechamento financeiro exato ao centavo de R\$ 6.990.613,11 no Cenário S0 do solver HiGHS). Contudo, em estrito rigor metodológico e pericial, a confirmação independente por pesquisadores externos e órgãos de controle público (TCE-SC) não se apoia em alegações abstratas: ela \textbf{depende diretamente da verificação e conferência cruzada dos logs de execução e da integridade criptográfica dos artefatos originais preservados no repositório}.
 
 Para viabilizar a auditoria forense integral sem necessidade de requisição à custódia restrita dos dados brutos (preservados sob sigilo da LGPD), disponibilizam-se as assinaturas digitais criptográficas SHA-256 calculadas sobre os arquivos originais persistidos no repositório:
 
@@ -49,11 +49,11 @@ Para viabilizar a auditoria forense integral sem necessidade de requisição à 
 \textbf{Script / Módulo} & \textbf{Duração} & \textbf{Status} & \textbf{Evidência Científica Extraída do Log de Execução} \\
 \midrule
 \texttt{01\_auditoria\_dados.py} & 7,98s & 0 (OK) & 77.867 OSs auditadas; R\$ 198,81M orçado = R\$ 60,05M glosas (30,2\%) + R\$ 138,76M liq. (69,8\%). \\
-\texttt{04\_modelos\_preditivos.py} & 33,76s & 0 (OK) & HistGB ROC-AUC 0,8743 / PR-AUC 0,9510; Wilcoxon $p = 1,00$ vs mediana; Passing-Bablok linear. \\
+\texttt{04\_modelos\_preditivos.py} & 33,76s & 0 (OK) & HistGB ROC-AUC 0,8737 / PR-AUC 0,9510; Wilcoxon $p = 1,00$ vs mediana; Passing-Bablok linear. \\
 \texttt{06\_teoria\_grafos.py} & 7,35s & 0 (OK) & 803 oficinas na rede projetada; 18 comunidades detectadas via Louvain com $Q = 0,5646$. \\
-\texttt{07\_explicabilidade\_xai.py} & 3,43s & 0 (OK) & SHAP vs LIME: Spearman $\rho = 0,3680$; Jaccard Top-5 = 39,29\% (divergência geométrica). \\
-\texttt{08\_otimizacao\_milp.py} & 9,15s & 0 (OK) & HiGHS Gap = 0,0000\% (Ótimo Provado); Economia Prescritiva S0: R\$ 9.302.147,26 (17,51\%). \\
-\texttt{09\_validacao\_estatistica.py} & 1,36s & 0 (OK) & Wilcoxon $p < 10^{-15}$; H1 Não Sustentada (meta 15\%); H2 Parcial; H3 Sustentada; H4 Não Sustentada. \\
+\texttt{07\_explicabilidade\_xai.py} & 3,43s & 0 (OK) & SHAP vs LIME: Spearman $\rho = 0,2869$; Jaccard Top-5 = 45,48\% (divergência geométrica). \\
+\texttt{08\_otimizacao\_milp.py} & 9,15s & 0 (OK) & HiGHS Gap = 0,0000\% (Ótimo Provado); Economia Prescritiva S0: R\$ 6.990.613,11 (13,66\%). \\
+\texttt{09\_validacao\_estatistica.py} & 1,36s & 0 (OK) & H1 Parcialmente Sustentada; H2 Não Sustentada; H3 Sustentada; H4 Não Sustentada (Apêndice~\ref{ap:desvios}). \\
 \texttt{verificar\_replicacao.py} & 3,34s & 0 (OK) & 20 de 20 Checkpoints Auditados com Sucesso (100\% REPRODUTÍVEL, zero drift entre OSs). \\
 \texttt{pytest tests/ -v} & 0,72s & 0 (OK) & 10/10 testes unitários formais aprovados; fechamento aritmético exato ao centavo verificado. \\
 \bottomrule

@@ -1,0 +1,57 @@
+PÁGINA 253 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+D S Orçamento da Seguridade Social
+ra zm
+Ano Base: 2026
+Em R$ 1,00
+DO cs EEE EEE
+CÓDIGO ESPECIFICAÇÃO TOTAL
+7.9.2.3.00.0.0.00 Ressarcimentos 458.287] 458.287
+7.9.2.3.50.0.0.00 Ressarcimento por Pagamento de Pessoal Cedido 458.287] 458.287
+7.9.2.3.50.0.1.00 Ressarcimento por Pagamento de Pessoal 458.287] 458.287
+Cedido - Principal
+7.9.2.3.50.0.1.08 Ressarcimento por Pagamento de Pessoal Cedido - FR 458.287] 458.287
+1.802.250
+113
+9 A ESTADO DE SANTA CATARINA Desdobramento Receita
+) E RECURSOS DE TODAS AS FONTES
+Ar
+rg e
+Ano Base: 2026
+Em R$ 1,00
+1.0.0.0.00.0.0.00 | Receitas Correntes 54.602.762.233
+1.1.0.0.00.0.0.00 Impostos, Taxas e Contribuições de Melhoria 37.994.347.780
+1.1.1.0.00.0.0.00 Impostos 35.629.301.904
+1.1.1.2.00.0.0.00 Impostos sobre o Patrimônio 2.932.356.784
+1.1.1.2.51.0.0.00 Imposto sobre a Propriedade de Veículos Automotores 1.901.829.773
+1.1.1.2.51.0.1.01 IPVA - Estadual 1.883.629.773
+1.1.1.2.51.0.1.02
+1.1.1.2.51.0.2.01 Multas de IPVA - Estadual 1.000.000
+1.1.1.2.51.0.2.02 Juros de Mora IPVA - Estadual 1.000.000
+1.1.1.2.51.0.2.03
+1.1.1.2.51.0.2.04
+1.1.1.2.51.0.3.01 Dívida Ativa do IPVA-Estadual 7.200.000
+1.1.1.2.51.0.3.02
+1.1.1.2.51.0.4.01 Multas Dívida Ativa de IPVA - Estadual 3.000.000
+1.1.1.2.51.0.4.02 Juros de Mora Dívida Ativa IPVA - Estadual 6.000.000
+1.1.1.2.51.0.4.03
+1.1.1.2.51.0.4.04
+1.1.1.2.52.0.0.00 Imposto sobre Transmissão Causa Mortis e Doação de Bens e Direitos 1.030.527.011
+1.1.1.2.52.0.1.01 Imposto sobre Transmissão Causa Mortis e Doação de Bens e Direitos - ITCMD 972.967.011
+1.1.1.2.52.0.2.01 Multas de ITCMD 32.000.000
+1.1.1.2.52.0.2.02 Juros de ITCMD 8.000.000
+1.1.1.2.52.0.3.01 ITCMD - Divida Ativa 11.320.000
+1.1.1.2.52.0.4.01 Multas Dívida Atida de ITCMD 2.400.000
+1.1.1.2.52.0.4.02 Juros Dívida Ativa de ITCMD 3.840.000
+1.1.1.3.00.0.0.00 Impostos sobre a Renda e Proventos de Qualquer Natureza 3.223.642.000
+1.1.1.3.03.0.0.00 Imposto sobre a Renda - Retido na Fonte 3.223.642.000
+1.1.1.3.03.1.1.01 Imposto sobre a Renda - Retido na Fonte - Trabalho 3.113.204.895
+1.1.1.3.03.4.1.01 Imposto sobre a Renda - Retido na Fonte - Outros Rendimentos 110.437.105
+1.1.1.4.00.0.0.00 Impostos sobre a Produção e Circulação de Mercadorias e Serviços 29.473.303.120
+1.1.1.4.50.0.0.00 Impostos sobre a Produção e Circulação de Mercadorias e Serviços 29.473.303.120
+1.1.1.4.50.1.1.01 ICMS - Estadual 28.978.162.444
+1.1.1.4.50.1.1.02
+114
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

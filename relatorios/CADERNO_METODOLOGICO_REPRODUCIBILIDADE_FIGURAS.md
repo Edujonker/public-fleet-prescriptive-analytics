@@ -276,8 +276,8 @@ python3 scripts/gerar_relatorio_ajuste_pdf.py
 
 ### 4.1 Certificação de Reprodutibilidade Multiplataforma (Linux vs Windows 11)
 A estabilidade numérica determinística foi atestada através de triangulação em três execuções independentes (Linux V1, Linux V2 Limpa e Windows 11 com Python 3.15.1), comprovando tolerância zero em métricas prescritivas:
-- **Economia Prescritiva E5:** R$ 9.302.147,26 (17,51%) idêntica ao centavo (R$ 0,00 de diferença).
-- **Gap de Integralidade Poliedral:** 0,00057% (R$ 248,52) em todas as plataformas.
+- **Economia Prescritiva E5:** R$ 6.990.613,11 (13,66%) idêntica ao centavo (R$ 0,00 de diferença).
+- **Gap de Integralidade Poliedral:** 0,00063% (R$ 277,30) em todas as plataformas.
 - **Suíte Pytest:** 7/7 testes aprovados em todas as plataformas.
 - **Relatório de Auditoria:** Detalhado em `public-fleet-prescriptive-analytics/docs/comparativo_multiplataforma_replicacao.md`.
 

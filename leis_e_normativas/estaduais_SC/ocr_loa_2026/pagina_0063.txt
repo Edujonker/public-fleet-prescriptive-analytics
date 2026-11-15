@@ -1,0 +1,83 @@
+PAGINA 258 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+ZA ESTADO DE SANTA CATARINA Desdobramento Receita
+T 3 RECURSOS DE TODAS AS FONTES
+E
+(pa ea)
+Ano Base: 2026
+Em R$ 1,00
+1.6.3.2.01.0.1.41 Contribuição do Agregado Inativo - Poder Judiciário 633.247
+1.6.3.2.01.0.1.46 Contribuição do Agregado Inativo - Serventuários da Justiça 14.353
+1.6.3.2.01.0.1.50 Contribuição do Agregado Pensionista 34.030
+1.6.3.2.01.0.1.60 Coparticipação SC Saúde Auto Gestão Poder Executivo (exceto Autarquias) 134.680.105
+1.6.3.2.01.0.1.61 Coparticipação SC Saúde UNIMED 4.082
+1.6.3.2.01.0.1.62 Coparticipação UNISANTA 1.286
+1.6.3.2.01.0.1.63 Coparticipação Auto Gestão IPESC 2.064
+1.6.3.2.01.0.1.77 Coparticipação SC Saúde Auto Gestão Poder Judiciário (implantação) 6.736.200
+1.6.3.2.01.0.1.78 Coparticipação SC Saúde Auto Gestão Poder Legislativo (implantação) 1.784.511
+1.6.3.2.01.0.1.79 Coparticipação SC Saúde Auto Gestão Ministério Público (implantação) 871.882
+1.6.3.2.01.0.1.80 Coparticipação SC Saúde Auto Gestão Tribunal de Contas (implantação) 479.947
+1.6.3.2.01.0.1.81 Coparticipação SC Saúde Auto Gestão - Autarquias 838.350
+1.6.3.2.01.0.1.82 Coparticipação SC Saúde Auto Gestão Segurados Licenciados (implantação) 144.472
+1.6.3.2.01.0.1.83 Coparticipação SC Saúde Auto Gestão Serventuários da Justiça 175.962
+1.6.3.2.01.0.2.07 Multas e Juros da Contribuição do Associado Ativo - Segurados Licenciados 2.839
+1.6.3.2.50.0.0.00 Serviços de Assistência à Saúde Suplementar dos Militares 111.311.608
+1.6.3.2.50.0.1.01 Contribuição do Associado Ativo Militar - Poder Executivo 41.586.799
+1.6.3.2.50.0.1.02 Contribuição do Associado Inativo Militar- Poder Executivo 52.765.942
+1.6.3.2.50.0.1.03 Contribuição do Associado Pensionista Militar - Poder Executivo 9.270.764
+1.6.3.2.50.0.1.04 Contribuição do Agregado Ativo Militar - Poder Executivo 1.474.502
+1.6.3.2.50.0.1.05 Contribuição do Agregado Inativo Militar - Poder Executivo 6.213.601
+1.7.0.0.00.0.0.00 Transferências Correntes 11.403.404.224
+1.7.1.0.00.0.0.00 Transferências da União e de suas Entidades 4.971.615.400
+1.7.1.1.00.0.0.00 Transferências Decorrentes de Participação na Receita da União 2.778.894.505
+1.7.1.1.50.0.0.00 Cota-Parte do Fundo de Participação dos Estados e do Distrito Federal - FPE 2.441.109.609
+1.7.1.1.50.0.1.01 Cota-Parte do Fundo de Participação dos Estados e do Distrito Federal 2.441.109.609
+1.7.1.1.53.0.0.00 Cota-Parte do Imposto s/Produtos Industrializados Estados Exportadores Produtos 307.598.451
+Indust.
+1.7.1.1.53.0.1.01 Cota-Parte do IPI- Estadual 307.598.451
+1.7.1.1.53.0.1.02
+1.7.1.1.54.0.0.00 Cota-Parte da Contribuição de Intervenção no Domínio Econômico 30.186.445
+1.7.1.1.54.0.1.01 Cota-Parte CIDE - Estadual 30.186.445
+123
+ZA ESTADO DE SANTA CATARINA Desdobramento Receita
+T 3 RECURSOS DE TODAS AS FONTES
+Er
+(pa ea)
+Ano Base: 2026
+Em R$ 1,00
+cóBico CATEG. ECONOM,
+1.7.1.2.00.0.0.00 Transferências das Compensações Financeiras pela Exploração de Recursos 45.582.819
+Naturais
+1.7.1.2.50.0.0.00 Cota-parte da Compensação Financeira pela Exploração de Recursos Hídricos 18.800.050
+1.7.1.2.50.0.1.01 Cota-parte da Compensação Financeira de Recursos Hídricos 18.800.050
+1.7.1.2.51.0.0.00 Cota-parte da Compensação Financeira pela Exploração de Recursos Minerais - CFEM 9.584.095
+1.7.1.2.51.0.1.01 Cota-parte da Compensação Financeira de Recursos Minerais - CFEM 9.584.095
+1.7.1.2.52.0.0.00 Cota-parte da Compensação Financeira pela Produção de Petróleo 17.198.674
+1.7.1.2.52.4.1.01 Cota-Parte do Fundo Especial do Petróleo - FEP 17.198.674
+1.7.1.3.00.0.0.00 Transferências de Recursos do Sistema Único de Saúde — SUS 1.591.710.015
+1.7.1.3.50.0.0.00 Transfer. Recursos do SUS - Repasses Fundo a Fundo - Bloco Manutenção ASPS 1.591.710.015
+1.7.1.3.50.1.1.01 Atenção Básica 827.399
+1.7.1.3.50.2.1.01 MAC - Teto Financeiro 976.153.000
+1.7.1.3.50.2.1.02 MAC - SAMU - Serviços de Atendimento Móvel de Urgência 33.640.759
+1.7.1.3.50.2.1.10 FAEC - Sistema de Informação Ambulatorial - SIA 396.780.205
+1.7.1.3.50.3.1.01 Vigilância Epidemiológica e Ambiental em Saúde 10.747.995
+1.7.1.3.50.3.1.02 Vigilância Sanitária 1.051.767
+1.7.1.3.50.4.1.01 Componente Básico da Assistência Farmacêutica 55.522.890
+1.7.1.3.50.5.1.01 GESTÃO SUS - Qualifica da Gestão do SUS 1.800.000
+1.7.1.3.50.5.1.02 GESTÃO SUS - Implantação de Ações e Serviços de Saúde 9.186.000
+1.7.1.3.50.9.1.02 Assistência Financeira Complementar - Piso Salarial Enfermagem - EC 106.000.000
+127/2022
+1.7.1.4.00.0.0.00 Transferências de Recursos do Fundo Nacional do Desenvolvimento da Educação 420.286.698
+- FNDE
+1.7.1.4.50.0.0.00 Transferências do Salário-Educação 336.654.540
+1.7.1.4.50.0.1.01 Transferências do Salário-Educação 336.654.540
+1.7.1.4.51.0.0.00 Transferências Diretas do FNDE referentes ao Programa Dinheiro Direto na Escola - 100.000
+PDDE
+1.7.1.4.51.0.1.01 Transf.Diretas do FNDE referentes ao Programa Dinheiro Direto na Escola 100.000
+-PDDE
+1.7.1.4.52.0.0.00 Transferências referentes ao Programa Nacional de Alimentação Escolar - PNAE 68.432.158
+1.7.1.4.52.0.1.01 Transf.Diretas do FNDE ref. ao Programa Nacional de Alimentação Escolar - 68.432.158
+PNAE
+124
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

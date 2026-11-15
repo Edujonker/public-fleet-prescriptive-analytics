@@ -4,7 +4,7 @@
 
 Este guia acompanha a versão revisada para o 36º SIC, com 16 slides [Apresentacao_36_SIC_UDESC_com_bibliografia.pptx](./Apresentacao_36_SIC_UDESC_com_bibliografia.pptx), e serve para preparar o aluno a explicar o projeto, justificar escolhas metodológicas e responder a perguntas da banca. As versões anteriores foram preservadas. O texto foi conferido com a dissertação [dissertacao.pdf](../dissertacao.pdf), especialmente os capítulos de metodologia, resultados, revisão da literatura e conclusões.
 
-> **Regra de ouro da defesa:** diferencie sempre (1) dado observado, (2) estimativa do modelo, (3) resultado de simulação e (4) impacto já realizado na administração. A diferença de custos de R$ 9,30 milhões é uma estimativa teórica do cenário simulado S0; não significa que essa economia tenha sido obtida pelo Estado.
+> **Regra de ouro da defesa:** diferencie sempre (1) dado observado, (2) estimativa do modelo, (3) resultado de simulação e (4) impacto já realizado na administração. A diferença de custos de R$ 6,99 milhões é uma estimativa teórica do cenário simulado S0; não significa que essa economia tenha sido obtida pelo Estado.
 
 ---
 
@@ -253,7 +253,7 @@ Essa explicação pode depender da definição de proximidade, das perturbaçõe
 - **Jaccard Top-5** compara a sobreposição dos cinco atributos mais importantes em dois rankings.
 - **Spearman ρ** compara a ordem dos rankings; ρ próximo de 1 significa ordenação semelhante, 0 pouca associação monotônica e -1 ordenação inversa.
 
-A dissertação informa concordância Top-5 de 39,29% e Spearman ρ = 0,3680 nas condições avaliadas. Isso sustenta a conclusão de que **a hipótese de alta concordância não foi sustentada nesse experimento**. Não sustenta que os métodos são universalmente incompatíveis, que SHAP é sempre superior ou que um deles seja legalmente válido por definição.
+A dissertação informa concordância Top-5 de 45,48% e Spearman ρ = 0,2869 nas condições avaliadas. Isso sustenta a conclusão de que **a hipótese de alta concordância não foi sustentada nesse experimento**. Não sustenta que os métodos são universalmente incompatíveis, que SHAP é sempre superior ou que um deles seja legalmente válido por definição.
 
 **Como dizer:** “A divergência é um resultado do estudo e um alerta metodológico. Recomenda comparar explicações, testar estabilidade e manter avaliação humana.”
 
@@ -313,7 +313,7 @@ HiGHS é um solver de otimização. Em problemas inteiros, métodos de branch-an
 Não confunda:
 
 - **MIP gap do solver:** diferença relativa entre a melhor solução inteira viável conhecida e o melhor limite global conhecido. Um gap reportado como 0,0000% indica convergência dentro da tolerância do solver para aquele modelo.
-- **Gap de integralidade LP–MIP:** diferença entre a solução do modelo inteiro e a solução da relaxação linear, onde uma variável binária pode assumir valores fracionários entre 0 e 1. Na dissertação, a diferença indicada é cerca de 0,00057%.
+- **Gap de integralidade LP–MIP:** diferença entre a solução do modelo inteiro e a solução da relaxação linear, onde uma variável binária pode assumir valores fracionários entre 0 e 1. Na dissertação, a diferença indicada é cerca de 0,00063%.
 
 Um ótimo computacional significa “ótimo para a formulação, parâmetros e dados fornecidos”, não “melhor decisão possível no mundo real”. O solver não corrige uma função objetivo inadequada, dados enviesados ou restrições incompletas.
 
@@ -397,7 +397,7 @@ A versão do 36º SIC tem 16 slides. Os Caps. 2 e 3 compõem a literatura passad
 
 ### Cap. 3 — Revisão de literatura | Slides 4–5
 
-“Os métodos usados — modelos preditivos, SHAP, LIME, grafos, Louvain e MILP — são conhecidos. A pesquisa se posiciona pela integração e avaliação desses métodos em dados administrativos de uma frota pública catarinense, com orçamento, capacidade e obrigações explícitas. A comparação de SHAP e LIME encontrou concordância Top-5 de 39,29%; isso descreve este teste, não uma superioridade universal.”
+“Os métodos usados — modelos preditivos, SHAP, LIME, grafos, Louvain e MILP — são conhecidos. A pesquisa se posiciona pela integração e avaliação desses métodos em dados administrativos de uma frota pública catarinense, com orçamento, capacidade e obrigações explícitas. A comparação de SHAP e LIME encontrou concordância Top-5 de 45,48%; isso descreve este teste, não uma superioridade universal.”
 
 ### Cap. 4 — Proposta | Slides 6–7
 
@@ -407,7 +407,7 @@ A versão do 36º SIC tem 16 slides. Os Caps. 2 e 3 compõem a literatura passad
 
 “A validação avalia métodos distintos com métricas adequadas a cada tarefa. SHAP e LIME produzem explicações locais de formas diferentes; modelos estimam risco e custo; e o MILP compara alternativas sujeitas às regras codificadas. Os resultados de grafo e de anomalia ajudam a selecionar registros para revisão, mas não provam causalidade, conluio ou fraude.”
 
-“No cenário S0, a diferença modelada entre BL0 e MILP-1 é de R$ 9,30 milhões, ou 17,51%, para 2.000 veículos durante 36 meses. É uma estimativa contrafactual, não economia realizada. Da mesma forma, os 313 veículos sinalizados são uma lista para avaliação patrimonial, não uma ordem de alienação.”
+“No cenário S0, a diferença modelada entre BL0 e MILP-1 é de R$ 6,99 milhões, ou 13,66%, para 2.000 veículos durante 36 meses. É uma estimativa contrafactual, não economia realizada. Da mesma forma, os 242 veículos sinalizados são uma lista para avaliação patrimonial, não uma ordem de alienação.”
 
 ### Caps. 6–7 — Discussões e conclusão | Slide 14
 
@@ -520,13 +520,13 @@ Se a banca perguntar antes da correção, reconheça a divergência em vez de te
 
 “Significa que o solver provou que, para os dados, parâmetros, função objetivo e restrições codificados, nenhuma outra solução viável do modelo tem objetivo melhor dentro da tolerância reportada. Não significa que a formulação represente perfeitamente o mundo real.”
 
-### 18. O gap de 0,0000% é o mesmo que o gap LP–MIP de 0,00057%?
+### 18. O gap de 0,0000% é o mesmo que o gap LP–MIP de 0,00063%?
 
 “Não. O primeiro é o gap do solver entre o incumbente inteiro e o limite global durante a busca. O segundo compara a solução inteira com a relaxação linear que permite valores fracionários. São comparações diferentes.”
 
-### 19. Os R$ 9,30 milhões foram economizados?
+### 19. Os R$ 6,99 milhões foram economizados?
 
-“Não há evidência de que esse valor tenha sido efetivamente economizado. Os R$ 9,30 milhões representam uma diferença estimada entre custos modelados no cenário contrafactual para a frota e o horizonte simulados. Um eventual efeito real dependeria da execução do plano, orçamento, capacidade operacional e desempenho em condições reais.”
+“Não há evidência de que esse valor tenha sido efetivamente economizado. Os R$ 6,99 milhões representam uma diferença estimada entre custos modelados no cenário contrafactual para a frota e o horizonte simulados. Um eventual efeito real dependeria da execução do plano, orçamento, capacidade operacional e desempenho em condições reais.”
 
 ### 20. Por que o otimizador escolheu uma solução com disponibilidade de 95,26%?
 
@@ -698,7 +698,7 @@ Brier combina aspectos de calibração e discriminação e depende da prevalênc
 - `Jaccard(A,B) = |A∩B| / |A∪B|`: concordância de conjuntos.
 - `Spearman ρ`: concordância da ordenação dos postos, não da magnitude das importâncias.
 
-Se o Jaccard Top-5 for 0,3929, a leitura é “há sobreposição limitada entre os conjuntos de cinco variáveis nas condições comparadas”. Não significa que 39,29% das explicações estão certas.
+Se o Jaccard Top-5 for 0,3929, a leitura é “há sobreposição limitada entre os conjuntos de cinco variáveis nas condições comparadas”. Não significa que 45,48% das explicações estão certas.
 
 ### 9.4 Calibração: o que dizer com rigor
 
@@ -871,15 +871,15 @@ Uma conclusão como “orçamento é o gargalo” vale para os parâmetros agreg
 
 Para explicar a diferença estimada de R$ 9,302 milhões entre os custos modelados, apresente a subtração e a referência:
 
-`R$ 53.139.780,57 (BL0) − R$ 43.837.633,31 (MILP-1) = R$ 9.302.147,26`.
+`R$ 51.180.733,62 (BL0) − R$ 44.190.120,51 (MILP-1) = R$ 6.990.613,11`.
 
-`R$ 9.302.147,26 / R$ 53.139.780,57 ≈ 17,51%`.
+`R$ 6.990.613,11 / R$ 51.180.733,62 ≈ 13,66%`.
 
-Em seguida, diga que a análise considera uma frota representativa de 2.000 veículos, horizonte de 36 meses e parâmetros do cenário S0. Isso é mais rigoroso do que falar “o Estado economizará 17,51%”. Uma formulação adequada é “sob as premissas do cenário, o modelo estima potencial de redução de custos de 17,51%”.
+Em seguida, diga que a análise considera uma frota representativa de 2.000 veículos, horizonte de 36 meses e parâmetros do cenário S0. Isso é mais rigoroso do que falar “o Estado economizará 13,66%”. Uma formulação adequada é “sob as premissas do cenário, o modelo estima potencial de redução de custos de 13,66%”.
 
 O valor de R$ 4,881 milhões compara os custos de duas políticas de otimização sob as mesmas premissas do cenário reportado:
 
-`R$ 48.719.011,68 (MILP-0) − R$ 43.837.633,31 (MILP-1) = R$ 4.881.378,37`.
+`R$ 48.719.011,68 (MILP-0) − R$ 44.190.120,51 (MILP-1) = R$ 4.881.378,37`.
 
 É uma diferença de custo **entre políticas no modelo e na simulação**. Não isola causalmente o efeito do ML nem demonstra que a mesma diferença ocorreria em operação real.
 
@@ -890,7 +890,7 @@ O valor de R$ 4,881 milhões compara os custos de duas políticas de otimizaçã
 | H1 — integração multimodal melhora a predição em magnitude útil | Ganho estatístico, mas magnitude abaixo do critério prático definido; não sustentada pelo critério de relevância | “Detectamos ganho, mas ele foi pequeno frente ao limiar prático adotado; a integração precisa justificar seus custos.” |
 | H2 — modelos não lineares superam alternativas | Parcialmente sustentada; classificação e algumas métricas favorecem ensembles, mas baselines podem vencer em MAE | “Superioridade depende da tarefa e da métrica; não é uma vitória universal de um algoritmo.” |
 | H3 — MILP melhora a decisão sob restrições | Sustentada no cenário simulado S0 | “Há evidência computacional no cenário S0; falta validação prospectiva para demonstrar impacto operacional.” |
-| H4 — SHAP e LIME concordam fortemente | Não sustentada: 39,29% Top-5 e `ρ = 0,3680` | “As explicações divergiram nas condições avaliadas; isso recomenda triangulação e cautela.” |
+| H4 — SHAP e LIME concordam fortemente | Não sustentada: 45,48% Top-5 e `ρ = 0,2869` | “As explicações divergiram nas condições avaliadas; isso recomenda triangulação e cautela.” |
 
 A banca tende a valorizar uma hipótese não sustentada quando a conclusão é assumida com clareza. Não esconda resultados negativos nem os apresente como se fossem confirmação.
 
@@ -900,14 +900,14 @@ A banca tende a valorizar uma hipótese não sustentada quando a conclusão é a
 
 ### 10.1 Versão de 30 segundos
 
-“Minha pesquisa combina auditoria de registros de frota, modelos preditivos, análise de grafos e otimização para apoiar a priorização de manutenção. Usei grafos porque a relação entre veículos e oficinas é central à análise. Estudos do ISC/TCU mostram paralelos metodológicos em auditoria pública, mas não tratam de manutenção de frotas nem validam este modelo. Na análise teórica do cenário S0, as premissas permitem estimar potencial de redução de custos de 17,51%. Esse valor não corresponde a economia realizada e precisaria de validação prospectiva.”
+“Minha pesquisa combina auditoria de registros de frota, modelos preditivos, análise de grafos e otimização para apoiar a priorização de manutenção. Usei grafos porque a relação entre veículos e oficinas é central à análise. Estudos do ISC/TCU mostram paralelos metodológicos em auditoria pública, mas não tratam de manutenção de frotas nem validam este modelo. Na análise teórica do cenário S0, as premissas permitem estimar potencial de redução de custos de 13,66%. Esse valor não corresponde a economia realizada e precisaria de validação prospectiva.”
 
 ### 10.2 Versão de 2 minutos
 
 1. **Problema:** dados de manutenção, patrimônio e abastecimento são fragmentados, enquanto disponibilidade e orçamento precisam ser conciliados.
 2. **Proposta:** auditar dados, estimar risco/custo e usar MILP para escolher intervenções viáveis.
 3. **Métodos:** validação temporal, modelos de classificação/regressão, calibração, anomalias, grafos, XAI e otimização. Os grafos foram escolhidos pela estrutura relacional veículo–oficina; os estudos do ISC/TCU citados são paralelos metodológicos de auditoria, não validação para frotas.
-4. **Resultado:** a análise teórica do cenário S0 estima potencial de redução de custos de R$ 9,30 milhões/17,51% para 2.000 veículos por 36 meses; o cenário também reporta 95,26% de disponibilidade média e atendimento das obrigações codificadas.
+4. **Resultado:** a análise teórica do cenário S0 estima potencial de redução de custos de R$ 6,99 milhões/13,66% para 2.000 veículos por 36 meses; o cenário também reporta 95,26% de disponibilidade média e atendimento das obrigações codificadas.
 5. **Limite:** são resultados de simulação baseados em premissas, não impacto observado nem economia realizada.
 6. **Próximo passo:** piloto prospectivo, monitoramento e avaliação externa.
 
@@ -981,7 +981,7 @@ Uma boa forma de responder a uma pergunta muito ampla é: “Posso responder por
 
 “No resultado S0, todas as intervenções marcadas como mandatórias pela formulação foram selecionadas. Isso não prova que o cadastro de obrigações é completo nem que toda exigência real foi representada no código.”
 
-### Os 313 veículos já devem ser vendidos?
+### Os 242 veículos já devem ser vendidos?
 
 “Não. O resultado é triagem para exame patrimonial. É preciso confirmar estado, valor de referência, custo futuro de manter/substituir, norma aplicável, laudo e aprovação.”
 

@@ -1,0 +1,72 @@
+PAGINA 221 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+D + Recursos de Todas as Fontes
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORÇ. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO [| OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.7.3.2.51.0.1.02 Transf. de Convênios dos Municípios destinadas a 1.000.000 1.000.000
+Programas de Educação - FR 1.572.235
+1.7.3.2.99.0.0.00 Outras Transferências de Convênios dos 22.363.722 22.363.722
+Municípios e de Suas Entidades
+1.7.3.2.99.0.1.00 Outras Transferências de Convênios dos 22.363.722 22.363.722
+Municípios - Principal
+1.7.3.2.99.0.1.02 Transferências de Convênios dos Municípios - 21.396.234 21.396.234
+Convênios de Trânsito
+1.7.3.2.99.0.1.99 Outras Transferências de Convênios dos Municípios - 967.488 967.488
+FR 1.702.235
+1.7.4.0.00.0.0.00 Transferências de Instituições Privadas 222.000 1.390.760.647 40.869.981 1.431.852.628
+1.7.4.1.00.0.0.00 Transferências de Instituições Privadas 222.000 1.390.760.647 40.869.981 1.431.852.628
+1.7.4.1.99.0.0.00 Outras Transferências de Instituições Privadas 222.000 1.390.760.647 40.869.981 1.431.852.628
+1.7.4.1.99.0.1.00 Outras Transferências de Instituições Privadas - 222.000 1.390.760.647 40.869.981 1.431.852.628
+Principal
+1.7.4.1.99.0.1.01 Out.Transf.Instituições Privadas - Convênios, Ajustes e 24.229.276 24.229.276
+Acordos - FR 1.703.228
+1.7.4.1.99.0.1.08 Transferências de Instituições Privadas - Manutenção 382.677.802 382.677.802
+do Ensino Superior - FR 1.599.265
+1.7.4.1.99.0.1.09 Transferências de Instituições Privadas - Receita 26.949.037 26.949.037
+Agroindustrial - FDR - FR 1.759.266
+1.7.4.1.99.0.1.11 Transferências de Instituições Privadas - para FAPESC - 222.000 518.000 740.000
+FR 1.749.269
+1.7.4.1.99.0.1.16 Doações Fundo Est. Prom. Social e Erradicação da 956.286.532 956.286.532
+Pobreza - Lei 18334-2022
+49
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+D g Recursos de Todas as Fontes
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORÇ. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO [| OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.7.4.1.99.0.1.17 Transferências de Instituições Privadas - Vinculadas a 100.000 100.000
+Saúde FR 1.659.269
+1.7.4.1.99.0.1.18 Transferências de Instituições Privadas - Fundos - FR 40.869.981 40.869.981
+1.759.269
+1.7.5.0.00.0.0.00 Transferências de Outras Instituições Públicas 4.966.746.152 4.966.746.152
+1.7.5.1.00.0.0.00 Transf.Rec.do Fundo de Manut.Desenv. Educação 4.966.746.152 4.966.746.152
+Básica e de Valorização Prof. Educ.-FUNDEB
+1.7.5.1.50.0.0.00 Transf.Rec.do Fundo de Manut.Desenv.Educação 4.966.746.152 4.966.746.152
+Básica e de Valorização Prof.Educ.-FUNDEB
+1.7.5.1.50.0.1.00 Transf.Rec.do Fundo de Manut.Desenv.Educação 4.966.746.152 4.966.746.152
+Básica e de Valorização Prof.Educ.-FUNDEB
+1.7.5.1.50.0.1.01 Transferências de Recursos do FUNDEB 4.966.746.152 4.966.746.152
+1.7.9.0.00.0.0.00 Demais Transferências Correntes 9.826.322 9.826.322
+1.7.9.1.00.0.0.00 Transferências de Pessoas Físicas 9.826.322 9.826.322
+1.7.9.1.50.0.0.00 Transferências de Pessoas Físicas - Programas 5.000 5.000
+de Saúde
+1.7.9.1.50.0.1.00 Transferências de Pessoas Físicas - Programas 5.000 5.000
+de Saúde - Principal
+1.7.9.1.50.0.1.01 Transferências de Pessoas Físicas - Programas de 5.000 5.000
+Saúde - FR 1.659.269
+1.7.9.1.99.0.0.00 Outras Transferências de Pessoas Físicas 9.821.322 9.821.322
+1.7.9.1.99.0.1.00 Outras Transferências de Pessoas Físicas - 9.821.322 9.821.322
+Principal
+1.7.9.1.99.0.1.97 Outras Transferências de Pessoas Físicas - Fundos - 9.000.000 9.000.000
+FR 1.759.269
+50
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

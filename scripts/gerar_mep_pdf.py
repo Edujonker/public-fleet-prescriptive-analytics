@@ -220,9 +220,9 @@ li { margin-bottom: 1mm; }
     do Estado de Santa Catarina &mdash; 350.737 registros de ordens de servi&ccedil;o (outubro/2020 a
     agosto/2026), 7.580 ve&iacute;culos &uacute;nicos e R$ 138.759.653,82 em gastos auditados.
     M&uacute;ltiplos m&eacute;todos n&atilde;o lineares foram comparados com valida&ccedil;&atilde;o temporal Rolling-Origin.
-    O modelo campe&atilde;o (HistGradientBoosting) atingiu PR-AUC = 0,9099 e MAE = R$ 2.311,82.
-    A pol&iacute;tica prescritiva gerou economia contrafactual de at&eacute; 6,31% no per&iacute;odo de teste e
-    R$ 9.302.147,26 (17,51%) no cen&aacute;rio de or&ccedil;amento expandido.
+    O modelo campe&atilde;o (HistGradientBoosting) atingiu PR-AUC = 0,9099 e MAE = R$ 2.223,84.
+    A pol&iacute;tica MILP custou 13,66% (R$ 6,99 mi) menos que a pr&aacute;tica reconstru&iacute;da no cen&aacute;rio S0,
+    em inst&acirc;ncia semissint&eacute;tica, e uma heur&iacute;stica gulosa chegou praticamente ao mesmo custo.
   </p>
   <div class="keywords">
     <strong>Palavras-chave:</strong>
@@ -478,7 +478,7 @@ Parti&ccedil;&atilde;o de teste retido: per&iacute;odo 2025&ndash;2026.
     <tr><td>Random Forest</td><td class="num">0,9081</td><td class="num">0,8016</td><td class="num">0,1362</td><td class="num">0,0660</td><td class="num">0,8873</td></tr>
     <tr><td>&Aacute;rvore de Decis&atilde;o</td><td class="num">0,9041</td><td class="num">0,7905</td><td class="num">0,1378</td><td class="num">0,1303</td><td class="num">0,8837</td></tr>
     <tr><td>Extra Trees</td><td class="num">0,8796</td><td class="num">0,7631</td><td class="num">0,1710</td><td class="num">0,2381</td><td class="num">0,8777</td></tr>
-    <tr><td>Regress&atilde;o Log&iacute;stica</td><td class="num">0,8660</td><td class="num">0,7366</td><td class="num">0,1673</td><td class="num">0,2258</td><td class="num">0,8750</td></tr>
+    <tr><td>Regress&atilde;o Log&iacute;stica</td><td class="num">0,8660</td><td class="num">0,8292</td><td class="num">0,1673</td><td class="num">0,2258</td><td class="num">0,8750</td></tr>
     <tr><td><em>Baseline Ing&ecirc;nuo</em></td><td class="num">0,7924</td><td class="num">0,5000</td><td class="num">0,1873</td><td class="num">0,0390</td><td class="num">&mdash;</td></tr>
   </tbody>
 </table>
@@ -490,7 +490,7 @@ Parti&ccedil;&atilde;o de teste retido: per&iacute;odo 2025&ndash;2026.
     <tr><th>Modelo N&atilde;o Linear</th><th>MAE (R$)</th><th>RMSE (R$)</th><th>R&sup2; Fora da Amostra</th><th>sMAPE (%)</th></tr>
   </thead>
   <tbody>
-    <tr><td class="hl">HistGradientBoosting &#127942;</td><td class="num hl">R$ 2.311,82</td><td class="num hl">R$ 4.363,75</td><td class="num hl">0,0994</td><td class="num hl">98,51%</td></tr>
+    <tr><td class="hl">HistGradientBoosting &#127942;</td><td class="num hl">R$ 2.223,84</td><td class="num hl">R$ 4.363,75</td><td class="num hl">0,0994</td><td class="num hl">98,51%</td></tr>
     <tr><td>Random Forest</td><td class="num">R$ 2.353,31</td><td class="num">R$ 4.426,50</td><td class="num">0,0734</td><td class="num">99,87%</td></tr>
     <tr><td>Extra Trees</td><td class="num">R$ 2.354,89</td><td class="num">R$ 4.441,20</td><td class="num">0,0672</td><td class="num">100,96%</td></tr>
     <tr><td>&Aacute;rvore de Regress&atilde;o</td><td class="num">R$ 2.407,47</td><td class="num">R$ 4.566,07</td><td class="num">0,0140</td><td class="num">101,13%</td></tr>
@@ -505,7 +505,7 @@ Parti&ccedil;&atilde;o de teste retido: per&iacute;odo 2025&ndash;2026.
   </thead>
   <tbody>
     <tr><td>Classifica&ccedil;&atilde;o de Risco</td><td class="num">PR-AUC</td><td class="num">0,9060</td><td class="num hl">0,9099</td><td class="num hl">+0,43%</td></tr>
-    <tr><td>Regress&atilde;o de Custos</td><td class="num">MAE (R$)</td><td class="num">R$ 2.321,28</td><td class="num hl">R$ 2.311,82</td><td class="num hl">&minus;R$ 9,47/m&ecirc;s</td></tr>
+    <tr><td>Regress&atilde;o de Custos</td><td class="num">MAE (R$)</td><td class="num">R$ 2.237,81</td><td class="num hl">R$ 2.223,84</td><td class="num hl">&minus;R$ 13,97/m&ecirc;s</td></tr>
   </tbody>
 </table>
 
@@ -519,10 +519,11 @@ Parti&ccedil;&atilde;o de teste retido: per&iacute;odo 2025&ndash;2026.
     <tr><th>Contamina&ccedil;&atilde;o (&nu;)</th><th>Anomalias</th><th>Jaccard M&eacute;dio (J)</th><th>N&iacute;vel de Estabilidade</th></tr>
   </thead>
   <tbody>
-    <tr><td class="num">1%</td><td class="num">779 OS</td><td class="num">0,8641</td><td>Moderada / Alta</td></tr>
-    <tr><td class="num">2%</td><td class="num">1.557 OS</td><td class="num">0,8678</td><td>Alta</td></tr>
-    <tr><td class="num">5%</td><td class="num">3.894 OS</td><td class="num">0,8725</td><td>Excelente</td></tr>
-    <tr><td class="num hl">10%</td><td class="num hl">7.787 OS</td><td class="num hl">0,8811</td><td class="hl">Excelente</td></tr>
+    <tr><td class="num">0,50%</td><td class="num">390 OS</td><td class="num">0,7883</td><td>Abaixo de 0,80</td></tr>
+    <tr><td class="num">0,85%</td><td class="num">662 OS</td><td class="num">0,8055</td><td>Estável (J ≥ 0,80)</td></tr>
+    <tr><td class="num">1,00%</td><td class="num">779 OS</td><td class="num">0,8239</td><td>Estável (J ≥ 0,80)</td></tr>
+    <tr><td class="num">2,00%</td><td class="num">1.558 OS</td><td class="num">0,8323</td><td>Estável (J ≥ 0,80)</td></tr>
+    <tr><td class="num">5,00%</td><td class="num">3.894 OS</td><td class="num">0,8393</td><td>Estável (J ≥ 0,80)</td></tr>
   </tbody>
 </table>
 
@@ -530,101 +531,64 @@ Parti&ccedil;&atilde;o de teste retido: per&iacute;odo 2025&ndash;2026.
 <div class="box-result">
   <p class="noindent">Grafo bipartido ve&iacute;culos &harr; oficinas (NetworkX).
   Algoritmo de Louvain: <strong>Q = 0,5646</strong> &mdash; <strong>18 comunidades</strong> detectadas.
+  Validado sobre o grafo persistido em Neo4j: Q supera 30 redes nulas com os mesmos graus
+  (Q nulo = 0,392; z = 39,9) e a parti&ccedil;&atilde;o &eacute; est&aacute;vel entre sementes (17&ndash;19 comunidades; ARI = 0,983).
   M&eacute;tricas: betweenness centrality, PageRank, degree e closeness.</p>
 </div>
 
 <h3>5.6 Explicabilidade XAI</h3>
 <div class="box-result">
-  <p class="noindent">Concord&acirc;ncia SHAP &times; LIME (Jaccard Top-5): <strong>39,29%</strong>
-  (Spearman &rho; = 0,3680). Resultado mostra que a <strong>H4 n&atilde;o foi sustentada</strong>: os dois m&eacute;todos capturam aspectos distintos
-  do comportamento local do modelo &mdash; n&atilde;o s&atilde;o intercambi&aacute;veis.</p>
+  <p class="noindent">Concord&acirc;ncia SHAP &times; LIME (Jaccard Top-5): <strong>45,48%</strong>
+  (Spearman &rho; = 0,2869). O SHAP &eacute; exato e est&aacute;vel entre modelos re-treinados (0,979); o LIME &eacute; est&aacute;vel entre sementes (1,000),
+  mas pouco fiel ao modelo (R&sup2; local 0,243). A <strong>H4 n&atilde;o foi sustentada</strong>.</p>
 </div>
 
-<h3>5.7 Otimiza&ccedil;&atilde;o Prescritiva MILP &mdash; 5 Cen&aacute;rios</h3>
+<h3>5.7 Otimiza&ccedil;&atilde;o Prescritiva MILP &mdash; Cen&aacute;rio S0</h3>
 <table>
-  <thead>
-    <tr><th>Cen&aacute;rio</th><th>Or&ccedil;amento B<sub>t</sub></th><th>Ve&iacute;culos</th><th>Risco Residual</th><th>Economia &Delta;</th></tr>
-  </thead>
+  <thead><tr><th>Pol&iacute;tica</th><th>Custo esperado (36 meses)</th><th>Diferen&ccedil;a para o MILP</th></tr></thead>
   <tbody>
-    <tr><td>50% do Base</td><td class="num">R$ 137.227,50</td><td class="num">304</td><td class="num">72,62%</td><td class="num">2,18%</td></tr>
-    <tr><td>75% do Base</td><td class="num">R$ 205.841,25</td><td class="num">457</td><td class="num">71,21%</td><td class="num">3,23%</td></tr>
-    <tr><td>100% &mdash; Base</td><td class="num">R$ 274.455,00</td><td class="num">609</td><td class="num">69,83%</td><td class="num">4,26%</td></tr>
-    <tr><td>125% do Base</td><td class="num">R$ 343.068,75</td><td class="num">762</td><td class="num">68,44%</td><td class="num">5,29%</td></tr>
-    <tr><td class="hl">150% do Base</td><td class="num hl">R$ 411.682,50</td><td class="num hl">914</td><td class="num hl">67,07%</td><td class="num hl">6,31%</td></tr>
-    <tr><td><em>Status Quo</em></td><td class="num">R$ 0,00</td><td class="num">0</td><td class="num">78,77%</td><td class="num">0,00%</td></tr>
+    <tr><td>Pr&aacute;tica reconstru&iacute;da (s&oacute; obrigat&oacute;rias)</td><td class="num">R$ 51.180.733,62</td><td class="num">R$ 6.990.613,11 (13,66%)</td></tr>
+    <tr><td>Heur&iacute;stica gulosa benef&iacute;cio/custo</td><td class="num">R$ 44.190.884,80</td><td class="num">R$ 764,29</td></tr>
+    <tr><td class="hl">MILP (HiGHS)</td><td class="num hl">R$ 44.190.120,51</td><td class="num hl">&mdash;</td></tr>
   </tbody>
 </table>
 <div class="box-result">
-  <p class="noindent">Cen&aacute;rio S0 (2.000 ve&iacute;culos, 36 meses), simulado:
-  <strong>R$ 9.302.147,26 (17,51%)</strong>. Solver HiGHS: Gap MIP = 0,0000%;
-  Gap Poliedral = 0,00057% (R$ 248,52). Reprodutibilidade verificada em Linux e
-  Windows 11 &mdash; exato ao centavo em 3 baterias independentes.</p>
+  <p class="noindent">Cen&aacute;rio S0: 2.000 ve&iacute;culos reais sorteados e 36 meses; custos e probabilidades de falha gerados por f&oacute;rmula (inst&acirc;ncia semissint&eacute;tica).
+  Relaxa&ccedil;&atilde;o linear R$ 44.189.843,21; todas as manuten&ccedil;&otilde;es obrigat&oacute;rias cumpridas. <strong>H3 sustentada</strong>.</p>
 </div>
-
-<h3>5.8 Testes Estat&iacute;sticos Pareados (Wilcoxon + Holm-Bonferroni)</h3>
-<table>
-  <thead>
-    <tr><th>Compara&ccedil;&atilde;o</th><th>Estat&iacute;stica W</th><th>P-valor Ajustado (Holm)</th><th>Sig. a 5%</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>HistGB vs &Aacute;rvore de Regress&atilde;o</td><td class="num">833.682,5</td><td class="num hl">3,17 &times; 10&minus;10</td><td class="num hl">&#10003; Sim</td></tr>
-    <tr><td>HistGB vs Extra Trees</td><td class="num">885.268,5</td><td class="num hl">1,63 &times; 10&minus;05</td><td class="num hl">&#10003; Sim</td></tr>
-    <tr><td>HistGB vs Random Forest</td><td class="num">886.668,0</td><td class="num hl">1,05 &times; 10&minus;05</td><td class="num hl">&#10003; Sim</td></tr>
-  </tbody>
-</table>
-
-<h3>5.9 Pipeline Estat&iacute;stico (Normalidade, Poisson, Markov, S&eacute;ries Temporais)</h3>
-<div class="box-result">
-  <ul>
-    <li><strong>Normalidade (Lilliefors):</strong> Todas as dimens&otilde;es rejeitam H&#8320; (p &lt; 10&minus;16) &mdash; fundamenta o uso de m&eacute;todos n&atilde;o param&eacute;tricos.</li>
-    <li><strong>Mann-Whitney U (Leves vs Comerciais):</strong> U = 95.741.081, p = 1,60 &times; 10&minus;129, efeito r = 0,121.</li>
-    <li><strong>Kruskal-Wallis (Categorias):</strong> H = 568,94, p = 5,46 &times; 10&minus;123.</li>
-    <li><strong>Poisson:</strong> &lambda; = 20,46 falhas/dia; VMR = 1.760,27 &mdash; sobredispers&atilde;o severa.</li>
-    <li><strong>Cadeia de Markov:</strong> 62,27% Em Tr&acirc;nsito &middot; 22,42% Ocioso &middot; 15,31% Em Manuten&ccedil;&atilde;o (perman&ecirc;ncia m&eacute;dia 3,53 dias).</li>
-    <li><strong>S&eacute;ries Temporais:</strong> ETS supera ARIMA(1,0,1) fora da amostra (RMSE R$ 132.063 vs R$ 159.949; AIC 1.293,9 vs 1.434,6).</li>
-  </ul>
-</div>
-</div>
-
-
-<!-- CAP 6 — DISCUSSOES -->
-<div class="chapter">
-<div class="timing">Bloco 6 &mdash; &asymp; 2 minutos</div>
-<h2>Cap. 6 &mdash; Discuss&otilde;es</h2>
-
 <h3>6.1 An&aacute;lise das Hip&oacute;teses</h3>
+<p>Crit&eacute;rios fixados antes dos resultados: texto do anteprojeto e limiar da qualifica&ccedil;&atilde;o. Sustentada = atende os dois; parcial = atende um.</p>
 <table>
   <thead>
-    <tr><th style="width:8%">Hip.</th><th style="width:38%">Enunciado</th><th style="width:17%">Resultado</th><th style="width:37%">Evid&ecirc;ncia</th></tr>
+    <tr><th style="width:8%">Hip.</th><th style="width:34%">Enunciado</th><th style="width:15%">Resultado</th><th style="width:43%">Evid&ecirc;ncia</th></tr>
   </thead>
   <tbody>
     <tr>
       <td class="num hl">H1</td>
-      <td>Integrar patrim&ocirc;nio reduz o MAE em pelo menos 15%</td>
-      <td style="color:#a00000;text-align:center;font-weight:bold;">&#10007; N&atilde;o sustentada</td>
-      <td>MAE &minus;0,41% (&minus;R$ 9,47 por ve&iacute;culo-m&ecirc;s); PR-AUC +0,43%. Ganho real, mas pequeno</td>
+      <td>Integrar o patrim&ocirc;nio melhora a previs&atilde;o (anteprojeto) e reduz o MAE em ao menos 15% (limiar)</td>
+      <td style="color:#c47800;text-align:center;font-weight:bold;">&#9680; Parcial</td>
+      <td>ROC-AUC +0,0095 [IC95 0,0045; 0,0146]; MAE 0,62% [IC95 -0,26%; 1,52%]</td>
     </tr>
     <tr>
       <td class="num hl">H2</td>
-      <td>HistGB supera baselines lineares e ing&ecirc;nuos</td>
-      <td style="color:#c47800;text-align:center;font-weight:bold;">&#9680; Parcial</td>
-      <td>Supera na classifica&ccedil;&atilde;o; a mediana hist&oacute;rica tem MAE menor</td>
+      <td>Ensembles de &aacute;rvores s&atilde;o competitivos frente ao SVR-RBF</td>
+      <td style="color:#a00000;text-align:center;font-weight:bold;">&#10007; N&atilde;o sustentada</td>
+      <td>HistGB × SVR: MAE 8,65% [IC95 6,83%; 10,52%]; AUC +0,0463 [IC95 0,0342; 0,0595]</td>
     </tr>
     <tr>
       <td class="num hl">H3</td>
-      <td>Pol&iacute;tica MILP reduz o custo frente &agrave; linha de base</td>
-      <td class="num hl">&#10003; Sustentada</td>
-      <td>Cen&aacute;rio S0: R$ 9,30 mi (17,51%), simula&ccedil;&atilde;o</td>
+      <td>A pol&iacute;tica MILP reduz o custo frente &agrave; pr&aacute;tica reconstru&iacute;da e a heur&iacute;sticas</td>
+      <td style="color:#00693e;text-align:center;font-weight:bold;">&#10003; Sustentada</td>
+      <td>economia 13,66% sobre a prática reconstruída (R$ 6.990.613,11); 0,00% sobre a heurística (R$ 764,29); instância semissintética</td>
     </tr>
     <tr>
       <td class="num hl">H4</td>
-      <td>SHAP e LIME concordam em mais de 85%</td>
+      <td>SHAP e LIME s&atilde;o fi&eacute;is e est&aacute;veis (anteprojeto) e concordam acima de 0,85 (limiar)</td>
       <td style="color:#a00000;text-align:center;font-weight:bold;">&#10007; N&atilde;o sustentada</td>
-      <td>Jaccard Top-5 = 39,29%; &rho; = 0,3680 (metas: 0,85)</td>
+      <td>fidelidade LIME R² = 0,243 (mín. 0,50); estabilidade LIME 1,000; SHAP 0,979; concordância Spearman 0,287, Jaccard 45,5%</td>
     </tr>
   </tbody>
 </table>
-
 <h3>6.2 Limita&ccedil;&otilde;es Reconhecidas</h3>
 <ul>
   <li><strong>Resultado contrafactual:</strong> A economia MILP &eacute; simulada retrospectivamente; n&atilde;o equivale a economia causal sem valida&ccedil;&atilde;o prospectiva.</li>
@@ -636,8 +600,8 @@ Parti&ccedil;&atilde;o de teste retido: per&iacute;odo 2025&ndash;2026.
 <h3>6.3 Compara&ccedil;&atilde;o com a Literatura</h3>
 <p>Mahale, Kolhar e More (2025) apontam a disponibilidade de dados e a ado&ccedil;&atilde;o de XAI como
 desafios da manuten&ccedil;&atilde;o preditiva veicular; este estudo trata os dois com dados reais.
-A H4 n&atilde;o sustentada &eacute; coerente com a ressalva do anteprojeto (se&ccedil;&atilde;o 4.4) de que
-explica&ccedil;&otilde;es podem ser inst&aacute;veis quando os atributos s&atilde;o correlacionados.</p>
+A H4 n&atilde;o sustentada &eacute; coerente com a ressalva do anteprojeto (se&ccedil;&atilde;o 4.4): aqui o problema foi a baixa fidelidade local do LIME,
+n&atilde;o a instabilidade.</p>
 </div>
 
 
@@ -652,7 +616,7 @@ explica&ccedil;&otilde;es podem ser inst&aacute;veis quando os atributos s&atild
     <li><strong>Emp&iacute;rica:</strong> Base anal&iacute;tica longitudinal com 350.737 OS, auditoria forense de 6.841 regress&otilde;es de hod&ocirc;metro e diagn&oacute;stico inédito da discrepância sem&acirc;ntica de tipos de OS na frota estadual de SC.</li>
     <li><strong>Metodol&oacute;gica:</strong> Arquitetura completa conectando auditoria &rarr; modelos preditivos &rarr; XAI &rarr; MILP prescritiva, com valida&ccedil;&atilde;o Rolling-Origin e testes estat&iacute;sticos pareados.</li>
     <li><strong>Computacional:</strong> Artefato reprodut&iacute;vel (sub-reposit&oacute;rio p&uacute;blico), homologado cross-platform (Linux e Windows 11), exato ao centavo em 3 baterias independentes.</li>
-    <li><strong>Gest&atilde;o P&uacute;blica:</strong> Pol&iacute;tica prescritiva com economia contrafactual de R$ 9.302.147,26 (17,51%) e proje&ccedil;&atilde;o trienal de R$ 40.088.374,00 (2027&ndash;2029).</li>
+    <li><strong>Gest&atilde;o P&uacute;blica:</strong> Pol&iacute;tica prescritiva com economia contrafactual de R$ 6.990.613,11 (13,66%) e proje&ccedil;&atilde;o trienal de R$ 40.088.374,00 (2027&ndash;2029).</li>
   </ul>
 </div>
 

@@ -1,0 +1,83 @@
+PAGINA 282 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+p- A ESTADO DE SANTA CATARINA Demonstrativo das Receitas Diretamente Arrecadadas por Órgão / Unidade Orçamentária
+13
+Ta
+tg
+Ano Base: 2026
+Em R$ 1,00
+ÓRGÃO / UNIDADE ORÇAMENTÁRIA / RECEITAS TOTAL ID | FR | VALOR
+1.7.4.1.99.0.1.08 Transferências de Instituições Privadas - Manutenção do Ensino Superior - FR 1.599.265 599.265.000 27.617.178
+45091 Fundo Estadual de Apoio à Manutenção E ao Desenvolvimento da Educação Superior (FUMDESC) 360.280.588
+599.265.000 355.060.624
+599.285.000 5.219.964
+1.3.2.1.01.1.1.04 Remuneração de Depósitos Bancários Rec. Vinc. Educação - FR 1.599.285 599.285.000 5.219.964
+1.7.4.1.99.0.1.08 Transferências de Instituições Privadas - Manutenção do Ensino Superior - FR 1.599.265 599.265.000 355.060.624
+47000 Secretaria de Estado da Administração 4.959.629.237
+755.298.000 6.000.000
+759.240.000 973.232.844
+759.269.000 254.461
+799.285.000 19.485.029
+800.250.000 9.223.790
+800.289.000 328.442
+801.240.000 13.786.248
+801.250.000 3.354.660.905
+801.260.000 1.698.090
+801.289.000 52.460.499
+802.250.000 186.059.662
+802.285.000 5.465.190
+803.250.000 336.257.090
+803.289.000 716.987
+47022 Instituto de Previdência do Estado de Santa Catarina (IPREV) 6.212.803
+802.250.000 747.613
+802.285.000 5.465.190
+1.3.2.1.04.0.1.06 Remuneração Depósitos Vinculados - IPREV 802.285.000 5.465.190
+1.9.2.2.06.3.1.36 Recuperação de Despesas de Exerc. Anteriores - FR 1.802.250 802.250.000 11.060
+1.9.2.3.50.0.1.08 Ressarcimento por Pagamento de Pessoal Cedido - FR 1.802.250 802.250.000 278.266
+7.9.2.3.50.0.1.08 Ressarcimento por Pagamento de Pessoal Cedido - FR 1.802.250 802.250.000 458.287
+47076 Fundo em Repartição (SC SEGURO) 3.944.892.868
+171
+p- A ESTADO DE SANTA CATARINA Demonstrativo das Receitas Diretamente Arrecadadas por Órgão / Unidade Orçamentária
+13
+Ta
+tg
+Ano Base: 2026
+Em R$ 1,00
+ÓRGÃO / UNIDADE ORÇAMENTÁRIA / RECEITAS TOTAL ID | FR | VALOR
+800.250.000 1.000
+801.240.000 13.786.248
+801.250.000 3.354.660.905
+801.260.000 1.698.090
+801.289.000 52.460.499
+802.250.000 185.312.049
+803.250.000 336.257.090
+803.289.000 716.987
+1.2.1.5.01.1.1.09 Poder Executivo - Ativo Civil - Taxa de Administração 802.250.000 102.463.296
+1.2.1.5.01.1.1.10 Tribunal de Justiça - Ativo Civil - Taxa de Administração 802.250.000 31.304.931
+1.2.1.5.01.1.1.11 Tribunal de Contas - Ativo Civil - Taxa de Administração 802.250.000 3.133.397
+1.2.1.5.01.1.1.12 Assembleia Legislativa - Ativo Civil - Taxa de Administração 802.250.000 5.133.516
+1.2.1.5.01.1.1.13 Ministério Público - Ativo Civil - Taxa de Administração 802.250.000 9.550.086
+1.2.1.5.01.1.1.14 Poder Executivo - Ativo Civil - Fundo em Repartição 801.250.000 708.943.410
+1.2.1.5.01.1.1.15 Tribunal de Justiça - Ativo Civil - Fundo em Repartição 801.250.000 140.655.317
+1.2.1.5.01.1.1.16 Tribunal de Contas - Ativo Civil - Fundo em Repartição 801.250.000 16.215.831
+1.2.1.5.01.1.1.17 Assembleia Legislativa - Ativo Civil - Fundo em Repartição 801.250.000 9.855.733
+1.2.1.5.01.1.1.18 Ministério Público - Ativo Civil - Fundo em Repartição 801.250.000 42.462.247
+1.2.1.5.01.1.1.20 A Disposição - Fundo em Repartição 801.250.000 757.533
+1.2.1.5.01.1.1.21 Auxiliar de Justiça - Ativo - Fundo em Repartição 801.250.000 980.638
+1.2.1.5.01.2.1.09 Poder Executivo - Inativo Civil - Fundo em Repartição 801.250.000 374.202.349
+1.2.1.5.01.2.1.10 Tribunal de Justiça - Inativo Civil - Fundo em Repartição 801.250.000 53.215.917
+1.2.1.5.01.2.1.11 Tribunal de Contas - Inativo Civil - Fundo em Repartição 801.250.000 19.597.717
+1.2.1.5.01.2.1.12 Assembleia Legislativa - Inativo Civil - Fundo em Repartição 801.250.000 34.286.444
+1.2.1.5.01.2.1.13 Ministério Público - Inativo Civil - Fundo em Repartição 801.250.000 14.156.360
+1.2.1.5.01.2.1.14 Servidor Auxiliar de Justiça - Inativo - Fundo em Repartição 801.250.000 2.557.492
+1.2.1.5.01.3.1.10 Contribuição de Pensionista Civil - Poder Executivo - Fundo em Repartição 801.250.000 66.523.203
+1.2.1.5.01.3.1.11 Contribuição de Pensionista Civil - Tribunal de Justiça - Fundo em Repartição 801.250.000 14.017.735
+1.2.1.5.01.3.1.12 Contribuição de Pensionista Civil - Tribunal de Contas - Fundo em Repartição 801.250.000 3.214.036
+1.2.1.5.01.3.1.13 Contribuição de Pensionista Civil - Assembleia Legislativa - Fundo em Repartição 801.250.000 6.035.399
+1.2.1.5.01.3.1.14 Contribuição de Pensionista Civil - Ministério Público - Fundo em Repartição 801.250.000 6.879.809
+1.2.1.5.01.3.1.15 Contribuição de Pensionista Civil - Servidor Auxiliar de Justiça - Fundo em Repartição 801.250.000 2.694.228
+1.2.1.5.01.3.1.16 Contribuição de Pensionista Civil - IPALESC - Fundo em Repartição 801.250.000 1.362.604
+1.2.1.5.01.5.1.02 CPSSS Oriunda de Sentenças Judiciais de Servidor Civil Inativo - Fundo em Repartição 801.250.000 7.813.216
+172
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

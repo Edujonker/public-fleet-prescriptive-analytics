@@ -1,53 +1,124 @@
 {
   "titulo": "Certificado de Reprodutibilidade e Integridade Técnico-Científica",
   "instituicao": "PPGCAP / CCT / UDESC",
-  "timestamp_emissao": "2026-11-01T13:59:33.417108",
-  "duracao_validacao_segundos": 0.29,
-  "status_geral_pesquisa": "AUDITADA COM RIGOR METODOLÓGICO (100% REPRODUTÍVEL)",
+  "timestamp_emissao": "2026-11-15T15:29:36.950879",
+  "duracao_validacao_segundos": 0.4,
+  "status_geral_pesquisa": "VALIDAÇÃO AUTOMATIZADA; triagem e decisões finais dependem da revisão do autor",
+  "regra_de_decisao": "Cada hipótese é avaliada pelo texto do anteprojeto (operacionalizado antes da execução nos scripts 04b, 04c, 07b e 08) e pelo limiar numérico pré-registrado na qualificação. SUSTENTADA = atende os dois; PARCIALMENTE = atende um; NÃO SUSTENTADA = nenhum. Quando só existe um critério, vale esse.",
   "principios_cientificos_atendidos": {
     "1_dados_originais_imutaveis": true,
     "2_rastreabilidade_amostral_estrita": true,
     "3_validacao_temporal_sem_vazamento": true,
-    "4_milp_verificavel_com_gap_e_precos_sombra": true,
-    "5_resultados_gerados_100pct_por_codigo": true,
+    "4_milp_custos_calculados_pelo_solver": true,
+    "5_resultados_gerados_por_codigo": true,
     "6_transparencia_com_resultados_negativos_sem_harking": true
+  },
+  "pendencias_conhecidas": [
+    "O p-valor da comparação HistGB × regressão logística usa erro-padrão constante (0,0084), não o teste de DeLong exato.",
+    "O teste KS de P1 usa as 5.000 primeiras OS do arquivo, não uma amostra aleatória.",
+    "A instância do MILP é semissintética (custos e probabilidades de falha gerados por fórmula)."
+  ],
+  "comparacao_logistica_descritiva": {
+    "roc_histgb": 0.8737,
+    "roc_logistica": 0.8292,
+    "dif": 0.044499999999999984,
+    "mae_histgb": 2223.84,
+    "mae_mediana": 2133.49,
+    "reducao_mae_pct": -4.234845253551709
+  },
+  "hipoteses": {
+    "P1": {
+      "decisao": "SUSTENTADA",
+      "atende_anteprojeto": null,
+      "atende_limiar": true,
+      "evidencia": "KS = 0,2905 (p < 1e-15); assimetria 9,83; curtose 228,75",
+      "ressalva": ""
+    },
+    "H1": {
+      "decisao": "PARCIALMENTE SUSTENTADA",
+      "atende_anteprojeto": true,
+      "atende_limiar": false,
+      "evidencia": "ROC-AUC +0,0095 [IC95 0,0045; 0,0146]; MAE 0,62% [IC95 -0,26%; 1,52%]",
+      "ressalva": "O ganho existe na classificação, mas é pequeno; no MAE o efeito não é distinguível de zero."
+    },
+    "H2": {
+      "decisao": "NÃO SUSTENTADA",
+      "atende_anteprojeto": false,
+      "atende_limiar": null,
+      "evidencia": "HistGB × SVR: MAE 8,65% [IC95 6,83%; 10,52%]; AUC +0,0463 [IC95 0,0342; 0,0595]",
+      "ressalva": "Os ensembles superam o SVC-RBF na classificação, mas erram mais que o SVR-RBF na regressão."
+    },
+    "H3": {
+      "decisao": "SUSTENTADA",
+      "atende_anteprojeto": true,
+      "atende_limiar": true,
+      "evidencia": "economia 13,66% sobre a prática reconstruída (R$ 6.990.697,14); 0,00% sobre a heurística (R$ 848,32); instância semissintética",
+      "ressalva": "A heurística gulosa chega praticamente ao mesmo custo do MILP; a instância é semissintética."
+    },
+    "H4": {
+      "decisao": "NÃO SUSTENTADA",
+      "atende_anteprojeto": false,
+      "atende_limiar": false,
+      "evidencia": "fidelidade LIME R² = 0,243 (mín. 0,50); estabilidade LIME 1,000; SHAP 0,979; concordância Spearman 0,287, Jaccard 45,5%",
+      "ressalva": "O SHAP é exato e estável; o LIME é estável, mas pouco fiel ao modelo (R² local baixo)."
+    }
   },
   "matriz_hipoteses": [
     {
-      "hipotese": "Premissa P1: Não Normalidade e Assimetria de Custos",
-      "enunciado": "A distribuição empírica de custos e demandas de manutenção é não paramétrica e de cauda pesada.",
-      "estatistica_teste": "KS = 0.2905, Skew = 9.83, Kurt = 228.75",
-      "p_valor": "0.00e+00",
-      "decisao": "SUSTENTADA (Rejeita normalidade e fundamenta modelos baseados em árvores e testes não paramétricos)"
+      "id": "P1",
+      "hipotese": "Premissa P1: Não normalidade dos custos",
+      "criterio_anteprojeto": "—",
+      "atende_anteprojeto": "—",
+      "criterio_limiar": "KS p < 0,05 e assimetria em módulo > 1",
+      "atende_limiar": "sim",
+      "estatistica_teste": "KS = 0,2905 (p < 1e-15); assimetria 9,83; curtose 228,75",
+      "decisao": "SUSTENTADA",
+      "ressalva": ""
     },
     {
-      "hipotese": "Hipótese H1: Ganho de Fusão Multimodal (Meta ≥ 15%)",
-      "enunciado": "A integração multimodal (manutenção + patrimônio + abastecimento) reduz o MAE em ≥ 15% sobre a fonte unimodal.",
-      "estatistica_teste": "Redução MAE = +0,41% [0,28%; 0,54%] (Δ = -R$ 9,47/OS); Elevação PR-AUC = +0,43%",
-      "p_valor": "Wilcoxon p < 1e-15",
-      "decisao": "NÃO SUSTENTADA no limiar de 15% (Ganho marginal estatisticamente significante, mas aquém da meta do anteprojeto; ausência de HARKing)"
+      "id": "H1",
+      "hipotese": "Hipótese H1: Fusão de manutenção e patrimônio (M+P)",
+      "criterio_anteprojeto": "M+P melhora ao menos uma métrica principal (IC95 exclui zero)",
+      "atende_anteprojeto": "sim",
+      "criterio_limiar": "ganho no MAE >= 15%",
+      "atende_limiar": "não",
+      "estatistica_teste": "ROC-AUC +0,0095 [IC95 0,0045; 0,0146]; MAE 0,62% [IC95 -0,26%; 1,52%]",
+      "decisao": "PARCIALMENTE SUSTENTADA",
+      "ressalva": "O ganho existe na classificação, mas é pequeno; no MAE o efeito não é distinguível de zero."
     },
     {
-      "hipotese": "Hipótese H2: Superioridade de Ensembles Gradient Boosting",
-      "enunciado": "HistGradientBoosting supera baselines lineares e ingênuos em classificação e regressão.",
-      "estatistica_teste": "Classif: Δ ROC = +0.1377 (p < 1e-13); Regress: Δ MAE = -4,81% vs Mediana; RMSE reduz 9,97%",
-      "p_valor": "Classif p < 1e-13; Regress p = 1,00",
-      "decisao": "PARCIALMENTE SUSTENTADA (Superior em classificação e variância RMSE; superado pela mediana amostral em MAE sob assimetria severa)"
+      "id": "H2",
+      "hipotese": "Hipótese H2: Ensembles competitivos frente a SVR-RBF",
+      "criterio_anteprojeto": "algum ensemble não inferior ao SVR (margem 5% no MAE; −0,02 na AUC) nas duas tarefas",
+      "atende_anteprojeto": "não",
+      "criterio_limiar": "—",
+      "atende_limiar": "—",
+      "estatistica_teste": "HistGB × SVR: MAE 8,65% [IC95 6,83%; 10,52%]; AUC +0,0463 [IC95 0,0342; 0,0595]",
+      "decisao": "NÃO SUSTENTADA",
+      "ressalva": "Os ensembles superam o SVC-RBF na classificação, mas erram mais que o SVR-RBF na regressão."
     },
     {
-      "hipotese": "Hipótese H3: Eficiência Econômica Prescritiva (MILP Cenário S0)",
-      "enunciado": "A política prescritiva MILP reduz o dispêndio total frente à linha de base inercial sob viabilidade estrita.",
-      "estatistica_teste": "Economia = 12.82% (R$ 10,749,059.59), Gap Integralidade = 0.00373%",
-      "p_valor": "< 1,00e-15",
-      "decisao": "SUSTENTADA no Cenário S0 (Economia de 17,51% com 100% das manutenções mandatórias atendidas e HiGHS gap 0,0000%)"
+      "id": "H3",
+      "hipotese": "Hipótese H3: Política MILP reduz o custo esperado",
+      "criterio_anteprojeto": "custo MILP < prática reconstruída e < heurística",
+      "atende_anteprojeto": "sim",
+      "criterio_limiar": "economia > 10% sobre a prática reconstruída",
+      "atende_limiar": "sim",
+      "estatistica_teste": "economia 13,66% sobre a prática reconstruída (R$ 6.990.697,14); 0,00% sobre a heurística (R$ 848,32); instância semissintética",
+      "decisao": "SUSTENTADA",
+      "ressalva": "A heurística gulosa chega praticamente ao mesmo custo do MILP; a instância é semissintética."
     },
     {
-      "hipotese": "Hipótese H4: Auditabilidade e Explicabilidade XAI (Meta > 85%)",
-      "enunciado": "Valores de Shapley (SHAP) e aproximações locais lineares (LIME) convergem com concordância > 85%.",
-      "estatistica_teste": "Spearman = 0.3680, Jaccard Top-5 = 39.3%",
-      "p_valor": "Não se aplica (Limiar de 85% não atingido)",
-      "decisao": "NÃO SUSTENTADA no limiar > 85% (Divergência geométrica entre teoria dos jogos e perturbações lineares fundamenta necessidade de triangulação XAI)"
+      "id": "H4",
+      "hipotese": "Hipótese H4: Explicações SHAP e LIME fiéis e estáveis",
+      "criterio_anteprojeto": "fidelidade e estabilidade suficientes (F1, F2, E1, E2)",
+      "atende_anteprojeto": "não",
+      "criterio_limiar": "concordância SHAP×LIME > 0,85",
+      "atende_limiar": "não",
+      "estatistica_teste": "fidelidade LIME R² = 0,243 (mín. 0,50); estabilidade LIME 1,000; SHAP 0,979; concordância Spearman 0,287, Jaccard 45,5%",
+      "decisao": "NÃO SUSTENTADA",
+      "ressalva": "O SHAP é exato e estável; o LIME é estável, mas pouco fiel ao modelo (R² local baixo)."
     }
   ],
-  "conclusao": "A validação empírica reporta fielmente resultados favoráveis, parciais e refutações sem HARKing: Premissa P1 é sustentada pela assimetria e não normalidade dos custos (p < 10^-15); Hipótese H1 não é sustentada no limiar estrito de 15% (ganho real de +0,41% no MAE); H2 é parcialmente sustentada (superior em classificação e RMSE, superada pela mediana em MAE sob assimetria severa); H3 é sustentada no Cenário S0 com economia de 17,51% (R$ 9,30M) sob viabilidade estrita; e H4 não é sustentada sob o limiar prévio de 85% (Jaccard = 39,3%), comprovando que SHAP e LIME possuem geometrias divergentes e exigem triangulação metodológica obrigatória na gestão pública."
+  "conclusao": "P1 sustentada (KS = 0,2905 (p < 1e-15); assimetria 9,83; curtose 228,75). H1 parcialmente sustentada (ROC-AUC +0,0095 [IC95 0,0045; 0,0146]; MAE 0,62% [IC95 -0,26%; 1,52%]). H2 não sustentada (HistGB × SVR: MAE 8,65% [IC95 6,83%; 10,52%]; AUC +0,0463 [IC95 0,0342; 0,0595]). H3 sustentada (economia 13,66% sobre a prática reconstruída (R$ 6.990.697,14); 0,00% sobre a heurística (R$ 848,32); instância semissintética). H4 não sustentada (fidelidade LIME R² = 0,243 (mín. 0,50); estabilidade LIME 1,000; SHAP 0,979; concordância Spearman 0,287, Jaccard 45,5%)."
 }

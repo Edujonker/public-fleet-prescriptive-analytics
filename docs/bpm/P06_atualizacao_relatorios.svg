@@ -1,0 +1,66 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1774 400' font-family='Arial' font-size='10'>
+<defs><marker id='a' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto'><path d='M0,0L10,5L0,10z' fill='#333'/></marker></defs>
+<rect x='40' y='0' width='1724' height='390' fill='#fff' stroke='#333'/>
+<rect x='40' y='0' width='34' height='130' fill='#00693e' stroke='#333'/>
+<rect x='74' y='0' width='1690' height='130' fill='#fff' stroke='#999'/>
+<text transform='translate(61.0,65.0) rotate(-90)' text-anchor='middle' fill='#fff' font-size='9' font-weight='bold'><tspan x='0' dy='0'>Pesquisador</tspan></text>
+<rect x='40' y='130' width='34' height='130' fill='#00693e' stroke='#333'/>
+<rect x='74' y='130' width='1690' height='130' fill='#f6faf8' stroke='#999'/>
+<text transform='translate(61.0,195.0) rotate(-90)' text-anchor='middle' fill='#fff' font-size='9' font-weight='bold'><tspan x='0' dy='0'>atualizacao_noturna.sh</tspan></text>
+<rect x='40' y='260' width='34' height='130' fill='#00693e' stroke='#333'/>
+<rect x='74' y='260' width='1690' height='130' fill='#fff' stroke='#999'/>
+<text transform='translate(61.0,325.0) rotate(-90)' text-anchor='middle' fill='#fff' font-size='9' font-weight='bold'><tspan x='0' dy='0'>Saídas</tspan></text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='170,65 244,65'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='362,65 396,65 396,195 431,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='475,195 544,195'/>
+<text x='512' y='191' font-size='8.5' fill='#b04a3a'>sim</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='475,195 694,195'/>
+<text x='588' y='191' font-size='8.5' fill='#b04a3a'>não</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='662,195 694,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='812,195 881,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='925,195 1034,195 1034,325 1144,325'/>
+<text x='983' y='191' font-size='8.5' fill='#b04a3a'>sim</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='925,195 1031,195'/>
+<text x='981' y='191' font-size='8.5' fill='#b04a3a'>não</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1053,217 1053,239 753,239 753,226'/>
+<text x='1056' y='224' font-size='8.5' fill='#b04a3a'>sim</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1075,195 1110,195 1110,325 1144,325'/>
+<text x='1095' y='191' font-size='8.5' fill='#b04a3a'>não</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1262,325 1294,325'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1412,325 1428,325 1428,65 1444,65'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1562,65 1636,65'/>
+<circle cx='153.0' cy='65.0' r='17.0' fill='#fff' stroke='#00693e' stroke-width='1.5'/>
+<text x='153.0' y='93.0' text-anchor='middle' font-size='8.5'>Disparo com prazo e</text>
+<text x='153.0' y='103.0' text-anchor='middle' font-size='8.5'>backup</text>
+<rect x='244.0' y='34.0' width='118' height='62' rx='8' fill='#e8eef8' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='254.0' cy='43.0' r='3.5' fill='none' stroke='#1b3a6e'/><path d='M248.0,53.0 q6,-8 12,0' fill='none' stroke='#1b3a6e'/>
+<text x='303.0' y='63.0' text-anchor='middle' font-size='9'>Copiar resultados</text>
+<text x='303.0' y='73.0' text-anchor='middle' font-size='9'>para archives/</text>
+<polygon points='453.0,173.0 475.0,195.0 453.0,217.0 431.0,195.0' fill='#fff7e0' stroke='#d99a00' stroke-width='1.5'/><text x='453.0' y='200.0' text-anchor='middle' font-size='14' fill='#d99a00'>×</text>
+<text x='453.0' y='149.0' text-anchor='middle' font-size='8.5'>Pipeline principal</text>
+<text x='453.0' y='159.0' text-anchor='middle' font-size='8.5'>em execução?</text>
+<rect x='544.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='554.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='603.0' y='193.0' text-anchor='middle' font-size='9'>Aguardar término do</text>
+<text x='603.0' y='203.0' text-anchor='middle' font-size='9'>pipeline</text>
+<rect x='694.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='704.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='753.0' y='193.0' text-anchor='middle' font-size='9'>Executar próximo</text>
+<text x='753.0' y='203.0' text-anchor='middle' font-size='9'>gerador (timeout)</text>
+<polygon points='903.0,173.0 925.0,195.0 903.0,217.0 881.0,195.0' fill='#fff7e0' stroke='#d99a00' stroke-width='1.5'/><text x='903.0' y='200.0' text-anchor='middle' font-size='14' fill='#d99a00'>×</text>
+<text x='903.0' y='159.0' text-anchor='middle' font-size='8.5'>Prazo atingido?</text>
+<polygon points='1053.0,173.0 1075.0,195.0 1053.0,217.0 1031.0,195.0' fill='#fff7e0' stroke='#d99a00' stroke-width='1.5'/><text x='1053.0' y='200.0' text-anchor='middle' font-size='14' fill='#d99a00'>×</text>
+<text x='1053.0' y='159.0' text-anchor='middle' font-size='8.5'>Restam geradores?</text>
+<rect x='1144.0' y='294.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='1154.0' cy='304.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='1203.0' y='323.0' text-anchor='middle' font-size='9'>Comparar JSONs com</text>
+<text x='1203.0' y='333.0' text-anchor='middle' font-size='9'>o backup</text>
+<rect x='1294.0' y='294.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='1304.0' cy='304.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='1353.0' y='328.0' text-anchor='middle' font-size='9'>Gravar RESUMO.md</text>
+<rect x='1444.0' y='34.0' width='118' height='62' rx='8' fill='#e8eef8' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='1454.0' cy='43.0' r='3.5' fill='none' stroke='#1b3a6e'/><path d='M1448.0,53.0 q6,-8 12,0' fill='none' stroke='#1b3a6e'/>
+<text x='1503.0' y='68.0' text-anchor='middle' font-size='9'>Revisar e publicar</text>
+<circle cx='1653.0' cy='65.0' r='17.0' fill='#fff' stroke='#b04a3a' stroke-width='3'/>
+<text x='1653.0' y='93.0' text-anchor='middle' font-size='8.5'>Fim</text>
+</svg>

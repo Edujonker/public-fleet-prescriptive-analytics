@@ -1,9 +1,9 @@
 {
   "metadados": {
     "script": "03_analise_descritiva.py",
-    "timestamp_inicio": "2026-11-01T13:58:27.932939",
-    "timestamp_fim": "2026-11-01T13:58:29.071244",
-    "duracao_segundos": 1.14,
+    "timestamp_inicio": "2026-11-15T15:26:54.519162",
+    "timestamp_fim": "2026-11-15T15:26:55.763055",
+    "duracao_segundos": 1.24,
     "status": "SUCESSO"
   },
   "estatisticas_gerais": [

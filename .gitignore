@@ -55,3 +55,13 @@ SIC/.Rhistory
 graphdb/.venv/
 !revisao_sistematica/dados/
 artigos/**/.lock
+
+# Backups locais grandes (dados e resultados antigos)
+backup_arquivos_desatualizados/backups_locais/
+
+# Logs de execução (podem conter dados de teste)
+logs_execucao_completa.log
+logs_atualizacao_noturna/
+
+# LOA 2026 completa (67 MB; pública no portal da SEF/SC)
+leis_e_normativas/estaduais_SC/LOA_2026_SC_Lei_19683_completa.pdf

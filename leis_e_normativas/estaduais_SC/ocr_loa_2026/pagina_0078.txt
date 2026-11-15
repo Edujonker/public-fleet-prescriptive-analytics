@@ -1,0 +1,85 @@
+PAGINA 273 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+ZA ESTADO DE SANTA CATARINA Desdobramento Receita
+) 3 ORÇAMENTO DA SEGURIDADE SOCIAL
+E
+(pa ea)
+Ano Base: 2026
+Em R$ 1,00
+1.7.1.3.50.4.1.01 Componente Básico da Assistência Farmacêutica 55.522.890
+1.7.1.6.00.0.0.00 Transferências de Recursos do Fundo Nacional de Assistência Social - FNAS 1.106.290
+1.7.1.6.50.0.0.00 Transferências de Recursos do Fundo Nacional de Assistência Social - FNAS 1.106.290
+1.7.1.6.50.0.1.01 Transferências de Recursos do Fundo Nacional de Assistência Social - FNAS 1.106.290
+1.7.4.0.00.0.0.00 Transferências de Instituições Privadas 40.869.981
+1.7.4.1.00.0.0.00 Transferências de Instituições Privadas 40.869.981
+1.7.4.1.99.0.0.00 Outras Transferências de Instituições Privadas 40.869.981
+1.7.4.1.99.0.1.18 Transferências de Instituições Privadas - Fundos - FR 1.759.269 40.869.981
+1.9.0.0.00.0.0.00 Outras Receitas Correntes 88.533.411
+1.9.1.0.00.0.0.00 Multas Administrativas, Contratuais e Judiciais 1.088.285
+1.9.1.1.00.0.0.00 Multas Administrativas, Contratuais e Judiciais 1.088.285
+1.9.1.1.01.0.0.00 Multas Previstas em Legislação Específica 443.001
+1.9.1.1.01.0.1.15 Multas por Infração a Legislação da Vigilância Sanitária - FR 1.659.269 421.543
+1.9.1.1.01.0.4.15 Multas e Juros Dív.Ativa Multas por Infração à Leg. Vigilância Sanitária - FR 21.458
+1.659.269
+1.9.1.1.09.0.0.00 Multas e Juros Previstos em Contratos 645.284
+1.9.1.1.09.0.1.03 Multas e Juros Previstos em Contrato - Vinculados a Saúde FR 1.659.269 645.284
+1.9.2.0.00.0.0.00 Indenizações, Restituições e Ressarcimentos 7.822.410
+1.9.2.2.00.0.0.00 Restituições 3.027.662
+1.9.2.2.06.0.0.00 Restituição de Despesas de Exercícios Anteriores 1.938.728
+1.9.2.2.06.3.1.25 Recuperação de Despesas de Exerc. Anteriores - FR 1.800.250 1.000
+1.9.2.2.06.3.1.36 Recuperação de Despesas de Exerc. Anteriores - FR 1.802.250 11.060
+1.9.2.2.06.3.1.41 Recuperação de Despesas de Exerc. Anteriores - FR 1.803.250 131.657
+1.9.2.2.06.3.1.46 Recuperação de Despesas de Exerc. Anteriores - FR 1.801.250 1.795.011
+1.9.2.2.50.0.0.00 Restituições de Recursos Recebidos do SUS 1.088.934
+1.9.2.2.50.0.1.01 Restituições de Recursos Recebidos do SUS - FR 1.600.223 1.088.934
+1.9.2.3.00.0.0.00 Ressarcimentos 4.794.748
+1.9.2.3.50.0.0.00 Ressarcimento por Pagamento de Pessoal Cedido 278.266
+1.9.2.3.50.0.1.08 Ressarcimento por Pagamento de Pessoal Cedido - FR 1.802.250 278.266
+1.9.2.3.99.0.0.00 Outros Ressarcimentos 4.516.482
+1.9.2.3.99.0.1.27 Ressarcimento de Ações Judicias - SAS 3.278.000
+1.9.2.3.99.0.1.29 Ressarcimento de Ações Judicias - SCTIE 2.995
+1.9.2.3.99.0.1.75 Outros Ressarcimentos - FR 1.659.269 1.235.487
+153
+ZA ESTADO DE SANTA CATARINA Desdobramento Receita
+T 3 ORÇAMENTO DA SEGURIDADE SOCIAL
+Er
+(pa ea)
+Ano Base: 2026
+Em R$ 1,00
+cóBico CATEG. ECONOM,
+1.9.9.0.00.0.0.00 Demais Receitas Correntes 79.622.716
+1.9.9.9.00.0.0.00 Outras Receitas Correntes 79.622.716
+1.9.9.9.03.0.0.00 Compensações Financeiras entre os Regimes de Previdência 79.622.716
+1.9.9.9.03.0.1.02 Compensações Financeiras entre os Regimes de Previdência - Militares 49.705
+1.9.9.9.03.0.1.03 Compensações Financeiras entre os Regimes de Previdência - Fundo em 79.573.011
+Repartição
+2.0.0.0.00.0.0.00 | Receitas de Capital 6.354.000
+2.4.0.0.00.0.0.00 Transferências de Capital 6.354.000
+2.4.1.0.00.0.0.00 Transferências da União e de suas Entidades 6.354.000
+2.4.1.1.00.0.0.00 Transferências de Recursos do Sistema Único de Saúde - SUS 6.354.000
+2.4.1.1.51.0.0.00 Transfer. Rec. SUS - Fundo a Fundo - Bloco de Estrut. Serv. Púb. Saúde 6.354.000
+2.4.1.1.51.2.1.01 Transfer. Rec. Bloco de Estrut. Serv. Púb. Saúde - Atenção Especializada 6.354.000
+7.0.0.0.00.0.0.00 | Receitas Intra Orçamentárias Correntes 1.751.078.563
+7.2.0.0.00.0.0.00 Contribuições 1.749.105.676
+7.2.1.0.00.0.0.00 Contribuições Sociais 1.749.105.676
+7.2.1.5.00.0.0.00 Contribuiçõees para Regimes Próprios de Previdência e Sistema de Proteção 1.749.105.676
+Social
+7.2.1.5.02.0.0.00 Contribuição Patronal - Servidor Civil 1.749.105.676
+7.2.1.5.02.1.1.06 Poder Executivo - Ativo Civil - Fundo em Repartição 1.235.616.992
+7.2.1.5.02.1.1.07 Tribunal de Justiça - Ativo Civil - Fundo em Repartição 344.277.886
+7.2.1.5.02.1.1.08 Tribunal de Contas - Ativo Civil - Fundo em Repartição 38.698.457
+7.2.1.5.02.1.1.09 Assembleia Legislativa - Ativo Civil - Fundo em Repartição 26.866.008
+7.2.1.5.02.1.1.10 Ministério Público - Ativo Civil - Fundo em Repartição 99.033.020
+7.2.1.5.02.1.1.11 Poder Executivo - Ativo Civil - Fundo em Capitalização 1.805.570
+7.2.1.5.02.1.1.12 Tribunal de Justiça - Ativo Civil - Fundo em Capitalização 1.654.866
+7.2.1.5.02.1.1.13 Tribunal de Contas - Ativo Civil - Fundo em Capitalização 89.794
+7.2.1.5.02.1.1.14 Assembleia Legislativa - Ativo Civil - Fundo em Capitalização 427.153
+7.2.1.5.02.1.1.15 Ministério Público - Ativo Civil - Fundo em Capitalização 635.930
+7.3.0.0.00.0.0.00 Receita Patrimonial 1.514.600
+7.3.1.0.00.0.0.00 Exploração do Patrimônio Imobiliário do Estado 1.514.600
+7.3.1.1.00.0.0.00 Exploração do Patrimônio Imobiliário do Estado 1.514.600
+7.3.1.1.01.0.0.00 Aluguéis, Arrendamentos, Foros, Laudêmios, Tarifas de Ocupação 1.514.600
+7.3.1.1.01.1.1.17 Aluguéis de Salas - RPPS - Fundo em Repartição 1.514.600
+154
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

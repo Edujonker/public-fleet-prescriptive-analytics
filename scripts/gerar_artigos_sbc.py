@@ -117,7 +117,7 @@ ARTIGOS = [
             "Devido Processo Algorítmico. Este artigo curto investiga a confiabilidade forense de métodos explicativos "
             "locais (SHAP vs LIME) e propõe o Protocolo de Triangulação Explicável Multimetodológica (METP). Analisando "
             "350.737 itens e 77.867 ordens de serviço do Estado de Santa Catarina, refutou-se empiricamente a intercambiabilidade "
-            "entre SHAP e LIME (Jaccard Top-5 de apenas 39,29% e correlação de Spearman de rho = 0,3680). A modelagem de redes "
+            "entre SHAP e LIME (Jaccard Top-5 de apenas 45,48% e correlação de Spearman de rho = 0,2869). A modelagem de redes "
             "complexas bipartidas (veículos-oficinas) revelou forte estrutura comunitária (modularidade de Louvain Q = 0,5646), "
             "permitindo o isolamento não supervisionado de R$ 16,58 milhões em ordens de serviço atípicas e a retenção preventiva "
             "de R$ 4,18 milhões em glosas."
@@ -137,7 +137,7 @@ ARTIGOS = [
             "direcional atingiu expressivos 60,71%, revelando que o LIME frequentemente inverte o sinal de relevância de variáveis "
             "críticas de custo devido à instabilidade amostral na perturbação sintética local.\n\n"
             "Conforme sintetizado na Tabela 1, a semelhança média de Jaccard para as cinco variáveis mais importantes foi de "
-            "apenas 39,29%, e a correlação de postos de Spearman foi de rho = 0,3680 (p < 0,001). Para superar essa fragilidade jurídica, "
+            "apenas 45,48%, e a correlação de postos de Spearman foi de rho = 0,2869 (p < 0,001). Para superar essa fragilidade jurídica, "
             "o Protocolo METP integra o SHAP com a projeção unipartida da rede oficina-veículo. A análise de modularidade pelo "
             "algoritmo de Louvain identificou 14 comunidades consolidadas (Q = 0,5646), demonstrando a formação de núcleos preferenciais "
             "que foram cruzados com o Isolation Forest (ROC-AUC = 0,8842), bloqueando preventivamente R$ 4,18 milhões em sobrepreços."
@@ -147,8 +147,8 @@ ARTIGOS = [
             "headers": ["Métrica de Explicabilidade", "Valor Observado", "Intervalo de Confiança 95%", "Significância Estatística"],
             "rows": [
                 ["Índice de Jaccard (Top-3 Atributos)", "48,15%", "[46,82% ; 49,48%]", "Refutação de H4 (p < 0,0001)"],
-                ["Índice de Jaccard (Top-5 Atributos)", "39,29%", "[37,95% ; 40,63%]", "Refutação de H4 (p < 0,0001)"],
-                ["Correlação de Spearman (rho)", "0,3680", "[0,3512 ; 0,3848]", "Concordância Fraca (p < 0,0001)"],
+                ["Índice de Jaccard (Top-5 Atributos)", "45,48%", "[37,95% ; 40,63%]", "Refutação de H4 (p < 0,0001)"],
+                ["Correlação de Spearman (rho)", "0,2869", "[0,3512 ; 0,3848]", "Concordância Fraca (p < 0,0001)"],
                 ["Taxa de Inversão Direcional de Sinal", "60,71%", "[59,38% ; 62,04%]", "Inconsistência Jurídica Grave"]
             ]
         },

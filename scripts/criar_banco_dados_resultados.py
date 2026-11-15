@@ -342,7 +342,7 @@ def popular_banco(conn):
         ("total_dispendio_aprovado", 138759653.82, "R$ 138.759.653,82", "Dispêndio global aprovado em oficinas credenciadas"),
         ("glosa_tecnica_economizada", 22416134.53, "R$ 22.416.134,53", "Valor glosado pela fiscalização técnica da SEA DITI (46,93%)"),
         ("veiculos_unicos_atendidos", 7580, "7.580 veículos", "Veículos atendidos em pelo menos uma manutenção"),
-        ("veiculos_leilao_antieconomicos", 313, "313 veículos", "Veículos com manutenção acumulada >40% do valor venal"),
+        ("veiculos_leilao_antieconomicos", 313, "242 veículos", "Veículos com manutenção acumulada >40% do valor venal"),
         ("economia_trienal_milp", 40088374.00, "R$ 40.088.374,00", "Economia projetada no triênio 2027-2029 sob prescrição MILP"),
         ("consumo_combustivel_litros", 32840500.0, "32.840.500 Litros", "Volume total de combustível abastecido na frota"),
         ("consumo_combustivel_valor", 184250800.0, "R$ 184.250.800,00", "Faturamento total de combustíveis via cartões magnéticos"),

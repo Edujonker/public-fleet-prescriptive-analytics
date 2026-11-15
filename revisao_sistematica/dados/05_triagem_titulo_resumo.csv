@@ -1479,12 +1479,12 @@ c7d2c2-01319;"Biblioteca exportada (export.ris); Biblioteca exportada (export.ri
 3436bd-00064;Periódicos CAPES (RIS);outros;Condition-Aware AI for Predictive Maintenance: Dual-Attention CNN-GRU with Per-Regime Scaling;2026;10.1016/j.eswa.2026.131582;1;1;0;0;excluído: CI3/CI4 (sem governança nem contexto público)
 7d71b2-00035;"Base de Dados Mestrado (BibTeX); Referências da dissertação (Overleaf); Periódicos CAPES (BibTeX); Periódicos CAPES (BibTeX)";outros;Dermatologist-like explainable AI enhances trust and confidence in diagnosing melanoma;2024;10.1038/s41467-023-43095-4;0;1;0;0;excluído: CI1 (sem analítica para decisão)
 7d71b2-00039;"Base de Dados Mestrado (BibTeX); Referências da dissertação (Overleaf); Periódicos CAPES (BibTeX); Periódicos CAPES (BibTeX)";outros;Explainable Artificial Intelligence (XAI) 2.0: A manifesto of open challenges and interdisciplinary research directions;2024;10.1016/j.inffus.2024.102301;0;1;0;0;excluído: CI1 (sem analítica para decisão)
-ea649a-00002;Referências da dissertação (Overleaf);outros;Lei Federal nº 14.133, de 1º de abril de 2021;2021;;0;0;0;0;excluído: CI2 (sem explicabilidade)
-ea649a-00005;Referências da dissertação (Overleaf);outros;Cartilha de Gestão de Frota por Indicadores (GFI);2026;;0;0;0;0;excluído: CI2 (sem explicabilidade)
-ea649a-00007;Referências da dissertação (Overleaf);outros;Predictive Maintenance and Prescriptive Analytics in Fleet Operations: A Comprehensive Review;2025;;1;0;0;0;excluído: CI2 (sem explicabilidade)
-ea649a-00009;Referências da dissertação (Overleaf);outros;Optimal replacement and condition-based maintenance policies for degrading systems;2023;;0;0;0;0;excluído: CI2 (sem explicabilidade)
-ea649a-00012;Referências da dissertação (Overleaf);outros;From predictive to prescriptive analytics;2020;;1;0;0;0;excluído: CI2 (sem explicabilidade)
-ea649a-00013;Referências da dissertação (Overleaf);outros;Leakage and the reproducibility crisis in machine-learning-based science;2023;;0;0;0;0;excluído: CI2 (sem explicabilidade)
+1953b4-00002;Referências da dissertação (Overleaf);outros;Lei Federal nº 14.133, de 1º de abril de 2021;2021;;0;0;0;0;excluído: CI2 (sem explicabilidade)
+1953b4-00005;Referências da dissertação (Overleaf);outros;Cartilha de Gestão de Frota por Indicadores (GFI);2026;;0;0;0;0;excluído: CI2 (sem explicabilidade)
+1953b4-00007;Referências da dissertação (Overleaf);outros;Predictive Maintenance and Prescriptive Analytics in Fleet Operations: A Comprehensive Review;2025;;1;0;0;0;excluído: CI2 (sem explicabilidade)
+1953b4-00009;Referências da dissertação (Overleaf);outros;Optimal replacement and condition-based maintenance policies for degrading systems;2023;;0;0;0;0;excluído: CI2 (sem explicabilidade)
+1953b4-00012;Referências da dissertação (Overleaf);outros;From predictive to prescriptive analytics;2020;;1;0;0;0;excluído: CI2 (sem explicabilidade)
+1953b4-00013;Referências da dissertação (Overleaf);outros;Leakage and the reproducibility crisis in machine-learning-based science;2023;;0;0;0;0;excluído: CI2 (sem explicabilidade)
 ed0239-00002;Busca OpenAlex + Semantic Scholar;outros;Clinical Decision Support Systems for Dementia Management Using Predictive Analytics and Explainable AI;2026;10.62446/averroes.030105;1;1;1;0;excluído: estudo secundário (contexto/snowballing)
 ed0239-00003;Busca OpenAlex + Semantic Scholar;outros;Explainable Artificial Intelligence for Risk Assessment and Decision Support in Industrial Equipment Management;2026;;1;1;0;0;"segue para texto completo (sem resumo; XAI no título)"
 ed0239-00005;Busca OpenAlex + Semantic Scholar;outros;An Explainable AI (XAI) Framework for Anomaly Detection in Financial Transactions;2026;;1;1;0;0;"segue para texto completo (sem resumo; XAI no título)"

@@ -16,6 +16,7 @@ Diretrizes:
   3. painel_veiculo_mes_longitudinal.parquet (granularidade veículo-mês para ML)
 """
 
+import re
 import sys
 import json
 import hashlib
@@ -272,15 +273,24 @@ def executar_preprocessamento():
     df_pat["veiculo_id"] = df_pat["ds_placa"].apply(anonymize_plate)
     df_pat = df_pat.drop_duplicates(subset=["veiculo_id"])
 
+    def _valor_monetario(txt):
+        """Converte 'R$ 48,010.00' (formato do relatório patrimonial) e 'R$ 48.010,00' em 48010.0.
+        O separador decimal é o último '.' ou ',' seguido de 1 ou 2 dígitos."""
+        s = str(txt).replace("R$", "").replace(" ", "").strip()
+        if not s or s.lower() == "nan":
+            return float("nan")
+        m = re.search(r"[.,](\d{1,2})$", s)
+        inteiro, dec = (s[:m.start()], m.group(1)) if m else (s, "0")
+        inteiro = re.sub(r"[.,]", "", inteiro)
+        try:
+            return float(f"{inteiro}.{dec}")
+        except ValueError:
+            return float("nan")
+
     for c in ["patrimonio_valor_entrada", "patrimonio_valor_liquido"]:
-        df_pat[c] = (
-            df_pat[c].astype(str)
-            .str.replace("R$", "", regex=False)
-            .str.strip()
-            .str.replace(".", "", regex=False)
-            .str.replace(",", ".", regex=False)
-        )
-        df_pat[c] = pd.to_numeric(df_pat[c], errors="coerce").fillna(0.0)
+        # Correção (15/11/2026): a versão anterior tratava o formato americano como brasileiro
+        # e dividia os valores por cerca de mil (R$ 48,010.00 virava 48,01).
+        df_pat[c] = df_pat[c].map(_valor_monetario).fillna(0.0)
 
     df_pat["patrimonio_estado_conservacao"] = df_pat["patrimonio_estado_conservacao"].fillna("REGULAR")
 

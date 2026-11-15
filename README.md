@@ -63,7 +63,7 @@ Conforme deliberado no trabalho, algoritmos não supervisionados não medem prec
 | **Random Forest** | 0,9081 | 0,8016 | 0,1362 | 0,0660 | 0,8873 |
 | **Árvore de Decisão** | 0,9041 | 0,7905 | 0,1378 | 0,1303 | 0,8837 |
 | **Extra Trees** | 0,8796 | 0,7631 | 0,1710 | 0,2381 | 0,8777 |
-| **Regressão Logística** | 0,8660 | 0,7366 | 0,1673 | 0,2258 | 0,8750 |
+| **Regressão Logística** | 0,8660 | 0,8292 | 0,1673 | 0,2258 | 0,8750 |
 | *Baseline Ingênuo* | 0,7924 | 0,5000 | 0,1873 | 0,0390 | 0,0000 |
 
 ---
@@ -74,7 +74,7 @@ Conforme deliberado no trabalho, algoritmos não supervisionados não medem prec
 
 | Modelo Não Linear | MAE (R$) 🏆 | RMSE (R$) | $R^2$ Fora da Amostra | sMAPE (%) |
 | :--- | :---: | :---: | :---: | :---: |
-| **HistGradientBoosting** | **R$ 2.311,82** | **R$ 4.363,75** | **0,0994** | **98,51%** |
+| **HistGradientBoosting** | **R$ 2.223,84** | **R$ 4.363,75** | **0,0994** | **98,51%** |
 | **Random Forest** | R$ 2.353,31 | R$ 4.426,50 | 0,0734 | 99,87% |
 | **Extra Trees** | R$ 2.354,89 | R$ 4.441,20 | 0,0672 | 100,96% |
 | **Árvore de Regressão** | R$ 2.407,47 | R$ 4.566,07 | 0,0140 | 101,13% |
@@ -87,7 +87,7 @@ Conforme deliberado no trabalho, algoritmos não supervisionados não medem prec
 | Tarefa | Métrica | Espaço $M$ (Manutenção) | Espaço $M+P$ (Integrado) | Ganho Marginal ($\Delta$) |
 | :--- | :---: | :---: | :---: | :---: |
 | **Classificação de Risco** | PR-AUC | 0,9060 | **0,9099** | **+0,43%** |
-| **Regressão de Custos** | MAE (R$) | R$ 2.321,28 | **R$ 2.311,82** | **-R$ 9,47/mês (+0,41%)** |
+| **Regressão de Custos** | MAE (R$) | R$ 2.237,81 | **R$ 2.223,84** | **-R$ 13,97/mês (+0,62%)** |
 
 ---
 
@@ -127,16 +127,16 @@ A integridade metodológica e o fechamento numérico exato ao centavo foram cert
 | **ID da Execução** | `RUN-20261022-092850-V1` | `RUN-20261022-093629-V2` | `RUN-20261022-105340-V1` | Rastreabilidade Estrita |
 | **Sistema Operacional** | Linux 7.0 (x86_64) | Linux 7.0 (x86_64) | Windows 11 Pro (AMD64) | Cross-Platform |
 | **Interpretador Python** | Python 3.14.4 | Python 3.14.4 | Python 3.15.1 | Multi-Versão |
-| **Economia Prescritiva E5** | **R$ 9.302.147,26** | **R$ 9.302.147,26** | **R$ 9.302.147,26** | **R$ 0,00 (Exato ao Centavo)** |
-| **Percentual de Economia** | **17,51%** | **17,51%** | **17,51%** | **0,0000%** |
-| **Solução Inteira MIP (E5)**| R$ 43.837.633,31 | R$ 43.837.633,31 | R$ 43.837.633,31 | **R$ 0,00 (Exato)** |
-| **Limite Dual (Relaxação LP)**| R$ 43.837.384,79 | R$ 43.837.384,79 | R$ 43.837.384,79 | **R$ 0,00 (Exato)** |
-| **Gap Poliedral (MIP - LP)** | 0,00057% (R$ 248,52) | 0,00057% (R$ 248,52) | 0,00057% (R$ 248,52) | **0,0000%** |
+| **Economia Prescritiva E5** | **R$ 6.990.613,11** | **R$ 6.990.613,11** | **R$ 6.990.613,11** | **R$ 0,00 (Exato ao Centavo)** |
+| **Percentual de Economia** | **13,66%** | **13,66%** | **13,66%** | **0,0000%** |
+| **Solução Inteira MIP (E5)**| R$ 44.190.120,51 | R$ 44.190.120,51 | R$ 44.190.120,51 | **R$ 0,00 (Exato)** |
+| **Limite Dual (Relaxação LP)**| R$ 44.189.843,21 | R$ 44.189.843,21 | R$ 44.189.843,21 | **R$ 0,00 (Exato)** |
+| **Gap Poliedral (MIP - LP)** | 0,00063% (R$ 277,30) | 0,00063% (R$ 277,30) | 0,00063% (R$ 277,30) | **0,0000%** |
 | **Solver Gap HiGHS** | 0,0000% | 0,0000% | 0,0000% | **0,0000%** |
 | **Regras Mandatórias** | 100,00% | 100,00% | 100,00% | **0,00%** |
-| **HistGB ROC-AUC / PR-AUC**| 0,8743 / 0,9510 | 0,8743 / 0,9510 | 0,8743 / 0,9510 | **0,0000** |
+| **HistGB ROC-AUC / PR-AUC**| 0,8737 / 0,9510 | 0,8737 / 0,9510 | 0,8737 / 0,9510 | **0,0000** |
 | **Louvain $Q$ (Rede Oficinas)**| 0,5646 (18 comunidades)| 0,5646 (18 comunidades)| 0,5646 (18 comunidades)| **0,0000** |
-| **XAI Jaccard Top-5 / $\rho$**| 39,29% / 0,3680 | 39,29% / 0,3680 | 39,29% / 0,3680 | **0,0000** |
+| **XAI Jaccard Top-5 / $\rho$**| 45,48% / 0,2869 | 45,48% / 0,2869 | 45,48% / 0,2869 | **0,0000** |
 | **Checkpoints Validados** | **20 de 20 (100% PASS)**| **20 de 20 (100% PASS)**| **20 de 20 (100% PASS)**| **100% PASS (Zero Drift)** |
 | **Testes Unitários Pytest**| 7/7 PASSED (0.55s) | 7/7 PASSED (0.49s) | 7/7 PASSED (0.66s) | **100% PASSED** |
 
@@ -994,7 +994,7 @@ dados/Geral_de_OS_*.csv  +  dados/Cruzamento_Patrimonio*.csv
      │
      ├──▶ Script 07  →  XAI (SHAP + LIME + Permutação)        →  charts/fig13, fig31
      │
-     ├──▶ Script 08  →  MILP (HiGHS) — Economia 17,51%        →  charts/fig14-15, fig32
+     ├──▶ Script 08  →  MILP (HiGHS) — Economia 13,66%        →  charts/fig14-15, fig32
      │
      └──▶ Script 09  →  Wilcoxon + Holm-Bonferroni            →  Tabela de p-valores
               │

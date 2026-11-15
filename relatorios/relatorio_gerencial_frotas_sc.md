@@ -6,7 +6,7 @@
 - **Gasto Total Aprovado em Processos com Anomalias:** R$ 25.347.627,57
 - **Valor Orçado Inicialmente pelas Oficinas:** R$ 47.763.762,10
 - **Economia Obtida por Glosas e Reprovações Prévias:** R$ 22.520.222,79 (46,9% de corte)
-- **Veículos Antieconômicos Identificados para Leilão Imediato:** 313 veículos
+- **Veículos Antieconômicos Identificados para Leilão Imediato:** 242 veículos
 - **Economia Potencial Prescritiva Anual (MILP):** R$ 5,42 Milhões / ano
 
 ## 2. Custos e Processos Anômalos por Secretaria e Órgão

@@ -1,0 +1,49 @@
+PAGINA 274 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+Ze TA ESTADO DE SANTA CATARINA Desdobramento Receita
+Rar ORÇAMENTO DA SEGURIDADE SOCIAL
+Ano Base: 2026
+Em R$ 1,00
+CÓDIGO ESPECIFICAÇÃO DESDOBRAMENTO FONTE CATEG. ECONOM.
+7.9.0.0.00.0.0.00 Outras Receitas Correntes 458.287
+7.9.2.0.00.0.0.00 Indenizações, Restituições e Ressarcimentos 458.287
+7.9.2.3.00.0.0.00 Ressarcimentos 458.287
+7.9.2.3.50.0.0.00 Ressarcimento por Pagamento de Pessoal Cedido 458.287
+7.9.2.3.50.0.1.08 Ressarcimento por Pagamento de Pessoal Cedido - FR 1.802.250 458.287
+155
+Ze TA ESTADO DE SANTA CATARINA Demonstrativo das Receitas Diretamente Arrecadadas por Órgão / Unidade Orçamentária
+Ano Base: 2026
+Em R$ 1,00
+ÓRGÃO / UNIDADE ORÇAMENTÁRIA / RECEITAS TOTAL D[ FR | VALOR
+01000 Assembleia Legislativa do Estado 19.999.997
+1 501.260.000 926.845
+1 501.269.000 11.027
+1 501.281.000 19.062.125
+01001 Assembleia Legislativa do Estado de Santa Catarina (ALESC) 19.999.997
+1 501.260.000 926.845
+1 501.269.000 11.027
+1 501.281.000 19.062.125
+1.3.1.1.01.1.1.02 Aluguéis de Salas - FR 1.501.260 1 501.260.000 15.139
+1.3.2.1.01.1.1.22 Remuneração de Depósitos Bancários- Não Vinc.-Legislativo - FR 1.501.281 1 501.281.000 19.062.125
+1.3.6.1.01.1.1.02 Cessão Direito de Operacionalização de Pagamentos - Poder Legislativo- FR 1.501.260 1 501.260.000 911.706
+1.9.2.1.01.0.1.02 Indenizações por Danos ao Patrimônio Público - FR 1.501.269 1 501.269.000 4.409
+1.9.2.3.99.0.1.73 Outros Ressarcimentos - FR 1.501.269 1 501.269.000 6.618
+02000 Tribunal de Contas do Estado 25.530.000
+1 501.260.000 530.000
+1 501.281.000 25.000.000
+02001 Tribunal de Contas do Estado de Santa Catarina (TCE/SC) 25.530.000
+1 501.260.000 530.000
+1 501.281.000 25.000.000
+1.3.2.1.01.1.1.23 Remuneração de Depósitos Bancários- Não Vinc.-Tribunal de Contas - FR 1.501.281 1 501.281.000 25.000.000
+1.3.6.1.01.1.1.02 Cessão Direito de Operacionalização de Pagamentos - Poder Legislativo- FR 1.501.260 1 501.260.000 530.000
+03000 Tribunal de Justiça do Estado 1.625.327.528
+1 501.240.000 5.866.420
+1 501.260.000 6.010.488
+1 501.269.000 24.417.537
+1 501.282.000 38.848.539
+1 703.228.000 4.860.000
+1 753.219.000 83.584.352
+1 760.212.000 106.681.151
+156
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

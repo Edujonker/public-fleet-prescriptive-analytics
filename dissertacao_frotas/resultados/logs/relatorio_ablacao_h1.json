@@ -1,0 +1,132 @@
+{
+  "script": "04b_ablacao_h1.py",
+  "gerado_em": "2026-11-15T15:27:30",
+  "painel": "dados/processados/painel_veiculo_mes_longitudinal.parquet",
+  "n_treino": 37524,
+  "n_teste": 4754,
+  "corte_temporal": "treino <= 2024-12; teste >= 2025-01",
+  "atributos_M": [
+    "custo_mes",
+    "vl_pecas_mes",
+    "vl_mo_mes",
+    "qtd_os_mes",
+    "qtd_corretivas_mes",
+    "qtd_preventivas_mes",
+    "km_max",
+    "idade_veiculo",
+    "custo_lag1",
+    "custo_lag2",
+    "os_lag1",
+    "corretivas_lag1",
+    "km_diff"
+  ],
+  "atributos_P": [
+    "patrimonio_valor_entrada",
+    "patrimonio_valor_liquido"
+  ],
+  "diagnostico_patrimonio": {
+    "pct_nao_zero_entrada": 0.8529495245754293,
+    "pct_nao_zero_liquido": 0.21857703770282416,
+    "mediana_entrada_nao_zero": 96500.0,
+    "valores_distintos_entrada": 1064
+  },
+  "abastecimento": "não testado: a base de abastecimentos cobre jan/2019 a fev/2022 e não se sobrepõe ao teste (2025–2026)",
+  "semente_referencia": 42,
+  "mae_M": 2237.811046141934,
+  "mae_MP": 2223.836813707964,
+  "delta_mae_reais": 13.974232433969973,
+  "ganho_mae_pct": 0.006244598916455456,
+  "ic95_ganho_bootstrap_pareado": [
+    -0.0025622829554185424,
+    0.015195495711215385
+  ],
+  "wilcoxon_pareado": {
+    "estatistica": 5119098.5,
+    "p_valor": 1.8688798283012916e-08
+  },
+  "estresse_sementes": {
+    "ganho_min": -0.0006336419811128036,
+    "ganho_max": 0.012435750506058964,
+    "ganho_medio": 0.004008298691074403,
+    "por_semente": [
+      {
+        "semente": 42,
+        "mae_M": 2237.811046141934,
+        "roc_auc_M": 0.8642151533758988,
+        "pr_auc_M": 0.948034039604952,
+        "f1_M": 0.912018549529821,
+        "mae_MP": 2223.836813707964,
+        "roc_auc_MP": 0.8736998502478117,
+        "pr_auc_MP": 0.9509903144278192,
+        "f1_MP": 0.911119761256001,
+        "ganho_mae_pct": 0.006244598916455456
+      },
+      {
+        "semente": 7,
+        "mae_M": 2207.1833311916666,
+        "roc_auc_M": 0.8629371949347419,
+        "pr_auc_M": 0.9446444423551338,
+        "f1_M": 0.9108272035101304,
+        "mae_MP": 2206.9344767658868,
+        "roc_auc_MP": 0.8756402845918156,
+        "pr_auc_MP": 0.9514337392578931,
+        "f1_MP": 0.9118179467287303,
+        "ganho_mae_pct": 0.00011274751048682699
+      },
+      {
+        "semente": 101,
+        "mae_M": 2216.0555841115015,
+        "roc_auc_M": 0.8613482970648988,
+        "pr_auc_M": 0.9438116793359486,
+        "f1_M": 0.9085507620769827,
+        "mae_MP": 2217.459769962074,
+        "roc_auc_MP": 0.8742334860095532,
+        "pr_auc_MP": 0.9504192070497874,
+        "f1_MP": 0.9100337049520353,
+        "ganho_mae_pct": -0.0006336419811128036
+      },
+      {
+        "semente": 2024,
+        "mae_M": 2230.7458629208095,
+        "roc_auc_M": 0.8625429728211266,
+        "pr_auc_M": 0.9446669937283072,
+        "f1_M": 0.9094660820221822,
+        "mae_MP": 2203.004863927103,
+        "roc_auc_MP": 0.8737472352237198,
+        "pr_auc_MP": 0.9507037770537802,
+        "f1_MP": 0.912829798241076,
+        "ganho_mae_pct": 0.012435750506058964
+      },
+      {
+        "semente": 31337,
+        "mae_M": 2216.272761855807,
+        "roc_auc_M": 0.8620675566165613,
+        "pr_auc_M": 0.9455731744054281,
+        "f1_M": 0.9108222879938231,
+        "mae_MP": 2212.1016511837724,
+        "roc_auc_MP": 0.875708947118889,
+        "pr_auc_MP": 0.9528431300477217,
+        "f1_MP": 0.9128191900954347,
+        "ganho_mae_pct": 0.00188203850348357
+      }
+    ]
+  },
+  "classificacao_semente42": {
+    "roc_auc_M": 0.8642151533758988,
+    "roc_auc_MP": 0.8736998502478117,
+    "pr_auc_M": 0.948034039604952,
+    "pr_auc_MP": 0.9509903144278192,
+    "f1_M": 0.912018549529821,
+    "f1_MP": 0.911119761256001
+  },
+  "dif_roc_auc_MP_menos_M": 0.00948469687191289,
+  "ic95_dif_roc_auc": [
+    0.004461126444780741,
+    0.014552099740590982
+  ],
+  "criterio_anteprojeto": "IC95 da diferença M+P − M exclui zero a favor de M+P em MAE ou ROC-AUC",
+  "h1_sustentada_anteprojeto": true,
+  "meta_h1": 0.15,
+  "h1_sustentada_limiar": false,
+  "h1_sustentada": false
+}

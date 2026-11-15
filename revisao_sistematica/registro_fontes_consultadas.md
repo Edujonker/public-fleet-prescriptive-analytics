@@ -1,6 +1,6 @@
 # Registro das fontes consultadas
 
-Gerado por `scripts/rsl_prisma.py` em 14/11/2026. Data-limite do protocolo: 14/11/2026. Período coberto: 2020–2026.
+Gerado por `scripts/rsl_prisma.py` em 15/11/2026. Data-limite do protocolo: 14/11/2026. Período coberto: 2020–2026.
 
 ## 1. Bases de dados (PRISMA: *databases*)
 
@@ -22,7 +22,7 @@ Gerado por `scripts/rsl_prisma.py` em 14/11/2026. Data-limite do protocolo: 14/1
 | Periódicos CAPES (RIS) | documentos_academicos/Periodicos-CAPES-RIS (1).ris | 2026-11-01 16:44 | 30 | — |
 | Base de Dados Mestrado (BibTeX) | documentos_academicos/Base de Dados Mestrado.bib | 2026-11-01 16:44 | 60 | Base BibTeX do mestrado |
 | Base de Dados Mestrado (BibTeX) | documentos_academicos/Base.mestrado.bib | 2026-11-01 16:44 | — | — |
-| Referências da dissertação (Overleaf) | overleaf_dissertacao_udesc/referencias.bib | 2026-11-12 10:51 | 81 | Referências do texto da dissertação |
+| Referências da dissertação (Overleaf) | overleaf_dissertacao_udesc/referencias.bib | 2026-11-14 21:59 | 83 | Referências do texto da dissertação |
 | Busca OpenAlex + Semantic Scholar | artigos/resultados.csv | 2026-11-14 15:57 | 880 | Busca complementar por API, 14/11/2026 (consulta diferente da do protocolo) |
 | Periódicos CAPES (BibTeX) | documentos_academicos/Periodicos-CAPES-BibTex (1).bib | 2026-11-01 16:44 | 30 | Buscas exploratórias no Portal CAPES |
 | Periódicos CAPES (BibTeX) | documentos_academicos/Periodicos-CAPES-BibTex (2).bib | 2026-11-01 16:44 | 30 | Buscas exploratórias no Portal CAPES |

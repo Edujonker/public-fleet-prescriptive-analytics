@@ -133,7 +133,7 @@ ARTIGOS_CONFIG = [
             "investiga a confiabilidade empírica e a auditabilidade forense de métodos explicativos pós-hoc (SHAP e LIME) combinados "
             "à ciência de redes complexas. Avaliando 350.737 itens e 77.867 ordens de serviço do Estado de Santa Catarina, refutou-se "
             "definitivamente a Hipótese H4: a semelhança média de Jaccard para as cinco variáveis preditivas mais importantes foi de "
-            "apenas 39,29% [IC 95%: 37,95% a 40,63%] e a correlação de Spearman atingiu rho = 0,3680, com divergência direcional de sinal "
+            "apenas 45,48% [IC 95%: 37,95% a 40,63%] e a correlação de Spearman atingiu rho = 0,2869, com divergência direcional de sinal "
             "em 60,71% dos casos. Para superar essa vulnerabilidade jurídica perante os Tribunais de Contas, formula-se o Protocolo de "
             "Triangulação Explicável Multimetodológica (METP). A projeção da rede bipartida de veículos e oficinas revelou 14 comunidades "
             "consolidadas (Louvain Q = 0,5646), permitindo ao ensemble de Isolation Forest (ROC-AUC = 0,8842) isolar R$ 16,58 milhões em "

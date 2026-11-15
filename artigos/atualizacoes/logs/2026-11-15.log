@@ -1,0 +1,64 @@
+=== 2026-11-15 09:36:18 início da busca diária ===
+Consulta: ("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability") 
+
+▶ OpenAlex
+   [OpenAlex] erro de rede (ConnectionError); nova tentativa em 2s
+   [OpenAlex] erro de rede (ConnectionError); nova tentativa em 4s
+   OpenAlex: 1243 trabalhos correspondem à consulta
+   300 registros recebidos
+▶ Semantic Scholar
+   Semantic Scholar: 980 trabalhos correspondem à consulta
+   300 registros recebidos
+
+480 registros únicos após unir as fontes (322 com os 3 grupos confirmados no título/resumo)
+Inéditos nesta execução (nunca vistos antes): 0
+   [  1] 2026_hakiki_Algorithmic_Gharar_in_Islamic_Banking_Reconstructing_Transparency_and.pdf
+   [  2] 2026_blaga_Artificial_Intelligence_and_Genomic_Data_Analysis_New_Frontiers_in_Pre.pdf
+   [  3] 2026_tiwari_Modular_Differentiable_Explanations_for_Markov_Disease_Models_A_Transp.pdf
+   [  4] 2026_sapra_AI_Driven_Decision_Support_Systems_for_Clinical_Diagnosis.pdf
+   [  5] 2026_suresh_Fraud_Detection_in_Smart_Cities_Using_IoT_AI_and_Big_Data_Analytics.pdf
+   [  6] 2026_jogi_Ethical_Privacy_and_Security_Challenges_in_AI_Based_Behavioral_and_Fra.pdf
+   [  7] 2026_ehsan_A_Multi_Layer_AI_Governance_Framework_for_Enhancing_Fraud_Detection_an.pdf
+   [  8] 2026_joseph_Deep_Learning_Approaches_to_Cryptographic_Key_Management.pdf
+   [  9] 2026_sihotang_A_Foundational_Framework_for_Intelligent_Data_Driven_Decision_Support.pdf
+   [ 10] 2026_harmana_Artificial_Intelligence_AI_in_tax_accounting_Opportunities_challenges.pdf
+   [ 11] 2026_iweriebor_Insider_Threats_and_Identity_Based_Cyberattacks_in_Financial_Services.pdf
+   [ 12] 2026_borges_Artificial_Intelligence_Data_Science_and_the_Future_of_Criminology_Ret.pdf
+   [ 13] 2026_prathibha_INTEGRATING_REINFORCEMENT_LEARNING_WITH_EXPLAINABLE_AI_FOR_REAL_TIME_D.pdf
+   [ 14] 2026_eseza_Artificial_Intelligence_in_Finance_A_Systematic_Review_of_Applications.pdf
+   [ 15] 2026_shah_Artificial_Intelligence_in_the_Pharmaceutical_Industry_A_Literature_Re.pdf
+   [ 16] 2026_wang_Regulating_short_form_video_addiction_a_three_tiered_legal_framework_f.pdf
+   [ 17] 2026_florentino_Inteligencia_artificial_na_gestao_publica_potencialidades_desafios_e_p.pdf
+   [ 18] 2026_patowary_Ethical_AI_in_Human_Resource_and_Financial_DecisionMaking_A_Benchmark.pdf
+   [ 19] 2026_tulasi_Comprehensive_Approach_to_Intelligent_Intrusion_Detection_in_Cyber_Sec.pdf
+   [ 20] 2026_desai_From_Digital_Agricultural_Governance_to_Intelligent_Precision_Farming.pdf
+   [ 21] 2026_upadhyay_Ethical_and_Regulatory_Challenges_in_Cybersecurity_A_Survey_of_Data_Go.pdf
+   [ 22] 2026_azam_AI_Driven_Sharia_Governance_in_Islamic_Digital_Payment_Systems_Develop.pdf
+   [ 23] 2026_alanezi_Generative_Artificial_Intelligence_in_Healthcare_Automation_Bias_Deski.pdf
+   [ 24] 2026_hirapara_Implementing_a_Hybrid_VMDBiTCNBiGRU_Architecture_With_Intelligent_Opti.pdf
+   [ 25] 2026_villaronte_Artificial_Intelligence_in_the_Financial_Sector_Enhancing_CSR_Transpar.pdf
+   [ 26] 2026_xu_From_assistant_to_autonomous_legal_liability_and_ethical_traceability.pdf
+   [ 27] 2026_majomi_Enhancing_Anti_Money_Laundering_Effectiveness_through_AI_Enabled_Detec.pdf
+   [ 28] 2026_ulum_PERLINDUNGAN_KONSUMEN_PADA_FINTECH_SYARIAH_BERBASIS_ARTIFICIAL_INTELLI.pdf
+   [ 29] 2026_carter_Accountability_and_Equity_in_Machine_Assisted_Distribution_Strategies.pdf
+   [ 30] 2026_poma_Riesgos_y_desafios_para_el_contribuyente_con_la_aplicacion_de_big_data.pdf
+   [ 31] 2026_bindusri_High_Accuracy_and_Interpretable_Anaemia_Diagnosis_Using_Hybrid_Ensembl.pdf
+   [ 32] 2026_kandil_Explainable_AI_Framework_for_Early_Prediction_of_Cost_Overruns_in_U_S.pdf
+   [ 33] 2026_ginting_Trustworthy_NLP_Systems_for_Educational_Decision_Support_A_Human_Cente.pdf
+   [ 34] 2026_sem_titulo_Explainable_Deep_Learning_Models_for_Engineering_Systems_Bridging_Accu.pdf
+   [ 35] 2026_anon_Nowe_wektory_zarzadzania_Ekonomia_behawioralna_dla_swiadomych_i_roznor.pdf
+   [ 36] 2026_banisetti_Explainability_preserving_Privacy_aware_Multi_teacher_Distillation_for.pdf
+   [ 37] 2026_susanto_Explainable_AI_XAI_for_Credit_Scoring_Models_in_FinTech_SHAP_Value_Int.pdf
+   [ 38] 2026_kapadiya_A_Comprehensive_Review_of_Explainable_Generative_AI_for_Healthcare_Int.pdf
+   [ 39] 2026_kadam_A_Study_on_AI_Technologies_and_Their_Role_in_Modern_Cybersecurity_Thre.pdf
+   [ 40] 2026_singh_Artificial_intelligence_adoption_in_human_resource_management_a_system.pdf
+   [ 41] 2026_lilian_Explainable_AI_for_Memory_Artifact_Triage_in_Serverless_Cloud_Forensic.pdf
+   [ 42] 2026_pan_Explainability_and_Human_Oversight_for_AI_Generated_Exercise_Guidance.pdf
+   [ 43] 2026_bensi_Explainable_AI_assisted_Compliance_Verification_and_Fraud_Flagging_Sys.pdf
+   [ 44] 2026_singh_Justice_in_the_Age_of_Algorithms_Artificial_Intelligence_Data_Privacy.pdf
+
+PDFs baixados nesta execução: 44
+Inéditos: 0 (lista em novos.csv)
+Relatórios: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos/atualizacoes/2026-11-15
+PDFs:       /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos
+=== 2026-11-15 09:44:27 fim (código 0) ===

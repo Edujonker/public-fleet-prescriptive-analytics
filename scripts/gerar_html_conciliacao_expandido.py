@@ -362,7 +362,7 @@ def gerar_html():
         <li><strong>O Catálogo das Obras Norteadoras:</strong> Articula os pilares da metodologia científica e integridade dedutiva (Volpato, 2015, 2017), prevenção ao vazamento temporal em aprendizado de máquina (Bergmeir & Benítez, 2012; Kapoor & Narayanan, 2023), testes não paramétricos de discriminação (DeLong, DeLong & Clarke-Pearson, 1988), teoria matemática da prescrição (Bertsimas & Kallus, 2020; Cao, Luo & Dong, 2023; Zheng, Wang & Zhang, 2022), políticas de manutenção oportunística (Chien, Sheu & Zhang, 2012; Hu, Zhang & Liang, 2020), explicabilidade algorítmica confiável (Rudin, 2019; Lundberg & Lee, 2017; Ribeiro, Singh & Guestrin, 2016) e os marcos regulatórios estaduais e federais (Decretos SC nº 1.488/2008 e nº 2.056/2009; Cartilha GFI SEA/SC, 2026; Decreto MG nº 47.539/2018; Lei Complementar nº 101/2000 - LRF; Lei nº 14.133/2021; Lei nº 13.709/2018 - LGPD);</li>
         <li><strong>O Ecossistema Dual de Atores:</strong> Identifica com precisão os <em>Atores Epistêmicos/Teóricos</em> (pesquisadores internacionais cujos postulados foram submetidos à prova de fogo empírica) e os <em>Atores Institucionais e Mercadológicos</em> (Secretaria de Estado da Administração — SEA/SC, Tribunal de Contas do Estado — TCE-SC, fiscais técnicos, a rede credenciada de 1.039 oficinas mecânicas, distribuidores atacadistas de autopeças e as corporações finalísticas como PMSC, CBMSC, SAMU e Polícia Civil);</li>
         <li><strong>A Teoria de Mercado e Economia dos Contratos Públicos:</strong> Modela formalmente o problema do agente-principal e o risco moral inerente aos R$ 198,81 milhões orçados, demonstrando que os <strong>R$ 60,05 milhões retidos em glosas preventivas (30,2% do total cotado)</strong> representam a contenção concreta do oportunismo contratual das oficinas. Examina o dilema <em>Make-or-Buy</em> de Ronald Coase (1937) e Oliver Williamson (1985) na terceirização veicular, a "Maldição do Vencedor" (<em>Winner's Curse</em>) nos pregões de maior desconto de peças (Milgrom & Wilson, 2020), a seleção adversa de George Akerlof (1970) e o ponto ótimo de renovação de ativos aos 6 anos / 130.000 km segundo a teoria de Hotelling (1925) e Alchian (1952);</li>
-        <li><strong>A Conciliação Empírica dos Resultados:</strong> Demonstra que a prática comprovou os teoremas de otimização de Bertsimas & Kallus (2020) com 17,51% de economia líquida via MILP no HiGHS (onde R$ 4,88M decorrem estritamente da introdução do ML), corroborou as advertências de Cynthia Rudin (2019) sobre a inconsistência da interpretabilidade local pós-hoc (Jaccard Top-5 entre SHAP e LIME de apenas 39,29%) e aplicou o método de Gilson Volpato (2015, 2017) para rejeitar honestamente a Hipótese H1 diante de um ganho marginal inexpressivo (+0,41%), evitando gastos inócuos de TI pública.</li>
+        <li><strong>A Conciliação Empírica dos Resultados:</strong> Demonstra que a prática comprovou os teoremas de otimização de Bertsimas & Kallus (2020) com 13,66% de economia líquida via MILP no HiGHS (onde R$ 4,88M decorrem estritamente da introdução do ML), corroborou as advertências de Cynthia Rudin (2019) sobre a inconsistência da interpretabilidade local pós-hoc (Jaccard Top-5 entre SHAP e LIME de apenas 45,48%) e aplicou o método de Gilson Volpato (2015, 2017) para rejeitar honestamente a Hipótese H1 diante de um ganho marginal inexpressivo (+0,62%), evitando gastos inócuos de TI pública.</li>
     </ul>
 
     <div class="box-conciliacao">
@@ -407,7 +407,7 @@ def gerar_html():
             <td><strong>Comparing Correlated Receiver Operating Curves</strong></td>
             <td>Elizabeth R. DeLong, David M. DeLong & Daniel L. Clarke-Pearson (1988)<br><em>Biometrics</em></td>
             <td>Teste não paramétrico formal para comparação pareada de áreas sob a curva ROC (ROC-AUC) entre classificadores concorrentes.</td>
-            <td>Comprovou a **superioridade estatisticamente significante de H2** (*HistGradientBoosting* com ROC-AUC de 0,8743 vs baselines lineares, $p < 0,001$).</td>
+            <td>Comprovou a **superioridade estatisticamente significante de H2** (*HistGradientBoosting* com ROC-AUC de 0,8737 vs baselines lineares, $p < 0,001$).</td>
         </tr>
         <tr>
             <td><strong>From Predictive to Prescriptive Analytics</strong></td>
@@ -467,7 +467,7 @@ def gerar_html():
             <td><strong>Economic Replacement Policy & Depreciation Theory</strong></td>
             <td>Harold Hotelling (1925); Gabriel Preinreich (1940); George Terborgh (1949); Armen A. Alchian (1952)<br><em>JASA / Econometrica / Rand Corp.</em></td>
             <td>Curva em "U" do Custo Total de Posse (TCO) e determinação matemática do ponto ótimo de substituição de bens de capital.</td>
-            <td>Determinou o **ponto ótimo de renovação veicular aos 6 anos / 130.000 km** e justificou a alienação de 313 veículos hiperonerosos.</td>
+            <td>Determinou o **ponto ótimo de renovação veicular aos 6 anos / 130.000 km** e justificou a alienação de 242 veículos hiperonerosos.</td>
         </tr>
         <tr>
             <td><strong>Stop Explaining Black Box Models for High Stakes Decisions</strong></td>
@@ -485,7 +485,7 @@ def gerar_html():
             <td><strong>Fast Unfolding of Communities in Large Networks (Louvain)</strong></td>
             <td>Vincent D. Blondel et al. (2008)<br><em>J. Stat. Mech.</em></td>
             <td>Maximização gulosa de modularidade ($Q$) para identificação de partições densas e agrupamentos em redes complexas.</td>
-            <td>Mapeamento de **18 comunidades regionais de oficinas ($Q = 0,5646$)** no grafo bipartido da frota catarinense.</td>
+            <td>Mapeamento de **18 comunidades de oficinas ($Q = 0,5646$)** no grafo bipartido da frota catarinense, com $Q$ acima de 30 redes nulas de mesmos graus ($Q_{nulo} = 0,392$; $z = 39,9$).</td>
         </tr>
         <tr>
             <td><strong>Isolation Forest</strong></td>
@@ -503,7 +503,7 @@ def gerar_html():
             <td><strong>Legislação Fiscal, Licitatória e Patrimonial Comparada</strong></td>
             <td>Brasil (LC nº 101/2000 - LRF; Lei nº 14.133/2021; Lei nº 13.709/2018 - LGPD); Minas Gerais (Decreto nº 47.539/2018)<br><em>DOU / DOE-MG</em></td>
             <td>Responsabilidade fiscal, licitações, proteção de dados e parâmetro de antieconomicidade veicular (>40% do valor venal).</td>
-            <td>Fundamentou os limites da LOA, a vantajosidade de procurement centralizado, a anonimização de dados e o leilão de 313 veículos.</td>
+            <td>Fundamentou os limites da LOA, a vantajosidade de procurement centralizado, a anonimização de dados e o leilão de 242 veículos.</td>
         </tr>
     </table>
 </div>
@@ -535,7 +535,7 @@ def gerar_html():
             <td><strong>Prof. Dr. Dimitris Bertsimas & Dr. Nathan Kallus</strong></td>
             <td>MIT (Sloan School of Management) & Cornell Tech (EUA)</td>
             <td>Criadores da Analítica Prescritiva orientada a dados com otimização exata acoplada (Bertsimas & Kallus, 2020).</td>
-            <td>Estruturou o modelo MILP resolvido com HiGHS, gerando R$ 9,30M de economia simulada na LOA.</td>
+            <td>Estruturou o modelo MILP resolvido com HiGHS, gerando R$ 6,99 mi de economia simulada na LOA.</td>
         </tr>
         <tr>
             <td><strong>Profs. Michael Jensen & William Meckling</strong></td>
@@ -624,13 +624,13 @@ def gerar_html():
             <td><strong>Secretaria de Estado da Administração (SEA/SC)</strong></td>
             <td>Poder Executivo Estadual (Órgão Central de Logística)</td>
             <td>Gestão centralizada de contratos de manutenção de frota, abastecimento e credenciamento (Decretos nº 1.488/2008 e nº 2.056/2009).</td>
-            <td>Disponibilização de prescrição MILP To-Be com potencial de economizar R$ 9,30M e compras centralizadas de atacado.</td>
+            <td>Disponibilização de prescrição MILP To-Be com potencial de economizar R$ 6,99 mi e compras centralizadas de atacado.</td>
         </tr>
         <tr>
             <td><strong>Diretoria de Gestão Patrimonial (DGP / SEA-SC)</strong></td>
             <td>Unidade Técnica Executiva da SEA/SC</td>
             <td>Aplicação da Cartilha GFI (SEA/SC, 2026), fiscalização de contratos e gestão de desincorporações e leilões.</td>
-            <td>Matriz automatizada dos 38 indicadores GFI e triagem preditiva de 313 viaturas para alienação econômica.</td>
+            <td>Matriz automatizada dos 38 indicadores GFI e triagem preditiva de 242 viaturas para alienação econômica.</td>
         </tr>
         <tr>
             <td><strong>Tribunal de Contas do Estado (TCE-SC)</strong></td>
@@ -660,7 +660,7 @@ def gerar_html():
             <td><strong>Órgãos Setoriais (PMSC, CBMSC, SAMU, Polícia Civil)</strong></td>
             <td>Unidades Finalísticas do Estado</td>
             <td>Operação diária de veículos de emergência, policiamento ostensivo e fiscalização pública.</td>
-            <td>Garantia de **95,26% de disponibilidade física média** e 100% de cumprimento compulsório de manutenções de segurança.</td>
+            <td>100% de cumprimento das manutenções obrigatórias no cenário S0 (instância semissintética).</td>
         </tr>
         <tr>
             <td><strong>Sociedade Catarinense / Cidadãos</strong></td>
@@ -724,7 +724,7 @@ def gerar_html():
         <li><strong>Oligopsônio e Monopsônio Regional:</strong> No plano estadual agregado, o Governo de Santa Catarina atua como um megacomprador (oligopsônio/monopsônio perante pequenas oficinas familiares), dotado de expressivo poder de compra potencial (Tirole, 1988);</li>
         <li><strong>Custos de Busca e Dispersão Espacial de Preços:</strong> Conforme demonstrado por George Stigler (1968) na teoria da economia da informação, a dispersão geográfica e os custos de deslocamento criam nichos monopolísticos locais, onde a concorrência por preço deixa de funcionar eficazmente;</li>
         <li><strong>Dualidade Espacial de Mercado:</strong> Nos grandes polos urbanos (Joinville, Florianópolis, Blumenau, Criciúma e Chapecó), impera a concorrência imperfeita/monopolística com barreiras de entrada moderadas (Bain, 1956); contudo, nos municípios de pequeno porte das regiões serrana, planalto norte e extremo-oeste, o mercado é um monopólio ou duopólio natural. A dispersão geográfica anula o poder de barganha do Estado;</li>
-        <li><strong>Evidência na Teoria dos Grafos:</strong> A análise de redes complexas via algoritmo de Louvain (Blondel et al., 2008) identificou <strong>18 comunidades mecânicas regionais ($Q = 0,5646$)</strong> na malha viária catarinense, demonstrando que a frota pública orbita em microssistemas regionais semi-isolados, onde o gestor público não consegue facilmente arbitrar preços entre cidades vizinhas.</li>
+        <li><strong>Evidência na Teoria dos Grafos:</strong> A análise de redes complexas via algoritmo de Louvain (Blondel et al., 2008) identificou <strong>18 comunidades de oficinas ($Q = 0,5646$), significativas frente a 30 redes nulas ($z = 39,9$)</strong> na malha viária catarinense, demonstrando que a frota pública orbita em microssistemas regionais semi-isolados, onde o gestor público não consegue facilmente arbitrar preços entre cidades vizinhas.</li>
     </ul>
 
     <table class="academic">
@@ -904,7 +904,7 @@ def gerar_html():
 
     <div class="box-conciliacao">
         <strong>A Fundamentação Econômica para Alienação dos 313 Veículos Hiperonerosos:</strong><br>
-        A ultrapassagem do limiar dos 6 anos e 150.000 km sem a devida substituição gera uma externalidade fiscal gravíssima: o custo de manutenção acumulada supera com folga o valor venal do bem de capital. A aplicação do parâmetro econômico de antieconomicidade (>40% do valor venal FIPE acumulado em oficinas, referenciado no Decreto nº 47.539/2018 de Minas Gerais e na Cartilha GFI da SEA/SC de 2026) identificou <strong>313 veículos em condição econômica insustentável</strong> na frota catarinense, com casos onde a oficina custou <strong>200% a 536% do valor venal da viatura</strong> (ex.: caminhão MLG0296 da PMSC com R$ 665.252,97 em manutenção para uma FIPE de R$ 331.390,40; micro-ônibus MCA2684 da FCC com R$ 264.619,82 gastos para uma FIPE de R$ 49.355,00). O leilão imediato e desincorporação desses 313 ativos estanca um dreno financeiro crônico do patrimônio público estadual.
+        A ultrapassagem do limiar dos 6 anos e 150.000 km sem a devida substituição gera uma externalidade fiscal gravíssima: o custo de manutenção acumulada supera com folga o valor venal do bem de capital. A aplicação do parâmetro econômico de antieconomicidade (>40% do valor venal FIPE acumulado em oficinas, referenciado no Decreto nº 47.539/2018 de Minas Gerais e na Cartilha GFI da SEA/SC de 2026) identificou <strong>242 veículos em condição econômica insustentável</strong> na frota catarinense, com casos onde a oficina custou <strong>200% a 536% do valor venal da viatura</strong> (ex.: caminhão MLG0296 da PMSC com R$ 665.252,97 em manutenção para uma FIPE de R$ 331.390,40; micro-ônibus MCA2684 da FCC com R$ 264.619,82 gastos para uma FIPE de R$ 49.355,00). O leilão imediato e desincorporação desses 313 ativos estanca um dreno financeiro crônico do patrimônio público estadual.
     </div>
 
     <h2>3.7 Curva ABC de Peças e Poder de Compra Centralizada (Procurement Estratégico)</h2>
@@ -1018,83 +1018,18 @@ def gerar_html():
         <strong>O Postulado da Teoria Prescritiva e Manutenção Oportunística (Bertsimas & Kallus, 2020; Chien et al., 2012; Cao et al., 2023; Zheng et al., 2022):</strong> A separação tradicional em duas etapas desconectadas (primeiro estimar riscos e custos com aprendizado de máquina, depois aplicar heurísticas de decisão manuais) resulta em alocações subótimas e sobrecustos fiscais. O acoplamento estrito entre modelos de Aprendizado de Máquina calibrados e solvers exatos de Programação Linear Inteira Mista (MILP) garante otimalidade global assintótica sob restrições orçamentárias rígidas impostas pela Lei de Responsabilidade Fiscal (Brasil, 2000).
     </div>
 
-    <h2>4.1 O Confronto Rigoroso das Sete Políticas Operacionais no Cenário S0</h2>
-    <p>
-        Para comprovar experimentalmente o teorema de Bertsimas & Kallus (2020) e confrontar as teorias clássicas de manutenção oportunística (Chien, Sheu & Zhang, 2012; Hu, Zhang & Liang, 2020; Zheng, Wang & Zhang, 2022), simulou-se a operação contínua de <strong>2.000 veículos monitorados durante 36 meses</strong> (72.000 variáveis binárias e 6.072 restrições lineares) no cenário nominal S0, sob o solver de classe mundial <em>HiGHS</em>:
-    </p>
-
+    <h2>4.1 Confronto das Políticas no Cenário S0</h2>
+    <p>As três políticas foram avaliadas na mesma instância (2.000 veículos reais sorteados, 36 meses, custos e probabilidades de falha gerados por fórmula) e sob as mesmas restrições de orçamento e capacidade. Todos os custos são calculados pelo script <code>08_otimizacao_milp.py</code>.</p>
     <table class="academic">
-        <tr>
-            <th style="width: 25%;">Política Operacional Testada</th>
-            <th style="width: 15%;">Custo Total (R$)</th>
-            <th style="width: 14%;">Economia (R$)</th>
-            <th style="width: 12%;">Economia (%)</th>
-            <th style="width: 14%;">Atendimento Obrigatório (%)</th>
-            <th>Veredito e Conformidade Legal</th>
-        </tr>
-        <tr>
-            <td><strong>BL0 — As-Is (Histórica Nominal)</strong></td>
-            <td>R$ 53.139.780,57</td>
-            <td>R$ 0,00</td>
-            <td>0,00%</td>
-            <td>44,72%</td>
-            <td>Inercial (Linha de base com alta quebra corretiva e baixa cobertura).</td>
-        </tr>
-        <tr>
-            <td><strong>BL1 — Reativa (Falhas Críticas)</strong></td>
-            <td>R$ 53.763.664,42</td>
-            <td>-R$ 623.883,85</td>
-            <td>-1,17%</td>
-            <td>18,38%</td>
-            <td>Pior que o As-Is; sobrecusto de socorro emergencial e guincho.</td>
-        </tr>
-        <tr>
-            <td><strong>BL2 — Preventiva Rígida (km/ano)</strong></td>
-            <td>R$ 57.327.131,08</td>
-            <td>-R$ 4.187.350,51</td>
-            <td>-7,88%</td>
-            <td>100,00%</td>
-            <td>Pior política testada; sobrecusto por trocas prematuras de componentes funcionais.</td>
-        </tr>
-        <tr>
-            <td><strong>BL3 — Maior Risco Previsto (Greedy)</strong></td>
-            <td>R$ 54.089.966,13</td>
-            <td>-R$ 950.185,56</td>
-            <td>-1,79%</td>
-            <td>18,48%</td>
-            <td>Heurística gulosa cega a custos relativos de intervenção.</td>
-        </tr>
-        <tr>
-            <td><strong>BL4 — Benefício/Custo (Greedy)*</strong></td>
-            <td>R$ 42.979.813,52</td>
-            <td>R$ 10.159.967,05</td>
-            <td>19,12%</td>
-            <td>65,47%</td>
-            <td><strong class="badge-cross">ILEGAL:</strong> Viola 34,53% das revisões mandatórias de segurança viária.</td>
-        </tr>
-        <tr>
-            <td><strong>MILP-0 — Otimização Sem ML</strong></td>
-            <td>R$ 48.719.011,68</td>
-            <td>R$ 4.420.768,89</td>
-            <td>8,32%</td>
-            <td>100,00%</td>
-            <td>Otimização linear baseada unicamente em médias históricas globais de custo.</td>
-        </tr>
-        <tr>
-            <td><strong>MILP-1 — Prescritiva com ML (To-Be)</strong></td>
-            <td><strong>R$ 43.837.633,31</strong></td>
-            <td><strong>R$ 9.302.147,26</strong></td>
-            <td><strong>17,51%</strong></td>
-            <td><strong>100,00%</strong></td>
-            <td><strong class="badge-check">CAMPEÃ LEGAL:</strong> Ótimo global certificado com MIP Gap de 0,0000% no HiGHS.</td>
-        </tr>
+        <tr><th>Política</th><th>Custo esperado (36 meses)</th><th>Economia frente à prática reconstruída</th><th>Manutenções obrigatórias cumpridas</th></tr>
+        <tr><td><strong>Prática reconstruída (só obrigatórias)</strong></td><td>R$ 51.180.733,62</td><td>—</td><td>100,00%</td></tr>
+        <tr><td><strong>Heurística gulosa benefício/custo</strong></td><td>R$ 44.190.884,80</td><td>6.989.848,82 reais</td><td>100,00%</td></tr>
+        <tr><td><strong>MILP (HiGHS)</strong></td><td><strong>R$ 44.190.120,51</strong></td><td><strong>R$ 6.990.613,11 (13,66%)</strong></td><td><strong>100,00%</strong></td></tr>
     </table>
-
     <div class="box-conciliacao">
-        <strong>O Isolamento Empírico do Valor Incremental do Aprendizado de Máquina:</strong><br>
-        O confronto rigoroso entre <strong>MILP-0</strong> (otimização pura sem ML: R$ 4,42M economizados) e <strong>MILP-1</strong> (otimização prescritiva integrada com previsões calibradas de risco: R$ 9,30M economizados) isola matematicamente que <strong>R$ 4.881.378,37 (exatos 52,48% de todo o ganho financeiro obtido)</strong> decorre unicamente da introdução das estimativas preditivas do modelo de Machine Learning. Isso valida experimentalmente o teorema de Bertsimas & Kallus (2020) e as formulações de Cao, Luo & Dong (2023) para frotas pesadas, demonstrando que o benefício máximo de eficiência pública somente é destravado pela fusão entre modelos probabilísticos preditivos e pesquisa operacional exata.
+        <strong>O que o confronto mostra:</strong><br>
+        A política otimizada custa 13,66% menos que a prática reconstruída, o que sustenta a H3 no cenário S0. A heurística gulosa, porém, chega a apenas R$ 764,29 do ótimo: o ganho vem de antecipar manutenções preventivas dentro do orçamento, e não da otimização exata em si. Versões anteriores deste relatório apresentavam um "MILP sem aprendizado de máquina" e um "valor incremental do ML"; esses números eram digitados no script e foram retirados.
     </div>
-
     <div class="figure-container">
         <div class="figure-caption">Figura 6 — Fronteira de Eficiência e Sensibilidade Orçamentária Prescritiva MILP sob Limites da LRF e LOA</div>
         <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig14_otimizacao_sensibilidade_orcamento.png" alt="Sensibilidade Orçamentária MILP">
@@ -1103,14 +1038,14 @@ def gerar_html():
 
     <h2>4.2 A Epistemologia de Volpato frente à Hipótese H1 (Recusa ao P-Hacking)</h2>
     <div class="box-pratica">
-        <strong>A Evidência dos Dados Censitários:</strong> A incorporação dos atributos patrimoniais aos dados de manutenção mecânica reduziu o Erro Médio Absoluto (MAE) de R$ 2.321,28 para R$ 2.311,82 por veículo-mês, o que representa um ganho marginal relativo de apenas <strong>+0,41% [IC 95%: 0,28%; 0,54%]</strong>. Dado o volume massivo de 350.737 registros, o teste de hipótese acusou significância estatística extrema ($p < 10^{-15}$).
+        <strong>A evidência dos dados:</strong> incluir os atributos patrimoniais reduziu o MAE de R$ 2.237,81 para R$ 2.223,84 por veículo-mês, ganho de <strong>0,62% [IC 95%: -0,26% a 1,52%]</strong>, intervalo que inclui zero, e elevou a ROC-AUC em <strong>+0,0095 [IC 95%: 0,0045 a 0,0146]</strong>.
     </div>
     <div class="box-conciliacao">
-        <strong>A Conciliação com Gilson Volpato:</strong> A maioria das pesquisas empíricas aceitaria a hipótese com base no p-valor diminuto. O autor desta dissertação, todavia, seguiu estritamente o método lógico dedutivo de Gilson Volpato (2015, 2017): como o critério pré-registrado de relevância prática exigia um ganho mínimo de 15,0%, <strong>a Hipótese H1 foi classificada formalmente como NÃO SUSTENTADA</strong>. Mostra-se ao gestor público que a complexidade de manter integrações legadas entre patrimônio e oficina não se justifica operacionalmente para obter 0,41% de precisão.
+        <strong>A conciliação com Gilson Volpato:</strong> os dois critérios foram fixados antes dos resultados. Pelo texto do anteprojeto (melhora de ao menos uma métrica principal), H1 é atendida na classificação; pelo limiar de 15% no MAE, não. A Hipótese H1 é, portanto, <strong>PARCIALMENTE SUSTENTADA</strong>: a melhora existe, mas é pequena demais para justificar, sozinha, o custo de manter a integração contínua das bases.
     </div>
 
     <div class="figure-container">
-        <div class="figure-caption">Figura 7 — Estudo de Ablação Multimodal: Ganho Marginal de +0,41% e Falsificação Honesta de H1</div>
+        <div class="figure-caption">Figura 7 — Estudo de Ablação Multimodal: Ganho Marginal de +0,62% e Falsificação Honesta de H1</div>
         <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig12_ablativo_fontes_m_vs_mp.png" alt="Ablação Multimodal H1">
         <div class="figure-source">Fonte: Avaliação empírica nos moldes do Método Lógico de Gilson Volpato (2015, 2017), elaborada pelo autor (2026).</div>
     </div>
@@ -1120,7 +1055,7 @@ def gerar_html():
         <strong>A Tese de Cynthia Rudin (2019):</strong> Modelos intrinsecamente interpretáveis devem ser preferidos em ambientes regulados, visto que aproximações pós-hoc locais como LIME (Ribeiro et al., 2016) e atribuições aditivas como SHAP (Lundberg & Lee, 2017) geram explicações discordantes e suscetíveis a manipulações em disputas contábeis e judiciais.
     </div>
     <div class="box-pratica">
-        <strong>O Resultado da Triangulação Prática:</strong> Confrontando os rankings locais de relevância de atributos entre SHAP e LIME sobre instâncias auditadas da frota catarinense, a <strong>Similaridade de Jaccard no Top-5 atingiu apenas 39,29% (39,3%)</strong> e a correlação de Spearman limitou-se a $\rho = 0,3680$, ficando muito aquém do limiar de 85% postulado em $H_4$.
+        <strong>O Resultado da Triangulação Prática:</strong> Confrontando os rankings locais de relevância de atributos entre SHAP e LIME sobre instâncias auditadas da frota catarinense, a <strong>Similaridade de Jaccard no Top-5 atingiu apenas 45,48% (45,5%)</strong> e a correlação de Spearman limitou-se a $\rho = 0,2869$, ficando muito aquém do limiar de 85% postulado em $H_4$.
     </div>
     <div class="box-conciliacao">
         <strong>A Conciliação com o Controle Externo (TCE-SC):</strong> Ao **rejeitar categoricamente a Hipótese H4**, a dissertação comprova experimentalmente o alerta de Cynthia Rudin (2019). Recomenda-se formalmente aos auditores do TCE-SC que explicações locais geradas por LIME ou SHAP não sejam utilizadas como evidência jurídica isolada em processos punitivos contra mecânicas, mantendo-se a primazia de métricas univariadas e regras transparentes de fiscalização.
@@ -1148,7 +1083,7 @@ def gerar_html():
         <tr>
             <td><strong>Hipótese H1</strong></td>
             <td>Fusão Multimodal de bases heterogêneas reduz MAE em pelo menos 15,0% frente à base de OS.</td>
-            <td>Ganho real medido de apenas +0,41% no MAE (R$ 9,47/mês), com $p < 10^{-15}$.</td>
+            <td>Ganho real medido de apenas +0,62% no MAE (R$ 13,97/mês), com $p < 10^{-15}$.</td>
             <td><strong class="badge-cross">NÃO SUSTENTADA</strong> (Cumprimento estrito do método de Volpato, 2015, 2017 e recusa ao p-hacking).</td>
         </tr>
         <tr>
@@ -1160,13 +1095,13 @@ def gerar_html():
         <tr>
             <td><strong>Hipótese H3</strong></td>
             <td>Prescrição exata via MILP gera plano To-Be superior à política inercial sob limite de LOA.</td>
-            <td>Economia comprovada de R$ 9.302.147,26 (17,51%) com 100% das mandatórias atendidas.</td>
+            <td>Economia comprovada de R$ 6.990.613,11 (13,66%) com 100% das mandatórias atendidas.</td>
             <td><strong class="badge-check">SUSTENTADA INTEGRALMENTE</strong> (MIP Gap certificado de 0,0000% no solver HiGHS; Bertsimas & Kallus, 2020).</td>
         </tr>
         <tr>
             <td><strong>Hipótese H4</strong></td>
             <td>Atribuições locais de SHAP e LIME exibem concordância estrutural estrita ($>85\%$).</td>
-            <td>Similaridade de Jaccard no Top-5 de apenas 39,29% e correlação de Spearman $\rho = 0,3680$.</td>
+            <td>Similaridade de Jaccard no Top-5 de apenas 45,48% e correlação de Spearman $\rho = 0,2869$.</td>
             <td><strong class="badge-cross">REJEITADA</strong> (Confirmação empírica da crítica de Cynthia Rudin, 2019 sobre divergência XAI).</td>
         </tr>
     </table>
@@ -1174,10 +1109,10 @@ def gerar_html():
     <h2>5.2 Diretrizes Estratégicas para a Administração Pública de Santa Catarina</h2>
     <ol>
         <li><strong>Foco em Dados de Ordens de Serviço:</strong> A SEA/SC não necessita despender orçamento em integrações custosas de sistemas legados de patrimônio móvel para predição de falhas; os dados de ordens de serviço mecânicas respondem por mais de 99% da variabilidade preditiva útil, atendendo às normas de anonimização da LGPD (Lei Federal nº 13.709/2018 - Brasil, 2018);</li>
-        <li><strong>Implementação da Prescrição MILP sob a LRF:</strong> Substituir rotinas manuais discricionárias de liberação de empenho pelo escalonamento matemático ótimo com solver HiGHS, assegurando o cumprimento de 100% das manutenções de segurança e economizando R$ 9,30 milhões sob disciplina da Lei de Responsabilidade Fiscal (Lei Complementar nº 101/2000 - Brasil, 2000);</li>
+        <li><strong>Implementação da Prescrição MILP sob a LRF:</strong> Substituir rotinas manuais discricionárias de liberação de empenho pelo escalonamento matemático ótimo com solver HiGHS, assegurando o cumprimento de 100% das manutenções de segurança e economizando R$ 6,99 milhões sob disciplina da Lei de Responsabilidade Fiscal (Lei Complementar nº 101/2000 - Brasil, 2000);</li>
         <li><strong>Procurement Centralizado de Peças da Classe A:</strong> Estruturar atas corporativas estaduais de registro de preços diretas de fábrica sob a Lei nº 14.133/2021 (Brasil, 2021) para os 5 insumos críticos (Pneus, Baterias, Pastilhas, Amortecedores, Discos e Óleo), capturando economias de escala em compras públicas (Tirole, 1988) com economia líquida anual de R$ 5,55M a R$ 6,50M;</li>
         <li><strong>Mitigação do Risco Moral das Oficinas:</strong> Implantar o modelo de <em>Isolation Forest</em> (Liu, Ting & Zhou, 2008) como ferramenta automatizada de triagem (*screening* de Stiglitz, 1975), sinalizando orçamentos atípicos antes da liquidação da despesa e preservando a barreira contra o superfaturamento que historicamente reteve R$ 60,05M em glosas técnicas (Jensen & Meckling, 1976; Holmström, 1979);</li>
-        <li><strong>Política Racional de Substituição e Alienação:</strong> Adotar formalmente o ciclo ótimo de renovação aos 6 anos ou 130.000 km rodados (Hotelling, 1925; Alchian, 1952) e encaminhar para leilão imediato os 313 veículos em condição antieconômica (>40% do valor venal em oficinas), com base no Decreto nº 47.539/2018 de Minas Gerais e na Cartilha GFI da SEA/SC (Santa Catarina, 2026);</li>
+        <li><strong>Política Racional de Substituição e Alienação:</strong> Adotar formalmente o ciclo ótimo de renovação aos 6 anos ou 130.000 km rodados (Hotelling, 1925; Alchian, 1952) e encaminhar para leilão imediato os 242 veículos em condição antieconômica (>40% do valor venal em oficinas), com base no Decreto nº 47.539/2018 de Minas Gerais e na Cartilha GFI da SEA/SC (Santa Catarina, 2026);</li>
         <li><strong>Prudência Regulatória perante o TCE-SC:</strong> Vedação formal ao uso isolado de métricas explicativas pós-hoc locais (SHAP e LIME) como prova pericial autônoma em auditorias fiscais punitivas, conforme fundamentado por Cynthia Rudin (2019), exigindo a triangulação pericial com evidências mecânicas materiais.</li>
     </ol>
 

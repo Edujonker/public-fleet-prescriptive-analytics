@@ -123,69 +123,89 @@ def executar_otimizacao_milp():
         risco_residual_mip += float(np.sum((1 - x_t) * r_it[:, t]))
 
     tempo_mip = time.time() - t0_mip
-    custo_total_mip_calc = custo_direto_mip + risco_residual_mip
+    custo_total_mip = custo_direto_mip + risco_residual_mip
 
-    # Reconciliação canônica com a base oficial S0
-    custo_total_mip = 43837633.31
-    custo_total_lp = 43837384.79
-    integrality_gap_abs = 248.52
-    integrality_gap_rel = integrality_gap_abs / custo_total_lp
-    custo_bl0 = 53139780.57
-    custo_milp0 = 48719011.68
-    economia_gerada = custo_bl0 - custo_total_mip  # R$ 9.302.147,26
-    pct_economia = (economia_gerada / custo_bl0) * 100.0  # 17.51%
-    valor_incremental_ml = custo_milp0 - custo_total_mip  # R$ 4.881.378,37
+    # ------------------------------------------------------------------
+    # Correção (15/11/2026): os custos passam a ser os calculados pelo solver.
+    # A versão anterior descartava o resultado do HiGHS e usava constantes
+    # (MIP R$ 43.837.633,31; BL0 R$ 53.139.780,57; MILP-0 R$ 48.719.011,68).
+    #
+    # Critério de H3 (anteprojeto), fixado antes desta execução:
+    #   "Sob o mesmo orçamento, capacidade e nível de risco admissível, a política de
+    #    otimização reduz o custo total esperado ... em relação à prática reconstruída
+    #    e a regras heurísticas." -> H3 sustentada se custo MILP < custo BL0 (prática
+    #   reconstruída = só manutenções obrigatórias) E custo MILP < custo da heurística
+    #   gulosa, ambas sob as mesmas restrições de orçamento e capacidade.
+    #   Limiar numérico pré-registrado (qualificação): economia > 10% sobre BL0.
+    # ------------------------------------------------------------------
+    def custo_politica(x):
+        return float(np.sum(x * c_it) + np.sum((1 - x) * r_it))
 
-    pct_orc_ativo = 58.33
-    pct_ofi_ativo = 0.0
+    # Relaxação linear (limite inferior do MIP), mês a mês
+    t0_lp = time.time()
+    custo_total_lp, status_lp = 0.0, []
+    for t in range(T):
+        res_lp = milp(c=c_it[:, t] - r_it[:, t], integrality=np.zeros(n_veiculos),
+                      bounds=Bounds(m_it[:, t].astype(float), np.ones(n_veiculos)),
+                      constraints=LinearConstraint(np.vstack([c_it[:, t], h_it[:, t]]), [-np.inf, -np.inf], [B_t[t], H_t[t]]))
+        status_lp.append(int(res_lp.status))
+        xl = res_lp.x if res_lp.x is not None else m_it[:, t].astype(float)
+        custo_total_lp += float(np.sum(xl * c_it[:, t]) + np.sum((1 - xl) * r_it[:, t]))
+    tempo_lp = time.time() - t0_lp
 
-    print(f"  -> Custo Total Otimizado MILP (To-Be S0): R$ {custo_total_mip:,.2f}")
-    print(f"  -> Custo Relaxação Linear Dual Bound (LP): R$ {custo_total_lp:,.2f}")
-    print(f"  -> Gap de Integralidade Poliedral: {integrality_gap_rel * 100:.5f}% (R$ {integrality_gap_abs:,.2f})")
-    print(f"  -> Gap de Otimalidade HiGHS Certificado: 0,0000% (Tolerância PrimalDual = 1e-7)")
-    print(f"  -> Linha de Base Histórica BL0 (As-Is): R$ {custo_bl0:,.2f}")
-    print(f"  -> Otimização sem ML (MILP-0): R$ {custo_milp0:,.2f} (Economia de R$ {custo_bl0 - custo_milp0:,.2f} / 8,32%)")
-    print(f"  -> Economia Líquida Prescritiva S0: R$ {economia_gerada:,.2f} ({pct_economia:.2f}%)")
-    print(f"  -> Valor Incremental do ML: R$ {valor_incremental_ml:,.2f} (52,48% da economia)")
-    print(f"  -> Restrição Orçamentária Ativa (Gargalo B_t): {pct_orc_ativo:.1f}% dos períodos")
-    print(f"  -> Restrição Operacional de Oficinas Ativa (H_t): {pct_ofi_ativo:.1f}% dos períodos")
+    # BL0: prática reconstruída (apenas manutenções obrigatórias)
+    x_bl0 = m_it.astype(int)
+    custo_bl0 = custo_politica(x_bl0)
 
-    # 3. Geração de Figuras Científicas e Relatório
-    print("\n[3/5] Gerando figuras científicas de auditoria MILP...")
+    # BL1: heurística gulosa por razão benefício/custo dentro do orçamento e da capacidade
+    x_heur = m_it.astype(int).copy()
+    for t in range(T):
+        gasto = float(np.sum(x_heur[:, t] * c_it[:, t])); horas = float(np.sum(x_heur[:, t] * h_it[:, t]))
+        cand = [i for i in range(n_veiculos) if x_heur[i, t] == 0 and r_it[i, t] > c_it[i, t]]
+        for i in sorted(cand, key=lambda i: r_it[i, t] / c_it[i, t], reverse=True):
+            if gasto + c_it[i, t] <= B_t[t] and horas + h_it[i, t] <= H_t[t]:
+                x_heur[i, t] = 1; gasto += c_it[i, t]; horas += h_it[i, t]
+    custo_heur = custo_politica(x_heur)
+
+    viavel_bl0 = all(float(np.sum(m_it[:, t] * c_it[:, t])) <= B_t[t] + 1e-6 and float(np.sum(m_it[:, t] * h_it[:, t])) <= H_t[t] + 1e-6 for t in range(T))
+    integrality_gap_abs = custo_total_mip - custo_total_lp
+    integrality_gap_rel = integrality_gap_abs / custo_total_lp if custo_total_lp else float("nan")
+    economia_gerada = custo_bl0 - custo_total_mip
+    pct_economia = economia_gerada / custo_bl0 * 100.0
+    economia_vs_heur = custo_heur - custo_total_mip
+    pct_economia_heur = economia_vs_heur / custo_heur * 100.0
+    gasto_mes = np.sum(x_mip * c_it, axis=0)
+    pct_orc_ativo = float(np.mean([gasto_mes[t] >= 0.99 * B_t[t] for t in range(T)]) * 100)
+    pct_ofi_ativo = float(np.mean([np.sum(x_mip[:, t] * h_it[:, t]) >= 0.99 * H_t[t] for t in range(T)]) * 100)
+    cumprimento_mandatorio = float(np.sum(x_mip * m_it) / max(1, np.sum(m_it)) * 100)
+    h3_anteprojeto = bool(custo_total_mip < custo_bl0 and custo_total_mip < custo_heur)
+    h3_limiar = bool(pct_economia > 10.0)
+
+    print(f"  -> MILP (HiGHS): R$ {custo_total_mip:,.2f} | LP: R$ {custo_total_lp:,.2f} | gap {integrality_gap_rel * 100:.5f}%")
+    print(f"  -> BL0 (só obrigatórias): R$ {custo_bl0:,.2f} | Heurística gulosa: R$ {custo_heur:,.2f}")
+    print(f"  -> Economia vs BL0: R$ {economia_gerada:,.2f} ({pct_economia:.2f}%) | vs heurística: R$ {economia_vs_heur:,.2f} ({pct_economia_heur:.2f}%)")
+    print(f"  -> Orçamento ativo em {pct_orc_ativo:.1f}% dos meses | oficina ativa em {pct_ofi_ativo:.1f}% | obrigatórias cumpridas {cumprimento_mandatorio:.1f}%")
+    print(f"  -> H3 (anteprojeto): {h3_anteprojeto} | H3 (limiar > 10%): {h3_limiar}")
+
+    # 3. Figura: custo mensal das três políticas (todos os valores calculados)
+    print("\n[3/5] Gerando figura com os custos calculados...")
+    meses = np.arange(1, T + 1)
+    cm = lambda x: (np.sum(x * c_it, axis=0) + np.sum((1 - x) * r_it, axis=0)) / 1e6
     fig, ax = plt.subplots(figsize=(9.2, 5.0), dpi=300)
-    anos = [2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028]
-    historico_real = [18.37, 27.48, 29.13, 32.36]
-    proj_inercial = [32.36, 35.10, 38.20, 41.50, 44.80]
-    proj_milp = [26.40, 26.80, 27.20, 27.60, 28.00]
+    ax.plot(meses, cm(x_bl0), "o-", color="#dc2626", ms=3, lw=1.8, label=f"BL0 – só obrigatórias (R$ {custo_bl0 / 1e6:,.2f} mi)")
+    ax.plot(meses, cm(x_heur), "^-", color="#d99a00", ms=3, lw=1.5, label=f"Heurística gulosa (R$ {custo_heur / 1e6:,.2f} mi)")
+    ax.plot(meses, cm(x_mip), "s-", color="#0284c7", ms=3, lw=2.0, label=f"MILP HiGHS (R$ {custo_total_mip / 1e6:,.2f} mi)")
+    ax.set_xlabel("Mês do horizonte simulado (1 a 36)"); ax.set_ylabel("Custo esperado no mês (R$ milhões)")
+    ax.set_title(f"Custo esperado por política – cenário S0 ({n_veiculos} veículos, {T} meses)", fontweight="bold", pad=12)
+    ax.grid(True, linestyle="--", alpha=0.45); ax.legend(fontsize=8.5)
+    plt.tight_layout(); plt.savefig(res_figuras / "figura_milp_trajetoria_financeira.png", dpi=300); plt.close()
 
-    ax.plot([2021, 2022, 2023, 2024], historico_real, "o-", color="#dc2626", linewidth=2.2, label="Histórico Real Auditado (As-Is: Corretiva)")
-    ax.plot([2024, 2025, 2026, 2027, 2028], proj_inercial, "--", color="#ef4444", linewidth=1.8, label="Projeção Inercial Futura (Sem Otimização)")
-    ax.plot([2024, 2025, 2026, 2027, 2028], proj_milp, "s--", color="#0284c7", linewidth=2.0, label="Política Prescritiva Otimizada (MILP To-Be)")
-    ax.fill_between([2024, 2025, 2026, 2027, 2028], proj_milp, proj_inercial, color="#10b981", alpha=0.18, label="Economia Prescritiva Potencial")
-
-    ax.set_ylabel("Dispêndio Total Anual (R$ Milhões)", fontsize=10)
-    ax.set_xlabel("Ano Calendário", fontsize=10)
-    ax.set_title("Otimização Prescritiva da Frota: Histórico Real vs Projeção MILP HiGHS", fontweight="bold", pad=12)
-    ax.grid(True, linestyle="--", alpha=0.45)
-    ax.legend(frameon=True, fontsize=8.5)
-    plt.tight_layout()
-    plt.savefig(res_figuras / "figura_milp_trajetoria_financeira.png", dpi=300)
-    plt.close()
-
-    # Salvar Tabela de Auditoria Poliedral
-    df_auditoria_milp = pd.DataFrame([{
-        "metrica": "Custo Total Otimizado da Frota (Cenário S0)",
-        "solucao_inteira_mip": f"R$ {custo_total_mip:,.2f}",
-        "relaxacao_linear_lp": f"R$ {custo_total_lp:,.2f}",
-        "gap_integralidade": f"{integrality_gap_rel * 100:.5f}% (R$ {integrality_gap_abs:,.2f})",
-        "diagnostico_poliedral": "Formulação Quase-Ideal (Gap < 0,001%)"
-    }, {
-        "metrica": "Tempo Computacional de Processamento",
-        "solucao_inteira_mip": f"8.92 s",
-        "relaxacao_linear_lp": f"0.56 s",
-        "gap_integralidade": f"Δ = 8.36 s",
-        "diagnostico_poliedral": "Convergência Instantânea Dual Simplex"
-    }])
+    df_auditoria_milp = pd.DataFrame([
+        {"metrica": "Custo total MILP (HiGHS)", "valor_brl": round(custo_total_mip, 2)},
+        {"metrica": "Relaxação linear (LP)", "valor_brl": round(custo_total_lp, 2)},
+        {"metrica": "BL0 – só manutenções obrigatórias", "valor_brl": round(custo_bl0, 2)},
+        {"metrica": "Heurística gulosa benefício/custo", "valor_brl": round(custo_heur, 2)},
+    ])
     df_auditoria_milp.to_csv(res_metricas / "auditoria_poliedral_milp.csv", index=False)
 
     duracao = (datetime.now() - inicio_exec).total_seconds()
@@ -193,40 +213,49 @@ def executar_otimizacao_milp():
         "timestamp": datetime.now().isoformat(),
         "duracao_segundos": round(duracao, 2),
         "cenario": "Cenário de Referência S0 (Nominal, 36 meses)",
-        "solver": "HiGHS (C++ interior point / dual simplex)",
-        "dimensoes": {
-            "veiculos": n_veiculos,
-            "periodos_meses": T,
-            "total_variaveis_decisao": int(n_veiculos * T)
-        },
+        "natureza_da_instancia": ("Semissintética: 2.000 veículos reais sorteados (semente 42); custos, probabilidades de falha "
+                                  "e calendário de obrigatórias gerados por fórmulas com fatores aleatórios (seed 42). "
+                                  "Resultado é contrafactual simulado, não economia observada."),
+        "solver": "HiGHS via scipy.optimize.milp (36 problemas mensais independentes)",
+        "dimensoes": {"veiculos": n_veiculos, "periodos_meses": T, "total_variaveis_decisao": int(n_veiculos * T)},
         "solucao_inteira_mip_brl": round(custo_total_mip, 2),
         "relaxacao_linear_lp_brl": round(custo_total_lp, 2),
-        "integrality_gap_relativo": round(integrality_gap_rel, 7),
+        "integrality_gap_relativo": round(integrality_gap_rel, 9),
         "integrality_gap_absoluto_brl": round(integrality_gap_abs, 2),
-        "highs_optimality_gap_certificado": 0.0,
-        "disponibilidade_operacional_pct": 95.26,
-        "cumprimento_mandatorio_pct": 100.0,
-        "gargalos_ativos": {
-            "restricao_orcamentaria_pct_periodos": round(pct_orc_ativo, 2),
-            "restricao_oficina_pct_periodos": round(pct_ofi_ativo, 2)
-        },
+        "tolerancia_mip_rel_gap": 0.0001,
+        "tempo_mip_s": round(tempo_mip, 2), "tempo_lp_s": round(tempo_lp, 2),
+        "status_lp_por_mes": status_lp,
+        "cumprimento_mandatorio_pct": round(cumprimento_mandatorio, 2),
+        "bl0_viavel": viavel_bl0,
+        "gargalos_ativos": {"restricao_orcamentaria_pct_periodos": round(pct_orc_ativo, 2),
+                            "restricao_oficina_pct_periodos": round(pct_ofi_ativo, 2)},
         "confronto_inercial": {
+            "definicao_bl0": "prática reconstruída: executar apenas as manutenções obrigatórias",
             "custo_inercial_as_is_brl": round(custo_bl0, 2),
-            "custo_sem_ml_milp0_brl": round(custo_milp0, 2),
+            "custo_heuristica_gulosa_brl": round(custo_heur, 2),
             "economia_prescritiva_brl": round(economia_gerada, 2),
             "economia_pct": round(pct_economia, 2),
-            "valor_incremental_ml_brl": round(valor_incremental_ml, 2)
+            "economia_vs_heuristica_brl": round(economia_vs_heur, 2),
+            "economia_vs_heuristica_pct": round(pct_economia_heur, 2),
         },
-        "hipotese_h3_sustentada": True,
+        "criterio_h3": {"anteprojeto": "custo MILP < BL0 e < heurística, sob as mesmas restrições",
+                        "limiar_pre_registrado": "economia > 10% sobre BL0"},
+        "hipotese_h3_sustentada_anteprojeto": h3_anteprojeto,
+        "hipotese_h3_sustentada_limiar": h3_limiar,
+        "hipotese_h3_sustentada": bool(h3_anteprojeto and h3_limiar),
         "conclusao_auditoria": (
-            f"O modelo MILP convergiu para o ótimo global certificado (HiGHS optimality gap = 0,0000%) com Gap de "
-            f"Integralidade Poliedral de {integrality_gap_rel*100:.5f}% (R$ {integrality_gap_abs:,.2f}), comprovando formulação "
-            f"poliedral quase-ideal. A política prescritiva viabiliza economia estimada de R$ {economia_gerada:,.2f} "
-            f"({pct_economia:.2f}%) sobre o baseline BL0 (R$ {custo_bl0:,.2f}), sustentando a Hipótese H3 no Cenário S0."
+            f"MILP (HiGHS) R$ {custo_total_mip:,.2f}; BL0 R$ {custo_bl0:,.2f}; heurística R$ {custo_heur:,.2f}. "
+            f"Economia de {pct_economia:.2f}% sobre BL0 e {pct_economia_heur:.2f}% sobre a heurística, em instância semissintética."
         )
     }
 
     with open(res_logs / "relatorio_otimizacao_milp.json", "w", encoding="utf-8") as f:
+        json.dump(relatorio, f, indent=2, ensure_ascii=False)
+    # Cópia no diretório lido pela etapa 09 e pelos relatórios (resultados/logs).
+    # Sem ela, a etapa 09 certificava H3 com um arquivo antigo de 22/10/2026.
+    res_logs_oficial = base_dir / "resultados" / "logs"
+    res_logs_oficial.mkdir(parents=True, exist_ok=True)
+    with open(res_logs_oficial / "relatorio_otimizacao_milp.json", "w", encoding="utf-8") as f:
         json.dump(relatorio, f, indent=2, ensure_ascii=False)
 
     with open(res_metricas / "experimento_milp_cenario_s0.json", "w", encoding="utf-8") as f:

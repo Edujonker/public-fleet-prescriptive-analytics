@@ -205,7 +205,7 @@ DICIONARIO_SEMANTICO = {
     "veiculos_leilao": {
         "descricao_tabela": "Veículos antieconômicos identificados para desincorporação e leilão com fulcro no Decreto Estadual nº 47.539/2018.",
         "origem": "relatorio_gerencial_frotas_sc.json (Critério: custo acumulado > 40% do valor venal FIPE)",
-        "volume": "30 registros (Amostra dos 313 veículos auditados)",
+        "volume": "30 registros (Amostra dos 242 veículos auditados)",
         "colunas": {
             "placa": ("Placa identificadora do veículo público antieconômico.", "TEXT", "MIR7280"),
             "modelo": ("Modelo do veículo classificado para baixa patrimonial.", "TEXT", "FORD CARGO 815"),

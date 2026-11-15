@@ -3,7 +3,7 @@
 """
 Compilador do Mapeamento de Processos de Pesquisa (BPM / BPMN 2.0) em PDF
 Lê o documento estruturado HTML e renderiza o PDF com o motor WeasyPrint.
-Gera o arquivo 'mapeamento de pesquisa.pdf' e cópias espelhadas.
+Gera o arquivo 'mapeamento_de_pesquisa.pdf' e cópias em relatorios_pdf/ e Documentos/.
 """
 
 import os
@@ -36,8 +36,7 @@ def compilar_mapeamento_pdf():
         html_content = f.read()
 
     # Nomes e caminhos de saída
-    pdf_solicitado = BASE_DIR / "mapeamento de pesquisa.pdf"
-    pdf_padrao = BASE_DIR / "mapeamento_de_pesquisa.pdf"
+    pdf_solicitado = BASE_DIR / "mapeamento_de_pesquisa.pdf"
     pdf_relatorios = PDF_DIR / "mapeamento_de_pesquisa.pdf"
     pdf_documentos = DOCS_DIR / "mapeamento_de_pesquisa.pdf"
 
@@ -49,10 +48,8 @@ def compilar_mapeamento_pdf():
     print(f"  Tamanho: {tamanho_mb:.2f} MB")
 
     print("3. Criando cópias espelhadas de segurança e padronização...")
-    shutil.copy2(pdf_solicitado, pdf_padrao)
     shutil.copy2(pdf_solicitado, pdf_relatorios)
     shutil.copy2(pdf_solicitado, pdf_documentos)
-    print(f"✓ Cópia espelhada em: {pdf_padrao.name}")
     print(f"✓ Cópia espelhada em: {pdf_relatorios}")
     print(f"✓ Cópia espelhada em: {pdf_documentos}")
 

@@ -11,7 +11,8 @@
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Extração e Carga ETL / SQL",
     "arquivo_origem": "relatorios/auditoria_dados.json",
-    "hash_status": "5c3f89ea... (Verificado)"
+    "hash_status": "5c3f89ea... (Verificado)",
+    "verificacao": "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
   },
   {
     "id": "M02",
@@ -24,8 +25,9 @@
     "tamanho_n": 77867,
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Deduplicação Relacional (cd_manutencao_oficina)",
-    "arquivo_origem": "relatorios/auditoria_dados.json",
-    "hash_status": "Verificado (Média 4,50 itens/OS)"
+    "arquivo_origem": "os_consolidadas_processadas.parquet",
+    "hash_status": "Verificado (Média 4,50 itens/OS)",
+    "verificacao": "calculado"
   },
   {
     "id": "M03",
@@ -38,8 +40,9 @@
     "tamanho_n": 60114,
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Filtro de Liquidação Fiscal SEA",
-    "arquivo_origem": "relatorios/auditoria_dados.json",
-    "hash_status": "Verificado"
+    "arquivo_origem": "os_consolidadas_processadas.parquet",
+    "hash_status": "Verificado",
+    "verificacao": "calculado"
   },
   {
     "id": "M04",
@@ -52,8 +55,9 @@
     "tamanho_n": 11507,
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Reprovação Técnica SEA DITI",
-    "arquivo_origem": "relatorios/auditoria_dados.json",
-    "hash_status": "Verificado"
+    "arquivo_origem": "os_consolidadas_processadas.parquet",
+    "hash_status": "Verificado",
+    "verificacao": "calculado"
   },
   {
     "id": "M05",
@@ -66,8 +70,9 @@
     "tamanho_n": 2151,
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Cancelamento de Empenho",
-    "arquivo_origem": "relatorios/auditoria_dados.json",
-    "hash_status": "Verificado"
+    "arquivo_origem": "os_consolidadas_processadas.parquet",
+    "hash_status": "Verificado",
+    "verificacao": "calculado"
   },
   {
     "id": "M06",
@@ -80,8 +85,9 @@
     "tamanho_n": 2104,
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Retenção Cautelar",
-    "arquivo_origem": "relatorios/auditoria_dados.json",
-    "hash_status": "Verificado"
+    "arquivo_origem": "os_consolidadas_processadas.parquet",
+    "hash_status": "Verificado",
+    "verificacao": "calculado"
   },
   {
     "id": "M07",
@@ -94,8 +100,9 @@
     "tamanho_n": 60114,
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Liquidação SIAF / SIGFrota",
-    "arquivo_origem": "relatorios/auditoria_dados.json",
-    "hash_status": "Verificado"
+    "arquivo_origem": "os_consolidadas_processadas.parquet (todas as situações)",
+    "hash_status": "Verificado",
+    "verificacao": "calculado"
   },
   {
     "id": "M08",
@@ -109,21 +116,23 @@
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Glosa Técnica de Engenharia Mecânica",
     "arquivo_origem": "relatorios/auditoria_dados.json",
-    "hash_status": "Verificado (30,2% do valor cotado)"
+    "hash_status": "Verificado (30,2% do valor cotado)",
+    "verificacao": "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
   },
   {
     "id": "M09",
     "categoria": "Painel Longitudinal",
     "metrica": "Veículos Únicos com Histórico Monitorado no Painel",
-    "valor_oficial": "5.914 viaturas",
+    "valor_oficial": "5.914 veículos",
     "intervalo_confianca": "Censo com Continuidade",
     "experimento": "Estruturação do Painel Veículo-Mês",
     "conjunto_amostral": "Frota Ativa Monitorada",
     "tamanho_n": 5914,
     "periodo": "2020-10 a 2026-03",
     "algoritmo_metodo": "Rastreamento Longitudinal de Chassi/Placa",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Verificado"
+    "arquivo_origem": "painel_veiculo_mes_longitudinal.parquet",
+    "hash_status": "Verificado",
+    "verificacao": "calculado"
   },
   {
     "id": "M10",
@@ -136,22 +145,24 @@
     "tamanho_n": 42278,
     "periodo": "2020-10 a 2026-03",
     "algoritmo_metodo": "Agregação Mensal com Lags Temporais",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Verificado"
+    "arquivo_origem": "painel_veiculo_mes_longitudinal.parquet",
+    "hash_status": "Verificado",
+    "verificacao": "calculado"
   },
   {
     "id": "M11",
     "categoria": "Painel Longitudinal",
     "metrica": "Taxa de Prevalência da Classe Positiva (Falha Corretiva em t+1)",
-    "valor_oficial": "78,10%",
+    "valor_oficial": "83,78%",
     "intervalo_confianca": "[77,70%; 78,50%]",
     "experimento": "Classificação de Risco Operacional",
     "conjunto_amostral": "42.278 Instâncias Veículo-Mês",
     "tamanho_n": 42278,
     "periodo": "2020-10 a 2026-03",
     "algoritmo_metodo": "Prevalência Empírica da Classe Alvo",
-    "arquivo_origem": "relatorios/validacao_cruzada_temporal_5dobras.json",
-    "hash_status": "Fundamenta PR-AUC > ROC-AUC"
+    "arquivo_origem": "painel_veiculo_mes_longitudinal.parquet",
+    "hash_status": "Fundamenta PR-AUC > ROC-AUC",
+    "verificacao": "calculado"
   },
   {
     "id": "M12",
@@ -165,7 +176,8 @@
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Diferenciação Monotônica Cronológica",
     "arquivo_origem": "relatorios/auditoria_dados.json",
-    "hash_status": "Verificado"
+    "hash_status": "Verificado",
+    "verificacao": "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
   },
   {
     "id": "M13",
@@ -179,7 +191,8 @@
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Detecção de Regressão Negativa (Δkm < 0)",
     "arquivo_origem": "relatorios/auditoria_dados.json",
-    "hash_status": "Verificado"
+    "hash_status": "Verificado",
+    "verificacao": "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
   },
   {
     "id": "M14",
@@ -192,8 +205,9 @@
     "tamanho_n": 77867,
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Otimização de Estabilidade Multissemente",
-    "arquivo_origem": "relatorios/estabilidade_isolation_forest.json",
-    "hash_status": "Verificado"
+    "arquivo_origem": "relatorio_deteccao_anomalias.json",
+    "hash_status": "Verificado",
+    "verificacao": "calculado"
   },
   {
     "id": "M15",
@@ -206,8 +220,9 @@
     "tamanho_n": 662,
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Isolation Forest Multidimensional (Score < -0,15)",
-    "arquivo_origem": "relatorios/isolation_forest_results.json",
-    "hash_status": "Verificado"
+    "arquivo_origem": "relatorio_deteccao_anomalias.json",
+    "hash_status": "Verificado",
+    "verificacao": "calculado"
   },
   {
     "id": "M16",
@@ -221,7 +236,8 @@
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Mapeamento Foreign Key (cd_manutencao_oficina)",
     "arquivo_origem": "relatorios/isolation_forest_results.json",
-    "hash_status": "Reconciliação 77.867 OSs e 350k itens"
+    "hash_status": "Reconciliação 77.867 OSs e 350k itens",
+    "verificacao": "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
   },
   {
     "id": "M17",
@@ -234,22 +250,24 @@
     "tamanho_n": 50,
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Jaccard Intersection-over-Union Multiseed",
-    "arquivo_origem": "relatorios/estabilidade_isolation_forest.json",
-    "hash_status": "Verificado"
+    "arquivo_origem": "relatorio_deteccao_anomalias.json",
+    "hash_status": "Verificado",
+    "verificacao": "calculado"
   },
   {
     "id": "M18",
     "categoria": "Detecção de Anomalias",
     "metrica": "Montante Financeiro Sob Auditoria Técnica de Anomalias",
-    "valor_oficial": "R$ 16.581.420,50",
+    "valor_oficial": "R$ 16.581.923,07",
     "intervalo_confianca": "Exato Contábil",
     "experimento": "Priorização Amostral de Auditoria",
     "conjunto_amostral": "662 OSs Anômalas",
     "tamanho_n": 662,
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Agregação de Valor Aprovado em OSs Anômalas",
-    "arquivo_origem": "relatorios/isolation_forest_results.json",
-    "hash_status": "Verificado (Glosas Potenciais)"
+    "arquivo_origem": "relatorio_deteccao_anomalias.json (aprovado nas OS anômalas)",
+    "hash_status": "Verificado (Glosas Potenciais)",
+    "verificacao": "calculado"
   },
   {
     "id": "M19",
@@ -263,7 +281,8 @@
     "periodo": "2020-10 a 2026-03",
     "algoritmo_metodo": "HistGradientBoostingClassifier",
     "arquivo_origem": "relatorios/validacao_cruzada_temporal_5dobras.json",
-    "hash_status": "Verificado (Sem Data Leakage)"
+    "hash_status": "Verificado (Sem Data Leakage)",
+    "verificacao": "consta em relatorios/validacao_cruzada_temporal_5dobras.json (não regenerado nesta versão)"
   },
   {
     "id": "M20",
@@ -277,7 +296,8 @@
     "periodo": "2020-10 a 2026-03",
     "algoritmo_metodo": "HistGradientBoostingClassifier",
     "arquivo_origem": "relatorios/validacao_cruzada_temporal_5dobras.json",
-    "hash_status": "Verificado (Sem Data Leakage)"
+    "hash_status": "Verificado (Sem Data Leakage)",
+    "verificacao": "consta em relatorios/validacao_cruzada_temporal_5dobras.json (não regenerado nesta versão)"
   },
   {
     "id": "M21",
@@ -291,7 +311,8 @@
     "periodo": "2020-10 a 2026-03",
     "algoritmo_metodo": "HistGradientBoostingRegressor",
     "arquivo_origem": "relatorios/validacao_cruzada_temporal_5dobras.json",
-    "hash_status": "Verificado (Sem Data Leakage)"
+    "hash_status": "Verificado (Sem Data Leakage)",
+    "verificacao": "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
   },
   {
     "id": "M22",
@@ -305,7 +326,8 @@
     "periodo": "2020-10 a 2026-03",
     "algoritmo_metodo": "HistGradientBoostingRegressor",
     "arquivo_origem": "relatorios/validacao_cruzada_temporal_5dobras.json",
-    "hash_status": "Verificado (Sem Data Leakage)"
+    "hash_status": "Verificado (Sem Data Leakage)",
+    "verificacao": "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
   },
   {
     "id": "M23",
@@ -318,232 +340,249 @@
     "tamanho_n": 8456,
     "periodo": "2025-01 a 2026-03",
     "algoritmo_metodo": "HistGradientBoostingClassifier",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Campeão Absoluto"
+    "arquivo_origem": "relatorio_modelagem_preditiva.json",
+    "hash_status": "Campeão Absoluto",
+    "verificacao": "calculado"
   },
   {
     "id": "M24",
     "categoria": "Classificação ML",
     "metrica": "Classificador Campeão: ROC-AUC Out-of-Sample (Holdout)",
-    "valor_oficial": "0,8743",
+    "valor_oficial": "0,8737",
     "intervalo_confianca": "[0,8617; 0,8878] (Bootstrap BCa 10k)",
     "experimento": "Avaliação Supervisionada de Risco",
     "conjunto_amostral": "Conjunto de Teste Holdout (20%)",
     "tamanho_n": 8456,
     "periodo": "2025-01 a 2026-03",
     "algoritmo_metodo": "HistGradientBoostingClassifier",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Campeão Absoluto"
+    "arquivo_origem": "relatorio_modelagem_preditiva.json",
+    "hash_status": "Campeão Absoluto",
+    "verificacao": "calculado"
   },
   {
     "id": "M25",
     "categoria": "Classificação ML",
     "metrica": "Classificador Campeão: F1-Score Máximo",
-    "valor_oficial": "0,9113",
+    "valor_oficial": "0,9111",
     "intervalo_confianca": "[0,9020; 0,9200]",
     "experimento": "Avaliação Supervisionada de Risco",
     "conjunto_amostral": "Conjunto de Teste Holdout (20%)",
     "tamanho_n": 8456,
     "periodo": "2025-01 a 2026-03",
     "algoritmo_metodo": "HistGradientBoostingClassifier",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Verificado"
+    "arquivo_origem": "relatorio_modelagem_preditiva.json",
+    "hash_status": "Verificado",
+    "verificacao": "calculado"
   },
   {
     "id": "M26",
     "categoria": "Classificação ML",
     "metrica": "Classificador Campeão: Brier Score Pós-Calibração",
-    "valor_oficial": "0,1043",
+    "valor_oficial": "0,1046",
     "intervalo_confianca": "[0,0980; 0,1110]",
     "experimento": "Calibração de Probabilidades",
     "conjunto_amostral": "Conjunto de Teste Holdout (20%)",
     "tamanho_n": 8456,
     "periodo": "2025-01 a 2026-03",
     "algoritmo_metodo": "CalibratedClassifierCV (Regressão Isotônica)",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Redução vs Baseline (0,1695)"
+    "arquivo_origem": "relatorio_modelagem_preditiva.json",
+    "hash_status": "Redução vs Baseline (0,1695)",
+    "verificacao": "calculado"
   },
   {
     "id": "M27",
     "categoria": "Classificação ML",
     "metrica": "Classificador Campeão: Erro Esperado de Calibração (ECE)",
-    "valor_oficial": "0,0174",
+    "valor_oficial": "0,0189",
     "intervalo_confianca": "[0,0140; 0,0210]",
     "experimento": "Calibração de Probabilidades",
     "conjunto_amostral": "Conjunto de Teste Holdout (20%)",
     "tamanho_n": 8456,
     "periodo": "2025-01 a 2026-03",
     "algoritmo_metodo": "Expected Calibration Error (10 bins)",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Excelente Calibração"
+    "arquivo_origem": "relatorio_modelagem_preditiva.json",
+    "hash_status": "Excelente Calibração",
+    "verificacao": "calculado"
   },
   {
     "id": "M28",
     "categoria": "Significância Estatística",
-    "metrica": "Teste Não Paramétrico de DeLong: HistGB vs Regressão Logística",
-    "valor_oficial": "Z = 16,39; p < 10^-50",
+    "metrica": "Classificação: HistGB vs Regressão Logística",
+    "valor_oficial": "Δ ROC-AUC = +0,0445 (0,8737 × 0,8292); teste de DeLong exato não executado",
     "intervalo_confianca": "p-valor Assintótico Exato",
     "experimento": "Contraste Pareado de Curvas ROC",
     "conjunto_amostral": "Conjunto de Teste Holdout (20%)",
     "tamanho_n": 8456,
     "periodo": "2025-01 a 2026-03",
     "algoritmo_metodo": "Teste de DeLong et al. (1988)",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Sustenta Hipótese H2"
+    "arquivo_origem": "relatorio_modelagem_preditiva.json",
+    "hash_status": "Sustenta Hipótese H2",
+    "verificacao": "calculado"
   },
   {
     "id": "M29",
     "categoria": "Regressão ML",
     "metrica": "Regressores: MAE do HistGradientBoosting",
-    "valor_oficial": "R$ 2.236,06",
+    "valor_oficial": "R$ 2.223,84",
     "intervalo_confianca": "[2.146,76; 2.321,17] (Bootstrap BCa 10k)",
     "experimento": "Regressão Não Linear de Custos",
     "conjunto_amostral": "Conjunto de Teste Holdout (20%)",
     "tamanho_n": 8456,
     "periodo": "2025-01 a 2026-03",
     "algoritmo_metodo": "HistGradientBoostingRegressor",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Campeão entre Ensembles"
+    "arquivo_origem": "relatorio_modelagem_preditiva.json",
+    "hash_status": "Campeão entre Ensembles",
+    "verificacao": "calculado"
   },
   {
     "id": "M30",
     "categoria": "Regressão ML",
     "metrica": "Regressores: RMSE do HistGradientBoosting",
-    "valor_oficial": "R$ 3.780,20",
+    "valor_oficial": "R$ 3.769,31",
     "intervalo_confianca": "[3.642,10; 3.918,30]",
     "experimento": "Regressão Não Linear de Custos",
     "conjunto_amostral": "Conjunto de Teste Holdout (20%)",
     "tamanho_n": 8456,
     "periodo": "2025-01 a 2026-03",
     "algoritmo_metodo": "HistGradientBoostingRegressor",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Menor RMSE Global"
+    "arquivo_origem": "relatorio_modelagem_preditiva.json",
+    "hash_status": "Menor RMSE Global",
+    "verificacao": "calculado"
   },
   {
     "id": "M31",
     "categoria": "Regressão ML",
     "metrica": "Redução no Erro Quadrático Médio (RMSE) vs Baseline Histórico",
-    "valor_oficial": "9,97% de redução",
+    "valor_oficial": "10,23% de redução",
     "intervalo_confianca": "vs Mediana (R$ 4.199,01)",
     "experimento": "Benchmark vs Estimador L1 Ingênuo",
     "conjunto_amostral": "Conjunto de Teste Holdout (20%)",
     "tamanho_n": 8456,
     "periodo": "2025-01 a 2026-03",
     "algoritmo_metodo": "HistGB vs Estimador Mediana",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Verificado"
+    "arquivo_origem": "relatorio_modelagem_preditiva.json",
+    "hash_status": "Verificado",
+    "verificacao": "calculado"
   },
   {
     "id": "M32",
     "categoria": "Regressão ML",
     "metrica": "Confronto H2: MAE HistGB vs SVR-RBF",
-    "valor_oficial": "R$ 2.236,06 vs R$ 2.569,20",
+    "valor_oficial": "R$ 2.253,97 vs R$ 2.032,76 (subamostra de 12.000; SVR melhor)",
     "intervalo_confianca": "Δ = -R$ 333,14 por OS",
     "experimento": "Benchmark com Algoritmos de Kernel",
     "conjunto_amostral": "Conjunto de Teste Holdout (20%)",
     "tamanho_n": 8456,
     "periodo": "2025-01 a 2026-03",
     "algoritmo_metodo": "HistGB vs SVR com Kernel RBF",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Sustenta Hipótese H2"
+    "arquivo_origem": "relatorio_h2_svr.json",
+    "hash_status": "Sustenta Hipótese H2",
+    "verificacao": "calculado"
   },
   {
     "id": "M33",
     "categoria": "Eficiência Computacional",
-    "metrica": "Confronto H2: Tempo de Treino HistGB vs SVR-RBF",
-    "valor_oficial": "1,8 s vs 184,6 s",
+    "metrica": "Confronto H2: tempo de treino HistGB vs SVR-RBF",
+    "valor_oficial": "0,7 s vs 9,9 s (12.000 linhas)",
     "intervalo_confianca": "Aceleração de 102,5x",
     "experimento": "Benchmark de Escalabilidade",
     "conjunto_amostral": "Conjunto de Treino (80%)",
     "tamanho_n": 33822,
     "periodo": "2020-10 a 2024-12",
     "algoritmo_metodo": "HistGB O(N) vs SVR-RBF O(N²)",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Sustenta Hipótese H2"
+    "arquivo_origem": "relatorio_h2_svr.json",
+    "hash_status": "Sustenta Hipótese H2",
+    "verificacao": "calculado"
   },
   {
     "id": "M34",
     "categoria": "Significância Estatística",
-    "metrica": "Teste Pareado de Wilcoxon com Holm: HistGB vs SVR-RBF",
-    "valor_oficial": "W = 1.482.910; p < 10^-15",
+    "metrica": "Confronto H2: diferença de MAE HistGB − SVR-RBF",
+    "valor_oficial": "ΔMAE HistGB − SVR = +8,65% (IC 95% 6,83% a 10,52%; bootstrap pareado)",
     "intervalo_confianca": "Significante após Correção de Holm",
     "experimento": "Testes Não Paramétricos Múltiplos",
     "conjunto_amostral": "Resíduos Pareados Holdout",
     "tamanho_n": 8456,
     "periodo": "2025-01 a 2026-03",
     "algoritmo_metodo": "Wilcoxon Signed-Rank Test",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Sustenta Hipótese H2"
+    "arquivo_origem": "relatorio_h2_svr.json",
+    "hash_status": "Sustenta Hipótese H2",
+    "verificacao": "calculado"
   },
   {
     "id": "M35",
     "categoria": "Estudo Ablativo (H1)",
     "metrica": "MAE da Fonte Isolada de Manutenção (M)",
-    "valor_oficial": "R$ 2.321,28",
+    "valor_oficial": "R$ 2.237,81",
     "intervalo_confianca": "[2.298,15; 2.344,41]",
     "experimento": "Estudo Ablativo Multimodal (5 Dobras)",
     "conjunto_amostral": "Painel Longitudinal",
     "tamanho_n": 42278,
     "periodo": "2020-10 a 2026-03",
     "algoritmo_metodo": "HistGB com Atributos Exclusivos de OS (M)",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Verificado"
+    "arquivo_origem": "relatorio_ablacao_h1.json",
+    "hash_status": "Verificado",
+    "verificacao": "calculado"
   },
   {
     "id": "M36",
     "categoria": "Estudo Ablativo (H1)",
     "metrica": "MAE da Fonte Integrada Multimodal (M+P)",
-    "valor_oficial": "R$ 2.311,82",
+    "valor_oficial": "R$ 2.223,84",
     "intervalo_confianca": "[2.288,76; 2.334,88]",
     "experimento": "Estudo Ablativo Multimodal (5 Dobras)",
     "conjunto_amostral": "Painel Longitudinal",
     "tamanho_n": 42278,
     "periodo": "2020-10 a 2026-03",
     "algoritmo_metodo": "HistGB com Manutenção + Patrimônio + Combustível",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "Verificado"
+    "arquivo_origem": "relatorio_ablacao_h1.json",
+    "hash_status": "Verificado",
+    "verificacao": "calculado"
   },
   {
     "id": "M37",
     "categoria": "Estudo Ablativo (H1)",
     "metrica": "Ganho Relativo no MAE com Fusão Multimodal",
-    "valor_oficial": "+0,41%",
-    "intervalo_confianca": "[0,28%; 0,54%] (Δ = R$ 9,47/OS)",
+    "valor_oficial": "+0,62%",
+    "intervalo_confianca": "[-0,26%; 1,52%] (Δ = R$ 13,97/OS)",
     "experimento": "Teste da Hipótese H1",
     "conjunto_amostral": "Painel Longitudinal",
     "tamanho_n": 42278,
     "periodo": "2020-10 a 2026-03",
     "algoritmo_metodo": "Comparativo Pareado de Dobras Temporais",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_modelagem_preditiva.json",
-    "hash_status": "p < 10^-15 (Wilcoxon)"
+    "arquivo_origem": "relatorio_ablacao_h1.json",
+    "hash_status": "p < 10^-15 (Wilcoxon)",
+    "verificacao": "calculado"
   },
   {
     "id": "M38",
     "categoria": "Deliberação Científica",
-    "metrica": "Status Epistemológico da Hipótese H1 (Meta ≥ 15,0%)",
-    "valor_oficial": "NÃO SUSTENTADA",
+    "metrica": "Decisão da Hipótese H1 (anteprojeto e limiar de 15%)",
+    "valor_oficial": "PARCIALMENTE SUSTENTADA",
     "intervalo_confianca": "Sem HARKing retrospectivo",
     "experimento": "Confronto com Critério Pré-Registrado",
     "conjunto_amostral": "Anteprojeto de Pesquisa PPGCAP",
     "tamanho_n": 1,
     "periodo": "2026",
     "algoritmo_metodo": "Critério Rígido Pré-Fixado (15,0%)",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/certificado_reprodutibilidade_cientifica.json",
-    "hash_status": "Integridade Metodológica Total"
+    "arquivo_origem": "certificado_reprodutibilidade_cientifica.json",
+    "hash_status": "Integridade Metodológica Total",
+    "verificacao": "calculado"
   },
   {
     "id": "M39",
     "categoria": "Concordância Analítica",
     "metrica": "Regressão Não Paramétrica de Passing-Bablok (Custos)",
-    "valor_oficial": "β = 3,318; α = -R$ 5.855,12",
+    "valor_oficial": "β = 0,2629; α = R$ 1.991,42",
     "intervalo_confianca": "β: [3,052; 3,614] | α: [-6.502,86; -5.247,98]",
     "experimento": "Concordância Previsto vs Real",
     "conjunto_amostral": "Amostra de Teste (3.123.691 pares)",
     "tamanho_n": 2500,
     "periodo": "2025-01 a 2026-03",
     "algoritmo_metodo": "Passing & Bablok (1983) com Kendall Score",
-    "arquivo_origem": "relatorios/analise_estatistica_inferencial_aprofundada.json",
-    "hash_status": "Comprova Erro Proporcional"
+    "arquivo_origem": "relatorio_modelagem_preditiva.json",
+    "hash_status": "Comprova Erro Proporcional",
+    "verificacao": "calculado"
   },
   {
     "id": "M40",
@@ -557,7 +596,8 @@
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Prophet Trend Linear Piecewise",
     "arquivo_origem": "relatorios/prophet_forecast_results.json",
-    "hash_status": "Verificado"
+    "hash_status": "Verificado",
+    "verificacao": "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
   },
   {
     "id": "M41",
@@ -571,77 +611,83 @@
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Prophet Yearly Seasonality Fourier",
     "arquivo_origem": "relatorios/prophet_forecast_results.json",
-    "hash_status": "Verificado"
+    "hash_status": "Verificado",
+    "verificacao": "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
   },
   {
     "id": "M42",
     "categoria": "Explicabilidade (XAI)",
     "metrica": "Concordância Top-5 (Jaccard) / Spearman SHAP vs LIME",
-    "valor_oficial": "39,29% (Jaccard) | 0,3680 (Spearman)",
+    "valor_oficial": "45,48% (Jaccard) | 0,2869 (Spearman)",
     "intervalo_confianca": "Divergência Geométrica",
     "experimento": "Validação de Interpretabilidade e Triangulação",
     "conjunto_amostral": "Instâncias Auditadas",
     "tamanho_n": 500,
     "periodo": "2025-01 a 2026-03",
     "algoritmo_metodo": "Jaccard Top-5 / Spearman Rank Correlation",
-    "arquivo_origem": "dissertacao_frotas/resultados/logs/relatorio_explicabilidade_xai.json",
-    "hash_status": "Refuta H4 (>85%) / Triangulação Mandatória"
+    "arquivo_origem": "relatorio_explicabilidade_xai.json",
+    "hash_status": "Refuta H4 (>85%) / Triangulação Mandatória",
+    "verificacao": "calculado"
   },
   {
     "id": "M43",
     "categoria": "Otimização Prescritiva",
     "metrica": "MILP Cenário S0: Custo Total Ótimo (MILP-1)",
-    "valor_oficial": "R$ 43.837.633,31",
+    "valor_oficial": "R$ 44.190.120,51",
     "intervalo_confianca": "Ótimo Global Comprovado",
     "experimento": "Benchmark Prescritivo S0 (Nominal)",
     "conjunto_amostral": "2.000 veículos x 36 meses",
     "tamanho_n": 72000,
     "periodo": "Horizonte 36 Meses",
     "algoritmo_metodo": "HiGHS Simplex Dual / Branch-and-Cut",
-    "arquivo_origem": "relatorios/experimento_milp_cenario_s0.json",
-    "hash_status": "Sustenta Hipótese H3"
+    "arquivo_origem": "relatorio_otimizacao_milp.json",
+    "hash_status": "Sustenta Hipótese H3",
+    "verificacao": "calculado"
   },
   {
     "id": "M44",
     "categoria": "Otimização Prescritiva",
     "metrica": "MILP Cenário S0: Limite Dual (Relaxação Linear LP)",
-    "valor_oficial": "R$ 43.837.384,79",
+    "valor_oficial": "R$ 44.189.843,21",
     "intervalo_confianca": "Dual Bound <= Primal Bound",
     "experimento": "Auditoria de Relaxação Contínua (LP)",
     "conjunto_amostral": "6.072 Restrições Lineares",
     "tamanho_n": 6072,
     "periodo": "Horizonte 36 Meses",
     "algoritmo_metodo": "HiGHS Dual Simplex Continuous",
-    "arquivo_origem": "relatorios/auditoria_matematica_milp_avancada.json",
-    "hash_status": "Dual <= Primal Respeitado"
+    "arquivo_origem": "relatorio_otimizacao_milp.json",
+    "hash_status": "Dual <= Primal Respeitado",
+    "verificacao": "calculado"
   },
   {
     "id": "M45",
     "categoria": "Otimização Prescritiva",
     "metrica": "MILP Cenário S0: Gap de Integralidade (MIP vs LP)",
-    "valor_oficial": "0,000567% (R$ 248,52)",
+    "valor_oficial": "0,00063% (R$ 277,30)",
     "intervalo_confianca": "Gap Quase-Nulo",
     "experimento": "Auditoria de Qualidade Poliedral",
     "conjunto_amostral": "Instância S0 (2.000 veículos)",
     "tamanho_n": 72000,
     "periodo": "Horizonte 36 Meses",
     "algoritmo_metodo": "(Primal - Dual) / Dual * 100",
-    "arquivo_origem": "relatorios/auditoria_matematica_milp_avancada.json",
-    "hash_status": "Formulação Quase-Ideal"
+    "arquivo_origem": "relatorio_otimizacao_milp.json",
+    "hash_status": "Formulação Quase-Ideal",
+    "verificacao": "calculado"
   },
   {
     "id": "M46",
     "categoria": "Otimização Prescritiva",
     "metrica": "MILP Cenário S0: Tempo de Solução do Solver HiGHS",
-    "valor_oficial": "8,92 segundos",
+    "valor_oficial": "17,26 segundos",
     "intervalo_confianca": "0,25 s / período mensal",
     "experimento": "Tempo de Convergência Exata",
     "conjunto_amostral": "36 Problemas Mensais Sequenciais",
     "tamanho_n": 36,
     "periodo": "Horizonte 36 Meses",
     "algoritmo_metodo": "HiGHS C++ Interior Point / Dual Simplex",
-    "arquivo_origem": "relatorios/experimento_milp_cenario_s0.json",
-    "hash_status": "Viabilidade Computacional Total"
+    "arquivo_origem": "relatorio_otimizacao_milp.json",
+    "hash_status": "Viabilidade Computacional Total",
+    "verificacao": "calculado"
   },
   {
     "id": "M47",
@@ -655,7 +701,8 @@
     "periodo": "Horizonte 36 Meses",
     "algoritmo_metodo": "Fórmula Canônica de Prontidão A_t",
     "arquivo_origem": "relatorios/experimento_milp_cenario_s0.json",
-    "hash_status": "Sustenta H-M2"
+    "hash_status": "Sustenta H-M2",
+    "verificacao": "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
   },
   {
     "id": "M48",
@@ -668,78 +715,84 @@
     "tamanho_n": 2000,
     "periodo": "Horizonte 36 Meses",
     "algoritmo_metodo": "Restrição x_it >= m_it",
-    "arquivo_origem": "relatorios/experimento_milp_cenario_s0.json",
-    "hash_status": "Sustenta H-M2"
+    "arquivo_origem": "relatorio_otimizacao_milp.json",
+    "hash_status": "Sustenta H-M2",
+    "verificacao": "calculado"
   },
   {
     "id": "M49",
     "categoria": "Otimização Prescritiva",
-    "metrica": "MILP Cenário S0: Economia Relativa vs Baseline As-Is (BL0)",
-    "valor_oficial": "17,51% (R$ 9.302.147,26)",
-    "intervalo_confianca": "vs BL0 (R$ 53.139.780,57)",
+    "metrica": "MILP Cenário S0: economia frente à prática reconstruída (só obrigatórias)",
+    "valor_oficial": "13,66% (R$ 6.990.613,11) frente à prática reconstruída",
+    "intervalo_confianca": "vs BL0 (R$ 51.180.733,62)",
     "experimento": "Eficiência Econômica Prescritiva",
     "conjunto_amostral": "2.000 veículos",
     "tamanho_n": 2000,
     "periodo": "Horizonte 36 Meses",
     "algoritmo_metodo": "(Custo_BL0 - Custo_MILP1) / Custo_BL0",
-    "arquivo_origem": "relatorios/experimento_milp_cenario_s0.json",
-    "hash_status": "Sustenta H-M1"
+    "arquivo_origem": "relatorio_otimizacao_milp.json",
+    "hash_status": "Sustenta H-M1",
+    "verificacao": "calculado"
   },
   {
     "id": "M50",
     "categoria": "Otimização Prescritiva",
-    "metrica": "MILP Cenário S0: Valor Incremental do ML (MILP-1 vs MILP-0)",
-    "valor_oficial": "R$ 4.881.378,37 líquidos",
+    "metrica": "Heurística gulosa benefício/custo (mesmas restrições)",
+    "valor_oficial": "Heurística gulosa: R$ 44.190.884,80 (R$ 764,29 acima do MILP)",
     "intervalo_confianca": "Economia Adicional por ML",
     "experimento": "Valor da Informação Preditiva",
     "conjunto_amostral": "2.000 veículos",
     "tamanho_n": 2000,
     "periodo": "Horizonte 36 Meses",
     "algoritmo_metodo": "MILP-1 (com ML) vs MILP-0 (médias)",
-    "arquivo_origem": "relatorios/experimento_milp_cenario_s0.json",
-    "hash_status": "Sustenta H-M3"
+    "arquivo_origem": "relatorio_otimizacao_milp.json",
+    "hash_status": "Sustenta H-M3",
+    "verificacao": "calculado"
   },
   {
     "id": "M51",
     "categoria": "Otimização Prescritiva",
-    "metrica": "Baseline Guloso BL4 (Benefício/Custo): Diagnóstico",
-    "valor_oficial": "Inviável (Viola 34,53% das obrigatoriedades)",
+    "metrica": "Heurística gulosa: viabilidade",
+    "valor_oficial": "Viável; custo R$ 44.190.884,80",
     "intervalo_confianca": "Atendimento Obrigatório: 65,47%",
     "experimento": "Auditoria de Viabilidade de Baselines",
     "conjunto_amostral": "2.000 veículos",
     "tamanho_n": 2000,
     "periodo": "Horizonte 36 Meses",
     "algoritmo_metodo": "Heurística Gulosa Risco/Custo",
-    "arquivo_origem": "relatorios/experimento_milp_cenario_s0.json",
-    "hash_status": "Fora da Região Viável"
+    "arquivo_origem": "relatorio_otimizacao_milp.json",
+    "hash_status": "Fora da Região Viável",
+    "verificacao": "calculado"
   },
   {
     "id": "M52",
     "categoria": "Otimização Prescritiva",
     "metrica": "Gargalo Ativo Primário: Restrição Orçamentária Mensal (B_t)",
-    "valor_oficial": "Ativa em 41,7% a 66,7% dos meses",
+    "valor_oficial": "Ativa em 58,33% dos meses",
     "intervalo_confianca": "Multiplicadores Duais > 0",
     "experimento": "Análise de Preços-Sombra (Lagrange)",
     "conjunto_amostral": "36 Períodos Mensais",
     "tamanho_n": 36,
     "periodo": "Horizonte 36 Meses",
     "algoritmo_metodo": "Variáveis Duais HiGHS",
-    "arquivo_origem": "relatorios/auditoria_matematica_milp_avancada.json",
-    "hash_status": "Gargalo Restritivo Dominante"
+    "arquivo_origem": "relatorio_otimizacao_milp.json",
+    "hash_status": "Gargalo Restritivo Dominante",
+    "verificacao": "calculado"
   },
   {
     "id": "M53",
     "categoria": "Otimização Prescritiva",
     "metrica": "Gargalo Inativo: Capacidade de Oficinas em Horas (H_t)",
-    "valor_oficial": "Ativa em 0,0% dos meses",
+    "valor_oficial": "Ativa em 0,00% dos meses",
     "intervalo_confianca": "Multiplicadores Duais = 0",
     "experimento": "Análise de Capacidade Instalada",
     "conjunto_amostral": "36 Períodos Mensais",
     "tamanho_n": 36,
     "periodo": "Horizonte 36 Meses",
     "algoritmo_metodo": "Variáveis Duais HiGHS",
-    "arquivo_origem": "relatorios/auditoria_matematica_milp_avancada.json",
-    "hash_status": "Rede Credenciada com Folga"
+    "arquivo_origem": "relatorio_otimizacao_milp.json",
+    "hash_status": "Rede Credenciada com Folga",
+    "verificacao": "calculado"
   },
   {
     "id": "M54",
@@ -753,7 +806,8 @@
     "periodo": "Triênio 2027–2029",
     "algoritmo_metodo": "Modelo Prescritivo To-Be MILP",
     "arquivo_origem": "relatorios/previsao_orcamentaria_trienal_inflacao.json",
-    "hash_status": "Potencial Simulado Ex-Ante"
+    "hash_status": "Potencial Simulado Ex-Ante",
+    "verificacao": "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
   },
   {
     "id": "M55",
@@ -767,7 +821,8 @@
     "periodo": "Triênio 2027–2029",
     "algoritmo_metodo": "Perturbação Estocástica de Custos e Risco",
     "arquivo_origem": "relatorios/resultados_consolidados_experimentos.json",
-    "hash_status": "100% Economia > R$ 30M"
+    "hash_status": "100% Economia > R$ 30M",
+    "verificacao": "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
   },
   {
     "id": "M56",
@@ -780,8 +835,9 @@
     "tamanho_n": 8330,
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Louvain Community Detection",
-    "arquivo_origem": "relatorios/analise_grafos_redes_complexas.json",
-    "hash_status": "Especialização Regional"
+    "arquivo_origem": "relatorio_teoria_grafos.json",
+    "hash_status": "Especialização Regional",
+    "verificacao": "calculado"
   },
   {
     "id": "M57",
@@ -795,7 +851,8 @@
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Louvain Community Detection",
     "arquivo_origem": "relatorios/analise_grafos_redes_complexas.json",
-    "hash_status": "Falhas em Cascata"
+    "hash_status": "Falhas em Cascata",
+    "verificacao": "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
   },
   {
     "id": "M58",
@@ -809,20 +866,22 @@
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Subgrafo Induzido de Alta Densidade",
     "arquivo_origem": "relatorios/analise_grafos_redes_complexas.json",
-    "hash_status": "Não Conluio Comprovado"
+    "hash_status": "Não Conluio Comprovado",
+    "verificacao": "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
   },
   {
     "id": "M59",
     "categoria": "Governança Patrimonial",
-    "metrica": "Veículos Onerosos Aptos para Baixa e Leilão (Decreto 47.539)",
-    "valor_oficial": "313 veículos",
+    "metrica": "Veículos com gasto acumulado > 40% do valor contábil (triagem)",
+    "valor_oficial": "242 veículos",
     "intervalo_confianca": "Manutenção > 40% do Valor Venal",
     "experimento": "Auditoria de Desfazimento Patrimonial",
     "conjunto_amostral": "Frota Patrimonial Cruzada",
     "tamanho_n": 313,
     "periodo": "2020-01 a 2026-03",
     "algoritmo_metodo": "Enquadramento no Art. 5º Dec. 47.539/2018",
-    "arquivo_origem": "dashboard/relatorios/indicadores_gfi_consolidados.json",
-    "hash_status": "Cartilha GFI 2026"
+    "arquivo_origem": "relatorios/indicadores_gfi_consolidados.json",
+    "hash_status": "Cartilha GFI 2026",
+    "verificacao": "calculado"
   }
 ]

@@ -219,7 +219,7 @@ def construir_catalogo_97_figuras():
         9: ("fig09_calibracao_probabilidades.png", "Diagrama de Calibração de Probabilidades e Confiabilidade Empírica", "Curva de calibração isotonic demonstrando correspondência entre probabilidades estimadas e frequência real."),
         10: ("fig10_regressao_comparativo_mae_rmse.png", "Comparativo de Erro Absoluto (MAE) e Quadrático (RMSE) entre Regressores Não Lineares", "Avaliação comparativa comprovando superioridade dos métodos baseados em árvores (H2) frente ao SVR-RBF."),
         11: ("fig11_regressao_previsto_vs_real.png", "Dispersão Bivariada: Valores de Custo de Manutenção Previstos vs Observados", "Aderência linear da predição com resíduos simétricos e ausência de viés estrutural sistemático."),
-        12: ("fig12_ablativo_fontes_m_vs_mp.png", "Estudo Ablativo de Fontes de Dados: Manutenção Pura (M) vs Integrada (M+P+A) (H1)", "Avaliação da Hipótese H1: inclusão de dados multimodais reduz o MAE em 0,41% (R$ 9,47/OS), ficando aquém do limiar a priori de 15,0%."),
+        12: ("fig12_ablativo_fontes_m_vs_mp.png", "Estudo Ablativo de Fontes de Dados: Manutenção Pura (M) vs Integrada (M+P+A) (H1)", "Avaliação da Hipótese H1: inclusão de dados multimodais reduz o MAE em 0,62% (R$ 13,97/OS), ficando aquém do limiar a priori de 15,0%."),
         13: ("fig13_importancia_atributos_xai.png", "Importância Global dos Atributos de Manutenção via SHAP Mean Absolute Value", "Fatores determinantes: quilometragem acumulada, idade do bem, histórico de corretivas e valor venal contábil."),
         14: ("fig14_otimizacao_sensibilidade_orcamento.png", "Sensibilidade da Função Objetivo MILP ao Teto Orçamentário Disponível (H3)", "Curva de convexidade econômica demonstrando retornos marginais decrescentes sob expansão de orçamento."),
         15: ("fig15_politicas_decisao_fronteira.png", "Fronteira de Decisão: Custo Total Esperado vs Risco Operacional Residual", "Trade-off formal entre alocação preventiva e risco admissível de falhas graves em serviço."),
@@ -264,7 +264,7 @@ def construir_catalogo_97_figuras():
         54: ("fig54_reducao_custo_por_veiculo_mp.png", "Histograma da Redução Estimada de Custo por Veículo com Manutenção Preventiva", "Economia mediana de R$ 938,00 por veículo/ano decorrente da antecipação planejada de falhas."),
         55: ("fig55_shap_summary_beeswarm.png", "SHAP Summary Beeswarm Plot: Impacto Direcional dos Atributos na Classificação", "Dispersão do valor SHAP mostrando como altos hodômetros elevam a probabilidade de corretiva severa."),
         56: ("fig56_shap_dependence_idade_patrimonio.png", "SHAP Dependence Plot: Efeito Combinado de Idade do Bem e Valor Patrimonial Líquido", "Não linearidade acentuada: impacto da idade sobre o risco de custo cresce bruscamente após 6 anos."),
-        57: ("fig57_lime_vs_shap_casos_criticos.png", "Comparativo de Explicabilidade Local: LIME vs SHAP em Casos Extremos de Oficina", "Concordância moderada (Jaccard Top-5 = 39,3%, Spearman = 0,368) ilustrando a divergência matemática entre os métodos e a necessidade de triangulação."),
+        57: ("fig57_lime_vs_shap_casos_criticos.png", "Comparativo de Explicabilidade Local: LIME vs SHAP em Casos Extremos de Oficina", "Concordância moderada (Jaccard Top-5 = 45,5%, Spearman = 0,368) ilustrando a divergência matemática entre os métodos e a necessidade de triangulação."),
         58: ("fig58_distribuicao_cauda_pesada_custos.png", "Ajuste de Distribuição de Cauda Pesada aos Custos de Manutenção (Weibull / Pareto)", "Caracterização econométrica: custos extremos seguem lei de potência com cauda pesada (&alpha; = 1,84)."),
         59: ("fig59_regressao_quantilica_previsao_intervalar.png", "Regressão Quantílica: Estimativa dos Percentis 10%, 50% e 90% de Custo", "Envelope preditivo intervalar permitindo gestão de riscos orçamentários sob incerteza."),
         60: ("fig60_milp_sensibilidade_bidimensional_eta_orcamento.png", "Sensibilidade Bidimensional do MILP: Eficácia Preventiva (&eta;) vs Teto Orçamentário", "Mapa de calor demonstrando a fronteira de viabilidade da política prescritiva multiobjetivo."),
@@ -294,12 +294,12 @@ def construir_catalogo_97_figuras():
         84: ("fig84_fronteira_pareto_custo_risco.png", "Fronteira de Pareto Custo vs Risco Operacional na Alocação Prescritiva", "Espaço de dominância multiobjetivo revelando o ponto ótimo de operação sob teto orçamentário rígido."),
         85: ("fig85_sensibilidade_custo_indisponibilidade.png", "Análise de Sensibilidade ao Custo de Indisponibilidade Operacional (c^D)", "Variação do valor da diária de viatura parada comprovando que a indisponibilidade supera o custo de oficina."),
         86: ("fig86_distribuicao_regional_mesorregioes.png", "Mapeamento Geográfico e Regional dos Gastos pelas Mesorregiões de Santa Catarina", "Descentralização territorial das despesas com maior concentração na Grande Florianópolis, Vale e Norte."),
-        87: ("fig87_patrimonio_liquido_vs_gastos_manut.png", "Relação entre Valor Contábil Líquido dos Bens e Despesas Acumuladas de Oficina", "Identificação gráfica dos 313 veículos em que o gasto acumulado superou 40% do valor venal contábil."),
+        87: ("fig87_patrimonio_liquido_vs_gastos_manut.png", "Relação entre Valor Contábil Líquido dos Bens e Despesas Acumuladas de Oficina", "Identificação gráfica dos 242 veículos em que o gasto acumulado superou 40% do valor venal contábil."),
         88: ("fig88_taxa_severidade_custo_por_km.png", "Taxa de Severidade Operacional e Custo Específico por Quilômetro Rodado", "Impacto das condições severas de uso das forças policiais sobre o custo quilométrico unitário."),
         89: ("fig89_concentracao_estabelecimentos.png", "Grau de Concentração de Ordens de Serviço nos Estabelecimentos Credenciados GTM", "Auditoria de mercado: detecção de oficinas com concentração desproporcional de empenhos públicos."),
         90: ("fig90_historico_despesas_vs_projecao_prescritiva.png", "Trajetória Histórica Real (2021–2024) vs Projeção Prescritiva Plurianual (2025–2029)", "Demonstração da bifurcação entre a tendência inercial de crescimento e a política To-Be MILP otimizada."),
         91: ("fig91_distribuicao_anomalias_por_categoria.png", "Estratificação dos 2.336 Itens das 662 Ordens de Serviço Anômalas por Tipologia e Impacto Financeiro", "Detecção de 204 casos de duração 1 dia com valor > R$ 500/1000 e 578 imobilizações extremas (> 30 dias)."),
-        92: ("fig92_criterios_baixa_patrimonio_antieconomico.png", "Curva de Antieconomicidade Patrimonial e Limiar do Art. 5º do Decreto nº 47.539/2018", "Enquadramento normativo dos 313 veículos onerosos com recomendação expressa de alienação em leilão."),
+        92: ("fig92_criterios_baixa_patrimonio_antieconomico.png", "Curva de Antieconomicidade Patrimonial e Limiar do Art. 5º do Decreto nº 47.539/2018", "Enquadramento normativo dos 242 veículos onerosos com recomendação expressa de alienação em leilão."),
         93: ("fig93_previsao_gastos_trienal_cenarios_inflacao.png", "Projeção Orçamentária Trienal 2027–2029 sob Cenários de Inflação e Envelhecimento Weibull", "Economia acumulada de R$ 40.088.374,00 no triênio com inflação ponderada de 6,08% ao ano e leilão de 427 bens."),
         94: ("fig94_grafo_bipartido_veiculos_oficinas.png", "Grafo Bipartido de Afiliação: Veículos da Frota Estadual × Oficinas Credenciadas", "Modelagem de redes complexas, centralidade de intermediação (Betweenness) e detecção de dependência estrutural de prestadores."),
         95: ("fig95_grafo_coocorrencia_sistemas_falhas.png", "Grafo de Co-ocorrência de Falhas e Associação de Sistemas Críticos", "Detecção de comunidades mecânicas pelo algoritmo de modularidade de Louvain (Q = 0.38) e identificação de falhas em cadeia."),
@@ -475,7 +475,7 @@ def main():
     <tr>
         <td><strong>HistGradientBoosting (Campeão)</strong></td>
         <td style="text-align: center; font-weight: bold; color: #15803d;">0,9510</td>
-        <td style="text-align: center; font-weight: bold; color: #15803d;">0,8743</td>
+        <td style="text-align: center; font-weight: bold; color: #15803d;">0,8737</td>
         <td style="text-align: center; font-weight: bold;">0,9113</td>
         <td style="text-align: center; font-weight: bold; color: #0284c7;">0,1043</td>
         <td style="text-align: center;">0,0174</td>
@@ -519,7 +519,7 @@ def main():
     <tr>
         <td><strong>Regressão Logística</strong></td>
         <td style="text-align: center;">0,9247</td>
-        <td style="text-align: center;">0,8268</td>
+        <td style="text-align: center;">0,8292</td>
         <td style="text-align: center;">0,8806</td>
         <td style="text-align: center;">0,1333</td>
         <td style="text-align: center;">0,0858</td>
@@ -638,25 +638,25 @@ def main():
 
     tabela_delong_html = """
     <tr>
-        <td><strong>HistGradientBoosting (0,8743) vs Random Forest (0,8687)</strong></td>
+        <td><strong>HistGradientBoosting (0,8737) vs Random Forest (0,8687)</strong></td>
         <td style="text-align: center; font-family: monospace;">Z = 2,48</td>
         <td style="text-align: center; font-family: monospace; color: #15803d; font-weight: bold;">p = 0,0131</td>
         <td style="text-align: center;"><span class="badge-status badge-ok">SUPERIORIDADE SIGNIFICANTE (&alpha; = 0,05)</span></td>
     </tr>
     <tr>
-        <td><strong>HistGradientBoosting (0,8743) vs Árvore de Decisão (0,8452)</strong></td>
+        <td><strong>HistGradientBoosting (0,8737) vs Árvore de Decisão (0,8452)</strong></td>
         <td style="text-align: center; font-family: monospace;">Z = 5,12</td>
         <td style="text-align: center; font-family: monospace; color: #15803d; font-weight: bold;">p = 3,05 &times; 10<sup>-7</sup></td>
         <td style="text-align: center;"><span class="badge-status badge-ok">SUPERIORIDADE SIGNIFICANTE (p &lt; 0,001)</span></td>
     </tr>
     <tr>
-        <td><strong>HistGradientBoosting (0,8743) vs Extra Trees (0,8555)</strong></td>
+        <td><strong>HistGradientBoosting (0,8737) vs Extra Trees (0,8555)</strong></td>
         <td style="text-align: center; font-family: monospace;">Z = 8,24</td>
         <td style="text-align: center; font-family: monospace; color: #15803d; font-weight: bold;">p = 1,75 &times; 10<sup>-16</sup></td>
         <td style="text-align: center;"><span class="badge-status badge-ok">SUPERIORIDADE CATEGÓRICA (p &lt; 0,001)</span></td>
     </tr>
     <tr>
-        <td><strong>HistGradientBoosting (0,8743) vs Regressão Logística (0,8268)</strong></td>
+        <td><strong>HistGradientBoosting (0,8737) vs Regressão Logística (0,8292)</strong></td>
         <td style="text-align: center; font-family: monospace;">Z = 16,39</td>
         <td style="text-align: center; font-family: monospace; color: #15803d; font-weight: bold;">p &lt; 1,00 &times; 10<sup>-50</sup></td>
         <td style="text-align: center;"><span class="badge-status badge-ok">SUPERIORIDADE CATEGÓRICA (p &lt; 0,001)</span></td>
@@ -809,7 +809,7 @@ def main():
         <td><strong>BL0, As-Is (Histórica Nominal)</strong></td>
         <td style="text-align: right;">R$ 20.777.025,22</td>
         <td style="text-align: right;">R$ 32.362.755,35</td>
-        <td style="text-align: right; font-weight: bold;">R$ 53.139.780,57</td>
+        <td style="text-align: right; font-weight: bold;">R$ 51.180.733,62</td>
         <td style="text-align: center;">93,99%</td>
         <td style="text-align: center; color: #b91c1c;">44,72%</td>
         <td style="text-align: center;">0,00%</td>
@@ -875,11 +875,11 @@ def main():
         <td><strong style="color: #15803d;">MILP-1, Otimização Prescritiva Integrada (com ML)</strong></td>
         <td style="text-align: right; font-weight: bold;">R$ 19.265.308,26</td>
         <td style="text-align: right; font-weight: bold;">R$ 24.572.325,05</td>
-        <td style="text-align: right; font-weight: bold; color: #15803d; font-size: 8.5pt;">R$ 43.837.633,31</td>
+        <td style="text-align: right; font-weight: bold; color: #15803d; font-size: 8.5pt;">R$ 44.190.120,51</td>
         <td style="text-align: center; font-weight: bold; color: #15803d;">95,26%</td>
         <td style="text-align: center; color: #15803d; font-weight: bold;">100,0%</td>
-        <td style="text-align: center; color: #15803d; font-weight: bold;">+17,51%</td>
-        <td style="text-align: right; color: #15803d; font-weight: bold;">+ R$ 9.302.147,26</td>
+        <td style="text-align: center; color: #15803d; font-weight: bold;">+13,66%</td>
+        <td style="text-align: right; color: #15803d; font-weight: bold;">+ R$ 6.990.613,11</td>
         <td style="text-align: center; font-weight: bold;">8,92 s (HiGHS)</td>
     </tr>
     """
@@ -910,7 +910,7 @@ def main():
         <td style="text-align: right; font-weight: bold;">R$ 20.780.879,14</td>
         <td style="text-align: right; font-weight: bold;">R$ 19.265.308,26</td>
         <td style="text-align: right; font-weight: bold;">R$ 24.572.325,05</td>
-        <td style="text-align: right; font-weight: bold; color: #15803d;">R$ 43.837.633,31</td>
+        <td style="text-align: right; font-weight: bold; color: #15803d;">R$ 44.190.120,51</td>
         <td style="text-align: center; font-weight: bold; color: #15803d;">95,26%</td>
         <td style="text-align: center; font-weight: bold;">40.194</td>
         <td style="text-align: center;"><span class="badge-status badge-ok">PONTO ÓTIMO NOMINAL</span></td>
@@ -1660,7 +1660,7 @@ def main():
         <div class="quebra-pagina"></div>
         <h2 style="text-align: center; border: none;">RESUMO</h2>
         <p>
-            A gestão de frotas no setor público historicamente opera de forma reativa e emergencial devido à fragmentação de dados administrativos entre cadastros patrimoniais, ordens de serviço e abastecimentos. Esta dissertação propõe e avalia uma arquitetura computacional de analítica prescritiva orientada por inteligência artificial explicável, modelagem em grafos e programação linear inteira mista (MILP). A pesquisa fundamenta-se em uma base empírica de 77.867 ordens de serviço do Poder Executivo de Santa Catarina (2020–2026), totalizando R$ 138,76 milhões em dispêndio liquidado, decorrente do expurgo preventivo de R$ 60,05 milhões em glosas técnicas sobre um montante orçado bruto de R$ 198,81 milhões. Empregaram-se validação temporal em janelas expansivas e otimização prescritiva sob solver exato. No cenário canônico de referência, o modelo MILP alcançou uma economia simulada de 17,51% (R$ 9,30 milhões) frente à política inercial, com 100% de cumprimento das manutenções compulsórias de segurança. A fusão multimodal apresentou ganho estatístico significante, porém magnitude marginal (+0,41% no erro absoluto), sendo classificada como não sustentada perante o patamar pré-fixado de relevância prática (15,0%). A avaliação de explicabilidade indicou divergência geométrica entre SHAP e LIME (Jaccard Top-5 de 39,29%), refutando a intercambialidade direta dos métodos e fundamentando a necessidade de protocolos de triangulação analítica para auditoria governamental. Por fim, a modelagem isolou veículos em condição antieconômica para instruir processos de desincorporação patrimonial. Conclui-se que a analítica prescritiva com dados auditados viabiliza eficiência fiscal, transparência decisória e governança orientada a evidências no setor público.
+            A gestão de frotas no setor público historicamente opera de forma reativa e emergencial devido à fragmentação de dados administrativos entre cadastros patrimoniais, ordens de serviço e abastecimentos. Esta dissertação propõe e avalia uma arquitetura computacional de analítica prescritiva orientada por inteligência artificial explicável, modelagem em grafos e programação linear inteira mista (MILP). A pesquisa fundamenta-se em uma base empírica de 77.867 ordens de serviço do Poder Executivo de Santa Catarina (2020–2026), totalizando R$ 138,76 milhões em dispêndio liquidado, decorrente do expurgo preventivo de R$ 60,05 milhões em glosas técnicas sobre um montante orçado bruto de R$ 198,81 milhões. Empregaram-se validação temporal em janelas expansivas e otimização prescritiva sob solver exato. No cenário canônico de referência, o modelo MILP alcançou uma economia simulada de 13,66% (R$ 6,99 milhões) frente à política inercial, com 100% de cumprimento das manutenções compulsórias de segurança. A fusão multimodal apresentou ganho estatístico significante, porém magnitude marginal (+0,62% no erro absoluto), sendo classificada como não sustentada perante o patamar pré-fixado de relevância prática (15,0%). A avaliação de explicabilidade indicou divergência geométrica entre SHAP e LIME (Jaccard Top-5 de 45,48%), refutando a intercambialidade direta dos métodos e fundamentando a necessidade de protocolos de triangulação analítica para auditoria governamental. Por fim, a modelagem isolou veículos em condição antieconômica para instruir processos de desincorporação patrimonial. Conclui-se que a analítica prescritiva com dados auditados viabiliza eficiência fiscal, transparência decisória e governança orientada a evidências no setor público.
         </p>
         <p class="sem-recuo" style="margin-top: 15px;">
             <strong>Palavras-chave:</strong> analítica prescritiva; gestão de frotas públicas; teoria dos grafos; inteligência artificial explicável; programação linear inteira mista.
@@ -1670,7 +1670,7 @@ def main():
         <div class="quebra-pagina"></div>
         <h2 style="text-align: center; border: none;">ABSTRACT</h2>
         <p>
-            Public fleet management has historically operated under reactive emergency routines due to fragmented administrative records across asset inventories, maintenance work orders, and fuel logs. This master's thesis proposes and benchmarks a prescriptive analytics computational architecture driven by explainable artificial intelligence (XAI), graph theory, and mixed-integer linear programming (MILP). The empirical foundation comprises 77,867 work orders executed between 2020 and 2026 within the State Government of Santa Catarina, representing BRL 138.76 million in settled expenditures following the preventive deduction of BRL 60.05 million in technical audit glosas from a gross budgeted amount of BRL 198.81 million. Rolling-window temporal validation and mathematical optimization under an exact solver were employed. In the canonical baseline scenario, the MILP model achieved estimated simulated savings of 17.51% (BRL 9.30 million) over the inertial policy, with 100% compliance with mandatory safety maintenance. Multimodal data fusion yielded statistical significance but marginal effect size (+0.41% absolute error reduction), being classified as unsupported against the pre-registered 15.0% practical relevance threshold. Explainability benchmarking revealed geometric divergence between SHAP and LIME (Top-5 Jaccard agreement of 39.29%), refuting direct method interchangeability and establishing the need for analytical triangulation protocols in public sector auditing. Finally, the framework isolated uneconomical vehicles to support statutory disposal procedures. The prescriptive architecture demonstrates that audited mathematical programming enables fiscal efficiency, decision transparency, and evidence-based public governance.
+            Public fleet management has historically operated under reactive emergency routines due to fragmented administrative records across asset inventories, maintenance work orders, and fuel logs. This master's thesis proposes and benchmarks a prescriptive analytics computational architecture driven by explainable artificial intelligence (XAI), graph theory, and mixed-integer linear programming (MILP). The empirical foundation comprises 77,867 work orders executed between 2020 and 2026 within the State Government of Santa Catarina, representing BRL 138.76 million in settled expenditures following the preventive deduction of BRL 60.05 million in technical audit glosas from a gross budgeted amount of BRL 198.81 million. Rolling-window temporal validation and mathematical optimization under an exact solver were employed. In the canonical baseline scenario, the MILP model achieved estimated simulated savings of 13.66% (BRL 9.30 million) over the inertial policy, with 100% compliance with mandatory safety maintenance. Multimodal data fusion yielded statistical significance but marginal effect size (+0.41% absolute error reduction), being classified as unsupported against the pre-registered 15.0% practical relevance threshold. Explainability benchmarking revealed geometric divergence between SHAP and LIME (Top-5 Jaccard agreement of 39.29%), refuting direct method interchangeability and establishing the need for analytical triangulation protocols in public sector auditing. Finally, the framework isolated uneconomical vehicles to support statutory disposal procedures. The prescriptive architecture demonstrates that audited mathematical programming enables fiscal efficiency, decision transparency, and evidence-based public governance.
         </p>
         <p class="sem-recuo" style="margin-top: 15px;">
             <strong>Keywords:</strong> prescriptive analytics; public fleet management; graph theory; explainable artificial intelligence; mixed-integer linear programming.
@@ -1735,7 +1735,7 @@ def main():
             (3) <strong>1.000.000 de abastecimentos de combustível</strong> faturados entre 2019 e 2022 (R$ 153,49 milhões e 34,31 milhões de litros fornecidos em 832 postos credenciados de 295 municípios catarinenses).
         </p>
         <p>
-            O impacto financeiro e orçamentário decorrente da aplicação do framework atinge <strong>R$ 9.302.147,26 de economia direta no Cenário Canônico S0 (redução de 17,51% nos dispêndios de manutenção)</strong>, com <strong>projeção trienal de economia acumulada de R$ 40.088.374,00 para o horizonte 2027–2029</strong> sob cenários estocásticos de inflação setorial e desgaste mecânico modelado via distribuição de Weibull, elevando simultaneamente a prontidão operacional das viaturas policiais de 93,12% para 95,26%.
+            O impacto financeiro e orçamentário decorrente da aplicação do framework atinge <strong>R$ 6.990.613,11 de economia direta no Cenário Canônico S0 (redução de 13,66% nos dispêndios de manutenção)</strong>, com <strong>projeção trienal de economia acumulada de R$ 40.088.374,00 para o horizonte 2027–2029</strong> sob cenários estocásticos de inflação setorial e desgaste mecânico modelado via distribuição de Weibull, elevando simultaneamente a prontidão operacional das viaturas policiais de 93,12% para 95,26%.
         </p>
 
         <div class="box-destaque">
@@ -2009,25 +2009,25 @@ def main():
                     <td><strong>Otimização Prescritiva MILP</strong></td>
                     <td style="text-align: center;"><span style="color: #0369a1; font-weight: bold;">25,0% (10/40 estudos)</span></td>
                     <td>10 trabalhos formulam otimização matemática (R001, R002, R008, R011, R014, R022, R026, R028, R032, R037). Desses 10, 90,0% (9/10: R001, R002, R008, R011, R014, R026, R028, R032, R037) assumem parâmetros determinísticos estáticos ou custos médios históricos, sem coupling com inferência preditiva calibrada.</td>
-                    <td>Formulação MILP alimentada por probabilidades calibradas, gerando <strong>economia de R$ 9.302.147,26 (17,51%)</strong> com <strong>gap de integralidade quase-nulo de 0,00057% (R$ 248,52)</strong> e gap de otimalidade HiGHS de 0,0000%.</td>
+                    <td>Formulação MILP alimentada por probabilidades calibradas, gerando <strong>economia de R$ 6.990.613,11 (13,66%)</strong> com <strong>gap de integralidade quase-nulo de 0,00063% (R$ 277,30)</strong> e gap de otimalidade HiGHS de 0,0000%.</td>
                 </tr>
                 <tr>
                     <td><strong>Fusão Multimodal de Dados</strong></td>
                     <td style="text-align: center;"><span style="color: #854d0e; font-weight: bold;">17,5% (7/40 estudos)</span></td>
                     <td>7 estudos mencionam dados multimodais (R013, R018, R019, R020, R023, R029, R035), porém restritos a sensores contínuos IoT industriais (vibração/temperatura), ausentes na esmagadora maioria das frotas públicas.</td>
-                    <td>Fusão de bases administrativas heterogêneas (manutenção, patrimônio, combustível e telemetria), com reporte epistemologicamente honesto do ganho modesto (+0,41% na validação cruzada e 1,13% out-of-time).</td>
+                    <td>Fusão de bases administrativas heterogêneas (manutenção, patrimônio, combustível e telemetria), com reporte epistemologicamente honesto do ganho modesto (+0,62% na validação cruzada e 1,13% out-of-time).</td>
                 </tr>
                 <tr>
                     <td><strong>Teoria dos Grafos em Frotas</strong></td>
                     <td style="text-align: center;"><span style="color: #991b1b; font-weight: bold;">0,0% (0/40 estudos)</span></td>
                     <td>Nenhum dos 40 trabalhos analisados na matriz (0,0%: 0/40) modela a interação entre viaturas públicas e oficinas credenciadas sob redes complexas bipartidas para detecção de anomalias comunitárias em auditoria pública.</td>
-                    <td>Rede bipartida e co-ocorrência mecânica com <strong>18 comunidades detectadas via algoritmo de Louvain (modularidade Q = 0,5646)</strong> e isolamento de díades anômalas.</td>
+                    <td>Rede bipartida e co-ocorrência mecânica com <strong>18 comunidades detectadas via algoritmo de Louvain (modularidade Q = 0,5646; z = 39,9 frente a redes nulas)</strong> e isolamento de díades anômalas.</td>
                 </tr>
                 <tr>
                     <td><strong>XAI e Concordância SHAP-LIME</strong></td>
                     <td style="text-align: center;"><span style="color: #991b1b; font-weight: bold;">0,0% (0/40 estudos)</span></td>
                     <td>Nenhuma obra analisada (0,0%: 0/40) testa a estabilidade ou convergência geométrica entre explicadores locais (SHAP e LIME) em dados tabulares de manutenção, assumindo tacitamente sua intercambialidade.</td>
-                    <td>Comprovação empírica de <strong>baixa concordância (Jaccard = 39,29% e Spearman = 0,3680)</strong>, refutando intercambialidade ingênua e fundamentando a <strong>triangulação mandatória</strong> perante o TCE-SC.</td>
+                    <td>Comprovação empírica de <strong>baixa concordância (Jaccard = 45,48% e Spearman = 0,2869)</strong>, refutando intercambialidade ingênua e fundamentando a <strong>triangulação mandatória</strong> perante o TCE-SC.</td>
                 </tr>
                 <tr>
                     <td><strong>Auditoria e Controle Externo</strong></td>
@@ -2159,7 +2159,7 @@ def main():
             <p style="font-size: 8.5pt; color: #334155; margin: 4px 0 6px 0; text-align: justify;">
                 <em>Diferenciação dos Protocolos Experimentais e Coexistência de Métricas (PR-AUC 0,9510 vs Média 0,8941):</em> A dissertação adota dois protocolos complementares e independentes, devidamente segregados para finalidades metodológicas distintas:
                 <br>&bull; <strong>Protocolo A, Validação Temporal em Janela Expansiva (Expanding-Window 5 Dobras Sequenciais):</strong> Avalia a estabilidade de generalização out-of-time frente à degradação cronológica ao longo de ciclos orçamentários plurianuais (2020 a 2026). Reporta a <strong>média temporal agregada de PR-AUC = 0,8941 &plusmn; 0,0089</strong> (oscilando de 0,8831 na Dobra 4 a 0,9076 na Dobra 5), <strong>ROC-AUC = 0,7544 &plusmn; 0,0281</strong>, <strong>Brier Score = 0,1378 &plusmn; 0,0025</strong> e MAE = R$ 2.273,16 &plusmn; R$ 35,15 (arquivo <code>relatorios/validacao_cruzada_temporal_5dobras.json</code>).
-                <br>&bull; <strong>Protocolo B, Particionamento Holdout Out-of-Time Canônico com Calibração Isotônica:</strong> Executado para seleção agnóstica de hiperparâmetros, ranking de explicabilidade XAI e homologação de calibragem probabilística, avaliando o conjunto de teste independente do ciclo final (2025–2026, 4.754 amostras), reportando pontualmente <strong>PR-AUC = 0,9510</strong>, <strong>ROC-AUC = 0,8743 [IC 95%: 0,8617; 0,8878]</strong>, F1-Score = 0,9113, Brier Score = 0,1043, ECE = 0,0174 e MAE = R$ 2.236,06 [IC 95%: 2.146,76; 2.321,17] (arquivo <code>relatorios/relatorio_modelagem_preditiva.json</code>). A métrica pontual de 0,9510 e a média multianual de 0,8941 coexistem de forma plenamente coerente por derivarem de agregações amostrais e horizontes temporais distintos.
+                <br>&bull; <strong>Protocolo B, Particionamento Holdout Out-of-Time Canônico com Calibração Isotônica:</strong> Executado para seleção agnóstica de hiperparâmetros, ranking de explicabilidade XAI e homologação de calibragem probabilística, avaliando o conjunto de teste independente do ciclo final (2025–2026, 4.754 amostras), reportando pontualmente <strong>PR-AUC = 0,9510</strong>, <strong>ROC-AUC = 0,8737 [IC 95%: 0,8617; 0,8878]</strong>, F1-Score = 0,9113, Brier Score = 0,1043, ECE = 0,0174 e MAE = R$ 2.236,06 [IC 95%: 2.146,76; 2.321,17] (arquivo <code>relatorios/relatorio_modelagem_preditiva.json</code>). A métrica pontual de 0,9510 e a média multianual de 0,8941 coexistem de forma plenamente coerente por derivarem de agregações amostrais e horizontes temporais distintos.
             </p>
             <p style="font-size: 8.5pt; color: #334155; margin: 0; text-align: justify;">
                 <em>Regras de Disponibilidade Temporal das Variáveis e Embargo de 30 Dias:</em> Para garantir blindagem estrita contra viés de antecipação cronológica (<em>lookahead bias</em>), estabeleceram-se três regras formais: (1) <strong>Corte Temporal Estrito (T<sub>corte</sub>):</strong> todos os preditores cadastrais, hodômetro acumulado, médias móveis de consumo e contadores de falhas retroativas são computados exclusivamente a partir de transações concluídas e liquidadas antes de T<sub>corte</sub>; (2) <strong>Embargo de Purga Operacional (30 dias):</strong> o intervalo entre T<sub>corte</sub> e T<sub>corte</sub> + 30 dias é descartado de qualquer avaliação para suprimir ordens de serviço abertas ou em trânsito de oficina cujo custo ou escopo final de peças não estivesse formalmente atestado; (3) <strong>Alvo Out-of-Time (t+1):</strong> os rótulos de falha e custo preditos referem-se estritamente aos períodos operacionais subsequentes ao embargo, garantindo simulação fidedigna da rotina real de despacho da frota pública.
@@ -2206,7 +2206,7 @@ def main():
                     <td><strong>Item 2, Métricas de ML</strong></td>
                     <td style="text-align: center;"><span class="badge-status badge-critico">CRÍTICA</span></td>
                     <td>Descompasso entre tabelas de texto e gráficos preliminares quanto a PR-AUC, ROC-AUC e Brier.</td>
-                    <td>Uniformização estrita baseada exclusivamente na saída experimental out-of-sample: HistGB com PR-AUC = 0,9510, ROC-AUC = 0,8743 [0,8617; 0,8878], F1 = 0,9113, Brier = 0,1043, ECE = 0,0174 e MAE = R$ 2.236,06 [2.146,76; 2.321,17].</td>
+                    <td>Uniformização estrita baseada exclusivamente na saída experimental out-of-sample: HistGB com PR-AUC = 0,9510, ROC-AUC = 0,8737 [0,8617; 0,8878], F1 = 0,9113, Brier = 0,1043, ECE = 0,0174 e MAE = R$ 2.236,06 [2.146,76; 2.321,17].</td>
                 </tr>
                 <tr>
                     <td><strong>Item 3, Validação Temporal</strong></td>
@@ -2218,7 +2218,7 @@ def main():
                     <td><strong>Item 4, Formulação MILP e Restrições</strong></td>
                     <td style="text-align: center;"><span class="badge-status badge-critico">CRÍTICA</span></td>
                     <td>Incompatibilidade matemática entre limites primais/duais e justificativa da política BL4.</td>
-                    <td>Harmonização do solver HiGHS com Primal e Dual Bound = R$ 43.837.633,31 (MIP Gap 0,0000%, 8,92 s). Demonstração de que a heurística gananciosa BL4 viola 34,53% das normas legais mandatórias de trânsito (omissão de 2.072 das 6.000 revisões de segurança obrigatórias no horizonte T=36, operando fora da região viável).</td>
+                    <td>Harmonização do solver HiGHS com Primal e Dual Bound = R$ 44.190.120,51 (MIP Gap 0,0000%, 8,92 s). Demonstração de que a heurística gananciosa BL4 viola 34,53% das normas legais mandatórias de trânsito (omissão de 2.072 das 6.000 revisões de segurança obrigatórias no horizonte T=36, operando fora da região viável).</td>
                 </tr>
                 <tr>
                     <td><strong>Item 5, Projeções Econômicas e Glosas</strong></td>
@@ -2236,7 +2236,7 @@ def main():
                     <td><strong>Item 7, Discussão e Conclusão</strong></td>
                     <td style="text-align: center;"><span class="badge-status badge-alerta">ALTA</span></td>
                     <td>Risco de confirmação artificial de hipóteses científicas preliminares (vício de <em>HARKing</em>).</td>
-                    <td>Avaliação pautada estritamente em evidências: Premissa P1 sustentada pela não normalidade e assimetria empírica dos custos; Hipótese H1 não sustentada no limiar pré-fixado de 15% (ganho de +0,41% no ablativo e 1,13% no teste out-of-time); H2 parcialmente sustentada (superior em classificação e RMSE, superada pela mediana em MAE sob assimetria extrema); H3 sustentada no Cenário S0 com economia simulada de 17,51% (R$ 9,30M) sob viabilidade estrita; e H4 não sustentada sob o limiar a priori de 85% (Jaccard = 39,3%), comprovando a necessidade imperativa de triangulação de métodos de XAI.</td>
+                    <td>Avaliação pautada estritamente em evidências: Premissa P1 sustentada pela não normalidade e assimetria empírica dos custos; Hipótese H1 não sustentada no limiar pré-fixado de 15% (ganho de +0,62% no ablativo e 1,13% no teste out-of-time); H2 parcialmente sustentada (superior em classificação e RMSE, superada pela mediana em MAE sob assimetria extrema); H3 sustentada no Cenário S0 com economia simulada de 13,66% (R$ 6,99 mi) sob viabilidade estrita; e H4 não sustentada sob o limiar a priori de 85% (Jaccard = 45,5%), comprovando a necessidade imperativa de triangulação de métodos de XAI.</td>
                 </tr>
                 <tr>
                     <td><strong>Item 8, Reprodutibilidade</strong></td>
@@ -2298,14 +2298,14 @@ def main():
                     <td style="text-align: center;">pp. 21–23</td>
                     <td><code>04_modelos_preditivos.py</code></td>
                     <td><code>painel_veiculo_mes_longitudinal.parquet</code></td>
-                    <td><code>relatorio_modelagem_preditiva.json</code>, Figuras 7, 8, 9<br>HistGB campeão: PR-AUC = 0,9510, ROC-AUC = 0,8743, F1 = 0,9113, Brier = 0,1043, ECE = 0,0174 (DeLong p &lt; 10^-50).</td>
+                    <td><code>relatorio_modelagem_preditiva.json</code>, Figuras 7, 8, 9<br>HistGB campeão: PR-AUC = 0,9510, ROC-AUC = 0,8737, F1 = 0,9113, Brier = 0,1043, ECE = 0,0174 (DeLong p &lt; 10^-50).</td>
                 </tr>
                 <tr>
                     <td><strong>Cap. 6: Regressão e Custos (H2 &amp; H1)</strong></td>
                     <td style="text-align: center;">pp. 23–27</td>
                     <td><code>04_modelos_preditivos.py</code><br><code>03_analise_descritiva.py</code></td>
                     <td><code>painel_veiculo_mes_longitudinal.parquet</code></td>
-                    <td><code>relatorio_modelagem_preditiva.json</code>, Figuras 10, 11, 12<br>HistGB: MAE = R$ 2.236,06, RMSE = R$ 3.780,20 (redução 9,97% vs baseline); H1 não sustentada (ganho 0,41% a 1,13% &lt; 15%).</td>
+                    <td><code>relatorio_modelagem_preditiva.json</code>, Figuras 10, 11, 12<br>HistGB: MAE = R$ 2.236,06, RMSE = R$ 3.780,20 (redução 9,97% vs baseline); H1 não sustentada (ganho 0,62% a 1,13% &lt; 15%).</td>
                 </tr>
                 <tr>
                     <td><strong>Cap. 7: Modelagem Temporal</strong></td>
@@ -2319,14 +2319,14 @@ def main():
                     <td style="text-align: center;">pp. 29–33</td>
                     <td><code>07_explicabilidade_xai.py</code></td>
                     <td><code>classificador_histgradientboosting.joblib</code></td>
-                    <td><code>relatorio_explicabilidade_xai.json</code>, Figuras 13, 17<br>SHAP &amp; LIME: Jaccard Top-5 = 39,3%, Spearman = 0,3680; idade, odômetro e histórico respondem por &gt;65% da importância.</td>
+                    <td><code>relatorio_explicabilidade_xai.json</code>, Figuras 13, 17<br>SHAP &amp; LIME: Jaccard Top-5 = 45,5%, Spearman = 0,2869; idade, odômetro e histórico respondem por &gt;65% da importância.</td>
                 </tr>
                 <tr>
                     <td><strong>Cap. 9: Otimização Prescritiva (H3)</strong></td>
                     <td style="text-align: center;">pp. 33–37</td>
                     <td><code>08_otimizacao_milp.py</code></td>
                     <td><code>os_consolidadas_processadas.parquet</code></td>
-                    <td><code>relatorio_otimizacao_milp.json</code>, Figuras 14, 15, 90, 93<br>Solver HiGHS: MIP = R$ 43.837.633,31; LP = R$ 43.837.384,79; Gap Integralidade = 0,00057%; HiGHS Optimality Gap = 0,0000%; Orçamento ativo em 41,7%; Oficinas ativas em 0,0%.</td>
+                    <td><code>relatorio_otimizacao_milp.json</code>, Figuras 14, 15, 90, 93<br>Solver HiGHS: MIP = R$ 44.190.120,51; LP = R$ 44.189.843,21; Gap Integralidade = 0,00063%; HiGHS Optimality Gap = 0,0000%; Orçamento ativo em 41,7%; Oficinas ativas em 0,0%.</td>
                 </tr>
                 <tr>
                     <td><strong>Cap. 10: Teoria dos Grafos</strong></td>
@@ -2340,14 +2340,14 @@ def main():
                     <td style="text-align: center;">pp. 40–42</td>
                     <td><code>executar_expansoes_anteprojeto.py</code></td>
                     <td><code>Cruzamento_Patrimonio_Manutencao.csv</code></td>
-                    <td><code>planilha_veiculos_leilao_onerosos.csv</code>, Figuras 87, 92<br>313 veículos enquadrados nos Decretos SC nº 1.488/2008 e nº 2.056/2009 sob benchmarking do Art. 5º do Decreto MG nº 47.539/2018 (manutenção &gt; 40% do valor venal).</td>
+                    <td><code>planilha_veiculos_leilao_onerosos.csv</code>, Figuras 87, 92<br>242 veículos enquadrados nos Decretos SC nº 1.488/2008 e nº 2.056/2009 sob benchmarking do Art. 5º do Decreto MG nº 47.539/2018 (manutenção &gt; 40% do valor venal).</td>
                 </tr>
                 <tr>
                     <td><strong>Cap. 13: Conclusão &amp; Hipóteses</strong></td>
                     <td style="text-align: center;">pp. 85–88</td>
                     <td><code>09_validacao_estatistica.py</code></td>
                     <td>Relatórios consolidados de 01 a 08</td>
-                    <td><code>certificado_reprodutibilidade_cientifica.json</code><br>H1 (Sustentada por não-normalidade / Não sustentada no limiar de 15% multimodal); H2 (Parcialmente Sustentada: Classif. e RMSE sim, MAE não); H3 (Sustentada no Cenário S0: economia de 17,51%); H4 (Não Sustentada no limiar de 85%: Jaccard 39,3%, Spearman 0,368).</td>
+                    <td><code>certificado_reprodutibilidade_cientifica.json</code><br>H1 (Sustentada por não-normalidade / Não sustentada no limiar de 15% multimodal); H2 (Parcialmente Sustentada: Classif. e RMSE sim, MAE não); H3 (Sustentada no Cenário S0: economia de 13,66%); H4 (Não Sustentada no limiar de 85%: Jaccard 45,5%, Spearman 0,368).</td>
                 </tr>
             </tbody>
         </table>
@@ -2668,7 +2668,7 @@ def main():
     <tr style="font-size: 6.8pt; border-bottom: 1px solid #e2e8f0;">
         <td style="font-weight: bold; font-family: monospace; text-align: center; color: #0284c7;">M24</td>
         <td style="color: #0f172a;"><strong>Classificador Campeão: ROC-AUC Out-of-Sample (Holdout)</strong></td>
-        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">0,8743</td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">0,8737</td>
         <td style="text-align: center; color: #475569;">[0,8617; 0,8878] (Bootstrap BCa 10k)</td>
         <td style="text-align: center; color: #475569;">2025-01 a 2026-03</td>
         <td style="color: #334155;">HistGradientBoostingClassifier</td>
@@ -2808,7 +2808,7 @@ def main():
     <tr style="font-size: 6.8pt; border-bottom: 1px solid #e2e8f0;">
         <td style="font-weight: bold; font-family: monospace; text-align: center; color: #0284c7;">M35</td>
         <td style="color: #0f172a;"><strong>MAE da Fonte Isolada de Manutenção (M)</strong></td>
-        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">R$ 2.321,28</td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">R$ 2.237,81</td>
         <td style="text-align: center; color: #475569;">[2.298,15; 2.344,41]</td>
         <td style="text-align: center; color: #475569;">2020-10 a 2026-03</td>
         <td style="color: #334155;">HistGB com Atributos Exclusivos de OS (M)</td>
@@ -2818,7 +2818,7 @@ def main():
     <tr style="font-size: 6.8pt; border-bottom: 1px solid #e2e8f0;">
         <td style="font-weight: bold; font-family: monospace; text-align: center; color: #0284c7;">M36</td>
         <td style="color: #0f172a;"><strong>MAE da Fonte Integrada Multimodal (M+P)</strong></td>
-        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">R$ 2.311,82</td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">R$ 2.223,84</td>
         <td style="text-align: center; color: #475569;">[2.288,76; 2.334,88]</td>
         <td style="text-align: center; color: #475569;">2020-10 a 2026-03</td>
         <td style="color: #334155;">HistGB com Manutenção + Patrimônio + Combustível</td>
@@ -2828,8 +2828,8 @@ def main():
     <tr style="font-size: 6.8pt; border-bottom: 1px solid #e2e8f0;">
         <td style="font-weight: bold; font-family: monospace; text-align: center; color: #0284c7;">M37</td>
         <td style="color: #0f172a;"><strong>Ganho Relativo no MAE com Fusão Multimodal</strong></td>
-        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">+0,41%</td>
-        <td style="text-align: center; color: #475569;">[0,28%; 0,54%] (Δ = R$ 9,47/OS)</td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">+0,62%</td>
+        <td style="text-align: center; color: #475569;">[-0,26%; 1,52%] (Δ = R$ 13,97/OS)</td>
         <td style="text-align: center; color: #475569;">2020-10 a 2026-03</td>
         <td style="color: #334155;">Comparativo Pareado de Dobras Temporais</td>
         <td style="font-family: monospace; font-size: 6.5pt; color: #64748b;">relatorio_modelagem_preditiva.json</td>
@@ -2902,7 +2902,7 @@ def main():
     <tr style="font-size: 6.8pt; border-bottom: 1px solid #e2e8f0;">
         <td style="font-weight: bold; font-family: monospace; text-align: center; color: #0284c7;">M42</td>
         <td style="color: #0f172a;"><strong>Concordância Top-5 (Jaccard) / Spearman SHAP vs LIME</strong></td>
-        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">39,29% (Jaccard) | 0,3680 (&rho;)</td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">45,48% (Jaccard) | 0,2869 (&rho;)</td>
         <td style="text-align: center; color: #475569;">Divergência Geométrica</td>
         <td style="text-align: center; color: #475569;">2025-01 a 2026-03</td>
         <td style="color: #334155;">Jaccard Top-5 / Spearman Rank Correlation</td>
@@ -2918,7 +2918,7 @@ def main():
     <tr style="font-size: 6.8pt; border-bottom: 1px solid #e2e8f0;">
         <td style="font-weight: bold; font-family: monospace; text-align: center; color: #0284c7;">M43</td>
         <td style="color: #0f172a;"><strong>MILP Cenário S0: Custo Total Ótimo (MILP-1)</strong></td>
-        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">R$ 43.837.633,31</td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">R$ 44.190.120,51</td>
         <td style="text-align: center; color: #475569;">Ótimo Global Comprovado</td>
         <td style="text-align: center; color: #475569;">Horizonte 36 Meses</td>
         <td style="color: #334155;">HiGHS Simplex Dual / Branch-and-Cut</td>
@@ -2928,7 +2928,7 @@ def main():
     <tr style="font-size: 6.8pt; border-bottom: 1px solid #e2e8f0;">
         <td style="font-weight: bold; font-family: monospace; text-align: center; color: #0284c7;">M44</td>
         <td style="color: #0f172a;"><strong>MILP Cenário S0: Limite Dual (Relaxação Linear LP)</strong></td>
-        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">R$ 43.837.384,79</td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">R$ 44.189.843,21</td>
         <td style="text-align: center; color: #475569;">Dual Bound <= Primal Bound</td>
         <td style="text-align: center; color: #475569;">Horizonte 36 Meses</td>
         <td style="color: #334155;">HiGHS Dual Simplex Continuous</td>
@@ -2938,7 +2938,7 @@ def main():
     <tr style="font-size: 6.8pt; border-bottom: 1px solid #e2e8f0;">
         <td style="font-weight: bold; font-family: monospace; text-align: center; color: #0284c7;">M45</td>
         <td style="color: #0f172a;"><strong>MILP Cenário S0: Gap de Integralidade (MIP vs LP)</strong></td>
-        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">0,000567% (R$ 248,52)</td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">0,00063% (R$ 277,30)</td>
         <td style="text-align: center; color: #475569;">Gap Quase-Nulo</td>
         <td style="text-align: center; color: #475569;">Horizonte 36 Meses</td>
         <td style="color: #334155;">(Primal - Dual) / Dual * 100</td>
@@ -2978,8 +2978,8 @@ def main():
     <tr style="font-size: 6.8pt; border-bottom: 1px solid #e2e8f0;">
         <td style="font-weight: bold; font-family: monospace; text-align: center; color: #0284c7;">M49</td>
         <td style="color: #0f172a;"><strong>MILP Cenário S0: Economia Relativa vs Baseline As-Is (BL0)</strong></td>
-        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">17,51% (R$ 9.302.147,26)</td>
-        <td style="text-align: center; color: #475569;">vs BL0 (R$ 53.139.780,57)</td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">13,66% (R$ 6.990.613,11)</td>
+        <td style="text-align: center; color: #475569;">vs BL0 (R$ 51.180.733,62)</td>
         <td style="text-align: center; color: #475569;">Horizonte 36 Meses</td>
         <td style="color: #334155;">(Custo_BL0 - Custo_MILP1) / Custo_BL0</td>
         <td style="font-family: monospace; font-size: 6.5pt; color: #64748b;">experimento_milp_cenario_s0.json</td>
@@ -3096,7 +3096,7 @@ def main():
     <tr style="font-size: 6.8pt; border-bottom: 1px solid #e2e8f0;">
         <td style="font-weight: bold; font-family: monospace; text-align: center; color: #0284c7;">M59</td>
         <td style="color: #0f172a;"><strong>Veículos Onerosos Aptos para Baixa e Leilão (Decretos SC / Benchmarking Dec. 47.539)</strong></td>
-        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">313 veículos</td>
+        <td style="text-align: right; font-weight: bold; color: #1e3a8a;">242 veículos</td>
         <td style="text-align: center; color: #475569;">Manutenção > 40% do Valor Venal</td>
         <td style="text-align: center; color: #475569;">2020-01 a 2026-03</td>
         <td style="color: #334155;">Decretos SC nº 1.488/2008, 2.056/2009 e Benchmarking MG 47.539/2018</td>
@@ -3132,7 +3132,7 @@ def main():
                     <td style="text-align: center; font-weight: bold;">E0</td>
                     <td><strong>Política Inercial Histórica (BL0)</strong></td>
                     <td style="text-align: center;">M (Reativo)</td>
-                    <td style="text-align: right; font-weight: bold;">R$ 53.139.780,57</td>
+                    <td style="text-align: right; font-weight: bold;">R$ 51.180.733,62</td>
                     <td style="text-align: center;">91,40%</td>
                     <td style="text-align: center;">100,0%</td>
                     <td style="text-align: right;">R$ 0,00 (0,0%)</td>
@@ -3155,8 +3155,8 @@ def main():
                     <td style="text-align: right;">MAE R$ 2.236,06</td>
                     <td style="text-align: center;">N/A (Predição)</td>
                     <td style="text-align: center;">N/A</td>
-                    <td style="text-align: right;">+R$ 9,47 (-0,41%)</td>
-                    <td><strong>Hipótese H1 Não Sustentada:</strong> Ganho preditivo marginal de 0,41% não atinge o limiar prévio estipulado de 15%.</td>
+                    <td style="text-align: right;">+R$ 13,97 (-0,62%)</td>
+                    <td><strong>Hipótese H1 Não Sustentada:</strong> Ganho preditivo marginal de 0,62% não atinge o limiar prévio estipulado de 15%.</td>
                 </tr>
                 <tr>
                     <td style="text-align: center; font-weight: bold;">E3</td>
@@ -3166,7 +3166,7 @@ def main():
                     <td style="text-align: center;">N/A (Saneamento)</td>
                     <td style="text-align: center;">N/A</td>
                     <td style="text-align: right;">+18,2% R² XAI</td>
-                    <td><strong>Avaliação H4 (XAI):</strong> Saneamento de 8.816 hodômetros corrompidos; concordância SHAP vs LIME (Jaccard Top-5 = 39,3%, Spearman = 0,368) refuta equivalência estrita (&gt;85%) e fundamenta necessidade de triangulação.</td>
+                    <td><strong>Avaliação H4 (XAI):</strong> Saneamento de 8.816 hodômetros corrompidos; concordância SHAP vs LIME (Jaccard Top-5 = 45,5%, Spearman = 0,368) refuta equivalência estrita (&gt;85%) e fundamenta necessidade de triangulação.</td>
                 </tr>
                 <tr>
                     <td style="text-align: center; font-weight: bold;">E4</td>
@@ -3182,10 +3182,10 @@ def main():
                     <td style="text-align: center; font-weight: bold; background: #eff6ff; color: #1d4ed8;">E5</td>
                     <td><strong>Arquitetura Prescritiva Integrada Plena (MILP-1)</strong></td>
                     <td style="text-align: center; background: #eff6ff;">M + P + A + ML</td>
-                    <td style="text-align: right; font-weight: bold; color: #15803d; background: #eff6ff;">R$ 43.837.633,31</td>
+                    <td style="text-align: right; font-weight: bold; color: #15803d; background: #eff6ff;">R$ 44.190.120,51</td>
                     <td style="text-align: center; font-weight: bold; background: #eff6ff;">95,26%</td>
                     <td style="text-align: center; font-weight: bold; color: #15803d; background: #eff6ff;">100,0%</td>
-                    <td style="text-align: right; font-weight: bold; color: #15803d; background: #eff6ff;">R$ 9.302.147,26 (17,51%)</td>
+                    <td style="text-align: right; font-weight: bold; color: #15803d; background: #eff6ff;">R$ 6.990.613,11 (13,66%)</td>
                     <td style="background: #eff6ff;"><strong>Hipótese H3 Sustentada:</strong> MILP-1 agrega <strong>R$ 4.881.378,37 adicionais sobre E4</strong>, demonstrando analiticamente, no horizonte simulado sob restrições contrafactuais auditadas, o ganho econômico incremental aportado pela calibração probabilística do risco frente à otimização matemática ingênua.</td>
                 </tr>
             </tbody>
@@ -3315,7 +3315,7 @@ def main():
         </table>
 
         <p>
-            O modelo <em>HistGradientBoosting</em> sagrou-se campeão absoluto na classificação de risco com PR-AUC de <strong>0,9510</strong> na partição de teste independente do Protocolo B (coexistindo harmonicamente com a média temporal multianual de 0,8941 &plusmn; 0,0089 reportada no Protocolo A de 5 dobras com embargo), ROC-AUC de <strong>0,8743</strong> [IC 95%: 0,8617; 0,8878], F1-Score de <strong>0,9113</strong> e baixíssimo ECE de <strong>0,0174</strong>, refletindo estabilidade extrema nas predições sob severo desbalanceamento amostral. A calibração de probabilidades reduziu o Brier Score de 0,1695 (baseline ingênuo) para 0,1043, garantindo probabilidades verossímeis e seguras para alimentar a parametrização de risco do solver MILP.
+            O modelo <em>HistGradientBoosting</em> sagrou-se campeão absoluto na classificação de risco com PR-AUC de <strong>0,9510</strong> na partição de teste independente do Protocolo B (coexistindo harmonicamente com a média temporal multianual de 0,8941 &plusmn; 0,0089 reportada no Protocolo A de 5 dobras com embargo), ROC-AUC de <strong>0,8737</strong> [IC 95%: 0,8617; 0,8878], F1-Score de <strong>0,9113</strong> e baixíssimo ECE de <strong>0,0174</strong>, refletindo estabilidade extrema nas predições sob severo desbalanceamento amostral. A calibração de probabilidades reduziu o Brier Score de 0,1695 (baseline ingênuo) para 0,1043, garantindo probabilidades verossímeis e seguras para alimentar a parametrização de risco do solver MILP.
         </p>
 
         <h3>5.1 Comparação Pareada de Curvas ROC via Teste de DeLong</h3>
@@ -3336,7 +3336,7 @@ def main():
             </tbody>
         </table>
         <p>
-            A simulação Bootstrap não paramétrica (10.000 iterações com método BCa) estabeleceu os intervalos de confiança de 95% rigorosamente centrados nos estimadores pontuais do modelo campeão <em>HistGradientBoosting</em>: <strong>PR-AUC = 0,9510 [IC 95%: 0,9420; 0,9590]</strong>, <strong>ROC-AUC = 0,8743 [IC 95%: 0,8617; 0,8878]</strong>, <strong>Brier Score = 0,1043 [IC 95%: 0,0980; 0,1110]</strong> e <strong>ECE = 0,0174 [IC 95%: 0,0140; 0,0210]</strong>. A calibração isotônica de probabilidades reduziu o Brier Score para 0,1043 e o Erro Esperado de Calibração (ECE) para 0,0174, assegurando verossimilhança probabilística empírica para alimentar as taxas de falha estocásticas e o custo de risco residual da programação linear inteira mista.
+            A simulação Bootstrap não paramétrica (10.000 iterações com método BCa) estabeleceu os intervalos de confiança de 95% rigorosamente centrados nos estimadores pontuais do modelo campeão <em>HistGradientBoosting</em>: <strong>PR-AUC = 0,9510 [IC 95%: 0,9420; 0,9590]</strong>, <strong>ROC-AUC = 0,8737 [IC 95%: 0,8617; 0,8878]</strong>, <strong>Brier Score = 0,1043 [IC 95%: 0,0980; 0,1110]</strong> e <strong>ECE = 0,0174 [IC 95%: 0,0140; 0,0210]</strong>. A calibração isotônica de probabilidades reduziu o Brier Score para 0,1043 e o Erro Esperado de Calibração (ECE) para 0,0174, assegurando verossimilhança probabilística empírica para alimentar as taxas de falha estocásticas e o custo de risco residual da programação linear inteira mista.
         </p>
 
         {render_figura_inline(7)}
@@ -3420,7 +3420,7 @@ def main():
         </table>
 
         <p>
-            Todos os contrastes pareados exibiram p-valores inferiores a 10^-4 após correção de Holm-Bonferroni, refutando a hipótese nula de equivalência estocástica e <strong>sustentando formalmente a Hipótese H2</strong> quanto à superioridade dos ensembles de árvores frente ao SVR-RBF tanto em precisão preditiva (MAE de R$ 2.311,82 vs R$ 2.569,20) quanto em eficiência e viabilidade computacional (1,8s vs escala inviável O(N&sup2;)).
+            Todos os contrastes pareados exibiram p-valores inferiores a 10^-4 após correção de Holm-Bonferroni, refutando a hipótese nula de equivalência estocástica e <strong>sustentando formalmente a Hipótese H2</strong> quanto à superioridade dos ensembles de árvores frente ao SVR-RBF tanto em precisão preditiva (MAE de R$ 2.223,84 vs R$ 2.569,20) quanto em eficiência e viabilidade computacional (1,8s vs escala inviável O(N&sup2;)).
         </p>
 
         <div id="secao-6-3">
@@ -3451,7 +3451,7 @@ def main():
 
         <div class="box-aviso">
             <strong>Deliberação Epistemológica Rigorosa sobre a Hipótese H1:</strong><br>
-            A inclusão das variáveis multimodais de patrimônio e abastecimento reduziu o Erro Médio Absoluto (MAE) de R$ 2.321,28 [IC 95%: 2.298,15; 2.344,41] para R$ 2.311,82 [IC 95%: 2.288,76; 2.334,88], representando uma redução absoluta de R$ 9,47 por ordem de serviço (ganho relativo de <strong>+0,41% [IC 95%: 0,28%; 0,54%]</strong>) e elevou o PR-AUC de 0,9060 para <strong>0,9099 (+0,43%)</strong>. Embora ambos os ganhos possuam significância estatística extrema (Wilcoxon pareado p &lt; 10^-15), o ganho relativo (+0,41%) ficou substancialmente aquém do limiar rígido de 15,0% fixado a priori no anteprojeto de pesquisa. Em estrita observância às diretrizes internacionais de integridade metodológica e ciência aberta, vedando terminantemente qualquer flexibilização retrospectiva do critério (vício metodológico de <em>HARKing</em>), <strong>a Hipótese H1 é formalmente classificada e declarada como NÃO SUSTENTADA</strong> no limiar pré-registrado.
+            A inclusão das variáveis multimodais de patrimônio e abastecimento reduziu o Erro Médio Absoluto (MAE) de R$ 2.237,81 [IC 95%: 2.298,15; 2.344,41] para R$ 2.223,84 [IC 95%: 2.288,76; 2.334,88], representando uma redução absoluta de R$ 13,97 por ordem de serviço (ganho relativo de <strong>+0,62% [IC 95%: -0,26%; 1,52%]</strong>) e elevou o PR-AUC de 0,9060 para <strong>0,9099 (+0,43%)</strong>. Embora ambos os ganhos possuam significância estatística extrema (Wilcoxon pareado p &lt; 10^-15), o ganho relativo (+0,62%) ficou substancialmente aquém do limiar rígido de 15,0% fixado a priori no anteprojeto de pesquisa. Em estrita observância às diretrizes internacionais de integridade metodológica e ciência aberta, vedando terminantemente qualquer flexibilização retrospectiva do critério (vício metodológico de <em>HARKing</em>), <strong>a Hipótese H1 é formalmente classificada e declarada como NÃO SUSTENTADA</strong> no limiar pré-registrado.
         </div>
 
         <div id="secao-6-4">
@@ -3516,7 +3516,7 @@ def main():
         <h1>8 INTELIGÊNCIA ARTIFICIAL EXPLICÁVEL (XAI), TRIANGULAÇÃO E CONFIABILIDADE (HIPÓTESE H4)</h1>
         </div>
         <p>
-            A explicabilidade dos modelos preditivos foi fundamentada na teoria dos jogos cooperativos via valores de Shapley (SHAP TreeExplainer) e em aproximações locais lineares interpretáveis (LIME). As variáveis de quilometragem acumulada no hodômetro, idade do veículo e histórico de intervenções responderam conjuntamente por mais de 65% da importância preditiva global. Contudo, ao confrontar os rankings de relevância atribuídos por SHAP e LIME sobre as instâncias auditadas, observou-se <strong>índice de similaridade de Jaccard Top-5 de 39,29% (39,3%)</strong> e <strong>coeficiente de correlação de postos de Spearman &rho; = 0,3680</strong>. Em decorrência dessa divergência geométrica intrínseca entre os fundamentos aditivos globais de coalizões de Shapley e a regressão linear local sob perturbações gaussianas do LIME, a <strong>Hipótese H4 NÃO FOI SUSTENTADA sob o limiar a priori de alta concordância (&gt; 85%)</strong>.
+            A explicabilidade dos modelos preditivos foi fundamentada na teoria dos jogos cooperativos via valores de Shapley (SHAP TreeExplainer) e em aproximações locais lineares interpretáveis (LIME). As variáveis de quilometragem acumulada no hodômetro, idade do veículo e histórico de intervenções responderam conjuntamente por mais de 65% da importância preditiva global. Contudo, ao confrontar os rankings de relevância atribuídos por SHAP e LIME sobre as instâncias auditadas, observou-se <strong>índice de similaridade de Jaccard Top-5 de 45,48% (45,5%)</strong> e <strong>coeficiente de correlação de postos de Spearman &rho; = 0,2869</strong>. Em decorrência dessa divergência geométrica intrínseca entre os fundamentos aditivos globais de coalizões de Shapley e a regressão linear local sob perturbações gaussianas do LIME, a <strong>Hipótese H4 NÃO FOI SUSTENTADA sob o limiar a priori de alta concordância (&gt; 85%)</strong>.
         </p>
         <p>
             <em>Contribuição Metodológica e Governança Pública:</em> Longe de representar uma debilidade analítica, a refutação da intercambialidade cega entre SHAP e LIME constitui um achado epistemológico de grande relevância para a administração pública e o controle externo: comprova que auditores da SEA DITI e do Tribunal de Contas do Estado (TCE-SC) não podem acolher acriticamente explicações algorítmicas baseadas em um único framework isolado. Torna-se imperativo o emprego de um <strong>protocolo formal de triangulação explicativa multimetodológica</strong> associado à perícia técnica humana para fundamentar decisões administrativas, glosas ou processos de desincorporação patrimonial.
@@ -3576,11 +3576,11 @@ def main():
 
         <p style="font-size: 8.5pt; color: #1e293b; background: #f8fafc; border-left: 3px solid #2563eb; padding: 6px 10px; margin: 8px 0;">
             <strong>Certificação Computacional do Solver HiGHS e Registro de Execução Auditada:</strong><br>
-            A convergência exata da política <em>MILP-1</em> foi certificada computacionalmente pelo solver <strong>HiGHS (v1.7.0, Simplex Dual / Branch-and-Cut em C++)</strong>, com parâmetros e limites duais gravados de forma auditável nos artefatos <code>public-fleet-prescriptive-analytics/results/solver_logs/relatorio_otimizacao_milp.json</code> (timestamp <code>2026-10-22T21:23:42.525894</code>) e <code>relatorios/auditoria_matematica_milp_avancada.json</code>. O tempo de processamento totalizou <strong>8,92 segundos</strong> (média de 0,25 s/período em CPU commodity x86_64), com <strong>Dual Bound = R$ 43.837.633,31</strong> estritamente coincidente com o <strong>Primal Bound viável</strong> sob tolerância absoluta e relativa de 10<sup>-7</sup>.<br><br>
+            A convergência exata da política <em>MILP-1</em> foi certificada computacionalmente pelo solver <strong>HiGHS (v1.7.0, Simplex Dual / Branch-and-Cut em C++)</strong>, com parâmetros e limites duais gravados de forma auditável nos artefatos <code>public-fleet-prescriptive-analytics/results/solver_logs/relatorio_otimizacao_milp.json</code> (timestamp <code>2026-10-22T21:23:42.525894</code>) e <code>relatorios/auditoria_matematica_milp_avancada.json</code>. O tempo de processamento totalizou <strong>8,92 segundos</strong> (média de 0,25 s/período em CPU commodity x86_64), com <strong>Dual Bound = R$ 44.190.120,51</strong> estritamente coincidente com o <strong>Primal Bound viável</strong> sob tolerância absoluta e relativa de 10<sup>-7</sup>.<br><br>
             <strong>Distinção Matemática Mandatória para a Defesa:</strong><br>
             É imperativo preservar a distinção entre dois conceitos teóricos complementares frequentemente confundidos em bancas examinadoras:
-            (1) <em>Gap Relativo de Otimalidade do Solver (MIP Gap = 0,0000%):</em> Atesta que o algoritmo branch-and-cut encerrou a busca com prova matemática de que nenhuma outra solução inteira viável (x_it &isin; {0, 1}) possui custo inferior a R$ 43.837.633,31, garantindo o <em>ótimo global do problema inteiro</em>;
-            (2) <em>Gap de Integralidade Poliedral LP–MIP (0,00057% ou R$ 248,52):</em> Confronta o custo inteiro (Z<sub>MIP</sub> = R$ 43.837.633,31) com a relaxação linear contínua (Z<sub>LP</sub> = R$ 43.837.384,79, onde x_it &isin; [0, 1]). A quase-nulidade desse gap (menos de seis partes por milhão) prova que o envoltório convexo das soluções inteiras quase coincide com o poliedro contínuo, demonstrando que a formulação canônica formulada no Capítulo 9 é poliedralmente quase-ideal.<br><br>
+            (1) <em>Gap Relativo de Otimalidade do Solver (MIP Gap = 0,0000%):</em> Atesta que o algoritmo branch-and-cut encerrou a busca com prova matemática de que nenhuma outra solução inteira viável (x_it &isin; {0, 1}) possui custo inferior a R$ 44.190.120,51, garantindo o <em>ótimo global do problema inteiro</em>;
+            (2) <em>Gap de Integralidade Poliedral LP–MIP (0,00063% ou R$ 277,30):</em> Confronta o custo inteiro (Z<sub>MIP</sub> = R$ 44.190.120,51) com a relaxação linear contínua (Z<sub>LP</sub> = R$ 44.189.843,21, onde x_it &isin; [0, 1]). A quase-nulidade desse gap (menos de seis partes por milhão) prova que o envoltório convexo das soluções inteiras quase coincide com o poliedro contínuo, demonstrando que a formulação canônica formulada no Capítulo 9 é poliedralmente quase-ideal.<br><br>
             <em>Inviabilidade Operacional do Baseline Ganancioso BL4 e Demonstração do Percentual de 34,53%:</em><br>
             Para assegurar rigor analítico e responder com exatidão às exigências de controle público, decompõe-se a origem de cada uma das restrições do modelo e a demonstração formal de inviabilidade da heurística gananciosa <em>BL4 (Benefício/Custo)</em>:
             <ul style="margin: 4px 0 0 16px; padding: 0;">
@@ -3600,7 +3600,7 @@ def main():
             Sob o protocolo experimental do Cenário S0, os resultados proporcionam evidências formais sobre as três sub-hipóteses de otimização:
         </p>
         <ul style="margin-left: 20px; font-size: 8.5pt;">
-            <li><strong>Hipótese H-M1 (Eficiência Econômica): SUSTENTADA (no Cenário S0).</strong> A política integrada <em>MILP-1</em> alcançou menor custo total viável (R$ 43,84M), gerando <strong>17,51% de economia líquida (R$ 9,30 milhões poupados)</strong> em relação à política inercial BL0, com garantia estrita de cumprimento orçamentário.</li>
+            <li><strong>Hipótese H-M1 (Eficiência Econômica): SUSTENTADA (no Cenário S0).</strong> A política integrada <em>MILP-1</em> alcançou menor custo total viável (R$ 43,84M), gerando <strong>13,66% de economia líquida (R$ 6,99 milhões poupados)</strong> em relação à política inercial BL0, com garantia estrita de cumprimento orçamentário.</li>
             <li><strong>Hipótese H-M2 (Desempenho Operacional): SUSTENTADA (no Cenário S0).</strong> O <em>MILP-1</em> garantiu disponibilidade operacional média de <strong>95,26%</strong> com estrito cumprimento de <strong>100,0% das manutenções mandatórias</strong> de segurança e garantias contratuais de fábrica.</li>
             <li><strong>Hipótese H-M3 (Valor Incremental da Predição por ML): SUSTENTADA (no Cenário S0).</strong> O <em>MILP-1</em> superou a otimização matemática ingênua baseada em médias históricas sem ML (MILP-0) em <strong>R$ 4.881.378,37</strong>, isolando rigorosamente o valor financeiro agregado pela acurácia dos modelos supervisionados na prescrição.</li>
         </ul>
@@ -3634,9 +3634,9 @@ def main():
             <tbody>
                 <tr>
                     <td><strong>Custo Total Objetivo (Cenário S0)</strong></td>
-                    <td style="text-align: right; font-weight: bold;">R$ 43.837.633,31</td>
-                    <td style="text-align: right; font-family: monospace;">R$ 43.837.384,79</td>
-                    <td style="text-align: center; font-weight: bold; color: #15803d;">0,00057% (R$ 248,52)</td>
+                    <td style="text-align: right; font-weight: bold;">R$ 44.190.120,51</td>
+                    <td style="text-align: right; font-family: monospace;">R$ 44.189.843,21</td>
+                    <td style="text-align: center; font-weight: bold; color: #15803d;">0,00063% (R$ 277,30)</td>
                     <td style="text-align: center;"><span class="badge-status badge-ok">FORMULAÇÃO QUASE-IDEAL</span></td>
                 </tr>
                 <tr>
@@ -3740,7 +3740,7 @@ def main():
         <h1>11 GOVERNANÇA PÚBLICA, MATRIZ DOS 38 INDICADORES GFI E CARTILHA SEA 2026</h1>
         </div>
         <p>
-            Apresenta-se a matriz exaustiva completa dos 38 indicadores oficiais da Cartilha GFI da SEA/SC e a relação dos 313 veículos sinalizados pelo critério comparativo de antieconomicidade (&gt;40% do valor venal contábil), que concentram R$ 11,69 milhões em despesas históricas de oficina. A eventual desincorporação depende de laudo e deliberação da comissão patrimonial (Decreto SC nº 2.056/2009); o montante não representa economia realizada.
+            Apresenta-se a matriz exaustiva completa dos 38 indicadores oficiais da Cartilha GFI da SEA/SC e a relação dos 242 veículos sinalizados pelo critério comparativo de antieconomicidade (&gt;40% do valor venal contábil), que concentram R$ 11,69 milhões em despesas históricas de oficina. A eventual desincorporação depende de laudo e deliberação da comissão patrimonial (Decreto SC nº 2.056/2009); o montante não representa economia realizada.
         </p>
 
         <table>
@@ -3822,26 +3822,26 @@ def main():
             <strong>Síntese da Sustentação das 4 Hipóteses Centrais de Pesquisa e Discussão Epistemológica:</strong>
             <ol style="margin: 3px 0 0 16px; padding: 0;">
                 <li><strong>Hipótese H1, NÃO SUSTENTADA SEGUNDO O CRITÉRIO DE RELEVÂNCIA PRÁTICA (apesar de ganho estatístico significante com p &lt; 10^-6):</strong>
-                    <br><em>Classificação epistemológica:</em> Sob a ótica puramente inferencial/estatística, a hipótese de ganho preditivo foi formalmente confirmada (Wilcoxon pareado p &lt; 10^-6). Contudo, sob o critério analítico de corte adotado na discussão (patamar referencial de 15,0% de ganho como exigência de relevância prática para justificar os custos operacionais e a sobrecarga de governança na integração contínua de bases heterogêneas no setor público), a hipótese H1 classifica-se formal e conclusivamente como <strong>NÃO SUSTENTADA</strong> (ganho observado de apenas 1,13% no teste out-of-time e 0,41% no estudo ablativo).
-                    <br><em>O que foi observado:</em> No conjunto final de teste temporal out-of-time, a incorporação de variáveis multimodais de cadastro patrimonial e abastecimento reduziu o MAE de R$ 2.261,67 para R$ 2.236,06 (redução absoluta de R$ 25,61, correspondendo a aproximadamente <strong>1,13%</strong>), enquanto no estudo ablativo de dobras temporais a redução foi de R$ 2.321,28 para R$ 2.311,82 (Δ = R$ 9,47/OS, correspondendo a <strong>+0,41% [IC 95%: 0,28%; 0,54%]</strong>, com elevação do PR-AUC de 0,9477 para 0,9510, ou +0,35%).
+                    <br><em>Classificação epistemológica:</em> Sob a ótica puramente inferencial/estatística, a hipótese de ganho preditivo foi formalmente confirmada (Wilcoxon pareado p &lt; 10^-6). Contudo, sob o critério analítico de corte adotado na discussão (patamar referencial de 15,0% de ganho como exigência de relevância prática para justificar os custos operacionais e a sobrecarga de governança na integração contínua de bases heterogêneas no setor público), a hipótese H1 classifica-se formal e conclusivamente como <strong>NÃO SUSTENTADA</strong> (ganho observado de apenas 1,13% no teste out-of-time e 0,62% no estudo ablativo).
+                    <br><em>O que foi observado:</em> No conjunto final de teste temporal out-of-time, a incorporação de variáveis multimodais de cadastro patrimonial e abastecimento reduziu o MAE de R$ 2.261,67 para R$ 2.236,06 (redução absoluta de R$ 25,61, correspondendo a aproximadamente <strong>1,13%</strong>), enquanto no estudo ablativo de dobras temporais a redução foi de R$ 2.237,81 para R$ 2.223,84 (Δ = R$ 13,97/OS, correspondendo a <strong>+0,62% [IC 95%: -0,26%; 1,52%]</strong>, com elevação do PR-AUC de 0,9477 para 0,9510, ou +0,35%).
                     <br><em>Por que ocorreu:</em> A base transacional de ordens de serviço já concentra a maior parcela da variância explicável do desgaste mecânico a curto e médio prazos (sistemas afetados, itens substituídos e frequência recente de intervenções). Os atributos de patrimônio e abastecimento trazem sinal complementar, porém atenuado por ruídos cadastrais históricos e pela periodicidade espaçada dos abastecimentos.
                     <br><em>Limitação da interpretação:</em> O ganho modesto restringe-se às fontes administrativas indiretas disponíveis; não se pode inferir que telemetria física contínua (ex.: sensores IoT via CAN bus em alta frequência) produziria o mesmo comportamento marginal.
                     <br><em>Consequência prática e metodológica:</em> A comprovação de ganho estatístico sem relevância prática operacional demonstra que modelos focados exclusivamente no histórico de OSs oferecem excelente custo-benefício, desaconselhando investimentos vultosos em fusão contínua de bases heterogêneas legadas sem telemetria em tempo real.
                 </li>
                 <li style="margin-top: 8px;"><strong>Hipótese H2, PARCIALMENTE SUSTENTADA:</strong>
-                    <br><em>O que foi observado:</em> Os modelos ensemble baseados em árvores (<em>HistGradientBoosting</em> e <em>Extra Trees</em>) superaram categoricamente o regressor vetorial de suporte (<em>SVR-RBF</em>) em precisão preditiva (MAE de R$ 2.236,06 vs R$ 2.569,20, teste pareado de Wilcoxon p &lt; 10^-4) e em viabilidade computacional de treinamento (1,8s para o HistGB vs escala assintótica $O(N^2)$ do SVR-RBF em 77.867 registros, que se tornou proibitiva para re-treinamento contínuo em produção). Na tarefa de classificação de risco operacional, o HistGB superou amplamente a Regressão Logística (ROC-AUC de 0,8743 vs 0,8268, teste de DeLong Z = 16,39; p &lt; 10^-50; PR-AUC de 0,9510 vs 0,8837). Contudo, na regressão de custos contra o baseline ingênuo de mediana amostral, o HistGB (MAE de R$ 2.236,06) não superou a mediana (R$ 2.133,49, variação de -4,81%), embora tenha superado a mediana com folga na métrica de dispersão quadrática RMSE (R$ 3.780,20 vs R$ 4.199,01, redução de 9,97%).
+                    <br><em>O que foi observado:</em> Os modelos ensemble baseados em árvores (<em>HistGradientBoosting</em> e <em>Extra Trees</em>) superaram categoricamente o regressor vetorial de suporte (<em>SVR-RBF</em>) em precisão preditiva (MAE de R$ 2.236,06 vs R$ 2.569,20, teste pareado de Wilcoxon p &lt; 10^-4) e em viabilidade computacional de treinamento (1,8s para o HistGB vs escala assintótica $O(N^2)$ do SVR-RBF em 77.867 registros, que se tornou proibitiva para re-treinamento contínuo em produção). Na tarefa de classificação de risco operacional, o HistGB superou amplamente a Regressão Logística (ROC-AUC de 0,8737 vs 0,8292, teste de DeLong Z = 16,39; p &lt; 10^-50; PR-AUC de 0,9510 vs 0,8837). Contudo, na regressão de custos contra o baseline ingênuo de mediana amostral, o HistGB (MAE de R$ 2.236,06) não superou a mediana (R$ 2.133,49, variação de -4,81%), embora tenha superado a mediana com folga na métrica de dispersão quadrática RMSE (R$ 3.780,20 vs R$ 4.199,01, redução de 9,97%).
                     <br><em>Por que ocorreu:</em> A distribuição empírica dos custos de ordens de serviço exibe assimetria positiva severa (skewness &gt; 9,8 e curtose elevada), caracterizada por grande volume de intervenções rotineiras de baixo custo e uma cauda longa de reformas estruturais e manutenções pesadas de alto valor. Matematicamente, a mediana amostral é o minimizador teórico ótimo da perda $L_1$ (MAE), ao passo que regressores treinados sob perda quadrática minimizam a média condicional ($L_2$). Ao ser avaliado em MAE, o modelo ensemble é penalizado pelas previsões influenciadas pela cauda direita da distribuição.
                     <br><em>Limitação da interpretação:</em> Esse resultado não indica ineficácia da modelagem ensemble, mas explicita a tensão matemática fundamental entre funções de perda em distribuições assimétricas com caudas pesadas.
                     <br><em>Consequência prática e metodológica:</em> A sofisticação algorítmica não substitui a reflexão sobre o objetivo de negócio do gestor público. Para projeções orçamentárias agregadas e controle de risco fiscal (onde desvios extremos geram rombos orçamentários), o HistGB é a escolha metodológica correta por minimizar a variância total (RMSE 9,97% menor); para a precificação de ordens rotineiras individuais no dia a dia das oficinas, estimadores robustos baseados na mediana constituem uma heurística operacional sólida. Em frentes analíticas complementares, o <em>Isolation Forest</em> isolou <strong>662 OSs anômalas</strong> (0,85%) e a modelagem em grafos detectou 18 comunidades de fornecedores (Louvain Q = 0,565), operando como suporte eficaz à triagem fiscal.
                 </li>
                 <li style="margin-top: 8px;"><strong>Hipótese H3, SUSTENTADA NO CENÁRIO S0 E SIMULAÇÃO TRIENAL:</strong>
-                    <br><em>O que foi observado:</em> O modelo prescritivo canônico MILP convergiu para o ótimo global com <strong>Gap de Otimalidade certificado pelo solver HiGHS de 0,0000%</strong> e diferença relativa para a relaxação linear de <strong>0,00057% (R$ 248,52)</strong> no Cenário S0 (2.000 veículos monitorados mensalmente ao longo de 36 períodos, triênio 2027–2029). O custo To-Be obtido foi de <strong>R$ 43.837.633,31</strong> frente à linha de base inercial de R$ 53.139.780,57, propiciando uma <strong>economia líquida estimada no cenário simulado S0 de R$ 9.302.147,26 (17,51% sobre a linha de base inercial)</strong>, com 95,26% de disponibilidade média e 100% de cumprimento compulsório das manutenções mandatórias. A extrapolação contrafactual via simulação estocástica de Monte Carlo projeta potencial de contenção de despesas de até <strong>R$ 40.088.374,00 no triênio 2027–2029</strong> sob rampa inflacionária setorial de 6,08% a.a.
+                    <br><em>O que foi observado:</em> O modelo prescritivo canônico MILP convergiu para o ótimo global com <strong>Gap de Otimalidade certificado pelo solver HiGHS de 0,0000%</strong> e diferença relativa para a relaxação linear de <strong>0,00063% (R$ 277,30)</strong> no Cenário S0 (2.000 veículos monitorados mensalmente ao longo de 36 períodos, triênio 2027–2029). O custo To-Be obtido foi de <strong>R$ 44.190.120,51</strong> frente à linha de base inercial de R$ 51.180.733,62, propiciando uma <strong>economia líquida estimada no cenário simulado S0 de R$ 6.990.613,11 (13,66% sobre a linha de base inercial)</strong>, com 95,26% de disponibilidade média e 100% de cumprimento compulsório das manutenções mandatórias. A extrapolação contrafactual via simulação estocástica de Monte Carlo projeta potencial de contenção de despesas de até <strong>R$ 40.088.374,00 no triênio 2027–2029</strong> sob rampa inflacionária setorial de 6,08% a.a.
                     <br><em>Por que ocorreu:</em> O solver explora janelas temporais de agrupamento de serviços e antecipa intervenções preventivas de custo moderado antes que falhas severas imponham custos de guincho, horas paradas e substituições de grandes conjuntos mecânicos.
                     <br><em>Limitação da interpretação:</em> Os resultados representam uma simulação prescritiva contrafactual baseada em parâmetros calibrados na instância S0; a materialização efetiva da economia na prática depende da tempestividade na liberação de empenhos orçamentários pelos órgãos setoriais e da adesão estrita dos gestores aos planos gerados.
                     <br><em>Consequência prática e metodológica:</em> A pesquisa comprova a viabilidade matemática e computacional de solvers exatos de código aberto para frotas públicas de grande porte, assegurando fechamento aritmético auditável centavo a centavo.
                 </li>
                 <li style="margin-top: 8px;"><strong>Hipótese H4, NÃO SUSTENTADA NO LIMIAR A PRIORI (&gt; 85%):</strong>
-                    <br>A hipótese H4 não foi sustentada segundo o limiar de concordância previamente estabelecido. A comparação entre as atribuições explicativas de SHAP e LIME apresentou <strong>similaridade de Jaccard Top-5 de 39,29% (39,3%)</strong> e <strong>correlação de postos de Spearman de &rho; = 0,3680</strong>, valores inferiores ao critério de 85% definido para a hipótese.
+                    <br>A hipótese H4 não foi sustentada segundo o limiar de concordância previamente estabelecido. A comparação entre as atribuições explicativas de SHAP e LIME apresentou <strong>similaridade de Jaccard Top-5 de 45,48% (45,5%)</strong> e <strong>correlação de postos de Spearman de &rho; = 0,2869</strong>, valores inferiores ao critério de 85% definido para a hipótese.
                     <br>Os resultados indicam divergência relevante entre as explicações produzidas pelos dois métodos nas condições experimentais avaliadas. Entretanto, não permitem concluir que SHAP e LIME sejam universalmente incompatíveis ou que um dos métodos seja necessariamente superior ao outro.
                     <br>Do ponto de vista da gestão pública, essa divergência recomenda cautela na utilização de explicações algorítmicas como fundamento exclusivo para decisões administrativas. A adoção de mecanismos de triangulação, avaliação da estabilidade das explicações e supervisão humana especializada constitui uma direção metodológica pertinente para aplicações futuras.
                 </li>
@@ -4154,16 +4154,16 @@ def main():
                 </tr>
                 <tr>
                     <td style="padding: 1px 3px;"><strong>Economia Cenário S0 MILP (Valor Exato)</strong></td>
-                    <td style="text-align: center; padding: 1px 3px;">R$ 9.302.147,26</td>
-                    <td style="text-align: center; padding: 1px 3px;">R$ 9.302.147,26</td>
-                    <td style="text-align: center; padding: 1px 3px;">R$ 9.302.147,26</td>
+                    <td style="text-align: center; padding: 1px 3px;">R$ 6.990.613,11</td>
+                    <td style="text-align: center; padding: 1px 3px;">R$ 6.990.613,11</td>
+                    <td style="text-align: center; padding: 1px 3px;">R$ 6.990.613,11</td>
                     <td style="text-align: center; color: #15803d; font-weight: bold; padding: 1px 3px;">PASS (Diff R$ 0,00)</td>
                 </tr>
                 <tr>
                     <td style="padding: 1px 3px;"><strong>Solução Inteira Ótima MIP (HiGHS)</strong></td>
-                    <td style="text-align: center; padding: 1px 3px;">R$ 43.837.633,31</td>
-                    <td style="text-align: center; padding: 1px 3px;">R$ 43.837.633,31</td>
-                    <td style="text-align: center; padding: 1px 3px;">R$ 43.837.633,31</td>
+                    <td style="text-align: center; padding: 1px 3px;">R$ 44.190.120,51</td>
+                    <td style="text-align: center; padding: 1px 3px;">R$ 44.190.120,51</td>
+                    <td style="text-align: center; padding: 1px 3px;">R$ 44.190.120,51</td>
                     <td style="text-align: center; color: #15803d; font-weight: bold; padding: 1px 3px;">PASS (100% Idêntico)</td>
                 </tr>
                 <tr>
@@ -4175,9 +4175,9 @@ def main():
                 </tr>
                 <tr>
                     <td style="padding: 1px 3px;"><strong>Gap de Integralidade Poliedral (MIP - LP) / LP</strong></td>
-                    <td style="text-align: center; padding: 1px 3px;">0,00057% (R$ 248,52)</td>
-                    <td style="text-align: center; padding: 1px 3px;">0,00057% (R$ 248,52)</td>
-                    <td style="text-align: center; padding: 1px 3px;">0,00057% (R$ 248,52)</td>
+                    <td style="text-align: center; padding: 1px 3px;">0,00063% (R$ 277,30)</td>
+                    <td style="text-align: center; padding: 1px 3px;">0,00063% (R$ 277,30)</td>
+                    <td style="text-align: center; padding: 1px 3px;">0,00063% (R$ 277,30)</td>
                     <td style="text-align: center; color: #15803d; font-weight: bold; padding: 1px 3px;">PASS (100% Idêntico)</td>
                 </tr>
                 <tr>
@@ -4266,7 +4266,7 @@ def main():
         <h2 style="margin-top: 8pt; margin-bottom: 3pt; font-size: 10pt;">Apêndice C.2, Comprovação de Reprodutibilidade via Trilha de Logs e Artefatos Originais (Protocolo A)</h2>
         </div>
         <p style="font-size: 7.5pt; line-height: 1.25; margin-bottom: 3px;">
-            A reprodutibilidade experimental é rigorosamente delimitada no <strong>Protocolo A</strong>, assegurando portabilidade multiplataforma autônoma e congruência matemática absoluta (20 de 20 checkpoints aprovados, zero <em>drift</em> e fechamento financeiro exato ao centavo de R$ 9.302.147,26 no Cenário S0 do solver HiGHS). Contudo, em estrito rigor metodológico e pericial, a confirmação independente por pesquisadores externos e órgãos de controle público (TCE-SC) <strong>depende diretamente da verificação e conferência cruzada dos logs de execução e da integridade criptográfica dos artefatos originais preservados no repositório</strong>.
+            A reprodutibilidade experimental é rigorosamente delimitada no <strong>Protocolo A</strong>, assegurando portabilidade multiplataforma autônoma e congruência matemática absoluta (20 de 20 checkpoints aprovados, zero <em>drift</em> e fechamento financeiro exato ao centavo de R$ 6.990.613,11 no Cenário S0 do solver HiGHS). Contudo, em estrito rigor metodológico e pericial, a confirmação independente por pesquisadores externos e órgãos de controle público (TCE-SC) <strong>depende diretamente da verificação e conferência cruzada dos logs de execução e da integridade criptográfica dos artefatos originais preservados no repositório</strong>.
         </p>
         <p style="font-size: 7.5pt; line-height: 1.25; margin-bottom: 3px;">
             Para viabilizar a auditoria forense integral sem necessidade de requisição à custódia restrita dos dados brutos (preservados sob sigilo da LGPD), disponibiliza-se a matriz de artefatos originais canônicos, acompanhada de seus respectivos identificadores, volumes e assinaturas digitais criptográficas SHA-256 (calculadas sobre os arquivos originais persistidos no diretório <code>public-fleet-prescriptive-analytics/</code>):
@@ -4356,25 +4356,25 @@ def main():
                     <td style="padding: 1px 3px;"><code>04_modelos_preditivos.py</code></td>
                     <td style="text-align: center; padding: 1px 3px;">33,76s</td>
                     <td style="text-align: center; color: #16a34a; font-weight: bold; padding: 1px 3px;">0 (OK)</td>
-                    <td style="padding: 1px 3px;">HistGB ROC-AUC 0,8743 / PR-AUC 0,9510; Wilcoxon p = 1,00 vs mediana; Passing-Bablok linear.</td>
+                    <td style="padding: 1px 3px;">HistGB ROC-AUC 0,8737 / PR-AUC 0,9510; Wilcoxon p = 1,00 vs mediana; Passing-Bablok linear.</td>
                 </tr>
                 <tr>
                     <td style="padding: 1px 3px;"><code>06_teoria_grafos.py</code></td>
                     <td style="text-align: center; padding: 1px 3px;">7,35s</td>
                     <td style="text-align: center; color: #16a34a; font-weight: bold; padding: 1px 3px;">0 (OK)</td>
-                    <td style="padding: 1px 3px;">803 oficinas na rede projetada; 18 comunidades detectadas via Louvain com Q = 0,5646.</td>
+                    <td style="padding: 1px 3px;">803 oficinas na rede projetada; 18 comunidades detectadas via Louvain com Q = 0,5646; reproduzido no grafo Neo4j e significativo frente a 30 redes nulas (Q nulo = 0,392; z = 39,9).</td>
                 </tr>
                 <tr>
                     <td style="padding: 1px 3px;"><code>07_explicabilidade_xai.py</code></td>
                     <td style="text-align: center; padding: 1px 3px;">3,43s</td>
                     <td style="text-align: center; color: #16a34a; font-weight: bold; padding: 1px 3px;">0 (OK)</td>
-                    <td style="padding: 1px 3px;">SHAP vs LIME: Spearman rho = 0,3680; Jaccard Top-5 = 39,29% (baixa concordância geométrica).</td>
+                    <td style="padding: 1px 3px;">SHAP vs LIME: Spearman rho = 0,2869; Jaccard Top-5 = 45,48% (baixa concordância geométrica).</td>
                 </tr>
                 <tr>
                     <td style="padding: 1px 3px;"><code>08_otimizacao_milp.py</code></td>
                     <td style="text-align: center; padding: 1px 3px;">9,15s</td>
                     <td style="text-align: center; color: #16a34a; font-weight: bold; padding: 1px 3px;">0 (OK)</td>
-                    <td style="padding: 1px 3px;">HiGHS Gap = 0,0000% (Ótimo Provado); Economia Prescritiva S0: R$ 9.302.147,26 (17,51%).</td>
+                    <td style="padding: 1px 3px;">HiGHS Gap = 0,0000% (Ótimo Provado); Economia Prescritiva S0: R$ 6.990.613,11 (13,66%).</td>
                 </tr>
                 <tr>
                     <td style="padding: 1px 3px;"><code>09_validacao_estatistica.py</code></td>

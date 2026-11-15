@@ -1,0 +1,85 @@
+PAGINA 261 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+ZA ESTADO DE SANTA CATARINA Desdobramento Receita
+T 3 RECURSOS DE TODAS AS FONTES
+E
+(pa ea)
+Ano Base: 2026
+Em R$ 1,00
+1.9.2.3.02.0.1.02 Ressarcimento de Custos - Leilões 1.225.394
+1.9.2.3.50.0.0.00 Ressarcimento por Pagamento de Pessoal Cedido 55.010.691
+1.9.2.3.50.0.1.01 Ressarcimento por Pagamento de Pessoal Cedido - FR 1.501.101 54.732.425
+1.9.2.3.50.0.1.08 Ressarcimento por Pagamento de Pessoal Cedido - FR 1.802.250 278.266
+1.9.2.3.99.0.0.00 Outros Ressarcimentos 44.020.095
+1.9.2.3.99.0.1.27 Ressarcimento de Ações Judicias - SAS 3.278.000
+1.9.2.3.99.0.1.29 Ressarcimento de Ações Judicias - SCTIE 2.995
+1.9.2.3.99.0.1.30 Ressarcimento Utilização Sistema Informatizado - Vistoria Veicular - FR 39.496.995
+1.501.269
+1.9.2.3.99.0.1.73 Outros Ressarcimentos - FR 1.501.269 6.618
+1.9.2.3.99.0.1.75 Outros Ressarcimentos - FR 1.659.269 1.235.487
+1.9.3.0.00.0.0.00 Bens, Direitos e Valores Incorporados ao Patrimônio Público 216.573
+1.9.3.1.00.0.0.00 Bens, Direitos e Valores Incorporados ao Patrimônio Público 216.573
+1.9.3.1.05.0.0.00 Receitas Reconhecidas por Força de Decisões Judiciais e de Tribunais 216.573
+Administrativos
+1.9.3.1.05.0.1.03 Receitas Reconhecidas por Força de Decisões Judiciais - FR 1.501.269 216.573
+1.9.9.0.00.0.0.00 Demais Receitas Correntes 188.078.510
+1.9.9.9.00.0.0.00 Outras Receitas Correntes 188.078.510
+1.9.9.9.03.0.0.00 Compensações Financeiras entre os Regimes de Previdência 79.622.716
+1.9.9.9.03.0.1.02 Compensações Financeiras entre os Regimes de Previdência - Militares 49.705
+1.9.9.9.03.0.1.03 Compensações Financeiras entre os Regimes de Previdência - Fundo em 79.573.011
+Repartição
+1.9.9.9.12.0.0.00 Encargos Legais pela Inscrição em Divida Ativa e Receitas de Ônus de Sucumbência 76.650.001
+1.9.9.9.12.2.1.01 Honorários Advocatícios - FR 1.799.269 2.000.000
+1.9.9.9.12.2.1.03 Honorários Advocatícios - Vinculados a Fundos - FR 1.759.269 74.650.001
+1.9.9.9.99.0.0.00 Outras Receitas 31.805.793
+1.9.9.9.99.2.1.99 Outras Receitas - FR 1.501.269 21.010.805
+1.9.9.9.99.2.3.98 Dívida Ativa de Outras Receitas - FR 1.501.169 500.000
+1.9.9.9.99.2.3.99 Dívida Ativa de Outras Receitas - FR 1.501.269 1.438.494
+1.9.9.9.99.2.4.99 Multas e Juros da Divida Ativa de Outras Receitas - FR 1.501.269 1.743.360
+1.9.9.9.99.3.1.01 Acréscimos Contratuais PRODEC 7.113.134
+2.0.0.0.00.0.0.00 | Receitas de Capital 1.158.132.809
+2.1.0.0.00.0.0.00 Operações de Crédito 1.044.274.200
+129
+ZA ESTADO DE SANTA CATARINA Desdobramento Receita
+T 3 RECURSOS DE TODAS AS FONTES
+Er
+(pa ea)
+Ano Base: 2026
+Em R$ 1,00
+cóBico CATEG. ECONOM,
+2.1.1.0.00.0.0.00 Operações de Crédito - Mercado Interno 430.999.890
+2.1.1.9.00.0.0.00 Outras Operações de Crédito - Mercado Interno 430.999.890
+2.1.1.9.99.0.0.00 Outras Operações de Crédito - Mercado Interno 430.999.890
+2.1.1.9.99.0.1.08 BNDES - Novos Rumos Crédito N. 21.2.0395.1 - Lei 17.186/2017 89.581.950
+2.1.1.9.99.0.1.09 BNDES - Estrada Boa - Lei 17.186/2017 341.417.940
+2.1.2.0.00.0.0.00 Operações de Crédito - Mercado Externo 613.274.310
+2.1.2.2.00.0.0.00 Operações de Crédito Contratuais - Mercado Externo 262.208.497
+2.1.2.2.53.0.0.00 Operações de Crédito Externas para Programas de Meio Ambiente 173.348.992
+2.1.2.2.53.0.1.01 BIRD/SC Microbacias 56.691.744
+2.1.2.2.53.0.1.03 BIRD - SC Rural Il 116.657.248
+2.1.2.2.54.0.0.00 Operações de Crédito Externas para Programas de Modernização da Administração 88.859.505
+Pública
+2.1.2.2.54.0.1.03 PROFISCO II SC / BID - Lein. 17.539/2018 88.859.505
+2.1.2.9.00.0.0.00 Outras Operações de Crédito - Mercado Externo 351.065.813
+2.1.2.9.99.0.0.00 Outras Operações de Crédito - Mercado Externo 351.065.813
+2.1.2.9.99.0.1.02 BIRD - Estrada Boa 351.065.813
+2.2.0.0.00.0.0.00 | Alienação de Bens 6.500.000
+2.2.1.0.00.0.0.00 Alienação de Bens Móveis 5.000.000
+2.2.1.3.00.0.0.00 Alienação de Bens Móveis e Semoventes 5.000.000
+2.2.1.3.01.0.0.00 Alienação de Bens Móveis e Semoventes 5.000.000
+2.2.1.3.01.0.1.05 Alienação de Bens Móveis e Semoventes - FR 1.755.298 5.000.000
+2.2.2.0.00.0.0.00 Alienação de Bens Imóveis 1.500.000
+2.2.2.1.00.0.0.00 Alienação de Bens Imóveis 1.500.000
+2.2.2.1.01.0.0.00 Alienação de Bens Imóveis 1.500.000
+2.2.2.1.01.0.1.02 Alienação de Bens Imóveis - FR 1.756.298 500.000
+2.2.2.1.01.0.1.03 Alienação de Bens Imóveis - FR 1.755.298 1.000.000
+2.3.0.0.00.0.0.00 | Amortização de Empréstimos 84.684.035
+2.3.1.0.00.0.0.00 Amortização de Empréstimos 84.684.035
+2.3.1.1.00.0.0.00 Amortização de Empréstimos 84.684.035
+2.3.1.1.07.0.0.00 Amortização de Financiamentos 84.684.035
+2.3.1.1.07.1.1.01 Amortização de Financiamentos - Habitacional 1.680.000
+2.3.1.1.07.1.1.99 Amortização de Financiamentos Diversos - FR 1.501.299 82.884.035
+2.3.1.1.07.1.3.99 Dívida Ativa da Amortização de Financiamentos Diversos - FR 1.501.299 120.000
+130
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

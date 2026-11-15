@@ -1,0 +1,334 @@
+{
+  "script": "04c_comparacao_svr_h2.py",
+  "gerado_em": "2026-11-15T15:28:43",
+  "criterio_pre_definido": {
+    "registrado_em": "2026-11-15",
+    "regressao": "competitivo se limite superior do IC95 de (MAE_ens - MAE_SVR)/MAE_SVR <= +0,05",
+    "classificacao": "competitivo se limite inferior do IC95 de (AUC_ens - AUC_SVC) >= -0,02",
+    "decisao_h2": "sustentada se ao menos um ensemble for competitivo nas duas tarefas",
+    "margem_mae": 0.05,
+    "margem_auc": -0.02
+  },
+  "n_subamostra_treino": 12000,
+  "n_teste": 4754,
+  "sementes": [
+    42,
+    7,
+    101,
+    2024,
+    31337
+  ],
+  "por_semente": {
+    "regressao": {
+      "SVR-RBF": [
+        {
+          "semente": 42,
+          "mae": 2024.8194756531516,
+          "tempo_s": 4.9
+        },
+        {
+          "semente": 7,
+          "mae": 2033.7645472411998,
+          "tempo_s": 5.1
+        },
+        {
+          "semente": 101,
+          "mae": 2037.829962485587,
+          "tempo_s": 5.3
+        },
+        {
+          "semente": 2024,
+          "mae": 2036.4086368059297,
+          "tempo_s": 7.3
+        },
+        {
+          "semente": 31337,
+          "mae": 2030.959677542184,
+          "tempo_s": 5.3
+        }
+      ],
+      "HistGradientBoosting": [
+        {
+          "semente": 42,
+          "mae": 2200.0643025815325,
+          "tempo_s": 0.2
+        },
+        {
+          "semente": 7,
+          "mae": 2276.005234996339,
+          "tempo_s": 0.1
+        },
+        {
+          "semente": 101,
+          "mae": 2285.5665171853507,
+          "tempo_s": 0.5
+        },
+        {
+          "semente": 2024,
+          "mae": 2235.20567966873,
+          "tempo_s": 0.2
+        },
+        {
+          "semente": 31337,
+          "mae": 2273.007352058684,
+          "tempo_s": 0.1
+        }
+      ],
+      "RandomForest": [
+        {
+          "semente": 42,
+          "mae": 2277.74678486816,
+          "tempo_s": 0.7
+        },
+        {
+          "semente": 7,
+          "mae": 2284.8953788757253,
+          "tempo_s": 0.6
+        },
+        {
+          "semente": 101,
+          "mae": 2316.764581245552,
+          "tempo_s": 0.8
+        },
+        {
+          "semente": 2024,
+          "mae": 2278.481441433927,
+          "tempo_s": 0.9
+        },
+        {
+          "semente": 31337,
+          "mae": 2281.8119918605735,
+          "tempo_s": 0.7
+        }
+      ],
+      "ExtraTrees": [
+        {
+          "semente": 42,
+          "mae": 2274.598590644455,
+          "tempo_s": 0.2
+        },
+        {
+          "semente": 7,
+          "mae": 2299.7816459592796,
+          "tempo_s": 0.2
+        },
+        {
+          "semente": 101,
+          "mae": 2305.682796375762,
+          "tempo_s": 0.2
+        },
+        {
+          "semente": 2024,
+          "mae": 2285.813811872607,
+          "tempo_s": 0.2
+        },
+        {
+          "semente": 31337,
+          "mae": 2262.678813765337,
+          "tempo_s": 0.2
+        }
+      ]
+    },
+    "classificacao": {
+      "SVC-RBF": [
+        {
+          "semente": 42,
+          "roc_auc": 0.8146925015298951,
+          "tempo_s": 2.9
+        },
+        {
+          "semente": 7,
+          "roc_auc": 0.8121906270167986,
+          "tempo_s": 3.1
+        },
+        {
+          "semente": 101,
+          "roc_auc": 0.8211888120286305,
+          "tempo_s": 3.0
+        },
+        {
+          "semente": 2024,
+          "roc_auc": 0.8058838564216955,
+          "tempo_s": 3.5
+        },
+        {
+          "semente": 31337,
+          "roc_auc": 0.82768773326984,
+          "tempo_s": 3.3
+        }
+      ],
+      "HistGradientBoosting": [
+        {
+          "semente": 42,
+          "roc_auc": 0.8609765273365623,
+          "tempo_s": 0.1
+        },
+        {
+          "semente": 7,
+          "roc_auc": 0.8605943146383286,
+          "tempo_s": 0.2
+        },
+        {
+          "semente": 101,
+          "roc_auc": 0.8641444022548461,
+          "tempo_s": 0.1
+        },
+        {
+          "semente": 2024,
+          "roc_auc": 0.8587170602622021,
+          "tempo_s": 0.2
+        },
+        {
+          "semente": 31337,
+          "roc_auc": 0.8690153950262223,
+          "tempo_s": 0.2
+        }
+      ],
+      "RandomForest": [
+        {
+          "semente": 42,
+          "roc_auc": 0.8585925278461792,
+          "tempo_s": 0.3
+        },
+        {
+          "semente": 7,
+          "roc_auc": 0.8594534201770709,
+          "tempo_s": 0.3
+        },
+        {
+          "semente": 101,
+          "roc_auc": 0.858761703958512,
+          "tempo_s": 0.3
+        },
+        {
+          "semente": 2024,
+          "roc_auc": 0.8563090419410557,
+          "tempo_s": 0.3
+        },
+        {
+          "semente": 31337,
+          "roc_auc": 0.8634474645513388,
+          "tempo_s": 0.3
+        }
+      ],
+      "ExtraTrees": [
+        {
+          "semente": 42,
+          "roc_auc": 0.854524860534137,
+          "tempo_s": 0.2
+        },
+        {
+          "semente": 7,
+          "roc_auc": 0.8581057549118509,
+          "tempo_s": 0.2
+        },
+        {
+          "semente": 101,
+          "roc_auc": 0.8585363968829823,
+          "tempo_s": 0.2
+        },
+        {
+          "semente": 2024,
+          "roc_auc": 0.8571780275736178,
+          "tempo_s": 0.2
+        },
+        {
+          "semente": 31337,
+          "roc_auc": 0.854233501674008,
+          "tempo_s": 0.2
+        }
+      ]
+    }
+  },
+  "resumo_media_dp": {
+    "regressao|SVR-RBF": {
+      "media": 2032.7564599456105,
+      "dp": 5.155560359983443,
+      "tempo_medio_s": 5.58
+    },
+    "regressao|HistGradientBoosting": {
+      "media": 2253.9698172981275,
+      "dp": 35.72196867647867,
+      "tempo_medio_s": 0.22000000000000003
+    },
+    "regressao|RandomForest": {
+      "media": 2287.9400356567876,
+      "dp": 16.363409259641916,
+      "tempo_medio_s": 0.7399999999999999
+    },
+    "regressao|ExtraTrees": {
+      "media": 2285.711131723488,
+      "dp": 17.68356258516708,
+      "tempo_medio_s": 0.2
+    },
+    "classificacao|SVC-RBF": {
+      "media": 0.8163287060533719,
+      "dp": 0.008389634625225233,
+      "tempo_medio_s": 3.16
+    },
+    "classificacao|HistGradientBoosting": {
+      "media": 0.8626895399036323,
+      "dp": 0.004038503527355823,
+      "tempo_medio_s": 0.16
+    },
+    "classificacao|RandomForest": {
+      "media": 0.8593128316948313,
+      "dp": 0.002596164781001986,
+      "tempo_medio_s": 0.3
+    },
+    "classificacao|ExtraTrees": {
+      "media": 0.8565157083153192,
+      "dp": 0.002013829642001947,
+      "tempo_medio_s": 0.2
+    }
+  },
+  "comparacao_pareada_semente42": {
+    "HistGradientBoosting": {
+      "dif_mae_rel_vs_svr": 0.08654837087234737,
+      "ic95_dif_mae_rel": [
+        0.0683313817313912,
+        0.10523432704500461
+      ],
+      "dif_auc_vs_svc": 0.04628402580666713,
+      "ic95_dif_auc": [
+        0.03422038992283937,
+        0.05945277096540461
+      ],
+      "competitivo_regressao": false,
+      "competitivo_classificacao": true,
+      "competitivo_nas_duas": false
+    },
+    "RandomForest": {
+      "dif_mae_rel_vs_svr": 0.12491351068885827,
+      "ic95_dif_mae_rel": [
+        0.10424488565260685,
+        0.1460066184365684
+      ],
+      "dif_auc_vs_svc": 0.04390002631628409,
+      "ic95_dif_auc": [
+        0.030901572684191473,
+        0.05748958627727723
+      ],
+      "competitivo_regressao": false,
+      "competitivo_classificacao": true,
+      "competitivo_nas_duas": false
+    },
+    "ExtraTrees": {
+      "dif_mae_rel_vs_svr": 0.12335870826742779,
+      "ic95_dif_mae_rel": [
+        0.10538758550252772,
+        0.14213198299086335
+      ],
+      "dif_auc_vs_svc": 0.03983235900424187,
+      "ic95_dif_auc": [
+        0.026840403543633998,
+        0.05436349457120609
+      ],
+      "competitivo_regressao": false,
+      "competitivo_classificacao": true,
+      "competitivo_nas_duas": false
+    }
+  },
+  "h2_sustentada": false,
+  "duracao_s": 59.2
+}

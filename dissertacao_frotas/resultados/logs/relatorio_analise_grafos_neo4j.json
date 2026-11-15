@@ -1,0 +1,240 @@
+{
+  "gerado_em_utc": "2026-11-15T14:53:08.980493+00:00",
+  "fonte_grafo": "Neo4j local (graphdb/)",
+  "testes": {
+    "T1_integridade": {
+      "esperado": {
+        "vehicle_count": 7291,
+        "workshop_count": 1039,
+        "service_edge_count": 25122,
+        "projected_workshop_count": 803,
+        "shared_workshop_edge_count": 6937
+      },
+      "observado": {
+        "vehicle_count": 7291,
+        "workshop_count": 1039,
+        "service_edge_count": 25122,
+        "shared_workshop_edge_count": 6937,
+        "projected_workshop_count": 803
+      },
+      "aprovado": true
+    },
+    "T2_projecao": {
+      "arestas_recalculadas": 6937,
+      "arestas_gravadas": 6937,
+      "pesos_divergentes": 0,
+      "aprovado": true
+    },
+    "T3_reproducao_etapa06": {
+      "etapa06": {
+        "nos_oficinas": 803,
+        "arestas": 6937,
+        "densidade": 0.02154,
+        "coeficiente_clustering": 0.0164,
+        "modularidade_louvain_q": 0.5646,
+        "total_comunidades": 18
+      },
+      "neo4j": {
+        "nos_oficinas": 803,
+        "arestas": 6937,
+        "densidade": 0.02154,
+        "coeficiente_clustering": 0.0164,
+        "modularidade_louvain_q": 0.565,
+        "total_comunidades": 19
+      },
+      "aprovado": true,
+      "nota": "Mesma rede e mesmo algoritmo; a ordem dos nós difere (chaves pseudonimizadas), então o Louvain pode convergir para uma partição ligeiramente diferente."
+    }
+  },
+  "analises": {
+    "A1_estabilidade_louvain": {
+      "sementes": 30,
+      "Q_media": 0.5649,
+      "Q_dp": 0.0002,
+      "Q_min": 0.5646,
+      "Q_max": 0.5651,
+      "comunidades_min": 17,
+      "comunidades_max": 19,
+      "comunidades_moda": 19,
+      "ARI_vs_seed42_media": 0.983,
+      "NMI_vs_seed42_media": 0.986,
+      "tamanhos_seed42": [
+        187,
+        102,
+        85,
+        83,
+        82,
+        73,
+        49,
+        43,
+        25,
+        22,
+        17,
+        14,
+        6,
+        4,
+        3,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "A2_modelo_nulo": {
+      "redes_nulas": 30,
+      "metodo": "troca dupla de arestas (graus preservados) + permutação de pesos",
+      "Q_observado": 0.565,
+      "Q_nulo_media": 0.3917,
+      "Q_nulo_dp": 0.0043,
+      "Q_nulo_max": 0.403,
+      "z": 39.9,
+      "p_empirico": "< 0.032"
+    },
+    "A3_concentracao": {
+      "oficinas_com_gasto": 1039,
+      "gasto_total": 131506578.94,
+      "participacao_top10pct_oficinas": 0.6972,
+      "participacao_top20_oficinas": 0.3766,
+      "hhi": 116.0,
+      "gini_gasto": 0.803,
+      "nota_hhi": "HHI em pontos (0–10.000); abaixo de 1.500 indica mercado pouco concentrado no conjunto.",
+      "fidelidade_veiculo": {
+        "mediana_participacao_oficina_principal": 0.686,
+        "veiculos_com_uma_oficina_pct": 0.269
+      }
+    },
+    "A4_centralidade_vs_auditoria": {
+      "criterio": "oficinas da projeção com >= 30 registros cobrados",
+      "oficinas": 329,
+      "spearman": {
+        "grau_ponderado~taxa_glosa": {
+          "rho": 0.088,
+          "p": 0.11,
+          "n": 329
+        },
+        "grau_ponderado~taxa_anomalia": {
+          "rho": 0.182,
+          "p": 0.0009,
+          "n": 329
+        },
+        "grau_ponderado~glosa_sobre_orcado": {
+          "rho": 0.138,
+          "p": 0.012,
+          "n": 329
+        },
+        "intermediacao~taxa_glosa": {
+          "rho": 0.097,
+          "p": 0.079,
+          "n": 329
+        },
+        "intermediacao~taxa_anomalia": {
+          "rho": 0.186,
+          "p": 0.00072,
+          "n": 329
+        },
+        "intermediacao~glosa_sobre_orcado": {
+          "rho": 0.172,
+          "p": 0.0017,
+          "n": 329
+        },
+        "veiculos~taxa_glosa": {
+          "rho": 0.074,
+          "p": 0.18,
+          "n": 329
+        },
+        "veiculos~taxa_anomalia": {
+          "rho": 0.146,
+          "p": 0.0081,
+          "n": 329
+        },
+        "veiculos~glosa_sobre_orcado": {
+          "rho": 0.16,
+          "p": 0.0036,
+          "n": 329
+        }
+      },
+      "kruskal_glosa_entre_comunidades": {
+        "H": 11.66,
+        "p": 0.11,
+        "comunidades": 8
+      },
+      "glosa_por_comunidade": {
+        "4": {
+          "oficinas": 91,
+          "taxa_glosa_mediana": 0.0588
+        },
+        "1": {
+          "oficinas": 42,
+          "taxa_glosa_mediana": 0.0559
+        },
+        "0": {
+          "oficinas": 39,
+          "taxa_glosa_mediana": 0.0526
+        },
+        "7": {
+          "oficinas": 37,
+          "taxa_glosa_mediana": 0.0645
+        },
+        "2": {
+          "oficinas": 31,
+          "taxa_glosa_mediana": 0.068
+        },
+        "3": {
+          "oficinas": 24,
+          "taxa_glosa_mediana": 0.0543
+        },
+        "9": {
+          "oficinas": 20,
+          "taxa_glosa_mediana": 0.1001
+        },
+        "18": {
+          "oficinas": 15,
+          "taxa_glosa_mediana": 0.0645
+        }
+      },
+      "intermediacao": "aproximada por amostragem de 400 pivôs (seed 42), sem pesos",
+      "nota": "Associação, não causalidade: oficinas maiores recebem mais OS e mais fiscalização."
+    },
+    "A5_dispersao_veiculo": {
+      "veiculos": 7291,
+      "oficinas_por_veiculo_mediana": 3.0,
+      "spearman_oficinas_custo_por_registro": {
+        "rho": 0.172,
+        "p": 1.7e-49
+      },
+      "spearman_oficinas_registros": {
+        "rho": 0.865,
+        "p": 0.0
+      },
+      "nota": "O número de oficinas cresce com o uso do veículo; a correlação com registros controla essa leitura."
+    },
+    "graus_bipartido": {
+      "oficinas_por_veiculo": {
+        "mediana": 3.0,
+        "p90": 7.0,
+        "max": 20
+      },
+      "veiculos_por_oficina": {
+        "mediana": 7.0,
+        "p90": 53.40000000000009,
+        "max": 806
+      }
+    },
+    "tipos_estabelecimento": {
+      "OFICINA MECANICA": 367,
+      "CONCESSIONARIA": 168,
+      "LOJA DE PNEUS": 96,
+      "AUTO ELETRICA": 67,
+      "LAVAGEM": 64,
+      "AUTO PECAS": 44,
+      "AUTO PECAS E OFICINA": 41,
+      "ESTETICA AUTOMOTIVA": 40
+    }
+  },
+  "figuras": [
+    "grafos_modelo_nulo_e_concentracao.png",
+    "grafos_centralidade_vs_glosa.png"
+  ],
+  "duracao_s": 22.1,
+  "todos_testes_aprovados": true
+}

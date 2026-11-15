@@ -788,7 +788,7 @@ def main():
         <div class="secao-titulo">6. BENS COM MANUTENÇÃO ONEROSA (>40% VENAL) • ART. 5º DECRETO 47.539/2018 (FIGURAS 92, 59, 27 E 82)</div>
         <div class="box-aviso">
             <strong>Critério Normativo do Decreto Estadual nº 47.539/2018 (Art. 5º) e Lei nº 14.133/2021:</strong><br>
-            Veículos cuja despesa acumulada de manutenção supera 40% do valor venal contábil são oficialmente classificados como <strong>antieconômicos</strong>. Foram identificados <strong>313 veículos em estado crítico</strong>, acumulando <strong>R$ 11.689.836,17</strong> em despesas improdutivas.
+            Veículos cuja despesa acumulada de manutenção supera 40% do valor venal contábil são oficialmente classificados como <strong>antieconômicos</strong>. Foram identificados <strong>242 veículos em estado crítico</strong>, acumulando <strong>R$ 11.689.836,17</strong> em despesas improdutivas.
         </div>
 
         <table>
@@ -811,10 +811,10 @@ def main():
 
         {render_bloco_grafico(
             'c92', '92', 'Curva de Antieconomicidade Patrimonial e Alienação (Decreto 47.539/2018)',
-            'Mapeia a razão Gasto Acumulado / Valor Venal contra a idade dos bens: 313 veículos cruzaram a linha vermelha dos 40%, atingindo picos alarmantes de até 280% do valor do bem.',
+            'Mapeia a razão Gasto Acumulado / Valor Venal contra a idade dos bens: 242 veículos cruzaram a linha vermelha dos 40%, atingindo picos alarmantes de até 280% do valor do bem.',
             'Manutenção reiterada de viaturas antigas que deveriam ter sido baixadas, com realização de retífica de motor e troca de câmbio que custam mais que o próprio carro.',
-            'O Estado despendeu R$ 11,69 milhões nesses 313 veículos, enquanto o valor de mercado somado de todos eles não atinge R$ 5,2 milhões.',
-            'Determinar a imediata suspensão de abastecimento e bloqueio de novas OSs para esses 313 veículos, encaminhando-os para leilão em lote único.'
+            'O Estado despendeu R$ 11,69 milhões nesses 242 veículos, enquanto o valor de mercado somado de todos eles não atinge R$ 5,2 milhões.',
+            'Determinar a imediata suspensão de abastecimento e bloqueio de novas OSs para esses 242 veículos, encaminhando-os para leilão em lote único.'
         )}
 
         <div class="quebra-pagina"></div>
@@ -1035,7 +1035,7 @@ def main():
                         Cruza depreciação FIPE com custo crescente de oficina para prescrever: <em>"Venda o veículo X no mês Y para obter retorno máximo antes que se torne deficitário (&gt;40% venal)."</em>
                     </td>
                     <td style="padding: 3px 5px; border: 1px solid #e2e8f0; color: #b45309; font-weight: bold;">
-                        Estanca R$ 11,69M em 313 veículos críticos e recupera R$ 16,2 mil/lote em leilão público.
+                        Estanca R$ 11,69M em 242 veículos críticos e recupera R$ 16,2 mil/lote em leilão público.
                     </td>
                 </tr>
             </tbody>

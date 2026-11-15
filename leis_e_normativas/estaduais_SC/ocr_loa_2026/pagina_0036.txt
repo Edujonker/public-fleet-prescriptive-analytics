@@ -1,0 +1,70 @@
+PAGINA 231 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+ma: Orçamento Fiscal
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORÇ. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO | OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.1.1.3.03.4.1.00 Imposto sobre a Renda - Retido na Fonte - 110.437.105 110.437.105
+Outros Rendimentos - Principal
+1.1.1.3.03.4.1.01 Imposto sobre a Renda - Retido na Fonte - Outros 110.437.105 110.437.105
+Rendimentos
+1.1.1.4.00.0.0.00 Impostos sobre a Produção e Circulação de 49.122.171.866 49.122.171.866
+Mercadorias e Serviços
+1.1.1.4.50.0.0.00 Impostos sobre a Produção e Circulação de 49.122.171.866 49.122.171.866
+Mercadorias e Serviços
+1.1.1.4.50.1.1.00 Imp. s/Op.Relat.à Circulação Mercadorias e 48.522.055.175 48.522.055.175
+s/Prestações Serv.Transp.e Comunic.-Principal
+1.1.1.4.50.1.1.01 ICMS - Estadual 36.222.703.055 36.222.703.055
+1.1.1.4.50.1.1.02 ICMS - Municipal 12.074.234.352 12.074.234.352
+1.1.1.4.50.1.1.31 ICMS - PRODEC Estadual 168.838.326 168.838.326
+1.1.1.4.50.1.1.32 ICMS - PRODEC Municipal 56.279.442 56.279.442
+1.1.1.4.50.1.2.00 Imp.s/Op.Relativas à Circ. Mercadorias e 243.374.868 243.374.868
+s/Prest.Serviços Transp. e Com.- Multas e Juros
+1.1.1.4.50.1.2.01 Multas de ICMS - Estadual 102.405.754 102.405.754
+1.1.1.4.50.1.2.02 Juros de Mora de ICMS - Estadual 80.125.397 80.125.397
+1.1.1.4.50.1.2.03 Multas de ICMS - Municipal 34.135.251 34.135.251
+1.1.1.4.50.1.2.04 Juros de Mora de ICMS - Municipal 26.708.466 26.708.466
+1.1.1.4.50.1.3.00 Imp.s/Op.Relativas à Circ. Mercadorias e s/Prest. 202.884.503 202.884.503
+Serviços Transp.e Com.-Diívida Ativa
+1.1.1.4.50.1.3.01 Dívida Ativa do ICMS-Estadual 152.163.377 152.163.377
+1.1.1.4.50.1.3.02 Dívida Ativa do ICMS-Municipal 50.721.126 50.721.126
+69
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+ma: Orçamento Fiscal
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORÇ. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO | OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.1.1.4.50.1.4.00 Imp.s/Op.Relativas à Circ.Mercadorias e 153.857.320 153.857.320
+s/Prest.Serviços Transp.e Com.-D.A.Multa e Juros
+1.1.1.4.50.1.4.01 Multas D.A de ICMS - Estadual 21.382.988 21.382.988
+1.1.1.4.50.1.4.02 Juros de Mora de D.A. de ICMS - Estadual 94.010.002 94.010.002
+1.1.1.4.50.1.4.03 Multas D.A ICMS - Municipal 7.127.663 7.127.663
+1.1.1.4.50.1.4.04 Juros de Mora D.A de ICMS - Municipal 31.336.667 31.336.667
+1.1.2.0.00.0.0.00 Taxas 1.328.130.031 1.036.915.846 2.365.045.876
+1.1.2.1.00.0.0.00 Taxas pelo Exercício do Poder de Polícia 1.232.233.615 75.660.296 1.307.893.911
+1.1.2.1.01.0.0.00 Taxas de Inspeção, Controle e Fiscalização 1.221.520.212 50.662.357 1.272.182.569
+1.1.2.1.01.0.1.00 Taxas de Inspeção, Controle e Fiscalização - 1.221.520.212 50.662.357 1.272.182.569
+Principal
+1.1.2.1.01.0.1.01 Taxa de Fiscalização de Vigilância Sanitária - Animal 1.020.745 4.555.402 5.576.147
+1.1.2.1.01.0.1.02 Taxa de Regulação e Fiscalização sobre Serviços de 16.267.601 16.267.601
+Gás Canalizado
+1.1.2.1.01.0.1.04 Atos da Saúde Pública 806.780 806.780
+1.1.2.1.01.0.1.05 Atos da Segurança Pública 1.207.113.241 1.207.113.241
+1.1.2.1.01.0.1.07 Atos da Polícia Militar 73.093 73.093
+1.1.2.1.01.0.1.08 Atos de Infra-Estrutura - SIE 3.877.523 3.877.523
+1.1.2.1.01.0.1.09 Taxa de Fiscalização do Transporte Intermunicipal de 12.369.794 12.369.794
+Passageiros
+1.1.2.1.01.0.1.10 Taxa de Prevenção Contra Sinistro 6.070.050 6.070.050
+1.1.2.1.01.0.1.11 Taxa de Regulação e Fiscalização sobre Serviços de 13.892.580 13.892.580
+Saneamento Básico
+1.1.2.1.01.0.1.13 Taxa de Fiscalização de Agrotóxicos 1.836.491 1.836.491
+70
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

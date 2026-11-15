@@ -502,7 +502,7 @@
     </p>
 
     <p>
-        A investigação apoia-se estritamente no <strong>Método Lógico para Redação e Condução Científica de Gilson Volpato</strong>, distinguindo com rigor a significância estatística da relevância prática operacional. O protocolo experimental implementa validação sequencial temporal (<em>walk-forward</em> 5 dobras e <em>holdout</em> canônico) com embargo estrito de 30 dias para expurgo de viés de antecipação (<em>lookahead bias</em>). Os resultados preliminares homologados certificam: (1) saneamento de 6.841 regressões de hodômetro e conciliação contábil entre R$ 198,81M orçados e R$ 60,05M retidos em glosas; (2) estabilização do <em>Isolation Forest</em> com concordância significativa frente a reprovações fiscais reais (p = 0,000426); (3) superioridade do <em>HistGradientBoosting</em> com PR-AUC de 0,9510 e ROC-AUC de 0,8743 na classificação de risco e MAE de R$ 2.236,06 na regressão de custos; (4) falseamento da hipótese de integração multimodal com ganho marginal de +0,41%, classificada como não sustentada sob o critério de corte pré-estabelecido de 15%; (5) prescrição exata via MILP com solver <em>HiGHS</em> proporcionando economia contrafactual simulada de R$ 9.302.147,26 (17,51%) sob 100% de atendimento das manutenções mandatórias de segurança; (6) auditoria XAI revelando concordância moderada entre SHAP e LIME (Jaccard Top-5 de 39,29%), sustentando a necessidade de cautela no uso de aproximações locais; e (7) detecção de 18 comunidades regionais de oficinas com modularidade Louvain Q = 0,5646. A infraestrutura e os resultados contam com fechamento numérico exato e reprodutibilidade multiplataforma certificada em Linux e Windows 11.
+        A investigação apoia-se estritamente no <strong>Método Lógico para Redação e Condução Científica de Gilson Volpato</strong>, distinguindo com rigor a significância estatística da relevância prática operacional. O protocolo experimental implementa validação sequencial temporal (<em>walk-forward</em> 5 dobras e <em>holdout</em> canônico) com embargo estrito de 30 dias para expurgo de viés de antecipação (<em>lookahead bias</em>). Os resultados preliminares homologados certificam: (1) saneamento de 6.841 regressões de hodômetro e conciliação contábil entre R$ 198,81M orçados e R$ 60,05M retidos em glosas; (2) estabilização do <em>Isolation Forest</em> entre sementes, sem evidência de que as OS marcadas como atípicas coincidam com as glosadas pela fiscalização; (3) HistGradientBoosting com ROC-AUC de 0,8737 na classificação de risco, superior ao SVC-RBF, mas com erro 8,65% maior que o SVR-RBF na regressão de custos (H2 não sustentada); (4) integração do patrimônio com ganho pequeno: ROC-AUC +0,0095 (IC 95% 0,0045 a 0,0146) e MAE 0,62%, abaixo da meta de 15% (H1 parcialmente sustentada); (5) política MILP (HiGHS) 13,66% (R$ 6,99 mi) mais barata que a prática reconstruída, em instância semissintética, com 100% das manutenções obrigatórias (H3 sustentada; uma heurística gulosa chega ao mesmo custo); (6) SHAP exato e estável, mas LIME com baixa fidelidade local (R² 0,243) e concordância SHAP × LIME de Jaccard 45,48% (H4 não sustentada); e (7) detecção de 18 comunidades regionais de oficinas com modularidade Louvain Q = 0,5646. A infraestrutura e os resultados contam com fechamento numérico exato e reprodutibilidade multiplataforma certificada em Linux e Windows 11.
     </p>
 
     <p class="no-indent">
@@ -748,9 +748,9 @@
         A gestão de transportes no âmbito do Poder Executivo de Santa Catarina é vinculada a um conjunto estrito de diplomas normativos que delimitam a atuação técnica e as margens de discricionariedade do gestor:
     </p>
     <ul>
-        <li><strong>Decretos Estaduais nº 1.488/2008 e nº 2.056/2009:</strong> Regulamentam a gestão centralizada da frota pública estadual sob responsabilidade da Secretaria de Estado da Administração (SEA/SC), disciplinando o cadastro patrimonial, o credenciamento de oficinas mecânicas, o controle de abastecimentos e as hipóteses de alienação e leilão de veículos inservíveis.</li>
+        <li><strong>Decreto Estadual nº 311/2011 (alterado pelo Decreto nº 577/2016):</strong> institui o Sistema de Gerenciamento de Veículos e Equipamentos (GVE), sob gestão da Secretaria de Estado da Administração (SEA/SC), para o controle da frota da administração pública estadual. Os Decretos nº 1.488/2008 e nº 2.056/2009, citados em versões anteriores, não foram localizados em fonte oficial e deixaram de ser usados.</li>
         <li><strong>Cartilha de Gestão de Frota por Indicadores (GFI - SEA/SC, 2026):</strong> Documento técnico governamental que instituiu a matriz oficial de <strong>38 indicadores de desempenho logístico</strong>, padronizando o cálculo de consumo volumétrico médio (km/L), custo por quilômetro rodado (R$/km), taxas de severidade mecânica e rotinas de auditoria cruzada de hodômetros.</li>
-        <li><strong>Conceituação do Parâmetro Comparativo de Antieconomicidade de 40%:</strong> A literatura técnica e cartilhas administrativas frequentemente citam o parâmetro de que veículos cujas despesas anuais acumuladas de manutenção superem <strong>40% do seu valor venal contábil</strong> devem ser alienados. <em>Ressalva-se enfaticamente nesta dissertação que tal dispositivo advém do Artigo 5º do Decreto Estadual nº 47.539/2018 do Estado de Minas Gerais</em>, sendo adotado pela Cartilha GFI da SEA/SC estritamente como um <strong>indicador analítico comparativo de benchmarking interfederativo</strong> e triagem de portfólio. Não constitui obrigação legal impositiva de baixa compulsória para os órgãos catarinenses, cabendo a deliberação às comissões de patrimônio da SEA/SC.</li>
+        <li><strong>Conceituação do Parâmetro Comparativo de Antieconomicidade de 40%:</strong> A literatura técnica e cartilhas administrativas frequentemente citam o parâmetro de que veículos cujas despesas anuais acumuladas de manutenção superem <strong>40% do seu valor venal contábil</strong> devem ser alienados. <em>Ressalva-se enfaticamente nesta dissertação que tal dispositivo advém do art. 44 do Decreto Estadual nº 47.539, de 23 de novembro de 2018, do Estado de Minas Gerais, que exige autorização da Seplag para a manutenção de veículo cuja soma de manutenções nos últimos doze meses ultrapasse 40% do valor de mercado (o valor usado no cálculo do IPVA)</em>, sendo adotado pela Cartilha GFI da SEA/SC estritamente como um <strong>indicador analítico comparativo de benchmarking interfederativo</strong> e triagem de portfólio. Não constitui obrigação legal impositiva de baixa compulsória para os órgãos catarinenses, cabendo a deliberação às comissões de patrimônio da SEA/SC.</li>
         <li><strong>Normas Gerais de Direito Financeiro e Contratos (LRF e Lei Federal nº 14.133/2021):</strong> A Lei de Responsabilidade Fiscal impõe rigidez aos créditos orçamentários, e a Nova Lei de Licitações consagra a obrigatoriedade de estudos técnicos preliminares (ETP) baseados no custo global do ciclo de vida dos bens contratados.</li>
     </ul>
 
@@ -852,7 +852,7 @@
     <ul>
         <li><strong>Tratamento Monotônico de Regressões de Hodômetro:</strong> Detectaram-se <strong>6.841 ocorrências de saltos negativos de hodômetro em 3.116 veículos</strong> distintos. Desenvolveu-se um algoritmo determinístico de validação monotônica temporal: quando o salto decorria de erro de digitação pontual (e.g., omissão de um dígito), aplicou-se interpolação cúbica com base na taxa histórica de utilização diária (km/dia); quando se tratava de substituição física do painel de instrumentos homologada pela SEA/SC, recalibrou-se a série temporal preservando a continuidade física do ativo;</li>
         <li><strong>Resolução de Ambiguidade Semântica de Tipos de Manutenção:</strong> Identificou-se que o campo superficial <code>tipo_manutencao_oficina</code> apresentava viés de sistema, classificando indevidamente manutenções corretivas severas como revisões ordinárias. A extração e normalização do código estruturado real via <code>TRIM(ds_codigo_manutencao)</code> recuperou a distribuição censitária autêntica: <strong>270.510 ordens corretivas (87,7%) contra 37.897 manutenções preventivas reais (12,3%)</strong>;</li>
-        <li><strong>Estruturação do Painel Veículo-Mês:</strong> Para viabilizar a modelagem preditiva temporal, os 350.737 registros foram agregados na unidade de análise em painel longitudinal <strong>veículo-mês (i, t)</strong>, gerando <strong>51.244 instâncias consolidadas</strong> com 35 atributos operacionais (idade do veículo em meses, MTBF pregresso, razão peça/mão de obra, severidade R$/km, histórico de paradas).</li>
+        <li><strong>Estruturação do Painel Veículo-Mês:</strong> Para viabilizar a modelagem preditiva temporal, os 350.737 registros foram agregados na unidade de análise em painel longitudinal <strong>veículo-mês (i, t)</strong>, gerando <strong>42.278 instâncias veículo-mês</strong> com 25 colunas, das quais 15 são usadas como atributos (custos de peças e mão de obra, quantidade de OS corretivas e preventivas, quilometragem, idade, defasagens de 1 e 2 meses e valores patrimoniais).</li>
     </ul>
 
     <h2>4.4 Protocolos de Validação Experimental e Salvaguardas Anti-Vazamento</h2>
@@ -1011,14 +1011,14 @@
         </tr>
         <tr>
             <td><strong>Economia Prescritiva MILP (S0)</strong></td>
-            <td><strong>R$ 9.302.147,26</strong></td>
-            <td><strong>R$ 9.302.147,26</strong></td>
+            <td><strong>R$ 6.990.613,11</strong></td>
+            <td><strong>R$ 6.990.613,11</strong></td>
             <td><strong class="badge-check">R$ 0,00 (Exato ao Centavo)</strong></td>
         </tr>
         <tr>
             <td><strong>Percentual de Economia Contrafactual</strong></td>
-            <td>17,51%</td>
-            <td>17,51%</td>
+            <td>13,66%</td>
+            <td>13,66%</td>
             <td><strong class="badge-check">0,0000% (Zero Drift)</strong></td>
         </tr>
         <tr>
@@ -1035,8 +1035,8 @@
         </tr>
         <tr>
             <td><strong>HistGradientBoosting ROC-AUC / PR-AUC</strong></td>
-            <td>0,8743 / 0,9510</td>
-            <td>0,8743 / 0,9510</td>
+            <td>0,8737 / 0,9510</td>
+            <td>0,8737 / 0,9510</td>
             <td><strong class="badge-check">0,0000</strong></td>
         </tr>
         <tr>
@@ -1047,8 +1047,8 @@
         </tr>
         <tr>
             <td><strong>Concordância XAI Top-5 Jaccard / &rho;</strong></td>
-            <td>39,29% / 0,3680</td>
-            <td>39,29% / 0,3680</td>
+            <td>45,48% / 0,2869</td>
+            <td>45,48% / 0,2869</td>
             <td><strong class="badge-check">0,0000</strong></td>
         </tr>
         <tr>
@@ -1080,7 +1080,7 @@
     </div>
 
     <p>
-        A Tabela 6 certifica a estabilidade multissemente (J &ge; 0,86) e o teste t de Student confirmou que as ordens reprovadas pelos auditores do Estado apresentam escores de anomalia significativamente mais elevados que as ordens aprovadas (t = 3,52; p = 0,000426), comprovando a validade externa do método.
+        A Tabela 6 mostra a estabilidade entre sementes (Jaccard médio de 0,79 a 0,84 conforme a contaminação). Já a comparação com a fiscalização não confirmou a validade externa: as OS com glosa têm escores <em>menos</em> atípicos que as demais (teste t de Welch, t = 26,08; Mann-Whitney unilateral p = 1,00). O detector serve para triagem de casos incomuns, não para antecipar glosas; essa questão passou a ser a hipótese exploratória E2.
     </p>
 
     <table class="academic">
@@ -1088,42 +1088,14 @@
             <th>Taxa de Contaminação (&nu;)</th>
             <th>Anomalias Isoladas</th>
             <th>Similaridade Jaccard Média (J)</th>
-            <th>Nível de Estabilidade Estocástica</th>
-            <th>Validação com Glosas Reais</th>
+            <th>Sementes</th>
+            <th>Estável entre sementes (J ≥ 0,80)</th>
         </tr>
-        <tr>
-            <td>1,0%</td>
-            <td>779 OS</td>
-            <td>0,8641</td>
-            <td>Moderada / Alta</td>
-            <td>Estatisticamente Significante (p &lt; 0,001)</td>
-        </tr>
-        <tr>
-            <td>2,0%</td>
-            <td>1.557 OS</td>
-            <td>0,8678</td>
-            <td>Alta</td>
-            <td>Estatisticamente Significante (p &lt; 0,001)</td>
-        </tr>
-        <tr>
-            <td>5,0%</td>
-            <td>3.894 OS</td>
-            <td>0,8725</td>
-            <td>Excelente</td>
-            <td>Estatisticamente Significante (p &lt; 0,001)</td>
-        </tr>
-        <tr>
-            <td>10,0%</td>
-            <td>7.787 OS</td>
-            <td>0,8811</td>
-            <td>Excelente</td>
-            <td>Estatisticamente Significante (p &lt; 0,001)</td>
-        </tr>
-    </table>
+        <tr><td style='text-align:center'>0,50%</td><td style='text-align:center'>390 OS</td><td style='text-align:center'>0,7883</td><td style='text-align:center'>42, 123, 999</td><td style='text-align:center'>não</td></tr><tr><td style='text-align:center'>0,85%</td><td style='text-align:center'>662 OS</td><td style='text-align:center'>0,8055</td><td style='text-align:center'>42, 123, 999</td><td style='text-align:center'>sim</td></tr><tr><td style='text-align:center'>1,00%</td><td style='text-align:center'>779 OS</td><td style='text-align:center'>0,8239</td><td style='text-align:center'>42, 123, 999</td><td style='text-align:center'>sim</td></tr><tr><td style='text-align:center'>2,00%</td><td style='text-align:center'>1.558 OS</td><td style='text-align:center'>0,8323</td><td style='text-align:center'>42, 123, 999</td><td style='text-align:center'>sim</td></tr><tr><td style='text-align:center'>5,00%</td><td style='text-align:center'>3.894 OS</td><td style='text-align:center'>0,8393</td><td style='text-align:center'>42, 123, 999</td><td style='text-align:center'>sim</td></tr></table>
 
     <h2>6.2 Desempenho Preditivo de Risco e Regressão de Custos (Hipótese H2)</h2>
     <p>
-        No conjunto de teste independente out-of-time (2025–2026), o modelo <strong>HistGradientBoosting</strong> sagrou-se campeão absoluto na classificação de risco operacional, alcançando <strong>PR-AUC = 0,9510</strong>, <strong>ROC-AUC = 0,8743</strong> [IC 95%: 0,8617; 0,8878] e F1-Score = 0,9113, superando a Regressão Logística no teste de DeLong (Z = 16,39; p &lt; 10^-50).
+        No conjunto de teste independente out-of-time (2025–2026), o modelo <strong>HistGradientBoosting</strong> sagrou-se campeão absoluto na classificação de risco operacional, alcançando <strong>PR-AUC = 0,9510</strong>, <strong>ROC-AUC = 0,8737</strong> [IC 95%: 0,8617; 0,8878] e F1-Score = 0,9113, superando a Regressão Logística no teste de DeLong (Z = 16,39; p &lt; 10^-50).
     </p>
 
     <div class="figure-container">
@@ -1139,7 +1111,7 @@
     </div>
 
     <p>
-        Na tarefa de regressão de custos de manutenção (R$/mês), o modelo <strong>HistGradientBoosting</strong> obteve o menor erro absoluto (MAE = R$ 2.236,06 [IC 95%: 2.146,76; 2.321,17]), superando o SVR-RBF e a mediana histórica de classe no teste pareado de postos de Wilcoxon (p &lt; 10^-4 com correção de Holm), <strong>sustentando formalmente a Hipótese H2</strong>.
+        Na tarefa de regressão de custos de manutenção (R$/mês), o SVR-RBF obteve o menor erro absoluto: MAE médio de R$ 2.032,76 em 5 sementes (subamostra de treino de 12.000 instâncias; 4.754 no teste), contra R$ 2.253,97 do HistGradientBoosting. A diferença relativa do HistGradientBoosting foi de +8,65% (IC 95%: 6,83% a 10,52%), acima da margem de não inferioridade de +5% definida antes da execução. Na classificação, o HistGradientBoosting superou o SVC-RBF em ROC-AUC (+0,0463; IC 95%: 0,0342 a 0,0595). Como nenhum ensemble foi competitivo nas duas tarefas, <strong>a Hipótese H2 não foi sustentada</strong> (Tabela da Seção 6A.0).
     </p>
 
     <div class="figure-container">
@@ -1148,7 +1120,7 @@
         <div class="figure-source">Fonte: Dados empíricos da frota pública de Santa Catarina processados pelo autor (2026).</div>
     </div>
 
-    <h2>6.3 Estudo de Ablação Multimodal e Falsificação da Hipótese H1</h2>
+    <h2>6.3 Estudo de Ablação Multimodal e Hipótese H1 (parcialmente sustentada)</h2>
     <p>
         O estudo ablativo confrontou modelos treinados apenas com ordens de serviço (M) contra modelos integrados a dados cadastrais e patrimoniais (M+P).
     </p>
@@ -1161,12 +1133,12 @@
 
     <div class="box-alerta">
         <strong>Resultado Epistemológico Fundamental perante o Método de Volpato:</strong><br>
-        A inclusão dos atributos patrimoniais reduziu o MAE em R$ 9,47 por veículo-mês, representando um ganho marginal relativo de <strong>+0,41% [IC 95%: 0,28%; 0,54%]</strong>. Embora altamente significante sob a ótica estatística pura (p &lt; 10^-15) em razão do volume censitário, esse valor situa-se dramaticamente abaixo da régua pré-registrada de <strong>15,0% de ganho relativo prático</strong>. Em estrito cumprimento à integridade científica preconizada por Volpato, <strong>a Hipótese H1 é formalmente classificada como NÃO SUSTENTADA</strong> sob a régua de relevância prática. Não se justifica onerar o Estado com custos complexos de integração legada que não geram benefício operacional substantivo.
+        A inclusão dos atributos patrimoniais reduziu o MAE em R$ 13,97 por veículo-mês, ganho relativo de <strong>0,62% [IC 95%: -0,26% a 1,52%]</strong>, intervalo que inclui zero, e elevou a ROC-AUC em <strong>+0,0095 [IC 95%: 0,0045 a 0,0146]</strong>. Pelo texto do anteprojeto (melhora de ao menos uma métrica principal), H1 é atendida; pelo limiar pré-registrado de <strong>15% no MAE</strong>, não. A Hipótese H1 é classificada como <strong>PARCIALMENTE SUSTENTADA</strong>: o efeito é real na classificação, mas pequeno demais para justificar, sozinho, o custo de integração contínua das bases.
     </div>
 
     <h2>6.4 Otimização Prescritiva MILP e Economia Contrafactual (Hipótese H3)</h2>
     <p>
-        No Cenário de Referência S0 (horizonte de 36 períodos, 2.000 veículos monitorados, totalizando 72.000 variáveis binárias e 6.072 restrições lineares), o solver <em>HiGHS</em> convergiu em 8,92 segundos com <strong>MIP Gap certificado de 0,0000%</strong>. O custo To-Be otimizado atingiu R$ 43.837.633,31 frente à base inercial As-Is de R$ 53.139.780,57, gerando uma <strong>economia contrafactual líquida simulada de R$ 9.302.147,26 (17,51%)</strong> com 100% de atendimento das manutenções mandatórias de segurança viária.
+        No Cenário de Referência S0 (horizonte de 36 períodos, 2.000 veículos monitorados, totalizando 72.000 variáveis binárias e 6.072 restrições lineares), o solver <em>HiGHS</em> convergiu em 8,92 segundos com <strong>MIP Gap certificado de 0,0000%</strong>. O custo To-Be otimizado atingiu R$ 44.190.120,51 frente à base inercial As-Is de R$ 51.180.733,62, gerando uma <strong>economia contrafactual líquida simulada de R$ 6.990.613,11 (13,66%)</strong> com 100% de atendimento das manutenções mandatórias de segurança viária.
     </p>
 
     <div class="figure-container">
@@ -1177,7 +1149,7 @@
 
     <h2>6.5 Triangulação XAI e Redes Complexas (Hipótese H4)</h2>
     <p>
-        A auditoria de explicabilidade confrontou as atribuições locais de atributos entre SHAP e LIME sobre as instâncias auditadas. Constatou-se uma <strong>similaridade de Jaccard no Top-5 de apenas 39,29% (39,3%)</strong> e correlação de Spearman de &rho; = 0,3680, situando-se muito abaixo do limiar de 85% postulado em H4. Portanto, <strong>a Hipótese H4 é REJEITADA</strong>, alertando os auditores do TCE-SC de que aproximações locais de caixa-preta não podem ser adotadas indistintamente em litígios fiscais.
+        A auditoria de explicabilidade confrontou SHAP e LIME nas 25 instâncias de maior risco: <strong>Jaccard Top-5 de 45,48%</strong> e Spearman de &rho; = 0,2869, abaixo do limiar de 0,85. As medidas de fidelidade e estabilidade pedidas no anteprojeto mostram que o SHAP é exato (aditividade) e estável entre modelos re-treinados (0,979), e o LIME é estável entre sementes (1,000), mas pouco fiel ao modelo (R² local de 0,243, mínimo fixado de 0,50). <strong>A Hipótese H4 não é sustentada</strong>: explicações LIME não devem ser apresentadas a órgãos de controle como reflexo fiel do modelo.
     </p>
 
     <div class="figure-container">
@@ -1226,8 +1198,8 @@
         </tr>
         <tr>
             <td><strong>Mês 3</strong></td>
-            <td><strong>Aprofundamento Multimodal e Telemetria</strong></td>
-            <td>Integração da base completa de telemetria contínua de abastecimentos e transações por cartão magnético, refinando o cálculo de consumo volumétrico médio (km/L).</td>
+            <td><strong>Indicadores de Consumo (Cartilha GFI)</strong></td>
+            <td>Indicadores descritivos de consumo (km/L) da Cartilha GFI com a base de abastecimentos disponível (2019–2022), sem re-treinar os modelos preditivos: a ablação de H1 mostrou ganho pequeno da integração de bases, e a base de abastecimentos não cobre o período de teste.</td>
             <td>Base de dados Parquet expandida e novos notebooks de validação.</td>
         </tr>
         <tr>
@@ -1289,10 +1261,10 @@
             <td></td>
         </tr>
         <tr>
-            <td>3. Expansão de Telemetria e Abastecimento</td>
+            <td>3. Indicadores de Consumo (Cartilha GFI)</td>
             <td></td>
             <td></td>
-            <td><div class="gantt-bar-blue">ETL Telemetria</div></td>
+            <td><div class="gantt-bar-blue">Indicadores GFI</div></td>
             <td></td>
             <td></td>
             <td></td>
@@ -1362,8 +1334,8 @@
     </p>
     <ul>
         <li><strong>A base empírica é sólida e autêntica:</strong> Não se trata de uma pesquisa baseada em dados simulados ou brinquedos estatísticos (<em>toy datasets</em>), mas de um censo administrativo integral de 350.737 registros de ordens de serviço do Poder Executivo catarinense, devidamente higienizado contra regressões de hodômetro e com conciliação contábil exata ao centavo;</li>
-        <li><strong>O método científico é estrito e falseável:</strong> A adoção do método lógico de Gilson Volpato impediu o <em>data dredging</em> e o <em>p-hacking</em>, garantindo que o embargo temporal de 30 dias protegesse os modelos contra contaminação informacional. Mais do que isso, demonstrou-se a probidade científica do autor ao classificar formalmente a Hipótese H1 como não sustentada e a Hipótese H4 como rejeitada, reafirmando que a ciência se constrói com critérios de falseamento objetivos;</li>
-        <li><strong>A viabilidade técnica está plenamente comprovada:</strong> Os resultados preliminares apresentados nos modelos preditivos (PR-AUC = 0,9510), na calibração de probabilidades, na otimização MILP exata com solver HiGHS (R$ 9,30M de economia simulada com MIP Gap de 0,0000%) e na detecção de 18 comunidades de Louvain garantem que o modelo proposto é plenamente funcional;</li>
+        <li><strong>O método científico é estrito e falseável:</strong> A adoção do método lógico de Gilson Volpato impediu o <em>data dredging</em> e o <em>p-hacking</em>, garantindo que o embargo temporal de 30 dias protegesse os modelos contra contaminação informacional. Mais do que isso, as hipóteses foram avaliadas pelos critérios fixados antes dos resultados, com H1 parcialmente sustentada, H2 e H4 não sustentadas e H3 sustentada, e os desvios do protocolo estão registrados, reafirmando que a ciência se constrói com critérios de falseamento objetivos;</li>
+        <li><strong>A viabilidade técnica está plenamente comprovada:</strong> Os resultados preliminares apresentados nos modelos preditivos (PR-AUC = 0,9510), na calibração de probabilidades, na otimização MILP exata com solver HiGHS (R$ 6,99 mi de economia simulada com MIP Gap de 0,0000%) e na detecção de 18 comunidades de Louvain garantem que o modelo proposto é plenamente funcional;</li>
         <li><strong>A infraestrutura computacional é reprodutível:</strong> A certificação multiplataforma cruzada (Linux vs Windows 11) com 20 checkpoints auditados com drift numérico zero assegura total auditabilidade e transparência.</li>
     </ul>
     <p>
@@ -1444,11 +1416,11 @@
         </p>
 
         <p class="no-indent" style="margin-bottom: 0.8em;">
-            SANTA CATARINA. <strong>Decreto Estadual nº 1.488, de 25 de junho de 2008</strong>. Dispõe sobre a gestão de veículos oficiais no âmbito do Poder Executivo Estadual. Florianópolis: Diário Oficial do Estado de Santa Catarina, 2008.
+            SANTA CATARINA. <strong>Decreto nº 311, de 14 de junho de 2011</strong>. Dispõe sobre a utilização do Sistema de Gerenciamento de Veículos e Equipamentos nos órgãos e entidades da administração pública estadual e estabelece outras providências. Florianópolis: Diário Oficial do Estado de Santa Catarina, 2011.
         </p>
 
         <p class="no-indent" style="margin-bottom: 0.8em;">
-            SANTA CATARINA. <strong>Decreto Estadual nº 2.056, de 28 de janeiro de 2009</strong>. Regulamenta o uso, a manutenção e a alienação de veículos da frota pública catarinense. Florianópolis: Diário Oficial do Estado de Santa Catarina, 2009.
+            SANTA CATARINA. <strong>Decreto nº 577, de 28 de janeiro de 2016</strong>. Altera o Decreto nº 311, de 2011, que dispõe sobre a utilização do Sistema de Gerenciamento de Veículos e Equipamentos. Florianópolis: Diário Oficial do Estado de Santa Catarina, 2016.
         </p>
 
         <p class="no-indent" style="margin-bottom: 0.8em;">

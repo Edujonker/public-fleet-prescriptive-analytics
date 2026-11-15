@@ -41,9 +41,9 @@ def calcular_indicadores_gfi() -> Dict[str, Any]:
     print(" APURANDO INDICADORES OFICIAIS GFI (DECRETO ESTADUAL 47.539/2018 • GFI 2026)")
     print("=" * 80)
 
-    pat_path = BASE_DIR / "RelatorioVeiculosMobiliario-_2_.csv"
-    os_limpo_path = BASE_DIR / "os_dataset_limpo.csv"
-    anom_path = BASE_DIR / "os_anomalias_detectadas_detalhado.csv"
+    pat_path = BASE_DIR / "dados" / "RelatorioVeiculosMobiliario-_2_.csv"
+    os_limpo_path = BASE_DIR / "dados" / "os_dataset_limpo.csv"
+    anom_path = BASE_DIR / "dados" / "os_anomalias_detectadas_detalhado.csv"
 
     # 1. BASE DE PATRIMÔNIO (34.280 registros)
     print("Processando base patrimonial...")
@@ -144,7 +144,8 @@ def calcular_indicadores_gfi() -> Dict[str, Any]:
     qtd_veiculos_onerosos_40pct = int(veiculos_onerosos_df['oneroso_gfi'].sum())
     
     # 427 veículos identificados com severa antieconomicidade
-    veiculos_leilao_recomendados = int(min(427, max(qtd_veiculos_onerosos_40pct, 313)))
+    # Correção (15/11/2026): a versão anterior fixava o resultado entre 313 e 427 (min(427, max(qtd, 313))).
+    veiculos_leilao_recomendados = qtd_veiculos_onerosos_40pct
     economia_desincorporacao = float(veiculos_onerosos_df.loc[veiculos_onerosos_df['oneroso_gfi'], 'Valor_Aprovado'].sum())
 
     # 7. CONFIABILIDADE DE QUILOMETRAGEM (Audit Triangulada GFI 80%-120%)
@@ -204,7 +205,7 @@ def calcular_indicadores_gfi() -> Dict[str, Any]:
 
     tema_5_integridade_prescricao = {
         "IND-33": {"nome": "Ordens de Serviço com Anomalias Severas Auditadas", "valor": total_anomalias, "valor_fmt": f"{total_anomalias:,} OSs ({round(total_anomalias/total_oss*100, 2)}%)", "ref": "Detecção Isolation Forest + Regras Especialistas", "status": "Auditadas"},
-        "IND-34": {"nome": "Veículos com Manutenção Onerosa (>40% do Valor Venal)", "valor": veiculos_leilao_recomendados, "valor_fmt": f"{veiculos_leilao_recomendados} veículos ({fmt_moeda(economia_desincorporacao)})", "ref": "Art. 5º Decreto Estadual nº 47.539/2018", "status": "Leilão Imediato"},
+        "IND-34": {"nome": "Veículos com Manutenção Onerosa (>40% do Valor Venal)", "valor": veiculos_leilao_recomendados, "valor_fmt": f"{veiculos_leilao_recomendados} veículos ({fmt_moeda(economia_desincorporacao)})", "ref": "Critério comparativo inspirado no art. 44 do Decreto MG nº 47.539/2018 (aqui: gasto acumulado em todo o período ÷ valor contábil)", "status": "Leilão Imediato"},
         "IND-35": {"nome": "Volume Total Orçado Inicial em Processos Auditados", "valor": orcado_anomalias, "valor_fmt": fmt_moeda(orcado_anomalias), "ref": "Propostas Iniciais de Oficinas Credenciadas", "status": "Auditado"},
         "IND-36": {"nome": "Glosa Técnica e Economia Efetiva da Fiscalização SEA", "valor": glosa_anomalias, "valor_fmt": f"{fmt_moeda(glosa_anomalias)} ({round((glosa_anomalias/orcado_anomalias)*100, 2)}%)", "ref": "Corte de Itens Indevidos e Sobrepreço", "status": "Economia Gerada"},
         "IND-37": {"nome": "Taxa Ponderada de Inflação Setorial de Frotas", "valor": 6.08, "valor_fmt": "6,08% ao ano", "ref": "69,18% Autopeças (6,2%) + 30,82% MO (5,8%)", "status": "Parâmetro LDO/LOA"},

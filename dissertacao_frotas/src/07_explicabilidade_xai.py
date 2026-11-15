@@ -220,8 +220,14 @@ def executar_explicabilidade():
     ax1.set_title("Explicação Local SHAP (TreeExplainer)", fontweight="bold", fontsize=10)
     ax1.axvline(0, color="#64748b", linestyle=":")
 
-    lime_mock = [inst_shap[i] * (0.85 + 0.25 * np.random.rand()) for i in top_crit_idx]
-    ax2.barh(np.arange(len(top_crit_idx)), lime_mock, color="#2563eb", height=0.55)
+    # Pesos LIME reais da mesma instância (antes: valores SHAP multiplicados por um fator aleatório).
+    exp_crit = explainer_lime.explain_instance(X_test.iloc[crit_idx].values, clf.predict_proba, num_features=len(features))
+    lime_crit_dict = dict(exp_crit.as_list())
+    lime_crit = []
+    for i in top_crit_idx:
+        f = features[i]
+        lime_crit.append(next((v for k, v in lime_crit_dict.items() if f in k), 0.0))
+    ax2.barh(np.arange(len(top_crit_idx)), lime_crit, color="#2563eb", height=0.55)
     ax2.set_yticks(np.arange(len(top_crit_idx)))
     ax2.set_yticklabels(top_crit_labels, fontsize=8.5)
     ax2.set_xlabel("Peso Local LIME", fontsize=9)
@@ -245,11 +251,19 @@ def executar_explicabilidade():
         "jaccard_top5_medio": round(media_jaccard, 4),
         "concordancia_estrutural_top5_pct": concordancia_top5_pct,
         "top_features_shap": df_shap_ranking.to_dict(orient="records"),
-        "hipotese_h4_sustentada": bool(media_spearman > 0.70 and media_jaccard > 0.60),
+        # Critério pré-registrado no anteprojeto: concordância > 0,85 (o mesmo usado na etapa 09).
+        "meta_h4": 0.85,
+        "hipotese_h4_sustentada": bool(media_spearman > 0.85 and media_jaccard > 0.85),
+        "instancia_critica_comparativo": {
+            "probabilidade_falha": round(float(crit_prob), 4),
+            "atributos": [features[i] for i in top_crit_idx],
+            "shap": [round(float(inst_shap[i]), 6) for i in top_crit_idx],
+            "lime": [round(float(v), 6) for v in lime_crit],
+        },
         "conclusao_auditoria": (
-            f"A Hipótese H4 foi formalmente sustentada: SHAP e LIME apresentaram correlação de postos "
-            f"de Spearman de {media_spearman:.3f} e concordância Top-5 de {concordancia_top5_pct}%, "
-            f"comprovando explicabilidade robusta e auditável para os órgãos de controle."
+            f"A Hipótese H4 {'foi sustentada' if (media_spearman > 0.85 and media_jaccard > 0.85) else 'não foi sustentada'} "
+            f"no limiar pré-registrado de 0,85: SHAP e LIME apresentaram correlação de postos de Spearman de "
+            f"{media_spearman:.3f} e concordância Top-5 (Jaccard) de {concordancia_top5_pct}% nas 25 instâncias de maior risco."
         )
     }
 

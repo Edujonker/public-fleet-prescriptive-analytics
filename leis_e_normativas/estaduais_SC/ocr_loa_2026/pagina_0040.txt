@@ -1,0 +1,70 @@
+PAGINA 235 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+ma: Orçamento Fiscal
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORÇ. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO | OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.4.1.1.01.0.1.06 Ovinocultura - FR 1.759.240 10.707 10.707
+1.4.1.1.01.0.1.99 Outras Receitas Agropecuárias 412.639 412.639
+1.5.0.0.00.0.0.00 Receita Industrial 105.849 105.849
+1.5.1.0.00.0.0.00 Receita Industrial 105.849 105.849
+1.5.1.1.00.0.0.00 Receita Industrial 105.849 105.849
+1.5.1.1.01.0.0.00 Receita Industrial 105.849 105.849
+1.5.1.1.01.0.1.00 Receita Industrial - Principal 105.849 105.849
+1.5.1.1.01.0.1.01 Receita da Indústria de Bebidas e Destilados 105.849 105.849
+1.6.0.0.00.0.0.00 Receita de Serviços 16.028.384 678.879.116 694.907.500
+1.6.1.0.00.0.0.00 Serviços Administrativos e Comerciais Gerais 16.028.384 103.222.468 119.250.852
+1.6.1.1.00.0.0.00 Serviços Administrativos e Comerciais Gerais 16.028.384 103.222.468 119.250.852
+1.6.1.1.01.0.0.00 Serviços Administrativos e Comerciais Gerais 1.303.439 60.480.705 61.784.143
+1.6.1.1.01.0.1.00 Serviços Administrativos e Comerciais Gerais - 1.303.439 60.480.705 61.784.143
+Principal
+1.6.1.1.01.0.1.01 Venda de Livros, Revistas, Publicações e Impressos 21.055 21.055
+1.6.1.1.01.0.1.04 Serviços de Meteorologia 3.853.506 3.853.506
+1.6.1.1.01.0.1.05 Serviços Educacionais - FR 1.501.240 435.981 1.161.183 1.597.164
+1.6.1.1.01.0.1.06 Serviços Agropecuários 203.629 203.629
+1.6.1.1.01.0.1.07 Serviços Recreativos e Culturais 873.854 873.854
+1.6.1.1.01.0.1.08 Serviços de Consultoria ou Assessoria Têcnica - FR 14.925.464 14.925.464
+1.501.240
+1.6.1.1.01.0.1.09 Serviços de Análise de Solos 1.209.547 1.209.547
+1.6.1.1.01.0.1.11 Serviços de Outras Análises 215.639 215.639
+77
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+ma: Orçamento Fiscal
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORÇ. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO | OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.6.1.1.01.0.1.12 Serviços de Elaboração e Supervisão de Projetos 5.500.000 5.500.000
+1.6.1.1.01.0.1.13 Prestação de Serviços de Apenados/Reeducandos 25.863.797 25.863.797
+1.6.1.1.01.0.1.14 Serviços de Elaboração Folha Pagamento - Taxa 3.886.937 3.886.937
+Administrativa sobre Consignações
+1.6.1.1.01.0.1.17 Prestação de Serviços Socioeducativo - DEASE 44.554 44.554
+1.6.1.1.01.0.1.19 Serviços Educacionais - FR 1.599.240 126.558 126.558
+1.6.1.1.01.0.1.20 Serviços de Consultoria ou Assessoria Têcnica - FR 530.913 530.913
+1.599.240
+1.6.1.1.01.0.1.22 Venda de Livros, Revistas, Publicações e Impressos - 801.267 1.869.622 2.670.889
+Fundos
+1.6.1.1.01.0.1.99 Outros Serviços Administrativos e Comerciais - FR 66.191 194.446 260.637
+1.501.240
+1.6.1.1.02.0.0.00 Inscrição em Concursos e Processos Seletivos 7.331.376 7.331.376
+1.6.1.1.02.0.1.00 Inscrição em Concursos e Processos Seletivos - 7.331.376 7.331.376
+Principal
+1.6.1.1.02.0.1.02 Serviços de Inscrição em Concursos Públicos - FR 6.866.420 6.866.420
+1.501.240
+1.6.1.1.02.0.1.05 Serviços de Inscrição em Concursos Públicos - 68.685 68.685
+Vinculados à Educação - FR 1.599.240
+1.6.1.1.02.0.1.06 Serviços de Inscrição no Vestibular - FR 1.599.240 396.271 396.271
+1.6.1.1.03.0.0.00 Serviços de Registro, Certificação e Fiscalização 14.724.945 35.410.388 50.135.333
+1.6.1.1.03.0.1.00 Serviços de Registro, Certificação e Fiscalização - 14.724.945 35.410.388 50.135.333
+Principal
+1.6.1.1.03.0.1.01 Serviços de Registro do Comêrcio 14.720.893 34.348.751 49.069.644
+1.6.1.1.03.0.1.03 Serviços de Inspeção de Produtos de Origem Animal 65.757 65.757
+78
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

@@ -1,0 +1,66 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1624 400' font-family='Arial' font-size='10'>
+<defs><marker id='a' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto'><path d='M0,0L10,5L0,10z' fill='#333'/></marker></defs>
+<rect x='40' y='0' width='1574' height='390' fill='#fff' stroke='#333'/>
+<rect x='40' y='0' width='34' height='130' fill='#00693e' stroke='#333'/>
+<rect x='74' y='0' width='1540' height='130' fill='#fff' stroke='#999'/>
+<text transform='translate(61.0,65.0) rotate(-90)' text-anchor='middle' fill='#fff' font-size='9' font-weight='bold'><tspan x='0' dy='0'>systemd</tspan></text>
+<rect x='40' y='130' width='34' height='130' fill='#00693e' stroke='#333'/>
+<rect x='74' y='130' width='1540' height='130' fill='#f6faf8' stroke='#999'/>
+<text transform='translate(61.0,195.0) rotate(-90)' text-anchor='middle' fill='#fff' font-size='9' font-weight='bold'><tspan x='0' dy='0'>Busca</tspan><tspan x='0' dy='10'>(scripts/buscar_artigos.py)</tspan></text>
+<rect x='40' y='260' width='34' height='130' fill='#00693e' stroke='#333'/>
+<rect x='74' y='260' width='1540' height='130' fill='#fff' stroke='#999'/>
+<text transform='translate(61.0,325.0) rotate(-90)' text-anchor='middle' fill='#fff' font-size='9' font-weight='bold'><tspan x='0' dy='0'>APIs externas</tspan></text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='170,65 281,65'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='325,65 436,65'/>
+<text x='384' y='61' font-size='8.5' fill='#b04a3a'>sim</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='325,65 360,65 360,325 394,325'/>
+<text x='345' y='61' font-size='8.5' fill='#b04a3a'>não</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='512,325 528,325 528,195 544,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='662,195 731,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='775,195 844,195'/>
+<text x='812' y='191' font-size='8.5' fill='#b04a3a'>não</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='775,195 1031,195'/>
+<text x='906' y='191' font-size='8.5' fill='#b04a3a'>sim</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='962,195 1294,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1075,195 1110,195 1110,325 1144,325'/>
+<text x='1095' y='191' font-size='8.5' fill='#b04a3a'>sim</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1075,195 1294,195'/>
+<text x='1188' y='191' font-size='8.5' fill='#b04a3a'>não</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1262,325 1278,325 1278,195 1294,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1412,195 1449,195 1449,65 1486,65'/>
+<circle cx='153.0' cy='65.0' r='17.0' fill='#fff' stroke='#00693e' stroke-width='1.5'/>
+<circle cx='153.0' cy='65.0' r='13.0' fill='none' stroke='#00693e'/><path d='M153.0,57.0 L153.0,65.0 L159.0,65.0' stroke='#00693e' fill='none'/>
+<text x='153.0' y='93.0' text-anchor='middle' font-size='8.5'>08:00 diário</text>
+<polygon points='303.0,43.0 325.0,65.0 303.0,87.0 281.0,65.0' fill='#fff7e0' stroke='#d99a00' stroke-width='1.5'/><text x='303.0' y='70.0' text-anchor='middle' font-size='14' fill='#d99a00'>×</text>
+<text x='303.0' y='19.0' text-anchor='middle' font-size='8.5'>Outra busca em</text>
+<text x='303.0' y='29.0' text-anchor='middle' font-size='8.5'>curso? (flock)</text>
+<circle cx='453.0' cy='65.0' r='17.0' fill='#fff' stroke='#b04a3a' stroke-width='3'/>
+<text x='453.0' y='93.0' text-anchor='middle' font-size='8.5'>Sair sem buscar</text>
+<rect x='394.0' y='294.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='404.0' cy='304.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='453.0' y='323.0' text-anchor='middle' font-size='9'>Consultar OpenAlex</text>
+<text x='453.0' y='333.0' text-anchor='middle' font-size='9'>e Semantic Scholar</text>
+<rect x='544.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='554.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='603.0' y='193.0' text-anchor='middle' font-size='9'>Unir e deduplicar</text>
+<text x='603.0' y='203.0' text-anchor='middle' font-size='9'>registros</text>
+<polygon points='753.0,173.0 775.0,195.0 753.0,217.0 731.0,195.0' fill='#fff7e0' stroke='#d99a00' stroke-width='1.5'/><text x='753.0' y='200.0' text-anchor='middle' font-size='14' fill='#d99a00'>×</text>
+<text x='753.0' y='159.0' text-anchor='middle' font-size='8.5'>3 blocos presentes?</text>
+<rect x='844.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='854.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='903.0' y='193.0' text-anchor='middle' font-size='9'>Marcar como fora do</text>
+<text x='903.0' y='203.0' text-anchor='middle' font-size='9'>escopo</text>
+<polygon points='1053.0,173.0 1075.0,195.0 1053.0,217.0 1031.0,195.0' fill='#fff7e0' stroke='#d99a00' stroke-width='1.5'/><text x='1053.0' y='200.0' text-anchor='middle' font-size='14' fill='#d99a00'>×</text>
+<text x='1053.0' y='149.0' text-anchor='middle' font-size='8.5'>Versão aberta</text>
+<text x='1053.0' y='159.0' text-anchor='middle' font-size='8.5'>disponível?</text>
+<rect x='1144.0' y='294.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='1154.0' cy='304.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='1203.0' y='323.0' text-anchor='middle' font-size='9'>Baixar PDF</text>
+<text x='1203.0' y='333.0' text-anchor='middle' font-size='9'>(verifica %PDF)</text>
+<rect x='1294.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='1304.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='1353.0' y='193.0' text-anchor='middle' font-size='9'>Gravar resultados,</text>
+<text x='1353.0' y='203.0' text-anchor='middle' font-size='9'>novos e vistos</text>
+<circle cx='1503.0' cy='65.0' r='17.0' fill='#fff' stroke='#b04a3a' stroke-width='3'/>
+<text x='1503.0' y='93.0' text-anchor='middle' font-size='8.5'>Log diário gravado</text>
+</svg>

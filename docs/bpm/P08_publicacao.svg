@@ -1,0 +1,45 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1324 270' font-family='Arial' font-size='10'>
+<defs><marker id='a' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto'><path d='M0,0L10,5L0,10z' fill='#333'/></marker></defs>
+<rect x='40' y='0' width='1274' height='260' fill='#fff' stroke='#333'/>
+<rect x='40' y='0' width='34' height='130' fill='#00693e' stroke='#333'/>
+<rect x='74' y='0' width='1240' height='130' fill='#fff' stroke='#999'/>
+<text transform='translate(61.0,65.0) rotate(-90)' text-anchor='middle' fill='#fff' font-size='9' font-weight='bold'><tspan x='0' dy='0'>Pesquisador</tspan></text>
+<rect x='40' y='130' width='34' height='130' fill='#00693e' stroke='#333'/>
+<rect x='74' y='130' width='1240' height='130' fill='#f6faf8' stroke='#999'/>
+<text transform='translate(61.0,195.0) rotate(-90)' text-anchor='middle' fill='#fff' font-size='9' font-weight='bold'><tspan x='0' dy='0'>Verificações</tspan></text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='170,65 207,65 207,195 244,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='362,195 394,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='512,195 544,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='662,195 731,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='775,195 810,195 810,65 844,65'/>
+<text x='795' y='191' font-size='8.5' fill='#b04a3a'>sim</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='903,96 903,195 362,195'/>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='775,195 884,195 884,65 994,65'/>
+<text x='833' y='191' font-size='8.5' fill='#b04a3a'>não</text>
+<polyline fill='none' stroke='#333' stroke-width='1.1' marker-end='url(#a)' points='1112,65 1186,65'/>
+<circle cx='153.0' cy='65.0' r='17.0' fill='#fff' stroke='#00693e' stroke-width='1.5'/>
+<text x='153.0' y='93.0' text-anchor='middle' font-size='8.5'>Mudanças prontas</text>
+<rect x='244.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='254.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='303.0' y='188.0' text-anchor='middle' font-size='9'>Aplicar .gitignore</text>
+<text x='303.0' y='198.0' text-anchor='middle' font-size='9'>(dados, PDFs,</text>
+<text x='303.0' y='208.0' text-anchor='middle' font-size='9'>caches)</text>
+<rect x='394.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='404.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='453.0' y='198.0' text-anchor='middle' font-size='9'>Arquivos &gt; 50 MB?</text>
+<rect x='544.0' y='164.0' width='118' height='62' rx='8' fill='#eef5f1' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='554.0' cy='174.0' r='4.5' fill='none' stroke='#00693e' stroke-dasharray='2 1.5'/>
+<text x='603.0' y='193.0' text-anchor='middle' font-size='9'>Buscar segredos no</text>
+<text x='603.0' y='203.0' text-anchor='middle' font-size='9'>conteúdo</text>
+<polygon points='753.0,173.0 775.0,195.0 753.0,217.0 731.0,195.0' fill='#fff7e0' stroke='#d99a00' stroke-width='1.5'/><text x='753.0' y='200.0' text-anchor='middle' font-size='14' fill='#d99a00'>×</text>
+<text x='753.0' y='159.0' text-anchor='middle' font-size='8.5'>Algum problema?</text>
+<rect x='844.0' y='34.0' width='118' height='62' rx='8' fill='#e8eef8' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='854.0' cy='43.0' r='3.5' fill='none' stroke='#1b3a6e'/><path d='M848.0,53.0 q6,-8 12,0' fill='none' stroke='#1b3a6e'/>
+<text x='903.0' y='63.0' text-anchor='middle' font-size='9'>Remover do índice /</text>
+<text x='903.0' y='73.0' text-anchor='middle' font-size='9'>corrigir</text>
+<rect x='994.0' y='34.0' width='118' height='62' rx='8' fill='#e8eef8' stroke='#00693e' stroke-width='1.2'/>
+<circle cx='1004.0' cy='43.0' r='3.5' fill='none' stroke='#1b3a6e'/><path d='M998.0,53.0 q6,-8 12,0' fill='none' stroke='#1b3a6e'/>
+<text x='1053.0' y='68.0' text-anchor='middle' font-size='9'>Commit e push</text>
+<circle cx='1203.0' cy='65.0' r='17.0' fill='#fff' stroke='#b04a3a' stroke-width='3'/>
+<text x='1203.0' y='93.0' text-anchor='middle' font-size='8.5'>Publicado</text>
+</svg>

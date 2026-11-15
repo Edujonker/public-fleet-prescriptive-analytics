@@ -1,0 +1,73 @@
+PAGINA 248 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+D + Orçamento da Seguridade Social
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORÇ. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO | OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.2.1.5.01.1.1.27 Tribunal de Contas - Ativo Civil - Fundo em Capitalização 89.794 89.794
+1.2.1.5.01.1.1.28 Assembleia Legislativa - Ativo Civil - Fundo em 427.153 427.153
+Capitalização
+1.2.1.5.01.1.1.29 Ministério Público - Ativo Civil - Fundo em Capitalização 635.930 635.930
+1.2.1.5.01.2.1.00 Contribuição do Servidor Civil Inativo - Principal 498.016.279 498.016.279
+1.2.1.5.01.2.1.09 Poder Executivo - Inativo Civil - Fundo em Repartição 374.202.349 374.202.349
+1.2.1.5.01.2.1.10 Tribunal de Justiça - Inativo Civil - Fundo em Repartição 53.215.917) 53.215.917
+1.2.1.5.01.2.1.11 Tribunal de Contas - Inativo Civil - Fundo em Repartição 19.597.717 19.597.717
+1.2.1.5.01.2.1.12 Assembleia Legislativa - Inativo Civil - Fundo em 34.286.444 34.286.444
+Repartição
+1.2.1.5.01.2.1.13 Ministério Público - Inativo Civil - Fundo em Repartição 14.156.360 14.156.360
+1.2.1.5.01.2.1.14 Servidor Auxiliar de Justiça - Inativo - Fundo em 2.557.492) 2.557.492
+Repartição
+1.2.1.5.01.3.1.00 Contribuição do Servidor Civil - Pensionistas - 100.727.014 100.727.014
+Principal
+1.2.1.5.01.3.1.10 Contribuição de Pensionista Civil - Poder Executivo - 66.523.203 66.523.203
+Fundo em Repartição
+1.2.1.5.01.3.1.11 Contribuição de Pensionista Civil - Tribunal de Justiça - 14.017.735) 14.017.735
+Fundo em Repartição
+1.2.1.5.01.3.1.12 Contribuição de Pensionista Civil - Tribunal de Contas - 3.214.036 3.214.036
+Fundo em Repartição
+1.2.1.5.01.3.1.13 Contribuição de Pensionista Civil - Assembleia 6.035.399) 6.035.399
+Legislativa - Fundo em Repartição
+1.2.1.5.01.3.1.14 Contribuição de Pensionista Civil - Ministério Público - 6.879.809) 6.879.809
+Fundo em Repartição
+103
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+D R Orçamento da Seguridade Social
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORÇ. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO | OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.2.1.5.01.3.1.15 Contribuição de Pensionista Civil - Servidor Auxiliar de 2.694.228 2.694.228
+Justiça - Fundo em Repartição
+1.2.1.5.01.3.1.16 Contribuição de Pensionista Civil - IPALESC - Fundo em 1.362.604 1.362.604
+Repartição
+1.2.1.5.01.5.1.00 Contribuição Oriunda de Sentenças Judiciais - 7.813.216 7.813.216
+Servidor Civil Inativo - Principal
+1.2.1.5.01.5.1.02 CPSSS Oriunda de Sentenças Judiciais de Servidor 7.813.216 7.813.216
+Civil Inativo - Fundo em Repartição
+1.2.1.5.02.0.0.00 Contribuição Patronal - Servidor Civil 2.345.066) 2.345.066
+1.2.1.5.02.1.1.00 Contribuição Patronal - Servidor Civil Ativo - 2.233.185 2.233.185
+Principal
+1.2.1.5.02.1.1.02 A Disposição - Fundo em Repartição 345.790 345.790
+1.2.1.5.02.1.1.03 Contribuição Patronal Auxiliar de Justiça - Ativo - Fundo 1.887.395 1.887.395
+em Repartição
+1.2.1.5.02.1.2.00 Contribuição Patronal - Servidor Civil Ativo - 111.881 111.881
+Multas e Juros de Mora
+1.2.1.5.02.1.2.02 Multas e Juros da Contribuição Patronal - À Disposição - 10.403 10.403
+Fundo em Repartição
+1.2.1.5.02.1.2.03 Multas e Juros da Contribuição Patronal Auxiliar de 101.478 101.478
+Justiça Ativo - Fundo em Repartição
+1.2.1.5.03.0.0.00 Contribuição do Servidor Civil - Parcelamentos 9.412 9.412
+1.2.1.5.03.0.1.00 Contribuição do Servidor Civil - Parcelamentos - 9.412 9.412
+Principal
+1.2.1.5.03.0.1.02 Parcelamento Prefeituras - Ativo Civil - Fundo em 9.412 9.412
+Repartição
+1.2.1.5.51.0.0.00 Contribuição Patronal - Parcelamentos 18.824] 18.824
+104
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

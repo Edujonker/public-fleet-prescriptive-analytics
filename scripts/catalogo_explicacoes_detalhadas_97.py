@@ -82,7 +82,7 @@ CATALOGO_DETALHADO_97 = {
         "arquivo": "fig08_classificacao_roc_curves.png",
         "titulo": "Curvas ROC Comparativas dos Modelos de Classificação",
         "desc": "Discriminação global: ROC-AUC de 0,892 obtida pelo ensemble HistGradientBoosting sem vazamento temporal.",
-        "diag": "O modelo HistGradientBoosting obteve ROC-AUC de 0,8743 [0,8617; 0,8878], superando Random Forest (0,8687), Extra Trees (0,8555) e Regressão Logística (0,8268, DeLong Z = 16,39, p < 10^-50).",
+        "diag": "O modelo HistGradientBoosting obteve ROC-AUC de 0,8737 [0,8617; 0,8878], superando Random Forest (0,8687), Extra Trees (0,8555) e Regressão Logística (0,8292, DeLong Z = 16,39, p < 10^-50).",
         "causa": "Construção sequencial de árvores fracas orientadas pelo gradiente dos resíduos sem saturação de parâmetros.",
         "impacto": "Sensibilidade de 88,2% na identificação precoce de viaturas em iminência de pane mecânica grave.",
         "presc": "Integrar o score contínuo ROC ao sistema de alertas preditivos para agendamento automático de revisões."
@@ -118,7 +118,7 @@ CATALOGO_DETALHADO_97 = {
         "arquivo": "fig12_ablativo_fontes_m_vs_mp.png",
         "titulo": "Estudo Ablativo de Fontes de Dados: Manutenção Pura (M) vs Integrada (M+P+A) (H1)",
         "desc": "Comprovação da Hipótese H1: inclusão de dados de patrimônio e abastecimento reduz o MAE em 18,4%.",
-        "diag": "A integração multimodal de variáveis patrimoniais e de abastecimento reduziu o MAE de R$ 2.321,28 para R$ 2.311,82 (+0,41% [IC 95%: 0,28%; 0,54%]) e elevou o PR-AUC de 0,9060 para 0,9099 (+0,43%), ganhos estatisticamente significantes (p < 10^-15) mas abaixo do limiar pré-fixado de 15,0%.",
+        "diag": "A integração multimodal de variáveis patrimoniais e de abastecimento reduziu o MAE de R$ 2.237,81 para R$ 2.223,84 (+0,62% [IC 95%: -0,26%; 1,52%]) e elevou o PR-AUC de 0,9060 para 0,9099 (+0,43%), ganhos estatisticamente significantes (p < 10^-15) mas abaixo do limiar pré-fixado de 15,0%.",
         "causa": "A base transacional de ordens de serviço já concentra a maior parte da informação preditiva sobre o desgaste mecânico imediato.",
         "impacto": "Comprova metodologicamente a integridade do processo científico, rejeitando formalmente a Hipótese H1 sem incorrer em HARKing.",
         "presc": "Manter a integração de cadastros patrimoniais primariamente para conformidade regulatória (Art. 5º do Decreto 47.539/2018) e auditoria de leilão."
@@ -145,9 +145,9 @@ CATALOGO_DETALHADO_97 = {
         "arquivo": "fig15_politicas_decisao_fronteira.png",
         "titulo": "Fronteira de Decisão: Custo Total Esperado vs Risco Operacional Residual",
         "desc": "Trade-off formal entre alocação preventiva e risco admissível de falhas graves em serviço.",
-        "diag": "O MILP-1 atinge o ponto ótimo na fronteira de Pareto com custo total de R$ 43.837.633,31, disponibilidade de 95,26% e 100,0% de atendimento obrigatório. A heurística BL4 reporta R$ 42,98M, mas viola 34,53% das intervenções obrigatórias de segurança.",
+        "diag": "O MILP-1 atinge o ponto ótimo na fronteira de Pareto com custo total de R$ 44.190.120,51, disponibilidade de 95,26% e 100,0% de atendimento obrigatório. A heurística BL4 reporta R$ 42,98M, mas viola 34,53% das intervenções obrigatórias de segurança.",
         "causa": "Heurísticas gulosas de benefício/custo sacrificam revisões mandatórias para cortar gastos imediatos, gerando infrações e insegurança viária.",
-        "impacto": "Comprova a superioridade matemática do MILP-1 em 17,51% sobre a política histórica As-Is (BL0) e economia de R$ 9,30 milhões no Cenário S0.",
+        "impacto": "Comprova a superioridade matemática do MILP-1 em 13,66% sobre a política histórica As-Is (BL0) e economia de R$ 6,99 milhões no Cenário S0.",
         "presc": "Vedar a adoção de heurísticas simplistas que não garantam 100% das manutenções compulsórias de segurança veicular."
     },
     16: {
@@ -522,8 +522,8 @@ CATALOGO_DETALHADO_97 = {
     57: {
         "arquivo": "fig57_lime_vs_shap_casos_criticos.png",
         "titulo": "Comparativo de Explicabilidade Local: LIME vs SHAP em Casos Extremos de Oficina",
-        "desc": "Concordância moderada (Jaccard Top-5 = 39,3%, Spearman = 0,368) ilustrando a divergência matemática entre os métodos e a necessidade de triangulação.",
-        "diag": "A validação cruzada entre explicadores locais LIME e SHAP em casos críticos atesta concordância moderada (Jaccard Top-5 = 39,3% e Spearman rho = 0,368), refutando a hipótese preliminar de alta concordância (>85%).",
+        "desc": "Concordância moderada (Jaccard Top-5 = 45,5%, Spearman = 0,368) ilustrando a divergência matemática entre os métodos e a necessidade de triangulação.",
+        "diag": "A validação cruzada entre explicadores locais LIME e SHAP em casos críticos atesta concordância moderada (Jaccard Top-5 = 45,5% e Spearman rho = 0,368), refutando a hipótese preliminar de alta concordância (>85%).",
         "causa": "Divergência geométrica intrínseca entre as aproximações lineares locais sob perturbação gaussiana (LIME) e os valores de Shapley fundamentados em teoria dos jogos cooperativos (SHAP).",
         "impacto": "Demonstra a inviabilidade de adotar um único método de XAI de forma cega, sob pena de gerar contestações jurídicas e vulnerabilidade em processos de controle externo.",
         "presc": "Instituir protocolo mandatório de triangulação metodológica (SHAP + LIME) complementado por perícia técnica humana para fundamentação de glosas e auditorias."
@@ -792,8 +792,8 @@ CATALOGO_DETALHADO_97 = {
     87: {
         "arquivo": "fig87_patrimonio_liquido_vs_gastos_manut.png",
         "titulo": "Relação entre Valor Contábil Líquido dos Bens e Despesas Acumuladas de Oficina",
-        "desc": "Identificação gráfica dos 313 veículos em que o gasto acumulado superou 40% do valor venal contábil.",
-        "diag": "O gráfico destaca a dispersão de 313 veículos categorizados expressamente como antieconômicos perante a legislação estadual de Santa Catarina.",
+        "desc": "Identificação gráfica dos 242 veículos em que o gasto acumulado superou 40% do valor venal contábil.",
+        "diag": "O gráfico destaca a dispersão de 242 veículos categorizados expressamente como antieconômicos perante a legislação estadual de Santa Catarina.",
         "causa": "Falta de conferência de balanço patrimonial acumulado no momento em que as oficinas encaminhavam orçamentos sucessivos.",
         "impacto": "Consumo indevido de R$ 9,84 milhões em viaturas sucateadas que deveriam ter sido leiloadas há mais de 3 exercícios financeiros.",
         "presc": "Emitir laudo técnico formal de baixa e encaminhamento ao leiloeiro oficial do Estado com base no Art. 5º do Decreto nº 47.539/2018."
@@ -837,11 +837,11 @@ CATALOGO_DETALHADO_97 = {
     92: {
         "arquivo": "fig92_criterios_baixa_patrimonio_antieconomico.png",
         "titulo": "Curva de Antieconomicidade Patrimonial e Limiar do Art. 5º do Decreto nº 47.539/2018",
-        "desc": "Enquadramento normativo dos 313 veículos onerosos com recomendação expressa de alienação em leilão.",
-        "diag": "Curva de razão gasto/venal comprova que 313 veículos superam o limiar legal de 40%, atingindo casos extremos de até 280% do valor venal.",
+        "desc": "Enquadramento normativo dos 242 veículos onerosos com recomendação expressa de alienação em leilão.",
+        "diag": "Curva de razão gasto/venal comprova que 242 veículos superam o limiar legal de 40%, atingindo casos extremos de até 280% do valor venal.",
         "causa": "Veículos mantidos em circulação por conveniência administrativa local sem análise contábil do custo cumulativo de peças.",
         "impacto": "A alienação imediata destes 313 bens estanca despesas anuais de R$ 5,82 milhões e arrecada estimated R$ 2,4 milhões no leilão.",
-        "presc": "Instruir processo administrativo único de leilão público pela Diretoria de Gestão Patrimonial (DGP/SEA) para os 313 veículos catalogados."
+        "presc": "Instruir processo administrativo único de leilão público pela Diretoria de Gestão Patrimonial (DGP/SEA) para os 242 veículos catalogados."
     },
     93: {
         "arquivo": "fig93_previsao_gastos_trienal_cenarios_inflacao.png",

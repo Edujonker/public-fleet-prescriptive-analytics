@@ -1,0 +1,234 @@
+{
+  "fonte": "LOA 2026 SC, Lei nº 19.683/2026; OCR por scripts/ocr_loa_2026.sh",
+  "subacoes_frota": [
+    {
+      "codigo": "702.0262.013148",
+      "acao": "Manutenção de veículos",
+      "descricao": "Gestão da frota - PCSC",
+      "tipo": "manutenção",
+      "uo": "16084",
+      "unidade": "Fundo de Melhoria da Polícia Civil (FUMPC)",
+      "total": 15670000,
+      "grupos": {},
+      "meta_fisica": {
+        "tipo": "mantido",
+        "quantidade": 2200,
+        "valor": 15670000
+      },
+      "paginas": [
+        306,
+        307
+      ]
+    },
+    {
+      "codigo": "704.0261.015785",
+      "acao": "Aquisição de veículos",
+      "descricao": "Aquisição de veículos - PCSC",
+      "tipo": "aquisição",
+      "uo": "16084",
+      "unidade": "Fundo de Melhoria da Polícia Civil (FUMPC)",
+      "total": 1000000,
+      "grupos": {},
+      "meta_fisica": {
+        "tipo": "adquirido",
+        "quantidade": 100,
+        "valor": 1000000
+      },
+      "paginas": [
+        306,
+        307
+      ]
+    },
+    {
+      "codigo": "704.0262.013102",
+      "acao": "Manutenção de veículos",
+      "descricao": "Gestão sustentável da frota - combustível e manutenção",
+      "tipo": "manutenção",
+      "uo": "16091",
+      "unidade": "Fundo para Melhoria da Segurança Pública (FSP)",
+      "total": 207000,
+      "grupos": {},
+      "meta_fisica": {
+        "tipo": "mantido",
+        "quantidade": 14,
+        "valor": 207000
+      },
+      "paginas": [
+        318,
+        319
+      ]
+    },
+    {
+      "codigo": "900.0261.011054",
+      "acao": "Aquisição de veículos",
+      "descricao": "Aquisição de veículos oficiais - SCC",
+      "tipo": "aquisição",
+      "uo": "41001",
+      "unidade": "Secretaria de Estado da Casa Civil (SCC)",
+      "total": 900000,
+      "grupos": {},
+      "meta_fisica": {
+        "tipo": "adquirido",
+        "quantidade": 1,
+        "valor": 900000
+      },
+      "paginas": [
+        417,
+        419
+      ]
+    },
+    {
+      "codigo": "400.0261.014016",
+      "acao": "Aquisição de veículos",
+      "descricao": "Aquisição de veículos para a Secretaria de Estado da) S",
+      "tipo": "aquisição",
+      "uo": "48091",
+      "unidade": "Fundo Estadual de Saúde (FES)",
+      "total": 5151000,
+      "grupos": {},
+      "meta_fisica": {
+        "tipo": "adquirido",
+        "quantidade": 103,
+        "valor": 5151000
+      },
+      "paginas": [
+        532,
+        539
+      ]
+    },
+    {
+      "codigo": "130.0007.014455",
+      "acao": "Aquisição de combustível e lubrificante",
+      "descricao": "Aquisição de combustíveis e lubrificantes - SIE e PMRv",
+      "tipo": "combustível",
+      "uo": "53001",
+      "unidade": "Secretaria de Estado da Infraestrutura e Mobilidade (SIE)",
+      "total": 3000000,
+      "grupos": {},
+      "meta_fisica": null,
+      "paginas": [
+        586
+      ]
+    },
+    {
+      "codigo": "130.0089.014456",
+      "acao": "Modernização da frota",
+      "descricao": "Modernização da frota de veículos, aeronaves e",
+      "tipo": "aquisição",
+      "uo": "53001",
+      "unidade": "Secretaria de Estado da Infraestrutura e Mobilidade (SIE)",
+      "total": 2500000,
+      "grupos": {},
+      "meta_fisica": null,
+      "paginas": [
+        587
+      ]
+    },
+    {
+      "codigo": "750.0261.011045",
+      "acao": "Aquisição de veículos",
+      "descricao": "Renovação da Frota - SEJUR",
+      "tipo": "aquisição",
+      "uo": "54096",
+      "unidade": "Fundo Penitenciário do Estado de Santa Catarina (FUPESC)",
+      "total": 38050000,
+      "grupos": {},
+      "meta_fisica": {
+        "tipo": "adquirido",
+        "quantidade": 127,
+        "valor": 38050000
+      },
+      "paginas": [
+        615,
+        618
+      ]
+    },
+    {
+      "codigo": "188.0261.015710",
+      "acao": "Aquisição de veículos",
+      "descricao": "Modernização frota - SCPAR HOLDING",
+      "tipo": "aquisição",
+      "uo": "29003",
+      "unidade": "SC Participações e Parcerias S.A.(SCPAR)",
+      "total": 400000,
+      "grupos": {
+        "4 – investimentos": 400000
+      },
+      "meta_fisica": {
+        "tipo": "adquirido",
+        "quantidade": 2,
+        "valor": 400000
+      },
+      "paginas": [
+        630,
+        631
+      ]
+    },
+    {
+      "codigo": "160.0261.014189",
+      "acao": "Aquisição de veículos",
+      "descricao": "Aquisição de veículos",
+      "tipo": "aquisição",
+      "uo": "41021",
+      "unidade": "CELESC Geração S.A.",
+      "total": 360000,
+      "grupos": {
+        "4 – investimentos": 360000
+      },
+      "meta_fisica": {
+        "tipo": "adquirido",
+        "quantidade": 1,
+        "valor": 360000
+      },
+      "paginas": [
+        638,
+        639
+      ]
+    },
+    {
+      "codigo": "182.0261.000941",
+      "acao": "Aquisição de veículos",
+      "descricao": "Aquisição de veículos",
+      "tipo": "aquisição",
+      "uo": "41022",
+      "unidade": "CELESC Distribuição S.A.",
+      "total": 27758393,
+      "grupos": {
+        "4 – investimentos": 27758393
+      },
+      "meta_fisica": {
+        "tipo": "adquirido",
+        "quantidade": 1,
+        "valor": 27758393
+      },
+      "paginas": [
+        640,
+        642
+      ]
+    }
+  ],
+  "comparacao": [
+    {
+      "subacao": "702.0262.013148",
+      "descricao": "Gestão da frota - PCSC",
+      "orgao_experimento": "PC SC",
+      "loa_2026": 15670000,
+      "proposta_experimento_2026": 1641921.9406912567,
+      "realizado_2024_os_sea": 1632762.23,
+      "razao_loa_sobre_proposta": 9.543693650505004
+    },
+    {
+      "subacao": "704.0262.013102",
+      "descricao": "Gestão sustentável da frota - combustível e manutenção",
+      "orgao_experimento": "SSP SC",
+      "loa_2026": 207000,
+      "proposta_experimento_2026": 59404.49182944953,
+      "realizado_2024_os_sea": 59348.39,
+      "razao_loa_sobre_proposta": 3.4845849804472295
+    }
+  ],
+  "n_manutencao": 2,
+  "n_aquisicao": 8,
+  "n_combustivel": 1,
+  "html_resumo": "<p><b>LOA 2026 (Lei nº 19.683/2026).</b> O detalhamento do crédito foi lido por OCR (629 páginas). A LOA identifica a frota em apenas 2 subações de manutenção, 1 de combustível e 8 de aquisição. Nos demais órgãos, inclusive a PM, que responde por metade do gasto da base da SEA/SC, a manutenção de veículos fica dentro de ações genéricas (por exemplo, 900.0002 “Administração e manutenção de unidades gestoras”) e o detalhamento chega só ao grupo de despesa. Por isso a LOA não permite isolar a dotação de manutenção da frota da maioria dos órgãos.</p><table><tr><th>Unidade orçamentária</th><th>Subação</th><th>Tipo</th><th>Valor LOA</th><th>Por grupo de despesa</th><th>Meta física</th><th>Pág. PDF</th></tr><tr><td>Fundo Penitenciário do Estado de Santa Catarina (FUPESC)</td><td>Renovação da Frota - SEJUR<br><small>750.0261.011045 · Aquisição de veículos</small></td><td>aquisição</td><td>R$ 38,05 mi</td><td>—</td><td>127 veículos adquiridos</td><td>615, 618</td></tr><tr><td>CELESC Distribuição S.A.</td><td>Aquisição de veículos<br><small>182.0261.000941 · Aquisição de veículos</small></td><td>aquisição</td><td>R$ 27,76 mi</td><td>4 – investimentos: R$ 27,76 mi</td><td>1 veículos adquiridos</td><td>640, 642</td></tr><tr><td>Fundo de Melhoria da Polícia Civil (FUMPC)</td><td>Gestão da frota - PCSC<br><small>702.0262.013148 · Manutenção de veículos</small></td><td>manutenção</td><td>R$ 15,67 mi</td><td>—</td><td>2200 veículos mantidos</td><td>306, 307</td></tr><tr><td>Fundo Estadual de Saúde (FES)</td><td>Aquisição de veículos para a Secretaria de Estado da) S<br><small>400.0261.014016 · Aquisição de veículos</small></td><td>aquisição</td><td>R$ 5,15 mi</td><td>—</td><td>103 veículos adquiridos</td><td>532, 539</td></tr><tr><td>Secretaria de Estado da Infraestrutura e Mobilidade (SIE)</td><td>Aquisição de combustíveis e lubrificantes - SIE e PMRv<br><small>130.0007.014455 · Aquisição de combustível e lubrificante</small></td><td>combustível</td><td>R$ 3,00 mi</td><td>—</td><td>—</td><td>586</td></tr><tr><td>Secretaria de Estado da Infraestrutura e Mobilidade (SIE)</td><td>Modernização da frota de veículos, aeronaves e<br><small>130.0089.014456 · Modernização da frota</small></td><td>aquisição</td><td>R$ 2,50 mi</td><td>—</td><td>—</td><td>587</td></tr><tr><td>Fundo de Melhoria da Polícia Civil (FUMPC)</td><td>Aquisição de veículos - PCSC<br><small>704.0261.015785 · Aquisição de veículos</small></td><td>aquisição</td><td>R$ 1,00 mi</td><td>—</td><td>100 veículos adquiridos</td><td>306, 307</td></tr><tr><td>Secretaria de Estado da Casa Civil (SCC)</td><td>Aquisição de veículos oficiais - SCC<br><small>900.0261.011054 · Aquisição de veículos</small></td><td>aquisição</td><td>R$ 0,90 mi</td><td>—</td><td>1 veículos adquiridos</td><td>417, 419</td></tr><tr><td>SC Participações e Parcerias S.A.(SCPAR)</td><td>Modernização frota - SCPAR HOLDING<br><small>188.0261.015710 · Aquisição de veículos</small></td><td>aquisição</td><td>R$ 0,40 mi</td><td>4 – investimentos: R$ 0,40 mi</td><td>2 veículos adquiridos</td><td>630, 631</td></tr><tr><td>CELESC Geração S.A.</td><td>Aquisição de veículos<br><small>160.0261.014189 · Aquisição de veículos</small></td><td>aquisição</td><td>R$ 0,36 mi</td><td>4 – investimentos: R$ 0,36 mi</td><td>1 veículos adquiridos</td><td>638, 639</td></tr><tr><td>Fundo para Melhoria da Segurança Pública (FSP)</td><td>Gestão sustentável da frota - combustível e manutenção<br><small>704.0262.013102 · Manutenção de veículos</small></td><td>manutenção</td><td>R$ 0,21 mi</td><td>—</td><td>14 veículos mantidos</td><td>318, 319</td></tr></table><p><b>Comparação onde há correspondência de órgão.</b></p><table><tr><th>Subação da LOA</th><th>LOA 2026</th><th>Proposta do experimento</th><th>Realizado 2024 (OS da SEA/SC)</th><th>LOA ÷ proposta</th></tr><tr><td>Gestão da frota - PCSC (702.0262.013148)</td><td>R$ 15,67 mi</td><td>R$ 1,64 mi</td><td>R$ 1,63 mi</td><td>9,5×</td></tr><tr><td>Gestão sustentável da frota - combustível e manutenção (704.0262.013102)</td><td>R$ 0,21 mi</td><td>R$ 0,06 mi</td><td>R$ 0,06 mi</td><td>3,5×</td></tr></table><p>A diferença vem do escopo: as subações da LOA tratam da gestão da frota (manutenção, combustível e outros custos), e o experimento prevê apenas as OS do contrato de manutenção da SEA/SC. A proposta ficou próxima do realizado de 2024 nesses órgãos, o que é coerente, mas não confirma a previsão de 2026. Para comparar orçamento e execução, a fonte adequada é a execução da despesa por elemento e subelemento (3.3.90.30 e 3.3.90.39) filtrada pelo contrato de manutenção.</p>"
+}

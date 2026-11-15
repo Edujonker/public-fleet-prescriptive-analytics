@@ -1,0 +1,74 @@
+PAGINA 239 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+ma: Orçamento Fiscal
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORÇ. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO | OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.7.1.4.52.0.1.00 Transf.Diretas do FNDE ref. ao Programa 68.432.158 68.432.158
+Nacional de Alimentação Escolar -PNAE -Principal
+1.7.1.4.52.0.1.01 Transf.Diretas do FNDE ref. ao Programa Nacional de 68.432.158 68.432.158
+Alimentação Escolar - PNAE
+1.7.1.4.53.0.0.00 Transferéncias referentes ao Programa Nacional 100.000 100.000
+de Apoio ao Transporte do Escolar - PNATE
+1.7.1.4.53.0.1.00 Transferéncias referentes ao Programa Nacional 100.000 100.000
+de Apoio ao Transporte do Escolar - PNATE
+1.7.1.4.53.0.1.01 Transferéncias referentes ao Programa Nacional de 100.000 100.000
+Apoio ao Transporte do Escolar - PNATE
+1.7.1.4.99.0.0.00 Outras Transferéncias Diretas do Fundo Nacional 15.000.000 15.000.000
+do Desenvolvimento da Educação - FNDE
+1.7.1.4.99.0.1.00 Outras Transf. Diretas do Fundo Nacional do 15.000.000 15.000.000
+Desenvolvimento da Educação-FNDE - Principal
+1.7.1.4.99.0.1.01 Outras Transferéncias Diretas do Fundo Nacional do 15.000.000 15.000.000
+Desenvolvimento da Educação - FNDE
+1.7.1.7.00.0.0.00 Transferéncias de Convénios da União e de Suas 10.584.759 29.186.296 39.771.055
+Entidades
+1.7.1.7.51.0.0.00 Transferências de Convénios da União Destinadas 10.084.759 10.084.759
+a Programas de Educação
+1.7.1.7.51.0.1.00 Transferéncias de Convénios da União 10.084.759 10.084.759
+Destinadas a Programas de Educação - Principal
+1.7.1.7.51.0.1.03 Transf.Convénios da União Destinadas a Programas de 10.084.759 10.084.759
+Educação - FR 1.570.228
+1.7.1.7.99.0.0.00 Outras Transferéncias de Convénios da União e de 500.000 29.186.296 29.686.296
+Suas Entidades
+85
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+ma: Orçamento Fiscal
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORG. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO | OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.7.1.7.99.0.1.00 Outras Transferéncias de Convénios da União - 500.000 29.186.296 29.686.296
+Principal
+1.7.1.7.99.0.1.98 Outras Transf. Convénios União - FR 1.700.128 500.000 500.000
+1.7.1.7.99.0.1.99 Outras Transf. Convénios União - FR 1.700.228 29.186.296 29.186.296
+1.7.1.9.00.0.0.00 Outras Transferéncias de Recursos da União e de 62.819.401 31.444.617 94.264.018
+suas Entidades
+1.7.1.9.54.0.0.00 Transferéncias de Recursos do Fundo Nacional de 21.000.000 21.000.000
+Segurança Pública - FNSP
+1.7.1.9.54.1.1.00 Transferéncias Rec.do Fundo Nacional de 21.000.000 21.000.000
+Segurança Pública -FNSP - Obrigatórias-Principal
+1.7.1.9.54.1.1.01 Transferéncias de Recursos do Fundo Nacional de 21.000.000 21.000.000
+Segurança Pública - Obrigatórias
+1.7.1.9.58.0.0.00 Transferéncia Obrigatória Decorrente da Lei 62.819.401 62.819.401
+Complementar nº 176/2020
+1.7.1.9.58.0.1.00 Transferência Obrigatória Decorrente da Lei 62.819.401 62.819.401
+Complementar nº 176/2020 - Principal
+1.7.1.9.58.0.1.01 Transferéncia Obrigatória Decorrente da Lei 62.819.401 62.819.401
+Complementar nº 176/2020
+1.7.1.9.59.0.0.00 Transferéncias de Recursos do Fundo de Amparo 100.000 100.000
+ao Trabalhador - FAT
+1.7.1.9.59.0.1.00 Transferéncias de Recursos do Fundo de 100.000 100.000
+Amparo ao Trabalhador - FAT - Principal
+1.7.1.9.59.0.1.01 Transferéncias de Recursos do Fundo de Amparo ao 100.000 100.000
+Trabalhador - FAT - Principal
+1.7.1.9.99.0.0.00 Outras Transferéncias de Recursos da União e de 10.344.617 10.344.617
+suas Entidades
+86
+>] LDO
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

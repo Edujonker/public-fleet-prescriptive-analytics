@@ -3,9 +3,9 @@
     "script": "02_preprocessamento.py",
     "autor": "Eduardo Henrique dos Santos",
     "instituicao": "PPGCAP / CCT / UDESC",
-    "timestamp_inicio": "2026-11-01T13:58:14.229131",
-    "timestamp_fim": "2026-11-01T13:58:26.710600",
-    "duracao_segundos": 12.48,
+    "timestamp_inicio": "2026-11-15T15:26:38.575394",
+    "timestamp_fim": "2026-11-15T15:26:53.456830",
+    "duracao_segundos": 14.88,
     "status": "SUCESSO"
   },
   "etapas_rastreabilidade": [

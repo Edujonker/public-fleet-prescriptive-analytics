@@ -1,0 +1,586 @@
+{
+  "fonte": "dados.sc.gov.br, conjunto 'empenhos' (SEF/SC); valor com sinal (emissão + reforço − anulação − estorno)",
+  "ultimo_lancamento": {
+    "2024": "2024-12-31",
+    "2025": "2025-12-31",
+    "2026": "2026-08-31"
+  },
+  "mes_fim_2026": 8,
+  "subelementos": {
+    "33903039": "Material para manutenção de veículos",
+    "33903919": "Manutenção e conservação de veículos",
+    "33903001": "Combustíveis e lubrificantes automotivos",
+    "33903927": "Locação de veículos",
+    "44905252": "Aquisição de veículos"
+  },
+  "anual": {
+    "2024": {
+      "33903039": 22987786.15999999,
+      "33903919": 14660626.120000014,
+      "33903001": 64832094.550000004,
+      "33903927": 12178906.92,
+      "44905252": 150046863.29999998
+    },
+    "2025": {
+      "33903039": 26093884.139999956,
+      "33903919": 15684632.289999973,
+      "33903001": 69834479.0699999,
+      "33903927": 15214554.559999999,
+      "44905252": 394833763.5300007
+    },
+    "2026": {
+      "33903039": 25564924.700000003,
+      "33903919": 16972585.28999999,
+      "33903001": 65804299.849999994,
+      "33903927": 27238812.6,
+      "44905252": 183647298.47000015
+    }
+  },
+  "acumulado_jan_ate_mes_fim": {
+    "2024": {
+      "manutencao": 30775387.310000002,
+      "33903001": 64955836.989999995,
+      "33903927": 12049288.84,
+      "44905252": 85887463.47
+    },
+    "2025": {
+      "manutencao": 31933320.609999996,
+      "33903001": 65618316.37,
+      "33903927": 14555479.549999997,
+      "44905252": 193963237.8999999
+    },
+    "2026": {
+      "manutencao": 42537509.99,
+      "33903001": 65804299.84999999,
+      "33903927": 27238812.6,
+      "44905252": 183647298.46999997
+    }
+  },
+  "manutencao_anual": {
+    "2024": 37648412.28,
+    "2025": 41778516.42999993,
+    "2026": 42537509.989999995
+  },
+  "manutencao_mensal": {
+    "2024": [
+      8742496.21,
+      4450823.28,
+      622734.78,
+      7521781.7299999995,
+      2715062.750000001,
+      68966.82000000002,
+      1535390.5,
+      5118131.24,
+      3955339.8499999996,
+      1096802.5499999993,
+      1032066.0500000002,
+      788816.52
+    ],
+    "2025": [
+      7672918.889999999,
+      4605222.640000002,
+      8281414.5,
+      958370.6599999998,
+      1092887.9999999998,
+      1820624.67,
+      2184255.1099999994,
+      5317626.139999997,
+      6255507.18,
+      4326630.26,
+      1087226.84,
+      -1824168.4599999988
+    ],
+    "2026": [
+      10836231.180000002,
+      13546750.379999995,
+      7695478.280000001,
+      974564.66,
+      881815.01,
+      1461192.4299999997,
+      5071805.090000001,
+      2069672.9600000002,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "fracao_ate_mes_fim": {
+    "2024": 0.8174418374171077,
+    "2025": 0.764347883522968
+  },
+  "credores_manutencao_top5": {
+    "2024": [
+      {
+        "credor": "TICKET GESTAO EM MANUTENCAO EZC S A",
+        "valor": 36207294.559999995,
+        "participacao": 0.9617216867133181
+      },
+      {
+        "credor": "LIDER TAXI AEREO S A - AIR BRASIL",
+        "valor": 744643.77,
+        "participacao": 0.01977888906607565
+      },
+      {
+        "credor": "TICKET SOLUCOES HDFGT S A",
+        "valor": 133358.89,
+        "participacao": 0.003542218168675453
+      },
+      {
+        "credor": "NEO CONSULTORIA E ADMINISTRACAO DE BENEFICIOS LTDA",
+        "valor": 117914.31000000006,
+        "participacao": 0.003131986260749694
+      },
+      {
+        "credor": "ACA INDUSTRIA E COMERCIO DE PECAS PARA AR CONDICIONADO LTDA",
+        "valor": 34000.0,
+        "participacao": 0.0009030925327510253
+      }
+    ],
+    "2025": [
+      {
+        "credor": "TICKET GESTAO EM MANUTENCAO EZC S A",
+        "valor": 29033935.070000004,
+        "participacao": 0.6949489247337546
+      },
+      {
+        "credor": "QFROTAS SISTEMAS LTDA",
+        "valor": 11388942.300000003,
+        "participacao": 0.2726028416801779
+      },
+      {
+        "credor": "TICKET SOLUCOES HDFGT S A",
+        "valor": 325800.79,
+        "participacao": 0.007798285287269113
+      },
+      {
+        "credor": "LUDA PNEUS LTDA",
+        "valor": 123780.0,
+        "participacao": 0.002962766765722609
+      },
+      {
+        "credor": "METRONORTE COMERCIAL DE VEICULOS LTDA",
+        "valor": 91595.20999999995,
+        "participacao": 0.0021923997744981664
+      }
+    ],
+    "2026": [
+      {
+        "credor": "QFROTAS SISTEMAS LTDA",
+        "valor": 40930765.72,
+        "participacao": 0.9622275899464325
+      },
+      {
+        "credor": "TICKET GESTAO EM MANUTENCAO EZC S A",
+        "valor": 676189.35,
+        "participacao": 0.01589630775658855
+      },
+      {
+        "credor": "TICKET SOLUCOES HDFGT S A",
+        "valor": 312142.99999999994,
+        "participacao": 0.007338064688633175
+      },
+      {
+        "credor": "NEO CONSULTORIA E ADMINISTRACAO DE BENEFICIOS LTDA",
+        "valor": 95168.57,
+        "participacao": 0.00223728586892775
+      },
+      {
+        "credor": "METRONORTE COMERCIAL DE VEICULOS LTDA",
+        "valor": 55786.85,
+        "participacao": 0.0013114742732500031
+      }
+    ]
+  },
+  "manutencao_mensal_por_credor_principal": {
+    "TICKET GESTAO EM MANUTENCAO EZC S A": {
+      "2024-01": 8055127.390000001,
+      "2024-02": 3919143.9700000007,
+      "2024-03": 577550.37,
+      "2024-04": 7486252.72,
+      "2024-05": 2417631.0600000005,
+      "2024-06": 487801.51999999996,
+      "2024-07": 1410028.05,
+      "2024-08": 5025956.7700000005,
+      "2024-09": 3852098.19,
+      "2024-10": 1051190.7499999995,
+      "2024-11": 1014278.83,
+      "2024-12": 910234.9399999997,
+      "2025-01": 7575922.600000001,
+      "2025-02": 4308204.84,
+      "2025-03": 8239653.53,
+      "2025-04": 906055.2699999999,
+      "2025-05": 1002573.1900000001,
+      "2025-06": 1723453.9200000002,
+      "2025-07": 2038699.96,
+      "2025-08": 5272424.969999999,
+      "2025-09": 1034644.4499999997,
+      "2025-10": -54888.42999999999,
+      "2025-11": -1524316.8999999997,
+      "2025-12": -1488492.3299999994,
+      "2026-01": 295634.59,
+      "2026-02": 256889.95,
+      "2026-03": 162518.36,
+      "2026-04": 0.0,
+      "2026-05": -32040.190000000002,
+      "2026-06": -2731.45,
+      "2026-07": -803.45,
+      "2026-08": -3278.46
+    },
+    "LIDER TAXI AEREO S A - AIR BRASIL": {
+      "2024-02": 476223.68,
+      "2024-05": 245314.49,
+      "2024-06": 5.599999999976717,
+      "2024-09": 23100.0
+    },
+    "QFROTAS SISTEMAS LTDA": {
+      "2025-09": 5109666.76,
+      "2025-10": 4131580.34,
+      "2025-11": 2519161.04,
+      "2025-12": -371465.84,
+      "2026-01": 10319551.7,
+      "2026-02": 13059117.869999997,
+      "2026-03": 7456960.98,
+      "2026-04": 941916.8300000001,
+      "2026-05": 863352.97,
+      "2026-06": 1391033.7899999998,
+      "2026-07": 4934033.65,
+      "2026-08": 1964797.93
+    }
+  },
+  "primeiro_mes_com_empenho_por_credor": {
+    "TICKET GESTAO EM MANUTENCAO EZC S A": "2024-01",
+    "LIDER TAXI AEREO S A - AIR BRASIL": "2024-02",
+    "QFROTAS SISTEMAS LTDA": "2025-09"
+  },
+  "orgaos_manutencao_2025_top8": [
+    {
+      "orgao": "Secretaria de Estado da Segurança Pública",
+      "valor": 24348353.929999962
+    },
+    {
+      "orgao": "Secretaria de Estado da Agricultura e Pecuária- SAPE",
+      "valor": 4139606.0200000014
+    },
+    {
+      "orgao": "Secretaria de Estado de Justiça e Reintegração Social (SEJURI)",
+      "valor": 3868285.4499999997
+    },
+    {
+      "orgao": "Secretaria de Estado da Saúde",
+      "valor": 3485458.8800000004
+    },
+    {
+      "orgao": "Secretaria de Estado da Educação",
+      "valor": 1813467.4600000007
+    },
+    {
+      "orgao": "Secretaria de Estado da Infraestrutura e Mobilidade",
+      "valor": 1321590.06
+    },
+    {
+      "orgao": "Secretaria-Gabinete Governador do Estado",
+      "valor": 869321.63
+    },
+    {
+      "orgao": "Secretaria de Estado do Meio Ambiente e da Economia Verde",
+      "valor": 635769.17
+    }
+  ],
+  "subacoes_loa_empenho": [
+    {
+      "subacao": "750.0261.011045",
+      "descricao": "Renovação da Frota - SEJUR",
+      "tipo": "aquisição",
+      "unidade": "Fundo Penitenciário do Estado de Santa Catarina (FUPESC)",
+      "loa_2026": 38050000,
+      "empenhado_2024": 8860957.81,
+      "empenhado_2025": 18304098.35,
+      "empenhado_2026_ate_mes_fim": 0.0,
+      "execucao_2026_sobre_loa": 0.0,
+      "por_grupo": {
+        "2024": {
+          "aquisicao": 8860540.05,
+          "outros": 417.76
+        },
+        "2025": {
+          "aquisicao": 18304098.35
+        },
+        "2026": {}
+      }
+    },
+    {
+      "subacao": "182.0261.000941",
+      "descricao": "Aquisição de veículos",
+      "tipo": "aquisição",
+      "unidade": "CELESC Distribuição S.A.",
+      "loa_2026": 27758393,
+      "empenhado_2024": 0.0,
+      "empenhado_2025": 0.0,
+      "empenhado_2026_ate_mes_fim": 0.0,
+      "execucao_2026_sobre_loa": 0.0,
+      "por_grupo": {
+        "2024": {},
+        "2025": {},
+        "2026": {}
+      }
+    },
+    {
+      "subacao": "702.0262.013148",
+      "descricao": "Gestão da frota - PCSC",
+      "tipo": "manutenção",
+      "unidade": "Fundo de Melhoria da Polícia Civil (FUMPC)",
+      "loa_2026": 15670000,
+      "empenhado_2024": 12043824.309999999,
+      "empenhado_2025": 13336567.700000016,
+      "empenhado_2026_ate_mes_fim": 13049693.44999999,
+      "execucao_2026_sobre_loa": 0.8327819687300568,
+      "por_grupo": {
+        "2024": {
+          "manutencao": 1894660.33,
+          "combustivel": 9369334.879999999,
+          "locacao": 690562.9000000001,
+          "aquisicao": 36200.0,
+          "outros": 53066.2
+        },
+        "2025": {
+          "manutencao": 1839859.3399999996,
+          "combustivel": 9864552.810000017,
+          "locacao": 1506633.28,
+          "aquisicao": 1117.0,
+          "outros": 124405.26999999997
+        },
+        "2026": {
+          "manutencao": 1217933.9699999997,
+          "combustivel": 9979245.729999997,
+          "locacao": 1569077.52,
+          "aquisicao": 131869.22,
+          "outros": 151567.00999999998
+        }
+      }
+    },
+    {
+      "subacao": "400.0261.014016",
+      "descricao": "Aquisição de veículos para a Secretaria de Estado da) S",
+      "tipo": "aquisição",
+      "unidade": "Fundo Estadual de Saúde (FES)",
+      "loa_2026": 5151000,
+      "empenhado_2024": 19191316.5,
+      "empenhado_2025": 25376149.959999945,
+      "empenhado_2026_ate_mes_fim": 4362085.49,
+      "execucao_2026_sobre_loa": 0.8468424558338187,
+      "por_grupo": {
+        "2024": {
+          "aquisicao": 19191316.5
+        },
+        "2025": {
+          "aquisicao": 25376149.959999945
+        },
+        "2026": {
+          "aquisicao": 4362085.49
+        }
+      }
+    },
+    {
+      "subacao": "130.0007.014455",
+      "descricao": "Aquisição de combustíveis e lubrificantes - SIE e PMRv",
+      "tipo": "combustível",
+      "unidade": "Secretaria de Estado da Infraestrutura e Mobilidade (SIE)",
+      "loa_2026": 3000000,
+      "empenhado_2024": 4472604.82,
+      "empenhado_2025": 4030000.0,
+      "empenhado_2026_ate_mes_fim": 3450000.0,
+      "execucao_2026_sobre_loa": 1.15,
+      "por_grupo": {
+        "2024": {
+          "combustivel": 4472604.82
+        },
+        "2025": {
+          "combustivel": 4030000.0
+        },
+        "2026": {
+          "combustivel": 3450000.0
+        }
+      }
+    },
+    {
+      "subacao": "130.0089.014456",
+      "descricao": "Modernização da frota de veículos, aeronaves e",
+      "tipo": "aquisição",
+      "unidade": "Secretaria de Estado da Infraestrutura e Mobilidade (SIE)",
+      "loa_2026": 2500000,
+      "empenhado_2024": 0.0,
+      "empenhado_2025": 0.0,
+      "empenhado_2026_ate_mes_fim": 0.0,
+      "execucao_2026_sobre_loa": 0.0,
+      "por_grupo": {
+        "2024": {},
+        "2025": {},
+        "2026": {}
+      }
+    },
+    {
+      "subacao": "704.0261.015785",
+      "descricao": "Aquisição de veículos - PCSC",
+      "tipo": "aquisição",
+      "unidade": "Fundo de Melhoria da Polícia Civil (FUMPC)",
+      "loa_2026": 1000000,
+      "empenhado_2024": 3611450.0,
+      "empenhado_2025": 1962189.82,
+      "empenhado_2026_ate_mes_fim": 301398.53,
+      "execucao_2026_sobre_loa": 0.30139853000000005,
+      "por_grupo": {
+        "2024": {
+          "aquisicao": 3611450.0
+        },
+        "2025": {
+          "aquisicao": 1887656.2,
+          "outros": 74533.62
+        },
+        "2026": {
+          "aquisicao": 301398.53
+        }
+      }
+    },
+    {
+      "subacao": "900.0261.011054",
+      "descricao": "Aquisição de veículos oficiais - SCC",
+      "tipo": "aquisição",
+      "unidade": "Secretaria de Estado da Casa Civil (SCC)",
+      "loa_2026": 900000,
+      "empenhado_2024": 0.0,
+      "empenhado_2025": 355000.0,
+      "empenhado_2026_ate_mes_fim": 0.0,
+      "execucao_2026_sobre_loa": 0.0,
+      "por_grupo": {
+        "2024": {},
+        "2025": {
+          "aquisicao": 355000.0
+        },
+        "2026": {}
+      }
+    },
+    {
+      "subacao": "188.0261.015710",
+      "descricao": "Modernização frota - SCPAR HOLDING",
+      "tipo": "aquisição",
+      "unidade": "SC Participações e Parcerias S.A.(SCPAR)",
+      "loa_2026": 400000,
+      "empenhado_2024": 0.0,
+      "empenhado_2025": 0.0,
+      "empenhado_2026_ate_mes_fim": 0.0,
+      "execucao_2026_sobre_loa": 0.0,
+      "por_grupo": {
+        "2024": {},
+        "2025": {},
+        "2026": {}
+      }
+    },
+    {
+      "subacao": "160.0261.014189",
+      "descricao": "Aquisição de veículos",
+      "tipo": "aquisição",
+      "unidade": "CELESC Geração S.A.",
+      "loa_2026": 360000,
+      "empenhado_2024": 0.0,
+      "empenhado_2025": 0.0,
+      "empenhado_2026_ate_mes_fim": 0.0,
+      "execucao_2026_sobre_loa": 0.0,
+      "por_grupo": {
+        "2024": {},
+        "2025": {},
+        "2026": {}
+      }
+    },
+    {
+      "subacao": "704.0262.013102",
+      "descricao": "Gestão sustentável da frota - combustível e manutenção",
+      "tipo": "manutenção",
+      "unidade": "Fundo para Melhoria da Segurança Pública (FSP)",
+      "loa_2026": 207000,
+      "empenhado_2024": 151018.97,
+      "empenhado_2025": 255723.63,
+      "empenhado_2026_ate_mes_fim": 163947.44,
+      "execucao_2026_sobre_loa": 0.7920166183574879,
+      "por_grupo": {
+        "2024": {
+          "manutencao": 54034.87,
+          "combustivel": 96984.1
+        },
+        "2025": {
+          "manutencao": 117465.0,
+          "combustivel": 138258.63
+        },
+        "2026": {
+          "manutencao": 57240.0,
+          "combustivel": 106707.43999999999
+        }
+      }
+    }
+  ],
+  "comparacao_experimento": {
+    "proposta_2026": 33594176.58057268,
+    "proposta_2026_ate_mes_fim": 18605582.100053716,
+    "os_sea_2024": 32361276.790000003,
+    "os_sea_2025_obs_mais_presumido": 32283572.802250393,
+    "empenho_manutencao_2024": 37648412.28,
+    "empenho_manutencao_2025": 41778516.42999993,
+    "empenho_manutencao_2026_ate_mes_fim": 42537509.99,
+    "razao_empenho_sobre_os_2024": 1.1633784576643706,
+    "proposta_2026_base_empenho": 39082741.33681116,
+    "empenho_2026_sobre_proposta": 1.2662167768267076,
+    "empenho_2026_sobre_proposta_base_empenho": 1.0883962724982874,
+    "subacoes_mesma_natureza": [
+      {
+        "subacao": "702.0262.013148",
+        "descricao": "Gestão da frota - PCSC",
+        "orgao_experimento": "PC SC",
+        "loa_2026": 15670000,
+        "proposta_experimento_2026": 1641921.9406912567,
+        "os_sea_2024": 1632762.23,
+        "empenho_total": {
+          "2024": 12043824.309999999,
+          "2025": 13336567.700000016,
+          "2026": 13049693.44999999
+        },
+        "empenho_manutencao": {
+          "2024": 1894660.33,
+          "2025": 1839859.3399999996,
+          "2026": 1217933.9699999997
+        },
+        "empenho_combustivel": {
+          "2024": 9369334.879999999,
+          "2025": 9864552.810000017,
+          "2026": 9979245.729999997
+        }
+      },
+      {
+        "subacao": "704.0262.013102",
+        "descricao": "Gestão sustentável da frota - combustível e manutenção",
+        "orgao_experimento": "SSP SC",
+        "loa_2026": 207000,
+        "proposta_experimento_2026": 59404.49182944953,
+        "os_sea_2024": 59348.39,
+        "empenho_total": {
+          "2024": 151018.97,
+          "2025": 255723.63,
+          "2026": 163947.44
+        },
+        "empenho_manutencao": {
+          "2024": 54034.87,
+          "2025": 117465.0,
+          "2026": 57240.0
+        },
+        "empenho_combustivel": {
+          "2024": 96984.1,
+          "2025": 138258.63,
+          "2026": 106707.43999999999
+        }
+      }
+    ],
+    "indicacao_ano_2026_pela_fracao": {
+      "2024": 52037353.659811296,
+      "2025": 55652028.22821944
+    }
+  }
+}

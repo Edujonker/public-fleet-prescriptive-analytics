@@ -28,7 +28,7 @@ O banco de dados relacional `dados/resultados_dissertacao.db` centraliza todos o
 | [`manutencao_itens`](#tabela-manutencao-itens) | Microdados de itens de peças e mão de obra de ordens de serviço de manutenção mecânica da frota estadual. | 223.819 registros | os_dataset_limpo.csv (Base higienizada para modelagem e auditoria) |
 | [`kpis_gerenciais`](#tabela-kpis-gerenciais) | Indicadores de Governança e Gestão de Frota e Informação (GFI) catalogados e monitorados. | 38 registros | indicadores_gfi_consolidados.json |
 | [`experimentos_modelos`](#tabela-experimentos-modelos) | Resultados de acurácia, calibração e tempo computacional dos modelos preditivos de ML avaliados. | 28 registros | Pipeline de treinamento e validação walk-forward (scripts/treinar_*.py) |
-| [`veiculos_leilao`](#tabela-veiculos-leilao) | Veículos antieconômicos identificados para desincorporação e leilão com fulcro no Decreto Estadual nº 47.539/2018. | 30 registros (Amostra dos 313 veículos auditados) | relatorio_gerencial_frotas_sc.json (Critério: custo acumulado > 40% do valor venal FIPE) |
+| [`veiculos_leilao`](#tabela-veiculos-leilao) | Veículos antieconômicos identificados para desincorporação e leilão com fulcro no Decreto Estadual nº 47.539/2018. | 30 registros (Amostra dos 242 veículos auditados) | relatorio_gerencial_frotas_sc.json (Critério: custo acumulado > 40% do valor venal FIPE) |
 | [`auditoria_orgaos`](#tabela-auditoria-orgaos) | Estatísticas de fiscalização, gastos autorizados e valores glosados por órgão do Governo de Santa Catarina. | 38 registros | Agregação da base de ordens de serviço por unidade orçamentária |
 | [`grafos_centralidade`](#tabela-grafos-centralidade) | Métricas de centralidade e topologia da rede complexa bipartida de oficinas mecânicas credenciadas. | 10 registros (Top estabelecimentos de maior intermediação) | Modelagem de grafos com NetworkX e algoritmo de Louvain |
 | [`projecao_trienal`](#tabela-projecao-trienal) | Projeções orçamentárias plurianuais de manutenção comparando o modelo inercial ao prescritivo MILP. | 5 registros | Simulação de Monte Carlo com desgaste de Weibull e solver HiGHS (2027-2029) |
@@ -242,7 +242,7 @@ O banco de dados relacional `dados/resultados_dissertacao.db` centraliza todos o
 ### Tabela: `veiculos_leilao`
 **Descrição:** Veículos antieconômicos identificados para desincorporação e leilão com fulcro no Decreto Estadual nº 47.539/2018.  
 **Origem do Dado:** relatorio_gerencial_frotas_sc.json (Critério: custo acumulado > 40% do valor venal FIPE)  
-**Volume Registrado:** 30 registros (Amostra dos 313 veículos auditados)  
+**Volume Registrado:** 30 registros (Amostra dos 242 veículos auditados)  
 
 | Coluna | Tipo SQL | Chave | Permite Nulo | Descrição Semântica do Atributo | Exemplo de Valor |
 | :--- | :---: | :---: | :---: | :--- | :--- |

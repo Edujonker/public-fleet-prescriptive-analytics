@@ -31,7 +31,7 @@ Os principais métodos cobertos são:
 11. detecção não supervisionada de atipicidades com Isolation Forest;
 12. hash SHA-256 como verificação de integridade de arquivos.
 
-As cifras econômicas da apresentação devem ser descritas como **diferenças entre custos modelados no cenário S0**, sob premissas definidas. A estimativa de 17,51%, aproximadamente R$ 9,30 milhões, não é economia observada nem comprovação de impacto já obtido pelo Estado. De modo semelhante, agrupamentos em grafos e observações atípicas são sinais para exame, não provas de fraude, conluio ou causalidade.
+As cifras econômicas da apresentação devem ser descritas como **diferenças entre custos modelados no cenário S0**, sob premissas definidas. A estimativa de 13,66%, aproximadamente R$ 6,99 milhões, não é economia observada nem comprovação de impacto já obtido pelo Estado. De modo semelhante, agrupamentos em grafos e observações atípicas são sinais para exame, não provas de fraude, conluio ou causalidade.
 
 **Sumário**
 
@@ -448,10 +448,10 @@ LIME é agnóstico ao modelo, mas depende de como perturba dados, define proximi
 
 Os métodos têm definições e premissas distintas. A pesquisa compara os atributos mais importantes em cada explicação:
 
-- **Jaccard Top-5 = 39,29%:** compara sobreposição entre conjuntos das cinco principais variáveis.
-- **Spearman ρ = 0,3680:** mede associação entre rankings, levando em conta posições.
+- **Jaccard Top-5 = 45,48%:** compara sobreposição entre conjuntos das cinco principais variáveis.
+- **Spearman ρ = 0,2869:** mede associação entre rankings, levando em conta posições.
 
-Um Jaccard baixo mostra pouca sobreposição dos conjuntos Top-5 na comparação realizada. Spearman de 0,3680 indica concordância positiva limitada/modesta entre ordenações, conforme amostra e procedimento reportados. Esses valores não demonstram superioridade universal de um método, não significam que 39,29% das explicações são verdadeiras e não constituem prova de causalidade.
+Um Jaccard baixo mostra pouca sobreposição dos conjuntos Top-5 na comparação realizada. Spearman de 0,2869 indica concordância positiva limitada/modesta entre ordenações, conforme amostra e procedimento reportados. Esses valores não demonstram superioridade universal de um método, não significam que 45,48% das explicações são verdadeiras e não constituem prova de causalidade.
 
 ### 10.5 Por que a comparação é importante?
 
@@ -551,7 +551,7 @@ O relatório da pesquisa cita HiGHS e branch-and-cut. A implementação específ
 
 ### 11.8 Gap de integralidade e tolerância
 
-O slide reporta cenário S0 com custo R$ 43.837.633,31 e MIP gap do solver de 0,0000%, além de gap LP–MIP de 0,00057%. Esses valores não são idênticos:
+O slide reporta cenário S0 com custo R$ 44.190.120,51 e MIP gap do solver de 0,0000%, além de gap LP–MIP de 0,00063%. Esses valores não são idênticos:
 
 - **MIP gap do solver** é a diferença relativa entre solução inteira incumbente e melhor limite conhecido segundo o solver e tolerâncias configuradas.
 - **Gap LP–MIP** compara valor da relaxação linear/limite dual e solução inteira reportados no material do estudo.
@@ -583,12 +583,12 @@ O slide apresenta:
 
 - BL0: **R$ 53,14 milhões**;
 - MILP-1: **R$ 43,84 milhões**;
-- diferença modelada: **R$ 9,30 milhões**;
-- redução potencial calculada: **17,51%**.
+- diferença modelada: **R$ 6,99 milhões**;
+- redução potencial calculada: **13,66%**.
 
 O cálculo percentual é aproximadamente:
 
-(53,14 − 43,84) / 53,14 × 100% ≈ 17,51%.
+(53,14 − 43,84) / 53,14 × 100% ≈ 13,66%.
 
 O cenário considera **2.000 veículos** e **36 meses**, conforme o slide. O material de dissertação também lista valores mais precisos, mas a apresentação arredonda para fins de comunicação.
 
@@ -644,7 +644,7 @@ Antes de qualquer decisão, pode ser necessário verificar:
 - exigências administrativas e jurídicas aplicáveis;
 - laudo técnico e competência decisória.
 
-O slide informa **313 veículos sinalizados** para avaliação, não 313 bens destinados a leilão. O indicador ajuda a organizar uma análise, mas não substitui processo administrativo, avaliação patrimonial ou deliberação de autoridade competente.
+O slide informa **242 veículos sinalizados** para avaliação, não 313 bens destinados a leilão. O indicador ajuda a organizar uma análise, mas não substitui processo administrativo, avaliação patrimonial ou deliberação de autoridade competente.
 
 ---
 
@@ -791,7 +791,7 @@ Para uma recomendação ser examinável, idealmente é possível recuperar:
 
 ### 18.2 Explicabilidade
 
-**Resultado do slide:** Jaccard Top-5 = 39,29%; Spearman ρ = 0,3680.
+**Resultado do slide:** Jaccard Top-5 = 45,48%; Spearman ρ = 0,2869.
 
 **Leitura cuidadosa:** a concordância entre rankings SHAP e LIME foi limitada segundo os indicadores e a configuração avaliados. A hipótese de alta concordância não foi sustentada nesse teste. Isso recomenda cautela com intercambialidade; não prova que um método seja sempre melhor.
 
@@ -803,19 +803,19 @@ Para uma recomendação ser examinável, idealmente é possível recuperar:
 
 ### 18.4 Otimização e disponibilidade
 
-**Resultado do slide:** custo S0 R$ 43.837.633,31; MIP gap do solver 0,0000%; gap LP–MIP 0,00057%; disponibilidade média 95,26%.
+**Resultado do slide:** custo S0 R$ 44.190.120,51; MIP gap do solver 0,0000%; gap LP–MIP 0,00063%; disponibilidade média 95,26%.
 
 **Leitura cuidadosa:** o gap descreve a resolução da instância, não a validade dos dados. 95,26% é resultado de disponibilidade no cenário, não meta legal nem restrição formal, salvo evidência de codificação dessa meta.
 
 ### 18.5 Comparação econômica
 
-**Resultado do slide:** BL0 R$ 53,14 milhões; MILP-1 R$ 43,84 milhões; diferença R$ 9,30 milhões ou 17,51%.
+**Resultado do slide:** BL0 R$ 53,14 milhões; MILP-1 R$ 43,84 milhões; diferença R$ 6,99 milhões ou 13,66%.
 
 **Leitura cuidadosa:** são custos modelados no S0 para 2.000 veículos durante 36 meses. A diferença é potencial estimado sob premissas e não economia realizada.
 
 ### 18.6 Patrimônio
 
-**Resultado do slide:** 313 veículos sinalizados pelo indicador econômico.
+**Resultado do slide:** 242 veículos sinalizados pelo indicador econômico.
 
 **Leitura cuidadosa:** trata-se de candidatos à avaliação; não de decisão automática de desfazimento, leilão ou alienação.
 
@@ -897,15 +897,15 @@ Eles fazem aproximações diferentes e dependem de premissas distintas. A diverg
 
 Encontrou a melhor solução para a função objetivo, dados e restrições da instância dentro da tolerância do solver. A adequação para operação precisa de validação dos parâmetros, das capacidades e das regras.
 
-### “A economia de R$ 9,30 milhões ocorreu?”
+### “A economia de R$ 6,99 milhões ocorreu?”
 
-Não. É uma diferença de custos modelados no cenário S0, equivalente a potencial estimado de 17,51% sob premissas. Não é economia observada.
+Não. É uma diferença de custos modelados no cenário S0, equivalente a potencial estimado de 13,66% sob premissas. Não é economia observada.
 
 ### “95,26% era uma meta obrigatória?”
 
 Nos slides, 95,26% é disponibilidade média resultante do cenário. Não deve ser chamada de restrição formal sem confirmar que foi codificada como tal na instância do MILP.
 
-### “313 veículos serão leiloados?”
+### “242 veículos serão leiloados?”
 
 Não. São veículos sinalizados para avaliação patrimonial pelo critério adotado. Alienação depende de confirmação de valores, laudo e rito administrativo.
 

@@ -1,0 +1,71 @@
+PÁGINA 236 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+ma: Orçamento Fiscal
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORÇ. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO | OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.6.1.1.03.0.1.06 Defesa Sanitária Animal 4.052 9.455 13.507
+1.6.1.1.03.0.1.07 Classificação de Produtos de Origem Vegetal 986.425 986.425
+1.6.3.0.00.0.0.00 Serviços e Atividades Referentes à Saúde 575.656.648 575.656.648
+1.6.3.2.00.0.0.00 Serviços de Assisténcia à Saúde de Servidores Civis 575.656.648 575.656.648
+e Militares
+1.6.3.2.01.0.0.00 Serviços de Assisténcia à Saúde Suplementar de 464.345.040 464.345.040
+Servidores Civis
+1.6.3.2.01.0.1.00 Serviços de Assisténcia à Saúde Suplementar do 464.342.201 464.342.201
+Servidor Civil - Principal
+1.6.3.2.01.0.1.01 Contribuição do Associado Ativo - Poder Executivo 101.483.504 101.483.504
+(exceto Autarquias)
+1.6.3.2.01.0.1.02 Contribuição do Associado Ativo - Poder Judiciário 10.219.003 10.219.003
+1.6.3.2.01.0.1.03 Contribuição do Associado Ativo - Poder Legislativo 3.285.748 3.285.748
+1.6.3.2.01.0.1.04 Contribuição do Associado Ativo - Ministêrio Público 2.293.311 2.293.311
+1.6.3.2.01.0.1.05 Contribuição do Associado Ativo- Tribunal de Contas 492.840 492.840
+1.6.3.2.01.0.1.06 Contribuição do Associado Ativo - Autarquias 2.438.054 2.438.054
+1.6.3.2.01.0.1.07 Contribuição do Associado Ativo - Segurados 547.246 547.246
+Licenciados
+1.6.3.2.01.0.1.10 Contribuição do Associado Inativo - Poder Executivo 145.883.687 145.883.687
+(exceto Autarquias)
+1.6.3.2.01.0.1.11 Contribuição do Associado Inativo - Poder Judiciário 5.715.887 5.715.887
+1.6.3.2.01.0.1.12 Contribuição do Associado Inativo - Poder Legislativo 1.599.158 1.599.158
+1.6.3.2.01.0.1.13 Contribuição do Associado Inativo - Ministêrio Público 219.743 219.743
+1.6.3.2.01.0.1.14 Contribuição do Associado Inativo - Tribunal de Contas 352.633 352.633
+79
+p- A ESTADO DE SANTA CATARINA Demonstrativo da Receita dos Orçamentos Fiscal e da Seguridade Social por Fonte - com Agregador
+ma: Orçamento Fiscal
+tg
+Ano Base: 2026
+Em R$ 1,00
+ORÇAMENTO FISCAL ORÇ. SEGURIDADE SOCIAL
+CÓDIGO ESPECIFICAÇÃO TOTAL
+REC. TESOURO | OUTRAS FONTES | REC. TESOURO | OUTRAS FONTES
+1.6.3.2.01.0.1.16 Contribuição do Associado Inativo - Serventuários da 1.275.367 1.275.367
+Justiça
+1.6.3.2.01.0.1.20 Contribuição do Associado Pensionista - Poder 18.077.608 18.077.608
+Executivo (exceto Autarquias)
+1.6.3.2.01.0.1.21 Contribuição do Associado Pensionista - Poder 1.112.254 1.112.254
+Judiciário
+1.6.3.2.01.0.1.23 Contribuição do Associado Pensionista - Ministério 81.709 81.709
+Público
+1.6.3.2.01.0.1.24 Contribuição do Associado Pensionista - Tribunal de 155.295 155.295
+Contas
+1.6.3.2.01.0.1.30 Contribuição do Agregado Ativo - Poder Executivo 10.532.560 10.532.560
+(exceto Autarquias)
+1.6.3.2.01.0.1.31 Contribuição do Agregado Ativo - Poder Judiciário 1.128.799 1.128.799
+1.6.3.2.01.0.1.32 Contribuição do Agregado Ativo - Poder Legislativo 507.365 507.365
+1.6.3.2.01.0.1.33 Contribuição do Agregado Ativo - Ministêrio Público 176.462 176.462
+1.6.3.2.01.0.1.34 Contribuição do Agregado Ativo- Tribunal de Contas 151.792 151.792
+1.6.3.2.01.0.1.35 Contribuição do Agregado Ativo - Autarquias 186.077 186.077
+1.6.3.2.01.0.1.40 Contribuição do Agregado Inativo - Poder Executivo 10.025.608 10.025.608
+(exceto Autarquias)
+1.6.3.2.01.0.1.41 Contribuição do Agregado Inativo - Poder Judiciário 633.247 633.247
+1.6.3.2.01.0.1.46 Contribuição do Agregado Inativo - Serventuários da 14.353 14.353
+Justiça
+1.6.3.2.01.0.1.50 Contribuição do Agregado Pensionista 34.030 34.030
+1.6.3.2.01.0.1.60 Coparticipação SC Saúde Auto Gestão Poder Executivo 134.680.105 134.680.105
+(exceto Autarquias)
+80
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

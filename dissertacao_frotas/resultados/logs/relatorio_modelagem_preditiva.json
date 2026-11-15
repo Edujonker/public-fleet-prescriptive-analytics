@@ -1,56 +1,56 @@
 {
   "metadados": {
     "script": "04_modelos_preditivos.py",
-    "timestamp_inicio": "2026-11-01T13:58:30.372559",
-    "timestamp_fim": "2026-11-01T13:58:59.631402",
-    "duracao_segundos": 29.26,
+    "timestamp_inicio": "2026-11-15T15:26:57.065291",
+    "timestamp_fim": "2026-11-15T15:27:28.917440",
+    "duracao_segundos": 31.85,
     "status": "SUCESSO"
   },
   "metricas_classificacao": [
     {
       "modelo": "HistGradientBoosting",
-      "roc_auc": 0.8743,
-      "ci_95_roc_auc": "[0.8617, 0.8878]",
+      "roc_auc": 0.8737,
+      "ci_95_roc_auc": "[0.8613, 0.8871]",
       "pr_auc": 0.951,
-      "f1_score": 0.9113,
-      "brier_score": 0.1043,
-      "ece": 0.0174
+      "f1_score": 0.9111,
+      "brier_score": 0.1046,
+      "ece": 0.0189
     },
     {
       "modelo": "RandomForest",
-      "roc_auc": 0.8687,
-      "ci_95_roc_auc": "[0.8556, 0.8819]",
-      "pr_auc": 0.9477,
-      "f1_score": 0.91,
-      "brier_score": 0.1089,
-      "ece": 0.0407
+      "roc_auc": 0.8693,
+      "ci_95_roc_auc": "[0.8556, 0.8829]",
+      "pr_auc": 0.9489,
+      "f1_score": 0.9096,
+      "brier_score": 0.1085,
+      "ece": 0.0417
     },
     {
       "modelo": "ExtraTrees",
-      "roc_auc": 0.8555,
-      "ci_95_roc_auc": "[0.8418, 0.8705]",
-      "pr_auc": 0.9426,
-      "f1_score": 0.8822,
-      "brier_score": 0.1296,
-      "ece": 0.0838
+      "roc_auc": 0.8585,
+      "ci_95_roc_auc": "[0.8451, 0.8735]",
+      "pr_auc": 0.9456,
+      "f1_score": 0.882,
+      "brier_score": 0.1287,
+      "ece": 0.081
     },
     {
       "modelo": "DecisionTree",
-      "roc_auc": 0.8452,
-      "ci_95_roc_auc": "[0.8307, 0.8605]",
-      "pr_auc": 0.9444,
+      "roc_auc": 0.845,
+      "ci_95_roc_auc": "[0.8301, 0.8603]",
+      "pr_auc": 0.9443,
       "f1_score": 0.9084,
-      "brier_score": 0.1106,
-      "ece": 0.0196
+      "brier_score": 0.1107,
+      "ece": 0.02
     },
     {
       "modelo": "LogisticRegression",
-      "roc_auc": 0.8268,
-      "ci_95_roc_auc": "[0.8117, 0.8438]",
-      "pr_auc": 0.9247,
-      "f1_score": 0.8806,
-      "brier_score": 0.1333,
-      "ece": 0.0858
+      "roc_auc": 0.8292,
+      "ci_95_roc_auc": "[0.8150, 0.8452]",
+      "pr_auc": 0.9323,
+      "f1_score": 0.8944,
+      "brier_score": 0.1238,
+      "ece": 0.0484
     }
   ],
   "metricas_regressao": [
@@ -64,56 +64,56 @@
     },
     {
       "modelo": "HistGradientBoosting",
-      "mae_reais": 2236.06,
-      "ci_95_mae": "[2146.76, 2321.17]",
-      "rmse_reais": 3780.2,
-      "r2_score": 0.1139,
-      "reducao_mae_pct": -4.81
+      "mae_reais": 2223.84,
+      "ci_95_mae": "[2135.07, 2307.34]",
+      "rmse_reais": 3769.31,
+      "r2_score": 0.119,
+      "reducao_mae_pct": -4.23
     },
     {
       "modelo": "ExtraTrees",
-      "mae_reais": 2258.82,
-      "ci_95_mae": "[2173.68, 2348.14]",
-      "rmse_reais": 3826.19,
-      "r2_score": 0.0922,
-      "reducao_mae_pct": -5.87
+      "mae_reais": 2260.16,
+      "ci_95_mae": "[2171.81, 2348.99]",
+      "rmse_reais": 3818.92,
+      "r2_score": 0.0957,
+      "reducao_mae_pct": -5.94
     },
     {
       "modelo": "RandomForest",
-      "mae_reais": 2261.67,
-      "ci_95_mae": "[2171.09, 2349.15]",
-      "rmse_reais": 3818.0,
-      "r2_score": 0.0961,
-      "reducao_mae_pct": -6.01
+      "mae_reais": 2262.0,
+      "ci_95_mae": "[2172.18, 2348.67]",
+      "rmse_reais": 3816.26,
+      "r2_score": 0.0969,
+      "reducao_mae_pct": -6.02
     },
     {
       "modelo": "DecisionTree",
-      "mae_reais": 2320.04,
-      "ci_95_mae": "[2231.34, 2411.72]",
-      "rmse_reais": 3876.81,
-      "r2_score": 0.0681,
-      "reducao_mae_pct": -8.74
+      "mae_reais": 2320.85,
+      "ci_95_mae": "[2231.72, 2412.00]",
+      "rmse_reais": 3877.24,
+      "r2_score": 0.0678,
+      "reducao_mae_pct": -8.78
     }
   ],
   "wilcoxon_inferencial": [
     {
       "comparacao": "HistGradientBoosting vs Baseline Mediana",
-      "w_statistic": 6290920.5,
-      "p_value": 0.9999999999930238,
+      "w_statistic": 6215503.0,
+      "p_value": 0.9999999987503063,
       "significativo_alpha_005": false,
       "conclusao": "HGB reduz erros absolutos com significância estatística extrema."
     },
     {
       "comparacao": "HistGradientBoosting vs RandomForest",
-      "w_statistic": 5169341.0,
-      "p_value": 3.5275726206757693e-07,
+      "w_statistic": 4946995.5,
+      "p_value": 9.898019904042768e-14,
       "significativo_alpha_005": true,
       "conclusao": "Diferença inferencial entre os dois principais ensembles."
     }
   ],
   "passing_bablok": {
-    "intercepto_alpha": 2011.32,
-    "inclinacao_beta": 0.266
+    "intercepto_alpha": 1991.42,
+    "inclinacao_beta": 0.2629
   },
   "figuras_geradas": [
     "curvas_roc_pr_classificacao.png",

@@ -1,0 +1,9 @@
+﻿# FipeMaster Open Data, CC-BY 4.0 · Citação obrigatória: fipemaster.com.br · Dados derivados da Tabela FIPE oficial.
+combustivel,preco_inicio,preco_fim,variacao_pct,total_versoes
+GASOLINA,154205.97,118007.52,-23.47,23555
+DIESEL,195753.35,209427.07,6.99,15709
+FLEX,59994.9,60180.83,0.31,6695
+HÍBRIDO,594832.81,589967.1,-0.82,789
+ELÉTRICO,422641.28,318918.77,-24.54,581
+GÁS NATURAL,724159.33,795615.52,9.87,61
+ETANOL,14630.7,14892.9,1.79,20

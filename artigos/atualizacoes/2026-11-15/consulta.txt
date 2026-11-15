@@ -1,0 +1,21 @@
+Busca bibliográfica — 15/11/2026 09:44
+
+Consulta (OpenAlex, campo título + resumo):
+("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability")
+
+Consulta (Semantic Scholar, sintaxe bulk):
+("prescriptive analytics" | "predictive analytics" | "decision support" | "anomaly detection" | "fraud detection" | "risk assessment") + ("explainable artificial intelligence" | "explainable AI" | "XAI" | "interpretable machine learning" | "algorithmic transparency") + ("public sector" | "government" | "public administration" | "public procurement" | "tax" | "auditability" | "accountability")
+
+Parâmetros: max_resultados=300, max_pdfs=50, ano_min=2020, ordem=recentes, fontes=openalex,s2
+Correspondência no OpenAlex: exata (termos literais); Semantic Scholar sempre radicaliza.
+Só são baixados PDFs com os 3 grupos confirmados no título/resumo (exceto com --incluir-parciais).
+
+Correspondências informadas pelas bases: {"OpenAlex": 1243, "SemanticScholar": 980}
+Registros únicos gravados: 480
+Conferência da semântica no título/resumo: {"ok": 322, "sem_resumo": 15, "parcial": 143}
+Status dos PDFs: {"sem_pdf_aberto": 122, "ja_existia": 72, "falhou": 84, "baixado": 44, "nao_tentado": 158}
+
+Mesma consulta no Google Scholar (para conferência manual no navegador):
+https://scholar.google.com/scholar?q=%28%22prescriptive+analytics%22+OR+%22predictive+analytics%22+OR+%22decision+support%22+OR+%22anomaly+detection%22+OR+%22fraud+detection%22+OR+%22risk+assessment%22%29+AND+%28%22explainable+artificial+intelligence%22+OR+%22explainable+AI%22+OR+%22XAI%22+OR+%22interpretable+machine+learning%22+OR+%22algorithmic+transparency%22%29+AND+%28%22public+sector%22+OR+%22government%22+OR+%22public+administration%22+OR+%22public+procurement%22+OR+%22tax%22+OR+%22auditability%22+OR+%22accountability%22%29
+Observação: consultas longas podem ser encurtadas pelo Google Scholar; o número
+de resultados lá não é comparável ao das APIs.

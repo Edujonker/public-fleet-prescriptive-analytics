@@ -77,7 +77,16 @@ def add_source(fig, text=None):
             full_text = f"{text}."
     fig.text(0.5, 0.015, full_text, ha='center', va='bottom', fontsize=8, color='#334155', style='italic')
 
+# Figuras com números oficiais são geradas por scripts/gerar_figuras_oficiais.py a partir dos JSONs.
+FIGURAS_OFICIAIS = {"fig10_comparativo_mae_rmse_modelos.png", "fig12_ablativo_fontes_m_vs_mp.png", "fig13_importancia_atributos_xai.png",
+                    "fig14_otimizacao_sensibilidade_orcamento.png", "fig64_pipeline_arquitetura_integrada.png"}
+
+
 def save_fig(fig, filename):
+    if filename in FIGURAS_OFICIAIS:
+        plt.close(fig)
+        print(f"Ignorada (gerada por gerar_figuras_oficiais.py): {filename}")
+        return
     fig.tight_layout(rect=[0, 0.045, 1, 0.955])
     fig.savefig(GRAFICOS_DIR / filename, dpi=300)
     fig.savefig(CHARTS_DIR / filename, dpi=300)
@@ -293,11 +302,11 @@ save_fig(fig, "fig07_classificacao_pr_curves.png")
 fig, ax = plt.subplots(figsize=(8.5, 4.8))
 fpr = np.linspace(0, 1, 100)
 models_roc = {
-    'HistGradientBoosting (ROC-AUC = 0,8743 [0,8617; 0,8878])': (0.8743, '#1e3a8a'),
+    'HistGradientBoosting (ROC-AUC = 0,8737 [0,8617; 0,8878])': (0.8743, '#1e3a8a'),
     'Random Forest (ROC-AUC = 0,8687 [0,8556; 0,8819])': (0.8687, '#0284c7'),
     'Extra Trees (ROC-AUC = 0,8555 [0,8418; 0,8705])': (0.8555, '#10b981'),
     'Decision Tree (ROC-AUC = 0,8452 [0,8307; 0,8605])': (0.8452, '#8b5cf6'),
-    'Regressão Logística (ROC-AUC = 0,8268 [0,8117; 0,8438])': (0.8268, '#f59e0b')
+    'Regressão Logística (ROC-AUC = 0,8292 [0,8117; 0,8438])': (0.8268, '#f59e0b')
 }
 for name, (auc_val, col) in models_roc.items():
     tpr = 1 - (1 - fpr)**(1 / (1.05 - auc_val*0.6))

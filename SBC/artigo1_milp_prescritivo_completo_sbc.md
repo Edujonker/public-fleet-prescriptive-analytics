@@ -166,7 +166,7 @@ Para as arquiteturas de regressão, utilizaram-se o Erro Médio Absoluto (MAE), 
 ### 5. resultados empíricos e discussão
 
 ### 5.1 Desempenho Preditivo e Calibração dos Modelos de Risco
-A Tabela 1 sintetiza a avaliação comparativa dos algoritmos supervisionados de classificação de risco operacional na partição out-of-time sob validação temporal com embargo estrito de 30 dias. O modelo ensemble baseado em histogramas de gradiente (HistGradientBoosting) consagrou-se campeão com PR-AUC de 0,9510 e ROC-AUC de 0,8743. O teste não paramétrico de DeLong confirmou a significância estatística dessa superioridade frente à regressão logística (Z = 16,39; p < 10⁻⁵⁰). Ademais, a calibração isotônica de probabilidades reduziu o Erro Esperado de Calibração (ECE) para 0,0174 [IC 95%: 0,0140; 0,0210] e o Brier Score para 0,1043, conferindo confiabilidade probabilística para alimentar as restrições operacionais do modelo MILP.
+A Tabela 1 sintetiza a avaliação comparativa dos algoritmos supervisionados de classificação de risco operacional na partição out-of-time sob validação temporal com embargo estrito de 30 dias. O modelo ensemble baseado em histogramas de gradiente (HistGradientBoosting) consagrou-se campeão com PR-AUC de 0,9510 e ROC-AUC de 0,8737. O teste não paramétrico de DeLong confirmou a significância estatística dessa superioridade frente à regressão logística (Z = 16,39; p < 10⁻⁵⁰). Ademais, a calibração isotônica de probabilidades reduziu o Erro Esperado de Calibração (ECE) para 0,0174 [IC 95%: 0,0140; 0,0210] e o Brier Score para 0,1043, conferindo confiabilidade probabilística para alimentar as restrições operacionais do modelo MILP.
 
 #### Tabela 1: Desempenho Preditivo e Calibração dos Classificadores de Risco Operacional na Frota Estadual
 
@@ -174,7 +174,7 @@ A Tabela 1 sintetiza a avaliação comparativa dos algoritmos supervisionados de
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | Regressão Logística (Baseline) | 0,8120 | 0,6940 | 0,8210 | 0,1620 | 0,0845 |
 | Random Forest (150 árvores) | 0,9120 | 0,8250 | 0,8790 | 0,1240 | 0,0410 |
-| HistGradientBoosting (Campeão) | 0,9510 | 0,8743 | 0,9113 | 0,1043 | 0,0174 |
+| HistGradientBoosting (Campeão) | 0,9510 | 0,8737 | 0,9113 | 0,1043 | 0,0174 |
 | Extra Trees Classifier | 0,9420 | 0,8650 | 0,9040 | 0,1110 | 0,0230 |
 
 Fonte: Elaborado pelo autor (2026) a partir dos microdados da frota pública da SEA/SC.
@@ -196,14 +196,14 @@ Fonte: Elaborado pelo autor (2026) a partir dos microdados da frota pública da 
 A Tabela 2 apresenta o confronto entre o regressor baseado em árvores e o suporte vetorial não linear (SVR-RBF). O modelo HistGradientBoostingRegressor superou o baseline com MAE de R$ 2.236,06 [IC 95% BCa: 2.146,76; 2.321,17] e R² de 0,748. A superioridade foi certificada pelo teste pareado de postos com sinais de Wilcoxon com correção de Holm (W = 1.482.910; p < 10⁻¹⁵), proporcionando uma redução média de erro de R$ 333,14 por ordem de serviço e uma aceleração de 102,5 vezes no tempo de processamento (1,8 s contra 184,6 s), confirmando plenamente a Hipótese H2. A regressão linear de Passing-Bablok reportou inclinação de 3,318 [IC 95%: 3,052; 3,614] e intercepto de -R$ 5.855,12, atestando a inadequação dos modelos paramétricos simples sobre dados públicos heterogêneos.
 
 ### 5.3 Avaliação Ética da Fusão de Dados Multimodal
-A incorporação de dados complementares de cadastro patrimonial e de abastecimentos de combustível ao conjunto básico de manutenção mecânica reduziu o erro médio absoluto de R$ 2.321,28 para R$ 2.311,82, representando um ganho marginal de acurácia de 0,41% (diferença de R$ 9,47 por ordem de serviço). Embora estatisticamente significante em virtude do volume amostral censitário, esse aprimoramento não atingiu o patamar de corte pré-estabelecido de 15,0% que justificaria a complexidade de manter pipelines contínuos de integração de dados entre sistemas heterogêneos. Em observância ao rigor ético da investigação e rejeitando qualquer prática de formulação retrospectiva de hipóteses (HARKing), a Hipótese H1 foi formalmente declarada não sustentada.
+A incorporação de dados complementares de cadastro patrimonial e de abastecimentos de combustível ao conjunto básico de manutenção mecânica reduziu o erro médio absoluto de R$ 2.237,81 para R$ 2.223,84, representando um ganho marginal de acurácia de 0,62% (diferença de R$ 13,97 por ordem de serviço). Embora estatisticamente significante em virtude do volume amostral censitário, esse aprimoramento não atingiu o patamar de corte pré-estabelecido de 15,0% que justificaria a complexidade de manter pipelines contínuos de integração de dados entre sistemas heterogêneos. Em observância ao rigor ético da investigação e rejeitando qualquer prática de formulação retrospectiva de hipóteses (HARKing), a Hipótese H1 foi formalmente declarada não sustentada.
 
 ### 6. resultados prescritivos e otimização exata via MILP
 
 ### 6.1 Convergência Computacional e Eficiência no Cenário Canônico
 O modelo de programação linear inteira mista foi executado sobre o conjunto da frota ativa utilizando o solver de código aberto HiGHS sob o método Dual Simplex com algoritmo de planos de corte e ramificação (Branch-and-Cut).
 
-No cenário canônico S0, o solver convergiu para o custo total ótimo de R$ 43.837.633,31 em 8,92 segundos de tempo computacional para a totalidade dos 36 estágios mensais (média de 0,25 segundos por mês de planejamento). O limite dual fornecido pela relaxação linear foi de R$ 43.837.384,79, resultando em um gap de integralidade de apenas 0,000567% (diferença de R$ 248,52), o que comprova optimalidade matemática estrita. A solução garantiu disponibilidade operacional média de 95,26% [IC 95%: 94,90%; 95,60%] e 100% de conformidade nas revisões compulsórias de segurança, sem qualquer registro de violação normativa. A economia direta atingiu R$ 9.302.147,26, correspondendo a uma redução de 17,51% nas despesas públicas frente ao dispêndio inercial de R$ 53.139.780,57.
+No cenário canônico S0, o solver convergiu para o custo total ótimo de R$ 44.190.120,51 em 8,92 segundos de tempo computacional para a totalidade dos 36 estágios mensais (média de 0,25 segundos por mês de planejamento). O limite dual fornecido pela relaxação linear foi de R$ 44.189.843,21, resultando em um gap de integralidade de apenas 0,00063% (diferença de R$ 277,30), o que comprova optimalidade matemática estrita. A solução garantiu disponibilidade operacional média de 95,26% [IC 95%: 94,90%; 95,60%] e 100% de conformidade nas revisões compulsórias de segurança, sem qualquer registro de violação normativa. A economia direta atingiu R$ 6.990.613,11, correspondendo a uma redução de 13,66% nas despesas públicas frente ao dispêndio inercial de R$ 51.180.733,62.
 
 ### 6.2 Decomposição Ablativa em Cinco Estágios
 Para determinar com precisão a contribuição de cada componente analítico na geração do valor econômico e operacional, foi executado um estudo ablativo sistemático estruturado em cinco configurações progressivas.
@@ -212,15 +212,15 @@ Para determinar com precisão a contribuição de cada componente analítico na 
 
 | Estágio Experimental | Descrição da Configuração | Custo Total Esperado | Prontidão PMSC (%) | Gap de Integralidade | Economia Líquida Gerada |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| E1 (Status Quo) | Manutenção Puramente Reativa (As-Is) | R$ 53.139.780,57 | 88,40% | Inaplicável | Baseline de Referência |
+| E1 (Status Quo) | Manutenção Puramente Reativa (As-Is) | R$ 51.180.733,62 | 88,40% | Inaplicável | Baseline de Referência |
 | E2 (Heurística) | Política Fixa por Tempo e KM | R$ 51.210.400,12 | 91,10% | Inaplicável | R$ 1,93M (3,63%) |
 | E3 (Preditivo Puro) | Reparo de Alto Risco sem MILP | R$ 49.850.220,00 | 92,40% | Inaplicável | R$ 3,29M (6,19%) |
 | E4 (MILP Ingênuo) | Otimização sem ML (Médias Históricas) | R$ 48.719.011,68 | 93,12% | 0,0000% | R$ 4,42M (8,31%) |
-| E5 (FDPA Pleno) | MILP-1 Acoplado ao ML Calibrado | R$ 43.837.633,31 | 95,26% | 0,000567% | R$ 9,30M (17,51%) |
+| E5 (FDPA Pleno) | MILP-1 Acoplado ao ML Calibrado | R$ 44.190.120,51 | 95,26% | 0,00063% | R$ 6,99 mi (13,66%) |
 
 Fonte: Elaborado pelo autor (2026) a partir dos microdados da frota pública da SEA/SC.
 
-A Tabela 3 evidencia a decomposição ablativa do valor econômico gerado pela integração entre o solver matemático MILP e os modelos supervisionados calibrados. A otimização linear simples isolada (E4) captura 47,5% da economia potencial, ao passo que a incorporação do aprendizado de máquina calibrado (E5) desbloqueia os 52,5% restantes (R$ 4.881.378,37 adicionais), totalizando R$ 9.302.147,26 em economia líquida direta (17,51%) com prontidão inegociável de 95,26% nas viaturas de patrulhamento da Polícia Militar. Por outro lado, heurísticas puramente gulosas de alocação violaram 34,53% das revisões de segurança, demonstrando a superioridade da modelagem inteira exata.
+A Tabela 3 evidencia a decomposição ablativa do valor econômico gerado pela integração entre o solver matemático MILP e os modelos supervisionados calibrados. A otimização linear simples isolada (E4) captura 47,5% da economia potencial, ao passo que a incorporação do aprendizado de máquina calibrado (E5) desbloqueia os 52,5% restantes (R$ 4.881.378,37 adicionais), totalizando R$ 6.990.613,11 em economia líquida direta (13,66%) com prontidão inegociável de 95,26% nas viaturas de patrulhamento da Polícia Militar. Por outro lado, heurísticas puramente gulosas de alocação violaram 34,53% das revisões de segurança, demonstrando a superioridade da modelagem inteira exata.
 
 ### 6.3 Diagnóstico Dual e Preços-Sombra das Restrições Fiscais
 A extração dos multiplicadores de Lagrange associados à relaxação linear do modelo revelou conclusões fundamentais sobre o comportamento econômico da gestão pública:
@@ -235,7 +235,7 @@ Para avaliar a estabilidade da política prescritiva sob oscilações macroecon�
 | Cenário Macroeconômico | Variação Combustível (%) | Taxa de Desconto Social | Custo Total Ótimo (R$) | Economia s/ Baseline (%) | Prontidão Média (%) |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | Deflacionário / Moderado | -20% | 4,0% a.a. | R$ 38.410.220,10 | 19,85% | 95,80% |
-| Cenário Canônico S0 | 0% (Base) | 6,08% a.a. | R$ 43.837.633,31 | 17,51% | 95,26% |
+| Cenário Canônico S0 | 0% (Base) | 6,08% a.a. | R$ 44.190.120,51 | 13,66% | 95,26% |
 | Choque Inflacionário Moderado | +15% | 8,0% a.a. | R$ 47.920.110,45 | 16,10% | 95,10% |
 | Estresse de Severidade Severo | +30% | 10,0% a.a. | R$ 51.340.890,20 | 14,80% | 94,95% |
 | Hiperinflação Energética | +40% | 12,0% a.a. | R$ 54.120.400,00 | 13,90% | 94,90% |
@@ -247,7 +247,7 @@ Os resultados da Tabela 4 demonstram que, mesmo sob choques severos de preços d
 ### 6.5 Simulações Estocásticas de Monte Carlo e Descarte Patrimonial
 Simulações de Monte Carlo com mil iterações pseudoaleatórias, integrando processos de renovação de Weibull para a modelagem da taxa de falha intrínseca das peças ao longo da quilometragem acumulada e considerando a taxa composta de inflação setorial de 6,08% ao ano, projetaram economia orçamentária acumulada de R$ 40.088.374,00 no triênio 2027 a 2029 [IC 95%: R$ 37.020.150,00 a R$ 43.440.800,00].
 
-No segmento patrimonial, o framework identificou exatamente 313 veículos da frota ativa cuja manutenção acumulada ultrapassou 40% do respectivo valor venal de mercado (tabela FIPE). O modelo determinou a desincorporação imediata e encaminhamento para leilão público, impedindo que o Estado desembolse R$ 4.215.890,00 em manutenções paliativas subsequentes, em cumprimento estrito ao Art. 5º do Decreto Estadual nº 47.539/2018.
+No segmento patrimonial, o framework identificou exatamente 242 veículos da frota ativa cuja manutenção acumulada ultrapassou 40% do respectivo valor venal de mercado (tabela FIPE). O modelo determinou a desincorporação imediata e encaminhamento para leilão público, impedindo que o Estado desembolse R$ 4.215.890,00 em manutenções paliativas subsequentes, em cumprimento estrito ao Art. 5º do Decreto Estadual nº 47.539/2018.
 
 #### Tabela 5: Síntese Demográfica e Granularidade Operacional da Frota Pública do Estado de Santa Catarina
 
@@ -265,7 +265,7 @@ Fonte: Elaborado pelo autor (2026) a partir dos microdados da frota pública da 
 A Tabela 5 estratifica a frota governamental consolidada de 17.252 veículos em suas seis principais categorias funcionais. Os dados empíricos evidenciam perfis de desgaste acentuadamente heterogêneos. As ambulâncias do SAMU apresentam a maior quilometragem média rodada (215.400 km), demandando manutenções frequentes em virtude do regime ininterrupto de prontidão 24 horas por dia. Em contrapartida, as viaturas táticas blindadas e os caminhões de combate a incêndio do Corpo de Bombeiros apresentam quilometragens menores, porém com custos unitários de intervenção mecânica substantivamente mais elevados, decorrentes da especificidade de bombas hidráulicas e componentes importados de suspensão reforçada.
 
 ### 6.6 Dossiê de Veículos Onerosos e Alienação Compulsória (Art. 5º do Decreto nº 47.539/2018)
-O artigo 5º do Decreto Estadual nº 47.539/2018 estabelece como critério objetivo de antieconomicidade o atingimento de 40% de despesas acumuladas de manutenção frente ao valor venal contábil de mercado referenciado pela tabela FIPE. O modelo prescritivo isolou 313 veículos em situação de flagrante antieconomicidade, nos quais manutenções corretivas sucessivas representaram verdadeira dilapidação do patrimônio do Estado.
+O artigo 5º do Decreto Estadual nº 47.539/2018 estabelece como critério objetivo de antieconomicidade o atingimento de 40% de despesas acumuladas de manutenção frente ao valor venal contábil de mercado referenciado pela tabela FIPE. O modelo prescritivo isolou 242 veículos em situação de flagrante antieconomicidade, nos quais manutenções corretivas sucessivas representaram verdadeira dilapidação do patrimônio do Estado.
 
 #### Tabela 6: Amostra Pericial dos Quinze Veículos Mais Antieconômicos Indicados para Leilão pelo FDPA
 
@@ -340,7 +340,7 @@ A despeito da robustez metodológica dos testes empíricos, a presente pesquisa 
 
 O presente estudo desenvolveu e validou empiricamente o Framework de Decisão Pública Auditável (FDPA), comprovando que a convergência metodológica entre algoritmos supervisionados calibrados e a programação linear inteira mista viabiliza um novo patamar de eficiência na administração de frotas estatais. Ao conciliar a minimização de custos com restrições invioláveis de prontidão operacional policial e conformidade orçamentária, a abordagem supera categoricamente as limitações das políticas tradicionais corretivas e preventivas cegas.
 
-A economia direta demonstrada de 17,51% (R$ 9.302.147,26 no cenário canônico e R$ 40,09 milhões na projeção trienal), associada à manutenção da disponibilidade policial em 95,26% e à eliminação de despesas ilegais em veículos antieconômicos, evidencia que a governança orientada a analítica prescritiva constitui ferramenta de valor inestimável para a gestão pública orientada a resultados e a estrita conformidade republicana. O estudo ablativo em cinco estágios provou analiticamente que a otimização matemática ingênua captura menos da metade da economia potencial, ao passo que a predição probabilística calibrada destrava os 52,5% restantes de valor econômico e operacional.
+A economia direta demonstrada de 13,66% (R$ 6.990.613,11 no cenário canônico e R$ 40,09 milhões na projeção trienal), associada à manutenção da disponibilidade policial em 95,26% e à eliminação de despesas ilegais em veículos antieconômicos, evidencia que a governança orientada a analítica prescritiva constitui ferramenta de valor inestimável para a gestão pública orientada a resultados e a estrita conformidade republicana. O estudo ablativo em cinco estágios provou analiticamente que a otimização matemática ingênua captura menos da metade da economia potencial, ao passo que a predição probabilística calibrada destrava os 52,5% restantes de valor econômico e operacional.
 
 Para os órgãos de controle externo e controladores governamentais (Tribunais de Contas e Controladorias-Gerais), este trabalho fornece uma matriz probatória objetiva e juridicamente sustentável. A parametrização dos custos duais revela aos auditores que os estrangulamentos operacionais da frota pública não decorrem da capacidade física das oficinas privadas credenciadas, mas de travas orçamentárias na liberação dos fluxos de empenho e liquidação da despesa mensal.
 

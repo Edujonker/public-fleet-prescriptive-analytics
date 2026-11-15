@@ -249,9 +249,9 @@
     },
     "IND-34": {
       "nome": "Veículos com Manutenção Onerosa (>40% do Valor Venal)",
-      "valor": 313,
-      "valor_fmt": "313 veículos (R$ 11.689.836,17)",
-      "ref": "Art. 5º Decreto Estadual nº 47.539/2018",
+      "valor": 242,
+      "valor_fmt": "242 veículos (R$ 11.689.836,17)",
+      "ref": "Critério comparativo inspirado no art. 44 do Decreto MG nº 47.539/2018 (aqui: gasto acumulado em todo o período ÷ valor contábil)",
       "status": "Leilão Imediato"
     },
     "IND-35": {
@@ -585,9 +585,9 @@
       "id": "IND-34",
       "tema": "5. Integridade e Prescrição",
       "nome": "Veículos com Manutenção Onerosa (>40% do Valor Venal)",
-      "valor": 313,
-      "valor_fmt": "313 veículos (R$ 11.689.836,17)",
-      "ref": "Art. 5º Decreto Estadual nº 47.539/2018",
+      "valor": 242,
+      "valor_fmt": "242 veículos (R$ 11.689.836,17)",
+      "ref": "Critério comparativo inspirado no art. 44 do Decreto MG nº 47.539/2018 (aqui: gasto acumulado em todo o período ÷ valor contábil)",
       "status": "Leilão Imediato"
     },
     {
@@ -666,7 +666,7 @@
     },
     "manutencao_onerosa_decreto_47539": {
       "limiar_decreto": "40% do valor venal contábil",
-      "veiculos_enquadrados": 313,
+      "veiculos_enquadrados": 242,
       "economia_potencial_desincorporacao_rs": 11689836.169999998,
       "economia_potencial_desincorporacao_fmt": "R$ 11.689.836,17",
       "recomendacao": "Desincorporação imediata e encaminhamento para leilão público (Lei 14.133/2021)"

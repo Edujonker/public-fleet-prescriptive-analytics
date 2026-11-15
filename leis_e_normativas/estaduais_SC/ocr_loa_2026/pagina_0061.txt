@@ -1,0 +1,85 @@
+PAGINA 256 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+ZA ESTADO DE SANTA CATARINA Desdobramento Receita
+T 3 RECURSOS DE TODAS AS FONTES
+E
+(pa ea)
+Ano Base: 2026
+Em R$ 1,00
+1.3.2.1.01.1.1.08 Remuneração de Depósitos Bancários - Rec.Vinc. Sistema de Proteção Social 716.987
+dos Militares
+1.3.2.1.01.1.1.09 Remuneração de Depósitos Bancários - Rec. Vinc. - Judiciário Depósito 8.255.187
+Precatórios
+1.3.2.1.01.1.1.11 Remuneração de Depósitos Bancários - Judiciário - FR 1.760.282 159.371.805
+1.3.2.1.01.1.1.12 Remuneração de Depósitos Bancários -Judiciário - Conta Única - FR 1.799.283 433.553.621
+1.3.2.1.01.1.1.14 Remuneração de Depósitos Bancários - Out. Vinc. Transferências - FR 1.283.122
+1.749.185
+1.3.2.1.01.1.1.15 Remuneração de Depósitos Bancários - Out. Vinc. Transferências - FR 1749.285 18.149.627
+1.3.2.1.01.1.1.16 Remuneração de Depósitos Bancários - Demais. Vinc.Legais - FR 1.799.185 11.521.935
+1.3.2.1.01.1.1.17 Remuneração de Depósitos Bancários - Demais. Vinc.Legais - FR 1.799.285 29.341.507
+1.3.2.1.01.1.1.20 Remuneração de Depósitos Bancários Rec. Não Vinculados. - FR 1.501.180 794.754.344
+1.3.2.1.01.1.1.21 Remuneração de Depósitos Bancários Rec. Não Vinculados - FR 1.501.280 450.000
+1.3.2.1.01.1.1.22 Remuneração de Depósitos Bancários- Não Vinc.-Legislativo - FR 1.501.281 19.062.125
+1.3.2.1.01.1.1.23 Remuneração de Depósitos Bancários- Não Vinc.-Tribunal de Contas - FR 25.000.000
+1.501.281
+1.3.2.1.01.1.1.24 Remuneração de Depósitos Bancários- Não Vinc.-Judiciário - FR 1.501.282 38.848.539
+1.3.2.1.01.1.1.25 Remuneração de Depósitos Bancários- Não Vinc. - Ministério Público - FR 30.700.000
+1.501.284
+1.3.2.1.01.2.1.01 Remuneração de Depósitos Bancários - Salário Educação 20.325.096
+1.3.2.1.04.0.0.00 Remuneração dos Recursos do Regime Próprio de Previdência Social - RPPS 58.254.131
+1.3.2.1.04.0.1.06 Remuneração Depósitos Vinculados - IPREV 5.465.190
+1.3.2.1.04.0.1.07 Remuneração Depósitos Vinculados - Movimento - Fundo em Repartição 3.535.336
+1.3.2.1.04.0.1.08 Remuneração Depósitos Vinculados - Trib. Justiça - Fundo em Repartição 26.816.506
+1.3.2.1.04.0.1.09 Remuneração Depósitos Vinculados - Trib. Contas - Fundo em Repartição 964.205
+1.3.2.1.04.0.1.10 Remuneração Depósitos Vinculados - ALESC - Fundo em Repartição 751.744
+1.3.2.1.04.0.1.11 Remuneração Depósitos Vinculados - Ministério Público - Fundo em Repartição 20.392.708
+1.3.2.1.04.0.1.12 Remuneração Depósitos Vinculados - Movimento - Fundo em Capitalização 100.000
+1.3.2.1.04.0.1.13 Remuneração Depósitos Vinculados - Trib. Justiça - Fundo em Capitalização 100.000
+1.3.2.1.04.0.1.14 Remuneração Depósitos Vinculados - Trib. Contas - Fundo em Capitalização 10.856
+1.3.2.1.04.0.1.15 Remuneração Depósitos Vinculados - ALESC - Fundo em Capitalização 21.505
+1.3.2.1.04.0.1.16 Remuneração Depósitos Vinculados - Ministério Público - Fundo em 96.081
+Capitalização
+119
+ZA ESTADO DE SANTA CATARINA Desdobramento Receita
+T 3 RECURSOS DE TODAS AS FONTES
+Er
+(pa ea)
+Ano Base: 2026
+Em R$ 1,00
+cóBico CATEG. ECONOM,
+1.3.2.1.06.0.0.00 Juros sobre o Capital Próprio 50.001.500
+1.3.2.1.06.0.1.01 Juros sobre o Capital Próprio - FR 1.501.160 50.000.000
+1.3.2.1.06.0.1.02 Juros sobre o Capital Próprio - FR 1.501.260 1.500
+1.3.2.2.00.0.0.00 Dividendos 101.000
+1.3.2.2.01.0.0.00 Dividendos 101.000
+1.3.2.2.01.1.1.01 Dividendos - FR 1.501.160 100.000
+1.3.2.2.01.9.1.01 Dividendos - FR 1.501.260 1.000
+1.3.4.0.00.0.0.00 Exploração de Recursos Naturais 6.727.289
+1.3.4.9.00.0.0.00 Exploração de Outros Recursos Naturais 6.727.289
+1.3.4.9.01.0.0.00 Compensações Ambientais 6.727.289
+1.3.4.9.01.0.1.03 Compensações Ambientais - FR 1.799.269 6.727.289
+1.3.5.0.00.0.0.00 Exploração do Patrimônio Intangível 4.268.208
+1.3.5.1.00.0.0.00 Exploração do Patrimônio Intangível 4.268.208
+1.3.5.1.01.0.0.00 Outorga Direito de Uso ou de Expl.de Criação Protegida - Instit.Científica e Tecnológica 4.268.208
+1.3.5.1.01.0.1.01 Royalties - Transferência de Tecnologia - FR 1.501.260 4.102.450
+1.3.5.1.01.0.1.02 Royalties - Transferência de Tecnologia - Vinculados à Educação - FR 1.599.260 165.758
+1.3.6.0.00.0.0.00 Cessão de Direitos 98.782.850
+1.3.6.1.00.0.0.00 Cessão de Direitos 98.782.850
+1.3.6.1.01.0.0.00 Cessão do Direito de Operacionalização de Pagamentos 98.782.850
+1.3.6.1.01.1.1.02 Cessão Direito de Operacionalização de Pagamentos - Poder Legislativo- FR 9.312.194
+1.501.260
+1.3.6.1.01.3.1.01 Cessão Direito Operacionalização de Pagamentos - P. Executivo Ad. Direta - FR 89.470.656
+1.501.160
+1.4.0.0.00.0.0.00 Receita Agropecuária 2.298.091
+1.4.1.0.00.0.0.00 Receita Agropecuária 2.298.091
+1.4.1.1.00.0.0.00 Receita Agropecuária 2.298.091
+1.4.1.1.01.0.0.00 Receita Agropecuária 2.298.091
+1.4.1.1.01.0.1.01 Agricultura - FR 1.501.240 1.192.344
+1.4.1.1.01.0.1.02 Piscicultura 398.911
+1.4.1.1.01.0.1.03 Pecuária 276.114
+1.4.1.1.01.0.1.05 Agricultura - FR 1.759.240 7.376
+1.4.1.1.01.0.1.06 Ovinocultura - FR 1.759.240 10.707
+1.4.1.1.01.0.1.99 Outras Receitas Agropecuárias 412.639
+120
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

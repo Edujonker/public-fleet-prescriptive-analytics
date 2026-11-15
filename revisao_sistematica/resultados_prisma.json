@@ -1,5 +1,5 @@
 {
-  "data_execucao": "2026-11-14",
+  "data_execucao": "2026-11-15",
   "data_limite_protocolo": "2026-11-14",
   "max_textos": 10000,
   "inventario": [
@@ -167,10 +167,10 @@
       "fonte": "Referências da dissertação (Overleaf)",
       "grupo": "outros",
       "arquivo": "overleaf_dissertacao_udesc/referencias.bib",
-      "registros": 81,
+      "registros": 83,
       "observacao": "Referências do texto da dissertação",
-      "data_arquivo": "2026-11-12 10:51",
-      "md5": "ea649a2db8f8",
+      "data_arquivo": "2026-11-14 21:59",
+      "md5": "1953b40e8820",
       "data_hora_busca": "",
       "consulta_submetida": "",
       "campos": "",
@@ -359,7 +359,7 @@
     "outros|Biblioteca exportada (export.ris)": 1334,
     "outros|Periódicos CAPES (RIS)": 220,
     "outros|Base de Dados Mestrado (BibTeX)": 60,
-    "outros|Referências da dissertação (Overleaf)": 81,
+    "outros|Referências da dissertação (Overleaf)": 83,
     "outros|Busca OpenAlex + Semantic Scholar": 880,
     "outros|Periódicos CAPES (BibTeX)": 308
   },
@@ -371,7 +371,7 @@
   "sem_titulo": 0,
   "unicos": {
     "bases": 676,
-    "outros": 2154
+    "outros": 2156
   },
   "co": {
     "bases": {
@@ -385,7 +385,7 @@
     "outros": {
       "CO4 estudo secundário": 82,
       "aprovado": 1625,
-      "CO3 fora do período": 172,
+      "CO3 fora do período": 174,
       "CO4 sem avaliação por pares": 91,
       "CO3 ano não informado": 17,
       "CO2 idioma": 14,

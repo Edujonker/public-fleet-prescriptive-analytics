@@ -337,7 +337,7 @@ TABELA_OFICIAL = [
         "id": "M24",
         "categoria": "Classificação ML",
         "metrica": "Classificador Campeão: ROC-AUC Out-of-Sample (Holdout)",
-        "valor_oficial": "0,8743",
+        "valor_oficial": "0,8737",
         "intervalo_confianca": "[0,8617; 0,8878] (Bootstrap BCa 10k)",
         "experimento": "Avaliação Supervisionada de Risco",
         "conjunto_amostral": "Conjunto de Teste Holdout (20%)",
@@ -491,7 +491,7 @@ TABELA_OFICIAL = [
         "id": "M35",
         "categoria": "Estudo Ablativo (H1)",
         "metrica": "MAE da Fonte Isolada de Manutenção (M)",
-        "valor_oficial": "R$ 2.321,28",
+        "valor_oficial": "R$ 2.237,81",
         "intervalo_confianca": "[2.298,15; 2.344,41]",
         "experimento": "Estudo Ablativo Multimodal (5 Dobras)",
         "conjunto_amostral": "Painel Longitudinal",
@@ -505,7 +505,7 @@ TABELA_OFICIAL = [
         "id": "M36",
         "categoria": "Estudo Ablativo (H1)",
         "metrica": "MAE da Fonte Integrada Multimodal (M+P)",
-        "valor_oficial": "R$ 2.311,82",
+        "valor_oficial": "R$ 2.223,84",
         "intervalo_confianca": "[2.288,76; 2.334,88]",
         "experimento": "Estudo Ablativo Multimodal (5 Dobras)",
         "conjunto_amostral": "Painel Longitudinal",
@@ -519,8 +519,8 @@ TABELA_OFICIAL = [
         "id": "M37",
         "categoria": "Estudo Ablativo (H1)",
         "metrica": "Ganho Relativo no MAE com Fusão Multimodal",
-        "valor_oficial": "+0,41%",
-        "intervalo_confianca": "[0,28%; 0,54%] (Δ = R$ 9,47/OS)",
+        "valor_oficial": "+0,62%",
+        "intervalo_confianca": "[-0,26%; 1,52%] (Δ = R$ 13,97/OS)",
         "experimento": "Teste da Hipótese H1",
         "conjunto_amostral": "Painel Longitudinal",
         "tamanho_n": 42278,
@@ -589,7 +589,7 @@ TABELA_OFICIAL = [
         "id": "M42",
         "categoria": "Explicabilidade (XAI)",
         "metrica": "Concordância Top-5 (Jaccard) / Spearman SHAP vs LIME",
-        "valor_oficial": "39,29% (Jaccard) | 0,3680 (Spearman)",
+        "valor_oficial": "45,48% (Jaccard) | 0,2869 (Spearman)",
         "intervalo_confianca": "Divergência Geométrica",
         "experimento": "Validação de Interpretabilidade e Triangulação",
         "conjunto_amostral": "Instâncias Auditadas",
@@ -603,7 +603,7 @@ TABELA_OFICIAL = [
         "id": "M43",
         "categoria": "Otimização Prescritiva",
         "metrica": "MILP Cenário S0: Custo Total Ótimo (MILP-1)",
-        "valor_oficial": "R$ 43.837.633,31",
+        "valor_oficial": "R$ 44.190.120,51",
         "intervalo_confianca": "Ótimo Global Comprovado",
         "experimento": "Benchmark Prescritivo S0 (Nominal)",
         "conjunto_amostral": "2.000 veículos x 36 meses",
@@ -617,7 +617,7 @@ TABELA_OFICIAL = [
         "id": "M44",
         "categoria": "Otimização Prescritiva",
         "metrica": "MILP Cenário S0: Limite Dual (Relaxação Linear LP)",
-        "valor_oficial": "R$ 43.837.384,79",
+        "valor_oficial": "R$ 44.189.843,21",
         "intervalo_confianca": "Dual Bound <= Primal Bound",
         "experimento": "Auditoria de Relaxação Contínua (LP)",
         "conjunto_amostral": "6.072 Restrições Lineares",
@@ -631,7 +631,7 @@ TABELA_OFICIAL = [
         "id": "M45",
         "categoria": "Otimização Prescritiva",
         "metrica": "MILP Cenário S0: Gap de Integralidade (MIP vs LP)",
-        "valor_oficial": "0,000567% (R$ 248,52)",
+        "valor_oficial": "0,00063% (R$ 277,30)",
         "intervalo_confianca": "Gap Quase-Nulo",
         "experimento": "Auditoria de Qualidade Poliedral",
         "conjunto_amostral": "Instância S0 (2.000 veículos)",
@@ -687,8 +687,8 @@ TABELA_OFICIAL = [
         "id": "M49",
         "categoria": "Otimização Prescritiva",
         "metrica": "MILP Cenário S0: Economia Relativa vs Baseline As-Is (BL0)",
-        "valor_oficial": "17,51% (R$ 9.302.147,26)",
-        "intervalo_confianca": "vs BL0 (R$ 53.139.780,57)",
+        "valor_oficial": "13,66% (R$ 6.990.613,11)",
+        "intervalo_confianca": "vs BL0 (R$ 51.180.733,62)",
         "experimento": "Eficiência Econômica Prescritiva",
         "conjunto_amostral": "2.000 veículos",
         "tamanho_n": 2000,
@@ -827,7 +827,7 @@ TABELA_OFICIAL = [
         "id": "M59",
         "categoria": "Governança Patrimonial",
         "metrica": "Veículos Onerosos Aptos para Baixa e Leilão (Decreto 47.539)",
-        "valor_oficial": "313 veículos",
+        "valor_oficial": "242 veículos",
         "intervalo_confianca": "Manutenção > 40% do Valor Venal",
         "experimento": "Auditoria de Desfazimento Patrimonial",
         "conjunto_amostral": "Frota Patrimonial Cruzada",
@@ -873,11 +873,111 @@ def main():
     with open(out_md, "w", encoding="utf-8") as f:
         f.write("# Tabela Única de Resultados Oficiais e Evidências Experimentais Auditadas\n")
         f.write("## Dissertação de Mestrado, PPGCAP / CCT / UDESC, Autor: Eduardo Lopes Jonker (2026)\n\n")
-        f.write("| ID | Categoria | Métrica / Indicador | Valor Oficial | Intervalo de Confiança / Incerteza | Experimento | N | Algoritmo / Método | Arquivo de Origem |\n")
-        f.write("| :---: | :--- | :--- | :---: | :---: | :--- | :---: | :--- | :--- |\n")
+        f.write("| ID | Categoria | Métrica / Indicador | Valor Oficial | Intervalo de Confiança / Incerteza | Experimento | N | Algoritmo / Método | Arquivo de Origem | Verificação |\n")
+        f.write("| :---: | :--- | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |\n")
         for r in TABELA_OFICIAL:
-            f.write(f"| {r['id']} | {r['categoria']} | **{r['metrica']}** | `{r['valor_oficial']}` | {r['intervalo_confianca']} | {r['experimento']} | {r['tamanho_n']} | {r['algoritmo_metodo']} | `{r['arquivo_origem']}` |\n")
+            f.write(f"| {r['id']} | {r['categoria']} | **{r['metrica']}** | `{r['valor_oficial']}` | {r['intervalo_confianca']} | {r['experimento']} | {r['tamanho_n']} | {r['algoritmo_metodo']} | `{r['arquivo_origem']}` | {r.get('verificacao', '')} |\n")
     print(f"Salvo: {out_md}")
 
+def atualizar_com_resultados_calculados(tabela):
+    """Correção (15/11/2026): sobrescreve os valores digitados pelos calculados nos JSONs das etapas
+    e marca, na coluna 'verificacao', o que tem fonte reproduzível e o que não tem."""
+    import json as _j
+    import sys as _s
+    from pathlib import Path as _P
+    raiz = _P(__file__).resolve().parent.parent
+    logs = raiz / "dissertacao_frotas/resultados/logs"
+    rd = lambda n: _j.loads((logs / n).read_text(encoding="utf-8"))
+    _s.path.insert(0, str(raiz / "scripts"))
+    import hipoteses_oficiais as h
+    br = h.br
+    import pandas as pd
+    proc = raiz / "dissertacao_frotas/dados/processados"
+    os_ = pd.read_parquet(proc / "os_consolidadas_processadas.parquet", columns=["ds_os_status", "vl_aprovado_total"])
+    pm = pd.read_parquet(proc / "painel_veiculo_mes_longitudinal.parquet", columns=["veiculo_id", "target_class_corretiva_t1"])
+    st = os_.ds_os_status.value_counts(); n = len(os_)
+    an = rd("relatorio_deteccao_anomalias.json"); mr = an["modelo_referencia"]
+    est = {r["contaminacao_nominal"]: r for r in an["estabilidade_sementes"]}
+    md = rd("relatorio_modelagem_preditiva.json")
+    cls = {r["modelo"]: r for r in md["metricas_classificacao"]}; reg = {r["modelo"]: r for r in md["metricas_regressao"]}
+    svr = rd("relatorio_h2_svr.json"); rs = svr["resumo_media_dp"]; cp = svr["comparacao_pareada_semente42"]["HistGradientBoosting"]
+    ab, x, m, ci = h.ABL, h.XAI, h.MILP, h.CI
+    gr = rd("relatorio_teoria_grafos.json")["topologia_rede"]
+    gfi = _j.loads((raiz / "relatorios/indicadores_gfi_consolidados.json").read_text(encoding="utf-8"))["tema_2_manutencao"]["manutencao_onerosa_decreto_47539"]
+    cv = _j.loads((raiz / "relatorios/validacao_cruzada_temporal_5dobras.json").read_text(encoding="utf-8")) if (raiz / "relatorios/validacao_cruzada_temporal_5dobras.json").exists() else None
+    pct = lambda a, b: f"{br(a, 0)} OSs ({br(100 * a / b)}%)"
+    calc = {
+        "M02": (f"{br(n, 0)} OSs", "os_consolidadas_processadas.parquet"),
+        "M03": (pct(st.get("COBRADAS", 0), n), "os_consolidadas_processadas.parquet"),
+        "M04": (pct(st.get("REPROVADAS", 0), n), "os_consolidadas_processadas.parquet"),
+        "M05": (pct(st.get("CANCELADAS", 0), n), "os_consolidadas_processadas.parquet"),
+        "M06": (pct(st.get("BLOQUEADAS", 0), n), "os_consolidadas_processadas.parquet"),
+        "M07": ("R$ " + br(float(os_.vl_aprovado_total.sum())), "os_consolidadas_processadas.parquet (todas as situações)"),
+        "M09": (f"{br(pm.veiculo_id.nunique(), 0)} veículos", "painel_veiculo_mes_longitudinal.parquet"),
+        "M10": (f"{br(len(pm), 0)} instâncias", "painel_veiculo_mes_longitudinal.parquet"),
+        "M11": (br(100 * pm.target_class_corretiva_t1.mean()) + "%", "painel_veiculo_mes_longitudinal.parquet"),
+        "M14": (f"ν = {br(mr['contaminacao_nu'], 4)} ({br(100 * mr['contaminacao_nu'])}%)", "relatorio_deteccao_anomalias.json"),
+        "M15": (f"{br(mr['total_anomalias_detectadas'], 0)} OSs ({br(mr['pct_universo_os'])}%)", "relatorio_deteccao_anomalias.json"),
+        "M17": (f"J = {br(est[mr['contaminacao_nu']]['jaccard_medio_sementes'], 4)}", "relatorio_deteccao_anomalias.json"),
+        "M18": ("R$ " + br(mr["vl_total_aprovado"]), "relatorio_deteccao_anomalias.json (aprovado nas OS anômalas)"),
+        "M23": (br(cls["HistGradientBoosting"]["pr_auc"], 4), "relatorio_modelagem_preditiva.json"),
+        "M24": (br(cls["HistGradientBoosting"]["roc_auc"], 4), "relatorio_modelagem_preditiva.json"),
+        "M25": (br(cls["HistGradientBoosting"]["f1_score"], 4), "relatorio_modelagem_preditiva.json"),
+        "M26": (br(cls["HistGradientBoosting"]["brier_score"], 4), "relatorio_modelagem_preditiva.json"),
+        "M27": (br(cls["HistGradientBoosting"]["ece"], 4), "relatorio_modelagem_preditiva.json"),
+        "M28": (f"Δ ROC-AUC = +{br(cls['HistGradientBoosting']['roc_auc'] - cls['LogisticRegression']['roc_auc'], 4)} "
+                f"({br(cls['HistGradientBoosting']['roc_auc'], 4)} × {br(cls['LogisticRegression']['roc_auc'], 4)}); teste de DeLong exato não executado",
+                "relatorio_modelagem_preditiva.json"),
+        "M29": ("R$ " + br(reg["HistGradientBoosting"]["mae_reais"]), "relatorio_modelagem_preditiva.json"),
+        "M30": ("R$ " + br(reg["HistGradientBoosting"]["rmse_reais"]), "relatorio_modelagem_preditiva.json"),
+        "M31": (br((reg["Baseline Mediana"]["rmse_reais"] - reg["HistGradientBoosting"]["rmse_reais"]) / reg["Baseline Mediana"]["rmse_reais"] * 100) + "% de redução",
+                "relatorio_modelagem_preditiva.json"),
+        "M32": (f"R$ {br(rs['regressao|HistGradientBoosting']['media'])} vs R$ {br(rs['regressao|SVR-RBF']['media'])} (subamostra de 12.000; SVR melhor)", "relatorio_h2_svr.json"),
+        "M33": (f"{br(rs['regressao|HistGradientBoosting']['tempo_medio_s'], 1)} s vs {br(rs['regressao|SVR-RBF']['tempo_medio_s'], 1)} s (12.000 linhas)", "relatorio_h2_svr.json"),
+        "M34": (f"ΔMAE HistGB − SVR = {h.V['h2_dif_mae_svr']} (IC 95% {h.V['h2_ic_mae_svr']}; bootstrap pareado)", "relatorio_h2_svr.json"),
+        "M35": ("R$ " + br(ab["mae_M"]), "relatorio_ablacao_h1.json"),
+        "M36": ("R$ " + br(ab["mae_MP"]), "relatorio_ablacao_h1.json"),
+        "M37": ("+" + h.V["h1_ganho_mae"], "relatorio_ablacao_h1.json"),
+        "M38": (h.H["H1"]["decisao"], "certificado_reprodutibilidade_cientifica.json"),
+        "M39": (f"β = {br(md['passing_bablok']['inclinacao_beta'], 4)}; α = R$ {br(md['passing_bablok']['intercepto_alpha'])}", "relatorio_modelagem_preditiva.json"),
+        "M42": (f"{h.V['h4_jaccard']} (Jaccard) | {h.V['h4_spearman']} (Spearman)", "relatorio_explicabilidade_xai.json"),
+        "M43": (h.V["h3_milp"], "relatorio_otimizacao_milp.json"),
+        "M44": (h.V["h3_lp"], "relatorio_otimizacao_milp.json"),
+        "M45": (f"{h.V['h3_gap_rel']} ({h.V['h3_gap_abs']})", "relatorio_otimizacao_milp.json"),
+        "M46": (f"{br(m['tempo_mip_s'])} segundos", "relatorio_otimizacao_milp.json"),
+        "M48": (br(m["cumprimento_mandatorio_pct"]) + "%", "relatorio_otimizacao_milp.json"),
+        "M49": (f"{h.V['h3_economia_pct']} ({h.V['h3_economia_brl']}) frente à prática reconstruída", "relatorio_otimizacao_milp.json"),
+        "M50": (f"Heurística gulosa: {h.V['h3_heur']} ({h.V['h3_vs_heur_brl']} acima do MILP)", "relatorio_otimizacao_milp.json"),
+        "M51": (f"Viável; custo {h.V['h3_heur']}", "relatorio_otimizacao_milp.json"),
+        "M52": (f"Ativa em {br(m['gargalos_ativos']['restricao_orcamentaria_pct_periodos'])}% dos meses", "relatorio_otimizacao_milp.json"),
+        "M53": (f"Ativa em {br(m['gargalos_ativos']['restricao_oficina_pct_periodos'])}% dos meses", "relatorio_otimizacao_milp.json"),
+        "M56": (f"{gr['total_comunidades']} comunidades (Q = {br(gr['modularidade_louvain_q'], 4)})", "relatorio_teoria_grafos.json"),
+        "M59": (f"{gfi['veiculos_enquadrados']} veículos", "relatorios/indicadores_gfi_consolidados.json"),
+    }
+    renomear = {"M50": "Heurística gulosa benefício/custo (mesmas restrições)", "M51": "Heurística gulosa: viabilidade",
+                "M33": "Confronto H2: tempo de treino HistGB vs SVR-RBF", "M34": "Confronto H2: diferença de MAE HistGB − SVR-RBF",
+                "M28": "Classificação: HistGB vs Regressão Logística", "M38": "Decisão da Hipótese H1 (anteprojeto e limiar de 15%)",
+                "M49": "MILP Cenário S0: economia frente à prática reconstruída (só obrigatórias)",
+                "M59": "Veículos com gasto acumulado > 40% do valor contábil (triagem)"}
+    sem_fonte = {"M01", "M08", "M12", "M13", "M16", "M19", "M20", "M21", "M22", "M40", "M41", "M47", "M54", "M55", "M57", "M58"}
+    for r in tabela:
+        i = r["id"]
+        if i in calc:
+            r["valor_oficial"], r["arquivo_origem"] = calc[i]
+            r["verificacao"] = "calculado"
+            if i in renomear:
+                r["metrica"] = renomear[i]
+        elif i in sem_fonte:
+            r["verificacao"] = "digitado no script; sem fonte reproduzível localizada — não citar sem conferir"
+        else:
+            r["verificacao"] = "não verificado"
+    if cv:
+        r19 = {r["id"]: r for r in tabela}
+        for k in ("M19", "M20"):
+            r19[k]["verificacao"] = "consta em relatorios/validacao_cruzada_temporal_5dobras.json (não regenerado nesta versão)"
+    return tabela
+
+
 if __name__ == "__main__":
+    TABELA_OFICIAL[:] = atualizar_com_resultados_calculados(TABELA_OFICIAL)
     main()

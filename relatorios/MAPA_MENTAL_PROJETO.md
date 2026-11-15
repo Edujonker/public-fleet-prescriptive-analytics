@@ -32,7 +32,7 @@ mindmap
         Validação de Estabilidade Jaccard J=0,83
       Supervisionado e Preditivo
         Ensembles: HistGradientBoosting, Random Forest, Extra Trees, SVR-RBF
-        Ganho Preditivo H1: Redução de 1,13% no teste OOT (R$ 25,61/OS) e +0,41% na ablação
+        Ganho Preditivo H1: Redução de 1,13% no teste OOT (R$ 25,61/OS) e +0,62% na ablação
         Validação Temporal: Rolling-Window com 30d Embargo
       Calibração de Probabilidades
         Platt Scaling Sigmoide
@@ -47,7 +47,7 @@ mindmap
         Importância de Recursos
       LIME Local
         Perturbações Locais Ponderadas
-        Concordância Jaccard Top-5 = 39,29% (Spearman rho = 0,3680; refutação empírica de H4)
+        Concordância Jaccard Top-5 = 45,48% (Spearman rho = 0,2869; refutação empírica de H4)
       Waterfall de Casos Extremos
         Decomposição Aditiva da Predição
     (Séries Temporais e Econometria)
@@ -74,7 +74,7 @@ mindmap
         Teto Orçamentário Anual LOA
       Prescrição e Apoio à Decisão
         Triagem de 313 Veículos Onerosos (>40% contábil)
-        Economia S0 Canônica: R$ 9.302.147,26 (17,51%)
+        Economia S0 Canônica: R$ 6.990.613,11 (13,66%)
         Projeção Trienal Estocástica: R$ 40.088.374,00 (2027-2029)
     (Camada de Entrega e Auditoria)
       Backend FastAPI e Dashboard Web
@@ -101,11 +101,11 @@ graph TD
     D --> D1[2.336 Itens Anômalos Isolados em 662 OSs<br/>nu = 0,0085 | R$ 25,35M sob Triagem]
     
     C --> E[Modelagem Supervisionada Preditiva<br/>03_experimentos_supervisionados.py]
-    E --> E1[Ablação Multimodal e Regressão<br/>HistGB MAE R$ 2.236,06 vs RF R$ 2.261,67 (-1,13% / -R$ 25,61)<br/>Ablação Multimodal: +0,41% (+R$ 9,47/OS)]
-    E --> E2[Classificação de Severidade<br/>ROC-AUC = 0,8743 | PR-AUC = 0,9510 | F1 = 0,9113]
+    E --> E1[Ablação Multimodal e Regressão<br/>HistGB MAE R$ 2.236,06 vs RF R$ 2.261,67 (-1,13% / -R$ 25,61)<br/>Ablação Multimodal: +0,62% (+R$ 13,97/OS)]
+    E --> E2[Classificação de Severidade<br/>ROC-AUC = 0,8737 | PR-AUC = 0,9510 | F1 = 0,9113]
     
     E1 --> F[Calibração de Probabilidades<br/>Platt Scaling vs Regressão Isotônica]
-    E1 --> G[Explicabilidade XAI e Triangulação<br/>SHAP TreeExplainer vs LIME: Jaccard Top-5 = 39,29% | Spearman rho = 0,3680]
+    E1 --> G[Explicabilidade XAI e Triangulação<br/>SHAP TreeExplainer vs LIME: Jaccard Top-5 = 45,48% | Spearman rho = 0,2869]
     
     C --> H[Análise Não Paramétrica e Séries Temporais<br/>executar_metodologias_nao_parametricas.py]
     H --> H1[Regressão Quantílica Q10-Q90]
@@ -114,8 +114,8 @@ graph TD
     C --> I[Grafos e Redes Complexas<br/>05_modelar_grafos_redes_complexas.py]
     I --> I1[Grafo Bipartido Veículo-Oficina<br/>Betweenness, PageRank, Comunidades Louvain Q = 0,565]
     
-    D1 & E1 & H2 & I1 --> J[Otimização Prescritiva MILP (Solver HiGHS)<br/>scipy.optimize.milp | Gap 0,0000% | Integralidade 0,00057%]
-    J --> J1[Plano Prescritivo Trienal 2027-2029<br/>Economia Cenário S0: R$ 9.302.147,26 (17,51%)<br/>Economia Projetada Triênio: R$ 40.088.374,00<br/>Triagem de 313 Veículos Onerosos (>40% contábil)]
+    D1 & E1 & H2 & I1 --> J[Otimização Prescritiva MILP (Solver HiGHS)<br/>scipy.optimize.milp | Gap 0,0000% | Integralidade 0,00063%]
+    J --> J1[Plano Prescritivo Trienal 2027-2029<br/>Economia Cenário S0: R$ 6.990.613,11 (13,66%)<br/>Economia Projetada Triênio: R$ 40.088.374,00<br/>Triagem de 313 Veículos Onerosos (>40% contábil)]
     
     J1 --> K[Camada de Relatórios e Auditoria Forense]
     K --> K1[ajuste.pdf<br/>Reconciliação e Auditoria E01-E20]

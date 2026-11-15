@@ -36,9 +36,7 @@ def compilar_conciliacao_pdf():
         html_content = f.read()
 
     # Nomes dos arquivos de saída
-    pdf_longo = BASE_DIR / "conciliação do trabalho prático com o referencial teórico.pdf"
-    pdf_referencial = BASE_DIR / "relatorio_referencial_teorico_e_resultados.pdf"
-    pdf_curto = BASE_DIR / "conciliacao_teorico_pratica.pdf"
+    pdf_longo = BASE_DIR / "conciliacao_teorico_pratica.pdf"
     pdf_relatorios = PDF_DIR / "conciliacao_teorico_pratica.pdf"
     pdf_documentos = DOCS_DIR / "conciliacao_teorico_pratica.pdf"
 
@@ -50,12 +48,8 @@ def compilar_conciliacao_pdf():
     print(f"  Tamanho: {tamanho_mb:.2f} MB")
 
     print("3. Criando cópias espelhadas de segurança e padronização...")
-    shutil.copy2(pdf_longo, pdf_referencial)
-    shutil.copy2(pdf_longo, pdf_curto)
     shutil.copy2(pdf_longo, pdf_relatorios)
     shutil.copy2(pdf_longo, pdf_documentos)
-    print(f"✓ Cópia espelhada em: {pdf_referencial.name}")
-    print(f"✓ Cópia espelhada em: {pdf_curto.name}")
     print(f"✓ Cópia espelhada em: {pdf_relatorios}")
     print(f"✓ Cópia espelhada em: {pdf_documentos}")
 

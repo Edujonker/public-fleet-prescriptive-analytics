@@ -1,0 +1,84 @@
+PAGINA 257 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+ZA ESTADO DE SANTA CATARINA Desdobramento Receita
+T 3 RECURSOS DE TODAS AS FONTES
+E
+(pa ea)
+Ano Base: 2026
+Em R$ 1,00
+1.5.0.0.00.0.0.00 Receita Industrial 105.849
+1.5.1.0.00.0.0.00 Receita Industrial 105.849
+1.5.1.1.00.0.0.00 Receita Industrial 105.849
+1.5.1.1.01.0.0.00 Receita Industrial 105.849
+1.5.1.1.01.0.1.01 Receita da Indústria de Bebidas e Destilados 105.849
+1.6.0.0.00.0.0.00 Receita de Serviços 708.693.748
+1.6.1.0.00.0.0.00 Serviços Administrativos e Comerciais Gerais 133.037.100
+1.6.1.1.00.0.0.00 Serviços Administrativos e Comerciais Gerais 133.037.100
+1.6.1.1.01.0.0.00 Serviços Administrativos e Comerciais Gerais 75.570.391
+1.6.1.1.01.0.1.01 Venda de Livros, Revistas, Publicações e Impressos 21.055
+1.6.1.1.01.0.1.04 Serviços de Meteorologia 3.853.506
+1.6.1.1.01.0.1.05 Serviços Educacionais - FR 1.501.240 1.597.164
+1.6.1.1.01.0.1.06 Serviços Agropecuários 203.629
+1.6.1.1.01.0.1.07 Serviços Recreativos e Culturais 873.854
+1.6.1.1.01.0.1.08 Serviços de Consultoria ou Assessoria Técnica - FR 1.501.240 14.925.464
+1.6.1.1.01.0.1.09 Serviços de Análise de Solos 1.209.547
+1.6.1.1.01.0.1.11 Serviços de Outras Análises 215.639
+1.6.1.1.01.0.1.12 Serviços de Elaboração e Supervisão de Projetos 5.500.000
+1.6.1.1.01.0.1.13 Prestação de Serviços de Apenados/Reeducandos 25.863.797
+1.6.1.1.01.0.1.14 Serviços de Elaboração Folha Pagamento - Taxa Administrativa sobre 3.886.937
+Consignações
+1.6.1.1.01.0.1.17 Prestação de Serviços Socioeducativo - DEASE 44.554
+1.6.1.1.01.0.1.19 Serviços Educacionais - FR 1.599.240 126.558
+1.6.1.1.01.0.1.20 Serviços de Consultoria ou Assessoria Técnica - FR 1.599.240 530.913
+1.6.1.1.01.0.1.21 Serviços de Elaboração Folha Pagamento - Taxa Adm.s/Consignações - 13.786.248
+RPPS-Fundo Repartição
+1.6.1.1.01.0.1.22 Venda de Livros, Revistas, Publicações e Impressos - Fundos 2.670.889
+1.6.1.1.01.0.1.99 Outros Serviços Administrativos e Comerciais - FR 1.501.240 260.637
+1.6.1.1.02.0.0.00 Inscrição em Concursos e Processos Seletivos 7.331.376
+1.6.1.1.02.0.1.02 Serviços de Inscrição em Concursos Públicos - FR 1.501.240 6.866.420
+1.6.1.1.02.0.1.05 Serviços de Inscrição em Concursos Públicos - Vinculados à Educação - FR 68.685
+1.599.240
+1.6.1.1.02.0.1.06 Serviços de Inscrição no Vestibular - FR 1.599.240 396.271
+121
+ZA ESTADO DE SANTA CATARINA Desdobramento Receita
+T 3 RECURSOS DE TODAS AS FONTES
+Er
+(pa ea)
+Ano Base: 2026
+Em R$ 1,00
+cóBico CATEG. ECONOM,
+1.6.1.1.03.0.0.00 Serviços de Registro, Certificação e Fiscalização 50.135.333
+1.6.1.1.03.0.1.01 Serviços de Registro do Comércio 49.069.644
+1.6.1.1.03.0.1.03 Serviços de Inspeção de Produtos de Origem Animal 65.757
+1.6.1.1.03.0.1.06 Defesa Sanitária Animal 13.507
+1.6.1.1.03.0.1.07 Classificação de Produtos de Origem Vegetal 986.425
+1.6.3.0.00.0.0.00 Serviços e Atividades Referentes à Saúde 575.656.648
+1.6.3.2.00.0.0.00 Serviços de Assistência à Saúde de Servidores Civis e Militares 575.656.648
+1.6.3.2.01.0.0.00 Serviços de Assistência à Saúde Suplementar de Servidores Civis 464.345.040
+1.6.3.2.01.0.1.01 Contribuição do Associado Ativo - Poder Executivo (exceto Autarquias) 101.483.504
+1.6.3.2.01.0.1.02 Contribuição do Associado Ativo - Poder Judiciário 10.219.003
+1.6.3.2.01.0.1.03 Contribuição do Associado Ativo - Poder Legislativo 3.285.748
+1.6.3.2.01.0.1.04 Contribuição do Associado Ativo - Ministério Público 2.293.311
+1.6.3.2.01.0.1.05 Contribuição do Associado Ativo- Tribunal de Contas 492.840
+1.6.3.2.01.0.1.06 Contribuição do Associado Ativo - Autarquias 2.438.054
+1.6.3.2.01.0.1.07 Contribuição do Associado Ativo - Segurados Licenciados 547.246
+1.6.3.2.01.0.1.10 Contribuição do Associado Inativo - Poder Executivo (exceto Autarquias) 145.883.687
+1.6.3.2.01.0.1.11 Contribuição do Associado Inativo - Poder Judiciário 5.715.887
+1.6.3.2.01.0.1.12 Contribuição do Associado Inativo - Poder Legislativo 1.599.158
+1.6.3.2.01.0.1.13 Contribuição do Associado Inativo - Ministério Público 219.743
+1.6.3.2.01.0.1.14 Contribuição do Associado Inativo - Tribunal de Contas 352.633
+1.6.3.2.01.0.1.16 Contribuição do Associado Inativo - Serventuários da Justiça 1.275.367
+1.6.3.2.01.0.1.20 Contribuição do Associado Pensionista - Poder Executivo (exceto Autarquias) 18.077.608
+1.6.3.2.01.0.1.21 Contribuição do Associado Pensionista - Poder Judiciário 1.112.254
+1.6.3.2.01.0.1.23 Contribuição do Associado Pensionista - Ministério Público 81.709
+1.6.3.2.01.0.1.24 Contribuição do Associado Pensionista - Tribunal de Contas 155.295
+1.6.3.2.01.0.1.30 Contribuição do Agregado Ativo - Poder Executivo (exceto Autarquias) 10.532.560
+1.6.3.2.01.0.1.31 Contribuição do Agregado Ativo - Poder Judiciário 1.128.799
+1.6.3.2.01.0.1.32 Contribuição do Agregado Ativo - Poder Legislativo 507.365
+1.6.3.2.01.0.1.33 Contribuição do Agregado Ativo - Ministério Público 176.462
+1.6.3.2.01.0.1.34 Contribuição do Agregado Ativo- Tribunal de Contas 151.792
+1.6.3.2.01.0.1.35 Contribuição do Agregado Ativo - Autarquias 186.077
+1.6.3.2.01.0.1.40 Contribuição do Agregado Inativo - Poder Executivo (exceto Autarquias) 10.025.608
+122
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

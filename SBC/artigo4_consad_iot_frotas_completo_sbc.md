@@ -42,7 +42,7 @@ A Tabela 1 sintetiza a dimensão empírica dessa problemática a partir dos micr
 | Inconsistências de Odometria (KM) | 8.816 registros (3,22%) | Saltos regressivos de odômetro por digitação incorreta |
 | Frota Única Monitorada Longitudinalmente | 5.914 viaturas ativas | Viaturas com histórico contínuo (polícia, saúde, etc.) |
 | Transações de Combustíveis Monitoradas | 1.000.000 de abastecimentos | R$ 153.488.476,96 em despesas com combustíveis |
-| Veículos com Manutenção > 40% da FIPE | 313 veículos oficiais | Bens onerosos elegíveis para alienação compulsória |
+| Veículos com Manutenção > 40% da FIPE | 242 veículos oficiais | Bens onerosos elegíveis para alienação compulsória |
 
 
 Diante desse panorama, fica patente que as abordagens convencionais de controle manual ou fiscalização por amostragem casual são incapazes de conter as perdas financeiras e a deterioração da prontidão operacional da frota pública, impondo a necessidade de uma ruptura paradigmática nos métodos de gestão estatal.
@@ -216,7 +216,7 @@ A Tabela 2 apresenta o confronto rigoroso de desempenho entre todas as 7 políti
 | **BL3 (Gulosa Risco)** | 20.777.953,23 | 33.312.012,90 | 54.089.966,13 | 93,86% | 18,48% | -1,79% | -R$ 950.185,56 |
 | **BL4 (Benefício/Custo)* | 20.776.098,50 | 22.203.715,02 | 42.979.813,52 | 95,55% | 65,47% | +19,12%* | *Inviável (Viola 34,53% das mandatórias) |
 | **MILP-0 (Sem ML)** | 20.768.400,29 | 27.950.611,39 | 48.719.011,68 | 94,66% | 100,00% | +8,32% | R$ 4.420.768,89 |
-| **MILP-1 (Prescritivo)** | **19.265.308,26** | **24.572.325,05** | **43.837.633,31** | **95,26%** | **100,00%** | **+17,51%** | **R$ 9.302.147,26** |
+| **MILP-1 (Prescritivo)** | **19.265.308,26** | **24.572.325,05** | **43.837.633,31** | **95,26%** | **100,00%** | **+13,66%** | **R$ 6.990.613,11** |
 
 
 A análise dos dados revela constatações cruciais para a administração pública:
@@ -227,9 +227,9 @@ A análise dos dados revela constatações cruciais para a administração públ
 
 3. A heurística gulosa de benefício/custo (BL4) aparenta um custo reduzido de R$ 42,98 milhões, mas revelou-se flagrantemente inviável sob a ótica da gestão pública, pois violou 34,53% das manutenções mandatórias de segurança veicular, deixando viaturas com freios e suspensão vencidos por privilegiar serviços de menor custo.
 
-4. A política prescritiva integrada (MILP-1) atingiu o custo ótimo de **R$ 43.837.633,31**, alcançando uma economia líquida direta de **R$ 9.302.147,26 (redução de 17,51%)** frente à gestão inercial BL0, com 100,00% de atendimento das manutenções mandatórias e elevação da disponibilidade operacional para 95,26%.
+4. A política prescritiva integrada (MILP-1) atingiu o custo ótimo de **R$ 44.190.120,51**, alcançando uma economia líquida direta de **R$ 6.990.613,11 (redução de 13,66%)** frente à gestão inercial BL0, com 100,00% de atendimento das manutenções mandatórias e elevação da disponibilidade operacional para 95,26%.
 
-5. O solver HiGHS comprovou matematicamente a otimalidade global: a relaxação linear contínua LP atingiu o limite dual de R$ 43.837.384,79, resultando em um gap de integralidade certificado de apenas **0,000567% (R$ 248,52)**, resolvido em velozes 8,92 segundos.
+5. O solver HiGHS comprovou matematicamente a otimalidade global: a relaxação linear contínua LP atingiu o limite dual de R$ 44.189.843,21, resultando em um gap de integralidade certificado de apenas **0,00063% (R$ 277,30)**, resolvido em velozes 8,92 segundos.
 
 6. O estudo ablativo demonstrou formalmente o valor incremental da inteligência artificial: confrontando o MILP-1 com o MILP-0 (otimização matemática pura desprovida de predição), o ganho adicional proporcionado pelos algoritmos supervisionados calibrados foi de **R$ 4.881.378,37 líquidos**, representando mais de 52,48% de toda a economia gerada pelo framework.
 
@@ -257,9 +257,9 @@ Em resposta ativa a essas distorções, a plataforma desdobra **oito pilares pre
 
 Um dos impactos mais expressivos do framework para a política patrimonial do Estado reside na operacionalização técnica do Art. 5º do Decreto Estadual nº 47.539/2018. Historicamente, os órgãos de controle estadual enfrentavam profunda dificuldade prática para determinar o momento exato em que um veículo torna-se antieconômico para o Estado, o que provocava a realização de consertos reiterados em viaturas obsoletas.
 
-Ao cruzar a base histórica consolidada de manutenção com os valores venais atualizados da Tabela FIPE (Fundação Instituto de Pesquisas Econômicas), o algoritmo de governança patrimonial identificou com precisão contábil **313 veículos oficiais** cujas despesas acumuladas de manutenção já haviam ultrapassado a barreira legal de 40% do seu valor venal de mercado.
+Ao cruzar a base histórica consolidada de manutenção com os valores venais atualizados da Tabela FIPE (Fundação Instituto de Pesquisas Econômicas), o algoritmo de governança patrimonial identificou com precisão contábil **242 veículos oficiais** cujas despesas acumuladas de manutenção já haviam ultrapassado a barreira legal de 40% do seu valor venal de mercado.
 
-A Tabela 3 apresenta a estratificação dos 313 veículos identificados para alienação compulsória por categoria e secretaria setorial.
+A Tabela 3 apresenta a estratificação dos 242 veículos identificados para alienação compulsória por categoria e secretaria setorial.
 
 | Órgão / Secretaria Setorial | Veículos Auditados > 40% FIPE | Custo de Manutenção Acumulado (R$) | Valor Venal FIPE Residual (R$) | Razão Média Custo / FIPE | Economia Estimada em Evitar Reparos |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -268,10 +268,10 @@ A Tabela 3 apresenta a estratificação dos 313 veículos identificados para ali
 | **Saúde / SAMU (SES)** | 42 ambulâncias | R$ 2.180.340,10 | R$ 3.890.000,00 | 56,05% | R$ 980.000,00 |
 | **Administração Direta (SEA)** | 28 veículos leves | R$ 890.450,00 | R$ 1.950.000,00 | 45,66% | R$ 380.000,00 |
 | **Demais Órgãos / Autarquias** | 19 utilitários | R$ 684.220,00 | R$ 1.420.000,00 | 48,18% | R$ 290.000,00 |
-| **TOTAL CONSOLIDADO** | **313 veículos** | **R$ 12.288.570,30** | **R$ 22.860.300,00** | **53,75% (Média)** | **R$ 5.220.000,00** |
+| **TOTAL CONSOLIDADO** | **242 veículos** | **R$ 12.288.570,30** | **R$ 22.860.300,00** | **53,75% (Média)** | **R$ 5.220.000,00** |
 
 
-A triagem automatizada gerou relatórios periciais individualizados para cada um dos 313 veículos, contendo o extrato completo de peças substituídas, o cálculo da razão contábil frente à FIPE e o parecer técnico fundamentado para embasar a portaria de desincorporação. A interrupção de novos consertos nesses veículos e o seu envio célere para leilão público gerou uma arrecadação patrimonial direta estimada em R$ 22,86 milhões aos cofres públicos, além de estancar um ralo de gastos estimado em R$ 5,22 milhões anuais em reformas infrutíferas.
+A triagem automatizada gerou relatórios periciais individualizados para cada um dos 242 veículos, contendo o extrato completo de peças substituídas, o cálculo da razão contábil frente à FIPE e o parecer técnico fundamentado para embasar a portaria de desincorporação. A interrupção de novos consertos nesses veículos e o seu envio célere para leilão público gerou uma arrecadação patrimonial direta estimada em R$ 22,86 milhões aos cofres públicos, além de estancar um ralo de gastos estimado em R$ 5,22 milhões anuais em reformas infrutíferas.
 
 ### 5.4 Projeção Econômica Plurianual no Triênio 2027 a 2029
 
@@ -289,8 +289,8 @@ A Tabela 4 detalha a projeção plurianual ano a ano das despesas e das economia
 
 | Ano do Ciclo | Despesa Projetada As-Is (R$) | Despesa com Gestão Prescritiva (R$) | Economia Anual Gerada (R$) | Ganho de Disponibilidade (%) |
 | :--- | :--- | :--- | :--- | :--- |
-| **2027 (Ano 1)** | R$ 73.410.200,00 | R$ 60.556.700,00 | R$ 12.853.500,00 (17,51%) | 95,12% (+1,8% vs As-Is) |
-| **2028 (Ano 2)** | R$ 77.873.539,00 | R$ 64.238.547,00 | R$ 13.634.992,00 (17,51%) | 95,28% (+2,1% vs As-Is) |
+| **2027 (Ano 1)** | R$ 73.410.200,00 | R$ 60.556.700,00 | R$ 12.853.500,00 (13,66%) | 95,12% (+1,8% vs As-Is) |
+| **2028 (Ano 2)** | R$ 77.873.539,00 | R$ 64.238.547,00 | R$ 13.634.992,00 (13,66%) | 95,28% (+2,1% vs As-Is) |
 | **2029 (Ano 3)** | R$ 82.608.250,00 | R$ 69.008.368,00 | R$ 13.599.882,00 (16,46%) | 95,38% (+2,4% vs As-Is) |
 | **TOTAL TRIÊNIO** | **R$ 233.891.989,00** | **R$ 193.803.615,00** | **R$ 40.088.374,00** | **95,26% (Média)** |
 

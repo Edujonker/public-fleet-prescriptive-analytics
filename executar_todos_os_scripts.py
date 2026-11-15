@@ -14,6 +14,7 @@ Executa de ponta a ponta:
     06. Teoria dos Grafos e Redes Complexas Bipartidas
     07. Explicabilidade Algorítmica Auditável (SHAP / LIME)
     08. Otimização Prescritiva MILP (PuLP / HiGHS / Dual Simplex)
+    (04b, 04c e 07b alimentam a etapa 09)
     09. Validação Estatística Avançada e Certificação de Robustez
   Etapa 2: Compilação Completa da Dissertação em PDF ABNT com Figuras Integradas
 """
@@ -42,9 +43,12 @@ def main():
         ("dissertacao_frotas/src/02_preprocessamento.py", "02. Saneamento e Rastreabilidade Formal de Exclusões"),
         ("dissertacao_frotas/src/03_analise_descritiva.py", "03. Estatística Descritiva e Testes Não Paramétricos"),
         ("dissertacao_frotas/src/04_modelos_preditivos.py", "04. Modelagem Preditiva com Validação Temporal"),
+        ("dissertacao_frotas/src/04b_ablacao_h1.py", "04b. Ablação de H1 (M vs M+P vs M+P+A, IC 95% bootstrap)"),
+        ("dissertacao_frotas/src/04c_comparacao_svr_h2.py", "04c. H2: comparação com SVR/SVC (5 sementes, não inferioridade)"),
         ("dissertacao_frotas/src/05_deteccao_anomalias.py", "05. Detecção de Anomalias Calibrada com Estabilidade"),
         ("dissertacao_frotas/src/06_teoria_grafos.py", "06. Modelagem de Grafos e Comunidades de Oficinas"),
         ("dissertacao_frotas/src/07_explicabilidade_xai.py", "07. Explicabilidade Algorítmica (SHAP TreeExplainer / LIME)"),
+        ("dissertacao_frotas/src/07b_fidelidade_estabilidade_xai.py", "07b. H4: fidelidade e estabilidade SHAP/LIME"),
         ("dissertacao_frotas/src/08_otimizacao_milp.py", "08. Otimização Prescritiva MILP e Preços-Sombra"),
         ("dissertacao_frotas/src/09_validacao_estatistica.py", "09. Validação Estatística de Hipóteses (Wilcoxon/DeLong)"),
         ("scripts/compilar_dissertacao_mestrado_completa.py", "10. Compilação da Dissertação em PDF com Figuras Inline"),

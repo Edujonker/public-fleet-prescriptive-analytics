@@ -1,0 +1,74 @@
+PAGINA 838 DIÁRIO OFICIAL - SC - Nº 22671-A 08.01.2026 - QUINTA-FEIRA
+:- Já, ESTADO DE SANTA CATARINA Consolidado dos Quadros Sínteses
+mar
+Suape
+Ano Base: 2026
+ORÇAMENTO DE INVESTIMENTO
+ÓRGÃO : 41000 Secretaria-Gabinete Governador do Estado
+UNIDADE ORÇAMENTÁRIA : 41022 CELESC Distribuição S.A. Em R$ 1,00
+DETALHAMENTO DAS AÇÕES RECURSOS DE TODAS AS FONTES
+Linha construída km 1 375.854.500
+182.0192 Ampliação rede distribuição
+182.0192.000744 Ampliação rede distribuição elétrica
+Rede de distribuição urbana ampliada unidade 1 240.000.000
+182.0193 Melhoria e manutenção de linha alta tensão
+182.0193.000790 Melhoria e manutenção de linha alta tensão
+Linha de alta tensão mantida km 1 4.493.283
+182.0209 Construção de alimentadores
+182.0209.000922 Construção de alimentadores
+Alimentador de distribuição construído km 1 73.020.869
+182.0257 Atualização de equipamentos
+182.0257.014195 Aquisição de máquinas, ferramentas e equipamentos - Comercial
+Equipamento adquirido unidade 205 838.680
+182.0257.014196 Aquisição de máquinas, ferramentas e equipamentos - Distribuição
+Equipamento adquirido unidade 1 4.217.233
+182.0257.014197 Aquisição de mobiliário, conforto e ferramental
+Equipamento adquirido unidade 1 8.652.489
+182.0266 Manutenção em redes distribição
+182.0266.000797 Manutenção em redes distribuição
+Rede de distribuição mantida unidade 1 98.272.698
+182.0267 Melhoria rede distribuição elétrica
+182.0267.000812 Melhoria rede distribuição elétrica
+Rede de distribuição elétrica urbana melhorada unidade 1 110.000.000
+182.0272 Pesquisa e desenvolvimento
+182.0272.000949 Pesquisa e desenvolvimento
+Programa gerenciado unidade 1 16.559.179
+182.0607 Apropriação da mão de obra
+182.0607.014786 Apropriação da mão de obra
+Rede de distribuição ampliada % 1 103.340.000
+182.0976 Aquisição de equipamentos e materiais
+182.0976.000923 Equipamentos especiais rede e acessórios
+Equipamento e material adquirido unidade 1 27.150.949
+182.1059 Serviços de ligação nova
+182.1059.014194 Serviços de ligação nova
+1283
+&- Já, ESTADO DE SANTA CATARINA Consolidado dos Quadros Sínteses
+.
+ar
+Pot Er)
+Ano Base: 2026
+ORÇAMENTO DE INVESTIMENTO
+ÓRGÃO : 41000 Secretaria-Gabinete Governador do Estado
+UNIDADE ORÇAMENTÁRIA : 41022 CELESC Distribuição S.A. Em R$ 1,00
+DETALHAMENTO DAS AÇÕES RECURSOS DE TODAS AS FONTES
+Unidade comercial unidade 1 16.722.894
+182.1060 Aquisição de equipamentos
+182.1060.014193 Aquisição de equipamentos de ramais de entrada
+Cabos adquiridos m 1 2.314.459
+182.1141 Projeto telemedição
+182.1141.015077 Projeto telemedição grupo b - rede inteligente
+Programa gerenciado unidade 1 48.400.002
+182.1142 Licenciamento ambiental
+182.1142.015078 Levantamento Florestal de RCs e compensação ambiental
+Meio ambiente preservado unidade 1 165.022
+182.1267 Diárias investimento
+182.1267.015761 Diárias investimento
+Serviço realizado unidade 1 961.362
+182.1284 Frete de obras
+182.1284.015861 Frete de obras
+Frete contratado km 1 1.347.678
+TOTAL 1.581.712.848
+1284
+>]
+Diário Oficial Eletrônico de Santa Catarina. Documento assinado digitalmente conforme MP n. 2.200-2/2001de 24.8.2001, que incluiu a infraestrutura de chaves Pública Brasileira (ICP-Brasil), podendo ser acessado no endereço
+eletrônico http:// www.doe.sea.sc.gov.br.

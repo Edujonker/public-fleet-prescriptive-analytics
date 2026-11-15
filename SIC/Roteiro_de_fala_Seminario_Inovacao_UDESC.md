@@ -16,7 +16,7 @@
 
 ## Cap. 3 — Revisão de literatura — slides 4–5 | 1:30
 
-“Os métodos usados — modelos preditivos, SHAP, LIME, grafos, Louvain e MILP — são conhecidos. A pesquisa se posiciona pela integração e avaliação desses métodos em dados administrativos de uma frota pública catarinense, com orçamento, capacidade e obrigações explícitas. A comparação de SHAP e LIME encontrou concordância Top-5 de 39,29%; isso descreve este teste, não uma superioridade universal.”
+“Os métodos usados — modelos preditivos, SHAP, LIME, grafos, Louvain e MILP — são conhecidos. A pesquisa se posiciona pela integração e avaliação desses métodos em dados administrativos de uma frota pública catarinense, com orçamento, capacidade e obrigações explícitas. A comparação de SHAP e LIME encontrou concordância Top-5 de 45,48%; isso descreve este teste, não uma superioridade universal.”
 
 ## Cap. 4 — Proposta — slides 6–7 | 2:00
 
@@ -28,7 +28,7 @@
 
 “SHAP e LIME produzem explicações locais de formas diferentes. No MILP, cada intervenção é representada por uma escolha binária — realizar ou não — e o solver HiGHS busca o ótimo da formulação. O ótimo matemático não valida os dados nem garante impacto operacional. A rede e o Isolation Forest ajudam a selecionar registros para revisão; um agrupamento ou uma anomalia não prova causalidade, conluio ou fraude.”
 
-“No cenário S0, a diferença modelada entre BL0 e MILP-1 é de R$ 9,30 milhões, ou 17,51%, para 2.000 veículos durante 36 meses. É uma estimativa contrafactual, não economia realizada. Da mesma forma, os 313 veículos sinalizados são uma lista para avaliação patrimonial, não uma ordem de alienação.”
+“No cenário S0, a diferença modelada entre BL0 e MILP-1 é de R$ 6,99 milhões, ou 13,66%, para 2.000 veículos durante 36 meses. É uma estimativa contrafactual, não economia realizada. Da mesma forma, os 242 veículos sinalizados são uma lista para avaliação patrimonial, não uma ordem de alienação.”
 
 ## Caps. 6–7 — Discussões e conclusão — slide 14 | 2:00
 
@@ -43,9 +43,9 @@
 - **77.867** ordens de serviço; **350.737** itens de manutenção; **34.280** bens cadastrados.
 - **Neo4j:** 7.291 nós de veículos, 1.039 de oficinas e 25.122 relações carregadas.
 - **Louvain:** 18 comunidades, modularidade **Q = 0,5646** na rede avaliada; isso não prova irregularidade.
-- **S0:** redução potencial modelada de **17,51%** (cerca de **R$ 9,30 milhões**) para **2.000 veículos / 36 meses**; não é economia realizada.
+- **S0:** redução potencial modelada de **13,66%** (cerca de **R$ 6,99 milhões**) para **2.000 veículos / 36 meses**; não é economia realizada.
 - Disponibilidade média simulada: **95,26%**; atendimento das manutenções mandatórias codificadas: **100%**.
-- Concordância Top-5 SHAP × LIME: **39,29%**.
+- Concordância Top-5 SHAP × LIME: **45,48%**.
 
 ## Fontes
 

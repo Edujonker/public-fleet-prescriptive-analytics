@@ -88,7 +88,7 @@ def passing_bablok_regression(x, y):
     slopes = []
     # Subamostragem computacional se N muito grande
     max_pts = min(2000, n)
-    indices = np.random.choice(n, size=max_pts, replace=False)
+    indices = np.random.default_rng(42).choice(n, size=max_pts, replace=False)  # semente fixa: reprodutível
     x_sub = x[indices]
     y_sub = y[indices]
     m = len(x_sub)
@@ -330,7 +330,7 @@ def executar_modelagem():
 
     # Figura 2: Dispersão e Passing-Bablok
     fig, ax = plt.subplots(figsize=(7, 6))
-    sub_idx = np.random.choice(len(y_test_reg), size=min(1500, len(y_test_reg)), replace=False)
+    sub_idx = np.random.default_rng(42).choice(len(y_test_reg), size=min(1500, len(y_test_reg)), replace=False)
     ax.scatter(y_test_reg[sub_idx], preds_reg_dict["HistGradientBoosting"][sub_idx], alpha=0.3, color="#1f77b4", s=15, label="Observações de Teste")
     
     max_val = min(20000, max(y_test_reg[sub_idx].max(), preds_reg_dict["HistGradientBoosting"][sub_idx].max()))

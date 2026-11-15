@@ -1,7 +1,7 @@
 # Relatório de Auditoria Técnico-Científica dos Dados Brutos
 
-**Data e Hora de Execução:** 01/11/2026 13:58:05  
-**Duração da Execução:** 8.16 segundos  
+**Data e Hora de Execução:** 15/11/2026 15:26:29  
+**Duração da Execução:** 8.20 segundos  
 **Ambiente:** Python 3.12 (Linux x86_64) | Pandas 3.0.6  
 **Instituição:** PPGCAP / CCT / UDESC — Mestrado Acadêmico em Computação Aplicada  
 

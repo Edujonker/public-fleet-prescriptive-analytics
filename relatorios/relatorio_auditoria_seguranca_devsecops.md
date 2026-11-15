@@ -1,8 +1,8 @@
 # 🛡️ Relatório de Auditoria de Segurança DevSecOps & 'Security by Design'
 
-**Data da Emissão:** 01/11/2026 14:18:18  
-**Score Geral de Segurança:** `100.0/100.0`  
-**Arquivos Analisados:** `359`  
+**Data da Emissão:** 15/11/2026 15:38:53  
+**Score Geral de Segurança:** `82.0/100.0`  
+**Arquivos Analisados:** `532`  
 
 ## 1. Conformidade de Bancos de Dados & Armazenamento
 
@@ -14,7 +14,42 @@
 
 ## 2. Matriz de Ameaças Detectadas no Código e Sugestões de Correção
 
-✅ **Nenhuma ameaça identificada.** O código segue os padrões recomendados de DevSecOps, OWASP Top 10 e LGPD.
+### 1. [HIGH] Algoritmo de Hashing Fraco / Depreciado (MD5 / SHA1)
+
+- **Categoria:** `A02:2021 - Cryptographic Failures`
+- **Localização:** `scripts/gerar_relatorio_pbs.py` (Linha 277)
+- **Trecho do Código:**
+```
+hashes = {hashlib.md5(p.read_bytes()).hexdigest() for p in arquivos}
+```
+- **Diagnóstico de Ameaça:** Uso de funções hash vulneráveis a colisões para fins de segurança ou senhas.
+- **💡 Correção e Melhoria Recomendada:**
+> Para senhas, utilize exclusivamente Argon2id ou Bcrypt com salt. Para integridade geral de arquivos, prefira SHA-256 ou SHA-512.
+
+### 2. [HIGH] Algoritmo de Hashing Fraco / Depreciado (MD5 / SHA1)
+
+- **Categoria:** `A02:2021 - Cryptographic Failures`
+- **Localização:** `scripts/rsl_prisma.py` (Linha 354)
+- **Trecho do Código:**
+```
+md5 = hashlib.md5(path.read_bytes()).hexdigest()
+```
+- **Diagnóstico de Ameaça:** Uso de funções hash vulneráveis a colisões para fins de segurança ou senhas.
+- **💡 Correção e Melhoria Recomendada:**
+> Para senhas, utilize exclusivamente Argon2id ou Bcrypt com salt. Para integridade geral de arquivos, prefira SHA-256 ou SHA-512.
+
+### 3. [HIGH] Algoritmo de Hashing Fraco / Depreciado (MD5 / SHA1)
+
+- **Categoria:** `A02:2021 - Cryptographic Failures`
+- **Localização:** `scripts/gerar_protocolo_e_relatorio_rsl.py` (Linha 40)
+- **Trecho do Código:**
+```
+h = hashlib.md5()
+```
+- **Diagnóstico de Ameaça:** Uso de funções hash vulneráveis a colisões para fins de segurança ou senhas.
+- **💡 Correção e Melhoria Recomendada:**
+> Para senhas, utilize exclusivamente Argon2id ou Bcrypt com salt. Para integridade geral de arquivos, prefira SHA-256 ou SHA-512.
+
 
 ## 3. Práticas de Segurança em Vigor no Sistema (FROTAGOV)
 

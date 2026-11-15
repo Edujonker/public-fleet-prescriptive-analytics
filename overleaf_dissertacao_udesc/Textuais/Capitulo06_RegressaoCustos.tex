@@ -2,10 +2,7 @@
 \chapter{REGRESSÃO NÃO LINEAR DE CUSTOS, CONFRONTO COM SVR-RBF E HIPÓTESE H2}
 \label{cap:regressao}
 
-Avaliaram-se múltiplos regressores ensemble frente ao \textit{SVR-RBF} e à mediana histórica de custos. O modelo \textbf{HistGradientBoosting} obteve o menor RMSE (R\$ 3.780,20, redução de 9,97\% frente ao baseline), menor MAE entre os ensembles (R\$ 2.236,06) e tempo de treinamento de 1,8 segundos frente à inviabilidade computacional assintótica do SVR.
-
-O teste pareado de Wilcoxon com correção de Holm confirmou $p < 10^{-4}$, sustentando a Hipótese H2.
-
+Avaliaram-se regressores ensemble frente à mediana histórica de custos e ao \textit{SVR-RBF}. No treino completo, o \textbf{HistGradientBoosting} obteve MAE de R\$ 2.223,84 e RMSE de R\$ 3.769,31, contra R\$ 2.133,49 e R\$ 4.199,01 da mediana: erra mais nos casos típicos e menos nos extremos. Para comparar com o SVR-RBF, cujo custo cresce com o quadrado do tamanho do treino, todos os modelos foram treinados na mesma subamostra de 12.000 linhas, com cinco sementes (etapa 04c). O SVR-RBF teve MAE médio de R\$ 2.032,76, contra R\$ 2.253,97 do HistGradientBoosting, R\$ 2.287,94 do Random Forest e R\$ 2.285,71 do Extra Trees. Na classificação, os ensembles superaram o SVC-RBF (ROC-AUC 0,8627 contra 0,8163). Pelo critério de não inferioridade fixado antes da execução, os ensembles são competitivos na classificação, mas não na regressão, e a Hipótese H2 não é sustentada.
 \section{Estudo Ablativo Multimodal e Avaliação da Hipótese H1}
 
-O estudo ablativo confrontou modelos baseados exclusivamente em ordens de serviço (M) contra modelos integrados (M+P+A). A inclusão de dados multimodais reduziu o MAE em R\$ 9,47 por ordem de serviço (ganho de \textbf{+0,41\% [IC 95\%: 0,28\%; 0,54\%]}). Embora estatisticamente significante ($p < 10^{-15}$), o ganho não atingiu o patamar de relevância prática pré-registrado de 15,0\%. Portanto, \textbf{a Hipótese H1 é formalmente classificada como NÃO SUSTENTADA} sob a régua operacional pré-estabelecida.
+O estudo ablativo (etapa 04b) comparou o mesmo modelo com atributos de manutenção (M) e com manutenção e patrimônio (M+P); o abastecimento não pôde ser incluído porque sua base termina em fev/2022. A inclusão do patrimônio reduziu o MAE em R\$ 13,97 por veículo-mês (0,62\%; IC 95\%: -0,26\% a 1,52\%) e elevou a ROC-AUC em +0,0095 (IC 95\%: 0,0045 a 0,0146). Na comparação com o SVR-RBF prevista no anteprojeto, o HistGradientBoosting errou 8,65\% a mais na regressão (IC 95\%: 6,83\% a 10,52\%).

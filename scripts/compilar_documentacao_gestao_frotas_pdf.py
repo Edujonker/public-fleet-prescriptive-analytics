@@ -610,10 +610,7 @@ def compilar_documentacao_pdf():
 </html>
 """
 
-    # Nome solicitado pelo usuário (com espaço e caractere exato):
-    pdf_nome_usuario = BASE_DIR / "documentacao_gestão de fortas .pdf"
-    # Nome padronizado sem espaços:
-    pdf_nome_padrao = BASE_DIR / "documentacao_gestao_de_frotas.pdf"
+    pdf_nome_usuario = BASE_DIR / "documentacao_gestao_de_frotas.pdf"
     pdf_na_pasta_relatorios = PDF_DIR / "documentacao_gestao_de_frotas.pdf"
     pdf_na_pasta_docs = DOCS_DIR / "documentacao_gestao_de_frotas.pdf"
 
@@ -622,10 +619,8 @@ def compilar_documentacao_pdf():
     print(f"✓ PDF gerado com sucesso com nome exato solicitado: {pdf_nome_usuario.name}")
 
     # Criar cópias espelhadas
-    shutil.copy2(pdf_nome_usuario, pdf_nome_padrao)
     shutil.copy2(pdf_nome_usuario, pdf_na_pasta_relatorios)
     shutil.copy2(pdf_nome_usuario, pdf_na_pasta_docs)
-    print(f"✓ Cópia espelhada em: {pdf_nome_padrao}")
     print(f"✓ Cópia espelhada em: {pdf_na_pasta_relatorios}")
     print(f"✓ Cópia espelhada em: {pdf_na_pasta_docs}")
     print("=" * 70)
