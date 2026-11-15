@@ -1,0 +1,69 @@
+=== 2026-11-14 17:15:44 início da busca diária ===
+Consulta: ("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability") 
+
+▶ OpenAlex
+   OpenAlex: 1243 trabalhos correspondem à consulta
+   300 registros recebidos
+▶ Semantic Scholar
+   [SemanticScholar] HTTP 429; tentativa 1/5, aguardando 2s
+   Semantic Scholar: 980 trabalhos correspondem à consulta
+   300 registros recebidos
+
+480 registros únicos após unir as fontes (322 com os 3 grupos confirmados no título/resumo)
+Inéditos nesta execução (nunca vistos antes): 238
+   [  1] 2026_aziz_HumanAI_Governance_in_Project_Management_A_Concept_Centric_Systematic.pdf
+   [  2] 2026_ahmed_Artificial_Intelligence_for_Real_Time_External_Auditing_A_Technical_Fr.pdf
+   [  3] 2026_espinosa_Algorithmic_Justice_in_Colombia_between_Efficiency_and_Due_Process.pdf
+   [  4] 2026_singh_BLACK_BOX_MACHINE_LEARNING_MODELS_IN_FINANCE_A_COMPARATIVE_REVIEW_OF_P.pdf
+   [  5] 2026_hutabarat_Automated_Innovation_Accountability_and_Public_Protection_Under_State.pdf
+   [  6] 2026_ayu_A_Random_Forest_Based_AI_Decision_Support_System_for_an_Integrated_Ind.pdf
+   [  7] 2026_farrag_Editorial_AI_powered_insights_predicting_treatment_response_and_progno.pdf
+   [  8] 2026_noviya_Technology_Based_Law_Enforcement_Transformation_An_Analysis_of_Artific.pdf
+   [  9] 2026_limakrisna_From_Student_Risk_Prediction_to_Educational_Action_Integrating_Explain.pdf
+   [ 10] 2026_ali_Data_Driven_Evaluation_of_AI_Tool_Specific_Impacts_Equity_Disparities.pdf
+   [ 11] 2026_nuaim_Baseline_Predictive_Analysis_of_Saudi_Digital_Payment_Activity_Using_O.pdf
+   [ 12] 2026_bahida_Artificial_Intelligence_in_Auditing_and_Banking_Risk_Management_A_Bibl.pdf
+   [ 13] 2026_sajjad_From_Algorithmic_Anticipation_to_Normative_Accountability_A_Multimodal.pdf
+   [ 14] 2026_anon_Algorithmic_Transformation_Technological_Managerial_Social_and_Economi.pdf
+   [ 15] 2026_akbar_Hybrid_Residual_SARIMAX_XGBoost_for_Provincial_Rice_Production_Forecas.pdf
+   [ 16] 2026_nasar_A_Hybrid_Explainable_AI_Model_for_Accurate_andTransparent_Prediction_o.pdf
+   [ 17] 2026_majeed_AI_Enabled_Financial_Risk_Management_Framework_for_Debt_Financing_Deci.pdf
+   [ 18] 2026_jhanarra_Artificial_Intelligence_and_FinTech_Innovation_in_Emerging_Markets_The.pdf
+   [ 19] 2026_mvikweni_Algorithmic_Governance_and_Corporate_Accountability_A_Legal_Framework.pdf
+   [ 20] 2026_chibwe_Artificial_Intelligence_Enabled_Environmental_Social_and_Governance_ES.pdf
+   [ 21] 2026_devi_Stock_Market_Prediction_Using_Machine_Learning_A_Review_of_Techniques.pdf
+   [ 22] 2026_lonkar_Federated_Financial_Fraud_Detection_and_Investigation_Platform_using_M.pdf
+   [ 23] 2026_kayoom_DECISION_INTELLIGENCE_FRAMEWORK_INTEGRATING_BIG_DATA_ANALYTICS_FOR_ENT.pdf
+   [ 24] 2026_pasupuleti_Industrial_Predictive_Maintenance_Digital_Twin_System.pdf
+   [ 25] 2026_james_AI_Powered_Intelligent_Network_Automation_Framework_for_Future_Ready_E.pdf
+   [ 26] 2026_ofoma_CLOSING_THE_TAX_GAP_AN_ANALYTICS_BASED_FRAMEWORK_FOR_FRAUD_RISK_DETECT.pdf
+   [ 27] 2026_gayapu_Building_Efficient_Data_Management_Systems_in_Clinical_Trials_for_Neur.pdf
+   [ 28] 2026_chanchala_AI_driven_financial_advisory_and_behavioral_tax_planning_A_conceptual.pdf
+   [ 29] 2026_mudireddy_AI_Driven_Business_Intelligence_Framework_for_Real_Time_Decision_Makin.pdf
+   [ 30] 2026_hameed_Ethical_Risk_Mitigation_in_Artificial_Intelligence_Enabled_Healthcare.pdf
+   [ 31] 2026_abdalla_Artificial_Intelligence_and_Its_Impact_on_Building_an_Effective_Cybers.pdf
+   [ 32] 2026_eyinade_Artificial_Intelligence_in_Financial_Forecasting_Accuracy_and_Limitati.pdf
+   [ 33] 2026_kala_Ai_Ml_Based_Urban_Growth_Monitoring_Using_Remote_Sensing_Images_and_De.pdf
+   [ 34] 2026_sah_Digital_Twin_AI_Framework_for_Predictive_Manufacturing_Optimization_Ar.pdf
+   [ 35] 2026_faruk_Quantum_Resilient_Artificial_Intelligence_Systems_A_Review_of_Ethical.pdf
+   [ 36] 2026_pasupuleti_Integrated_Financial_and_Sustainability_Reporting_through_Multimodal_A.pdf
+   [ 37] 2026_pasupuleti_Blockchain_and_Post_Quantum_Accounting_Systems_for_Tamper_Resistant_Co.pdf
+   [ 38] 2026_anon_Artificial_Intelligence_in_Cybersecurity_A_Structured_Literature_Revie.pdf
+   [ 39] 2026_n_Machine_Learning_Approaches_for_Intelligent_Data_Governance.pdf
+   [ 40] 2026_edike_Artificial_Intelligence_Personalization_and_Customer_Engagement_A_Syst.pdf
+   [ 41] 2026_singh_SHAP_and_LIME_Explainability_in_Financial_Machine_Learning_A_Systemati.pdf
+   [ 42] 2026_ulambayar_Machine_learning_reduces_audit_detection_risk_in_3_3_million_public_se.pdf
+   [ 43] 2026_adawiyah_ALGORITHMIC_FAIRNESS_IN_BUSINESS_AND_SOCIAL_SCIENCES_A_BIBLIOMETRIC_RE.pdf
+   [ 44] 2026_soyemi_A_Hybrid_Stacked_Ensemble_Framework_for_Fraud_Detection_in_Nigerian_Fi.pdf
+   [ 45] 2026_sadia_Artificial_Intelligence_and_Blockchain_Enabled_Human_Resource_Analytic.pdf
+   [ 46] 2026_agyei_Data_ethics_and_privacy_in_machine_learning_driven_financial_systems_I.pdf
+   [ 47] 2026_demirer_The_Healthcare_Team_in_the_Age_of_Artificial_Intelligence_Digital_Tran.pdf
+   [ 48] 2026_mutaufiq_Development_of_a_Smart_Quality_Assurance_Framework_Based_on_Forensic_A.pdf
+   [ 49] 2026_alharbi_Enhancing_Trust_in_AI_Predictions_for_Education_An_Application_of_XAI.pdf
+   [ 50] 2026_mejri_Trust_by_design_in_AI_augmented_procurement_systems_the_roles_of_expla.pdf
+
+PDFs baixados nesta execução: 50
+Inéditos: 238 (lista em novos.csv)
+Relatórios: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos/atualizacoes/2026-11-14
+PDFs:       /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos
+=== 2026-11-14 17:21:14 fim (código 0) ===

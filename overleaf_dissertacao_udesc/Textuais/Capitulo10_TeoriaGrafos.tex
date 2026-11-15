@@ -14,3 +14,27 @@ A modelagem de redes articulou a rede bipartida entre 7.291 veículos e 1.039 of
 \end{figure}
 
 Ressalva-se que a identificação de agrupamentos densos opera estritamente como ferramenta de priorização amostral para auditoria, e não como comprovação de conluio.
+
+\section{Implementação da persistência em Neo4j}
+
+Como extensão de engenharia do estudo, foi implementado um protótipo local de banco de dados orientado a grafos com Neo4j Community 5.26. O propósito dessa etapa é persistir as entidades e relações da rede em uma estrutura navegável por consultas Cypher, complementando a análise estatística já realizada. Neo4j representa explicitamente nós, relacionamentos e propriedades, o que favorece consultas centradas em conexões entre entidades \cite{robinson2015graph}.
+
+\subsection{Modelo lógico e preparação}
+
+A carga usa o arquivo processado de ordens de serviço empregado no pipeline de grafos. São selecionados registros com situação \texttt{COBRADAS} e identificadores de veículo e estabelecimento preenchidos. Cada nó \texttt{FleetVehicle} representa um veículo; cada nó \texttt{FleetWorkshop}, um estabelecimento. A relação dirigida \texttt{SERVICED\_AT} representa a existência de registros de serviço para o par veículo--oficina e agrega a quantidade de linhas, o valor aprovado total e as datas mínima e máxima disponíveis.
+
+Para representar o compartilhamento de veículos, a carga também cria \texttt{SHARES\_VEHICLE} entre pares de oficinas que aparecem associados a pelo menos dois veículos em comum. Essa projeção permite consultar a rede de estabelecimentos sem eliminar a rede bipartida original. Os valores armazenados como quantidade de registros não devem ser interpretados automaticamente como ordens de serviço distintas: a unidade depende do grão da fonte processada.
+
+Os identificadores de origem são transformados com HMAC-SHA-256 e um segredo mantido localmente, seguindo a construção de autenticação baseada em hash descrita por \cite{rfc2104}; os identificadores originais não são armazenados no grafo. A seleção de atributos exclui placas, nomes, CPF/CNPJ, textos livres e registros de abastecimento. O serviço é executado em contêiner Docker com as portas vinculadas ao endereço de loopback, de modo que a implementação descrita é um protótipo local, não uma implantação em produção.
+
+\subsection{Carga e verificação}
+
+A execução da carga leu 77.867 registros processados, dos quais 60.114 atendiam aos filtros de situação e identificação. A soma dos valores aprovados associados a esses registros foi de R\$ 131.506.578,94; trata-se de uma agregação da fonte, não de economia estimada ou realizada. A verificação diretamente no Neo4j confirmou 7.291 nós \texttt{FleetVehicle}, 1.039 nós \texttt{FleetWorkshop} e 25.122 relações \texttt{SERVICED\_AT}. Na projeção de estabelecimentos, foram confirmados 803 nós participantes e 6.937 relações \texttt{SHARES\_VEHICLE}, aplicando o limiar de dois veículos compartilhados. As contagens foram comparadas com o lote preparado pelo carregador e registradas no relatório agregado de execução.
+
+Essa conferência valida a consistência da carga entre a preparação e o armazenamento; não demonstra, por si só, a validade substantiva dos dados de origem, nem a eficácia de consultas em uma operação administrativa real. Os resultados de 18 comunidades e modularidade Louvain $Q=0,5646$ continuam sendo os resultados do pipeline original de análise de redes. O protótipo aqui descrito não executou novamente Louvain no Neo4j e, portanto, não atribui esse resultado ao banco ou a uma biblioteca de algoritmos do Neo4j.
+
+\subsection{Uso analítico e limites}
+
+Consultas Cypher podem percorrer as relações para resumir veículos atendidos por estabelecimento, identificar vínculos compartilhados e selecionar amostras para inspeção documental. Essas consultas apoiam a navegação e a auditoria exploratória, mas centralidade, comunidades e valores de relacionamento dependem da definição da rede, do filtro de situação e do período observado. Uma conexão frequente ou posição estrutural não constitui evidência de irregularidade, conluio ou causalidade.
+
+O protótipo deve ser entendido como materialização reprodutível da representação relacional e ponto de partida para avaliação com usuários. Antes de qualquer uso operacional, seriam necessários controle de acesso e retenção institucional, avaliação de desempenho e qualidade, validação das consultas e dos algoritmos, análise de riscos de reidentificação e piloto supervisionado. Os resultados aqui apresentados não indicam economia realizada nem substituem a decisão administrativa.

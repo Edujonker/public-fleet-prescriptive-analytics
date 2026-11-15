@@ -1,5 +1,5 @@
 # Tabela Única de Resultados Oficiais e Evidências Experimentais Auditadas
-## Dissertação de Mestrado — PPGCAP / CCT / UDESC — Autor: Eduardo Lopes Jonker (2026)
+## Dissertação de Mestrado, PPGCAP / CCT / UDESC, Autor: Eduardo Lopes Jonker (2026)
 
 | ID | Categoria | Métrica / Indicador | Valor Oficial | Intervalo de Confiança / Incerteza | Experimento | N | Algoritmo / Método | Arquivo de Origem |
 | :---: | :--- | :--- | :---: | :---: | :--- | :---: | :--- | :--- |

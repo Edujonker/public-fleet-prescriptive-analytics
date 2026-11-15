@@ -1,0 +1,38 @@
+{
+  "generated_at_utc": "2026-11-12T13:52:30.779476+00:00",
+  "source_file": "dissertacao_frotas/dados/processados/os_consolidadas_processadas.parquet",
+  "source_sha256": "0cedc6f73196a0bf4c0eea5cbaba1b2af777a4aa73371f263cb34288c076e50b",
+  "database": "neo4j",
+  "graph_model": {
+    "nodes": [
+      "FleetVehicle",
+      "FleetWorkshop"
+    ],
+    "relationships": [
+      "SERVICED_AT",
+      "SHARES_VEHICLE"
+    ],
+    "projection_threshold": "At least two shared vehicles per workshop pair",
+    "identity_protection": "HMAC-SHA256 with local GRAPH_ID_SALT; raw source identifiers are not stored",
+    "excluded_fields": [
+      "license plates",
+      "names",
+      "tax identifiers",
+      "free-text notes",
+      "fuel transactions"
+    ]
+  },
+  "source_counts": {
+    "rows_read": 77867,
+    "charged_rows_with_both_ids": 60114,
+    "approved_value_total_reais": 131506578.94
+  },
+  "verified_neo4j_counts": {
+    "vehicle_count": 7291,
+    "workshop_count": 1039,
+    "service_edge_count": 25122,
+    "projected_workshop_count": 803,
+    "shared_workshop_edge_count": 6937
+  },
+  "interpretation": "Counts describe the imported, filtered graph and are not evidence of wrongdoing, causality, or real-world impact."
+}

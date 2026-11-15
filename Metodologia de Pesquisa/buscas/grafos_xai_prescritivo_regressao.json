@@ -1,0 +1,13 @@
+{
+  "nome": "Bancos de dados em grafos, XAI, modelos prescritivos e regressão linear",
+  "saida": "artigos/busca_grafos_xai_regressao",
+  "minimo_blocos": 3,
+  "ano_min": 2020,
+  "observacao": "Com os 4 blocos em AND o OpenAlex retornou 0 resultados (14/11/2026); por isso o padrão exige 3 de 4 blocos. 'optimization' é amplo e aumenta a revocação do bloco prescritivo.",
+  "grupos": {
+    "grafos": ["graph database", "graph databases", "Neo4j", "knowledge graph", "property graph"],
+    "xai": ["explainable artificial intelligence", "explainable AI", "XAI", "interpretable machine learning"],
+    "prescritivo": ["prescriptive analytics", "prescriptive model", "optimization", "decision support"],
+    "regressao": ["linear regression", "regression model", "regression analysis"]
+  }
+}

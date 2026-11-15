@@ -330,3 +330,741 @@ Para abrir o dashboard nativo de alto desempenho com tema Dark Moderno:
 * **🔄 Recarregar:** Força atualização imediata do cache de todas as 64 figuras acadêmicas.
 * **🤖 Copiloto de IA:** Abre a gaveta lateral de chat inteligente para diálogo em linguagem natural, acionamento por chips de sugestão e comandos de voz/texto.
 * **⚡ Aplicar & Recalcular Testes (Aba 10):** Permite alterar nível de significância ($\alpha$), frequência temporal (Mensal, Semanal, Diária) e horizonte prospectivo em tempo real.
+
+---
+
+---
+
+# 📚 Documentação Técnica do Sistema
+
+> Esta seção documenta a arquitetura, os módulos, as interfaces, os dados e os procedimentos técnicos do repositório. Ela é destinada a desenvolvedores, pesquisadores e auditores que necessitam compreender, reproduzir ou estender o sistema.
+
+---
+
+## 🗂️ Estrutura Completa do Repositório
+
+```
+Geral_de_OS_23439885_202609110934/
+│
+├── .env                                    # Variáveis de ambiente (segredos — nunca versionar)
+├── .env.example                            # Template de configuração para novos ambientes
+├── .gitignore                              # Arquivos/pastas excluídos do controle de versão
+├── pytest.ini                              # Configuração global dos testes (pytest)
+├── requirements.txt                        # Dependências raiz (ciência de dados + LGPD)
+├── executar_todos_os_scripts.py            # Orquestrador principal — pipeline completo de ponta a ponta
+├── executar_tudo.sh                        # Alternativa em shell script para Linux
+├── README.md                               # Este documento
+│
+├── dados/                                  # Dados brutos, intermediários e finais
+│   ├── Geral_de_OS_23439885_202609110934.csv          # Base bruta de OS (350.737 registros)
+│   ├── Cruzamento_Patrimonio_Manutencao.csv           # Cadastro patrimonial (dados M+P)
+│   ├── os_dataset_limpo.csv                           # Dataset saneado pelo Script 02
+│   ├── abastecimentos_processados.parquet             # Abastecimentos em formato colunar
+│   ├── resultados_dissertacao.db                      # SQLite com todos os resultados analíticos
+│   ├── sistema_seguro.db                              # SQLite da API FastAPI (usuários, auditoria)
+│   ├── trilha_auditoria_ledger.jsonl                  # Ledger append-only de auditoria imutável
+│   ├── dicionario_de_dados_banco.md                   # Dicionário formal dos campos e tabelas
+│   ├── os_anomalias.csv                               # Anomalias detectadas pelo Isolation Forest
+│   ├── anomalias_consolidadas_manutencao_e_combustivel.csv
+│   ├── abastecimentos_kpis.json                       # KPIs de abastecimento
+│   ├── abastecimentos_ml_analise.json                 # Resultados ML de abastecimentos
+│   ├── backups_dr/                                    # Backups de recuperação de desastre
+│   ├── nosql_store/                                   # Armazenamento NoSQL (Mongita)
+│   └── object_store/                                  # Armazenamento de objetos binários
+│
+├── src/                                    # Código-fonte principal
+│   ├── api/                                # API REST FastAPI (porta 8080)
+│   │   ├── main.py                         # Instância FastAPI, middlewares, rotas e assets estáticos
+│   │   ├── config.py                       # Configurações via Pydantic Settings V2 (.env)
+│   │   ├── database.py                     # SQLAlchemy 2.0 Async + inicialização de banco e seed
+│   │   ├── models.py                       # Modelos ORM: User, AuditLog, QueryRecord
+│   │   ├── schemas.py                      # Schemas Pydantic V2 de entrada/saída
+│   │   ├── security.py                     # JWT HS256, OAuth2, Argon2id, RBAC (RequireRole)
+│   │   ├── middlewares.py                  # SecurityHeadersMiddleware, LimitUploadSizeMiddleware
+│   │   └── routes/
+│   │       ├── auth.py                     # Endpoints de autenticação (token, login, register, me)
+│   │       └── assistant.py               # Endpoints do Copiloto de IA e pipeline analítico
+│   ├── enterprise/                         # Camada de infraestrutura corporativa
+│   │   ├── fleet_engine.py                 # Motor CRUD SQLite WAL para gestão operacional
+│   │   ├── iam.py                          # Identity & Access Management
+│   │   ├── audit_trail.py                  # Trilha de auditoria imutável
+│   │   ├── compliance.py                   # Conformidade LGPD / ISO 27001 / ISO 25010
+│   │   ├── gateway.py                      # API Gateway
+│   │   ├── reporting_bi.py                 # Business Intelligence e relatórios analíticos
+│   │   ├── observability.py                # Observabilidade, métricas e monitoramento
+│   │   ├── messaging.py                    # Mensageria assíncrona
+│   │   ├── storage.py                      # Abstração de armazenamento (local/object store)
+│   │   └── i18n.py                         # Internacionalização (PT-BR / EN)
+│   ├── ai_assistant.py                     # Motor do Copiloto de IA (FleetAIAssistant)
+│   ├── anonimizacao_lgpd.py               # Anonimização de PII via Microsoft Presidio
+│   ├── indicadores_gfi.py                  # Indicadores GFI (Gestão de Frotas e Indicadores)
+│   └── analises_comerciais.py              # Análises comerciais (TCO, CPK, Pareto ABC, ROI)
+│
+├── dissertacao_frotas/                     # Pipeline científico da dissertação
+│   ├── requirements.txt                    # Dependências específicas do pipeline científico
+│   ├── main.py                             # Ponto de entrada alternativo do pipeline
+│   └── src/
+│       ├── 01_auditoria_dados.py           # Auditoria forense SHA-256 e validação de integridade
+│       ├── 02_preprocessamento.py          # Saneamento, exclusões rastreáveis e feature engineering
+│       ├── 03_analise_descritiva.py        # Estatística descritiva e testes não paramétricos
+│       ├── 04_modelos_preditivos.py        # ML supervisionado com validação temporal Rolling-Origin
+│       ├── 05_deteccao_anomalias.py        # Isolation Forest com estabilidade Jaccard
+│       ├── 06_teoria_grafos.py             # Redes bipartidas e comunidades Louvain
+│       ├── 07_explicabilidade_xai.py       # SHAP TreeExplainer + LIME + importância por permutação
+│       ├── 08_otimizacao_milp.py           # MILP (PuLP + HiGHS) — 5 cenários orçamentários
+│       └── 09_validacao_estatistica.py     # Wilcoxon + DeLong + Holm-Bonferroni
+│
+├── sistema_gestao_frotas/                  # Sistema operacional completo de gestão de frotas
+│   ├── executar_sistema.py                 # Inicializador do sistema operacional
+│   ├── simulador_e_teste_completo_frota.py # Simulador end-to-end com 20 testes de integração
+│   ├── testar_sistema.py                   # Suite de testes unitários (15 testes)
+│   ├── iniciar_linux.sh / iniciar_windows.bat
+│   ├── backend/
+│   │   └── app/
+│   │       ├── main.py                     # FastAPI v2.0.0 com 10 routers e middlewares
+│   │       ├── config.py                   # Configurações do sistema operacional
+│   │       ├── database.py                 # Persistência via Mongita (MongoDB-compatible)
+│   │       ├── seed_data.py                # Dados de demonstração para validação
+│   │       ├── routes/                     # 10 routers: auth, assets, telemetry, maintenance,
+│   │       │                               #   fuel, trip, compliance, report, ai, contract_sc
+│   │       ├── services/                   # Camada de serviço por domínio funcional
+│   │       └── models/schemas.py           # Schemas Pydantic dos domínios operacionais
+│   └── frontend/
+│       ├── index.html                      # SPA principal do sistema operacional
+│       ├── js/ (api.js, app.js, map.js)    # Client da API, lógica e geolocalização
+│       └── css/                            # Estilos da interface
+│
+├── public-fleet-prescriptive-analytics/   # Sub-repositório git público e replicável
+│   ├── src/
+│   │   ├── anomaly/                        # Módulo de detecção de anomalias (Isolation Forest)
+│   │   ├── explainability/                 # XAI (SHAP + LIME)
+│   │   ├── graphs/                         # Teoria dos grafos (NetworkX + Louvain)
+│   │   ├── optimization/                   # Otimização MILP (PuLP + HiGHS)
+│   │   ├── predictive/                     # Modelos preditivos supervisionados
+│   │   └── preprocessing/                  # Pré-processamento e feature engineering
+│   ├── scripts/                            # Scripts 01–11 numerados e executáveis
+│   ├── config/                             # Configurações YAML do pipeline
+│   ├── requirements.txt                    # Dependências completas do sub-repositório
+│   ├── environment.yml                     # Ambiente Conda
+│   ├── CITATION.cff                        # Metadados de citação científica
+│   └── executar_tudo.py / .sh / .bat / .ps1
+│
+├── scripts/                                # Scripts auxiliares (40+ arquivos)
+│   ├── pipeline_metodologico_estatistico.py  # Pipeline estatístico completo
+│   ├── compilar_dissertacao_mestrado_completa.py
+│   ├── compilar_artigos_internacionais_pdf.py
+│   ├── gerar_relatorio_auditoria_pdf.py
+│   ├── gerar_relatorio_abastecimentos_pdf.py
+│   ├── auditoria_seguranca_devsecops.py
+│   ├── criar_tabela_veiculos_consolidada.py
+│   ├── gerar_dicionario_dados.py
+│   ├── processar_abastecimentos.py
+│   └── ...
+│
+├── charts/                                 # 36+ gráficos científicos (PNG, 300 DPI)
+├── dashboard/                              # Dashboard web estático (HTML/CSS/JS)
+├── relatorios/                             # Relatórios Markdown e JSON
+├── relatorios_pdf/                         # PDFs gerados (dissertação, artigos, auditoria)
+├── docs/                                   # Documentação complementar
+├── tests/                                  # Testes pytest do módulo enterprise
+│   └── test_enterprise_platform.py
+├── resultados/                             # Outputs analíticos dos scripts
+├── resultados_modelagem/                   # Outputs dos modelos ML e MILP
+└── versao_final_congelada/                 # Snapshot imutável da versão final da dissertação
+```
+
+---
+
+## 🏗️ Arquitetura do Sistema
+
+O sistema é composto por **quatro camadas arquiteturais** independentes que compartilham a mesma base de dados e infraestrutura:
+
+```
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                   CAMADA 1 — PIPELINE CIENTÍFICO                             │
+│         dissertacao_frotas/src/01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 → 09  │
+│   CSV Brutos → Auditoria → ML → Anomalias → Grafos → MILP → XAI → Validação │
+│                              ↓ gera                                          │
+│           Parquet · SQLite · CSVs · JSONs · Figuras PNG 300 DPI              │
+└──────────────────────────────────┬───────────────────────────────────────────┘
+                                   │ lê resultados
+┌──────────────────────────────────▼───────────────────────────────────────────┐
+│               CAMADA 2 — API FASTAPI DE PESQUISA (src/api/)                  │
+│     OAuth2/JWT · RBAC · Copiloto IA · Dashboard Estático · Porta 8080        │
+│       GET /api/status  POST /api/chat  POST /api/atualizar-graficos          │
+│       POST /api/gerar-relatorio  GET /api/relatorio/download                │
+│       POST /api/auth/token  POST /api/auth/login  GET /api/auth/me          │
+└──────────────────────────────────┬───────────────────────────────────────────┘
+                                   │ compartilha dados
+┌──────────────────────────────────▼───────────────────────────────────────────┐
+│         CAMADA 3 — SISTEMA OPERACIONAL DE FROTAS (sistema_gestao_frotas/)    │
+│     10 Routers FastAPI · MongoDB-compatible · Frontend HTML/JS · Porta 8000  │
+│   /api/assets  /api/maintenance  /api/fuel  /api/telemetry  /api/compliance  │
+│   /api/trip  /api/report  /api/ai  /api/contract_sc  /api/auth               │
+└──────────────────────────────────┬───────────────────────────────────────────┘
+                                   │ serviços transversais
+┌──────────────────────────────────▼───────────────────────────────────────────┐
+│              CAMADA 4 — MÓDULO ENTERPRISE (src/enterprise/)                  │
+│   FleetEngine · IAM · AuditTrail · Compliance · Gateway · BI · Observability │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## ⚙️ Módulos e Componentes Detalhados
+
+### Camada 1 — Pipeline Científico (`dissertacao_frotas/src/`)
+
+Cada script é **autossuficiente**, **idempotente** e produz artefatos rastreáveis em `dados/` e `charts/`.
+
+| Script | Descrição | Principais Saídas |
+|:---|:---|:---|
+| `01_auditoria_dados.py` | Verificação de integridade SHA-256 da base bruta, diagnóstico de 6.841 regressões de hodômetro, estatísticas de completude e geração de relatório forense | `dados/os_dataset_limpo.csv`, relatório de auditoria |
+| `02_preprocessamento.py` | Saneamento de valores nulos, outliers e inconsistências semânticas; construção do painel veículo-mês (51.244 instâncias); feature engineering (hodômetro acumulado, razão peça/MO, etc.) | `dados/os_dataset_limpo.csv` enriquecido, Parquet intermediários |
+| `03_analise_descritiva.py` | Estatística descritiva completa, testes de normalidade (Shapiro-Wilk / Lilliefors), diagnóstico de não-gaussianidade e fundação para modelos não-lineares | Figuras `fig01–fig04`, tabelas de distribuição |
+| `04_modelos_preditivos.py` | Validação temporal Rolling-Origin; Classificação de Risco (HistGB, RF, ET, DT, LR) com PR-AUC / ROC-AUC / Brier / ECE; Regressão de Custo não-linear com MAE / RMSE / R²; Estudo de ablação M vs M+P | Modelos serializados, tabelas comparativas, Figuras `fig07–fig12` |
+| `05_deteccao_anomalias.py` | Isolation Forest calibrado com 3 sementes; Índice de Jaccard por taxa de contaminação (1%–10%); teste t de concordância com reprovações reais | `dados/os_anomalias.csv`, Figuras `fig05–fig06`, `fig21` |
+| `06_teoria_grafos.py` | Rede bipartida veículos ↔ oficinas (NetworkX); algoritmo de Louvain para detecção de comunidades (Q=0,5646, 18 comunidades); centralidade de grau e betweenness | Grafo serializado, `fig22` equivalente |
+| `07_explicabilidade_xai.py` | SHAP TreeExplainer (valores globais e locais); LIME (explicações por perturbação local); importância por permutação em classificação e regressão | Figuras `fig13`, `fig31`, relatório XAI |
+| `08_otimizacao_milp.py` | Formulação MILP via PuLP; solver HiGHS (Dual Simplex + B&B); 5 cenários orçamentários (50%–150% do cenário base); preços-sombra e análise de sensibilidade | Figuras `fig14–fig15`, `fig32`, relatório prescritivo |
+| `09_validacao_estatistica.py` | Teste de Wilcoxon por pares (HistGB vs outros modelos); correção de Holm-Bonferroni; teste DeLong para comparação de AUCs; significância estatística a 5% | Tabela de p-valores ajustados, relatório de hipóteses |
+
+---
+
+### Camada 2 — API FastAPI de Pesquisa (`src/api/`)
+
+**Porta padrão:** `8080`  
+**Framework:** FastAPI 0.100+ com Pydantic V2 e SQLAlchemy 2.0 Async  
+**Banco de dados:** SQLite assíncrono (`dados/sistema_seguro.db`)
+
+#### Endpoints Disponíveis
+
+**Autenticação** (`/api/auth/`)
+
+| Método | Rota | Autenticação | Papel Mínimo | Descrição |
+|:---:|:---|:---:|:---:|:---|
+| `POST` | `/api/auth/token` | ❌ Público | — | OAuth2 Password Flow — retorna JWT |
+| `POST` | `/api/auth/login` | ❌ Público | — | Login via JSON estrito (Pydantic V2) |
+| `POST` | `/api/auth/register` | ✅ Bearer | `admin` | Cadastra novo usuário |
+| `GET` | `/api/auth/me` | ✅ Bearer | qualquer | Retorna dados do usuário autenticado |
+
+**Copiloto e Análises** (`/api/`)
+
+| Método | Rota | Autenticação | Papel Mínimo | Descrição |
+|:---:|:---|:---:|:---:|:---|
+| `GET` | `/api/status` | ❌ Público | — | Status operacional da API e do motor de IA |
+| `POST` | `/api/chat` | ❌ Público | — | Consulta em linguagem natural ao Copiloto de IA |
+| `POST` | `/api/atualizar-graficos` | ✅ Bearer | `pesquisador` | Recalcula pipeline estatístico com parâmetros customizados |
+| `POST` | `/api/gerar-relatorio` | ✅ Bearer | `auditor` | Compila dissertação em PDF via WeasyPrint |
+| `GET` | `/api/relatorio/download` | ❌ Público | — | Download do PDF compilado (proteção CWE-22) |
+| `GET` | `/api/comercial/resumo` | ❌ Público | — | KPIs comerciais consolidados (TCO, ABC, ROI) |
+| `GET` | `/api/comercial/detalhes` | ❌ Público | — | Payload completo das análises comerciais |
+
+**Interfaces Web (StaticFiles)**
+
+| URL | Conteúdo |
+|:---|:---|
+| `http://localhost:8080/dashboard/` | Dashboard interativo (HTML/CSS/JS) |
+| `http://localhost:8080/charts/` | Galeria de 36+ figuras científicas |
+| `http://localhost:8080/graficos/` | Figuras alternativas |
+| `http://localhost:8080/relatorios_pdf/` | PDFs gerados |
+| `http://localhost:8080/docs` | Swagger UI (OpenAPI 3.1) |
+| `http://localhost:8080/redoc` | ReDoc (documentação alternativa) |
+
+#### Modelos de Dados ORM
+
+```python
+# usuarios_seguros
+User(id, username, email, hashed_password, role, is_active, created_at)
+# role ∈ {"admin", "auditor", "pesquisador"}
+
+# trilha_auditoria
+AuditLog(id, username, action, details, ip_address, timestamp)
+
+# historico_consultas_ia
+QueryRecord(id, username, pergunta, categoria, sucesso, timestamp)
+```
+
+---
+
+### Camada 3 — Sistema Operacional de Frotas (`sistema_gestao_frotas/`)
+
+**Porta padrão:** `8000`  
+**Framework:** FastAPI 2.0.0  
+**Banco de dados:** Mongita (MongoDB-compatible, sem servidor externo)
+
+#### Routers Disponíveis
+
+| Router | Prefixo | Domínio Funcional |
+|:---|:---|:---|
+| `auth_router` | `/api/auth` | Autenticação e gestão de usuários do sistema operacional |
+| `assets_router` | `/api/assets` | CRUD de ativos veiculares (patrimônio, ficha cadastral, ciclo de vida) |
+| `telemetry_router` | `/api/telemetry` | Rastreamento GPS e telemetria IoT em tempo real |
+| `maintenance_router` | `/api/maintenance` | Ordens de serviço (preventiva, corretiva, preditiva) |
+| `fuel_router` | `/api/fuel` | Controle de abastecimentos e detecção de fraudes em cartão combustível |
+| `trip_router` | `/api/trip` | Despacho de viagens, checklist pré/pós e diário de bordo |
+| `compliance_router` | `/api/compliance` | Conformidade legal (Decreto Estadual nº 47.539/2018) |
+| `report_router` | `/api/report` | Geração de relatórios gerenciais e executivos |
+| `ai_router` | `/api/ai` | Analítica prescritiva e recomendações de manutenção com IA |
+| `contract_sc_router` | `/api/contract_sc` | Contratos de manutenção do Estado de Santa Catarina |
+
+#### Dashboards do Sistema Operacional
+
+| URL | Painel |
+|:---|:---|
+| `http://localhost:8000/` | SPA principal do sistema de gestão |
+| `http://localhost:8000/dashboard/` | Painel analítico de frotas |
+| `http://localhost:8000/anomalias` | Painel executivo de triagem de anomalias |
+| `http://localhost:8000/dashboard/abastecimentos` | Relatório interativo de combustíveis |
+| `http://localhost:8000/simulador` | Ambiente de testes e simulação da frota |
+| `http://localhost:8000/slides` | Apresentação SIC (slides HTML) |
+| `http://localhost:8000/api/health` | Liveness/readiness check |
+| `http://localhost:8000/api/docs` | Swagger UI do sistema operacional |
+
+---
+
+### Camada 4 — Módulo Enterprise (`src/enterprise/`)
+
+Infraestrutura corporativa transversal, consumida tanto pela API FastAPI quanto pelo sistema operacional.
+
+| Módulo | Classe / Função Principal | Responsabilidade |
+|:---|:---|:---|
+| `fleet_engine.py` | `FleetManagementEngine` | CRUD de veículos, motoristas, viagens, OS e abastecimentos via SQLite WAL |
+| `iam.py` | `IdentityAccessManager` | Controle de acesso baseado em papéis (RBAC), sessões e permissões granulares |
+| `audit_trail.py` | `AuditTrailManager` | Ledger JSONL append-only para rastreabilidade de todas as operações críticas |
+| `compliance.py` | `ComplianceEngine` | Verificações LGPD (Lei 13.709/2018), ISO 27001 e ISO 25010 |
+| `gateway.py` | `APIGateway` | Rate limiting, roteamento e interceptação de requisições |
+| `reporting_bi.py` | `BIReportingEngine` | Geração de relatórios analíticos, KPIs e exportações Excel/PDF |
+| `observability.py` | `ObservabilityModule` | Métricas de performance, alertas e monitoramento operacional |
+| `messaging.py` | `MessagingBus` | Mensageria assíncrona entre módulos (evento/observador) |
+| `storage.py` | `StorageAdapter` | Abstração de armazenamento (local, object store, NoSQL) |
+| `i18n.py` | `I18nManager` | Internacionalização PT-BR / EN para textos e relatórios |
+
+---
+
+## 🔐 Segurança — Security-by-Design
+
+O sistema implementa um modelo de segurança em profundidade com conformidade explícita a **OWASP Top 10** e **CWE**.
+
+### Autenticação e Autorização
+
+| Mecanismo | Implementação | Referência |
+|:---|:---|:---|
+| Hash de senhas | Argon2id (`argon2-cffi`: time_cost=3, memory_cost=64MB, parallelism=4) | OWASP A02 |
+| Token de acesso | JWT HS256 com `exp`, `iat`, `nbf` e `sub` | OWASP A07 |
+| Controle de acesso | RBAC com `RequireRole` injetável via `Depends()` | OWASP A01 |
+| Fluxo OAuth2 | OAuth2 Password Bearer compatível com Swagger UI | RFC 6749 |
+| Consultas SQL | SQLAlchemy 2.0 com bind parameters — nunca concatenação | CWE-89 |
+
+### Papéis e Permissões (RBAC)
+
+| Papel | Permissões |
+|:---|:---|
+| `admin` | Acesso total: criação de usuários, geração de relatórios, execução de pipelines, auditoria |
+| `auditor` | Geração de relatórios PDF, leitura de trilhas de auditoria, consultas analíticas |
+| `pesquisador` | Execução de pipelines, consultas ao Copiloto de IA, leitura de dados analíticos |
+
+### Headers HTTP de Segurança (Middleware)
+
+```
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Content-Security-Policy: default-src 'self'; ...
+X-Frame-Options: DENY
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Referrer-Policy: strict-origin-when-cross-origin
+```
+
+### Outras Proteções
+
+| Proteção | Implementação |
+|:---|:---|
+| Anti-DoS | Limite de payload HTTP: 1 MB (API pesquisa) / 10 MB (sistema operacional) |
+| Path Traversal | Validação canônica de caminhos antes de servir arquivos (`CWE-22`) |
+| Data Leakage | Exceptions globais não expõem stack traces ao cliente (`CWE-209`) |
+| Imutabilidade dos dados brutos | Hash SHA-256 verificado no Script 01 antes de qualquer processamento |
+| Ledger de auditoria | JSONL append-only em `dados/trilha_auditoria_ledger.jsonl` |
+| Anonimização PII | Microsoft Presidio Analyzer + Anonymizer com modelos spaCy PT/EN |
+| CORS | Lista explícita de origens — nunca wildcard `*` em produção (`CWE-942`) |
+
+---
+
+## 💾 Modelo de Dados
+
+### Banco de Dados Analítico (`dados/resultados_dissertacao.db`)
+
+Banco SQLite criado e gerenciado pelo `FleetManagementEngine` (modo WAL para alta concorrência).
+
+| Tabela | Descrição |
+|:---|:---|
+| `motoristas_autorizados` | Cadastro de condutores: CNH, categoria, validade, pontos e vínculo institucional |
+| `veiculos_frota` | Ficha patrimonial: placa, chassi, modelo, ano, hodômetro, status operacional |
+| `viagens` | Diário de bordo: origem, destino, hodômetro inicial/final, motorista, veículo |
+| `ordens_servico` | OS de manutenção: tipo (preventiva/corretiva/preditiva), peças, custos, oficina |
+| `abastecimentos` | Registros de combustível: tanque, km/L, cartão, bandeira de fraude |
+
+### Banco de Dados da API (`dados/sistema_seguro.db`)
+
+| Tabela | Descrição |
+|:---|:---|
+| `usuarios_seguros` | Usuários do sistema: credenciais Argon2id, papel RBAC, status |
+| `trilha_auditoria` | Log de ações sensíveis: login, criação de usuários, execução de pipelines |
+| `historico_consultas_ia` | Registro de todas as consultas ao Copiloto de IA |
+
+---
+
+## 🧪 Testes
+
+O projeto mantém duas suites de testes, configuradas em `pytest.ini`:
+
+```ini
+[pytest]
+testpaths = tests public-fleet-prescriptive-analytics/tests
+pythonpath = . public-fleet-prescriptive-analytics
+```
+
+### Execução
+
+```bash
+# Ativar ambiente virtual
+source .venv/bin/activate
+
+# Executar todos os testes (7 unitários + testes do sub-repositório)
+pytest
+
+# Execução com output detalhado
+pytest -v
+
+# Executar apenas testes enterprise
+pytest tests/test_enterprise_platform.py -v
+
+# Executar apenas testes do sub-repositório público
+pytest public-fleet-prescriptive-analytics/tests/ -v
+```
+
+### Resultados Certificados (Homologação Cross-Platform)
+
+| Suite | Testes | Status | Tempo |
+|:---:|:---:|:---:|:---:|
+| Enterprise Platform | 7/7 | ✅ PASSED | ~0,50s |
+| Sub-repositório Público | Passados | ✅ PASSED | — |
+| Sistema de Gestão de Frotas | 15 testes | ✅ PASSED | — |
+| Simulador End-to-End | 20 testes | ✅ PASSED | — |
+
+---
+
+## 🚀 Guia de Instalação e Execução
+
+### Pré-requisitos
+
+- Python 3.10+ (homologado em 3.10, 3.11, 3.12, 3.14 no Linux; 3.15 no Windows 11)
+- ~4 GB de espaço em disco (dados + modelos + PDFs)
+- ~4 GB de RAM (pipeline ML com datasets completos)
+
+### 1. Clonar e Configurar o Ambiente
+
+```bash
+# Clonar o repositório
+git clone <url-do-repositório>
+cd "Geral_de_OS_23439885_202609110934 (1)"
+
+# Criar e ativar ambiente virtual
+python3 -m venv .venv
+source .venv/bin/activate  # Linux/macOS
+# .venv\Scripts\activate   # Windows
+
+# Instalar dependências (camada de ciência de dados)
+pip install -r requirements.txt
+
+# Instalar dependências completas (pipeline científico + API + sistema operacional)
+pip install -r dissertacao_frotas/requirements.txt
+pip install -r public-fleet-prescriptive-analytics/requirements.txt
+```
+
+### 2. Configurar Variáveis de Ambiente
+
+```bash
+# Copiar template
+cp .env.example .env
+
+# Editar .env com sua SECRET_KEY (mínimo 32 caracteres)
+# Nunca use a chave padrão em produção
+nano .env
+```
+
+Variáveis obrigatórias:
+
+| Variável | Valor Padrão | Descrição |
+|:---|:---|:---|
+| `SECRET_KEY` | *(obrigatório)* | Chave HMAC-SHA256 ≥ 32 chars de alta entropia |
+| `ALGORITHM` | `HS256` | Algoritmo JWT |
+| `ACCESS_TOKEN_EXPIRE_MINUTES` | `60` | Tempo de vida do token JWT |
+| `DATABASE_URL` | `sqlite+aiosqlite:///./dados/sistema_seguro.db` | String de conexão assíncrona |
+| `ALLOWED_ORIGINS` | `["http://localhost:8080"]` | Lista de origens CORS permitidas |
+| `ENVIRONMENT` | `production` | Ambiente de execução |
+| `ADMIN_DEFAULT_USERNAME` | `admin_seguro` | Username do admin inicial |
+| `ADMIN_DEFAULT_EMAIL` | `admin@udesc.br` | E-mail do admin inicial |
+| `ADMIN_DEFAULT_PASSWORD` | *(ver .env)* | Senha do admin (Argon2id) |
+
+### 3. Executar o Pipeline Científico Completo
+
+```bash
+# Pipeline de ponta a ponta (20+ etapas: ~15–30 min com dataset completo)
+python3 executar_todos_os_scripts.py
+
+# Ou individualmente (recomendado para depuração)
+python3 dissertacao_frotas/src/01_auditoria_dados.py
+python3 dissertacao_frotas/src/02_preprocessamento.py
+# ... e assim por diante
+```
+
+### 4. Iniciar a API FastAPI (Pesquisa + Dashboard)
+
+```bash
+# Servidor FastAPI hardened (porta 8080)
+python3 run_fastapi.py
+
+# Acessar no navegador:
+# Dashboard:   http://localhost:8080/dashboard/
+# Swagger UI:  http://localhost:8080/docs
+# ReDoc:       http://localhost:8080/redoc
+# Status:      http://localhost:8080/api/status
+```
+
+### 5. Iniciar o Sistema Operacional de Gestão de Frotas
+
+```bash
+# A partir da raiz do repositório
+python3 sistema_gestao_frotas/executar_sistema.py
+
+# Ou diretamente pelo shell script:
+cd sistema_gestao_frotas && ./iniciar_linux.sh
+
+# Acessar no navegador:
+# Sistema:     http://localhost:8000/
+# Dashboard:   http://localhost:8000/dashboard/
+# Swagger UI:  http://localhost:8000/api/docs
+# Health:      http://localhost:8000/api/health
+```
+
+### 6. Iniciar o Copiloto de IA via CLI
+
+```bash
+# Modo interativo
+./assistente_ia.sh
+
+# Consulta única
+./assistente_ia.sh "Qual foi o modelo campeão de classificação?"
+python3 scripts/assistente_ia_prompt.py
+```
+
+### 7. Abrir o Aplicativo Desktop (PyQt6)
+
+```bash
+./iniciar_gui.sh
+```
+
+### 8. Executar o Sub-repositório Público Standalone
+
+```bash
+cd public-fleet-prescriptive-analytics
+
+# Linux/macOS
+./executar_tudo.sh
+
+# Windows
+executar_tudo.bat
+# ou
+python executar_tudo.py
+```
+
+---
+
+## 📦 Dependências por Camada
+
+### Dependências Científicas (`dissertacao_frotas/requirements.txt`)
+
+| Pacote | Versão Mín. | Uso |
+|:---|:---:|:---|
+| `pandas` | 2.2.0 | Manipulação de dados e painel veículo-mês |
+| `numpy` | 1.26.0 | Computação numérica vetorizada |
+| `scikit-learn` | 1.4.0 | Modelos ML, métricas, Rolling-Origin CV, Isolation Forest |
+| `scipy` | 1.12.0 | Testes estatísticos (Wilcoxon, Mann-Whitney, Kruskal-Wallis) |
+| `pulp` | 2.8.0 | Formulação de problemas MILP |
+| `highspy` | 1.7.0 | Solver HiGHS (Dual Simplex + Branch-and-Bound) |
+| `shap` | 0.45.0 | TreeExplainer para SHAP values (XAI) |
+| `lime` | 0.2.0 | Explicações locais por perturbação (XAI) |
+| `networkx` | 3.2.0 | Redes bipartidas e algoritmo de Louvain |
+| `matplotlib` | 3.8.0 | 36 figuras científicas a 300 DPI |
+| `seaborn` | 0.13.0 | Visualizações estatísticas |
+| `statsmodels` | 0.14.0 | ARIMA, ETS, teste ADF |
+| `pyarrow` | 15.0.0 | Armazenamento colunar Parquet |
+| `pytest` | 8.0.0 | Testes unitários e de integração |
+
+### Dependências da API FastAPI (`src/api/` — inferidas do código)
+
+| Pacote | Uso |
+|:---|:---|
+| `fastapi` | Framework web assíncrono |
+| `uvicorn` | Servidor ASGI de produção |
+| `sqlalchemy[asyncio]` ≥ 2.0 | ORM assíncrono |
+| `aiosqlite` | Driver SQLite assíncrono |
+| `pydantic-settings` ≥ 2 | Gerenciamento de configurações via `.env` |
+| `python-jose[cryptography]` | Codificação/decodificação JWT |
+| `argon2-cffi` | Hash Argon2id para senhas |
+| `passlib` | Fallback de verificação de senhas |
+
+### Dependências de Conformidade LGPD (`requirements.txt` raiz)
+
+| Pacote | Versão Mín. | Uso |
+|:---|:---:|:---|
+| `presidio-analyzer` | 2.2.364 | Detecção de PII (CPF, nome, e-mail, placa) |
+| `presidio-anonymizer` | 2.2.364 | Substituição de PII por tokens anônimos |
+| `faker` | 40.43.0 | Geração de dados sintéticos para testes |
+| `spacy` | 3.8.16 | Modelos NLP para reconhecimento de entidades |
+| `cryptography` | 48.0.1 | Criptografia geral (chaves, assinaturas) |
+| `weasyprint` | 70.0 | Geração de PDFs acadêmicos a 300 DPI |
+
+---
+
+## 📊 Artefatos Gerados pelo Sistema
+
+Após a execução completa do pipeline, os seguintes artefatos são produzidos:
+
+### Modelos e Dados Analíticos
+
+| Artefato | Localização | Descrição |
+|:---|:---|:---|
+| Dataset saneado | `dados/os_dataset_limpo.csv` | 350.737 OS após auditoria e saneamento |
+| Painel veículo-mês | `dados/` (Parquet) | 51.244 instâncias para modelagem preditiva |
+| Anomalias OS | `dados/os_anomalias.csv` | Ordens sinalizadas pelo Isolation Forest |
+| Anomalias consolidadas | `dados/anomalias_consolidadas_manutencao_e_combustivel.csv` | Manutenção + abastecimentos |
+| Banco analítico | `dados/resultados_dissertacao.db` | Todos os resultados em SQLite |
+| Ledger de auditoria | `dados/trilha_auditoria_ledger.jsonl` | Registro imutável de operações |
+
+### Figuras Científicas (`charts/`, 300 DPI)
+
+| Intervalo | Conteúdo |
+|:---|:---|
+| `fig01–fig04` | Auditoria e análise descritiva |
+| `fig05–fig06` | Estabilidade do Isolation Forest e validação cruzada |
+| `fig07–fig12` | Modelos preditivos (classificação e regressão) e ablação |
+| `fig13–fig15` | XAI, sensibilidade MILP e fronteira eficiente |
+| `fig16–fig20` | Distribuições, correlações e séries temporais Prophet |
+| `fig21–fig32` | Anomalias, composição de custos, Pareto, sazonalidade e diagnósticos |
+| `fig76–fig79` | Pipeline estatístico: normalidade, hipóteses, Poisson/Markov, ETS vs ARIMA |
+
+### Documentos PDF (`relatorios_pdf/`)
+
+| Documento | Descrição |
+|:---|:---|
+| `relatorio_dissertacao_completo.pdf` | Dissertação completa com figuras inline |
+| `relatorio_gerencial_frotas.pdf` | Relatório executivo de gestão |
+| `relatorio_auditoria.pdf` | Laudo forense de auditoria científica |
+| `relatorio_seguranca_normas.pdf` | Conformidade DevSecOps / OWASP / ISO |
+| `artigos_internacionais.pdf` | 4 artigos Qualis A1 (PT e EN) |
+| `relatorio_anomalias_detalhado.pdf` | Anomalias por secretaria estadual |
+| `dicionario_dados.pdf` | Dicionário de dados do banco |
+| `relatorio_abastecimentos.pdf` | Análise de combustíveis e fraudes |
+
+---
+
+## 🔄 Fluxo de Dados End-to-End
+
+```
+[Dados Brutos]
+     │
+     ▼
+dados/Geral_de_OS_*.csv  +  dados/Cruzamento_Patrimonio*.csv
+     │
+     ▼  Script 01 (SHA-256 + Diagnóstico)
+[Base Auditada]  →  dados/os_dataset_limpo.csv
+     │
+     ▼  Script 02 (Saneamento + Feature Engineering)
+[Painel Veículo-Mês 51.244 instâncias]
+     │
+     ├──▶ Script 03  →  Estatística Descritiva + Normalidade  →  charts/fig01-04, fig76
+     │
+     ├──▶ Script 04  →  ML Supervisionado (Rolling-Origin)    →  charts/fig07-12
+     │                   HistGB PR-AUC=0,9099 | MAE=R$2.311,82
+     │
+     ├──▶ Script 05  →  Isolation Forest (Jaccard=0,8811)     →  dados/os_anomalias.csv
+     │
+     ├──▶ Script 06  →  Redes Bipartidas (Louvain Q=0,5646)   →  charts/fig22
+     │
+     ├──▶ Script 07  →  XAI (SHAP + LIME + Permutação)        →  charts/fig13, fig31
+     │
+     ├──▶ Script 08  →  MILP (HiGHS) — Economia 17,51%        →  charts/fig14-15, fig32
+     │
+     └──▶ Script 09  →  Wilcoxon + Holm-Bonferroni            →  Tabela de p-valores
+              │
+              ▼
+     [dados/resultados_dissertacao.db]
+              │
+              ├──▶ API FastAPI (porta 8080)   →  /dashboard/  /api/chat  /docs
+              │
+              └──▶ Sistema Operacional (8000) →  /  /api/assets  /api/maintenance
+```
+
+---
+
+## 📖 Convenções de Código
+
+- **Estilo:** PEP 8 com docstrings em português (contexto acadêmico)
+- **Tipagem:** Anotações de tipo completas em toda a API FastAPI e módulos enterprise
+- **Comentários de Segurança:** Referências explícitas a CWE e OWASP em código sensível
+- **Nomes de Variáveis:** Snake_case; nomes descritivos em português para variáveis de domínio
+- **Idempotência:** Todo script do pipeline pode ser reexecutado sem efeitos colaterais destrutivos
+- **Rastreabilidade:** Toda exclusão de registro gera entrada explicativa no log de auditoria
+- **Sem Hardcode de Segredos:** Todos os segredos são carregados via `.env` por `pydantic-settings`
+
+---
+
+## 🗺️ Roteiro de Execução Recomendado
+
+Para reproduzir os resultados da dissertação do zero:
+
+```
+1. Instalar dependências              →  pip install -r requirements.txt (+ dissertacao_frotas/)
+2. Configurar .env                    →  cp .env.example .env && editar SECRET_KEY
+3. Script 01 — Auditoria              →  python3 dissertacao_frotas/src/01_auditoria_dados.py
+4. Script 02 — Pré-processamento      →  python3 dissertacao_frotas/src/02_preprocessamento.py
+5. Script 03 — Análise Descritiva     →  python3 dissertacao_frotas/src/03_analise_descritiva.py
+6. Script 04 — Modelos Preditivos     →  python3 dissertacao_frotas/src/04_modelos_preditivos.py
+7. Script 05 — Anomalias              →  python3 dissertacao_frotas/src/05_deteccao_anomalias.py
+8. Script 06 — Grafos                 →  python3 dissertacao_frotas/src/06_teoria_grafos.py
+9. Script 07 — XAI                    →  python3 dissertacao_frotas/src/07_explicabilidade_xai.py
+10. Script 08 — MILP                  →  python3 dissertacao_frotas/src/08_otimizacao_milp.py
+11. Script 09 — Validação Estatística →  python3 dissertacao_frotas/src/09_validacao_estatistica.py
+12. Pipeline Estatístico              →  python3 scripts/pipeline_metodologico_estatistico.py
+13. Testes                            →  pytest -v
+14. API FastAPI                       →  python3 run_fastapi.py
+```
+
+Ou simplesmente:
+```bash
+python3 executar_todos_os_scripts.py
+```
+
+---
+
+## 📬 Citação
+
+Se este repositório foi útil para sua pesquisa, por favor cite:
+
+```bibtex
+@mastersthesis{jonker2026prescritiva,
+  author  = {Eduardo Lopes Jonker},
+  title   = {Analítica Prescritiva e Inteligência Artificial Explicável
+             para a Gestão de Frota Veicular no Setor Público},
+  school  = {Universidade do Estado de Santa Catarina (UDESC) —
+             Programa de Pós-Graduação em Computação Aplicada (PPGCAP/CCT)},
+  year    = {2026},
+  address = {Florianópolis, SC, Brasil},
+  note    = {Repositório público: public-fleet-prescriptive-analytics}
+}
+```
+
+---
+
+*Documentação técnica gerada automaticamente a partir da análise do código-fonte. Última atualização: novembro de 2026.*

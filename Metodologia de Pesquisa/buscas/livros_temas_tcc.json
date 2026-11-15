@@ -1,0 +1,18 @@
+{
+  "nome": "Livros sobre os temas da dissertação",
+  "saida": "artigos/livros",
+  "origem_dos_temas": "Palavras-chave e capítulos de tcc_eduardo.pdf (analítica prescritiva; gestão de frotas públicas; teoria dos grafos; XAI; MILP; manutenção; anomalias; séries temporais; governança; método)",
+  "ano_min": 2000,
+  "temas": {
+    "01_analitica_prescritiva": ["prescriptive analytics", "decision analytics", "business analytics", "data-driven decision making"],
+    "02_frotas_e_manutencao": ["fleet management", "predictive maintenance", "maintenance management", "maintenance optimization", "reliability engineering", "asset management"],
+    "03_xai": ["explainable artificial intelligence", "explainable AI", "interpretable machine learning", "XAI"],
+    "04_grafos_e_redes": ["graph theory", "network science", "complex networks", "graph database", "graph databases", "Neo4j", "knowledge graph"],
+    "05_otimizacao_milp": ["integer programming", "mixed integer", "linear programming", "mathematical programming", "operations research"],
+    "06_aprendizado_estatistico": ["statistical learning", "predictive modeling", "regression analysis", "gradient boosting", "random forest"],
+    "07_anomalias_e_fraude": ["anomaly detection", "fraud detection", "outlier detection", "forensic accounting"],
+    "08_series_temporais": ["time series forecasting", "time series analysis", "forecasting methods"],
+    "09_governanca_setor_publico": ["data governance", "digital government", "public sector", "algorithmic accountability", "data protection", "public procurement"],
+    "10_metodo_de_pesquisa": ["systematic literature review", "systematic review", "CRISP-DM", "research methodology", "design science"]
+  }
+}

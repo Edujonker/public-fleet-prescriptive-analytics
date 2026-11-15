@@ -1,0 +1,14 @@
+▶ 01 identificação
+    {'bases': 691, 'outros': 4505}
+▶ 02 enriquecimento (OpenAlex por DOI)
+   resumos completados pelo OpenAlex: 1925
+▶ 03 deduplicação
+▶ 04 critérios objetivos
+▶ 05 triagem
+▶ 06 texto completo (1039 relatos)
+▶ 08 snowballing
+   regressivo: 3797 referências de 208 sementes
+   OpenAlex: consultando 2354 openalex_id(s) em lotes de 50
+   progressivo: 1718 citações recebidas
+▶ 09 qualidade e extração
+{"bases": 54, "outros": 164, "snowballing": 56} → total 274

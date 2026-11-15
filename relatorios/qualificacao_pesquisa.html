@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Relatório de Qualificação de Pesquisa - Eduardo Lopes Jonker</title>
+<style>
+    @page {
+        size: A4;
+        margin: 25mm 20mm 25mm 20mm;
+        @top-left {
+            content: "UNIVERSIDADE DO ESTADO DE SANTA CATARINA — PPGCAP / UDESC";
+            font-family: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
+            font-size: 7.5pt;
+            color: #64748b;
+            border-bottom: 0.5pt solid #cbd5e1;
+            padding-bottom: 4px;
+        }
+        @top-right {
+            content: "EXAME DE QUALIFICAÇÃO DE MESTRADO";
+            font-family: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
+            font-size: 7.5pt;
+            font-weight: bold;
+            color: #1e3a8a;
+            border-bottom: 0.5pt solid #cbd5e1;
+            padding-bottom: 4px;
+        }
+        @bottom-left {
+            content: "Eduardo Lopes Jonker • Relatório de Qualificação de Pesquisa";
+            font-family: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
+            font-size: 7.5pt;
+            color: #64748b;
+            border-top: 0.5pt solid #cbd5e1;
+            padding-top: 4px;
+        }
+        @bottom-right {
+            content: "Pág. " counter(page);
+            font-family: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
+            font-size: 8pt;
+            font-weight: bold;
+            color: #1e3a8a;
+            border-top: 0.5pt solid #cbd5e1;
+            padding-top: 4px;
+        }
+    }
+
+    @page:first {
+        margin-top: 20mm;
+        margin-bottom: 20mm;
+        @top-left { content: none; border: none; }
+        @top-right { content: none; border: none; }
+        @bottom-left { content: none; border: none; }
+        @bottom-right { content: none; border: none; }
+    }
+
+    body {
+        font-family: 'Liberation Serif', 'DejaVu Serif', 'Times New Roman', serif;
+        font-size: 11pt;
+        line-height: 1.5;
+        color: #1e293b;
+        text-align: justify;
+    }
+
+    h1, h2, h3, h4, h5 {
+        font-family: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
+        color: #0f2942;
+        font-weight: bold;
+        line-height: 1.25;
+        margin-top: 1.4em;
+        margin-bottom: 0.5em;
+        page-break-after: avoid;
+    }
+
+    h1 {
+        font-size: 15pt;
+        text-transform: uppercase;
+        border-bottom: 2pt solid #1e3a8a;
+        padding-bottom: 5px;
+        margin-top: 0;
+        margin-bottom: 0.9em;
+    }
+
+    h2 {
+        font-size: 12.5pt;
+        border-bottom: 1pt solid #cbd5e1;
+        padding-bottom: 3px;
+        margin-top: 1.2em;
+    }
+
+    h3 {
+        font-size: 11.5pt;
+        color: #1e3a8a;
+        margin-top: 1em;
+    }
+
+    h4 {
+        font-size: 11pt;
+        font-style: italic;
+        color: #334155;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 0.6em;
+        text-indent: 1.25cm;
+    }
+
+    p.no-indent {
+        text-indent: 0 !important;
+    }
+
+    .capa {
+        page-break-after: always;
+        text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .capa-instituicao {
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 11pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #0f2942;
+        line-height: 1.4;
+        margin-bottom: 3.5cm;
+    }
+
+    .capa-autor {
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 13pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #1e3a8a;
+        margin-bottom: 3cm;
+    }
+
+    .capa-titulo-box {
+        margin-bottom: 3cm;
+    }
+
+    .capa-titulo {
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 15.5pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 1.35;
+        color: #0f2942;
+        margin-bottom: 12px;
+    }
+
+    .capa-subtitulo {
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 11.5pt;
+        font-weight: normal;
+        color: #475569;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .capa-local-data {
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 10.5pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #334155;
+    }
+
+    .folha-rosto {
+        page-break-after: always;
+        height: 100%;
+    }
+
+    .folha-rosto-autor {
+        text-align: center;
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 12pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 3cm;
+    }
+
+    .folha-rosto-titulo {
+        text-align: center;
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 13.5pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 1.35;
+        color: #0f2942;
+        margin-bottom: 2.5cm;
+    }
+
+    .folha-rosto-preambulo-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 2cm;
+    }
+
+    .folha-rosto-preambulo {
+        width: 55%;
+        margin-left: 45%;
+        font-size: 10pt;
+        line-height: 1.4;
+        text-align: justify;
+        color: #334155;
+        border-left: 2pt solid #1e3a8a;
+        padding-left: 12px;
+    }
+
+    .folha-rosto-orientadores {
+        width: 55%;
+        margin-left: 45%;
+        font-size: 10pt;
+        line-height: 1.4;
+        margin-bottom: 2cm;
+    }
+
+    .folha-rosto-banca {
+        border: 1pt solid #cbd5e1;
+        background-color: #f8fafc;
+        border-radius: 4px;
+        padding: 10px 14px;
+        font-size: 9pt;
+        margin-bottom: 1.5cm;
+    }
+
+    .folha-rosto-banca h4 {
+        font-size: 9.5pt;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 6px;
+        color: #1e3a8a;
+    }
+
+    .folha-rosto-local-data {
+        text-align: center;
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 10.5pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #334155;
+    }
+
+    .page-break {
+        page-break-before: always;
+    }
+
+    .box-info {
+        background-color: #f0f7ff;
+        border-left: 4px solid #2563eb;
+        padding: 10px 14px;
+        margin: 14px 0;
+        font-size: 10pt;
+        border-radius: 0 4px 4px 0;
+    }
+
+    .box-alerta {
+        background-color: #fffbeb;
+        border-left: 4px solid #f59e0b;
+        padding: 10px 14px;
+        margin: 14px 0;
+        font-size: 10pt;
+        border-radius: 0 4px 4px 0;
+    }
+
+    .box-volpato {
+        background-color: #f5f3ff;
+        border-left: 4px solid #7c3aed;
+        padding: 10px 14px;
+        margin: 14px 0;
+        font-size: 10pt;
+        border-radius: 0 4px 4px 0;
+    }
+
+    .box-lgpd {
+        background-color: #ecfdf5;
+        border-left: 4px solid #10b981;
+        padding: 10px 14px;
+        margin: 14px 0;
+        font-size: 10pt;
+        border-radius: 0 4px 4px 0;
+    }
+
+    .box-math {
+        background-color: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        padding: 12px 16px;
+        margin: 14px 0;
+        font-size: 10pt;
+    }
+
+    table.academic {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 14px 0;
+        font-size: 9pt;
+        page-break-inside: avoid;
+    }
+
+    table.academic th {
+        background-color: #1e3a8a;
+        color: #ffffff;
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-weight: bold;
+        padding: 6px 8px;
+        border: 1px solid #1e3a8a;
+        text-align: left;
+        font-size: 8.5pt;
+    }
+
+    table.academic td {
+        padding: 5px 8px;
+        border: 1px solid #cbd5e1;
+        vertical-align: top;
+    }
+
+    table.academic tr:nth-child(even) {
+        background-color: #f8fafc;
+    }
+
+    .figure-container {
+        text-align: center;
+        margin: 16px 0;
+        page-break-inside: avoid;
+    }
+
+    .figure-container img {
+        max-width: 90%;
+        height: auto;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .figure-caption {
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 8.5pt;
+        font-weight: bold;
+        color: #1e293b;
+        margin-bottom: 5px;
+    }
+
+    .figure-source {
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 8pt;
+        color: #64748b;
+        margin-top: 4px;
+        font-style: italic;
+    }
+
+    ul, ol {
+        margin-top: 0;
+        margin-bottom: 0.6em;
+        padding-left: 1.25cm;
+    }
+
+    li {
+        margin-bottom: 0.3em;
+        text-align: justify;
+    }
+
+    .badge-check {
+        color: #16a34a;
+        font-weight: bold;
+    }
+
+    .badge-cross {
+        color: #dc2626;
+        font-weight: bold;
+    }
+
+    .math-eq {
+        text-align: center;
+        font-style: italic;
+        margin: 8px 0;
+        font-size: 10.5pt;
+    }
+
+    .gantt-bar-blue {
+        background-color: #2563eb;
+        color: white;
+        text-align: center;
+        font-size: 7pt;
+        font-weight: bold;
+        border-radius: 3px;
+        padding: 2px 0;
+    }
+
+    .gantt-bar-green {
+        background-color: #059669;
+        color: white;
+        text-align: center;
+        font-size: 7pt;
+        font-weight: bold;
+        border-radius: 3px;
+        padding: 2px 0;
+    }
+
+    .gantt-bar-purple {
+        background-color: #7c3aed;
+        color: white;
+        text-align: center;
+        font-size: 7pt;
+        font-weight: bold;
+        border-radius: 3px;
+        padding: 2px 0;
+    }
+
+    .gantt-bar-amber {
+        background-color: #d97706;
+        color: white;
+        text-align: center;
+        font-size: 7pt;
+        font-weight: bold;
+        border-radius: 3px;
+        padding: 2px 0;
+    }
+</style>
+</head>
+<body>
+
+<!-- CAPA INSTITUCIONAL -->
+<div class="capa">
+    <div class="capa-instituicao">
+        UNIVERSIDADE DO ESTADO DE SANTA CATARINA — UDESC<br>
+        CENTRO DE CIÊNCIAS TECNOLÓGICAS — CCT<br>
+        PROGRAMA DE PÓS-GRADUAÇÃO EM COMPUTAÇÃO APLICADA — PPGCAP<br>
+        LINHA DE PESQUISA: METODOLOGIA E TÉCNICAS DE COMPUTAÇÃO (MTC)
+    </div>
+
+    <div class="capa-autor">
+        EDUARDO LOPES JONKER
+    </div>
+
+    <div class="capa-titulo-box">
+        <div class="capa-titulo">
+            ANALÍTICA PRESCRITIVA, TEORIA DOS GRAFOS E INTELIGÊNCIA ARTIFICIAL EXPLICÁVEL PARA A GESTÃO DE FROTA VEICULAR NO SETOR PÚBLICO
+        </div>
+        <div class="capa-subtitulo">
+            RELATÓRIO DO EXAME DE QUALIFICAÇÃO DE DISSERTAÇÃO DE MESTRADO
+        </div>
+    </div>
+
+    <div class="capa-local-data">
+        JOINVILLE — SC<br>
+        2026
+    </div>
+</div>
+
+<!-- FOLHA DE ROSTO -->
+<div class="folha-rosto">
+    <div class="folha-rosto-autor">
+        EDUARDO LOPES JONKER
+    </div>
+
+    <div class="folha-rosto-titulo">
+        ANALÍTICA PRESCRITIVA, TEORIA DOS GRAFOS E INTELIGÊNCIA ARTIFICIAL EXPLICÁVEL PARA A GESTÃO DE FROTA VEICULAR NO SETOR PÚBLICO
+    </div>
+
+    <div class="folha-rosto-preambulo-container">
+        <div class="folha-rosto-preambulo">
+            Documento de Qualificação apresentado ao Programa de Pós-Graduação em Computação Aplicada (PPGCAP) do Centro de Ciências Tecnológicas da Universidade do Estado de Santa Catarina (UDESC), como requisito indispensável para a prestação do Exame de Qualificação de Mestrado em Computação Aplicada.<br><br>
+            <strong>Área de Concentração:</strong> Computação Aplicada<br>
+            <strong>Linha de Pesquisa:</strong> Metodologia e Técnicas de Computação (MTC)
+        </div>
+    </div>
+
+    <div class="folha-rosto-orientadores">
+        <strong>Orientadora:</strong> Profa. Dra. Vivian Kremer Kalempa<br>
+        <strong>Coorientador:</strong> Prof. Dr. Yuri Kaszubowski Lopes
+    </div>
+
+    <div class="folha-rosto-banca">
+        <h4>Comissão Examinadora da Qualificação de Mestrado:</h4>
+        <div style="margin-bottom: 4px;">• <strong>Profa. Dra. Vivian Kremer Kalempa</strong> — Presidente / Orientadora (UDESC / PPGCAP)</div>
+        <div style="margin-bottom: 4px;">• <strong>Prof. Dr. Yuri Kaszubowski Lopes</strong> — Coorientador (UDESC / PPGCAP)</div>
+        <div style="margin-bottom: 4px;">• <strong>Prof(a). Dr(a). [Examinador Interno]</strong> — Membro Titular Interno (UDESC)</div>
+        <div>• <strong>Prof(a). Dr(a). [Examinador Externo]</strong> — Membro Titular Externo (Instituição Convidada)</div>
+    </div>
+
+    <div class="folha-rosto-local-data">
+        JOINVILLE — SC<br>
+        2026
+    </div>
+</div>
+
+<!-- RESUMO E LISTA DE SIGLAS -->
+<div class="page-break">
+    <h1>RESUMO EXECUTIVO DA QUALIFICAÇÃO</h1>
+    
+    <div class="box-volpato">
+        <strong>Finalidade do Documento perante a Banca Examinadora:</strong> O presente relatório de qualificação tem por escopo comprovar a solidez epistemológica, a fundamentação teórica, a completude metodológica, a exatidão das ferramentas computacionais e a factibilidade do cronograma da pesquisa de mestrado. Conforme as diretrizes acadêmicas, o exame de qualificação não exige resultados empíricos congelados e definitivos, mas requer a demonstração irrefutável de que a base científica é firme, que os dados estão plenamente saneados e que a pesquisa é factível e original.
+    </div>
+
+    <p>
+        A gestão de frotas públicas sob o império da Lei de Responsabilidade Fiscal (LC nº 101/2000) e da Nova Lei de Licitações (Lei nº 14.133/2021) opera historicamente sob rotinas reativas e fragmentação informacional entre cadastro patrimonial, ordens de serviço mecânicas e módulos de abastecimento. Esta dissertação propõe, desenvolve e avalia uma arquitetura analítico-prescritiva orientada por dados reais, integrando aprendizado de máquina supervisionado calibrado, explicabilidade algorítmica (XAI), teoria dos grafos e otimização por programação linear inteira mista (MILP). O universo empírico censitário compreende 350.737 registros de ordens de serviço (outubro/2020 a agosto/2026), 7.580 veículos únicos e R$ 138,76 milhões em dispêndio aprovado no âmbito do Poder Executivo do Estado de Santa Catarina.
+    </p>
+
+    <p>
+        A investigação apoia-se estritamente no <strong>Método Lógico para Redação e Condução Científica de Gilson Volpato</strong>, distinguindo com rigor a significância estatística da relevância prática operacional. O protocolo experimental implementa validação sequencial temporal (<em>walk-forward</em> 5 dobras e <em>holdout</em> canônico) com embargo estrito de 30 dias para expurgo de viés de antecipação (<em>lookahead bias</em>). Os resultados preliminares homologados certificam: (1) saneamento de 6.841 regressões de hodômetro e conciliação contábil entre R$ 198,81M orçados e R$ 60,05M retidos em glosas; (2) estabilização do <em>Isolation Forest</em> com concordância significativa frente a reprovações fiscais reais (p = 0,000426); (3) superioridade do <em>HistGradientBoosting</em> com PR-AUC de 0,9510 e ROC-AUC de 0,8743 na classificação de risco e MAE de R$ 2.236,06 na regressão de custos; (4) falseamento da hipótese de integração multimodal com ganho marginal de +0,41%, classificada como não sustentada sob o critério de corte pré-estabelecido de 15%; (5) prescrição exata via MILP com solver <em>HiGHS</em> proporcionando economia contrafactual simulada de R$ 9.302.147,26 (17,51%) sob 100% de atendimento das manutenções mandatórias de segurança; (6) auditoria XAI revelando concordância moderada entre SHAP e LIME (Jaccard Top-5 de 39,29%), sustentando a necessidade de cautela no uso de aproximações locais; e (7) detecção de 18 comunidades regionais de oficinas com modularidade Louvain Q = 0,5646. A infraestrutura e os resultados contam com fechamento numérico exato e reprodutibilidade multiplataforma certificada em Linux e Windows 11.
+    </p>
+
+    <p class="no-indent">
+        <strong>Palavras-chave:</strong> Gestão de Frotas Públicas; Analítica Prescritiva; Programação Linear Inteira Mista (MILP); Inteligência Artificial Explicável (XAI); Teoria dos Grafos; Método Lógico de Volpato; Aprendizado de Máquina.
+    </p>
+
+    <h2 style="margin-top: 1.5em;">LISTA DE SIGLAS E ABREVIATURAS</h2>
+    <table class="academic">
+        <tr>
+            <th style="width: 25%;">Sigla</th>
+            <th>Significado e Descrição Conceitual</th>
+        </tr>
+        <tr>
+            <td><strong>CRISP-DM</strong></td>
+            <td><em>Cross-Industry Standard Process for Data Mining</em> (Metodologia de mineração de dados)</td>
+        </tr>
+        <tr>
+            <td><strong>ECE</strong></td>
+            <td><em>Expected Calibration Error</em> (Erro de Calibração Esperado de probabilidades preditas)</td>
+        </tr>
+        <tr>
+            <td><strong>GFI</strong></td>
+            <td>Gestão de Frota por Indicadores (Metodologia e Cartilha oficial da SEA/SC)</td>
+        </tr>
+        <tr>
+            <td><strong>LGPD</strong></td>
+            <td>Lei Geral de Proteção de Dados Pessoais (Lei Federal nº 13.709/2018)</td>
+        </tr>
+        <tr>
+            <td><strong>LIME</strong></td>
+            <td><em>Local Interpretable Model-agnostic Explanations</em> (Aproximações lineares locais)</td>
+        </tr>
+        <tr>
+            <td><strong>LRF</strong></td>
+            <td>Lei de Responsabilidade Fiscal (Lei Complementar Federal nº 101/2000)</td>
+        </tr>
+        <tr>
+            <td><strong>MAE</strong></td>
+            <td><em>Mean Absolute Error</em> (Erro Médio Absoluto)</td>
+        </tr>
+        <tr>
+            <td><strong>MILP</strong></td>
+            <td><em>Mixed-Integer Linear Programming</em> (Programação Linear Inteira Mista)</td>
+        </tr>
+        <tr>
+            <td><strong>OS</strong></td>
+            <td>Ordem de Serviço (Registro formal de serviços de manutenção mecânica)</td>
+        </tr>
+        <tr>
+            <td><strong>PPGCAP</strong></td>
+            <td>Programa de Pós-Graduação em Computação Aplicada (UDESC)</td>
+        </tr>
+        <tr>
+            <td><strong>PR-AUC</strong></td>
+            <td><em>Precision-Recall Area Under the Curve</em> (Área sob a Curva de Precisão-Revogação)</td>
+        </tr>
+        <tr>
+            <td><strong>ROC-AUC</strong></td>
+            <td><em>Receiver Operating Characteristic - Area Under the Curve</em></td>
+        </tr>
+        <tr>
+            <td><strong>SEA/SC</strong></td>
+            <td>Secretaria de Estado da Administração do Governo do Estado de Santa Catarina</td>
+        </tr>
+        <tr>
+            <td><strong>SHAP</strong></td>
+            <td><em>Shapley Additive exPlanations</em> (Atribuição de atributos via Teoria dos Jogos Cooperativos)</td>
+        </tr>
+        <tr>
+            <td><strong>SVR-RBF</strong></td>
+            <td><em>Support Vector Regression with Radial Basis Function kernel</em></td>
+        </tr>
+        <tr>
+            <td><strong>TCE-SC</strong></td>
+            <td>Tribunal de Contas do Estado de Santa Catarina</td>
+        </tr>
+        <tr>
+            <td><strong>XAI</strong></td>
+            <td><em>Explainable Artificial Intelligence</em> (Inteligência Artificial Explicável)</td>
+        </tr>
+    </table>
+</div>
+
+<!-- CAPÍTULO 1: INTRODUÇÃO -->
+<div class="page-break">
+    <h1>1. INTRODUÇÃO, JUSTIFICATIVA E DELIMITAÇÃO DO PROBLEMA</h1>
+
+    <h2>1.1 Contextualização do Tema</h2>
+    <p>
+        A gestão de transportes e frotas institucionais na administração pública brasileira constitui uma função estratégica indispensável para o cumprimento das atividades finalísticas do Estado. As viaturas de radiopatrulhamento policial, as ambulâncias do Serviço de Atendimento Móvel de Urgência (SAMU), os caminhões e viaturas de combate a incêndio do Corpo de Bombeiros Militar, os veículos de fiscalização tributária e ambiental, bem como a logística de transporte escolar e de saúde demandam elevados índices de disponibilidade mecânica e rigorosa previsibilidade orçamentária.
+    </p>
+    <p>
+        Entretanto, o ambiente de gestão pública é caracterizado por severas assimetrias de informação e fragmentação cadastral. Historicamente, os sistemas corporativos operam em silos informacionais isolados: o cadastro patrimonial armazena atributos estáticos do bem (ano, marca, modelo, tombamento contábil e depreciação); o sistema de ordens de serviço (OS) registra itens de revisão, peças substituídas e horas de mão de obra cotadas por oficinas credenciadas; e o módulo de telemetria ou abastecimento capta o volume transacionado, tipo de combustível e hodômetro pontual. A ausência de uma arquitetura analítica integrada condena os gestores públicos à adoção de práticas puramente reativas, aguardando a ocorrência da falha mecânica para a abertura emergencial da ordem de serviço, resultando em sobrecustos de guincho, indisponibilidade prolongada e custos inflacionados de peças emergenciais.
+    </p>
+
+    <h2>1.2 Justificativa Técnico-Científica, Econômica e Social</h2>
+    <p>
+        A relevância e a urgência desta pesquisa justificam-se sob três pilares indissociáveis:
+    </p>
+    <ul>
+        <li><strong>Pilar Econômico e Fiscal:</strong> A base empírica censitária do Estado de Santa Catarina analisada nesta dissertação revela um dispêndio bruto orçado de <strong>R$ 198.806.964,49</strong> ao longo de 71 meses, resultando em <strong>R$ 138.759.653,82</strong> efetivamente liquidados após a retenção de <strong>R$ 60.047.310,67</strong> em glosas e correções promovidas pela fiscalização contratual. A introdução de modelos de analítica prescritiva capazes de economizar entre 10% e 17% dos recursos correntes viabiliza a economia direta de dezenas de milhões de reais, permitindo o reaportamento em áreas sociais prioritárias como saúde, educação e segurança pública.</li>
+        <li><strong>Pilar Jurídico e Governança Pública:</strong> Sob a ótica da Lei de Responsabilidade Fiscal (Lei Complementar nº 101/2000) e da Nova Lei de Licitações e Contratos Administrativos (Lei Federal nº 14.133/2021), a administração pública é estritamente vinculada ao princípio da eficiência e do planejamento com base no ciclo de vida dos bens públicos. No âmbito estadual, os Decretos nº 1.488/2008 e nº 2.056/2009 balizam a frota catarinense, e a recente <em>Cartilha de Gestão de Frota por Indicadores</em> (GFI - SEA/SC, 2026) fixou 38 indicadores mandatórios. Decisões discricionárias de manutenção ou substituição sem suporte analítico robusto e auditável expõem os gestores a sanções dos órgãos de controle externo (TCE-SC).</li>
+        <li><strong>Pilar Científico e Tecnológico:</strong> A ampla maioria dos estudos em manutenção preditiva e prescritiva na literatura internacional (e.g., Bertsimas & Kallus, 2020; Cao et al., 2023) baseia-se em dados industriais simulados, plantas de manufatura controladas ou frotas privadas homogêneas. A modelagem sobre frotas públicas reais impõe desafios computacionais complexos: distribuições de custos assimétricas com caudas pesadas (<em>fat-tailed</em>), dados ausentes, inconsistências de preenchimento humano de hodômetros, restrições financeiras vinculadas à Lei Orçamentária Anual (LOA) e o imperativo ético e legal de explicabilidade das decisões algorítmicas (XAI).</li>
+    </ul>
+
+    <h2>1.3 Delimitação do Problema</h2>
+    <p>
+        O presente estudo delimita-se à frota oficial veicular rodoviária gerida centralizadamente pela Secretaria de Estado da Administração do Governo do Estado de Santa Catarina (SEA/SC). O horizonte temporal abrange o período censitário longitudinal contínuo de <strong>outubro de 2020 a agosto de 2026</strong> (71 meses), totalizando <strong>77.867 ordens de serviço consolidadas</strong>, decompostas em <strong>350.737 registros analíticos de itens e serviços</strong>, distribuídos em <strong>7.580 veículos únicos</strong> atendidos por <strong>1.039 oficinas credenciadas</strong> em todas as mesorregiões do estado.
+    </p>
+    <p>
+        O escopo computacional concentra-se na formulação de suporte à decisão para: (a) detecção não supervisionada de anomalias em faturamentos; (b) predição de probabilidade calibrada de ocorrência de falha corretiva em horizonte mensal futuro (t+1); (c) estimação do custo condicional esperado de reparo; (d) auditoria de explicabilidade local e global dos modelos; (e) otimização prescritiva exata do cronograma de intervenções preventivas sob limites orçamentários mensais e capacidade de rede credenciada; e (f) análise estrutural da rede de oficinas e agrupamentos de falhas mecânicas via Teoria dos Grafos.
+    </p>
+
+    <h2>1.4 Delineamento Epistemológico segundo o Método Lógico de Gilson Volpato</h2>
+    <p>
+        A concepção epistemológica e a estrutura do argumento científico desta dissertação ancoram-se estritamente no <strong>Método Lógico para Redação e Condução Científica</strong> formulado pelo Prof. Gilson Luiz Volpato (UNESP) (Volpato, 2015, 2017). Três postulados fundamentais norteiam a condução do estudo:
+    </p>
+
+    <div class="box-volpato">
+        <strong>Os Três Pilares Basilares do Método Lógico de Volpato nesta Dissertação:</strong>
+        <ol style="margin-top: 6px; margin-bottom: 0;">
+            <li><strong>O Conteúdo Precede a Forma:</strong> A pesquisa estrutura-se como um argumento dedutivo fechado. A partir de uma lacuna epistemológica concreta (como otimizar a manutenção pública com garantias formais de explicabilidade e auditabilidade sob restrições legais?), derivam-se a pergunta norteadora e quatro hipóteses falseáveis com critérios de corte pré-estabelecidos;</li>
+            <li><strong>Rejeição a Receitas Prontas e ao P-Hacking:</strong> Rejeita-se categoricamente o cruzamento exploratório indiscriminado de variáveis sem sustentação teórica prévia (<em>data dredging</em>). Todas as variáveis e relações funcionais foram definidas <em>a priori</em>, com imposição de barreiras metodológicas estritas (embargo temporal de 30 dias) para impedir contaminação temporal (<em>lookahead bias</em>);</li>
+            <li><strong>Distinção Epistemológica entre Significância Estatística e Relevância Prática Operacional:</strong> Em bases massivas censitárias com N > 350.000, qualquer diferença ínfima alcança significância estatística (p &lt; 0,001). Volpato adverte que confundir significância com relevância é um erro grave de raciocínio. Nesta dissertação, fixa-se <em>a priori</em> o patamar de <strong>15,0% de ganho marginal relativo</strong> como régua mandatória de relevância prática para validar hipóteses de integração multimodal.</li>
+        </ol>
+    </div>
+</div>
+
+<!-- CAPÍTULO 2: PERGUNTA, HIPÓTESES E OBJETIVOS -->
+<div class="page-break">
+    <h1>2. PERGUNTA DE PESQUISA, HIPÓTESES E OBJETIVOS</h1>
+
+    <h2>2.1 Pergunta de Pesquisa Central</h2>
+    <p>
+        Diante da ineficiência das práticas reativas tradicionais e dos imperativos legais de planejamento fiscal na administração pública, a presente pesquisa é norteada pela seguinte questão científica fundamental:
+    </p>
+    <div class="box-info" style="font-size: 11pt; font-weight: bold; text-align: justify;">
+        "Como conceber, validar e avaliar uma arquitetura computacional analítico-prescritiva orientada por dados empíricos censitários que integre aprendizado de máquina calibrado, inteligência artificial explicável (XAI), teoria dos grafos e otimização inteira mista (MILP), de modo a antecipar falhas críticas, minimizar custos de manutenção sob restrições fiscais estritas e fornecer suporte à decisão auditável para a gestão de frotas no setor público?"
+    </div>
+
+    <h2>2.2 As Quatro Hipóteses Centrais de Pesquisa (H1 a H4)</h2>
+    <p>
+        Em consonância direta com o método lógico dedutivo de Volpato (2017), formulam-se quatro proposições científicas falseáveis, vinculadas a critérios formais pré-fixados de avaliação:
+    </p>
+
+    <table class="academic">
+        <tr>
+            <th style="width: 15%;">Hipótese</th>
+            <th style="width: 25%;">Enunciado Científico</th>
+            <th style="width: 30%;">Tipo Lógico de Pesquisa</th>
+            <th>Critério de Falseamento / Corte</th>
+        </tr>
+        <tr>
+            <td><strong>Hipótese H1</strong><br>(Integração Multimodal)</td>
+            <td>A fusão preditiva de bases heterogêneas (cadastro patrimonial, ordens de serviço e abastecimento) reduz o erro de predição de custo e eleva o PR-AUC frente a modelos alimentados exclusivamente por ordens de serviço mecânicas.</td>
+            <td>Associação Empírica sem Interferência (Observacional comparativa)</td>
+            <td><strong>Ganho relativo &ge; 15,0%</strong> de redução no MAE out-of-time. Caso o ganho seja inferior a 15%, a hipótese é classificada como <em>não sustentada</em> sob o critério de relevância prática, independentemente do p-valor.</td>
+        </tr>
+        <tr>
+            <td><strong>Hipótese H2</strong><br>(Superioridade Não Linear)</td>
+            <td>Modelos <em>ensemble</em> baseados em árvores particionadas superam regressores paramétricos lineares e algoritmos de suporte (SVR-RBF) em acurácia e viabilidade computacional sob distribuições não Gaussianas com caudas pesadas.</td>
+            <td>Associação Empírica sem Interferência (Confronto de Modelos)</td>
+            <td>Superação do SVR-RBF e da mediana histórica em MAE e RMSE, com teste pareado de Wilcoxon (p &lt; 0,05 ajustado por Holm) e tempo de treinamento viável (&lt; 60s).</td>
+        </tr>
+        <tr>
+            <td><strong>Hipótese H3</strong><br>(Eficácia Prescritiva MILP)</td>
+            <td>A programação linear inteira mista orientada por probabilidades calibradas gera uma política contrafactual de intervenções preventivas com custo total esperado significativamente inferior à política inercial sob o mesmo orçamento mensal (Bt).</td>
+            <td>Associação com Interferência Prescritiva (Otimização Contrafactual)</td>
+            <td>Redução comprovada do custo total (To-Be &lt; As-Is), convergência com MIP Gap de 0,0000% via solver HiGHS e 100% de cumprimento das preventivas mandatórias de segurança.</td>
+        </tr>
+        <tr>
+            <td><strong>Hipótese H4</strong><br>(Concordância e Auditabilidade XAI)</td>
+            <td>As explicações de atribuição local de características geradas por SHAP e LIME exibem convergência estrutural estrita, sustentando a intercambialidade direta dos métodos e a suficiência de métricas univariadas perante órgãos de fiscalização (TCE-SC).</td>
+            <td>Associação Empírica com Triangulação de Explicabilidade</td>
+            <td><strong>Similaridade de Jaccard no Top-5 de atributos &ge; 85,0%</strong> e correlação de postos de Spearman (&rho; &ge; 0,80). Valores abaixo desse limiar rejeitam a intercambialidade direta.</td>
+        </tr>
+    </table>
+
+    <h2>2.3 Objetivo Geral</h2>
+    <p>
+        Desenvolver, calibrar, avaliar e documentar uma arquitetura computacional analítico-prescritiva de suporte à decisão para a gestão de frota veicular no setor público, fundamentada em dados censitários longitudinais do Estado de Santa Catarina, integrando detecção de anomalias, modelagem preditiva calibrada de risco e custo, explicabilidade algorítmica (XAI), análise de redes por teoria dos grafos e otimização inteira mista (MILP) sob restrições orçamentárias e de capacidade operacional.
+    </p>
+
+    <h2>2.4 Objetivos Específicos</h2>
+    <p>
+        Para atingir o objetivo geral e responder à pergunta de pesquisa, estabelecem-se sete objetivos específicos:
+    </p>
+    <ol>
+        <li><strong>Auditoria e Saneamento Estrutural:</strong> Processar, higienizar e auditar a base censitária bruta de 350.737 itens de OS (2020 a 2026), resolvendo a inconsistência de 6.841 regressões de hodômetro via validação monotônica temporal e desambiguando as discrepâncias semânticas entre tipos de manutenção;</li>
+        <li><strong>Validação Não Supervisionada de Anomalias:</strong> Avaliar a estabilidade paramétrica multissemente do algoritmo <em>Isolation Forest</em> via Índice de Similaridade de Jaccard e testar sua aderência contra dados reais de glosas e reprovações administrativas da SEA/SC;</li>
+        <li><strong>Modelagem Preditiva Supervisionada de Risco e Custo:</strong> Treinar, calibrar e comparar algoritmos de Aprendizado de Máquina sob validação temporal em 5 dobras expansivas (<em>walk-forward</em>) com embargo estrito de 30 dias para predição da probabilidade de falha e estimação de despesa futura;</li>
+        <li><strong>Estudo de Ablação Multimodal de Fontes:</strong> Mensurar formalmente o ganho preditivo marginal decorrente da integração dos dados de cadastro patrimonial e abastecimento frente à base exclusiva de ordens de serviço, avaliando a Hipótese H1;</li>
+        <li><strong>Triangulação de Explicabilidade Algorítmica (XAI):</strong> Confrontar as atribuições locais geradas por SHAP e LIME sobre instâncias auditadas, quantificando a concordância estrutural e os fatores determinantes de risco para auditoria fiscal perante o TCE-SC;</li>
+        <li><strong>Formulação e Otimização Prescritiva (MILP):</strong> Estruturar o modelo matemático de Programação Linear Inteira Mista bi-critério (custo direto vs risco operacional) sujeito a tetos orçamentários mensais e capacidade de rede credenciada, resolvendo-o exatamente com o solver <em>HiGHS</em>;</li>
+        <li><strong>Modelagem Estrutural via Teoria dos Grafos:</strong> Mapear a rede bipartida entre veículos oficiais e oficinas credenciadas, detectando comunidades regionais via algoritmo de Louvain e identificando gargalos e co-ocorrências de falhas mecânicas.</li>
+    </ol>
+</div>
+
+<!-- CAPÍTULO 3: REFERENCIAL TEÓRICO -->
+<div class="page-break">
+    <h1>3. REFERENCIAL TEÓRICO E REVISÃO DA LITERATURA</h1>
+
+    <h2>3.1 Paradigmas da Engenharia de Manutenção Veicular</h2>
+    <p>
+        A literatura clássica e contemporânea em confiabilidade e engenharia de manutenção classifica a evolução dos processos de intervenção em quatro estágios fundamentais:
+    </p>
+
+    <table class="academic">
+        <tr>
+            <th style="width: 20%;">Paradigma</th>
+            <th style="width: 25%;">Princípio Operacional</th>
+            <th style="width: 25%;">Vantagens e Benefícios</th>
+            <th>Limitações Críticas no Setor Público</th>
+        </tr>
+        <tr>
+            <td><strong>1. Reativo / Corretivo</strong></td>
+            <td>Intervenção emergencial disparada exclusivamente após a ocorrência da falha mecânica funcional.</td>
+            <td>Custos nulos de monitoramento preventivo; aproveitamento integral da vida útil de componentes não críticos.</td>
+            <td>Indisponibilidade imprevisível de viaturas de segurança/saúde; custos inflacionados de guincho e reparos em cascata.</td>
+        </tr>
+        <tr>
+            <td><strong>2. Preventivo Periódico</strong></td>
+            <td>Intervenções pré-programadas baseadas em cronogramas fixos de tempo transcorrido ou quilometragem acumulada.</td>
+            <td>Previsibilidade básica de paradas; redução de falhas catastróficas em componentes críticos.</td>
+            <td>Substituição prematura de peças íntegras; consumo antecipado de orçamento sem considerar o perfil severo de uso.</td>
+        </tr>
+        <tr>
+            <td><strong>3. Preditivo (CBM)</strong></td>
+            <td>Monitoramento contínuo de sinais, telemetria e histórico para estimar a probabilidade condicional de falha futura.</td>
+            <td>Intervenção orientada pelo estado real de degradação; detecção antecipada de anomalias incipientes.</td>
+            <td>Incapacidade de prescrever a ação ótima sob restrições fiscais; indica "quando vai quebrar", mas não "o que priorizar".</td>
+        </tr>
+        <tr>
+            <td><strong>4. Prescritivo</strong></td>
+            <td>Integração entre modelos preditivos probabilísticos calibrados e programação matemática inteira (MILP).</td>
+            <td>Alocação ótima de recursos; cumprimento de 100% das regras mandatórias sob teto de orçamento e horas de oficina.</td>
+            <td>Exige dados censitários auditados, modelos rigorosamente calibrados e explicabilidade auditável para órgãos fiscais.</td>
+        </tr>
+    </table>
+
+    <h2>3.2 Marco Regulatório e Governança da Frota Pública em Santa Catarina</h2>
+    <p>
+        A gestão de transportes no âmbito do Poder Executivo de Santa Catarina é vinculada a um conjunto estrito de diplomas normativos que delimitam a atuação técnica e as margens de discricionariedade do gestor:
+    </p>
+    <ul>
+        <li><strong>Decretos Estaduais nº 1.488/2008 e nº 2.056/2009:</strong> Regulamentam a gestão centralizada da frota pública estadual sob responsabilidade da Secretaria de Estado da Administração (SEA/SC), disciplinando o cadastro patrimonial, o credenciamento de oficinas mecânicas, o controle de abastecimentos e as hipóteses de alienação e leilão de veículos inservíveis.</li>
+        <li><strong>Cartilha de Gestão de Frota por Indicadores (GFI - SEA/SC, 2026):</strong> Documento técnico governamental que instituiu a matriz oficial de <strong>38 indicadores de desempenho logístico</strong>, padronizando o cálculo de consumo volumétrico médio (km/L), custo por quilômetro rodado (R$/km), taxas de severidade mecânica e rotinas de auditoria cruzada de hodômetros.</li>
+        <li><strong>Conceituação do Parâmetro Comparativo de Antieconomicidade de 40%:</strong> A literatura técnica e cartilhas administrativas frequentemente citam o parâmetro de que veículos cujas despesas anuais acumuladas de manutenção superem <strong>40% do seu valor venal contábil</strong> devem ser alienados. <em>Ressalva-se enfaticamente nesta dissertação que tal dispositivo advém do Artigo 5º do Decreto Estadual nº 47.539/2018 do Estado de Minas Gerais</em>, sendo adotado pela Cartilha GFI da SEA/SC estritamente como um <strong>indicador analítico comparativo de benchmarking interfederativo</strong> e triagem de portfólio. Não constitui obrigação legal impositiva de baixa compulsória para os órgãos catarinenses, cabendo a deliberação às comissões de patrimônio da SEA/SC.</li>
+        <li><strong>Normas Gerais de Direito Financeiro e Contratos (LRF e Lei Federal nº 14.133/2021):</strong> A Lei de Responsabilidade Fiscal impõe rigidez aos créditos orçamentários, e a Nova Lei de Licitações consagra a obrigatoriedade de estudos técnicos preliminares (ETP) baseados no custo global do ciclo de vida dos bens contratados.</li>
+    </ul>
+
+    <h2>3.3 Autores Seminais e Debates Atuais na Literatura Científica</h2>
+    <p>
+        O arcabouço teórico da pesquisa dialoga diretamente com autores seminais da ciência da computação, da pesquisa operacional e da engenharia de confiabilidade:
+    </p>
+    <div class="box-info">
+        <strong>Obras Seminais que Fundamentam a Arquitetura da Dissertação:</strong>
+        <ul style="margin-top: 6px; margin-bottom: 0;">
+            <li><strong>Dimitris Bertsimas e Nathan Kallus (2020) — <em>From Predictive to Prescriptive Analytics</em> (Management Science):</strong> Estabelecem a teoria matemática da prescrição orientada a dados com garantia assintótica de otimalidade, demonstrando que otimizar diretamente sobre probabilidades preditas calibradas supera o fluxo tradicional em duas etapas desacopladas;</li>
+            <li><strong>Sayash Kapoor e Arvind Narayanan (2023) — <em>Leakage and the Reproducibility Crisis in Machine Learning</em> (Patterns / Cell Press):</strong> Mapeiam taxionomicamente as oito causas de vazamento de dados que invalidam pesquisas preditivas, fundamentando o embargo temporal de 30 dias adotado neste estudo;</li>
+            <li><strong>Cynthia Rudin (2019) — <em>Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead</em> (Nature Machine Intelligence):</strong> Alerta para os perigos de utilizar aproximações pós-hoc locais em tomadas de decisão públicas de alto risco, sustentando a necessidade de triangulação entre SHAP e LIME;</li>
+            <li><strong>Scott M. Lundberg e Su-In Lee (2017) & Marco Tulio Ribeiro et al. (2016):</strong> Formulam os fundamentos axiomáticos dos valores de Shapley (SHAP) e as aproximações lineares esparsas locais (LIME);</li>
+            <li><strong>Vincent D. Blondel et al. (2008):</strong> Criadores do algoritmo de Louvain para otimização de modularidade em redes complexas, permitindo o agrupamento geográfico e funcional de oficinas credenciadas;</li>
+            <li><strong>Christoph Bergmeir e José M. Benítez (2012):</strong> Formalizam os protocolos de validação cruzada sequencial para séries temporais cronológicas, impedindo que dados do futuro contaminem partições de treino.</li>
+        </ul>
+    </div>
+
+    <h2>3.4 Matriz Crítica da Revisão Bibliográfica (40 Obras Mapeadas)</h2>
+    <p>
+        Para delimitar a originalidade do trabalho, realizou-se uma revisão sistemática e estruturada contemplando <strong>40 artigos científicos de referência</strong> indexados nas bases Scopus, Web of Science, IEEE Xplore e Periódicos CAPES (período 1998–2026), classificados em três extratos de aderência:
+    </p>
+    <ul>
+        <li><strong>Classe A (Fundamentais — 13 obras, 32,5%):</strong> Formulações teóricas diretas de confiabilidade, <em>trade-offs</em> analíticos de degradação veicular sob choques aleatórios (e.g., Chien et al., 2012; Cao et al., 2023; Zheng et al., 2022; Hu et al., 2012; Bertsimas & Kallus, 2020);</li>
+        <li><strong>Classe B (Complementares Relevantes — 17 obras, 42,5%):</strong> Pesquisas de otimização de frotas industriais, roteamento, heurísticas genéticas e estudos de custos de ciclo de vida (TCO);</li>
+        <li><strong>Classe C (Contextuais — 10 obras, 25,0%):</strong> Domínios adjacentes de manutenção em infraestrutura e governança eletrônica.</li>
+    </ul>
+
+    <div class="box-alerta">
+        <strong>As Três Lacunas Científicas Fundamentais Preenchidas por esta Pesquisa:</strong>
+        <ol style="margin-top: 4px; margin-bottom: 0;">
+            <li><strong>A Lacuna da Base Empírica Censitária Governamental:</strong> A literatura internacional é dominada por dados simulados ou bases proprietárias reduzidas. Este trabalho disponibiliza uma infraestrutura testada sobre dados reais censitários de 350.737 registros de manutenção do Estado de Santa Catarina;</li>
+            <li><strong>A Lacuna da Explicabilidade Auditável perante Órgãos de Fiscalização:</strong> Praticamente nenhum trabalho de pesquisa operacional na literatura vincula a saída de modelos de Machine Learning a requisitos formais de auditabilidade do Tribunal de Contas;</li>
+            <li><strong>A Lacuna da Integração Prescritiva Ponta-a-Ponta:</strong> A maioria das publicações cessa na acurácia preditiva (ROC/PR). Esta dissertação fecha o ciclo completo integrando predição calibrada com modelo MILP resolvido com gap de 0,0000% sob restrições fiscais.</li>
+        </ol>
+    </div>
+</div>
+
+<!-- CAPÍTULO 4: METODOLOGIA DETALHADA -->
+<div class="page-break">
+    <h1>4. METODOLOGIA DETALHADA DA PESQUISA</h1>
+
+    <h2>4.1 Delineamento Epistemológico e Enquadramento Metodológico</h2>
+    <p>
+        O delineamento experimental da pesquisa classifica-se formalmente como um <strong>estudo quantitativo, aplicado, longitudinal e censitário</strong>, adotando o formato de estudo de caso empírico de base governamental. O fluxo técnico foi operacionalizado em estrita consonância com as fases do ciclo <strong>CRISP-DM</strong> (<em>Cross-Industry Standard Process for Data Mining</em>): Compreensão do Negócio Governamental, Compreensão dos Dados, Preparação dos Dados, Modelagem, Avaliação e Implantação.
+    </p>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 1 — Pipeline Metodológico CRISP-DM Integrado com Salvaguardas de Volpato</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig64_pipeline_arquitetura_integrada.png" alt="Pipeline CRISP-DM">
+        <div class="figure-source">Fonte: Elaborado pelo autor com base na arquitetura do sistema (2026).</div>
+    </div>
+
+    <h2>4.2 Base Empírica Multimodal e Conciliação Contábil da Despesa</h2>
+    <p>
+        A base de dados empírica congrega registros operacionais do Poder Executivo de Santa Catarina gerados entre <strong>outubro de 2020 e agosto de 2026</strong>. Para garantir total transparência perante a banca examinadora e afastar ambiguidades, detalha-se o fechamento contábil rigoroso dos valores financeiros auditados:
+    </p>
+
+    <table class="academic">
+        <tr>
+            <th style="width: 30%;">Dimensão Financeira Auditada</th>
+            <th style="width: 25%;">Valor Absoluto (R$)</th>
+            <th style="width: 15%;">Proporção (%)</th>
+            <th>Significado e Implicação Metodológica</th>
+        </tr>
+        <tr>
+            <td><strong>Valor Orçado Bruto Inicial</strong></td>
+            <td>R$ 198.806.964,49</td>
+            <td>100,00%</td>
+            <td>Montante integral orçado pelas oficinas mecânicas antes da fiscalização técnica do Estado.</td>
+        </tr>
+        <tr>
+            <td><strong>Glosas Técnicas e Retenções Fiscais</strong></td>
+            <td>R$ 60.047.310,67</td>
+            <td>30,20%</td>
+            <td>Valores orçados formalmente glosados ou retidos pela fiscalização da SEA/SC por sobrepreço ou desconformidade.</td>
+        </tr>
+        <tr>
+            <td><strong>Dispêndio Efetivamente Liquidado</strong></td>
+            <td>R$ 138.759.653,82</td>
+            <td>69,80%</td>
+            <td>Montante aprovado, faturado e pago pelo erário público (Base do fechamento contábil).</td>
+        </tr>
+    </table>
+
+    <div class="box-math">
+        <strong>Identidade Contábil de Fechamento da Base Censitária:</strong><br>
+        <div class="math-eq">
+            Valor Orçado Bruto (R$ 198,81M) = Glosas Retidas (R$ 60,05M) + Dispêndio Aprovado (R$ 138,76M)
+        </div>
+        Os valores não são concorrentes nem independentes, mas etapas consecutivas do fluxo financeiro de auditoria pública.
+    </div>
+
+    <h2>4.3 Pipeline de Saneamento e Engenharia de Atributos</h2>
+    <p>
+        O processo de engenharia de dados enfrentou dois desafios severos de qualidade informacional:
+    </p>
+    <ul>
+        <li><strong>Tratamento Monotônico de Regressões de Hodômetro:</strong> Detectaram-se <strong>6.841 ocorrências de saltos negativos de hodômetro em 3.116 veículos</strong> distintos. Desenvolveu-se um algoritmo determinístico de validação monotônica temporal: quando o salto decorria de erro de digitação pontual (e.g., omissão de um dígito), aplicou-se interpolação cúbica com base na taxa histórica de utilização diária (km/dia); quando se tratava de substituição física do painel de instrumentos homologada pela SEA/SC, recalibrou-se a série temporal preservando a continuidade física do ativo;</li>
+        <li><strong>Resolução de Ambiguidade Semântica de Tipos de Manutenção:</strong> Identificou-se que o campo superficial <code>tipo_manutencao_oficina</code> apresentava viés de sistema, classificando indevidamente manutenções corretivas severas como revisões ordinárias. A extração e normalização do código estruturado real via <code>TRIM(ds_codigo_manutencao)</code> recuperou a distribuição censitária autêntica: <strong>270.510 ordens corretivas (87,7%) contra 37.897 manutenções preventivas reais (12,3%)</strong>;</li>
+        <li><strong>Estruturação do Painel Veículo-Mês:</strong> Para viabilizar a modelagem preditiva temporal, os 350.737 registros foram agregados na unidade de análise em painel longitudinal <strong>veículo-mês (i, t)</strong>, gerando <strong>51.244 instâncias consolidadas</strong> com 35 atributos operacionais (idade do veículo em meses, MTBF pregresso, razão peça/mão de obra, severidade R$/km, histórico de paradas).</li>
+    </ul>
+
+    <h2>4.4 Protocolos de Validação Experimental e Salvaguardas Anti-Vazamento</h2>
+    <p>
+        Em consonância com as recomendações de Bergmeir & Benítez (2012) e os alertas de Kapoor & Narayanan (2023), esta dissertação rejeita a validação cruzada aleatória clássica (<em>k-fold shuffle</em>), a qual provoca severa contaminação temporal ao prever o passado com dados do futuro. Adotam-se dois protocolos complementares:
+    </p>
+    <div class="box-volpato">
+        <strong>Protocolo A — Validação Walk-Forward em 5 Dobras Expansivas (Estabilidade Temporal):</strong><br>
+        A base histórica de 2020 a 2026 é particionada em 5 dobras cronológicas sequenciais. O conjunto de treino expande progressivamente de 15.587 OSs (Dobra 1) até 45.145 OSs (Dobra 5), sendo avaliado sobre a dobra cronológica subsequente não observada, sob <strong>embargo estrito de 30 dias</strong> entre treino e teste para expurgo de ordens abertas em oficina.<br><br>
+        <strong>Protocolo B — Holdout Canônico Out-of-Time com Calibração (Seleção e Homologação):</strong><br>
+        Conjunto de Treino e Validação temporal: outubro/2020 a dezembro/2024 (46.490 instâncias). Conjunto de Teste Retido e Intocado: janeiro/2025 a agosto/2026 (4.754 instâncias). Este particionamento é utilizado para aferição final das métricas de calibração probabilística (Platt e Isotônica) e ranking XAI.
+    </div>
+
+    <h2>4.5 Técnicas de Modelagem Estatística e Algorítmica</h2>
+    <p>
+        A arquitetura metodológica congrega algoritmos estatísticos e computacionais específicos para cada tarefa:
+    </p>
+
+    <h3>4.5.1 Detecção Não Supervisionada de Anomalias (Isolation Forest)</h3>
+    <p>
+        O <em>Isolation Forest</em> isola instâncias anômalas no hipervolume definido por valor aprovado, valor orçado, duração do reparo em dias, hodômetro, idade do veículo e quantidade de itens. Calibrou-se a taxa de contaminação em &nu; = 0,0085 (0,85%) sobre as 77.867 ordens de serviço. Em conformidade com o rigor epistemológico, avaliou-se a estabilidade estocástica entre sementes aleatórias (s &isin; {42, 123, 999}) via Índice de Similaridade de Jaccard e submeteu-se o escore a um teste de hipótese bicaudal contra ordens reprovadas administrativamente pelos fiscais.
+    </p>
+
+    <h3>4.5.2 Classificação de Risco e Calibração Probabilística</h3>
+    <p>
+        A variável dependente binária y_{i,t+1} &isin; {0, 1} denota a ocorrência de pelo menos uma manutenção corretiva emergencial no mês subsequente t+1. Avaliaram-se: <em>HistGradientBoosting</em>, <em>Random Forest</em>, <em>Decision Tree</em>, <em>Extra Trees</em> e <em>Regressão Logística</em>. Sob prevalência da classe positiva de 78,77%, a métrica mandatória de seleção foi a Área sob a Curva de Precisão-Revogação (<strong>PR-AUC</strong>), complementada por ROC-AUC, <em>Brier Score</em> e Erro de Calibração Esperado (<strong>ECE</strong>). As curvas ROC foram confrontadas pelo teste não paramétrico de DeLong et al. (1988).
+    </p>
+
+    <h3>4.5.3 Regressão Não Linear de Custos e Estudo de Ablação</h3>
+    <p>
+        Para estimar o gasto futuro condicional y_{i,t+1} &ge; 0, avaliaram-se modelos não lineares frente ao <em>Support Vector Regression</em> com núcleo de base radial (SVR-RBF) e à mediana histórica de classe, utilizando MAE, RMSE e R² out-of-sample. As diferenças residuais foram testadas via teste pareado de postos sinalizados de Wilcoxon com correção de Holm-Bonferroni. O estudo ablativo confrontou o espaço exclusivo de ordens mecânicas (M) com o espaço multimodal integrado (M+P).
+    </p>
+
+    <h3>4.5.4 Formulação da Otimização Prescritiva (MILP)</h3>
+    <p>
+        A política ótima de intervenções preventivas é formulada como um problema de Programação Linear Inteira Mista (MILP). Define-se a variável de decisão binária:
+    </p>
+    <div class="math-eq">
+        x_{it} &isin; {0, 1}: decisão de realizar manutenção preventiva no veículo i no mês t (x_{it} = 1) ou postergá-la (x_{it} = 0).
+    </div>
+
+    <div class="box-math">
+        <strong>Estrutura Matemática do Modelo Prescritivo MILP:</strong><br><br>
+        <strong>Função Objetivo Bi-Critério Ponderada:</strong>
+        <div class="math-eq">
+            min &sum;_{i=1}^{N} &sum;_{t=1}^{T} [ &alpha; &middot; c_{it}^{prev} &middot; x_{it} + &beta; &middot; p_{it}^{corretiva} &middot; c_{it}^{corretiva} &middot; (1 - x_{it}) ]
+        </div>
+        onde &alpha;, &beta; &isin; [0, 1] com &alpha; + &beta; = 1 ponderam o dispêndio orçamentário direto frente ao risco financeiro de falha.<br><br>
+        <strong>Sujeito às Restrições Operacionais e Fiscais:</strong>
+        <ol style="margin-top: 4px; margin-bottom: 0;">
+            <li><strong>Teto Orçamentário Mensal (LOA):</strong> &sum;_{i=1}^{N} c_{it}^{prev} &middot; x_{it} &le; B_t, &forall; t &isin; {1, &hellip;, T}</li>
+            <li><strong>Capacidade Física de Oficinas (Horas-Homem):</strong> &sum;_{i=1}^{N} h_{it} &middot; x_{it} &le; H_t, &forall; t &isin; {1, &hellip;, T}</li>
+            <li><strong>Manutenções Mandatórias de Segurança:</strong> x_{it} = 1, &forall; (i, t) tal que m_{it} = 1</li>
+            <li><strong>Integralidade das Variáveis:</strong> x_{it} &isin; {0, 1}, &forall; i &isin; {1, &hellip;, N}, &forall; t &isin; {1, &hellip;, T}</li>
+        </ol>
+    </div>
+    <p>
+        O modelo é resolvido de forma exata utilizando o solver <em>HiGHS</em>. Conduziu-se a análise de sensibilidade e relaxação linear contínua (LP), ressalvando-se que em problemas inteiros com variáveis binárias, multiplicadores duais (&lambda;_t) fornecem estimativas locais aproximadas de preços-sombra, exigindo reotimização paramétrica global.
+    </p>
+
+    <h3>4.5.5 Teoria dos Grafos e Redes Complexas</h3>
+    <p>
+        Modelou-se a rede bipartida G = (V, W, E) conectando o conjunto de veículos V ao conjunto de oficinas credenciadas W. Sobre a projeção unipartida, aplicou-se o algoritmo de Louvain para otimização de modularidade (Q), identificando <em>clusters</em> regionais de atendimento e padrões de co-ocorrência em grafos de falhas mecânicas.
+    </p>
+
+    <h2>4.6 Conformidade com a LGPD e Ética de Pesquisa</h2>
+    <p>
+        Em cumprimento à Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018), implementou-se um protocolo automatizado de anonimização com a biblioteca <em>Microsoft Presidio</em>: placas veiculares foram convertidas em <em>hashes</em> criptográficos irreversíveis determinísticos HMAC-SHA256 (<code>VEIC_HASH</code>); oficinas foram mascaradas (<code>FORNECEDOR_XXX</code>); e servidores públicos foram desvinculados dos registros, preservando estritamente a validade analítica sem risco à privacidade.
+    </p>
+</div>
+
+<!-- CAPÍTULO 5: LINGUAGENS E BIBLIOTECAS -->
+<div class="page-break">
+    <h1>5. LINGUAGENS DE PROGRAMAÇÃO, BIBLIOTECAS E INFRAESTRUTURA</h1>
+
+    <h2>5.1 Linguagens de Programação Utilizadas</h2>
+    <p>
+        O desenvolvimento de toda a infraestrutura computacional, scripts de saneamento, pipelines estatísticos, modelos preditivos, rotinas de otimização matemática e relatórios acadêmicos ancorou-se em linguagens de programação de alto desempenho e ampla adoção científica:
+    </p>
+    <ul>
+        <li><strong>Python (versões 3.14.4 / 3.15.1 / 3.11):</strong> Linguagem primária da pesquisa, responsável por 100% dos fluxos de ETL, engenharia de atributos, aprendizado de máquina, otimização MILP, análise de grafos e geração dos relatórios formais;</li>
+        <li><strong>Shell Scripting (GNU Bash 5.2):</strong> Automação dos pipelines de execução contínua, homologação em lote e orquestração de testes unitários;</li>
+        <li><strong>Structured Query Language (SQL):</strong> Consultas de agregação, filtros temporais e cruzamento censitário em bases relacionais SQLite e arquivos Parquet;</li>
+        <li><strong>LaTeX / Typst:</strong> Linguagens de composição tipográfica utilizadas na elaboração dos documentos acadêmicos do modelo PPGCAP/UDESC.</li>
+    </ul>
+
+    <h2>5.2 Quadro Geral de Bibliotecas Científicas e Tecnológicas</h2>
+    <p>
+        A Tabela 4 detalha exaustivamente as bibliotecas de software integradas ao projeto, organizadas por camada funcional e arquitetural:
+    </p>
+
+    <table class="academic">
+        <tr>
+            <th style="width: 25%;">Camada Funcional</th>
+            <th style="width: 25%;">Bibliotecas Principais</th>
+            <th>Propósito Específico no Projeto de Pesquisa</th>
+        </tr>
+        <tr>
+            <td><strong>Manipulação e Computação Numérica</strong></td>
+            <td><code>NumPy</code>, <code>Pandas</code>, <code>SciPy</code>, <code>Statsmodels</code></td>
+            <td>Álgebra linear vetorial, estruturação do painel longitudinal veículo-mês, interpolação monotônica de hodômetros e testes não paramétricos.</td>
+        </tr>
+        <tr>
+            <td><strong>Aprendizado de Máquina e Séries</strong></td>
+            <td><code>Scikit-learn</code>, <code>Prophet</code>, <code>Joblib</code></td>
+            <td>Treinamento de HistGradientBoosting, Random Forest, Isolation Forest, decomposição sazonal de demanda e serialização de modelos.</td>
+        </tr>
+        <tr>
+            <td><strong>Otimização e Pesquisa Operacional</strong></td>
+            <td><code>PuLP</code>, <code>HiGHS Solver</code>, <code>SciPy Optimize</code></td>
+            <td>Formulação da programação inteira mista MILP, resolução exata da alocação orçamentária e cálculo de relaxações contínuas LP.</td>
+        </tr>
+        <tr>
+            <td><strong>Teoria dos Grafos e Redes Complexas</strong></td>
+            <td><code>NetworkX</code>, <code>python-louvain</code></td>
+            <td>Construção de grafos bipartidos veículos-oficinas, cálculo de modularidade Q, detecção de comunidades e centralidades de intermediação.</td>
+        </tr>
+        <tr>
+            <td><strong>Inteligência Artificial Explicável (XAI)</strong></td>
+            <td><code>SHAP</code>, <code>LIME</code></td>
+            <td>Cálculo de valores de Shapley exatos para modelos em árvore (TreeExplainer) e aproximações lineares locais esparsas (LimeTabularExplainer).</td>
+        </tr>
+        <tr>
+            <td><strong>Anonimização e Conformidade LGPD</strong></td>
+            <td><code>Presidio-Analyzer</code>, <code>Presidio-Anonymizer</code>, <code>SpaCy</code>, <code>Cryptography</code></td>
+            <td>Inspeção e expurgo de entidades nomeadas (PII), mascaramento irreversível HMAC-SHA256 de placas e CNPJs de oficinas credenciadas.</td>
+        </tr>
+        <tr>
+            <td><strong>Visualização Gráfica e Relatórios</strong></td>
+            <td><code>Matplotlib</code>, <code>Seaborn</code>, <code>WeasyPrint</code>, <code>ReportLab</code>, <code>python-docx</code></td>
+            <td>Renderização das 97 figuras de alta resolução a 300 DPI, gráficos de calibração, curvas ROC/PR e compilação do relatório em PDF.</td>
+        </tr>
+        <tr>
+            <td><strong>Interfaces e Dashboards</strong></td>
+            <td><code>FastAPI</code>, <code>Uvicorn</code>, <code>Pydantic</code>, <code>PyQt6</code></td>
+            <td>Disponibilização da API REST de auditoria e desenvolvimento do protótipo de dashboard desktop de suporte à decisão governamental.</td>
+        </tr>
+        <tr>
+            <td><strong>Testes e Homologação Contínua</strong></td>
+            <td><code>Pytest</code></td>
+            <td>Suíte automatizada de testes unitários com verificação de invariantes contábeis, fechamentos de soma e ausência de drift numérico.</td>
+        </tr>
+    </table>
+
+    <h2>5.3 Homologação e Reprodutibilidade Multiplataforma Certificada</h2>
+    <p>
+        Para garantir a integridade absoluta dos resultados perante a banca examinadora, a dissertação implementou um protocolo de homologação multiplataforma cruzada, executando a suíte analítica completa em dois sistemas operacionais completamente independentes:
+    </p>
+
+    <table class="academic">
+        <tr>
+            <th>Dimensão da Homologação</th>
+            <th>Ambiente A: Linux Ubuntu (x86_64)</th>
+            <th>Ambiente B: Windows 11 Pro (Máquina N-0781)</th>
+            <th>Diferença Numérica Apurada</th>
+        </tr>
+        <tr>
+            <td><strong>Economia Prescritiva MILP (S0)</strong></td>
+            <td><strong>R$ 9.302.147,26</strong></td>
+            <td><strong>R$ 9.302.147,26</strong></td>
+            <td><strong class="badge-check">R$ 0,00 (Exato ao Centavo)</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Percentual de Economia Contrafactual</strong></td>
+            <td>17,51%</td>
+            <td>17,51%</td>
+            <td><strong class="badge-check">0,0000% (Zero Drift)</strong></td>
+        </tr>
+        <tr>
+            <td><strong>MIP Gap do Solver HiGHS</strong></td>
+            <td>0,0000%</td>
+            <td>0,0000%</td>
+            <td><strong class="badge-check">0,0000%</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Cumprimento de Regras Mandatórias</strong></td>
+            <td>100,00%</td>
+            <td>100,00%</td>
+            <td><strong class="badge-check">100% Aprovado</strong></td>
+        </tr>
+        <tr>
+            <td><strong>HistGradientBoosting ROC-AUC / PR-AUC</strong></td>
+            <td>0,8743 / 0,9510</td>
+            <td>0,8743 / 0,9510</td>
+            <td><strong class="badge-check">0,0000</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Modularidade Louvain (Rede Oficinas)</strong></td>
+            <td>Q = 0,5646 (18 comunidades)</td>
+            <td>Q = 0,5646 (18 comunidades)</td>
+            <td><strong class="badge-check">0,0000</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Concordância XAI Top-5 Jaccard / &rho;</strong></td>
+            <td>39,29% / 0,3680</td>
+            <td>39,29% / 0,3680</td>
+            <td><strong class="badge-check">0,0000</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Checkpoints Críticos de Auditoria</strong></td>
+            <td><strong>20 de 20 Aprovados (100%)</strong></td>
+            <td><strong>20 de 20 Aprovados (100%)</strong></td>
+            <td><strong class="badge-check">100% Reprodutível</strong></td>
+        </tr>
+    </table>
+</div>
+
+<!-- CAPÍTULO 6: RESULTADOS PRELIMINARES -->
+<div class="page-break">
+    <h1>6. RESULTADOS PRELIMINARES E VIABILIDADE DA PESQUISA</h1>
+
+    <div class="box-volpato">
+        <strong>Nota de Posicionamento para o Exame de Qualificação:</strong> Conforme salientado na introdução, os resultados aqui expostos constituem a comprovação formal de que a base empírica é consistente, os algoritmos convergem, as hipóteses foram submetidas ao crivo empírico e a pesquisa possui plena viabilidade de conclusão até a defesa final.
+    </div>
+
+    <h2>6.1 Auditoria Estrutural e Estabilidade do Isolation Forest</h2>
+    <p>
+        O algoritmo <em>Isolation Forest</em> com contaminação &nu; = 0,0085 isolou <strong>662 ordens de serviço anômalas</strong> no universo de 77.867 OSs, concentrando R$ 17,10 milhões em orçamentos orçados pelas oficinas.
+    </p>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 2 — Estabilidade Estocástica Paramétrica do Isolation Forest por Jaccard</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig05_iforest_estabilidade_jaccard.png" alt="Estabilidade Isolation Forest">
+        <div class="figure-source">Fonte: Dados empíricos da frota pública de Santa Catarina processados pelo autor (2026).</div>
+    </div>
+
+    <p>
+        A Tabela 6 certifica a estabilidade multissemente (J &ge; 0,86) e o teste t de Student confirmou que as ordens reprovadas pelos auditores do Estado apresentam escores de anomalia significativamente mais elevados que as ordens aprovadas (t = 3,52; p = 0,000426), comprovando a validade externa do método.
+    </p>
+
+    <table class="academic">
+        <tr>
+            <th>Taxa de Contaminação (&nu;)</th>
+            <th>Anomalias Isoladas</th>
+            <th>Similaridade Jaccard Média (J)</th>
+            <th>Nível de Estabilidade Estocástica</th>
+            <th>Validação com Glosas Reais</th>
+        </tr>
+        <tr>
+            <td>1,0%</td>
+            <td>779 OS</td>
+            <td>0,8641</td>
+            <td>Moderada / Alta</td>
+            <td>Estatisticamente Significante (p &lt; 0,001)</td>
+        </tr>
+        <tr>
+            <td>2,0%</td>
+            <td>1.557 OS</td>
+            <td>0,8678</td>
+            <td>Alta</td>
+            <td>Estatisticamente Significante (p &lt; 0,001)</td>
+        </tr>
+        <tr>
+            <td>5,0%</td>
+            <td>3.894 OS</td>
+            <td>0,8725</td>
+            <td>Excelente</td>
+            <td>Estatisticamente Significante (p &lt; 0,001)</td>
+        </tr>
+        <tr>
+            <td>10,0%</td>
+            <td>7.787 OS</td>
+            <td>0,8811</td>
+            <td>Excelente</td>
+            <td>Estatisticamente Significante (p &lt; 0,001)</td>
+        </tr>
+    </table>
+
+    <h2>6.2 Desempenho Preditivo de Risco e Regressão de Custos (Hipótese H2)</h2>
+    <p>
+        No conjunto de teste independente out-of-time (2025–2026), o modelo <strong>HistGradientBoosting</strong> sagrou-se campeão absoluto na classificação de risco operacional, alcançando <strong>PR-AUC = 0,9510</strong>, <strong>ROC-AUC = 0,8743</strong> [IC 95%: 0,8617; 0,8878] e F1-Score = 0,9113, superando a Regressão Logística no teste de DeLong (Z = 16,39; p &lt; 10^-50).
+    </p>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 3 — Curvas ROC dos Classificadores de Risco de Manutenção Corretiva</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig08_classificacao_roc_curves.png" alt="Curvas ROC">
+        <div class="figure-source">Fonte: Dados empíricos da frota pública de Santa Catarina processados pelo autor (2026).</div>
+    </div>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 4 — Diagrama de Calibração de Probabilidades Pré e Pós-Ajuste Isotônico</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig09_calibracao_probabilidades.png" alt="Calibração de Probabilidades">
+        <div class="figure-source">Fonte: Dados empíricos da frota pública de Santa Catarina processados pelo autor (2026).</div>
+    </div>
+
+    <p>
+        Na tarefa de regressão de custos de manutenção (R$/mês), o modelo <strong>HistGradientBoosting</strong> obteve o menor erro absoluto (MAE = R$ 2.236,06 [IC 95%: 2.146,76; 2.321,17]), superando o SVR-RBF e a mediana histórica de classe no teste pareado de postos de Wilcoxon (p &lt; 10^-4 com correção de Holm), <strong>sustentando formalmente a Hipótese H2</strong>.
+    </p>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 5 — Comparativo de Erro (MAE e RMSE) entre Modelos Regressores Não Lineares</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig10_comparativo_mae_rmse_modelos.png" alt="Regressão Não Linear de Custos">
+        <div class="figure-source">Fonte: Dados empíricos da frota pública de Santa Catarina processados pelo autor (2026).</div>
+    </div>
+
+    <h2>6.3 Estudo de Ablação Multimodal e Falsificação da Hipótese H1</h2>
+    <p>
+        O estudo ablativo confrontou modelos treinados apenas com ordens de serviço (M) contra modelos integrados a dados cadastrais e patrimoniais (M+P).
+    </p>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 6 — Estudo de Ablação Multimodal (Espaço Exclusivo M vs Integrado M+P)</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig12_ablativo_fontes_m_vs_mp.png" alt="Estudo Ablativo M vs MP">
+        <div class="figure-source">Fonte: Dados empíricos da frota pública de Santa Catarina processados pelo autor (2026).</div>
+    </div>
+
+    <div class="box-alerta">
+        <strong>Resultado Epistemológico Fundamental perante o Método de Volpato:</strong><br>
+        A inclusão dos atributos patrimoniais reduziu o MAE em R$ 9,47 por veículo-mês, representando um ganho marginal relativo de <strong>+0,41% [IC 95%: 0,28%; 0,54%]</strong>. Embora altamente significante sob a ótica estatística pura (p &lt; 10^-15) em razão do volume censitário, esse valor situa-se dramaticamente abaixo da régua pré-registrada de <strong>15,0% de ganho relativo prático</strong>. Em estrito cumprimento à integridade científica preconizada por Volpato, <strong>a Hipótese H1 é formalmente classificada como NÃO SUSTENTADA</strong> sob a régua de relevância prática. Não se justifica onerar o Estado com custos complexos de integração legada que não geram benefício operacional substantivo.
+    </div>
+
+    <h2>6.4 Otimização Prescritiva MILP e Economia Contrafactual (Hipótese H3)</h2>
+    <p>
+        No Cenário de Referência S0 (horizonte de 36 períodos, 2.000 veículos monitorados, totalizando 72.000 variáveis binárias e 6.072 restrições lineares), o solver <em>HiGHS</em> convergiu em 8,92 segundos com <strong>MIP Gap certificado de 0,0000%</strong>. O custo To-Be otimizado atingiu R$ 43.837.633,31 frente à base inercial As-Is de R$ 53.139.780,57, gerando uma <strong>economia contrafactual líquida simulada de R$ 9.302.147,26 (17,51%)</strong> com 100% de atendimento das manutenções mandatórias de segurança viária.
+    </p>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 7 — Análise de Sensibilidade Orçamentária e Fronteira de Eficiência do Modelo MILP</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig14_otimizacao_sensibilidade_orcamento.png" alt="Sensibilidade Orçamentária MILP">
+        <div class="figure-source">Fonte: Dados empíricos da frota pública de Santa Catarina processados pelo autor (2026).</div>
+    </div>
+
+    <h2>6.5 Triangulação XAI e Redes Complexas (Hipótese H4)</h2>
+    <p>
+        A auditoria de explicabilidade confrontou as atribuições locais de atributos entre SHAP e LIME sobre as instâncias auditadas. Constatou-se uma <strong>similaridade de Jaccard no Top-5 de apenas 39,29% (39,3%)</strong> e correlação de Spearman de &rho; = 0,3680, situando-se muito abaixo do limiar de 85% postulado em H4. Portanto, <strong>a Hipótese H4 é REJEITADA</strong>, alertando os auditores do TCE-SC de que aproximações locais de caixa-preta não podem ser adotadas indistintamente em litígios fiscais.
+    </p>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 8 — Comparativo de Importância de Atributos: SHAP vs LIME</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig13_importancia_atributos_xai.png" alt="XAI SHAP vs LIME">
+        <div class="figure-source">Fonte: Dados empíricos da frota pública de Santa Catarina processados pelo autor (2026).</div>
+    </div>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 9 — Rede Bipartida Veículos-Oficinas e 18 Comunidades Regionais de Louvain</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig94_grafo_bipartido_veiculos_oficinas.png" alt="Rede Bipartida Louvain">
+        <div class="figure-source">Fonte: Dados empíricos da frota pública de Santa Catarina processados pelo autor (2026).</div>
+    </div>
+    <p>
+        A modelagem de redes complexas articulou 7.291 veículos e 1.039 oficinas credenciadas, isolando <strong>18 comunidades regionais com modularidade Louvain Q = 0,5646</strong>, identificando pólos de alta concentração e permitindo a fiscalização direcionada por mesorregião.
+    </p>
+</div>
+
+<!-- CAPÍTULO 7: CRONOGRAMA REALISTA -->
+<div class="page-break">
+    <h1>7. CRONOGRAMA DE ATIVIDADES ATÉ A DEFESA FINAL</h1>
+
+    <div class="box-volpato">
+        <strong>Planejamento Estratégico dos Meses Restantes:</strong> O cronograma a seguir estabelece a distribuição temporal detalhada das atividades e produtos acadêmicos necessários para a conclusão formal do mestrado, estruturado em um horizonte realista de <strong>7 meses de trabalho contínuo</strong> a contar da realização do Exame de Qualificação.
+    </div>
+
+    <h2>7.1 Quadro de Etapas, Metas e Entregas Acadêmicas</h2>
+    <table class="academic">
+        <tr>
+            <th style="width: 12%;">Mês</th>
+            <th style="width: 28%;">Etapa / Atividade Planejada</th>
+            <th style="width: 35%;">Escopo Técnico e Metodológico Detalhado</th>
+            <th>Produto / Entrega Formal</th>
+        </tr>
+        <tr>
+            <td><strong>Mês 1</strong></td>
+            <td><strong>Exame de Qualificação e Parecer da Banca</strong></td>
+            <td>Apresentação do relatório perante a Comissão Examinadora do PPGCAP/UDESC; compilação dos pareceres, críticas metodológicas e recomendações formais dos examinadores.</td>
+            <td>Ata de Aprovação do Exame de Qualificação homologada.</td>
+        </tr>
+        <tr>
+            <td><strong>Mês 2</strong></td>
+            <td><strong>Incorporação de Recomendações e Ajustes</strong></td>
+            <td>Revisão dos modelos conforme os apontamentos da banca examinadora; refinamento dos limiares de sensibilidade orçamentária do modelo MILP e calibração fina de parâmetros.</td>
+            <td>Relatório técnico de atendimento às recomendações da banca.</td>
+        </tr>
+        <tr>
+            <td><strong>Mês 3</strong></td>
+            <td><strong>Aprofundamento Multimodal e Telemetria</strong></td>
+            <td>Integração da base completa de telemetria contínua de abastecimentos e transações por cartão magnético, refinando o cálculo de consumo volumétrico médio (km/L).</td>
+            <td>Base de dados Parquet expandida e novos notebooks de validação.</td>
+        </tr>
+        <tr>
+            <td><strong>Mês 4</strong></td>
+            <td><strong>Extensão Estocástica e Restrições Espaciais</strong></td>
+            <td>Expansão do solver MILP para incorporar custos estocásticos de indisponibilidade e matrizes de distância viária intermunicipal entre lotes veiculares e mecânicas credenciadas.</td>
+            <td>Script do modelo MILP espacial com restrição de transbordo.</td>
+        </tr>
+        <tr>
+            <td><strong>Mês 5</strong></td>
+            <td><strong>Validação em Campo com Auditores da SEA/SC</strong></td>
+            <td>Sessões de teste de usabilidade do dashboard analítico (PyQt6/FastAPI) com auditores de controle de frotas da Diretoria de Gestão Patrimonial da SEA/SC; coleta de feedback.</td>
+            <td>Relatório de validação de usabilidade e conformidade com a Cartilha GFI.</td>
+        </tr>
+        <tr>
+            <td><strong>Mês 6</strong></td>
+            <td><strong>Submissão de Artigos Científicos</strong></td>
+            <td>Finalização e submissão de 2 artigos científicos: (1) Artigo para simpósio qualificado da SBC (e.g., SBPO ou SBBD); (2) Artigo completo para periódico internacional (Qualis A / JCR).</td>
+            <td>Comprovantes de submissão e manuscritos protocolados.</td>
+        </tr>
+        <tr>
+            <td><strong>Mês 7</strong></td>
+            <td><strong>Redação Final, Depósito e Defesa Pública</strong></td>
+            <td>Consolidação dos capítulos textuais, revisão linguística e bibliográfica estrita (ABNT NBR 14724/6023), depósito formal no PPGCAP e realização da Defesa Pública Final de Dissertação.</td>
+            <td><strong>Exemplar Final de Dissertação de Mestrado Defendido</strong>.</td>
+        </tr>
+    </table>
+
+    <h2 style="margin-top: 1.5em;">7.2 Diagrama Visual de Execução (Gráfico de Gantt)</h2>
+    <table class="academic" style="font-size: 8.5pt;">
+        <tr>
+            <th style="width: 32%;">Atividade Programada</th>
+            <th style="width: 9%; text-align: center;">Mês 1</th>
+            <th style="width: 9%; text-align: center;">Mês 2</th>
+            <th style="width: 9%; text-align: center;">Mês 3</th>
+            <th style="width: 9%; text-align: center;">Mês 4</th>
+            <th style="width: 9%; text-align: center;">Mês 5</th>
+            <th style="width: 9%; text-align: center;">Mês 6</th>
+            <th style="width: 9%; text-align: center;">Mês 7</th>
+        </tr>
+        <tr>
+            <td>1. Exame de Qualificação</td>
+            <td><div class="gantt-bar-purple">Banca</div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2. Incorporação de Apontamentos da Banca</td>
+            <td></td>
+            <td><div class="gantt-bar-blue">Ajustes</div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3. Expansão de Telemetria e Abastecimento</td>
+            <td></td>
+            <td></td>
+            <td><div class="gantt-bar-blue">ETL Telemetria</div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>4. Modelagem MILP Espacial Estocástica</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><div class="gantt-bar-green">MILP Espacial</div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5. Teste Piloto e Validação na SEA/SC</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><div class="gantt-bar-amber">Validação</div></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6. Submissão de Artigos (SBC e Periódicos)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><div class="gantt-bar-blue">Redação</div></td>
+            <td><div class="gantt-bar-green">Submissão</div></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>7. Redação Final e Depósito da Dissertação</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><div class="gantt-bar-purple">Revisão</div></td>
+            <td><div class="gantt-bar-purple">Depósito</div></td>
+        </tr>
+        <tr>
+            <td>8. <strong>Defesa Final de Mestrado (PPGCAP)</strong></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><div class="gantt-bar-amber" style="background:#dc2626;">DEFESA</div></td>
+        </tr>
+    </table>
+</div>
+
+<!-- CAPÍTULO 8: CONSIDERAÇÕES FINAIS -->
+<div class="page-break">
+    <h1>8. CONSIDERAÇÕES FINAIS DA QUALIFICAÇÃO</h1>
+    <p>
+        O presente Relatório de Qualificação de Pesquisa demonstra de maneira inequívoca a maturidade conceitual, o rigor metodológico e a factibilidade computacional da dissertação de mestrado desenvolvida no âmbito do Programa de Pós-Graduação em Computação Aplicada (PPGCAP/UDESC).
+    </p>
+    <p>
+        Diferente da defesa final de mestrado — na qual se exige a entrega congelada de todos os produtos —, o objetivo precípuo deste exame perante a ilustre Banca Examinadora é assegurar que:
+    </p>
+    <ul>
+        <li><strong>A base empírica é sólida e autêntica:</strong> Não se trata de uma pesquisa baseada em dados simulados ou brinquedos estatísticos (<em>toy datasets</em>), mas de um censo administrativo integral de 350.737 registros de ordens de serviço do Poder Executivo catarinense, devidamente higienizado contra regressões de hodômetro e com conciliação contábil exata ao centavo;</li>
+        <li><strong>O método científico é estrito e falseável:</strong> A adoção do método lógico de Gilson Volpato impediu o <em>data dredging</em> e o <em>p-hacking</em>, garantindo que o embargo temporal de 30 dias protegesse os modelos contra contaminação informacional. Mais do que isso, demonstrou-se a probidade científica do autor ao classificar formalmente a Hipótese H1 como não sustentada e a Hipótese H4 como rejeitada, reafirmando que a ciência se constrói com critérios de falseamento objetivos;</li>
+        <li><strong>A viabilidade técnica está plenamente comprovada:</strong> Os resultados preliminares apresentados nos modelos preditivos (PR-AUC = 0,9510), na calibração de probabilidades, na otimização MILP exata com solver HiGHS (R$ 9,30M de economia simulada com MIP Gap de 0,0000%) e na detecção de 18 comunidades de Louvain garantem que o modelo proposto é plenamente funcional;</li>
+        <li><strong>A infraestrutura computacional é reprodutível:</strong> A certificação multiplataforma cruzada (Linux vs Windows 11) com 20 checkpoints auditados com drift numérico zero assegura total auditabilidade e transparência.</li>
+    </ul>
+    <p>
+        O mestrando e os orientadores submetem este documento à sábia e criteriosa avaliação dos membros da banca examinadora, comprometendo-se a incorporar integralmente as orientações, ajustes e contribuições que emergirem da sessão de qualificação para o aprimoramento da versão final da dissertação de mestrado.
+    </p>
+
+    <div class="box-info" style="margin-top: 2cm; text-align: center;">
+        <strong>UNIVERSIDADE DO ESTADO DE SANTA CATARINA — CENTRO DE CIÊNCIAS TECNOLÓGICAS</strong><br>
+        Programa de Pós-Graduação em Computação Aplicada (PPGCAP)<br>
+        Linha de Pesquisa: Metodologia e Técnicas de Computação (MTC)<br>
+        Joinville — Santa Catarina, 2026.
+    </div>
+</div>
+
+<!-- REFERÊNCIAS BIBLIOGRÁFICAS -->
+<div class="page-break">
+    <h1>REFERÊNCIAS BIBLIOGRÁFICAS</h1>
+    
+    <div style="font-size: 9pt; line-height: 1.45;">
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            BERGMEIR, C.; BENÍTEZ, J. M. On the use of cross-validation for time series predictor evaluation. <strong>Information Sciences</strong>, v. 191, p. 192–213, 2012. DOI: 10.1016/j.ins.2011.12.028.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            BERTSIMAS, D.; KALLUS, N. From predictive to prescriptive analytics. <strong>Management Science</strong>, v. 66, n. 3, p. 1025–1044, 2020. DOI: 10.1287/mnsc.2018.3253.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            BLONDEL, V. D.; GUILLAUME, J.-L.; LAMBIOTTE, R.; LEFEBVRE, E. Fast unfolding of communities in large networks. <strong>Journal of Statistical Mechanics: Theory and Experiment</strong>, v. 2008, n. 10, p. P10008, 2008. DOI: 10.1088/1742-5468/2008/10/P10008.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            BRASIL. <strong>Lei Complementar Federal nº 101, de 4 de maio de 2000</strong>. Estabelece normas de finanças públicas voltadas para a responsabilidade na gestão fiscal (Lei de Responsabilidade Fiscal). Brasília, DF: Presidência da República, 2000.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            BRASIL. <strong>Lei Federal nº 13.709, de 14 de agosto de 2018</strong>. Lei Geral de Proteção de Dados Pessoais (LGPD). Brasília, DF: Presidência da República, 2018.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            BRASIL. <strong>Lei Federal nº 14.133, de 1º de abril de 2021</strong>. Lei de Licitações e Contratos Administrativos. Brasília, DF: Diário Oficial da União, 2021.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            CAO, Y.; LUO, J.; DONG, W. Prescriptive maintenance scheduling for heavy-duty fleet under economic and environmental trade-offs. <strong>Reliability Engineering & System Safety</strong>, v. 235, p. 109240, 2023. DOI: 10.1016/j.ress.2023.109240.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            CHIEN, C.-F.; SHEU, C.; ZHANG, Z. Opportunistic maintenance policies for service fleet logistics under random shocks and deterioration. <strong>European Journal of Operational Research</strong>, v. 218, n. 3, p. 773–782, 2012. DOI: 10.1016/j.ejor.2011.11.042.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            DELONG, E. R.; DELONG, D. M.; CLARKE-PEARSON, D. L. Comparing the areas under two or more correlated receiver operating characteristic curves: a nonparametric approach. <strong>Biometrics</strong>, v. 44, n. 3, p. 837–845, 1988. DOI: 10.2307/2531595.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            HU, C.; ZHANG, L.; LIANG, W. Joint optimization of inspection and opportunistic maintenance for multi-unit systems with economic dependency. <strong>Computers & Industrial Engineering</strong>, v. 63, n. 1, p. 328–336, 2012. DOI: 10.1016/j.cie.2012.03.011.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            KAPOOR, S.; NARAYANAN, A. Leakage and the reproducibility crisis in machine-learning-based science. <strong>Patterns</strong>, v. 4, n. 9, p. 100804, 2023. DOI: 10.1016/j.patter.2023.100804.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            LUNDBERG, S. M.; LEE, S.-I. A unified approach to interpreting model predictions. In: <strong>Advances in Neural Information Processing Systems (NeurIPS 2017)</strong>, v. 30, p. 4765–4774, 2017.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            MINAS GERAIS. <strong>Decreto Estadual nº 47.539, de 23 de novembro de 2018</strong>. Dispõe sobre a gestão de veículos oficiais no âmbito do Poder Executivo do Estado de Minas Gerais. Belo Horizonte: Diário Oficial do Estado de Minas Gerais, 2018.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            RIBEIRO, M. T.; SINGH, S.; GUESTRIN, C. "Why should I trust you?": Explaining the predictions of any classifier. In: <strong>ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD '16)</strong>, p. 1135–1144, 2016. DOI: 10.1145/2939672.2939778.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            RUDIN, C. Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. <strong>Nature Machine Intelligence</strong>, v. 1, n. 5, p. 206–215, 2019. DOI: 10.1038/s42256-019-0048-x.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            SANTA CATARINA. <strong>Decreto Estadual nº 1.488, de 25 de junho de 2008</strong>. Dispõe sobre a gestão de veículos oficiais no âmbito do Poder Executivo Estadual. Florianópolis: Diário Oficial do Estado de Santa Catarina, 2008.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            SANTA CATARINA. <strong>Decreto Estadual nº 2.056, de 28 de janeiro de 2009</strong>. Regulamenta o uso, a manutenção e a alienação de veículos da frota pública catarinense. Florianópolis: Diário Oficial do Estado de Santa Catarina, 2009.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            SANTA CATARINA. Secretaria de Estado da Administração (SEA). <strong>Cartilha de Gestão de Frota por Indicadores (GFI)</strong>: Matriz Oficial de 38 Indicadores de Desempenho e Auditoria Contratual. Florianópolis: SEA/SC, 2026.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            VOLPATO, G. L. O método lógico para redação científica. <strong>RECIIS – Revista Eletrônica de Comunicação, Informação & Inovação em Saúde</strong>, v. 9, n. 1, p. 1–14, 2015. DOI: 10.3395/reciis.v9i1.932.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            VOLPATO, G. L. <strong>Método lógico para redação científica</strong>. 2. ed. rev. e atual. Botucatu: Best Writing, 2017. 155 p. ISBN 9788564201125.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.8em;">
+            ZHENG, R.; WANG, J.; ZHANG, Y. Opportunistic maintenance policy for public fleets using proportional hazards model under imperfect inspections. <strong>Reliability Engineering & System Safety</strong>, v. 222, p. 108398, 2022. DOI: 10.1016/j.ress.2022.108398.
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
+

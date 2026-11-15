@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Mapeamento de Processos de Pesquisa (BPM / BPMN 2.0) - Eduardo Lopes Jonker</title>
+<style>
+    @page {
+        size: A4;
+        margin: 25mm 20mm 25mm 20mm;
+        @top-left {
+            content: "PPGCAP / UDESC • MAPEAMENTO DE PROCESSOS DA PESQUISA (BPM / BPMN 2.0)";
+            font-family: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
+            font-size: 7.5pt;
+            color: #64748b;
+            border-bottom: 0.5pt solid #cbd5e1;
+            padding-bottom: 4px;
+        }
+        @top-right {
+            content: "MODELAGEM PONTA A PONTA (100% DOS PROCESSOS)";
+            font-family: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
+            font-size: 7.5pt;
+            font-weight: bold;
+            color: #0f766e;
+            border-bottom: 0.5pt solid #cbd5e1;
+            padding-bottom: 4px;
+        }
+        @bottom-left {
+            content: "Eduardo Lopes Jonker • Gestão e Analítica Prescritiva de Frotas Públicas";
+            font-family: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
+            font-size: 7.5pt;
+            color: #64748b;
+            border-top: 0.5pt solid #cbd5e1;
+            padding-top: 4px;
+        }
+        @bottom-right {
+            content: "Pág. " counter(page);
+            font-family: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
+            font-size: 8pt;
+            font-weight: bold;
+            color: #0f766e;
+            border-top: 0.5pt solid #cbd5e1;
+            padding-top: 4px;
+        }
+    }
+
+    @page:first {
+        margin-top: 20mm;
+        margin-bottom: 20mm;
+        @top-left { content: none; border: none; }
+        @top-right { content: none; border: none; }
+        @bottom-left { content: none; border: none; }
+        @bottom-right { content: none; border: none; }
+    }
+
+    body {
+        font-family: 'Liberation Serif', 'DejaVu Serif', 'Times New Roman', serif;
+        font-size: 10.5pt;
+        line-height: 1.48;
+        color: #1e293b;
+        text-align: justify;
+    }
+
+    h1, h2, h3, h4, h5 {
+        font-family: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
+        color: #0f2942;
+        font-weight: bold;
+        line-height: 1.25;
+        margin-top: 1.3em;
+        margin-bottom: 0.45em;
+        page-break-after: avoid;
+    }
+
+    h1 {
+        font-size: 15pt;
+        text-transform: uppercase;
+        border-bottom: 2pt solid #0f766e;
+        padding-bottom: 5px;
+        margin-top: 0;
+        margin-bottom: 0.85em;
+        color: #0f2942;
+    }
+
+    h2 {
+        font-size: 12pt;
+        border-bottom: 1pt solid #cbd5e1;
+        padding-bottom: 3px;
+        margin-top: 1.15em;
+        color: #0f766e;
+    }
+
+    h3 {
+        font-size: 11pt;
+        color: #1e3a8a;
+        margin-top: 0.9em;
+    }
+
+    h4 {
+        font-size: 10.5pt;
+        font-style: italic;
+        color: #334155;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 0.55em;
+        text-indent: 1.25cm;
+    }
+
+    p.no-indent {
+        text-indent: 0 !important;
+    }
+
+    .capa {
+        page-break-after: always;
+        text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .capa-instituicao {
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 11pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #0f2942;
+        line-height: 1.4;
+        margin-bottom: 3.2cm;
+    }
+
+    .capa-autor {
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 13pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #0f766e;
+        margin-bottom: 2.8cm;
+    }
+
+    .capa-titulo-box {
+        margin-bottom: 2.8cm;
+    }
+
+    .capa-titulo {
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 15.5pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 1.35;
+        color: #0f2942;
+        margin-bottom: 12px;
+    }
+
+    .capa-subtitulo {
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 11pt;
+        font-weight: normal;
+        color: #475569;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        line-height: 1.4;
+    }
+
+    .capa-local-data {
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 10.5pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #334155;
+    }
+
+    .page-break {
+        page-break-before: always;
+    }
+
+    .box-info {
+        background-color: #f0fdfa;
+        border-left: 4px solid #0f766e;
+        padding: 9px 13px;
+        margin: 12px 0;
+        font-size: 9.5pt;
+        border-radius: 0 4px 4px 0;
+    }
+
+    .box-bpm {
+        background-color: #f8fafc;
+        border: 1px solid #cbd5e1;
+        border-left: 4px solid #2563eb;
+        padding: 9px 13px;
+        margin: 12px 0;
+        font-size: 9.5pt;
+        border-radius: 0 4px 4px 0;
+    }
+
+    .box-regra {
+        background-color: #fffbeb;
+        border-left: 4px solid #d97706;
+        padding: 9px 13px;
+        margin: 12px 0;
+        font-size: 9.5pt;
+        border-radius: 0 4px 4px 0;
+    }
+
+    .box-kpi {
+        background-color: #ecfdf5;
+        border-left: 4px solid #059669;
+        padding: 9px 13px;
+        margin: 12px 0;
+        font-size: 9.5pt;
+        border-radius: 0 4px 4px 0;
+    }
+
+    table.academic {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 8.5pt;
+        page-break-inside: avoid;
+    }
+
+    table.academic th {
+        background-color: #0f766e;
+        color: #ffffff;
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-weight: bold;
+        padding: 5px 7px;
+        border: 1px solid #0f766e;
+        text-align: left;
+        font-size: 8pt;
+    }
+
+    table.academic td {
+        padding: 4px 7px;
+        border: 1px solid #cbd5e1;
+        vertical-align: top;
+    }
+
+    table.academic tr:nth-child(even) {
+        background-color: #f8fafc;
+    }
+
+    table.sipoc {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+        font-size: 8pt;
+        page-break-inside: avoid;
+    }
+
+    table.sipoc th {
+        background-color: #1e3a8a;
+        color: #ffffff;
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-weight: bold;
+        padding: 5px 6px;
+        border: 1px solid #1e3a8a;
+        text-align: left;
+        font-size: 7.5pt;
+    }
+
+    table.sipoc td {
+        padding: 4px 6px;
+        border: 1px solid #cbd5e1;
+        vertical-align: top;
+    }
+
+    table.raci {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 8pt;
+        page-break-inside: avoid;
+    }
+
+    table.raci th {
+        background-color: #0f2942;
+        color: #ffffff;
+        font-family: 'Liberation Sans', sans-serif;
+        font-weight: bold;
+        padding: 5px 6px;
+        text-align: center;
+    }
+
+    table.raci td {
+        padding: 4px 6px;
+        border: 1px solid #cbd5e1;
+        text-align: center;
+    }
+
+    table.raci td:first-child {
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .figure-container {
+        text-align: center;
+        margin: 14px 0;
+        page-break-inside: avoid;
+    }
+
+    .figure-container img {
+        max-width: 90%;
+        height: auto;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .figure-caption {
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 8pt;
+        font-weight: bold;
+        color: #1e293b;
+        margin-bottom: 4px;
+    }
+
+    .figure-source {
+        font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+        font-size: 7.5pt;
+        color: #64748b;
+        margin-top: 3px;
+        font-style: italic;
+    }
+
+    /* Elementos Visuais BPMN */
+    .bpmn-flow-container {
+        background: #f8fafc;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        padding: 10px;
+        margin: 12px 0;
+        font-family: 'Liberation Sans', sans-serif;
+        font-size: 8pt;
+        page-break-inside: avoid;
+    }
+
+    .bpmn-lane {
+        display: flex;
+        align-items: stretch;
+        margin-bottom: 6px;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        background: #ffffff;
+        overflow: hidden;
+    }
+
+    .bpmn-lane-title {
+        width: 18%;
+        background: #0f766e;
+        color: white;
+        font-weight: bold;
+        padding: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 7.5pt;
+        text-transform: uppercase;
+    }
+
+    .bpmn-lane-content {
+        width: 82%;
+        padding: 6px 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .bpmn-node {
+        padding: 4px 8px;
+        border-radius: 4px;
+        border: 1px solid #94a3b8;
+        background: #f1f5f9;
+        font-size: 7.5pt;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .bpmn-node-script {
+        border-color: #2563eb;
+        background: #eff6ff;
+        color: #1e3a8a;
+    }
+
+    .bpmn-node-user {
+        border-color: #7c3aed;
+        background: #f5f3ff;
+        color: #5b21b6;
+    }
+
+    .bpmn-node-service {
+        border-color: #059669;
+        background: #ecfdf5;
+        color: #065f46;
+    }
+
+    .bpmn-node-gateway {
+        border-color: #d97706;
+        background: #fffbeb;
+        color: #92400e;
+        border-radius: 2px;
+        transform: rotate(0deg);
+        font-weight: bold;
+    }
+
+    .bpmn-arrow {
+        color: #64748b;
+        font-weight: bold;
+        font-size: 9pt;
+    }
+
+    .bpmn-tag-kpi {
+        font-weight: bold;
+        color: #0f766e;
+    }
+
+    ul, ol {
+        margin-top: 0;
+        margin-bottom: 0.55em;
+        padding-left: 1.25cm;
+    }
+
+    li {
+        margin-bottom: 0.25em;
+        text-align: justify;
+    }
+</style>
+</head>
+<body>
+
+<!-- CAPA DO MAPEAMENTO -->
+<div class="capa">
+    <div class="capa-instituicao">
+        UNIVERSIDADE DO ESTADO DE SANTA CATARINA — UDESC<br>
+        CENTRO DE CIÊNCIAS TECNOLÓGICAS — CCT<br>
+        PROGRAMA DE PÓS-GRADUAÇÃO EM COMPUTAÇÃO APLICADA — PPGCAP<br>
+        LINHA DE PESQUISA: METODOLOGIA E TÉCNICAS DE COMPUTAÇÃO (MTC)
+    </div>
+
+    <div class="capa-autor">
+        EDUARDO LOPES JONKER
+    </div>
+
+    <div class="capa-titulo-box">
+        <div class="capa-titulo">
+            MAPEAMENTO E MODELAGEM DE PROCESSOS DE PESQUISA (BPM / BPMN 2.0)
+        </div>
+        <div class="capa-subtitulo">
+            Cadeia de Valor Científica, Macroprocessos Ponta a Ponta (100% do Escopo), Matrizes SIPOC, Diagramas de Raias (Swimlanes) e Dicionário Operacional da Dissertação
+        </div>
+    </div>
+
+    <div class="capa-local-data">
+        JOINVILLE — SC<br>
+        2026
+    </div>
+</div>
+
+<!-- RESUMO EXECUTIVO DO MAPEAMENTO -->
+<div class="page-break">
+    <h1>RESUMO EXECUTIVO DO MAPEAMENTO BPM</h1>
+
+    <div class="box-info">
+        <strong>Objetivo do Mapeamento de Processos:</strong> Este documento formaliza o mapeamento sistemático e exaustivo de <strong>100% dos processos da pesquisa de mestrado</strong> sob a ótica da metodologia <em>Business Process Management</em> (BPM), em conformidade com o <strong>BPM CBOK v4.0</strong> (ABPMP) e o padrão internacional de notação <strong>BPMN 2.0</strong> (ISO/IEC 19510). O escopo abrange desde o delineamento epistemológico e governança de hipóteses, passando pela ingestão e saneamento censitário de 350.737 registros de ordens de serviço do Estado de Santa Catarina, até a modelagem preditiva, otimização prescritiva inteira mista (MILP), inteligência artificial explicável (XAI), teoria dos grafos, conformidade com a LGPD e transferência de tecnologia governamental.
+    </div>
+
+    <p>
+        A pesquisa científica aplicada contemporânea em computação enfrenta um desafio crônico de reprodutibilidade e rastreabilidade quando estruturada apenas na forma de código-fonte desarticulado ou narrativas textuais vagas. Ao adotar a disciplina de gerenciamento de processos de negócio (BPM), a presente dissertação transforma o ciclo de pesquisa em um sistema de engenharia de processos altamente estruturado, transparente, auditável e defensável perante a banca examinadora do PPGCAP/UDESC, a administração pública catarinense (SEA/SC) e os órgãos de controle externo (Tribunal de Contas do Estado de Santa Catarina — TCE-SC).
+    </p>
+
+    <p>
+        A arquitetura de processos aqui delineada organiza o trabalho em <strong>12 Macroprocessos Interligados (MP-01 a MP-12)</strong>, decompostos em subprocessos, atividades e tarefas com identificação estrita de: (a) Atores e Raias de Responsabilidade (Pesquisador, Orientadores/Banca, Pipelines de Dados, Motores de ML/Estatística, Solver HiGHS e Gestores Públicos); (b) Matrizes SIPOC completas; (c) Entradas, Saídas e Datasets rastreáveis; (d) Regras de Negócio Epistemológicas (com destaque para o método lógico de Gilson Volpato e o embargo temporal de 30 dias de Kapoor & Narayanan); e (e) Indicadores-Chave de Desempenho do Processo (KPIs operacionais, computacionais e estatísticos).
+    </p>
+
+    <h2>Notação e Elementos BPMN 2.0 Empregados no Documento</h2>
+    <table class="academic">
+        <tr>
+            <th style="width: 22%;">Elemento BPMN 2.0</th>
+            <th style="width: 28%;">Representação no Modelo</th>
+            <th>Significado e Aplicação no Contexto da Pesquisa</th>
+        </tr>
+        <tr>
+            <td><strong>Pool & Swimlanes</strong></td>
+            <td>Piscinas e Raias de Atuação</td>
+            <td>Delimitam as fronteiras operacionais entre os atores humanos (pesquisador, orientadores, fiscais) e os subsistemas computacionais (ETL, Scikit-learn, Solver HiGHS).</td>
+        </tr>
+        <tr>
+            <td><strong>Script Task (⚙️)</strong></td>
+            <td>Tarefa de Serviço Automatizada</td>
+            <td>Processamento algorítmico determinístico executado por rotinas Python sem intervenção humana (e.g., cálculo de matriz de distâncias, resolução de modelo MILP).</td>
+        </tr>
+        <tr>
+            <td><strong>User Task (👤)</strong></td>
+            <td>Tarefa Manual de Decisão</td>
+            <td>Intervenção analítica humana, deliberação de comitê de orientação ou avaliação discricionária de fiscal de contrato público.</td>
+        </tr>
+        <tr>
+            <td><strong>Exclusive Gateway (◇)</strong></td>
+            <td>Desvio Exclusivo (XOR)</td>
+            <td>Pontos de ramificação lógica condicional baseados em testes estatísticos ou critérios de corte (e.g., p-valor &lt; 0,05 ou ganho marginal &ge; 15%).</td>
+        </tr>
+        <tr>
+            <td><strong>Data Object (📄)</strong></td>
+            <td>Artefato de Dados / Dataset</td>
+            <td>Conjuntos estruturados de dados intermediários ou finais (arquivos Parquet, bancos SQLite, modelos serializados Joblib).</td>
+        </tr>
+        <tr>
+            <td><strong>Eventos (🟢 / 🔴)</strong></td>
+            <td>Início, Timer e Fim de Fluxo</td>
+            <td>Gatilhos temporais (e.g., ciclos mensais LOA) e marcos de conclusão de fases experimentais.</td>
+        </tr>
+    </table>
+</div>
+
+<!-- CAPÍTULO 1: CADEIA DE VALOR DA PESQUISA -->
+<div class="page-break">
+    <h1>1. METODOLOGIA BPM E CADEIA DE VALOR CIENTÍFICA</h1>
+
+    <h2>1.1 O Ciclo de Vida BPM Aplicado à Investigação Científica</h2>
+    <p>
+        O gerenciamento de processos de pesquisa apoia-se no ciclo contínuo de BPM:
+        (1) <em>Alinhamento Estratégico e Epistemológico:</em> vinculação estrita entre a questão de pesquisa e as restrições fiscais da administração pública;
+        (2) <em>Análise e Modelagem As-Is:</em> diagnóstico das rotinas inerciais e fragmentadas de manutenção corretiva do Estado;
+        (3) <em>Desenho To-Be:</em> concepção da arquitetura analítico-prescritiva integrada;
+        (4) <em>Implementação e Execução:</em> orquestração dos scripts de ETL, calibração de modelos e resolução do solver;
+        (5) <em>Monitoramento e Controle:</em> auditoria estatística contínua, suíte de testes Pytest e homologação multiplataforma; e
+        (6) <em>Refinamento e Transferência:</em> consolidação de pacotes de código aberto e entrega de relatórios para o erário.
+    </p>
+
+    <h2>1.2 Cadeia de Valor da Pesquisa Científica (Nível 0)</h2>
+    <p>
+        A Cadeia de Valor Global sintetiza os processos que agregam valor direto ao rigor científico e à sociedade:
+    </p>
+
+    <div class="bpmn-flow-container">
+        <div style="font-weight: bold; color: #0f766e; margin-bottom: 6px; font-size: 8.5pt;">CADEIA DE VALOR GLOBAL DA PESQUISA (NÍVEL 0 — BPM CBOK v4.0)</div>
+        
+        <div class="bpmn-lane">
+            <div class="bpmn-lane-title" style="background: #1e3a8a;">Processos de Governança</div>
+            <div class="bpmn-lane-content">
+                <span class="bpmn-node bpmn-node-user">MP-01: Governança Epistemológica & Gestão Dedutiva de Hipóteses (Volpato)</span>
+                <span class="bpmn-arrow">➔</span>
+                <span class="bpmn-node bpmn-node-user">MP-10: Anonimização, Privacidade & Conformidade Legal com a LGPD</span>
+            </div>
+        </div>
+
+        <div class="bpmn-lane">
+            <div class="bpmn-lane-title" style="background: #0f766e;">Processos Centrais (Core)</div>
+            <div class="bpmn-lane-content">
+                <span class="bpmn-node bpmn-node-script">MP-02: Ingestão & Saneamento Censitário</span>
+                <span class="bpmn-arrow">➔</span>
+                <span class="bpmn-node bpmn-node-script">MP-03: Triagem de Anomalias (Isolation Forest)</span>
+                <span class="bpmn-arrow">➔</span>
+                <span class="bpmn-node bpmn-node-script">MP-04: Painel Longitudinal & Walk-Forward</span>
+                <span class="bpmn-arrow">➔</span>
+                <span class="bpmn-node bpmn-node-script">MP-05: Modelagem Preditiva Risco/Custo</span>
+                <span class="bpmn-arrow">➔</span>
+                <span class="bpmn-node bpmn-node-gateway">MP-06: Ablação Multimodal (H1)</span>
+                <span class="bpmn-arrow">➔</span>
+                <span class="bpmn-node bpmn-node-service">MP-07: Otimização Prescritiva MILP (HiGHS)</span>
+                <span class="bpmn-arrow">➔</span>
+                <span class="bpmn-node bpmn-node-script">MP-08: Explicabilidade XAI (SHAP/LIME)</span>
+                <span class="bpmn-arrow">➔</span>
+                <span class="bpmn-node bpmn-node-script">MP-09: Teoria dos Grafos & Louvain</span>
+            </div>
+        </div>
+
+        <div class="bpmn-lane">
+            <div class="bpmn-lane-title" style="background: #475569;">Processos de Suporte</div>
+            <div class="bpmn-lane-content">
+                <span class="bpmn-node bpmn-node-script">MP-11: Homologação Multiplataforma, Pytest & Reprodutibilidade (Zero Drift)</span>
+                <span class="bpmn-arrow">➔</span>
+                <span class="bpmn-node bpmn-node-user">MP-12: Transferência Tecnológica, Artigos SBC/JCR & Defesa Final</span>
+            </div>
+        </div>
+    </div>
+
+    <h2>1.3 Matriz de Raias de Responsabilidade (Swimlanes do Sistema)</h2>
+    <p>
+        Para garantir a clara segregação de funções exigida pela auditoria governamental e pelas boas práticas de modelagem BPMN 2.0, definiram-se <strong>seis raias de atuação (Swimlanes)</strong> que permeiam todos os macroprocessos:
+    </p>
+    <ul>
+        <li><strong>Raia 1 — Pesquisador / Autor (PPGCAP / UDESC):</strong> Responsável pela concepção teórica, desenvolvimento dos scripts em Python, orquestração dos pipelines, condução dos experimentos e redação formal;</li>
+        <li><strong>Raia 2 — Orientadores & Banca Examinadora:</strong> Responsáveis pela supervisão metodológica, validação epistemológica, aprovação do anteprojeto, exame de qualificação e arguição na defesa final;</li>
+        <li><strong>Raia 3 — Subsistema de Engenharia de Dados & Infraestrutura:</strong> Componentes de software encarregados de ETL, tratamento monotônico de odômetros, cálculo de painel veículo-mês e armazenamento em Parquet;</li>
+        <li><strong>Raia 4 — Motores de Machine Learning & Séries Temporais:</strong> Pipelines estatísticos do <em>Scikit-learn</em>, <em>Prophet</em> e <em>SciPy</em> para treinamento, calibração e inferência preditiva;</li>
+        <li><strong>Raia 5 — Solver de Pesquisa Operacional (HiGHS / PuLP):</strong> Motor de otimização exata responsável pela resolução dos modelos de Programação Linear Inteira Mista (MILP) e relaxações contínuas;</li>
+        <li><strong>Raia 6 — Órgãos de Controle e Gestão Governamental (SEA/SC & TCE-SC):</strong> Fornecedores das bases brutas de contratos e fiscalização, balizadores das regras mandatórias e destinatários dos relatórios de vantajosidade.</li>
+    </ul>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 1 — Arquitetura CRISP-DM e Integração Metodológica dos Processos de Pesquisa</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig64_pipeline_arquitetura_integrada.png" alt="Arquitetura de Processos da Pesquisa">
+        <div class="figure-source">Fonte: Elaborado pelo autor com base nos fluxos de engenharia do sistema (2026).</div>
+    </div>
+</div>
+
+<!-- CAPÍTULO 2: DETALHAMENTO DOS 12 MACROPROCESSOS (PARTE 1: MP-01 A MP-04) -->
+<div class="page-break">
+    <h1>2. DETALHAMENTO DE 100% DOS PROCESSOS (MP-01 A MP-04)</h1>
+
+    <h2>2.1 MP-01: Governança Epistemológica e Gestão Dedutiva de Hipóteses</h2>
+    <p>
+        <strong>Objetivo:</strong> Estruturar a lógica interna da investigação sob o Método de Gilson Volpato, assegurando que o conteúdo preceda a forma, que hipóteses sejam formuladas <em>a priori</em> como proposições falseáveis e que regras estritas de corte impeçam o <em>p-hacking</em>.
+    </p>
+
+    <table class="sipoc">
+        <tr>
+            <th style="width: 18%;">Fornecedores (S)</th>
+            <th style="width: 20%;">Entradas (I)</th>
+            <th style="width: 26%;">Etapas do Processo (P)</th>
+            <th style="width: 20%;">Saídas (O)</th>
+            <th>Clientes (C)</th>
+        </tr>
+        <tr>
+            <td>Literatura Internacional;<br>Legislação Fiscal (LRF e Lei 14.133/2021).</td>
+            <td>Revisão de 40 artigos;<br>Demandas reais de economicidade da SEA/SC.</td>
+            <td>1. Delimitar lacunas científicas;<br>2. Formular Pergunta Central;<br>3. Fixar Hipóteses H1 a H4;<br>4. Definir régua de corte (15%).</td>
+            <td>Matriz de Hipóteses Falseáveis;<br>Caderno Metodológico de Delineamento.</td>
+            <td>Banca PPGCAP;<br>Pesquisador;<br>SEA/SC.</td>
+        </tr>
+    </table>
+
+    <div class="box-regra">
+        <strong>Regra Epistemológica Mandatória (Volpato):</strong> A significância estatística (p &lt; 0,05) decorrente de base censitária massiva não autoriza a aceitação de hipóteses de investimento operacional caso o ganho marginal relativo seja inferior a 15,0%.
+    </div>
+
+    <h2>2.2 MP-02: Ingestão, Auditoria Censitária e Saneamento de Hodômetros</h2>
+    <p>
+        <strong>Objetivo:</strong> Ingerir 350.737 registros de ordens de serviço (2020–2026), conciliar a contabilidade pública e corrigir 6.841 anomalias de hodômetro através de validação monotônica temporal.
+    </p>
+
+    <table class="sipoc">
+        <tr>
+            <th>Fornecedores (S)</th>
+            <th>Entradas (I)</th>
+            <th>Etapas do Processo (P)</th>
+            <th>Saídas (O)</th>
+            <th>Clientes (C)</th>
+        </tr>
+        <tr>
+            <td>Sistema Gestão de Frotas SEA/SC;<br>Oficinas Credenciadas.</td>
+            <td>Bases brutas CSV/XLSX;<br>Arquivos de faturamento e notas fiscais.</td>
+            <td>1. Carga bruta e hashing LGPD;<br>2. Fechamento contábil dos R$ 198,81M;<br>3. Detecção de 6.841 saltos de KM;<br>4. Reconstrução monotônica de KM;<br>5. Conversão colunar Parquet.</td>
+            <td>Base Censitária Saneada;<br>Tabela <code>os_saneadas.parquet</code>;<br>Relatório de Auditoria Contábil.</td>
+            <td>MP-03 (Isolation Forest);<br>MP-04 (Painel Longitudinal);<br>TCE-SC.</td>
+        </tr>
+    </table>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 2 — Algoritmo de Saneamento Monotônico de Regressões de Hodômetro (MP-02)</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig63_algoritmo_saneamento_hodometro.png" alt="Algoritmo de Hodômetro">
+        <div class="figure-source">Fonte: Dados empíricos processados pelo algoritmo monotônico temporal (2026).</div>
+    </div>
+
+    <h2>2.3 MP-03: Mineração Não Supervisionada de Anomalias Fiscais</h2>
+    <p>
+        <strong>Objetivo:</strong> Isolar desvios em faturamentos de manutenção mecânica via <em>Isolation Forest</em> com taxa de contaminação calibrada em &nu; = 0,0085, comprovando a estabilidade estocástica e a concordância com glosas fiscais.
+    </p>
+
+    <table class="sipoc">
+        <tr>
+            <th>Fornecedores (S)</th>
+            <th>Entradas (I)</th>
+            <th>Etapas do Processo (P)</th>
+            <th>Saídas (O)</th>
+            <th>Clientes (C)</th>
+        </tr>
+        <tr>
+            <td>MP-02 (Base Saneada);<br>Fiscais de Contrato SEA/SC.</td>
+            <td>Hipervolume contínuo (custo, valor orçado, duração, idade, KM, itens).</td>
+            <td>1. Padronização Robusta (RobustScaler);<br>2. Treinamento multissemente (42, 123, 999);<br>3. Cálculo do Índice de Jaccard;<br>4. Teste t de Student contra glosas reais.</td>
+            <td>662 OSs anômalas isoladas;<br>Score contínuo de anomalia;<br>Estabilidade Jaccard certificada (J &ge; 0,86).</td>
+            <td>Diretoria Patrimonial SEA/SC;<br>MP-05 (Modelagem Risco);<br>Auditores Fiscais.</td>
+        </tr>
+    </table>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 3 — Estabilidade Paramétrica Multissemente do Isolation Forest por Jaccard (MP-03)</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig05_iforest_estabilidade_jaccard.png" alt="Estabilidade Isolation Forest">
+        <div class="figure-source">Fonte: Experimentos de sensibilidade estocástica executados pelo autor (2026).</div>
+    </div>
+
+    <h2>2.4 MP-04: Estruturação de Painel Longitudinal e Protocolos Temporais</h2>
+    <p>
+        <strong>Objetivo:</strong> Consolidar o painel longitudinal veículo-mês (51.244 instâncias) com 35 atributos operacionais e implementar o protocolo <em>Walk-Forward</em> em 5 dobras sob embargo estrito de 30 dias para eliminação de <em>lookahead bias</em>.
+    </p>
+
+    <table class="sipoc">
+        <tr>
+            <th>Fornecedores (S)</th>
+            <th>Entradas (I)</th>
+            <th>Etapas do Processo (P)</th>
+            <th>Saídas (O)</th>
+            <th>Clientes (C)</th>
+        </tr>
+        <tr>
+            <td>MP-02 e MP-03;<br>Cadastro de Frotas SEA/SC.</td>
+            <td>Séries de manutenções agregadas;<br>Datas de abertura e encerramento de OS.</td>
+            <td>1. Agrupamento temporal veículo-mês;<br>2. Cálculo de métricas móveis pregressas;<br>3. Particionamento em 5 dobras sequenciais;<br>4. Inserção do embargo de 30 dias.</td>
+            <td>Painel <code>painel_veiculo_mes.parquet</code>;<br>5 dobras out-of-time estruturadas;<br>Conjunto Holdout 2025–2026 intocado.</td>
+            <td>MP-05 (Modelagem Preditiva);<br>MP-06 (Estudo Ablativo);<br>MP-07 (MILP).</td>
+        </tr>
+    </table>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 4 — Protocolo Walk-Forward em Janela Expansiva com Embargo Temporal de 30 Dias (MP-04)</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig18_rolling_window_cross_val.png" alt="Validação Temporal Walk-Forward">
+        <div class="figure-source">Fonte: Pipeline temporal concebido conforme Bergmeir & Benítez (2012) e Kapoor (2023).</div>
+    </div>
+</div>
+
+<!-- CAPÍTULO 3: DETALHAMENTO DOS MACROPROCESSOS (PARTE 2: MP-05 A MP-08) -->
+<div class="page-break">
+    <h1>3. DETALHAMENTO DE 100% DOS PROCESSOS (MP-05 A MP-08)</h1>
+
+    <h2>3.1 MP-05: Modelagem Preditiva Supervisionada de Risco e Custo Operacional</h2>
+    <p>
+        <strong>Objetivo:</strong> Prever com probabilidades calibradas a ocorrência de falha corretiva em t+1 (classificação) e estimar o valor financeiro do reparo (regressão não linear), avaliando modelos via PR-AUC, ROC-AUC, Brier Score, ECE, DeLong e Wilcoxon.
+    </p>
+
+    <table class="sipoc">
+        <tr>
+            <th>Fornecedores (S)</th>
+            <th>Entradas (I)</th>
+            <th>Etapas do Processo (P)</th>
+            <th>Saídas (O)</th>
+            <th>Clientes (C)</th>
+        </tr>
+        <tr>
+            <td>MP-04 (Painel Longitudinal).</td>
+            <td>35 features operacionais;<br>Alvos: y_{it+1} &isin; {0, 1} e Custo &ge; 0.</td>
+            <td>1. Treinamento de Ensembles e Baselines;<br>2. Calibração Isotônica de Probabilidades;<br>3. Cálculo de PR-AUC, ROC-AUC e ECE;<br>4. Teste de DeLong e Wilcoxon-Holm.</td>
+            <td>Modelo Campeão (HistGradientBoosting);<br>Probabilidades Calibradas de Falha;<br>Custos Preditos Condicionais.</td>
+            <td>MP-06 (Ablação);<br>MP-07 (Otimização MILP);<br>MP-08 (XAI).</td>
+        </tr>
+    </table>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 5 — Curvas ROC de Classificação de Risco Operacional com Intervalos de Confiança (MP-05)</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig08_classificacao_roc_curves.png" alt="Curvas ROC dos Modelos">
+        <div class="figure-source">Fonte: Avaliação sobre o conjunto de teste out-of-time independente (2026).</div>
+    </div>
+
+    <h2>3.2 MP-06: Estudo de Ablação Multimodal e Teste Falseável de Hipóteses</h2>
+    <p>
+        <strong>Objetivo:</strong> Mensurar formalmente o ganho preditivo marginal da fusão de dados cadastrais e patrimoniais frente à base exclusiva de manutenção, aplicando o critério de corte de 15,0% de relevância prática de Volpato para deliberar sobre a Hipótese H1.
+    </p>
+
+    <table class="sipoc">
+        <tr>
+            <th>Fornecedores (S)</th>
+            <th>Entradas (I)</th>
+            <th>Etapas do Processo (P)</th>
+            <th>Saídas (O)</th>
+            <th>Clientes (C)</th>
+        </tr>
+        <tr>
+            <td>MP-05 (Modelos Preditivos);<br>Cadastro Patrimonial SEA/SC.</td>
+            <td>Espaço M (apenas OS mecânicas);<br>Espaço M+P (OS + Cadastro do Ativo).</td>
+            <td>1. Treinamento paralelo em M e M+P;<br>2. Cálculo do ganho marginal (&Delta;MAE e &Delta;AUC);<br>3. Teste pareado de Wilcoxon;<br>4. Confronto com o limiar de 15% de corte.</td>
+            <td>Ganho real medido: +0,41%;<br>Deliberação formal: Hipótese H1 classificada como NÃO SUSTENTADA.</td>
+            <td>Banca Examinadora;<br>Gestores Públicos da SEA/SC;<br>Artigo Científico.</td>
+        </tr>
+    </table>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 6 — Confronto de Ablação Multimodal: Espaço M vs Integrado M+P (MP-06)</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig12_ablativo_fontes_m_vs_mp.png" alt="Ablação Multimodal">
+        <div class="figure-source">Fonte: Resultados empíricos certificados sob o Método de Volpato (2026).</div>
+    </div>
+
+    <h2>3.3 MP-07: Otimização Prescritiva Exata por Programação Inteira Mista (MILP)</h2>
+    <p>
+        <strong>Objetivo:</strong> Determinar a política ótima de intervenções preventivas x_{it} &isin; {0, 1} que minimiza o custo total esperado sob restrições de orçamento mensal da LOA ($B_t$), horas de oficina ($H_t$) e atendimento compulsório de regras de segurança ($m_{it}=1$).
+    </p>
+
+    <table class="sipoc">
+        <tr>
+            <th>Fornecedores (S)</th>
+            <th>Entradas (I)</th>
+            <th>Etapas do Processo (P)</th>
+            <th>Saídas (O)</th>
+            <th>Clientes (C)</th>
+        </tr>
+        <tr>
+            <td>MP-05 (Probabilidades Calibradas);<br>Secretaria de Estado da Fazenda (SEF/SC).</td>
+            <td>Probabilidades preditas p_{it};<br>Custos de manutenção preventiva e corretiva;<br>Limites orçamentários mensais B_t.</td>
+            <td>1. Formulação da função objetivo bi-critério;<br>2. Inserção de restrições de LOA e oficinas;<br>3. Resolução exata com solver HiGHS;<br>4. Análise de relaxação LP e shadow prices.</td>
+            <td>Plano Ótimo Prescritivo;<br>Economia contrafactual de R$ 9.302.147,26 (17,51%);<br>MIP Gap certificado de 0,0000%.</td>
+            <td>Diretoria de Frotas SEA/SC;<br>Secretarias Operacionais;<br>TCE-SC.</td>
+        </tr>
+    </table>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 7 — Fronteira de Eficiência e Sensibilidade Orçamentária Prescritiva MILP (MP-07)</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig14_otimizacao_sensibilidade_orcamento.png" alt="Sensibilidade Orçamentária MILP">
+        <div class="figure-source">Fonte: Otimização exata resolvida com o solver HiGHS (2026).</div>
+    </div>
+
+    <h2>3.4 MP-08: Inteligência Artificial Explicável (XAI) e Auditoria para Órgãos de Controle</h2>
+    <p>
+        <strong>Objetivo:</strong> Interpretar local e globalmente os modelos preditivos através de SHAP e LIME, testando a concordância estrutural no Top-5 de atributos e gerando explicações auditáveis para o Tribunal de Contas.
+    </p>
+
+    <table class="sipoc">
+        <tr>
+            <th>Fornecedores (S)</th>
+            <th>Entradas (I)</th>
+            <th>Etapas do Processo (P)</th>
+            <th>Saídas (O)</th>
+            <th>Clientes (C)</th>
+        </tr>
+        <tr>
+            <td>MP-05 (Modelo Campeão HistGB);<br>Casos Críticos de Auditoria.</td>
+            <td>Instâncias veiculares auditadas;<br>Modelos treinados serializados.</td>
+            <td>1. Cálculo de Shapley Values (TreeExplainer);<br>2. Ajuste de aproximações locais LIME;<br>3. Cálculo de similaridade Jaccard e Spearman;<br>4. Deliberação sobre a Hipótese H4.</td>
+            <td>Ranking auditável de atributos;<br>Jaccard Top-5 de 39,29% (H4 REJEITADA);<br>Parecer de cautela técnica para o TCE-SC.</td>
+            <td>Tribunal de Contas (TCE-SC);<br>Fiscais de Contrato;<br>Banca PPGCAP.</td>
+        </tr>
+    </table>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 8 — Comparativo de Importância de Features: SHAP vs LIME (MP-08)</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig13_importancia_atributos_xai.png" alt="XAI SHAP vs LIME">
+        <div class="figure-source">Fonte: Auditoria de explicabilidade executada sobre o modelo HistGradientBoosting (2026).</div>
+    </div>
+</div>
+
+<!-- CAPÍTULO 4: DETALHAMENTO DOS MACROPROCESSOS (PARTE 3: MP-09 A MP-12) -->
+<div class="page-break">
+    <h1>4. DETALHAMENTO DE 100% DOS PROCESSOS (MP-09 A MP-12)</h1>
+
+    <h2>4.1 MP-09: Modelagem de Redes Complexas e Teoria dos Grafos</h2>
+    <p>
+        <strong>Objetivo:</strong> Construir a rede bipartida veículos-fornecedores e projetar redes de co-ocorrência de falhas mecânicas, aplicando o algoritmo de Louvain para detectar comunidades regionais e potenciais gargalos logísticos.
+    </p>
+
+    <table class="sipoc">
+        <tr>
+            <th>Fornecedores (S)</th>
+            <th>Entradas (I)</th>
+            <th>Etapas do Processo (P)</th>
+            <th>Saídas (O)</th>
+            <th>Clientes (C)</th>
+        </tr>
+        <tr>
+            <td>MP-02 (Base Censitária Saneada).</td>
+            <td>7.291 nós de veículos;<br>1.039 nós de oficinas credenciadas;<br>Arestas ponderadas por dispêndio (R$).</td>
+            <td>1. Construção do grafo bipartido NetworkX;<br>2. Maximização de modularidade de Louvain;<br>3. Projeção unipartida de sistemas de falha;<br>4. Cálculo de centralidades de intermediação.</td>
+            <td>18 comunidades regionais isoladas;<br>Modularidade Q = 0,5646;<br>Mapeamento de polos de concentração mecânica.</td>
+            <td>Gerência de Credenciamento SEA/SC;<br>Auditores de Conluio/Concentração.</td>
+        </tr>
+    </table>
+
+    <div class="figure-container">
+        <div class="figure-caption">Figura 9 — Rede Bipartida de Veículos Oficiais e Oficinas com 18 Comunidades de Louvain (MP-09)</div>
+        <img src="file:///home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/overleaf_dissertacao_udesc/figuras/fig94_grafo_bipartido_veiculos_oficinas.png" alt="Rede Bipartida Louvain">
+        <div class="figure-source">Fonte: Modelagem de grafos executada com NetworkX e algoritmo de Louvain (2026).</div>
+    </div>
+
+    <h2>4.2 MP-10: Anonimização, Privacidade e Conformidade Legal com a LGPD</h2>
+    <p>
+        <strong>Objetivo:</strong> Garantir a conformidade estrita com a Lei Federal nº 13.709/2018 (LGPD), efetuando a detecção e expurgo de dados pessoais identificáveis (PII) e mascarando placas e estabelecimentos via HMAC-SHA256 determinístico irreversível.
+    </p>
+
+    <table class="sipoc">
+        <tr>
+            <th>Fornecedores (S)</th>
+            <th>Entradas (I)</th>
+            <th>Etapas do Processo (P)</th>
+            <th>Saídas (O)</th>
+            <th>Clientes (C)</th>
+        </tr>
+        <tr>
+            <td>MP-02 (Ingestão Bruta);<br>Contratos da SEA/SC.</td>
+            <td>Placas reais de veículos;<br>CNPJs/CPFs de oficinas;<br>Identificação de servidores motoristas.</td>
+            <td>1. Varredura com Microsoft Presidio;<br>2. Hashing criptográfico determinístico com chave salgada;<br>3. Desvinculação definitiva de condutores;<br>4. Emissão de termo de conformidade LGPD.</td>
+            <td>Pseudônimos irreversíveis (VEIC_HASH, FORNECEDOR_XXX);<br>Repositório de dados seguro para publicação aberta.</td>
+            <td>Comitê de Ética e LGPD;<br>Tribunal de Contas;<br>Comunidade Científica.</td>
+        </tr>
+    </table>
+
+    <h2>4.3 MP-11: Homologação Multiplataforma, Testes Contínuos e Reprodutibilidade</h2>
+    <p>
+        <strong>Objetivo:</strong> Certificar a integridade numérica e a reprodutibilidade exata dos experimentos através de execução em baterias independentes cruzadas entre sistemas Linux e Windows 11, auditando 20 checkpoints com zero drift numérico.
+    </p>
+
+    <table class="sipoc">
+        <tr>
+            <th>Fornecedores (S)</th>
+            <th>Entradas (I)</th>
+            <th>Etapas do Processo (P)</th>
+            <th>Saídas (O)</th>
+            <th>Clientes (C)</th>
+        </tr>
+        <tr>
+            <td>Ambiente Linux Ubuntu x86_64;<br>Ambiente Windows 11 Pro (Máquina N-0781).</td>
+            <td>Código-fonte integral da dissertação;<br>Suíte de testes automatizados Pytest.</td>
+            <td>1. Execução paralela nas duas plataformas;<br>2. Confronto dos resultados ao centavo;<br>3. Auditoria de 20 checkpoints de integridade;<br>4. Verificação de fechamento do MIP Gap (0,0000%).</td>
+            <td>Economia E5 confirmada em R$ 9.302.147,26 em ambas as máquinas;<br>Certificado de Reprodutibilidade Zero Drift.</td>
+            <td>Banca Examinadora do PPGCAP;<br>Auditoria Externa de Reprodutibilidade.</td>
+        </tr>
+    </table>
+
+    <h2>4.4 MP-12: Suporte à Decisão, Publicação Científica e Transferência Tecnológica</h2>
+    <p>
+        <strong>Objetivo:</strong> Disponibilizar os artefatos de pesquisa para a gestão pública por meio de API REST (FastAPI) e interface desktop (PyQt6), submeter artigos para eventos da SBC e periódicos qualificados, e depositar a versão final da dissertação.
+    </p>
+
+    <table class="sipoc">
+        <tr>
+            <th>Fornecedores (S)</th>
+            <th>Entradas (I)</th>
+            <th>Etapas do Processo (P)</th>
+            <th>Saídas (O)</th>
+            <th>Clientes (C)</th>
+        </tr>
+        <tr>
+            <td>Todos os Macroprocessos Anteriores (MP-01 a MP-11).</td>
+            <td>Modelos treinados, planos prescritivos e relatórios consolidados.</td>
+            <td>1. Publicação da API FastAPI e dashboard PyQt6;<br>2. Redação e submissão de 2 artigos (SBC e JCR);<br>3. Redação final e depósito da dissertação;<br>4. Defesa Pública Final de Mestrado.</td>
+            <td>Software FROTAGOV Enterprise 2.5.0;<br>Artigos científicos aprovados;<br>Título de Mestre em Computação Aplicada.</td>
+            <td>Sociedade Catarinense;<br>Governo de Santa Catarina (SEA/SC);<br>PPGCAP / UDESC.</td>
+        </tr>
+    </table>
+</div>
+
+<!-- CAPÍTULO 5: MATRIZ DE RASTREABILIDADE E GOVERNANÇA RACI -->
+<div class="page-break">
+    <h1>5. MATRIZ RACI E RASTREABILIDADE PONTA A PONTA</h1>
+
+    <h2>5.1 Matriz RACI de Governança dos 12 Macroprocessos</h2>
+    <p>
+        A matriz RACI estabelece a governança formal do projeto, delimitando quem é o Responsável pela execução (<strong>R</strong> - <em>Responsible</em>), a Autoridade final que aprova (<strong>A</strong> - <em>Accountable</em>), os Consultados com parecer técnico (<strong>C</strong> - <em>Consulted</em>) e os Informados sobre o andamento (<strong>I</strong> - <em>Informed</em>):
+    </p>
+
+    <table class="raci">
+        <tr>
+            <th style="width: 32%;">Macroprocesso de Pesquisa (MP)</th>
+            <th style="width: 13%;">Pesquisador (Autor)</th>
+            <th style="width: 14%;">Orientadores (UDESC)</th>
+            <th style="width: 13%;">Banca Examinadora</th>
+            <th style="width: 14%;">Gestores SEA/SC</th>
+            <th style="width: 14%;">Controle TCE-SC</th>
+        </tr>
+        <tr>
+            <td>MP-01: Governança Epistemológica & Volpato</td>
+            <td><strong>R</strong></td>
+            <td><strong>A</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>I</strong></td>
+            <td><strong>I</strong></td>
+        </tr>
+        <tr>
+            <td>MP-02: Ingestão, Auditoria & Hodômetros</td>
+            <td><strong>R</strong></td>
+            <td><strong>A</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>I</strong></td>
+        </tr>
+        <tr>
+            <td>MP-03: Isolation Forest & Glosas Fiscais</td>
+            <td><strong>R</strong></td>
+            <td><strong>A</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>I</strong></td>
+        </tr>
+        <tr>
+            <td>MP-04: Painel Longitudinal & Walk-Forward</td>
+            <td><strong>R</strong></td>
+            <td><strong>A</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>I</strong></td>
+            <td><strong>I</strong></td>
+        </tr>
+        <tr>
+            <td>MP-05: Modelagem Supervisionada (Risco/Custo)</td>
+            <td><strong>R</strong></td>
+            <td><strong>A</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>I</strong></td>
+            <td><strong>I</strong></td>
+        </tr>
+        <tr>
+            <td>MP-06: Ablação Multimodal (Teste de H1)</td>
+            <td><strong>R</strong></td>
+            <td><strong>A</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>I</strong></td>
+        </tr>
+        <tr>
+            <td>MP-07: Otimização Prescritiva MILP (HiGHS)</td>
+            <td><strong>R</strong></td>
+            <td><strong>A</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>C</strong></td>
+        </tr>
+        <tr>
+            <td>MP-08: Inteligência Artificial Explicável (XAI)</td>
+            <td><strong>R</strong></td>
+            <td><strong>A</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>C</strong></td>
+        </tr>
+        <tr>
+            <td>MP-09: Teoria dos Grafos & Louvain</td>
+            <td><strong>R</strong></td>
+            <td><strong>A</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>I</strong></td>
+        </tr>
+        <tr>
+            <td>MP-10: Anonimização e Conformidade LGPD</td>
+            <td><strong>R</strong></td>
+            <td><strong>A</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>A</strong></td>
+            <td><strong>C</strong></td>
+        </tr>
+        <tr>
+            <td>MP-11: Homologação Multiplataforma (Zero Drift)</td>
+            <td><strong>R</strong></td>
+            <td><strong>A</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>I</strong></td>
+            <td><strong>I</strong></td>
+        </tr>
+        <tr>
+            <td>MP-12: Transferência Tecnológica e Defesa</td>
+            <td><strong>R</strong></td>
+            <td><strong>A</strong></td>
+            <td><strong>A</strong></td>
+            <td><strong>C</strong></td>
+            <td><strong>I</strong></td>
+        </tr>
+    </table>
+
+    <h2>5.2 Indicadores de Desempenho e Eficácia dos Processos (KPIs BPM)</h2>
+    <p>
+        Cada macroprocesso é monitorado através de Indicadores-Chave de Desempenho (KPIs) com metas predefinidas e resultados homologados:
+    </p>
+
+    <table class="academic">
+        <tr>
+            <th style="width: 25%;">Processo Monitorado</th>
+            <th style="width: 25%;">Indicador de Desempenho (KPI)</th>
+            <th style="width: 22%;">Meta Homologada</th>
+            <th>Resultado Atingido no Projeto</th>
+        </tr>
+        <tr>
+            <td><strong>MP-02 (Saneamento)</strong></td>
+            <td>Taxa de Correção de Hodômetros</td>
+            <td>100% de saltos sanados</td>
+            <td><strong class="badge-check">6.841 regressões corrigidas monotônicamente</strong></td>
+        </tr>
+        <tr>
+            <td><strong>MP-03 (Anomalias)</strong></td>
+            <td>Concordância com Glosas Administrativas</td>
+            <td>p-valor &lt; 0,01</td>
+            <td><strong class="badge-check">p = 0,000426 (t = 3,52) — Altamente Significante</strong></td>
+        </tr>
+        <tr>
+            <td><strong>MP-04 (Anti-Vazamento)</strong></td>
+            <td>Tolerância a Lookahead Bias</td>
+            <td>0 vazamento temporal</td>
+            <td><strong class="badge-check">Embargo de 30 dias estritamente cumprido</strong></td>
+        </tr>
+        <tr>
+            <td><strong>MP-05 (Classificação)</strong></td>
+            <td>PR-AUC do Modelo Campeão</td>
+            <td>PR-AUC &ge; 0,8500</td>
+            <td><strong class="badge-check">PR-AUC = 0,9510 (HistGradientBoosting)</strong></td>
+        </tr>
+        <tr>
+            <td><strong>MP-07 (Prescrição MILP)</strong></td>
+            <td>MIP Gap do Solver HiGHS</td>
+            <td>Gap &le; 0,01%</td>
+            <td><strong class="badge-check">Gap certificado de 0,0000% (Solução Ótima Exata)</strong></td>
+        </tr>
+        <tr>
+            <td><strong>MP-07 (Impacto Fiscal)</strong></td>
+            <td>Economia Contrafactual Líquida</td>
+            <td>Economia &ge; 10,0%</td>
+            <td><strong class="badge-check">17,51% de economia (R$ 9.302.147,26)</strong></td>
+        </tr>
+        <tr>
+            <td><strong>MP-09 (Redes de Oficinas)</strong></td>
+            <td>Modularidade Louvain (Q)</td>
+            <td>Q &ge; 0,4000</td>
+            <td><strong class="badge-check">Q = 0,5646 (18 comunidades regionais nítidas)</strong></td>
+        </tr>
+        <tr>
+            <td><strong>MP-11 (Reprodutibilidade)</strong></td>
+            <td>Checkpoints Auditados Cross-Platform</td>
+            <td>100% de concordância</td>
+            <td><strong class="badge-check">20 de 20 Checkpoints idênticos ao centavo (Zero Drift)</strong></td>
+        </tr>
+    </table>
+
+    <h2>5.3 Conclusão do Mapeamento e Declaração de Conformidade BPM</h2>
+    <p>
+        O presente mapeamento de processos atesta que a pesquisa conduzida por Eduardo Lopes Jonker no PPGCAP/UDESC possui controle integral de seu ciclo de vida. A transição de código empírico disperso para um sistema formal de processos de negócio assegura que qualquer auditor, fiscal da SEA/SC, examinador de banca ou pesquisador independente consiga reconstruir, reproduzir e validar cada centavo, cada probabilidade calibrada e cada decisão prescritiva gerada pelo modelo.
+    </p>
+
+    <div class="box-info" style="margin-top: 1.5cm; text-align: center;">
+        <strong>UNIVERSIDADE DO ESTADO DE SANTA CATARINA — PPGCAP / UDESC</strong><br>
+        Mapeamento de Processos de Pesquisa homologado para Qualificação e Defesa de Dissertação de Mestrado.<br>
+        Joinville — SC, 2026.
+    </div>
+</div>
+
+<!-- REFERÊNCIAS TÉCNICAS E BPM -->
+<div class="page-break">
+    <h1>REFERÊNCIAS NORMATIVAS E BIBLIOGRÁFICAS</h1>
+    
+    <div style="font-size: 8.5pt; line-height: 1.4;">
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            ASSOCIATION OF BUSINESS PROCESS MANAGEMENT PROFESSIONALS (ABPMP). <strong>BPM CBOK: Guia para o Gerenciamento de Processos de Negócio — Corpo Comum de Conhecimento</strong>. Versão 4.0. Chicago: ABPMP International, 2020. 450 p.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            BERGMEIR, C.; BENÍTEZ, J. M. On the use of cross-validation for time series predictor evaluation. <strong>Information Sciences</strong>, v. 191, p. 192–213, 2012. DOI: 10.1016/j.ins.2011.12.028.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            BERTSIMAS, D.; KALLUS, N. From predictive to prescriptive analytics. <strong>Management Science</strong>, v. 66, n. 3, p. 1025–1044, 2020. DOI: 10.1287/mnsc.2018.3253.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            BLONDEL, V. D.; GUILLAUME, J.-L.; LAMBIOTTE, R.; LEFEBVRE, E. Fast unfolding of communities in large networks. <strong>Journal of Statistical Mechanics: Theory and Experiment</strong>, v. 2008, n. 10, p. P10008, 2008. DOI: 10.1088/1742-5468/2008/10/P10008.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            BRASIL. <strong>Lei Complementar Federal nº 101, de 4 de maio de 2000</strong>. Estabelece normas de finanças públicas voltadas para a responsabilidade na gestão fiscal (Lei de Responsabilidade Fiscal). Brasília, DF: Presidência da República, 2000.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            BRASIL. <strong>Lei Federal nº 13.709, de 14 de agosto de 2018</strong>. Lei Geral de Proteção de Dados Pessoais (LGPD). Brasília, DF: Presidência da República, 2018.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            BRASIL. <strong>Lei Federal nº 14.133, de 1º de abril de 2021</strong>. Lei de Licitações e Contratos Administrativos. Brasília, DF: Diário Oficial da União, 2021.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            INTERNATIONAL ORGANIZATION FOR STANDARDIZATION (ISO). <strong>ISO/IEC 19510:2013: Information technology — Object Management Group Business Process Model and Notation (BPMN 2.0)</strong>. Genebra: ISO, 2013.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            KAPOOR, S.; NARAYANAN, A. Leakage and the reproducibility crisis in machine-learning-based science. <strong>Patterns</strong>, v. 4, n. 9, p. 100804, 2023. DOI: 10.1016/j.patter.2023.100804.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            LUNDBERG, S. M.; LEE, S.-I. A unified approach to interpreting model predictions. In: <strong>Advances in Neural Information Processing Systems (NeurIPS 2017)</strong>, v. 30, p. 4765–4774, 2017.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            RIBEIRO, M. T.; SINGH, S.; GUESTRIN, C. "Why should I trust you?": Explaining the predictions of any classifier. In: <strong>ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD '16)</strong>, p. 1135–1144, 2016. DOI: 10.1145/2939672.2939778.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            RUDIN, C. Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. <strong>Nature Machine Intelligence</strong>, v. 1, n. 5, p. 206–215, 2019. DOI: 10.1038/s42256-019-0048-x.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            SANTA CATARINA. Secretaria de Estado da Administração (SEA). <strong>Cartilha de Gestão de Frota por Indicadores (GFI)</strong>: Matriz Oficial de 38 Indicadores de Desempenho e Auditoria Contratual. Florianópolis: SEA/SC, 2026.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            VOLPATO, G. L. O método lógico para redação científica. <strong>RECIIS – Revista Eletrônica de Comunicação, Informação & Inovação em Saúde</strong>, v. 9, n. 1, p. 1–14, 2015. DOI: 10.3395/reciis.v9i1.932.
+        </p>
+
+        <p class="no-indent" style="margin-bottom: 0.7em;">
+            VOLPATO, G. L. <strong>Método lógico para redação científica</strong>. 2. ed. rev. e atual. Botucatu: Best Writing, 2017. 155 p. ISBN 9788564201125.
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,25 @@
+Bancos de dados em grafos, XAI, modelos prescritivos e regressão linear — 14/11/2026 20:46
+Fonte: OpenAlex, termos literais em título e resumo; filtro type:!peer-review,type:!paratext; ano >= 2020
+Critério: pelo menos 3 de 4 blocos
+
+Observação: Com os 4 blocos em AND o OpenAlex retornou 0 resultados (14/11/2026); por isso o padrão exige 3 de 4 blocos. 'optimization' é amplo e aumenta a revocação do bloco prescritivo.
+
+Blocos:
+  grafos: ("graph database" OR "graph databases" OR "Neo4j" OR "knowledge graph" OR "property graph")
+  xai: ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning")
+  prescritivo: ("prescriptive analytics" OR "prescriptive model" OR "optimization" OR "decision support")
+  regressao: ("linear regression" OR "regression model" OR "regression analysis")
+
+Consultas submetidas (uma por combinação de blocos) e total informado:
+  [grafos+xai+prescritivo] total 76
+      ("graph database" OR "graph databases" OR "Neo4j" OR "knowledge graph" OR "property graph") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning") AND ("prescriptive analytics" OR "prescriptive model" OR "optimization" OR "decision support")
+  [grafos+xai+regressao] total 2
+      ("graph database" OR "graph databases" OR "Neo4j" OR "knowledge graph" OR "property graph") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning") AND ("linear regression" OR "regression model" OR "regression analysis")
+  [grafos+prescritivo+regressao] total 4
+      ("graph database" OR "graph databases" OR "Neo4j" OR "knowledge graph" OR "property graph") AND ("prescriptive analytics" OR "prescriptive model" OR "optimization" OR "decision support") AND ("linear regression" OR "regression model" OR "regression analysis")
+  [xai+prescritivo+regressao] total 266
+      ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning") AND ("prescriptive analytics" OR "prescriptive model" OR "optimization" OR "decision support") AND ("linear regression" OR "regression model" OR "regression analysis")
+
+Registros únicos: 348
+Blocos atendidos no título/resumo recebido: 3 blocos = 279, 2 blocos = 13, 1 blocos = 25, 0 blocos = 31
+PDFs baixados nesta execução: 100 | inéditos: 348

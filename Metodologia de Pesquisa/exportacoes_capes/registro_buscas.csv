@@ -1,0 +1,5 @@
+﻿arquivo;base;data_hora_busca;consulta_submetida;campos;filtros;resultados_informados_pela_base;formato_exportacao;observacoes
+../scobus.ris;Scopus;2026-11-14 (exportado às 14:49);NÃO ARQUIVADA - preencher com a consulta exata;título, resumo, palavras-chave (a confirmar);a confirmar;666 exportados;RIS;618 dos 666 registros contêm os 3 blocos da frase do protocolo em título/resumo/palavras-chave
+../export2026.11.14-13.11.41.csv;IEEE Xplore;2026-11-14 13:11;NÃO ARQUIVADA - preencher com a consulta exata;a confirmar;a confirmar;25 exportados;CSV;14 também estão na Scopus
+;Web of Science;;;;;;;busca pendente
+;ACM Digital Library;;;;;;;busca pendente (prevista no protocolo)

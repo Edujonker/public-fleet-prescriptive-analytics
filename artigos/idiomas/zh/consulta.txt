@@ -1,0 +1,28 @@
+Busca em chinês — 14/11/2026 19:54
+Fonte: OpenAlex, filtro language:zh,type:!peer-review,type:!paratext, publicação a partir de 2020
+Modo: relaxado, mínimo 2 de 3 blocos
+
+Termos em chinês (equivalência em inglês):
+  metodo: 规范性分析 | 处方性分析 | 预测分析 | 预测性分析 | 决策支持 | 异常检测 | 欺诈检测 | 舞弊识别 | 风险评估
+      ≈ prescriptive/predictive analytics, decision support, anomaly/fraud detection, risk assessment
+  xai: 可解释人工智能 | 可解释性人工智能 | 可解释的人工智能 | 可解释机器学习 | 可解释性机器学习 | 算法透明 | XAI
+      ≈ explainable AI, interpretable machine learning, algorithmic transparency, XAI
+  setor_publico: 公共部门 | 政府 | 公共管理 | 政府采购 | 公共采购 | 税收 | 税务 | 可审计性 | 审计 | 问责
+      ≈ public sector, government, public administration, public procurement, tax, auditability/audit, accountability
+
+Observação: 审计 (auditoria) é mais amplo que 可审计性 (auditabilidade).
+
+Consultas submetidas e total informado pelo OpenAlex:
+  [zh[metodo+xai]] search.title_and_abstract = ("规范性分析" OR "处方性分析" OR "预测分析" OR "预测性分析" OR "决策支持" OR "异常检测" OR "欺诈检测" OR "舞弊识别" OR "风险评估") AND ("可解释人工智能" OR "可解释性人工智能" OR "可解释的人工智能" OR "可解释机器学习" OR "可解释性机器学习" OR "算法透明" OR "XAI")
+      total: 4
+  [zh[metodo+setor_publico]] search.title_and_abstract = ("规范性分析" OR "处方性分析" OR "预测分析" OR "预测性分析" OR "决策支持" OR "异常检测" OR "欺诈检测" OR "舞弊识别" OR "风险评估") AND ("公共部门" OR "政府" OR "公共管理" OR "政府采购" OR "公共采购" OR "税收" OR "税务" OR "可审计性" OR "审计" OR "问责")
+      total: 64
+  [zh[xai+setor_publico]] search.title_and_abstract = ("可解释人工智能" OR "可解释性人工智能" OR "可解释的人工智能" OR "可解释机器学习" OR "可解释性机器学习" OR "算法透明" OR "XAI") AND ("公共部门" OR "政府" OR "公共管理" OR "政府采购" OR "公共采购" OR "税收" OR "税务" OR "可审计性" OR "审计" OR "问责")
+      total: 7
+  [en[metodo+xai+setor_publico]] search.title_and_abstract.exact = ("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability")
+      total: 0
+
+Registros únicos: 70  |  conferência local: {"ok": 2, "2 blocos": 66, "sem_resumo": 2}
+PDFs baixados nesta execução: 10  |  inéditos: 68
+
+Bases chinesas sem API (busca manual, não automatizada): CNKI, Wanfang, CQVIP; CSCD via Web of Science.

@@ -44,3 +44,14 @@ __pycache__/
 Thumbs.db
 .~lock.*
 public-fleet-prescriptive-analytics/
+
+# Literatura de terceiros (PDFs/TXT baixados) e caches de API: fora do repositório público
+artigos/**/*.pdf
+artigos/**/*.parcial
+revisao_sistematica/textos_completos/
+revisao_sistematica/cache/
+Metodologia de Pesquisa/exportacoes_capes/**/*.pdf
+SIC/.Rhistory
+graphdb/.venv/
+!revisao_sistematica/dados/
+artigos/**/.lock

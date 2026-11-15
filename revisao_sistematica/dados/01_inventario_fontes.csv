@@ -1,0 +1,23 @@
+﻿fonte;grupo;arquivo;registros;observacao;data_arquivo;md5;data_hora_busca;consulta_submetida;campos;filtros;resultados_informados_pela_base;formato_exportacao;observacoes
+Scopus;bases;Metodologia de Pesquisa/scobus.ris;666;Exportação Scopus, 14/11/2026, estratégia do protocolo (seção 5.1);2026-11-14 14:49;e5873db923c9;2026-11-14 (exportado às 14:49);NÃO ARQUIVADA - preencher com a consulta exata;título, resumo, palavras-chave (a confirmar);a confirmar;666 exportados;RIS;618 dos 666 registros contêm os 3 blocos da frase do protocolo em título/resumo/palavras-chave
+IEEE Xplore;bases;Metodologia de Pesquisa/export2026.11.14-13.11.41.csv;25;Exportação IEEE Xplore, 14/11/2026 13:11;2026-11-14 15:11;620ad1b571d7;2026-11-14 13:11;NÃO ARQUIVADA - preencher com a consulta exata;a confirmar;a confirmar;25 exportados;CSV;14 também estão na Scopus
+Biblioteca Paperpile;outros;Metodologia de Pesquisa/Paperpile - Library - 14 de nov..ris;1622;Biblioteca de referências do autor, exportada em 14/11/2026;2026-11-14 15:20;036e1034deba;;;;;;;
+Biblioteca exportada (export.ris);outros;Metodologia de Pesquisa/export.ris;1334;Biblioteca de referências exportada em 17/10/2026;2026-10-17 15:30;c7d2c2abf844;;;;;;;
+Periódicos CAPES (RIS);outros;Metodologia de Pesquisa/Periodicos-CAPES-RIS.ris;30;Buscas exploratórias no Portal CAPES;2026-11-14 15:18;e8997b7c8388;;;;;;;
+Periódicos CAPES (RIS);outros;Metodologia de Pesquisa/Periodicos-CAPES-RIS (1).ris;94;;2026-11-14 15:18;5056719c34e2;;;;;;;
+Periódicos CAPES (RIS);outros;documentos_academicos/Periodicos-CAPES-RIS.ris;66;;2026-11-01 16:44;3436bda3d69c;;;;;;;
+Periódicos CAPES (RIS);outros;documentos_academicos/Periodicos-CAPES-RIS (1).ris;30;;2026-11-01 16:44;d6e7fbddb2da;;;;;;;
+Base de Dados Mestrado (BibTeX);outros;documentos_academicos/Base de Dados Mestrado.bib;60;Base BibTeX do mestrado;2026-11-01 16:44;7d71b292ff39;;;;;;;
+Base de Dados Mestrado (BibTeX);outros;documentos_academicos/Base.mestrado.bib;0;;2026-11-01 16:44;7a2a6655c4aa;;;;;;;
+Referências da dissertação (Overleaf);outros;overleaf_dissertacao_udesc/referencias.bib;81;Referências do texto da dissertação;2026-11-12 10:51;ea649a2db8f8;;;;;;;
+Busca OpenAlex + Semantic Scholar;outros;artigos/resultados.csv;880;Busca complementar por API, 14/11/2026 (consulta diferente da do protocolo);2026-11-14 15:57;ed0239516ced;;;;;;;
+Periódicos CAPES (BibTeX);outros;documentos_academicos/Periodicos-CAPES-BibTex (1).bib;30;Buscas exploratórias no Portal CAPES;2026-11-01 16:44;4adb87983ef8;;;;;;;
+Periódicos CAPES (BibTeX);outros;documentos_academicos/Periodicos-CAPES-BibTex (2).bib;30;Buscas exploratórias no Portal CAPES;2026-11-01 16:44;3df14c663b49;;;;;;;
+Periódicos CAPES (BibTeX);outros;documentos_academicos/Periodicos-CAPES-BibTex (3).bib;29;Buscas exploratórias no Portal CAPES;2026-11-01 16:44;403a080fd748;;;;;;;
+Periódicos CAPES (BibTeX);outros;documentos_academicos/Periodicos-CAPES-BibTex (4).bib;99;Buscas exploratórias no Portal CAPES;2026-11-01 16:44;b0e71ef0662c;;;;;;;
+Periódicos CAPES (BibTeX);outros;documentos_academicos/Periodicos-CAPES-BibTex (5).bib;30;Buscas exploratórias no Portal CAPES;2026-11-01 16:44;7dc01841b030;;;;;;;
+Periódicos CAPES (BibTeX);outros;documentos_academicos/Periodicos-CAPES-BibTex (6).bib;30;Buscas exploratórias no Portal CAPES;2026-11-01 16:44;f758b7b4be28;;;;;;;
+Periódicos CAPES (BibTeX);outros;documentos_academicos/Periodicos-CAPES-BibTex (7).bib;30;Buscas exploratórias no Portal CAPES;2026-11-01 16:44;92fcc6153857;;;;;;;
+Periódicos CAPES (BibTeX);outros;documentos_academicos/Periodicos-CAPES-BibTex (8).bib;30;Buscas exploratórias no Portal CAPES;2026-11-01 16:44;b5f3d563e86e;;;;;;;
+Periódicos CAPES (BibTeX);outros;documentos_academicos/Periodicos-CAPES-BibTex.bib;0;cópia idêntica de documentos_academicos/Periodicos-CAPES-BibTex (7).bib (não contada);;;;;;;;;
+ACM Digital Library;bases;-;0;base prevista no protocolo sem exportação no projeto (desvio do protocolo);;;;;;;;;
