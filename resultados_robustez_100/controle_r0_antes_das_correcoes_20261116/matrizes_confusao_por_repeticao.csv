@@ -1,0 +1,6 @@
+rep,modelo,VP,FP,FN,VN
+0,HistGradientBoosting,3511,470,215,558
+0,RandomForest,3573,557,153,471
+0,ExtraTrees,3719,988,7,40
+0,DecisionTree,3554,545,172,483
+0,LogisticRegression,3615,743,111,285

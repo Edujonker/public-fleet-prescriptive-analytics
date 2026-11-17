@@ -213,8 +213,10 @@ def gerar_arquivos_dados(grp_os, lista_abast_anomalias, resumo_sec):
 
 def compilar_html_e_pdf(grp_os, lista_abast, resumo_sec):
     print("Renderizando HTML do Relatório de Anomalias e compilando PDF via WeasyPrint...")
+    import weasyprint
+    import sys as _sys_ia; from pathlib import Path as _P_ia; _sys_ia.path.insert(0, str(_P_ia(__file__).resolve().parent))
+    import uso_etico_ia; uso_etico_ia.ativar()  # seção "Uso ético de inteligência artificial" em todo PDF
     from weasyprint import HTML
-    
     total_gasto_os = grp_os['Valor_Aprovado'].sum()
     total_orcado_os = grp_os['vl_orcado'].sum()
     total_veiculos_os = grp_os['placa'].nunique()

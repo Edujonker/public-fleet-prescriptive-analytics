@@ -1,6 +1,6 @@
 {
   "script": "07b_fidelidade_estabilidade_xai.py",
-  "gerado_em": "2026-11-15T15:29:24",
+  "gerado_em": "2026-11-17T08:51:25",
   "criterios_pre_definidos": {
     "registrado_em": "2026-11-15",
     "F1_shap_erro_aditivo_max": 0.001,

@@ -141,6 +141,11 @@ O estudo tem limitações. A análise usa apenas registros cobrados, então orç
 \section{Conclusão}
 O grafo veículo–oficina da frota de Santa Catarina foi persistido em Neo4j sem perda: contagens, projeção e modularidade conferem com o pipeline original. A estrutura de comunidades é real, e não um artefato do algoritmo: Q = 0,565 contra 0,392 nas redes nulas, com partição estável entre sementes. O gasto é concentrado em poucas oficinas, e cada veículo tende a depender de uma oficina principal. A centralidade se associa fracamente a anomalias e à proporção glosada, e não à frequência de glosas. Os próximos passos são incluir localização e tempo no grafo, comparar Louvain e Leiden e avaliar com a equipe da SEA/SC se as comunidades ajudam a montar amostras de auditoria.
 
+% inicio-uso-etico-ia
+\section*{Uso ético de inteligência artificial}
+Os modelos de IA estudados (Isolation Forest, ensembles, SVR/SVC, SHAP, LIME, Louvain, SARIMA) usaram dados administrativos da SEA/SC com identificadores pseudonimizados (HMAC-SHA-256) e campos pessoais anonimizados, conforme a LGPD; os modelos apoiam a decisão, que cabe a um servidor responsável. No desenvolvimento, o autor usou ferramentas de IA generativa (Gemini Code Assist, GitHub Copilot, Kiro IDE e Google Antigravity IDE, no Overleaf e no Visual Studio Code) para analisar e corrigir erros de código, escrever e alterar scripts, revisar a redação e a formatação ABNT e montar slides e relatórios. Essas ferramentas não geraram dados, resultados, figuras nem hipóteses. O autor revisou todo o conteúdo gerado ou sugerido por essas ferramentas e assume integral responsabilidade pelo texto, pelo código, pelos dados e pelas conclusões deste trabalho. Declaração feita em 16/11/2026.
+% fim-uso-etico-ia
+
 \section*{Referências}
 \begin{small}
 BLONDEL, V. D.; GUILLAUME, J.-L.; LAMBIOTTE, R.; LEFEBVRE, E. Fast unfolding of communities in large networks. Journal of Statistical Mechanics: Theory and Experiment, v. 2008, P10008, 2008. DOI: 10.1088/1742-5468/2008/10/P10008.\par\smallskip

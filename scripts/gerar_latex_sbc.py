@@ -238,3 +238,5 @@ for md_p in md_files:
     print(f"  [OK] LaTeX gerado: {tex_p} ({tex_p.stat().st_size} bytes)")
 
 print("\nTodos os arquivos LaTeX foram gerados com sucesso na pasta SBC/!")
+import sys as _s; from pathlib import Path as _P; _s.path.insert(0, str(_P(__file__).resolve().parent))
+import uso_etico_ia; uso_etico_ia.gravar_arquivos()  # repõe a seção de uso ético de IA nos artigos

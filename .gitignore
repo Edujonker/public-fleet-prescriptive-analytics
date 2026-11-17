@@ -69,3 +69,18 @@ leis_e_normativas/estaduais_SC/LOA_2026_SC_Lei_19683_completa.pdf
 # Arquivos temporários de editor
 *.swp
 *.swo
+
+# Pedidos às ferramentas de IA (podem conter dados pessoais; disponíveis aos orientadores sob pedido)
+docs/registro_uso_ia/prompts/
+
+# Biblio-now: endereço da sessão (contém token), cofre e acervo local
+biblio_now/ENDERECO_BIBLIO_NOW.txt
+biblio_now/ABRIR_BIBLIO_NOW.html
+biblio_now/cofre.bin
+biblio_now/.chave_mestra
+biblio_now/repositorio/
+biblio_now/.venv/
+
+# Histórico do R e PDFs de artigos duplicados (os PDFs de artigos/ já não são versionados)
+.Rhistory
+backup_arquivos_desatualizados/pdfs_artigos_duplicados_*/

@@ -1,6 +1,6 @@
 {
   "script": "04c_comparacao_svr_h2.py",
-  "gerado_em": "2026-11-15T15:28:43",
+  "gerado_em": "2026-11-17T08:50:50",
   "criterio_pre_definido": {
     "registrado_em": "2026-11-15",
     "regressao": "competitivo se limite superior do IC95 de (MAE_ens - MAE_SVR)/MAE_SVR <= +0,05",
@@ -24,49 +24,49 @@
         {
           "semente": 42,
           "mae": 2024.8194756531516,
-          "tempo_s": 4.9
+          "tempo_s": 5.2
         },
         {
           "semente": 7,
           "mae": 2033.7645472411998,
-          "tempo_s": 5.1
+          "tempo_s": 5.0
         },
         {
           "semente": 101,
           "mae": 2037.829962485587,
-          "tempo_s": 5.3
+          "tempo_s": 4.7
         },
         {
           "semente": 2024,
           "mae": 2036.4086368059297,
-          "tempo_s": 7.3
+          "tempo_s": 4.7
         },
         {
           "semente": 31337,
           "mae": 2030.959677542184,
-          "tempo_s": 5.3
+          "tempo_s": 4.7
         }
       ],
       "HistGradientBoosting": [
         {
           "semente": 42,
           "mae": 2200.0643025815325,
-          "tempo_s": 0.2
+          "tempo_s": 0.1
         },
         {
           "semente": 7,
           "mae": 2276.005234996339,
-          "tempo_s": 0.1
+          "tempo_s": 0.0
         },
         {
           "semente": 101,
           "mae": 2285.5665171853507,
-          "tempo_s": 0.5
+          "tempo_s": 0.1
         },
         {
           "semente": 2024,
           "mae": 2235.20567966873,
-          "tempo_s": 0.2
+          "tempo_s": 0.1
         },
         {
           "semente": 31337,
@@ -82,23 +82,23 @@
         },
         {
           "semente": 7,
-          "mae": 2284.8953788757253,
+          "mae": 2284.895378875725,
           "tempo_s": 0.6
         },
         {
           "semente": 101,
           "mae": 2316.764581245552,
-          "tempo_s": 0.8
+          "tempo_s": 0.6
         },
         {
           "semente": 2024,
           "mae": 2278.481441433927,
-          "tempo_s": 0.9
+          "tempo_s": 0.6
         },
         {
           "semente": 31337,
           "mae": 2281.8119918605735,
-          "tempo_s": 0.7
+          "tempo_s": 0.6
         }
       ],
       "ExtraTrees": [
@@ -114,7 +114,7 @@
         },
         {
           "semente": 101,
-          "mae": 2305.682796375762,
+          "mae": 2305.6827963757623,
           "tempo_s": 0.2
         },
         {
@@ -134,39 +134,39 @@
         {
           "semente": 42,
           "roc_auc": 0.8146925015298951,
-          "tempo_s": 2.9
+          "tempo_s": 2.8
         },
         {
           "semente": 7,
           "roc_auc": 0.8121906270167986,
-          "tempo_s": 3.1
+          "tempo_s": 2.8
         },
         {
           "semente": 101,
           "roc_auc": 0.8211888120286305,
-          "tempo_s": 3.0
+          "tempo_s": 2.9
         },
         {
           "semente": 2024,
           "roc_auc": 0.8058838564216955,
-          "tempo_s": 3.5
+          "tempo_s": 2.7
         },
         {
           "semente": 31337,
           "roc_auc": 0.82768773326984,
-          "tempo_s": 3.3
+          "tempo_s": 2.9
         }
       ],
       "HistGradientBoosting": [
         {
           "semente": 42,
           "roc_auc": 0.8609765273365623,
-          "tempo_s": 0.1
+          "tempo_s": 0.2
         },
         {
           "semente": 7,
           "roc_auc": 0.8605943146383286,
-          "tempo_s": 0.2
+          "tempo_s": 0.1
         },
         {
           "semente": 101,
@@ -176,12 +176,12 @@
         {
           "semente": 2024,
           "roc_auc": 0.8587170602622021,
-          "tempo_s": 0.2
+          "tempo_s": 0.1
         },
         {
           "semente": 31337,
           "roc_auc": 0.8690153950262223,
-          "tempo_s": 0.2
+          "tempo_s": 0.1
         }
       ],
       "RandomForest": [
@@ -244,32 +244,32 @@
     "regressao|SVR-RBF": {
       "media": 2032.7564599456105,
       "dp": 5.155560359983443,
-      "tempo_medio_s": 5.58
+      "tempo_medio_s": 4.859999999999999
     },
     "regressao|HistGradientBoosting": {
       "media": 2253.9698172981275,
       "dp": 35.72196867647867,
-      "tempo_medio_s": 0.22000000000000003
+      "tempo_medio_s": 0.08
     },
     "regressao|RandomForest": {
       "media": 2287.9400356567876,
-      "dp": 16.363409259641916,
-      "tempo_medio_s": 0.7399999999999999
+      "dp": 16.363409259641937,
+      "tempo_medio_s": 0.62
     },
     "regressao|ExtraTrees": {
       "media": 2285.711131723488,
-      "dp": 17.68356258516708,
+      "dp": 17.683562585167213,
       "tempo_medio_s": 0.2
     },
     "classificacao|SVC-RBF": {
       "media": 0.8163287060533719,
       "dp": 0.008389634625225233,
-      "tempo_medio_s": 3.16
+      "tempo_medio_s": 2.82
     },
     "classificacao|HistGradientBoosting": {
       "media": 0.8626895399036323,
       "dp": 0.004038503527355823,
-      "tempo_medio_s": 0.16
+      "tempo_medio_s": 0.12
     },
     "classificacao|RandomForest": {
       "media": 0.8593128316948313,
@@ -301,7 +301,7 @@
     "RandomForest": {
       "dif_mae_rel_vs_svr": 0.12491351068885827,
       "ic95_dif_mae_rel": [
-        0.10424488565260685,
+        0.10424488565260684,
         0.1460066184365684
       ],
       "dif_auc_vs_svc": 0.04390002631628409,
@@ -330,5 +330,5 @@
     }
   },
   "h2_sustentada": false,
-  "duracao_s": 59.2
+  "duracao_s": 51.9
 }

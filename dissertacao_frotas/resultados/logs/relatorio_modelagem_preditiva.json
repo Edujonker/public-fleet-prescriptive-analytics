@@ -1,9 +1,9 @@
 {
   "metadados": {
     "script": "04_modelos_preditivos.py",
-    "timestamp_inicio": "2026-11-15T15:26:57.065291",
-    "timestamp_fim": "2026-11-15T15:27:28.917440",
-    "duracao_segundos": 31.85,
+    "timestamp_inicio": "2026-11-17T08:49:14.776563",
+    "timestamp_fim": "2026-11-17T08:49:45.815857",
+    "duracao_segundos": 31.04,
     "status": "SUCESSO"
   },
   "metricas_classificacao": [

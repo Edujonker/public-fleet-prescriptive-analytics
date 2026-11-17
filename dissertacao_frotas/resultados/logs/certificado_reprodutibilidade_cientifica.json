@@ -1,8 +1,8 @@
 {
   "titulo": "Certificado de Reprodutibilidade e Integridade Técnico-Científica",
   "instituicao": "PPGCAP / CCT / UDESC",
-  "timestamp_emissao": "2026-11-16T11:39:43.829650",
-  "duracao_validacao_segundos": 0.39,
+  "timestamp_emissao": "2026-11-17T09:25:49.788266",
+  "duracao_validacao_segundos": 0.57,
   "status_geral_pesquisa": "VALIDAÇÃO AUTOMATIZADA; triagem e decisões finais dependem da revisão do autor",
   "regra_de_decisao": "Cada hipótese é avaliada pelo texto do anteprojeto (operacionalizado antes da execução nos scripts 04b, 04c, 07b e 08) e pelo limiar numérico pré-registrado na qualificação. SUSTENTADA = atende os dois; PARCIALMENTE = atende um; NÃO SUSTENTADA = nenhum. Quando só existe um critério, vale esse.",
   "principios_cientificos_atendidos": {

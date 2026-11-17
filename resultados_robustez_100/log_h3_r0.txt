@@ -1,0 +1,1 @@
+h3 r=  0 ok em 21.1s | economia 13.66% | MILP−heur R$ -848.32

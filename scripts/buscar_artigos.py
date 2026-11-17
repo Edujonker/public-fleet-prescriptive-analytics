@@ -258,7 +258,8 @@ def buscar_s2(sessao, max_resultados, ano_min, ordem):
 
     registros, total = [], None
     while len(registros) < max_resultados:
-        dados = get_json(sessao, S2_URL, params, headers, tentativas=5, rotulo="SemanticScholar")
+        # Sem chave, o acesso é compartilhado e responde 429 com frequência: mais tentativas (esperas de 2 s a 3 min).
+        dados = get_json(sessao, S2_URL, params, headers, tentativas=5 if chave else 9, rotulo="SemanticScholar")
         if total is None:
             total = dados.get("total", 0)
             print(f"   Semantic Scholar: {total} trabalhos correspondem à consulta")
@@ -617,6 +618,57 @@ def baixar_em_paralelo(fila, n_threads, email_upw="", passadas=2):
     return cont["n"]
 
 
+# ── Controle de downloads (evita baixar de novo e repetir falhas definitivas) ─
+DIAS_NOVA_TENTATIVA_FALHA_DEFINITIVA = 30
+TRANSITORIAS = ("HTTP 429", "HTTP 202", "HTTP 500", "HTTP 502", "HTTP 503", "HTTP 504", "HTTP 520", "erro de rede")
+
+
+def carregar_controle(pasta_pdf: Path):
+    """{chave_registro: {"arquivo", "status", "tentado_em", "tentativas"}}. Na primeira vez, monta a partir dos
+    resultados.csv já gravados (pasta principal e execuções diárias), para reconhecer os PDFs que já existem."""
+    f = pasta_pdf / "controle_downloads.json"
+    if f.exists():
+        return json.loads(f.read_text(encoding="utf-8"))
+    ctl = {}
+    fontes = [pasta_pdf / "resultados.csv"] + sorted((pasta_pdf / "atualizacoes").glob("*/resultados.csv"))
+    for csvf in fontes:
+        if not csvf.exists():
+            continue
+        dia = csvf.parent.name if csvf.parent.name[:2] == "20" else ""
+        for r in csv.DictReader(open(csvf, encoding="utf-8-sig"), delimiter=";"):
+            k = chave_registro({"doi": norm_doi_simples(r.get("doi", "")), "titulo": r.get("titulo", "")})
+            arq = r.get("arquivo_pdf") or ""
+            if arq and (pasta_pdf / arq).exists():
+                ctl[k] = {"arquivo": arq, "status": "baixado", "tentado_em": dia, "tentativas": 1}
+            elif r.get("status_pdf", "").startswith("falhou") and k not in ctl:
+                ctl[k] = {"arquivo": "", "status": r["status_pdf"], "tentado_em": dia, "tentativas": 1}
+    return ctl
+
+
+def norm_doi_simples(d):
+    d = (d or "").strip().lower()
+    for pre in ("https://doi.org/", "http://doi.org/", "doi:"):
+        if d.startswith(pre):
+            d = d[len(pre):]
+    return d
+
+
+def pular_por_controle(ent, hoje):
+    """Motivo para não tentar de novo hoje, ou None."""
+    if not ent or ent.get("status") == "baixado":
+        return None
+    st, quando = ent.get("status", ""), ent.get("tentado_em", "")
+    if not quando:
+        return None
+    if any(t in st for t in TRANSITORIAS):
+        return None if quando < hoje else "tentado hoje"
+    try:
+        dias = (datetime.strptime(hoje, "%Y-%m-%d") - datetime.strptime(quando, "%Y-%m-%d")).days
+    except ValueError:
+        return None
+    return None if dias >= DIAS_NOVA_TENTATIVA_FALHA_DEFINITIVA else f"falha definitiva em {quando}; nova tentativa após {DIAS_NOVA_TENTATIVA_FALHA_DEFINITIVA} dias"
+
+
 # ── Principal ────────────────────────────────────────────────────────────────
 def main():
     ap = argparse.ArgumentParser(description="Busca artigos (OpenAlex + Semantic Scholar) e baixa PDFs de acesso aberto.")
@@ -697,12 +749,21 @@ def main():
 
     baixados = 0
     email_upw = os.environ.get("UNPAYWALL_EMAIL", os.environ.get("OPENALEX_EMAIL", "")).strip()
+    controle = carregar_controle(pasta_pdf)
     try:
         fila = []
         for r in registros:
+            k = chave_registro(r)
+            ent = controle.get(k)
             destino = pasta_pdf / nome_arquivo(r)
-            if destino.exists():
+            if ent and ent.get("arquivo") and (pasta_pdf / ent["arquivo"]).exists():
+                # já baixado antes, talvez com outro nome (o 1º autor muda entre as bases)
+                r["status_pdf"], r["arquivo_pdf"] = "ja_existia", ent["arquivo"]
+            elif destino.exists():
                 r["status_pdf"], r["arquivo_pdf"] = "ja_existia", destino.name
+                controle[k] = {"arquivo": destino.name, "status": "baixado", "tentado_em": hoje, "tentativas": 1}
+            elif (motivo := pular_por_controle(ent, hoje)) and not args.sem_pdf:
+                r["status_pdf"] = f"nao_tentado ({motivo})"
             elif args.sem_pdf:
                 r["status_pdf"] = "nao_tentado (--sem-pdf)"
             elif r["verificacao"] != "ok" and not args.incluir_parciais:
@@ -714,7 +775,32 @@ def main():
             else:
                 fila.append((r, destino))
         print(f"PDFs a tentar: {len(fila)} ({args.paralelo} downloads simultâneos)")
+        import hashlib
+        md5 = lambda f: hashlib.md5(f.read_bytes()).hexdigest()
+        novos_destinos = {d.name for _, d in fila}
+        por_conteudo = {md5(f): f.name for f in pasta_pdf.glob("*.pdf") if f.name not in novos_destinos}
         baixados = baixar_em_paralelo(fila, args.paralelo, email_upw)
+        # Mesmo PDF com outro DOI ou título (por exemplo, preprint e versão publicada): mantém o arquivo antigo.
+        for r, destino in fila:
+            if r["status_pdf"] != "baixado" or not destino.exists():
+                continue
+            h = md5(destino)
+            if h in por_conteudo and por_conteudo[h] != destino.name:
+                destino.unlink()
+                r["status_pdf"], r["arquivo_pdf"] = "ja_existia", por_conteudo[h]
+                baixados -= 1
+                print(f"   (repetido: {destino.name} tem o mesmo conteúdo de {por_conteudo[h]}; mantido o anterior)")
+            else:
+                por_conteudo[h] = destino.name
+        for r, destino in fila:
+            k = chave_registro(r)
+            ant = controle.get(k, {})
+            if r["status_pdf"] in ("baixado", "ja_existia") and r["arquivo_pdf"]:
+                controle[k] = {"arquivo": r["arquivo_pdf"], "status": "baixado", "tentado_em": hoje,
+                               "tentativas": ant.get("tentativas", 0) + 1}
+            elif r["status_pdf"].startswith("falhou"):
+                controle[k] = {"arquivo": "", "status": r["status_pdf"], "tentado_em": hoje,
+                               "tentativas": ant.get("tentativas", 0) + 1}
     except KeyboardInterrupt:
         print("\nInterrompido. Gravando o que já foi obtido...")
         for r in registros:
@@ -726,6 +812,7 @@ def main():
         gravar_bib(registros, saida / "referencias.bib")
         gravar_consulta(saida / "consulta.txt", args, totais, registros)
         vistos_f.write_text(json.dumps(vistos, ensure_ascii=False, indent=0), encoding="utf-8")
+        (pasta_pdf / "controle_downloads.json").write_text(json.dumps(controle, ensure_ascii=False, indent=0), encoding="utf-8")
 
     print(f"\nPDFs baixados nesta execução: {baixados}")
     print(f"Inéditos: {len(novos)} (lista em novos.csv)")

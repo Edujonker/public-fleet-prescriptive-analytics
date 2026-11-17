@@ -1,0 +1,46 @@
+=== 2026-11-17 08:11:34 início da busca diária ===
+OPENALEX_API_KEY: definida
+OPENALEX_EMAIL: definida
+UNPAYWALL_EMAIL: definida
+S2_API_KEY: não definida
+Consulta: ("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability") 
+
+▶ OpenAlex
+   [OpenAlex] erro de rede (ConnectionError); nova tentativa em 2s
+   [OpenAlex] erro de rede (ConnectionError); nova tentativa em 4s
+   OpenAlex: 1251 trabalhos correspondem à consulta
+   1251 registros recebidos
+▶ Semantic Scholar
+   [SemanticScholar] HTTP 429; tentativa 1/5, aguardando 2s
+   [SemanticScholar] HTTP 429; tentativa 2/5, aguardando 4s
+   [SemanticScholar] HTTP 429; tentativa 3/5, aguardando 8s
+   [SemanticScholar] HTTP 429; tentativa 4/5, aguardando 16s
+   [SemanticScholar] HTTP 429; tentativa 5/5, aguardando 32s
+   Semantic Scholar indisponível (sem chave é comum o erro 429). Seguindo sem ele.
+   [SemanticScholar] sem resposta válida após 5 tentativas
+
+1249 registros únicos após unir as fontes (1129 com os 3 grupos confirmados no título/resumo)
+Inéditos nesta execução (nunca vistos antes): 2
+PDFs a tentar: 591 (6 downloads simultâneos)
+   [   1] 2026_rosa_Regulacao_eleitoral_digital_e_poder_infraestrutural_das_plataformas_li.pdf
+   [   2] 2026_bidari_Mapping_the_Intellectual_Structure_of_Artificial_Intelligence_for_Tax.pdf
+   [   3] 2026_pratama_Analisis_Big_Data_Perpajakan_untuk_Mendeteksi_Potensi_Kecurangan_Pelap.pdf
+   [   4] 2026_maciariello_From_Data_Driven_to_Cognitive_Enterprises_A_New_Organizational_Paradig.pdf
+   [   5] 2026_qureshi_Explainable_AI_Models_for_Trustworthy_Decision_Support_in_Smart_IoT_Ap.pdf
+   [   6] 2026_rasel_Explainable_AI_for_Institutional_Fraud_Decisions_A_Cross_Sector_Empiri.pdf
+   [   7] 2026_haydar_PROCTORING_AT_A_NEW_STAGE_NEXT_GENERATION_AI_SYSTEMS_FOR_ENSURING_TRUS.pdf
+   [   8] 2025_jyothi_AI_Based_Fraud_Detection_Systems_in_the_Financial_Sector.pdf
+   [   9] 2025_karkera_AI_Driven_Risk_Management_and_Compliance_Strategies_in_Finance_and_E_C.pdf
+   [  10] 2025_j_ML_Models_for_Credit_Scoring_Loan_Approvals_and_Financial_Risk_Predict.pdf
+   [  11] 2025_irudayasamy_AI_Ethics_Data_Privacy_and_Responsible_Use_of_Emerging_Technologies_in.pdf
+   [  12] 2025_praveena_ML_Based_Anomaly_Detection_in_Payment_Gateways_Digital_Wallets_and_Onl.pdf
+   [  13] 2025_subrahmanyam_Aggregation_of_XAI_Framework_for_Real_Time_Intelligent_Data_Security_D.pdf
+   [  14] 2024_bhatti_Artificial_Intelligence_and_the_Right_to_Fair_Trial_Emerging_Threats.pdf
+   [  15] 2023_rahman_PEERING_INTO_THE_SHADOWS_OF_AI_IN_HEALTHCARE_UNMASKING_ITS_LIMITATIONS.pdf
+   Nova tentativa para 17 PDFs com erro de rede passageiro...
+
+PDFs baixados nesta execução: 15
+Inéditos: 2 (lista em novos.csv)
+Relatórios: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos/atualizacoes/2026-11-17
+PDFs:       /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos
+=== 2026-11-17 08:22:33 fim (código 0) ===

@@ -19,6 +19,8 @@ from pathlib import Path
 import markdown
 import weasyprint
 
+import sys as _sys_ia; from pathlib import Path as _P_ia; _sys_ia.path.insert(0, str(_P_ia(__file__).resolve().parent))
+import uso_etico_ia; uso_etico_ia.ativar()  # seção "Uso ético de inteligência artificial" em todo PDF
 BASE_DIR = Path(__file__).resolve().parent.parent
 DB_PATH = BASE_DIR / "dados" / "resultados_dissertacao.db"
 MD_PATH = BASE_DIR / "dados" / "dicionario_de_dados_banco.md"

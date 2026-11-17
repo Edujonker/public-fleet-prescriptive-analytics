@@ -526,20 +526,21 @@ bg(s, BRANCO)
 header_bar(s, "07", "Cap. 1 | Hipóteses de Trabalho",
            "Quatro hipóteses com metas definidas: o que cada resultado mostrou")
 
-for i, (hid, en, r, ev) in enumerate([
-    ("H1", "Integrar o patrimônio melhora a previsão (anteprojeto) e reduz o MAE em ≥ 15% (limiar)",
-     "◐ Parcial",
-     "ROC-AUC +0,0095 (IC exclui zero); MAE 0,62% (meta 15%). Melhora real, mas pequena"),
-    ("H2", "Ensembles de árvores são competitivos frente ao SVR-RBF (anteprojeto)",
-     "✗ Não sustentada",
-     "Superam o SVC-RBF na classificação (AUC +0,0463); erram 8,65% a mais que o SVR na regressão"),
-    ("H3", "Política MILP reduz o custo frente à prática reconstruída e a heurísticas",
-     "✓ Sustentada",
-     "S0: R$ 6,99 mi a menos (13,66%); heurística gulosa chega ao mesmo custo"),
-    ("H4", "SHAP e LIME fiéis e estáveis (anteprojeto); concordância > 0,85 (limiar)",
-     "✗ Não sustentada",
-     "LIME pouco fiel (R² 0,243); Jaccard 45,48%; Spearman 0,2869"),
-]):
+# Enunciados curtos; decisão e evidência vêm de scripts/hipoteses_oficiais.py; ordem: da menos para a mais sustentada
+import sys as _sys_h; _sys_h.path.insert(0, str(ROOT / "scripts")); import hipoteses_oficiais as HO  # noqa: E402
+_V = HO.V
+_SIMB = {"SUSTENTADA": "✓ Sustentada", "PARCIALMENTE SUSTENTADA": "◐ Parcial", "NÃO SUSTENTADA": "✗ Não sustentada"}
+_ENUN = {
+    "H1": ("Integrar o patrimônio melhora a previsão (anteprojeto) e reduz o MAE em ≥ 15% (limiar)",
+           f"ROC-AUC {_V['h1_dif_roc']} (IC exclui zero); MAE {_V['h1_ganho_mae']} (meta 15%). Melhora real, mas pequena"),
+    "H2": ("Ensembles de árvores são competitivos frente ao SVR-RBF (anteprojeto)",
+           f"Superam o SVC-RBF na classificação (AUC {_V['h2_dif_auc_svc']}); erram {_V['h2_dif_mae_svr'].lstrip('+')} a mais que o SVR na regressão"),
+    "H3": ("Política MILP reduz o custo frente à prática reconstruída e a heurísticas",
+           f"S0: {_V['h3_economia_mi']} a menos ({_V['h3_economia_pct']}); heurística gulosa chega ao mesmo custo"),
+    "H4": ("SHAP e LIME fiéis e estáveis (anteprojeto); concordância > 0,85 (limiar)",
+           f"LIME pouco fiel (R² {_V['h4_lime_r2']}); Jaccard {_V['h4_jaccard']}; Spearman {_V['h4_spearman']}"),
+}
+for i, (hid, en, r, ev) in enumerate([(k, _ENUN[k][0], _SIMB[HO.H[k]["decisao"]], _ENUN[k][1]) for k in HO.ORDEM if k in _ENUN]):
     hipotese_row(s, hid, en, r, ev, 1.52 + i * 0.78)
 
 # ── Adendo: por que a H4 foi refutada (linguagem simples) ────────────────────
@@ -631,17 +632,16 @@ for x, w, h in zip(cols_x, cols_w, ["", "Meta", "Obtido", "O que aprendemos"]):
     txt(s, h, x + 0.06, 1.56, w - 0.12, 0.34,
         size=13, bold=True, color=BRANCO, font="Calibri")
 
-linhas_nc = [
-    ("H1", LARANJA, "Melhorar a previsão; reduzir o MAE em ≥ 15%",
-     "ROC-AUC +0,0095; MAE 0,62%",
-     "Integrar patrimônio ajuda pouco. A melhora existe, mas não chega à meta."),
-    ("H2", VERMELHO, "Ser competitivo frente ao SVR-RBF",
-     "Melhor na classificação; 8,65% pior na regressão",
-     "Não há modelo campeão único: a escolha depende da tarefa."),
-    ("H4", VERMELHO, "Explicações fiéis e estáveis; concordância > 0,85",
-     "LIME R² 0,243; Jaccard 45,48%",
-     "O LIME é estável, mas não reproduz o modelo. Usar o SHAP na auditoria."),
-]
+_NC = {
+    "H1": ("Melhorar a previsão; reduzir o MAE em ≥ 15%", f"ROC-AUC {_V['h1_dif_roc']}; MAE {_V['h1_ganho_mae']}",
+           "Integrar patrimônio ajuda pouco. A melhora existe, mas não chega à meta."),
+    "H2": ("Ser competitivo frente ao SVR-RBF", f"Melhor na classificação; {_V['h2_dif_mae_svr'].lstrip('+')} pior na regressão",
+           "Não há modelo campeão único: a escolha depende da tarefa."),
+    "H4": ("Explicações fiéis e estáveis; concordância > 0,85", f"LIME R² {_V['h4_lime_r2']}; Jaccard {_V['h4_jaccard']}",
+           "O LIME é estável, mas não reproduz o modelo. Usar o SHAP na auditoria."),
+}
+_COR = {"NÃO SUSTENTADA": VERMELHO, "PARCIALMENTE SUSTENTADA": LARANJA}
+linhas_nc = [(k, _COR[HO.H[k]["decisao"]], *_NC[k]) for k in HO.ORDEM if k in _NC and HO.H[k]["decisao"] in _COR]
 for i, (hid, cor, meta, obt, apr) in enumerate(linhas_nc):
     t = 1.98 + i * 1.20
     box(s, cols_x[0], t, cols_w[0], 1.14, fill_color=cor)

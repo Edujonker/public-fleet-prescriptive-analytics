@@ -1,0 +1,57 @@
+% Gerado por scripts/uso_etico_ia.py. Não editar à mão.
+\chapter{USO ÉTICO DE INTELIGÊNCIA ARTIFICIAL}
+\label{sec:uso-etico-ia}
+Esta seção informa onde a inteligência artificial aparece neste trabalho: como objeto da pesquisa e como ferramenta de apoio ao desenvolvimento. Para cada caso, diz o que foi usado, como e por quê.
+
+\section{IA como objeto da pesquisa}
+\textbf{O que.}
+\begin{itemize}
+  \item Detecção de anomalias com Isolation Forest.
+  \item Classificação do risco de manutenção corretiva e regressão do custo mensal (HistGradientBoosting, Random Forest, Extra Trees, árvore de decisão, regressão logística, SVR e SVC).
+  \item Explicação das previsões com SHAP e LIME.
+  \item Comunidades de oficinas em grafos (Louvain) e previsão de séries temporais (SARIMA, ETS) para o planejamento orçamentário.
+  \item Otimização da manutenção preventiva com programação linear inteira mista (MILP), que é otimização matemática e não aprendizado de máquina.
+\end{itemize}
+\textbf{Como.}
+\begin{itemize}
+  \item Dados administrativos da SEA/SC usados com autorização institucional, mantidos no computador do autor e fora do repositório público.
+  \item Identificadores de veículos e oficinas pseudonimizados com HMAC-SHA-256 e campos pessoais anonimizados (Microsoft Presidio), conforme a LGPD (Lei nº 13.709/2018).
+  \item Validação temporal (treino até dez/2024, teste a partir de jan/2025), intervalos de confiança e hipóteses com critérios registrados antes da execução.
+  \item Resultados negativos são publicados: H2 e H4 não foram sustentadas, e o LIME se mostrou pouco fiel ao modelo.
+  \item Os modelos apoiam a decisão e não a substituem. Uma anomalia indica um caso para conferência, não uma irregularidade; a decisão é sempre de um servidor responsável.
+\end{itemize}
+\textbf{Por quê.}
+\begin{itemize}
+  \item Apoiar a gestão pública da frota com informação verificável, em linha com a transparência e a motivação dos atos exigidas pela Lei nº 14.133/2021.
+  \item Explicações auditáveis permitem que gestores e órgãos de controle contestem cada recomendação.
+\end{itemize}
+\section{Ferramentas de IA generativa no desenvolvimento do trabalho}
+\textbf{O que.}
+\begin{itemize}
+  \item Gemini Code Assist e GitHub Copilot, como assistentes de código.
+  \item Kiro IDE e Google Antigravity IDE, ambientes de desenvolvimento com agentes de IA.
+  \item Overleaf e Visual Studio Code, editores em que essas ferramentas foram usadas na redação em LaTeX e no código.
+\end{itemize}
+\textbf{Como (tarefas).}
+\begin{itemize}
+  \item Análise e correção de erros de código.
+  \item Escrita e alteração de scripts de análise, de busca de literatura e de geração de relatórios e slides (principalmente no Kiro IDE).
+  \item Revisão da redação e adequação às normas da ABNT.
+  \item Montagem de slides e de relatórios a partir dos resultados calculados.
+  \item Todas as sugestões foram revisadas pelo autor. O código foi validado por execução e por verificações automáticas que comparam os números entre as etapas.
+\end{itemize}
+\textbf{O que as ferramentas não fizeram.}
+\begin{itemize}
+  \item Não gerou dados nem resultados: todo número vem da execução dos scripts sobre os dados.
+  \item Não gerou figuras: os gráficos são produzidos pelos scripts a partir dos resultados.
+  \item Não definiu nem ajustou hipóteses ou critérios, que foram registrados antes da execução.
+  \item Não substituiu a leitura das fontes: as referências são conferidas pelo DOI.
+\end{itemize}
+\textbf{Por quê.}
+\begin{itemize}
+  \item Ganhar tempo em tarefas repetitivas, achar erros de código mais cedo e padronizar o texto e a formatação.
+\end{itemize}
+
+\textbf{Dados.} As bases administrativas ficaram no computador do autor. As ferramentas operaram sobre o código, os registros de execução e resultados agregados; também se aplicam as políticas de privacidade de cada fornecedor.
+
+\textbf{Responsabilidade.} O autor revisou todo o conteúdo gerado ou sugerido por essas ferramentas e assume integral responsabilidade pelo texto, pelo código, pelos dados e pelas conclusões deste trabalho. Declaração feita em 16/11/2026.

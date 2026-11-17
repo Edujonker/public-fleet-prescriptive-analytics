@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-11-15T15:38:53.017479",
-  "score_seguranca": 82.0,
-  "total_arquivos_analisados": 532,
+  "timestamp": "2026-11-17T09:02:07.429589",
+  "score_seguranca": 70.0,
+  "total_arquivos_analisados": 540,
   "distribuicao_linguagens": {
-    ".py": 248,
+    ".py": 253,
     ".env": 3,
-    ".sh": 12,
+    ".sh": 13,
     ".example": 3,
-    ".json": 238,
+    ".json": 240,
     ".html": 17,
     ".yml": 2,
     ".yaml": 3,
@@ -42,7 +42,7 @@
       "status": "APROVADO"
     }
   ],
-  "total_achados": 3,
+  "total_achados": 5,
   "achados": [
     {
       "regra_id": "SEC-003",
@@ -50,7 +50,7 @@
       "severidade": "HIGH",
       "categoria": "A02:2021 - Cryptographic Failures",
       "arquivo": "scripts/gerar_relatorio_pbs.py",
-      "linha": 277,
+      "linha": 328,
       "codigo_trecho": "hashes = {hashlib.md5(p.read_bytes()).hexdigest() for p in arquivos}",
       "descricao": "Uso de funções hash vulneráveis a colisões para fins de segurança ou senhas.",
       "sugestao": "Para senhas, utilize exclusivamente Argon2id ou Bcrypt com salt. Para integridade geral de arquivos, prefira SHA-256 ou SHA-512."
@@ -72,8 +72,30 @@
       "severidade": "HIGH",
       "categoria": "A02:2021 - Cryptographic Failures",
       "arquivo": "scripts/gerar_protocolo_e_relatorio_rsl.py",
-      "linha": 40,
+      "linha": 42,
       "codigo_trecho": "h = hashlib.md5()",
+      "descricao": "Uso de funções hash vulneráveis a colisões para fins de segurança ou senhas.",
+      "sugestao": "Para senhas, utilize exclusivamente Argon2id ou Bcrypt com salt. Para integridade geral de arquivos, prefira SHA-256 ou SHA-512."
+    },
+    {
+      "regra_id": "SEC-003",
+      "titulo": "Algoritmo de Hashing Fraco / Depreciado (MD5 / SHA1)",
+      "severidade": "HIGH",
+      "categoria": "A02:2021 - Cryptographic Failures",
+      "arquivo": "scripts/buscar_artigos.py",
+      "linha": 367,
+      "codigo_trecho": "slug += \"_\" + hashlib.sha1((r[\"doi\"] or r[\"titulo\"]).encode(\"utf-8\")).hexdigest()[:10]",
+      "descricao": "Uso de funções hash vulneráveis a colisões para fins de segurança ou senhas.",
+      "sugestao": "Para senhas, utilize exclusivamente Argon2id ou Bcrypt com salt. Para integridade geral de arquivos, prefira SHA-256 ou SHA-512."
+    },
+    {
+      "regra_id": "SEC-003",
+      "titulo": "Algoritmo de Hashing Fraco / Depreciado (MD5 / SHA1)",
+      "severidade": "HIGH",
+      "categoria": "A02:2021 - Cryptographic Failures",
+      "arquivo": "scripts/buscar_artigos.py",
+      "linha": 778,
+      "codigo_trecho": "md5 = lambda f: hashlib.md5(f.read_bytes()).hexdigest()",
       "descricao": "Uso de funções hash vulneráveis a colisões para fins de segurança ou senhas.",
       "sugestao": "Para senhas, utilize exclusivamente Argon2id ou Bcrypt com salt. Para integridade geral de arquivos, prefira SHA-256 ou SHA-512."
     }

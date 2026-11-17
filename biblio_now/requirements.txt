@@ -1,0 +1,8 @@
+fastapi>=0.110
+uvicorn>=0.29
+requests>=2.31
+pydantic>=2.6
+openpyxl>=3.1
+pypdf>=4.2
+cryptography>=42
+keyring>=25

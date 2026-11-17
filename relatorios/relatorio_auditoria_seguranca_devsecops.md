@@ -1,8 +1,8 @@
 # 🛡️ Relatório de Auditoria de Segurança DevSecOps & 'Security by Design'
 
-**Data da Emissão:** 15/11/2026 15:38:53  
-**Score Geral de Segurança:** `82.0/100.0`  
-**Arquivos Analisados:** `532`  
+**Data da Emissão:** 17/11/2026 09:02:07  
+**Score Geral de Segurança:** `70.0/100.0`  
+**Arquivos Analisados:** `540`  
 
 ## 1. Conformidade de Bancos de Dados & Armazenamento
 
@@ -17,7 +17,7 @@
 ### 1. [HIGH] Algoritmo de Hashing Fraco / Depreciado (MD5 / SHA1)
 
 - **Categoria:** `A02:2021 - Cryptographic Failures`
-- **Localização:** `scripts/gerar_relatorio_pbs.py` (Linha 277)
+- **Localização:** `scripts/gerar_relatorio_pbs.py` (Linha 328)
 - **Trecho do Código:**
 ```
 hashes = {hashlib.md5(p.read_bytes()).hexdigest() for p in arquivos}
@@ -41,10 +41,34 @@ md5 = hashlib.md5(path.read_bytes()).hexdigest()
 ### 3. [HIGH] Algoritmo de Hashing Fraco / Depreciado (MD5 / SHA1)
 
 - **Categoria:** `A02:2021 - Cryptographic Failures`
-- **Localização:** `scripts/gerar_protocolo_e_relatorio_rsl.py` (Linha 40)
+- **Localização:** `scripts/gerar_protocolo_e_relatorio_rsl.py` (Linha 42)
 - **Trecho do Código:**
 ```
 h = hashlib.md5()
+```
+- **Diagnóstico de Ameaça:** Uso de funções hash vulneráveis a colisões para fins de segurança ou senhas.
+- **💡 Correção e Melhoria Recomendada:**
+> Para senhas, utilize exclusivamente Argon2id ou Bcrypt com salt. Para integridade geral de arquivos, prefira SHA-256 ou SHA-512.
+
+### 4. [HIGH] Algoritmo de Hashing Fraco / Depreciado (MD5 / SHA1)
+
+- **Categoria:** `A02:2021 - Cryptographic Failures`
+- **Localização:** `scripts/buscar_artigos.py` (Linha 367)
+- **Trecho do Código:**
+```
+slug += "_" + hashlib.sha1((r["doi"] or r["titulo"]).encode("utf-8")).hexdigest()[:10]
+```
+- **Diagnóstico de Ameaça:** Uso de funções hash vulneráveis a colisões para fins de segurança ou senhas.
+- **💡 Correção e Melhoria Recomendada:**
+> Para senhas, utilize exclusivamente Argon2id ou Bcrypt com salt. Para integridade geral de arquivos, prefira SHA-256 ou SHA-512.
+
+### 5. [HIGH] Algoritmo de Hashing Fraco / Depreciado (MD5 / SHA1)
+
+- **Categoria:** `A02:2021 - Cryptographic Failures`
+- **Localização:** `scripts/buscar_artigos.py` (Linha 778)
+- **Trecho do Código:**
+```
+md5 = lambda f: hashlib.md5(f.read_bytes()).hexdigest()
 ```
 - **Diagnóstico de Ameaça:** Uso de funções hash vulneráveis a colisões para fins de segurança ou senhas.
 - **💡 Correção e Melhoria Recomendada:**

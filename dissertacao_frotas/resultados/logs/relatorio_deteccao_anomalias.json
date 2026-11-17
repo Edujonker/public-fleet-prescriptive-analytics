@@ -1,9 +1,9 @@
 {
   "metadados": {
     "script": "05_deteccao_anomalias.py",
-    "timestamp_inicio": "2026-11-15T15:28:44.438391",
-    "timestamp_fim": "2026-11-15T15:28:57.019756",
-    "duracao_segundos": 12.58,
+    "timestamp_inicio": "2026-11-17T08:50:51.630422",
+    "timestamp_fim": "2026-11-17T08:51:04.388206",
+    "duracao_segundos": 12.76,
     "status": "SUCESSO"
   },
   "estabilidade_sementes": [

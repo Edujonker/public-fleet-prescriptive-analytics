@@ -1,0 +1,33 @@
+Consulta: ("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability") 
+
+▶ OpenAlex
+   OpenAlex: 1251 trabalhos correspondem à consulta
+   1251 registros recebidos
+▶ Semantic Scholar
+   [SemanticScholar] HTTP 429; tentativa 1/5, aguardando 2s
+   [SemanticScholar] HTTP 429; tentativa 2/5, aguardando 4s
+   [SemanticScholar] HTTP 429; tentativa 3/5, aguardando 8s
+   [SemanticScholar] HTTP 429; tentativa 4/5, aguardando 16s
+   Semantic Scholar: 981 trabalhos correspondem à consulta
+   981 registros recebidos
+
+1673 registros únicos após unir as fontes (1179 com os 3 grupos confirmados no título/resumo)
+Inéditos nesta execução (nunca vistos antes): 0
+PDFs a tentar: 470 (8 downloads simultâneos)
+   [   1] 2026_keller_Explainable_and_Predictive_Artificial_Intelligence_Architectures_for_R.pdf
+   [   2] 2026_khan_Influence_of_Risk_Transfer_Modifications_in_FIDIC_Conditions_on_Contra.pdf
+   [   3] 2026_mazza_Artificial_Intelligence_and_Machine_Learning_for_Critical_Infrastructu.pdf
+   [   4] 2026_rewaria_Forensic_AI_in_Derivatives_Markets_Evidentiary_Standards_for_AI_Based.pdf
+   [   5] 2025_saravanan_AI_Driven_Cloud_Native_Governance_Frameworks_for_Secure_Scalable_Expla.pdf
+   [   6] 2025_zacharia_AI_Driven_Cybersecurity_Frameworks_for_Intelligent_Detection_Defense_a.pdf
+   [   7] 2025_kumar_Predictive_Analytics_for_Learning_Outcomes_AI_Powered_Student_Performa.pdf
+   [   8] 2025_ogunsusi_FinRisk_AgentNet_Multi_Agent_LLM_ML_Architecture_for_Agentic_Fraud_Ris.pdf
+   [   9] 2025_zahra_Regulating_AI_in_Legal_Practice_Challenges_and_Opportunities.pdf
+   [  10] 2024_kashif_A_Comprehensive_Review_of_Asset_Management_Systems_Trends_Technologies.pdf
+   [  11] 2024_khan_Cloud_Enterprise_Network_Protection_Using_Adaptive_Zero_Trust_Architec.pdf
+   Nova tentativa para 14 PDFs com erro de rede passageiro...
+
+PDFs baixados nesta execução: 11
+Inéditos: 0 (lista em novos.csv)
+Relatórios: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos/atualizacoes/teste_1000_20261117_0927
+PDFs:       /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos

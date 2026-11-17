@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-11-16T11:39:33.075061",
-  "duracao_segundos": 2.43,
+  "timestamp": "2026-11-17T08:51:15.478510",
+  "duracao_segundos": 2.23,
   "modelo_avaliado": "HistGradientBoostingClassifier",
   "amostra_avaliada_shap": 1500,
   "spearman_rho_medio": 0.4481,

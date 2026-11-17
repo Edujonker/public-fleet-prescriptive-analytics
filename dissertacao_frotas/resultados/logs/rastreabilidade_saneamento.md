@@ -1,7 +1,7 @@
 # Relatório de Rastreabilidade e Saneamento dos Dados (Script 02)
 
-**Executado em:** 15/11/2026 15:26:38  
-**Duração:** 14.88 segundos  
+**Executado em:** 17/11/2026 08:48:56  
+**Duração:** 14.65 segundos  
 **Conformidade:** Exigência 1 (Imutabilidade) e Exigência 2 (Rastreabilidade Estrita)  
 
 ---

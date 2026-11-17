@@ -626,3 +626,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    import sys as _s; _s.path.insert(0, str(Path(__file__).resolve().parent))
+    import uso_etico_ia; uso_etico_ia.gravar_arquivos()  # repõe a seção de uso ético de IA nos artigos

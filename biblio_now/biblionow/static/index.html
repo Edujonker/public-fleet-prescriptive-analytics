@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biblio-now · busca e acervo de artigos científicos</title>
+  <link rel="icon" href="/static/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/estilo.css">
+</head>
+<body>
+<header class="topo">
+  <div class="marca">
+    <img src="/static/logo.svg" alt="" width="34" height="34">
+    <div>
+      <span class="nome">Biblio<span>-now</span></span>
+      <span class="slogan">Busca, download e fichamento de artigos científicos</span>
+    </div>
+  </div>
+  <nav class="abas" role="tablist">
+    <button class="aba ativa" data-aba="painel" role="tab">Painel</button>
+    <button class="aba" data-aba="nova" role="tab">Nova busca</button>
+    <button class="aba" data-aba="buscas" role="tab">Buscas</button>
+    <button class="aba" data-aba="acervo" role="tab">Acervo</button>
+    <button class="aba" data-aba="agenda" role="tab">Agendamentos</button>
+    <button class="aba" data-aba="validacao" role="tab">Validação</button>
+    <button class="aba" data-aba="config" role="tab">Configurações</button>
+  </nav>
+</header>
+
+<main>
+  <!-- PAINEL -->
+  <section id="painel" class="secao ativa">
+    <div class="cabecalho">
+      <h1>Painel</h1>
+      <div class="acoes">
+        <a class="botao secundario" href="/api/fichamento">Baixar fichamento (.xlsx)</a>
+        <a class="botao secundario" href="/api/protocolo" target="_blank" rel="noopener">Abrir Protocolo Sigma</a>
+      </div>
+    </div>
+    <div class="cartoes" id="kpis"></div>
+    <div class="grade2">
+      <div class="cartao"><h2>Execução em andamento</h2><div id="ativa" class="vazio">Nenhuma busca em andamento.</div></div>
+      <div class="cartao"><h2>Últimas buscas</h2><div id="ultimas" class="vazio">Nenhuma busca ainda.</div></div>
+    </div>
+    <div class="cartao aviso" id="aviso-chaves" hidden>
+      <b>Dica:</b> cadastre as chaves gratuitas do OpenAlex e do Semantic Scholar em
+      <a href="#" data-ir="config">Configurações</a> para buscas mais rápidas e sem o limite de 10.000 resultados.
+    </div>
+  </section>
+
+  <!-- NOVA BUSCA -->
+  <section id="nova" class="secao">
+    <div class="cabecalho"><h1>Nova busca</h1></div>
+    <form id="form-busca" class="cartao" autocomplete="off">
+      <div class="campo">
+        <label for="rotulo">Nome da busca</label>
+        <input id="rotulo" maxlength="80" placeholder="Ex.: XAI no setor público">
+      </div>
+      <div class="campo">
+        <div class="rotulo-linha">
+          <label>Blocos de termos</label>
+          <span class="ajuda">Dentro do bloco: <b>OU</b>. Entre blocos: <b>E</b>. Um termo por linha ou separados por vírgula.</span>
+        </div>
+        <div id="blocos"></div>
+        <button type="button" class="botao fantasma" id="add-bloco">+ Adicionar bloco</button>
+      </div>
+      <div class="previa"><span>Consulta:</span> <code id="previa"></code></div>
+      <div class="grade5">
+        <div class="campo"><label for="minimo">Mínimo de blocos no título/resumo</label><select id="minimo"></select></div>
+        <div class="campo"><label for="periodo">Período dos artigos</label>
+          <select id="periodo">
+            <option value="todos">Todos os anos</option>
+            <option value="1">Último ano</option>
+            <option value="5">Últimos 5 anos</option>
+            <option value="10">Últimos 10 anos</option>
+            <option value="personalizado">Personalizado…</option>
+          </select></div>
+        <div class="campo anos" hidden><label for="ano_min">Ano inicial</label><input id="ano_min" type="number" min="1900" max="2100" placeholder="—"></div>
+        <div class="campo anos" hidden><label for="ano_max">Ano final</label><input id="ano_max" type="number" min="1900" max="2100" placeholder="—"></div>
+        <div class="campo"><label for="ordem">Ordem</label>
+          <select id="ordem"><option value="relevancia">Relevância</option><option value="recentes">Mais recentes</option><option value="citacoes">Mais citados</option></select></div>
+      </div>
+      <p class="ajuda" id="periodo-ajuda"></p>
+      <details class="avancado">
+        <summary>Opções avançadas</summary>
+        <div class="grade4">
+          <div class="campo"><label for="max_resultados">Registros por base</label><input id="max_resultados" type="number" min="1" max="10000" value="1000"></div>
+          <div class="campo"><label for="max_pdfs">Máximo de PDFs</label><input id="max_pdfs" type="number" min="0" max="10000" value="1000"></div>
+          <div class="campo"><label for="paralelo">Downloads simultâneos</label><input id="paralelo" type="number" min="1" max="12" value="6"></div>
+          <div class="campo"><label>Fontes</label>
+            <label class="check"><input type="checkbox" id="f_openalex" checked> OpenAlex</label>
+            <label class="check"><input type="checkbox" id="f_s2" checked> Semantic Scholar</label></div>
+        </div>
+        <label class="check"><input type="checkbox" id="exata" checked> Termos exatos no OpenAlex (sem variações de palavra)</label>
+        <label class="check"><input type="checkbox" id="parciais"> Baixar também registros que não atingem o mínimo de blocos</label>
+      </details>
+      <div class="rodape-form">
+        <span id="erro-busca" class="erro" role="alert"></span>
+        <button type="button" class="botao secundario" id="salvar-agenda">Agendar esta busca</button>
+        <button type="submit" class="botao">Buscar e baixar</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- BUSCAS -->
+  <section id="buscas" class="secao">
+    <div class="cabecalho"><h1>Buscas</h1></div>
+    <div class="cartao"><div id="lista-buscas" class="vazio">Nenhuma busca ainda.</div></div>
+    <div class="cartao" id="detalhe" hidden></div>
+  </section>
+
+  <!-- ACERVO -->
+  <section id="acervo" class="secao">
+    <div class="cabecalho">
+      <h1>Acervo</h1>
+      <div class="acoes">
+        <input id="filtro-acervo" type="search" placeholder="Filtrar por título, autor, ano, veículo ou DOI">
+        <a class="botao secundario" href="/api/fichamento">Fichamento (.xlsx)</a>
+      </div>
+    </div>
+    <div class="cartao"><div id="lista-acervo" class="vazio">O acervo está vazio.</div></div>
+  </section>
+
+  <!-- AGENDAMENTOS -->
+  <section id="agenda" class="secao">
+    <div class="cabecalho"><h1>Agendamentos</h1></div>
+    <div class="cartao">
+      <p class="ajuda">Crie um agendamento em <a href="#" data-ir="nova">Nova busca</a> → <b>Agendar esta busca</b>.
+        Os agendamentos rodam enquanto o Biblio-now estiver aberto; se o computador estava desligado no horário,
+        a busca roda assim que o programa for aberto de novo.</p>
+      <div id="lista-agenda" class="vazio">Nenhum agendamento.</div>
+    </div>
+  </section>
+
+  <!-- VALIDAÇÃO -->
+  <section id="validacao" class="secao">
+    <div class="cabecalho"><h1>Validação e análise</h1></div>
+    <div class="cartao">
+      <div class="rotulo-linha"><h2>Testes automáticos</h2>
+        <button class="botao" id="rodar-testes" type="button">Rodar testes</button></div>
+      <p class="ajuda">Conferem a segurança (cofre, bloqueio de endereços internos, cabeçalhos), a integridade do protocolo e do
+        repositório (PDFs válidos, SHA-256, TXT e BibTeX de cada obra, ausência de duplicatas) e a planilha de fichamento.</p>
+      <div id="resultado-testes" class="vazio">Ainda não rodados nesta sessão.</div>
+    </div>
+    <div class="cartao">
+      <div class="rotulo-linha"><h2>Métricas de uma busca</h2><select id="val-busca"></select></div>
+      <div id="metricas" class="vazio">Escolha uma busca.</div>
+    </div>
+    <div class="cartao">
+      <h2>Comparação com uma lista de referência</h2>
+      <p class="ajuda">Cole os DOIs (ou títulos) que a busca deveria encontrar, um por linha. O Biblio-now calcula quantos foram
+        encontrados e baixados (revocação) e lista os que faltaram.</p>
+      <textarea id="val-ref" rows="6" placeholder="10.1038/s42256-019-0048-x&#10;10.1145/2939672.2939778"></textarea>
+      <div class="rodape-form"><span id="erro-ref" class="erro"></span><button class="botao" id="comparar" type="button">Comparar com a busca escolhida</button></div>
+      <div id="resultado-ref"></div>
+    </div>
+  </section>
+
+  <!-- CONFIGURAÇÕES -->
+  <section id="config" class="secao">
+    <div class="cabecalho"><h1>Configurações</h1></div>
+    <form id="form-chaves" class="cartao" autocomplete="off">
+      <h2>Chaves das bases (gratuitas)</h2>
+      <p class="ajuda">As chaves ficam criptografadas neste computador (<code>cofre.bin</code>), com a chave mestra no cofre do sistema.
+        Deixe em branco o que não quiser alterar.</p>
+      <div class="grade2">
+        <div class="campo"><label for="k_oa">Chave do OpenAlex <span id="st_oa" class="selo"></span></label>
+          <input id="k_oa" type="password" placeholder="openalex.org/settings/api-key"></div>
+        <div class="campo"><label for="k_s2">Chave do Semantic Scholar <span id="st_s2" class="selo"></span></label>
+          <input id="k_s2" type="password" placeholder="semanticscholar.org/product/api"></div>
+        <div class="campo"><label for="k_mail">E-mail de contato (OpenAlex e Unpaywall) <span id="st_mail" class="selo"></span></label>
+          <input id="k_mail" type="email" placeholder="voce@universidade.br"></div>
+      </div>
+      <div class="rodape-form"><span id="msg-chaves" class="ok"></span><button class="botao" type="submit">Salvar</button></div>
+      <h2>Segurança</h2>
+      <p class="ajuda" id="info-seguranca"></p>
+      <h2>Repositório</h2>
+      <p class="ajuda" id="caminho-repo"></p>
+      <p class="ajuda">Cada obra fica em três formatos: <code>pdf/</code>, <code>txt/</code> e <code>bib/</code>. A planilha
+        <code>fichamento.xlsx</code> e o <code>protocolo/</code> são atualizados ao fim de cada busca.</p>
+    </form>
+  </section>
+</main>
+
+<dialog id="modal-agenda">
+  <form method="dialog" id="form-agenda">
+    <h2>Agendar busca</h2>
+    <div class="campo"><label for="ag_nome">Nome</label><input id="ag_nome" maxlength="80" required></div>
+    <div class="grade3">
+      <div class="campo"><label for="ag_per">Periodicidade</label>
+        <select id="ag_per"><option value="diario">Diária</option><option value="semanal">Semanal</option><option value="mensal">Mensal</option></select></div>
+      <div class="campo"><label for="ag_hora">Horário</label><input id="ag_hora" type="time" value="08:00" required></div>
+      <div class="campo" id="campo-dia-sem" hidden><label for="ag_dsem">Dia da semana</label><select id="ag_dsem"></select></div>
+      <div class="campo" id="campo-dia-mes" hidden><label for="ag_dmes">Dia do mês</label><input id="ag_dmes" type="number" min="1" max="31" value="1"></div>
+    </div>
+    <p class="ajuda" id="ag_resumo"></p>
+    <div class="rodape-form"><span id="erro-agenda" class="erro"></span>
+      <button value="cancelar" class="botao secundario" formnovalidate>Cancelar</button>
+      <button value="ok" class="botao" id="confirmar-agenda">Salvar agendamento</button></div>
+  </form>
+</dialog>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<footer class="rodape">Biblio-now <span id="versao"></span> · © <span id="ano"></span> Eduardo Lopes Jonker · Somente obras de acesso aberto</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

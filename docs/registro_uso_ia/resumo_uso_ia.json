@@ -1,0 +1,73 @@
+{
+  "gerado_em": "2026-11-17T09:12:39",
+  "projeto": "Geral_de_OS_23439885_202609110934 (1)",
+  "periodo_declarado_pelo_autor": "últimos 6 meses (aprox. jun–nov/2026)",
+  "ferramentas": [
+    {
+      "ferramenta": "Kiro IDE",
+      "desenvolvedor": "Amazon Web Services",
+      "versao": "1.4.121",
+      "modelo": "qdev::auto",
+      "finalidade": "análise e correção de erros de código; escrita e alteração de scripts de análise, busca de literatura e geração de relatórios e slides; redação de trechos de relatórios a partir dos resultados calculados",
+      "pedidos": 141,
+      "inicio": "2026-11-08",
+      "fim": "2026-11-17",
+      "registro": "docs/registro_uso_ia/prompts/kiro_ide.md"
+    },
+    {
+      "ferramenta": "Google Antigravity IDE",
+      "desenvolvedor": "Google",
+      "versao": "2.1.4",
+      "modelo": "Gemini (modelo não registrado no histórico)",
+      "finalidade": "análise e correção de erros de código",
+      "pedidos": 13,
+      "inicio": "2026-10-09",
+      "fim": "2026-11-05",
+      "registro": "docs/registro_uso_ia/prompts/google_antigravity_ide.md"
+    },
+    {
+      "ferramenta": "Kilo Code (extensão do VS Code)",
+      "desenvolvedor": "Kilo Code",
+      "versao": "7.8.27",
+      "modelo": "kilo-auto/free",
+      "finalidade": "correção de erros de código; revisão e análise de imagens e resultados; apoio na anonimização (Microsoft Presidio)",
+      "pedidos": 24,
+      "inicio": "2026-07-28",
+      "fim": "2026-10-11",
+      "registro": "docs/registro_uso_ia/prompts/kilo_code_extens_o_do_vs_code.md"
+    },
+    {
+      "ferramenta": "GitHub Copilot (VS Code)",
+      "desenvolvedor": "GitHub / Microsoft",
+      "versao": "extensão Copilot Chat (ver modelo)",
+      "modelo": "GitHub Copilot Chat 0.66.0, GitHub Copilot Chat 0.69.0",
+      "finalidade": "análise e correção de erros de código",
+      "pedidos": 24,
+      "inicio": "2026-10-09",
+      "fim": "2026-10-10",
+      "registro": "docs/registro_uso_ia/prompts/github_copilot_vs_code.md"
+    },
+    {
+      "ferramenta": "Gemini Code Assist (VS Code)",
+      "desenvolvedor": "Google",
+      "versao": "2.107.0",
+      "modelo": "—",
+      "finalidade": "sugestões e correção de código no editor",
+      "pedidos": null,
+      "inicio": "",
+      "fim": "",
+      "registro": "sem registro local (o serviço não guarda histórico no computador)"
+    },
+    {
+      "ferramenta": "Recursos de IA do Overleaf",
+      "desenvolvedor": "Overleaf (Digital Science)",
+      "versao": "serviço web",
+      "modelo": "—",
+      "finalidade": "revisão da redação e adequação às normas da ABNT no LaTeX",
+      "pedidos": null,
+      "inicio": "",
+      "fim": "",
+      "registro": "sem registro local (o serviço não guarda histórico no computador)"
+    }
+  ]
+}

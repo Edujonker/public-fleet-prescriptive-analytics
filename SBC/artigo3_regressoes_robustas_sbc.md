@@ -44,6 +44,13 @@ Sugere-se investigar modelos lineares generalizados com distribuições Tweedie 
 ## Declaração de direitos
 Os autores declaram ser detentores dos direitos autorais da presente obra, que o artigo não foi publicado anteriormente e que não está sendo considerado por outro periódico. Declaram que os dados e textos publicados são de responsabilidade dos autores, respeitam a legislação de proteção de dados (LGPD) e o patrimônio público, sendo a obra original e auditável.
 
+<!-- inicio-uso-etico-ia -->
+## Uso ético de inteligência artificial
+
+Os modelos de IA estudados (Isolation Forest, ensembles, SVR/SVC, SHAP, LIME, Louvain, SARIMA) usaram dados administrativos da SEA/SC com identificadores pseudonimizados (HMAC-SHA-256) e campos pessoais anonimizados, conforme a LGPD; os modelos apoiam a decisão, que cabe a um servidor responsável. No desenvolvimento, o autor usou ferramentas de IA generativa (Gemini Code Assist, GitHub Copilot, Kiro IDE e Google Antigravity IDE, no Overleaf e no Visual Studio Code) para analisar e corrigir erros de código, escrever e alterar scripts, revisar a redação e a formatação ABNT e montar slides e relatórios. Essas ferramentas não geraram dados, resultados, figuras nem hipóteses. O autor revisou todo o conteúdo gerado ou sugerido por essas ferramentas e assume integral responsabilidade pelo texto, pelo código, pelos dados e pelas conclusões deste trabalho. Declaração feita em 16/11/2026.
+
+<!-- fim-uso-etico-ia -->
+
 ## Referências
 
 - Cook, R. D. Detection of influential observation in linear regression. Technometrics, v. 19, n. 1, p. 15-18, 1977.

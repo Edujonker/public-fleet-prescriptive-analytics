@@ -77,6 +77,24 @@ for k, v in CERT["hipoteses"].items():
             "crit_ante": m["criterio_anteprojeto"], "ok_ante": m["atende_anteprojeto"],
             "crit_lim": m["criterio_limiar"], "ok_lim": m["atende_limiar"]}
 
+# Ordem de apresentação: da hipótese menos sustentada para a mais sustentada, calculada a partir das decisões
+# do certificado (os rótulos P1 e H1–H4 são os pré-registrados e não mudam). Critérios, em sequência:
+#   1. decisão (NÃO SUSTENTADA < PARCIALMENTE SUSTENTADA < SUSTENTADA);
+#   2. fração dos critérios atendidos;
+#   3. mais critérios não atendidos vem antes;
+#   4. com ressalva vem antes de sem ressalva.
+_RANK = {"NÃO SUSTENTADA": 0, "PARCIALMENTE SUSTENTADA": 1, "SUSTENTADA": 2}
+
+
+def _chave_ordem(k):
+    h = H[k]
+    oks = [x for x in (h["ok_ante"], h["ok_lim"]) if x in ("sim", "não")]
+    atend = sum(x == "sim" for x in oks)
+    return (_RANK[h["decisao"]], atend / len(oks) if oks else 0.0, -(len(oks) - atend), 0 if h["ressalva"] else 1)
+
+
+ORDEM = sorted(H, key=_chave_ordem)
+REGRA_ORDEM = ("Hipóteses apresentadas da menos para a mais sustentada; os rótulos P1 e H1–H4 são os do pré-registro.")
 FRASES = {
     "P1": f"P1 (não normalidade dos custos) foi sustentada: {H['P1']['evidencia']}.",
     "H1": (f"H1 foi parcialmente sustentada: incluir o patrimônio melhora a ROC-AUC em {V['h1_dif_roc']} (IC 95% {V['h1_ic_roc']}), "
@@ -99,7 +117,7 @@ def frase(k):
 def _linhas():
     sn = {"sim": "sim", "não": "não", "—": "—"}
     return [(k, H[k]["nome"].split(":", 1)[-1].strip(), H[k]["crit_ante"], sn.get(H[k]["ok_ante"], H[k]["ok_ante"]),
-             H[k]["crit_lim"], sn.get(H[k]["ok_lim"], H[k]["ok_lim"]), H[k]["decisao"]) for k in H]
+             H[k]["crit_lim"], sn.get(H[k]["ok_lim"], H[k]["ok_lim"]), H[k]["decisao"]) for k in ORDEM]
 
 
 CAB = ["", "Hipótese", "Critério do anteprojeto", "Atende", "Limiar pré-registrado", "Atende", "Decisão"]
@@ -112,7 +130,7 @@ def bloco_html(estilo_th="background:#1b3a6e;color:#fff;text-align:left;padding:
          + "".join(f"<th style='{estilo_th}'>{e(c)}</th>" for c in CAB) + "</tr>"]
     for l in _linhas():
         t.append("<tr>" + "".join(f"<td style='{estilo_td}'>{'<b>' + e(c) + '</b>' if i == 6 else e(c)}</td>" for i, c in enumerate(l)) + "</tr>")
-    t.append("</table><ul style='font-size:9pt'>" + "".join(f"<li>{e(FRASES[k])}</li>" for k in FRASES) + "</ul>")
+    t.append("</table><ul style='font-size:9pt'>" + "".join(f"<li>{e(FRASES[k])}</li>" for k in ORDEM) + "</ul>")
     return "".join(t)
 
 
@@ -130,14 +148,14 @@ def bloco_latex(rotulo="tab:hipoteses") -> str:
          r"\hline", " & ".join(f"\\textbf{{{_tex(c)}}}" for c in CAB) + r" \\ \hline"]
     L += [" & ".join(_tex(str(c)) for c in l) + r" \\" for l in _linhas()]
     L += [r"\hline", r"\end{tabular}", r"\fonte{Elaborado pelo autor (2026), a partir de \texttt{certificado\_reprodutibilidade\_cientifica.json}.}", r"\end{table}", ""]
-    L += [r"\begin{itemize}"] + [f"  \\item {_tex(FRASES[k])}" for k in FRASES] + [r"\end{itemize}"]
+    L += [r"\begin{itemize}"] + [f"  \\item {_tex(FRASES[k])}" for k in ORDEM] + [r"\end{itemize}"]
     return "\n".join(L)
 
 
 def bloco_md() -> str:
     L = ["| " + " | ".join(CAB) + " |", "|" + "---|" * len(CAB)]
     L += ["| " + " | ".join(str(c) for c in l) + " |" for l in _linhas()]
-    return "\n".join(L) + "\n\n" + "\n".join(f"- {FRASES[k]}" for k in FRASES) + "\n"
+    return "\n".join(L) + "\n\n" + "\n".join(f"- {FRASES[k]}" for k in ORDEM) + "\n"
 
 
 # Números antigos que identificam de forma única os resultados substituídos.
@@ -162,5 +180,5 @@ SUBSTITUICOES = [
 
 
 if __name__ == "__main__":
-    for k in FRASES:
+    for k in ORDEM:
         print(f"{k}: {H[k]['decisao']}\n   {FRASES[k]}")

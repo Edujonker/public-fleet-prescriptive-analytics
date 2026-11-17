@@ -26,6 +26,8 @@ from pathlib import Path
 
 import weasyprint
 
+import sys as _sys_ia; from pathlib import Path as _P_ia; _sys_ia.path.insert(0, str(_P_ia(__file__).resolve().parent))
+import uso_etico_ia; uso_etico_ia.ativar()  # seção "Uso ético de inteligência artificial" em todo PDF
 ROOT = Path(__file__).resolve().parent.parent
 SAIDA = ROOT / "PBS.pdf"
 LOGO = Path("/tmp/udesc_logos/Imagem 20.png")

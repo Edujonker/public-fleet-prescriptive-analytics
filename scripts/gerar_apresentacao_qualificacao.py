@@ -557,9 +557,9 @@ def montar(D):
 
     # 6. Hipóteses -------------------------------------------------------
     s = d.base("5. Hipóteses e Critérios Pré-Registrados",
-               "SUSTENTADA = atende aos dois critérios; PARCIALMENTE = a um; NÃO = a nenhum; com um só critério, vale ele")
+               "Da menos para a mais sustentada · SUSTENTADA = dois critérios; PARCIALMENTE = um; NÃO = nenhum")
     linhas = []
-    for k in ("P1", "H1", "H2", "H3", "H4"):
+    for k in HO.ORDEM:   # da menos para a mais sustentada; rótulos pré-registrados
         h = HO.H[k]
         # "—" no certificado = critério inexistente naquele documento; vale o outro (regra_de_decisao da etapa 09)
         ca = ("não previsto no anteprojeto (premissa da qualificação)" if h["crit_ante"] == "—"

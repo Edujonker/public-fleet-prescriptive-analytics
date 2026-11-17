@@ -1,6 +1,6 @@
 # Fontes da apresentação de qualificação
 
-Gerado em 16/11/2026 07:54 por `scripts/gerar_apresentacao_qualificacao.py`. 12 verificações cruzadas aprovadas antes de salvar.
+Gerado em 17/11/2026 09:25 por `scripts/gerar_apresentacao_qualificacao.py`. 12 verificações cruzadas aprovadas antes de salvar.
 
 
 ## Slide 1 — Capa

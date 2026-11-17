@@ -240,13 +240,20 @@ def executar_validacao_estatistica():
 
     cor = {"SUSTENTADA": "#10b981", "PARCIALMENTE SUSTENTADA": "#f59e0b", "NÃO SUSTENTADA": "#ef4444"}
     fig, ax = plt.subplots(figsize=(9.8, 5.0), dpi=300)
-    labels = ["P1: Não normalidade", "H1: Fusão M+P", "H2: Ensembles × SVR", "H3: Economia MILP", "H4: Fidelidade XAI"]
-    bars = ax.barh(labels, [1.0] * 5, color=[cor[H[k]["decisao"]] for k in H], height=0.45)
+    # Ordem: da menos para a mais sustentada (mesma regra de scripts/hipoteses_oficiais.py); rótulos pré-registrados.
+    _rank = {"NÃO SUSTENTADA": 0, "PARCIALMENTE SUSTENTADA": 1, "SUSTENTADA": 2}
+    def _chave(k):
+        cs = [x for x in (H[k]["ante"], H[k]["lim"]) if x is not None]
+        return (_rank[H[k]["decisao"]], sum(cs) / len(cs), -(len(cs) - sum(cs)), 0 if ressalvas.get(k) else 1)
+    ordem = sorted(H, key=_chave)
+    _rot = {"P1": "P1: Não normalidade", "H1": "H1: Fusão M+P", "H2": "H2: Ensembles × SVR", "H3": "H3: Economia MILP", "H4": "H4: Fidelidade XAI"}
+    labels = [_rot[k] for k in ordem]
+    bars = ax.barh(labels[::-1], [1.0] * 5, color=[cor[H[k]["decisao"]] for k in ordem[::-1]], height=0.45)
     ax.set_xlim(0, 1.6); ax.set_xticks([]); ax.invert_yaxis()
     curtos = {"P1": f"KS p = {ks_pval:.0e}", "H1": f"anteprojeto {sn(H['H1']['ante'])} · limiar 15% {sn(H['H1']['lim'])}",
               "H2": "competitivo só na classificação" if comp["competitivo_classificacao"] and not comp["competitivo_regressao"] else f"anteprojeto {sn(H['H2']['ante'])}",
               "H3": f"{br(ci_m['economia_pct'])}% vs prática reconstruída", "H4": f"LIME R² {br(med4['F2_lime_r2_medio'], 2)} · concord. {br(spearman_rho, 2)}"}
-    for bar, k in zip(bars, H):
+    for bar, k in zip(bars, ordem[::-1]):
         ax.text(1.02, bar.get_y() + bar.get_height() / 2, f"{H[k]['decisao']} ({curtos[k]})", va="center", fontweight="bold", color="#1e293b", fontsize=8)
     ax.set_title("Avaliação das hipóteses: critério do anteprojeto e limiar pré-registrado", fontweight="bold", pad=12)
     plt.tight_layout(); plt.savefig(res_figuras / "figura_validacao_hipoteses_consolidada.png", dpi=300); plt.close()

@@ -1,9 +1,9 @@
 {
   "metadados": {
     "script": "06_teoria_grafos.py",
-    "timestamp_inicio": "2026-11-15T15:28:58.583898",
-    "timestamp_fim": "2026-11-15T15:29:05.369005",
-    "duracao_segundos": 6.79,
+    "timestamp_inicio": "2026-11-17T08:51:06.018262",
+    "timestamp_fim": "2026-11-17T08:51:11.883058",
+    "duracao_segundos": 5.86,
     "status": "SUCESSO"
   },
   "topologia_rede": {

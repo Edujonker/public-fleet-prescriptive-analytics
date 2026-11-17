@@ -3,9 +3,9 @@
     "script": "01_auditoria_dados.py",
     "autor": "Eduardo Henrique dos Santos",
     "instituicao": "PPGCAP / CCT / UDESC",
-    "timestamp_inicio": "2026-11-15T15:26:29.943513",
-    "timestamp_fim": "2026-11-15T15:26:38.139353",
-    "duracao_segundos": 8.2,
+    "timestamp_inicio": "2026-11-17T08:48:46.993918",
+    "timestamp_fim": "2026-11-17T08:48:55.978326",
+    "duracao_segundos": 8.98,
     "status": "SUCESSO"
   },
   "certificados_criptograficos": [
