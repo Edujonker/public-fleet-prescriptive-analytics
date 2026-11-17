@@ -271,6 +271,16 @@ td{border-bottom:1px solid #d7dde8;padding:3px 4px;vertical-align:top}tr:nth-chi
              "".join(f"<tr><td>{i}</td><td>{e((o.get('data_incorporacao') or '').replace('T', ' '))}</td><td>{e(o.get('nome_busca') or o.get('id_busca'))}</td>"
                      f"<td>{e(o.get('titulo', ''))}</td><td>{e((o.get('autores') or '')[:120])}</td><td>{e(str(o.get('ano', '')))}</td>"
                      f"<td>{e(o.get('doi', ''))}</td></tr>" for i, o in enumerate(incorp, 1)) + "</table>")
+    from . import relatorio_baixa as rb
+    total, m_ult, r_ult = rb.consolidar(repo_raiz)
+    if total:
+        H.append(f"<h2>5. Matriz estatística da baixa</h2><p>Contagens e percentuais na linha, calculados nos registros de cada busca. "
+                 f"Consolidada: soma das {num(total['buscas'])} busca(s) com relatório (um artigo encontrado em duas buscas conta nas duas). "
+                 f"Arquivos: <code>relatorios/matriz_baixa_consolidada.csv</code> e <code>relatorios/&lt;busca&gt;/matriz_baixa.csv</code>.</p>")
+        H.append(rb.html_matriz(total, "5.1 Consolidada (todas as buscas)"))
+        if m_ult:
+            H.append(rb.html_matriz(m_ult, f"5.2 Última busca: {(r_ult or {}).get('rotulo') or (r_ult or {}).get('id', '')}"))
+        H.append("<ul>" + "".join(f"<li>{e(n)}</li>" for n in total["notas"]) + "</ul>")
     H.append("<p class='nota'>A busca confere termos, não a qualidade do veículo: preprints e revistas sem revisão por pares podem aparecer. "
              "Antes de citar, confira a obra e registre a avaliação na planilha de fichamento.</p>")
     H.append(f"<p style='color:#667;font-size:8.5pt'>Biblio-now {VERSAO} · © {agora:%Y} {e(AUTOR)}</p></body></html>")
@@ -281,6 +291,12 @@ td{border-bottom:1px solid #d7dde8;padding:3px 4px;vertical-align:top}tr:nth-chi
         weasyprint.HTML(string="\n".join(H), base_url=str(prot)).write_pdf(prot / "protocolo_sigma.pdf")
     except Exception:  # noqa: BLE001
         pass
+    import shutil
+    rel = repo_raiz / "relatorios"
+    rel.mkdir(exist_ok=True)
+    for nome in ("protocolo_sigma.html", "protocolo_sigma.pdf"):
+        if (prot / nome).exists():
+            shutil.copy2(prot / nome, rel / nome)
     return f
 
 

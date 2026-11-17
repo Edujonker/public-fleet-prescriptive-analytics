@@ -83,7 +83,7 @@ def testes(repo_raiz: Path, obras: dict, cofre: seg.Cofre, chaves: dict, env: Pa
                 "CSP sem scripts externos nem inline; página não pode ser embutida em outra" if not falta else "faltam: " + ", ".join(falta)))
 
     r.append(_t("Segurança", "Código de sessão", len(sessao.token) >= 43,
-                f"{len(sessao.token)} caracteres aleatórios (~{len(sessao.token) * 6} bits); servidor só em 127.0.0.1; "
+                f"{len(sessao.token)} caracteres (32 bytes aleatórios = 256 bits, secrets.token_urlsafe); servidor só em 127.0.0.1; "
                 "pedidos de alteração exigem o cabeçalho X-BiblioNow"))
 
     amostra = "erro com api_key=abcdefghijklmnop e s2k-ABCDEFGH12345678 " + " ".join(segredos)

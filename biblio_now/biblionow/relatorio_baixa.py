@@ -234,3 +234,56 @@ def html_matriz(m: dict, titulo: str) -> str:
         p.append("<table><tr><th>Situação</th><th>Motivo</th><th>Registros</th></tr>" +
                  "".join(f"<tr><td>{e(x['situacao'])}</td><td>{e(x['motivo'])}</td><td>{x['n']}</td></tr>" for x in m["motivos"]) + "</table>")
     return "\n".join(p)
+
+
+# ---------------------------------------------------------------- pasta relatorios/
+LEIA_ME = """Biblio-now · pasta de relatórios
+
+Atualizada automaticamente ao fim de cada busca. Nada aqui é editado à mão.
+
+<id_da_busca>/                      um subdiretório por busca (o id começa com data e hora: AAAAMMDD_HHMMSS_nome)
+    relatorio_baixa.bib             referências da busca; em cada uma: base de origem, acesso aberto, situação do PDF e motivo;
+                                    no fim, a matriz estatística da baixa (@comment)
+    matriz_baixa.csv / .json        base × situação do PDF, acesso aberto × situação, motivos de falha
+    consulta.txt                    parâmetros, consultas enviadas às bases e resumo numérico
+    resultados.csv                  todos os registros avaliados
+matriz_baixa_consolidada.csv/.json  soma de todas as buscas (um artigo achado em duas buscas conta nas duas)
+protocolo_sigma.html / .pdf         cópia do Protocolo Sigma com a matriz consolidada e a da última busca
+"""
+
+
+def copiar_para_relatorios(pasta_busca: Path, relatorios: Path, id_busca: str):
+    import shutil
+    destino = relatorios / id_busca
+    destino.mkdir(parents=True, exist_ok=True)
+    for orig, nome in (("referencias.bib", "relatorio_baixa.bib"), ("matriz_baixa.csv", None), ("matriz_baixa.json", None),
+                       ("consulta.txt", None), ("resultados.csv", None)):
+        f = pasta_busca / orig
+        if f.exists():
+            shutil.copy2(f, destino / (nome or orig))
+    (relatorios / "LEIA-ME.txt").write_text(LEIA_ME, encoding="utf-8")
+
+
+def consolidar(repo_raiz: Path) -> tuple[dict | None, dict | None, dict | None]:
+    """(consolidada, última, resumo da última) a partir de buscas/*/matriz_baixa.json; grava a consolidada em relatorios/."""
+    ms, ultima, res_ultima = [], None, None
+    for d in sorted((repo_raiz / "buscas").glob("*/matriz_baixa.json")):
+        try:
+            m = json.loads(d.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        ms.append(m)
+        ultima = m
+        r = d.parent / "resumo.json"
+        res_ultima = json.loads(r.read_text(encoding="utf-8")) if r.exists() else {"id": d.parent.name}
+    total = somar(ms)
+    if total:
+        rel = repo_raiz / "relatorios"
+        rel.mkdir(exist_ok=True)
+        tmp = rel / "_consolidada"
+        tmp.mkdir(exist_ok=True)
+        gravar_matriz(total, tmp)
+        for ext in ("csv", "json"):
+            (tmp / f"matriz_baixa.{ext}").replace(rel / f"matriz_baixa_consolidada.{ext}")
+        tmp.rmdir()
+    return total, ultima, res_ultima

@@ -210,7 +210,8 @@ class Repositorio:
     def __init__(self, raiz: Path):
         self.raiz = raiz
         self.pdf, self.txt, self.bib = raiz / "pdf", raiz / "txt", raiz / "bib"
-        for d in (self.pdf, self.txt, self.bib, raiz / "buscas", raiz / "protocolo"):
+        self.relatorios = raiz / "relatorios"
+        for d in (self.pdf, self.txt, self.bib, raiz / "buscas", raiz / "protocolo", self.relatorios):
             d.mkdir(parents=True, exist_ok=True)
         self._ctl_f, self._hash_f, self._obras_f = raiz / "controle_downloads.json", raiz / "indice_conteudo.json", raiz / "obras.json"
         ler = lambda f: json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
@@ -543,6 +544,7 @@ def _gravar_saidas(ex: Execucao, registros):
                    "biblionow_pdf (baixado | já no acervo | sem PDF aberto | falhou | não tentado), biblionow_motivo, biblionow_arquivo."], m)
     linhas += ["", "MATRIZ ESTATÍSTICA DA BAIXA (também em matriz_baixa.csv e no Protocolo Sigma)", ""] + rb.texto_matriz(m) + [""] + m["notas"]
     (ex.pasta / "consulta.txt").write_text("\n".join(linhas) + "\n", encoding="utf-8")
+    rb.copiar_para_relatorios(ex.pasta, ex.pasta.parent.parent / "relatorios", ex.id)
     with open(ex.pasta / "pdfs_desta_busca.txt", "w", encoding="utf-8") as f:
         for r in registros:
             if r.get("arquivo_pdf"):
