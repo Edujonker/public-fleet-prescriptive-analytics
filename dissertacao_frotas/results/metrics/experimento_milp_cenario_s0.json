@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-11-15T15:29:35.223332",
-  "duracao_segundos": 9.86,
+  "timestamp": "2026-11-16T11:39:42.451448",
+  "duracao_segundos": 8.44,
   "cenario": "Cenário de Referência S0 (Nominal, 36 meses)",
   "natureza_da_instancia": "Semissintética: 2.000 veículos reais sorteados (semente 42); custos, probabilidades de falha e calendário de obrigatórias gerados por fórmulas com fatores aleatórios (seed 42). Resultado é contrafactual simulado, não economia observada.",
   "solver": "HiGHS via scipy.optimize.milp (36 problemas mensais independentes)",
@@ -14,8 +14,8 @@
   "integrality_gap_relativo": 4.374e-06,
   "integrality_gap_absoluto_brl": 193.27,
   "tolerancia_mip_rel_gap": 0.0001,
-  "tempo_mip_s": 8.48,
-  "tempo_lp_s": 0.7,
+  "tempo_mip_s": 7.18,
+  "tempo_lp_s": 0.6,
   "status_lp_por_mes": [
     0,
     0,

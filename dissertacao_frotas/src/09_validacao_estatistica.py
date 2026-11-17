@@ -149,21 +149,26 @@ def executar_validacao_estatistica():
     # 4. Testar Hipótese H3: Eficiência Econômica Prescritiva (MILP Cenário S0)
     print("\n[4/5] Testando Hipótese H3 (Economia Prescritiva MILP no Cenário S0)...")
     res_milp = relatorios.get("08_milp", {})
-    economia_pct = res_milp.get("confronto_inercial", {}).get("economia_pct", 17.51)
-    economia_brl = res_milp.get("confronto_inercial", {}).get("economia_prescritiva_brl", 9302147.26)
-    gap_integralidade = res_milp.get("integrality_gap_relativo", 0.0000057)
+    # Sem valores de reserva (antes: 17,51%, R$ 9.302.147,26, 0,0000057): falta de dado interrompe a etapa.
+    if not res_milp:
+        raise SystemExit("[ERRO] relatório da etapa 08 ausente")
+    economia_pct = res_milp["confronto_inercial"]["economia_pct"]
+    economia_brl = res_milp["confronto_inercial"]["economia_prescritiva_brl"]
+    gap_integralidade = res_milp["integrality_gap_relativo"]
 
     h3_sustentada = bool(economia_pct > 10.0 and gap_integralidade < 0.01)
     print(f"  -> Economia Prescritiva Cenário S0: R$ {economia_brl:,.2f} ({economia_pct:.2f}%)")
     print(f"  -> Gap de Integralidade Poliedral: {gap_integralidade * 100:.5f}%")
-    print(f"  -> Gap de Otimalidade HiGHS: 0,0000% (Ótimo Global Provado)")
+    print(f"  -> Tolerância de otimalidade do HiGHS (mip_rel_gap): {res_milp.get('tolerancia_mip_rel_gap')}")
     print(f"  -> Hipótese H3 Sustentada: {h3_sustentada}")
 
     # 5. Testar Hipótese H4: Explicabilidade Algorítmica e Coerência XAI
     print("\n[5/5] Testando Hipótese H4 (Estabilidade Explicativa SHAP vs LIME)...")
     res_xai = relatorios.get("07_xai", {})
-    spearman_rho = res_xai.get("spearman_rho_medio", 0.3680)
-    jaccard_top5 = res_xai.get("jaccard_top5_medio", 0.3929)
+    if not res_xai:
+        raise SystemExit("[ERRO] relatório da etapa 07 ausente")
+    spearman_rho = res_xai["spearman_rho_medio"]
+    jaccard_top5 = res_xai["jaccard_top5_medio"]
 
     # Critério prévio do anteprojeto exigia concordância superior a 85%
     h4_sustentada = bool(spearman_rho > 0.85 and jaccard_top5 > 0.85)

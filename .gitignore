@@ -65,3 +65,7 @@ logs_atualizacao_noturna/
 
 # LOA 2026 completa (67 MB; pública no portal da SEF/SC)
 leis_e_normativas/estaduais_SC/LOA_2026_SC_Lei_19683_completa.pdf
+
+# Arquivos temporários de editor
+*.swp
+*.swo

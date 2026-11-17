@@ -116,10 +116,10 @@ def get_json(sessao, url, params, headers=None, tentativas=6, rotulo=""):
         if r.status_code in (429, 500, 502, 503, 504):
             ra = r.headers.get("Retry-After")
             pausa = float(ra) if ra and ra.replace(".", "", 1).isdigit() else espera
-            pausa = min(pausa, 120)
+            pausa = min(pausa, 300)
             print(f"   [{rotulo}] HTTP {r.status_code}; tentativa {i}/{tentativas}, aguardando {pausa:.0f}s")
             time.sleep(pausa)
-            espera = min(espera * 2, 60)
+            espera = min(espera * 2, 180)
             continue
         # erro definitivo (400, 401, 403...)
         try:
@@ -167,10 +167,32 @@ def buscar_openalex(sessao, max_resultados, ano_min, ordem, ampla=False):
     elif ordem == "recentes":
         params["sort"] = "publication_date:desc"
 
+    email = os.environ.get("OPENALEX_EMAIL", "").strip()
+    if email:
+        params["mailto"] = email          # "polite pool": menos erros 429
+    # Com chave de API, paginação por cursor (sem limite). Sem chave, o OpenAlex só aceita
+    # paginação por página, que vai até 10.000 resultados (100 páginas de 100).
     registros, total, pagina = [], None, 1
+    if chave:
+        params["cursor"] = "*"
     while len(registros) < max_resultados:
-        params["page"] = pagina
-        dados = get_json(sessao, OPENALEX_URL, params, headers, rotulo="OpenAlex")
+        if not chave:
+            if pagina > 100:
+                print("   OpenAlex: limite de 10.000 resultados sem chave de API (OPENALEX_API_KEY)")
+                break
+            params["page"] = pagina
+        try:
+            dados = get_json(sessao, OPENALEX_URL, params, headers, tentativas=10, rotulo="OpenAlex")
+        except RuntimeError as e:
+            if chave and ("key_not_activated" in str(e) or "HTTP 401" in str(e)):
+                # Chave ainda não ativada (link do e-mail não clicado) ou inválida: segue sem chave,
+                # com o limite de 10.000 resultados e a cota menor do acesso sem chave.
+                print("   OpenAlex: chave não aceita (", "não ativada" if "key_not_activated" in str(e) else "inválida",
+                      "); seguindo sem chave", sep="")
+                chave, headers, pausa = "", None, 1.2
+                params.pop("cursor", None)
+                continue
+            raise
         if total is None:
             total = dados.get("meta", {}).get("count", 0)
             print(f"   OpenAlex: {total} trabalhos correspondem à consulta")
@@ -181,7 +203,11 @@ def buscar_openalex(sessao, max_resultados, ano_min, ordem, ampla=False):
             registros.append(normalizar_openalex(w))
             if len(registros) >= max_resultados:
                 break
-        if pagina * 100 >= (total or 0):
+        if chave:
+            params["cursor"] = (dados.get("meta") or {}).get("next_cursor")
+            if not params["cursor"]:
+                break
+        elif pagina * 100 >= (total or 0):
             break
         pagina += 1
         time.sleep(pausa)
@@ -335,46 +361,116 @@ def sobrenome(r):
 
 
 def nome_arquivo(r):
-    return f"{r['ano'] or 'sd'}_{sobrenome(r)}_{ascii_slug(r['titulo'], 70)}.pdf"
+    slug = ascii_slug(r["titulo"], 70)
+    if slug == "sem_titulo":   # título só com caracteres não latinos: diferencia pelo DOI ou pelo título
+        import hashlib
+        slug += "_" + hashlib.sha1((r["doi"] or r["titulo"]).encode("utf-8")).hexdigest()[:10]
+    return f"{r['ano'] or 'sd'}_{sobrenome(r)}_{slug}.pdf"
 
 
 # ── Download ─────────────────────────────────────────────────────────────────
-def baixar_pdf(sessao, urls, destino):
-    """Tenta cada URL; só grava se o conteúdo começar com %PDF."""
-    motivo = "sem link de PDF aberto"
-    for url in urls:
-        try:
-            with sessao.get(url, stream=True, timeout=(15, 90), allow_redirects=True) as r:
-                if r.status_code != 200:
-                    motivo = f"HTTP {r.status_code}"
-                    continue
-                it = r.iter_content(chunk_size=65536)
-                primeiro = next(it, b"")
-                if not primeiro.startswith(b"%PDF"):
-                    motivo = "o link devolveu uma página, não um PDF"
-                    continue
-                tmp = destino.with_suffix(".parcial")
-                tamanho = 0
-                with open(tmp, "wb") as f:
-                    f.write(primeiro)
-                    tamanho += len(primeiro)
-                    for bloco in it:
-                        tamanho += len(bloco)
-                        if tamanho > PDF_MAX_BYTES:
-                            break
-                        f.write(bloco)
+# Muitos portais de revistas (OJS, Cloudflare) recusam a conexão quando o
+# User-Agent não é de navegador. Teste de 16/11/2026 com 15 links que falharam:
+# 0 PDFs com o User-Agent do script, 6 com o de navegador. O download usa,
+# por isso, cabeçalhos de navegador; as consultas às APIs continuam com
+# USER_AGENT, que identifica o projeto. Só são gravados arquivos que começam
+# com %PDF, e a verificação de certificado TLS nunca é desligada.
+HEADERS_PDF = {
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+    "Accept": "application/pdf,application/octet-stream;q=0.9,text/html;q=0.8,*/*;q=0.5",
+    "Accept-Language": "en,pt-BR;q=0.8",
+}
+ERROS_TRANSITORIOS = (requests.ConnectionError, requests.Timeout, requests.exceptions.ChunkedEncodingError)
+_META_PDF = re.compile(r"""<meta[^>]+name=["'](?:citation_pdf_url|eprints\.document_url)["'][^>]+content=["']([^"']+)["']""", re.I)
+_META_PDF2 = re.compile(r"""<meta[^>]+content=["']([^"']+)["'][^>]+name=["']citation_pdf_url["']""", re.I)
+
+
+def _pdf_na_pagina(html_txt, base):
+    """Link do PDF declarado na própria página do artigo (meta citation_pdf_url, padrão Highwire/Google Scholar)."""
+    from urllib.parse import urljoin
+    m = _META_PDF.search(html_txt) or _META_PDF2.search(html_txt)
+    return urljoin(base, m.group(1).replace("&amp;", "&")) if m else None
+
+
+def _baixar_um(sessao, url, destino):
+    """Uma tentativa num link. Retorna (ok, motivo, link_pdf_encontrado_na_pagina)."""
+    with sessao.get(url, stream=True, timeout=(15, 90), allow_redirects=True, headers=HEADERS_PDF) as r:
+        if r.status_code != 200:
+            return False, f"HTTP {r.status_code}", None
+        it = r.iter_content(chunk_size=65536)
+        primeiro = next(it, b"")
+        if not primeiro.lstrip().startswith(b"%PDF"):
+            tipo = r.headers.get("Content-Type", "")
+            pagina = None
+            if "html" in tipo.lower():
+                corpo = primeiro + b"".join(b for _, b in zip(range(30), it))  # até ~2 MB
+                pagina = _pdf_na_pagina(corpo.decode("utf-8", "ignore"), r.url)
+            return False, "o link devolveu uma página, não um PDF", pagina
+        tmp = destino.with_suffix(".parcial")
+        tamanho = 0
+        with open(tmp, "wb") as f:
+            f.write(primeiro)
+            tamanho += len(primeiro)
+            for bloco in it:
+                tamanho += len(bloco)
                 if tamanho > PDF_MAX_BYTES:
-                    tmp.unlink(missing_ok=True)
-                    motivo = "arquivo maior que 60 MB"
-                    continue
-                tmp.rename(destino)
-                return True, url
-        except requests.RequestException as e:
-            motivo = f"erro de rede ({e.__class__.__name__})"
-        finally:
-            destino.with_suffix(".parcial").unlink(missing_ok=True)  # resto de download interrompido
-            time.sleep(1.0)
+                    break
+                f.write(bloco)
+        if tamanho > PDF_MAX_BYTES:
+            tmp.unlink(missing_ok=True)
+            return False, "arquivo maior que 60 MB", None
+        tmp.rename(destino)
+        return True, url, None
+
+
+def baixar_pdf(sessao, urls, destino, tentativas=2):
+    """Tenta cada URL; se a resposta for a página do artigo, segue o link de PDF declarado nela.
+    Erros de rede passageiros têm nova tentativa. Só grava se o conteúdo começar com %PDF.
+    Retorna (True, url_do_pdf) ou (False, motivo)."""
+    motivo = "sem link de PDF aberto"
+    fila, vistos = [u for u in urls if u], set()
+    while fila:
+        url = fila.pop(0)
+        if url in vistos:
+            continue
+        vistos.add(url)
+        for k in range(1, tentativas + 1):
+            try:
+                ok, info, pagina = _baixar_um(sessao, url, destino)
+                if ok:
+                    return True, info
+                motivo = info
+                if pagina and pagina not in vistos:
+                    fila.insert(0, pagina)
+                break
+            except requests.exceptions.SSLError:
+                motivo = "erro de certificado TLS do site"
+                break
+            except ERROS_TRANSITORIOS as e:
+                motivo = f"erro de rede ({e.__class__.__name__})"
+                if k < tentativas:
+                    time.sleep(5 * k)
+            except requests.RequestException as e:
+                motivo = f"erro de rede ({e.__class__.__name__})"
+                break
+            finally:
+                destino.with_suffix(".parcial").unlink(missing_ok=True)  # resto de download interrompido
+        time.sleep(1.0)
     return False, motivo
+
+
+def links_unpaywall(sessao, doi, email):
+    """Links de PDF de acesso aberto registrados no Unpaywall para o DOI (exige e-mail de contato)."""
+    if not (doi and email):
+        return []
+    try:
+        r = sessao.get(f"https://api.unpaywall.org/v2/{quote_plus(doi, safe='/')}", params={"email": email}, timeout=(10, 30))
+        if r.status_code != 200:
+            return []
+        locs = r.json().get("oa_locations") or []
+    except (requests.RequestException, ValueError):
+        return []
+    return [l.get("url_for_pdf") for l in locs if l.get("url_for_pdf")] + [l.get("url") for l in locs if l.get("url")]
 
 
 # ── Saídas ───────────────────────────────────────────────────────────────────
@@ -409,7 +505,7 @@ def gravar_bib(registros, caminho):
 
 def gravar_csv(registros, caminho):
     colunas = ["n", "titulo", "ano", "autores", "veiculo", "doi", "citacoes", "fonte",
-               "verificacao_semantica", "acesso_aberto", "status_pdf", "arquivo_pdf", "url", "visto_em"]
+               "verificacao_semantica", "acesso_aberto", "status_pdf", "arquivo_pdf", "url", "visto_em", "url_pdf"]
     with open(caminho, "w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f, delimiter=";")
         w.writerow(colunas)
@@ -417,7 +513,7 @@ def gravar_csv(registros, caminho):
             w.writerow([i, r["titulo"], r["ano"], "; ".join(r["autores"][:6]) + (" et al." if len(r["autores"]) > 6 else ""),
                         r["veiculo"], r["doi"], r["citacoes"], r["fonte"], r["verificacao"],
                         "sim" if r["acesso_aberto"] else "não", r["status_pdf"], r["arquivo_pdf"], r["url"],
-                        r.get("visto_em", "")])
+                        r.get("visto_em", ""), r.get("url_pdf", "")])
 
 
 def gravar_consulta(caminho, args, totais, registros):
@@ -468,6 +564,59 @@ def carregar_vistos(vistos_f, resultados_anteriores):
     return vistos
 
 
+def _host(url):
+    from urllib.parse import urlparse
+    return urlparse(url).netloc.lower()
+
+
+def baixar_em_paralelo(fila, n_threads, email_upw="", passadas=2):
+    """Baixa os PDFs da fila [(registro, destino)] com n_threads simultâneos, no máximo um por site
+    de cada vez. Itens com erro de rede passageiro voltam numa segunda passada, no fim."""
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
+    local = threading.local()
+    travas, trava_g = {}, threading.Lock()
+    cont = {"n": 0}
+
+    def sessao():
+        if not hasattr(local, "s"):
+            local.s = requests.Session()
+            local.s.headers["User-Agent"] = USER_AGENT
+        return local.s
+
+    def tarefa(item):
+        r, destino = item
+        urls = list(r["pdf_urls"])
+        if email_upw and r["doi"]:
+            urls += [u for u in links_unpaywall(sessao(), r["doi"], email_upw) if u not in urls]
+        if not urls:
+            r["status_pdf"] = "sem_pdf_aberto"
+            return
+        with trava_g:
+            tv = travas.setdefault(_host(urls[0]), threading.Lock())
+        with tv:
+            ok, info = baixar_pdf(sessao(), urls, destino)
+        if ok:
+            r["status_pdf"], r["arquivo_pdf"], r["url_pdf"] = "baixado", destino.name, info
+            with trava_g:
+                cont["n"] += 1
+                print(f"   [{cont['n']:>4}] {destino.name}", flush=True)
+        else:
+            r["status_pdf"] = f"falhou ({info})"
+
+    pendentes = list(fila)
+    for passada in range(1, passadas + 1):
+        if not pendentes:
+            break
+        if passada > 1:
+            print(f"   Nova tentativa para {len(pendentes)} PDFs com erro de rede passageiro...", flush=True)
+            time.sleep(30)
+        with ThreadPoolExecutor(max_workers=max(1, n_threads)) as ex:
+            list(ex.map(tarefa, pendentes))
+        pendentes = [(r, d) for r, d in pendentes if r["status_pdf"].startswith("falhou (erro de rede")]
+    return cont["n"]
+
+
 # ── Principal ────────────────────────────────────────────────────────────────
 def main():
     ap = argparse.ArgumentParser(description="Busca artigos (OpenAlex + Semantic Scholar) e baixa PDFs de acesso aberto.")
@@ -482,6 +631,7 @@ def main():
     ap.add_argument("--incluir-parciais", action="store_true",
                     help="baixar também PDFs cujo título/resumo não confirma os 3 grupos")
     ap.add_argument("--saida", default=str(SAIDA_PADRAO), help="pasta dos relatórios (padrão: artigos/)")
+    ap.add_argument("--paralelo", type=int, default=6, help="downloads simultâneos (padrão 6; um por site de cada vez)")
     ap.add_argument("--pasta-pdf", default=None,
                     help="pasta dos PDFs e do registro vistos.json (padrão: a mesma de --saida)")
     args = ap.parse_args()
@@ -546,31 +696,25 @@ def main():
     print(f"Inéditos nesta execução (nunca vistos antes): {len(novos)}")
 
     baixados = 0
+    email_upw = os.environ.get("UNPAYWALL_EMAIL", os.environ.get("OPENALEX_EMAIL", "")).strip()
     try:
-        for i, r in enumerate(registros, 1):
+        fila = []
+        for r in registros:
             destino = pasta_pdf / nome_arquivo(r)
             if destino.exists():
                 r["status_pdf"], r["arquivo_pdf"] = "ja_existia", destino.name
-                continue
-            if args.sem_pdf:
+            elif args.sem_pdf:
                 r["status_pdf"] = "nao_tentado (--sem-pdf)"
-                continue
-            if r["verificacao"] != "ok" and not args.incluir_parciais:
+            elif r["verificacao"] != "ok" and not args.incluir_parciais:
                 r["status_pdf"] = "nao_tentado (semântica não confirmada)"
-                continue
-            if not r["pdf_urls"]:
+            elif not r["pdf_urls"] and not (email_upw and r["doi"]):
                 r["status_pdf"] = "sem_pdf_aberto"
-                continue
-            if baixados >= args.max_pdfs:
+            elif len(fila) >= args.max_pdfs:
                 r["status_pdf"] = "nao_tentado (limite --max-pdfs)"
-                continue
-            ok, info = baixar_pdf(sessao, r["pdf_urls"], destino)
-            if ok:
-                baixados += 1
-                r["status_pdf"], r["arquivo_pdf"] = "baixado", destino.name
-                print(f"   [{baixados:>3}] {destino.name}")
             else:
-                r["status_pdf"] = f"falhou ({info})"
+                fila.append((r, destino))
+        print(f"PDFs a tentar: {len(fila)} ({args.paralelo} downloads simultâneos)")
+        baixados = baixar_em_paralelo(fila, args.paralelo, email_upw)
     except KeyboardInterrupt:
         print("\nInterrompido. Gravando o que já foi obtido...")
         for r in registros:

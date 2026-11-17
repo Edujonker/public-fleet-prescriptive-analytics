@@ -268,6 +268,55 @@ def inventariar_literatura():
     return buscas, diarias, novos_diarios, n_pdf, n_txt, tam_tc, tam_art
 
 
+def inventariar_acervo(data_limite_protocolo: str):
+    """Acervo da busca contínua (artigos/*.pdf) ligado aos metadados das execuções diárias.
+    Grava artigos/acervo_pdfs.csv (um PDF por linha) e devolve os números para o relatório."""
+    import csv as _csv
+    a = ROOT / "artigos"
+    pdfs = sorted(p.name for p in a.glob("*.pdf"))
+    dias = sorted(d for d in (a / "atualizacoes").iterdir() if d.is_dir() and re.match(r"\d{4}-\d{2}-\d{2}$", d.name)) if (a / "atualizacoes").exists() else []
+    fontes_csv = [d / "resultados.csv" for d in reversed(dias)] + [a / "resultados.csv"]   # mais recente primeiro
+    meta, execucoes = {}, []
+    for f in fontes_csv:
+        linhas = ler_csv(f)
+        for r in linhas:
+            if r.get("arquivo_pdf"):
+                meta.setdefault(r["arquivo_pdf"], r)
+    for d in dias:
+        linhas = ler_csv(d / "resultados.csv")
+        st = Counter((r.get("status_pdf") or "").split(" (")[0] for r in linhas)
+        cons = (d / "consulta.txt").read_text(encoding="utf-8") if (d / "consulta.txt").exists() else ""
+        m = re.search(r"Correspondências informadas pelas bases: (\{.*\})", cons)
+        execucoes.append((d.name, len(linhas), len(ler_csv(d / "novos.csv")), st.get("baixado", 0), st.get("ja_existia", 0),
+                          st.get("falhou", 0), m.group(1) if m else "—"))
+    com_meta = [meta[x] for x in pdfs if x in meta]
+    ano = Counter(r.get("ano") or "s.d." for r in com_meta)
+    veic = Counter((r.get("veiculo") or "").strip() for r in com_meta if (r.get("veiculo") or "").strip())
+    fonte = Counter(r.get("fonte") or "—" for r in com_meta)
+    sem_ok = sum(1 for r in com_meta if (r.get("verificacao_semantica") or "").startswith("ok"))
+    PREPRINT = ("research square", "arxiv", "ssrn", "preprints", "techrxiv", "medrxiv", "biorxiv", "authorea", "osf preprints")
+    preprints = sum(1 for r in com_meta if any(k in (r.get("veiculo") or "").lower() for k in PREPRINT)
+                    or (r.get("doi") or "").lower().startswith(("10.21203/rs.", "10.48550/arxiv", "10.2139/ssrn", "10.20944/preprints")))
+    pos = [r for r in com_meta if (r.get("visto_em") or "") > data_limite_protocolo and r.get("visto_em") != "anterior"]
+    ult = ler_csv(dias[-1] / "resultados.csv") if dias else []
+    falhas = Counter((r.get("status_pdf") or "")[8:-1] for r in ult if (r.get("status_pdf") or "").startswith("falhou"))
+    cat = a / "acervo_pdfs.csv"
+    with open(cat, "w", newline="", encoding="utf-8-sig") as f:
+        w = _csv.writer(f, delimiter=";")
+        w.writerow(["arquivo_pdf", "titulo", "ano", "autores", "veiculo", "doi", "fonte", "verificacao_semantica", "visto_em",
+                    "apos_data_limite_prisma", "url_pdf"])
+        for x in pdfs:
+            r = meta.get(x, {})
+            w.writerow([x, r.get("titulo", ""), r.get("ano", ""), r.get("autores", ""), r.get("veiculo", ""), r.get("doi", ""),
+                        r.get("fonte", ""), r.get("verificacao_semantica", ""), r.get("visto_em", ""),
+                        "sim" if r in pos else ("não" if r else "sem metadados"), r.get("url_pdf", "")])
+    return {"n_pdfs": len(pdfs), "n_meta": len(com_meta), "sem_meta": len(pdfs) - len(com_meta), "semantica_ok": sem_ok,
+            "anos": sorted(ano.items(), key=lambda kv: kv[0], reverse=True), "veiculos": veic.most_common(10),
+            "fontes": fonte.most_common(), "pos_limite": len(pos), "execucoes": execucoes,
+            "falhas_ultima": falhas.most_common(6), "n_ultima": len(ult), "catalogo": rel(cat),
+            "preprints": preprints, "vistos": len(json.loads((a / "vistos.json").read_text(encoding="utf-8"))) if (a / "vistos.json").exists() else 0}
+
+
 def inventariar_fipe():
     pasta = ROOT / "FIPE"
     if not pasta.exists():
@@ -341,6 +390,7 @@ def montar_html() -> str:
     buscas, diarias, novos_diarios, n_pdf, n_txt, tam_tc, tam_art = inventariar_literatura()
     fipe = inventariar_fipe()
     prisma = ler_json(ROOT / "revisao_sistematica/resultados_prisma.json") or {}
+    acervo = inventariar_acervo(prisma.get("data_limite_protocolo", "9999-12-31"))
     neo = ler_json(ROOT / "dissertacao_frotas/resultados/logs/relatorio_neo4j_grafo.json") or {}
     grafo = ler_json(ROOT / "dissertacao_frotas/resultados/logs/relatorio_teoria_grafos.json") or {}
     n_testes, testes = contar_testes()
@@ -376,6 +426,7 @@ def montar_html() -> str:
 <div><b>{num(len(rotas))}</b>rotas HTTP em 2 APIs FastAPI</div>
 <div><b>{num(n_testes)}</b>testes automatizados</div>
 <div><b>{inc}</b>estudos incluídos na revisão PRISMA 2020</div>
+<div><b>{num(acervo['n_pdfs'])}</b>PDFs de acesso aberto no acervo da busca contínua ({num(acervo['vistos'])} registros já vistos)</div>
 <div><b>{num(n_pdf)}</b>textos completos (PDF) com {num(n_txt)} TXT extraídos</div>
 <div><b>{num(neo.get('verified_neo4j_counts', {}).get('vehicle_count', 0))}</b>veículos no grafo Neo4j verificado</div>
 </div>
@@ -411,7 +462,24 @@ Literatura: OpenAlex + Semantic Scholar + exportações Scopus/IEEE/CAPES/Paperp
     h.append("<h2>3.1 Buscas de literatura por API</h2>")
     h.append("<p>Todas as buscas usam APIs públicas e baixam somente versões de acesso aberto. Cada pasta guarda <code>resultados.csv</code>, <code>referencias.bib</code>, <code>consulta.txt</code> (a consulta exata) e <code>vistos.json</code> (controle do que já foi visto).</p>")
     h.append(tabela(["Busca", "Pasta", "Registros", "Acesso aberto", "PDFs baixados"], buscas))
-    h.append(f"<p>Atualização diária automática: timer <code>busca-artigos.timer</code> (systemd do usuário, 08:00, <code>Persistent=true</code>), estado atual <b>{esc(timer)}</b>. Execuções registradas: {len(diarias)} ({', '.join(diarias) or '—'}), com {num(novos_diarios)} registros novos.</p>")
+    h.append(f"<p>Atualização diária automática: timer <code>busca-artigos.timer</code> (systemd do usuário, 08:00, <code>Persistent=true</code>), estado atual <b>{esc(timer)}</b>. Execuções registradas: {len(diarias)} ({', '.join(diarias) or '—'}), com {num(novos_diarios)} registros inéditos no total. A linha “Busca principal” da tabela acima é a busca inicial; o acervo atualizado está em 3.1.1.</p>")
+    A = acervo
+    h.append("<h2>3.1.1 Acervo da busca contínua</h2>")
+    h.append(f"""<p>A busca principal roda todos os dias às 08:00 com a consulta de três grupos (método analítico × XAI × setor público), limite de 10.000 registros por base e chave de API do OpenAlex. Os PDFs ficam em <code>artigos/</code>; o catálogo <code>{esc(A['catalogo'])}</code> liga cada arquivo ao seu registro (título, ano, DOI, veículo, link de onde foi baixado).</p>
+<div class="kpi"><div><b>{num(A['n_pdfs'])}</b>PDFs no acervo</div><div><b>{num(A['semantica_ok'])}</b>com os 3 grupos confirmados no título ou resumo</div>
+<div><b>{num(A['pos_limite'])}</b>vistos depois da data-limite do protocolo PRISMA</div></div>
+<p class="nota"><b>Qualidade das fontes.</b> A busca confere os termos, não a qualidade do veículo. {num(A['preprints'])} PDFs vêm de servidores de preprint (Research Square, arXiv, SSRN, Preprints.org e similares), sem revisão por pares, e vários veículos da lista abaixo são revistas multidisciplinares cuja revisão por pares e indexação não foram verificadas. Antes de citar um texto do acervo, confira o veículo; na revisão sistemática, esse filtro é o critério CO4.</p>""")
+    h.append(tabela(["Execução", "Registros", "Inéditos", "PDFs baixados", "Já existiam", "Falharam", "Correspondências nas bases"],
+                    [(esc(d), num(n), num(nv), num(b), num(j), num(fl), esc(c)) for d, n, nv, b, j, fl, c in A["execucoes"]]))
+    h.append("<h3>PDFs por ano de publicação</h3>")
+    h.append(tabela(["Ano", "PDFs"], [(esc(k), num(v)) for k, v in A["anos"]]))
+    h.append("<h3>Veículos com mais PDFs no acervo</h3>")
+    h.append(tabela(["Veículo", "PDFs"], [(esc(k), num(v)) for k, v in A["veiculos"]]))
+    if A["falhas_ultima"]:
+        h.append(f"<p>Na última execução ({num(A['n_ultima'])} registros), os downloads que falharam tiveram estes motivos: "
+                 + "; ".join(f"{esc(k)} ({v})" for k, v in A["falhas_ultima"])
+                 + ". Sites que exigem login ou bloqueiam download automático (HTTP 403) não são contornados.</p>")
+    h.append(f"""<p class="nota"><b>Relação com a revisão sistemática.</b> O acervo da busca contínua não entra automaticamente na revisão PRISMA, cuja data-limite é {esc(prisma.get('data_limite_protocolo', '—'))}. Os {num(A['pos_limite'])} PDFs vistos depois dessa data são candidatos a uma atualização da revisão: para entrarem, precisam passar pelas mesmas etapas (critérios objetivos, triagem, elegibilidade e qualidade) e ser registrados em <code>revisao_sistematica/registro_incorporacoes.csv</code>, com a nova data de busca declarada no fluxograma.{f" {A['sem_meta']} PDF(s) não casam com os metadados das execuções guardadas e aparecem como “sem metadados” no catálogo." if A['sem_meta'] else ""}</p>""")
     h.append(f"<p>Volume em disco: {tam(tam_art)} de PDFs em <code>artigos/</code> e {tam(tam_tc)} em <code>revisao_sistematica/textos_completos/</code>. Esses textos são de terceiros e ficam fora do repositório público.</p>")
 
     if prisma:

@@ -115,7 +115,7 @@ def executar_otimizacao_milp():
         bounds = Bounds(lb, ub)
         integrality = np.ones(n_veiculos)
 
-        res = milp(c=c_obj, integrality=integrality, bounds=bounds, constraints=constraints, options={'time_limit': 2.0, 'mip_rel_gap': 0.0001})
+        res = milp(c=c_obj, integrality=integrality, bounds=bounds, constraints=constraints, options={'mip_rel_gap': 0.0001})
         x_t = np.round(res.x).astype(int) if (res.x is not None) else m_it[:, t]
         x_mip[:, t] = x_t
 

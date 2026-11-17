@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-11-15T15:29:10.050021",
-  "duracao_segundos": 2.95,
+  "timestamp": "2026-11-16T11:39:33.075061",
+  "duracao_segundos": 2.43,
   "modelo_avaliado": "HistGradientBoostingClassifier",
   "amostra_avaliada_shap": 1500,
-  "spearman_rho_medio": 0.2869,
-  "jaccard_top5_medio": 0.4548,
-  "concordancia_estrutural_top5_pct": 45.5,
+  "spearman_rho_medio": 0.4481,
+  "jaccard_top5_medio": 0.4286,
+  "concordancia_estrutural_top5_pct": 42.9,
   "top_features_shap": [
     {
       "feature": "qtd_corretivas_mes",
@@ -127,5 +127,5 @@
       0.149529
     ]
   },
-  "conclusao_auditoria": "A Hipótese H4 não foi sustentada no limiar pré-registrado de 0,85: SHAP e LIME apresentaram correlação de postos de Spearman de 0.287 e concordância Top-5 (Jaccard) de 45.5% nas 25 instâncias de maior risco."
+  "conclusao_auditoria": "A Hipótese H4 não foi sustentada no limiar pré-registrado de 0,85: SHAP e LIME apresentaram correlação de postos de Spearman de 0.448 e concordância Top-5 (Jaccard) de 42.9% nas 25 instâncias de maior risco."
 }

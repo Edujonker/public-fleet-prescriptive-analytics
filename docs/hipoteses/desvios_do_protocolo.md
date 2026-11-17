@@ -32,6 +32,10 @@ Este documento lista o que mudou entre o planejado (anteprojeto e qualificação
    - tinha os textos de H1 e H2 escritos à mão;
    - lia uma cópia antiga do resultado do MILP.
 4. **Subamostras:** as do Passing-Bablok e do gráfico de dispersão não tinham semente fixa.
+5. **Etapa 07, instâncias de H4 (corrigido em 16/11/2026):** a comparação SHAP × LIME usava `np.argsort(prob)[-50:][:25]`, isto é, as instâncias da 26ª à 50ª de maior risco, e não as 25 de maior risco previstas no protocolo e usadas na etapa 07b.
+6. **Etapa 07, pesos do LIME (corrigido em 16/11/2026):** os pesos eram associados aos atributos procurando o nome do atributo dentro do texto da regra do LIME (`if f in k`). Nomes contidos em outros (por exemplo `custo_mes` dentro de regras de outros atributos de custo) podiam receber o peso errado. Agora o peso vem do índice do atributo (`as_map`), como na etapa 07b. Com as correções 5 e 6, a concordância passou de Spearman 0,287 e Jaccard 45,5% para **Spearman 0,448 e Jaccard 42,9%**. Os dois continuam abaixo de 0,85; a decisão de H4 não muda.
+7. **Etapa 08, limite de tempo do solver (corrigido em 16/11/2026):** cada um dos 36 problemas mensais tinha limite de 2 s (`time_limit`). Com a máquina ocupada, o limite podia interromper o HiGHS antes da otimalidade, e o custo variava entre execuções (R$ 44.190.100,47 contra R$ 44.190.036,47 numa repetição de controle). O limite foi retirado; a tolerância `mip_rel_gap = 0,0001` foi mantida. Sem o limite, duas execuções deram o mesmo custo (R$ 44.190.036,47) em cerca de 7,5 s. O valor oficial não muda.
+8. **Valores de reserva nas etapas 07 e 09 (corrigido em 16/11/2026):** se um JSON faltasse, as etapas usavam números digitados (Spearman 0,884; Jaccard 0,800; economia 17,51%; R$ 9.302.147,26; gap 0,0000057; Spearman 0,3680; Jaccard 0,3929). Agora a falta de dado interrompe a etapa. Nas execuções registradas os JSON existiam, então os resultados não foram afetados.
 
 ## 4. Efeito nas conclusões
 
@@ -39,8 +43,8 @@ Este documento lista o que mudou entre o planejado (anteprojeto e qualificação
 |---|---|---|
 | H1 | não sustentada (+0,41%) | **parcialmente sustentada**: ROC-AUC melhora com IC que exclui zero; MAE +0,62% (IC inclui zero), abaixo de 15% |
 | H2 | parcialmente sustentada | **não sustentada**: competitiva só na classificação; na regressão o SVR-RBF erra 8,65% menos |
-| H3 | sustentada (17,51%; R$ 9,30 mi) | **sustentada**: 13,66% (R$ 6,99 mi) sobre a prática reconstruída, em instância semissintética. Ressalva: a heurística gulosa chega ao mesmo custo (diferença de R$ 764) |
-| H4 | não sustentada (Jaccard 39,29%) | **não sustentada**: SHAP fiel e estável, LIME estável mas pouco fiel (R² 0,24); concordância Spearman 0,287, Jaccard 45,5% |
+| H3 | sustentada (17,51%; R$ 9,30 mi) | **sustentada**: 13,66% (R$ 6,99 mi) sobre a prática reconstruída, em instância semissintética. Ressalva: a heurística gulosa chega ao mesmo custo (diferença de R$ 848,32) |
+| H4 | não sustentada (Jaccard 39,29%) | **não sustentada**: SHAP fiel e estável, LIME estável mas pouco fiel (R² 0,24); concordância Spearman 0,448, Jaccard 42,9% (após as correções 5 e 6; antes 0,287 e 45,5%) |
 
 ## 5. Pendências
 

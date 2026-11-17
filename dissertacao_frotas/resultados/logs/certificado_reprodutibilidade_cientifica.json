@@ -1,8 +1,8 @@
 {
   "titulo": "Certificado de Reprodutibilidade e Integridade Técnico-Científica",
   "instituicao": "PPGCAP / CCT / UDESC",
-  "timestamp_emissao": "2026-11-15T15:29:36.950879",
-  "duracao_validacao_segundos": 0.4,
+  "timestamp_emissao": "2026-11-16T11:39:43.829650",
+  "duracao_validacao_segundos": 0.39,
   "status_geral_pesquisa": "VALIDAÇÃO AUTOMATIZADA; triagem e decisões finais dependem da revisão do autor",
   "regra_de_decisao": "Cada hipótese é avaliada pelo texto do anteprojeto (operacionalizado antes da execução nos scripts 04b, 04c, 07b e 08) e pelo limiar numérico pré-registrado na qualificação. SUSTENTADA = atende os dois; PARCIALMENTE = atende um; NÃO SUSTENTADA = nenhum. Quando só existe um critério, vale esse.",
   "principios_cientificos_atendidos": {
@@ -59,7 +59,7 @@
       "decisao": "NÃO SUSTENTADA",
       "atende_anteprojeto": false,
       "atende_limiar": false,
-      "evidencia": "fidelidade LIME R² = 0,243 (mín. 0,50); estabilidade LIME 1,000; SHAP 0,979; concordância Spearman 0,287, Jaccard 45,5%",
+      "evidencia": "fidelidade LIME R² = 0,243 (mín. 0,50); estabilidade LIME 1,000; SHAP 0,979; concordância Spearman 0,448, Jaccard 42,9%",
       "ressalva": "O SHAP é exato e estável; o LIME é estável, mas pouco fiel ao modelo (R² local baixo)."
     }
   },
@@ -115,10 +115,10 @@
       "atende_anteprojeto": "não",
       "criterio_limiar": "concordância SHAP×LIME > 0,85",
       "atende_limiar": "não",
-      "estatistica_teste": "fidelidade LIME R² = 0,243 (mín. 0,50); estabilidade LIME 1,000; SHAP 0,979; concordância Spearman 0,287, Jaccard 45,5%",
+      "estatistica_teste": "fidelidade LIME R² = 0,243 (mín. 0,50); estabilidade LIME 1,000; SHAP 0,979; concordância Spearman 0,448, Jaccard 42,9%",
       "decisao": "NÃO SUSTENTADA",
       "ressalva": "O SHAP é exato e estável; o LIME é estável, mas pouco fiel ao modelo (R² local baixo)."
     }
   ],
-  "conclusao": "P1 sustentada (KS = 0,2905 (p < 1e-15); assimetria 9,83; curtose 228,75). H1 parcialmente sustentada (ROC-AUC +0,0095 [IC95 0,0045; 0,0146]; MAE 0,62% [IC95 -0,26%; 1,52%]). H2 não sustentada (HistGB × SVR: MAE 8,65% [IC95 6,83%; 10,52%]; AUC +0,0463 [IC95 0,0342; 0,0595]). H3 sustentada (economia 13,66% sobre a prática reconstruída (R$ 6.990.697,14); 0,00% sobre a heurística (R$ 848,32); instância semissintética). H4 não sustentada (fidelidade LIME R² = 0,243 (mín. 0,50); estabilidade LIME 1,000; SHAP 0,979; concordância Spearman 0,287, Jaccard 45,5%)."
+  "conclusao": "P1 sustentada (KS = 0,2905 (p < 1e-15); assimetria 9,83; curtose 228,75). H1 parcialmente sustentada (ROC-AUC +0,0095 [IC95 0,0045; 0,0146]; MAE 0,62% [IC95 -0,26%; 1,52%]). H2 não sustentada (HistGB × SVR: MAE 8,65% [IC95 6,83%; 10,52%]; AUC +0,0463 [IC95 0,0342; 0,0595]). H3 sustentada (economia 13,66% sobre a prática reconstruída (R$ 6.990.697,14); 0,00% sobre a heurística (R$ 848,32); instância semissintética). H4 não sustentada (fidelidade LIME R² = 0,243 (mín. 0,50); estabilidade LIME 1,000; SHAP 0,979; concordância Spearman 0,448, Jaccard 42,9%)."
 }

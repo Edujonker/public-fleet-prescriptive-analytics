@@ -133,24 +133,22 @@ def executar_explicabilidade():
     )
 
     probs_test = clf.predict_proba(X_test)[:, 1]
-    crit_indices = np.argsort(probs_test)[-50:]  # 50 casos com maior risco de falha previsto
+    # Correção (16/11/2026): antes usava np.argsort(...)[-50:][:25], ou seja, as instâncias da 26ª à 50ª de
+    # maior risco, e não as 25 maiores. Agora são as 25 de maior risco, como no protocolo e na etapa 07b.
+    crit_indices = np.argsort(probs_test)[-25:]
 
     spearman_rhos = []
     jaccard_top5s = []
 
-    for idx in crit_indices[:25]:
+    for idx in crit_indices:
         inst_vals = X_test.iloc[idx].values
         exp = explainer_lime.explain_instance(inst_vals, clf.predict_proba, num_features=len(features))
-        lime_dict = dict(exp.as_list())
-
-        lime_scores = []
-        for f in features:
-            v_score = 0.0
-            for k, val in lime_dict.items():
-                if f in k:
-                    v_score = val
-                    break
-            lime_scores.append(v_score)
+        # Correção (16/11/2026): os pesos eram associados aos atributos por trecho do nome no texto da
+        # regra do LIME, o que confundia nomes parecidos (custo_lag1 em "custo_lag1 <= ..." e em custo_lag2 etc.).
+        # Agora usa o índice do atributo (as_map), como a etapa 07b.
+        lime_scores = np.zeros(len(features))
+        for j, val in exp.as_map()[1]:
+            lime_scores[j] = val
 
         shap_scores = explainer_shap.shap_values(X_test.iloc[[idx]])[0]
 
@@ -163,8 +161,11 @@ def executar_explicabilidade():
         jacc = len(top_s.intersection(top_l)) / len(top_s.union(top_l))
         jaccard_top5s.append(jacc)
 
-    media_spearman = float(np.mean(spearman_rhos)) if spearman_rhos else 0.884
-    media_jaccard = float(np.mean(jaccard_top5s)) if jaccard_top5s else 0.800
+    # Sem valores de reserva: se nenhuma instância produzir medida, a etapa falha (antes usava 0,884 e 0,800).
+    if not spearman_rhos or not jaccard_top5s:
+        raise SystemExit("[ERRO] nenhuma medida de concordância SHAP × LIME foi calculada")
+    media_spearman = float(np.mean(spearman_rhos))
+    media_jaccard = float(np.mean(jaccard_top5s))
     concordancia_top5_pct = round(media_jaccard * 100, 1)
 
     print(f"  -> Coeficiente de Spearman Médio (SHAP vs LIME): rho = {media_spearman:.4f}")
