@@ -5,8 +5,10 @@ Biblio-now · servidor web local (FastAPI). Autor: Eduardo Lopes Jonker.
   python -m biblionow.app [--porta 8765] [--sem-navegador]
 
 Só aceita conexões do próprio computador (127.0.0.1) e abre a interface por um link com token de sessão.
-Uma busca roda por vez; as demais esperam na fila. Chaves de API ficam no cofre criptografado (seguranca.py);
-se estiverem em texto no .env, são levadas para o cofre e apagadas do .env na primeira execução.
+Cada PESQUISA tem o próprio repositório em repositorio/pesquisas/<nome>/ (pdf, txt, bib, buscas, protocolo,
+relatorios, rastreabilidade, fichamento.xlsx), para que temas diferentes nunca se misturem.
+Uma busca roda por vez, em segundo plano no servidor: trocar de aba ou fechar o navegador não interrompe o download.
+Chaves de API ficam no cofre criptografado (seguranca.py).
 """
 from __future__ import annotations
 
@@ -17,6 +19,7 @@ import json
 import os
 import queue
 import re
+import shutil
 import sys
 import threading
 import unicodedata
@@ -34,12 +37,13 @@ from . import fichamento
 from . import seguranca as seg
 from . import validacao
 from .agendador import DIAS_SEMANA, Agendador
-from .nucleo import Execucao, Parametros, Repositorio, executar
+from .nucleo import Execucao, Parametros, Repositorio, executar, nome_pesquisa
 
 VERSAO = fichamento.VERSAO
 AUTOR = fichamento.AUTOR
 RAIZ = Path(__file__).resolve().parent.parent
 REPO = Path(os.environ.get("BIBLIONOW_REPOSITORIO") or (RAIZ / "repositorio")).resolve()
+PESQUISAS = REPO / "pesquisas"
 ESTATICO = Path(__file__).resolve().parent / "static"
 ENV = RAIZ / ".env"
 VARS = ("OPENALEX_API_KEY", "OPENALEX_EMAIL", "UNPAYWALL_EMAIL", "S2_API_KEY")
@@ -60,8 +64,98 @@ sessao = seg.Sessao()
 PORTA = 8765
 
 
-# ---------------------------------------------------------------- estado do servidor
-repositorio = Repositorio(REPO)
+# ---------------------------------------------------------------- pesquisas (um repositório cada)
+repositorios: dict[str, Repositorio] = {}
+trava_pesq = threading.RLock()
+
+
+def _info_pesquisa(pasta: Path) -> dict:
+    f = pasta / "pesquisa.json"
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {"nome": pasta.name}
+
+
+def abrir_pesquisa(nome: str, criar=False, descricao="") -> Repositorio:
+    n = nome_pesquisa(nome)
+    with trava_pesq:
+        if n in repositorios:
+            return repositorios[n]
+        pasta = PESQUISAS / n
+        if not pasta.exists() and not criar:
+            raise HTTPException(404, f"pesquisa não encontrada: {n}")
+        pasta.mkdir(parents=True, exist_ok=True)
+        if not (pasta / "pesquisa.json").exists():
+            (pasta / "pesquisa.json").write_text(json.dumps(
+                {"nome": n, "descricao": descricao[:500], "criada_em": datetime.now().astimezone().isoformat(timespec="seconds"),
+                 "criada_por": f"Biblio-now {VERSAO}"}, ensure_ascii=False, indent=2), encoding="utf-8")
+        repositorios[n] = Repositorio(pasta)
+        return repositorios[n]
+
+
+def _rastreio_reconstruido(repo: Repositorio):
+    """Obras baixadas antes da versão com rastreabilidade: ficha montada com o que foi registrado na época,
+    marcada como reconstruída. Os campos que não foram registrados ficam vazios (nada é inventado)."""
+    for oid, ob in repo.obras.items():
+        f = repo.rastreio / f"{oid}.json"
+        if f.exists():
+            continue
+        pdf = repo.raiz / (ob.get("pdf") or f"pdf/{oid}.pdf")
+        ficha = {"arquivo": ob.get("pdf"), "pesquisa": repo.nome, "reconstruida": True,
+                 "nota": ("Obra baixada antes da versão do Biblio-now que registra a rastreabilidade completa. "
+                          "Data e hora de incorporação, busca e URL do PDF vêm de obras.json; cabeçalhos HTTP, redirecionamentos "
+                          "e tentativas não foram registrados na época e ficam vazios."),
+                 "busca": {"id": ob.get("busca_origem"), "nome": ob.get("busca_origem_nome")},
+                 "registro_bibliografico": {k: ob.get(k) for k in ("titulo", "autores", "ano", "veiculo", "doi", "url", "fonte")},
+                 "download": {"url_final": ob.get("url_pdf", ""), "fim_download": "", "incorporada_em": ob.get("incorporada_em")},
+                 "integridade": {"sha256": seg.sha256_arquivo(pdf) if pdf.exists() else "", "md5": repo._md5(pdf) if pdf.exists() else "",
+                                 "bytes_em_disco": pdf.stat().st_size if pdf.exists() else 0},
+                 "reconstruida_em": datetime.now().astimezone().isoformat(timespec="seconds")}
+        f.write_text(json.dumps(ficha, ensure_ascii=False, indent=2), encoding="utf-8")
+        ob.setdefault("rastreabilidade", f"rastreabilidade/{oid}.json")
+        ob.setdefault("pesquisa", repo.nome)
+        ob.setdefault("md5_pdf", ficha["integridade"]["md5"])
+        ob.setdefault("url_pdf_final", ob.get("url_pdf", ""))
+    repo.gravar()
+
+
+def migrar_repositorio_antigo():
+    """Versões anteriores guardavam tudo em repositorio/ (uma pasta só). Move para pesquisas/<nome>/,
+    com o nome tirado da primeira busca. Só move (não apaga) e registra a migração."""
+    itens = ["pdf", "txt", "bib", "buscas", "protocolo", "relatorios", "obras.json", "controle_downloads.json",
+             "indice_conteudo.json", "fichamento.xlsx", "agendamentos_antigos.json"]
+    if not any((REPO / i).exists() for i in ("obras.json", "pdf", "buscas")) or PESQUISAS.exists() and any(PESQUISAS.iterdir()):
+        return None
+    nome = "Geral"
+    buscas = sorted((REPO / "buscas").glob("*/parametros.json")) if (REPO / "buscas").exists() else []
+    if buscas:
+        pr = json.loads(buscas[0].read_text(encoding="utf-8"))
+        nome = pr.get("rotulo") or " ".join(pr.get("blocos", [["Geral"]])[0]) or "Geral"
+    destino = PESQUISAS / nome_pesquisa(nome.capitalize() if nome.islower() else nome)
+    destino.mkdir(parents=True, exist_ok=True)
+    movidos = []
+    for i in itens:
+        if (REPO / i).exists() and not (destino / i).exists():
+            shutil.move(str(REPO / i), str(destino / i))
+            movidos.append(i)
+    for b in (destino / "buscas").glob("*/parametros.json"):
+        pr = json.loads(b.read_text(encoding="utf-8"))
+        if not pr.get("pesquisa"):
+            pr["pesquisa"] = destino.name
+            b.write_text(json.dumps(pr, ensure_ascii=False, indent=2), encoding="utf-8")
+    (destino / "MIGRACAO.txt").write_text(
+        f"Em {datetime.now():%d/%m/%Y %H:%M} o Biblio-now {VERSAO} moveu o repositório único para esta pasta de pesquisa.\n"
+        f"Itens movidos (sem alteração de conteúdo): {', '.join(movidos)}\n", encoding="utf-8")
+    return destino.name
+
+
+def carregar_pesquisas():
+    PESQUISAS.mkdir(parents=True, exist_ok=True)
+    for d in sorted(PESQUISAS.iterdir()):
+        if d.is_dir():
+            repo = abrir_pesquisa(d.name, criar=True)
+            _rastreio_reconstruido(repo)
+
+
+# ---------------------------------------------------------------- buscas
 execucoes: dict[str, Execucao] = {}
 fila: "queue.Queue[str]" = queue.Queue()
 trava_fich = threading.Lock()
@@ -72,13 +166,22 @@ def slug(t: str, n=40) -> str:
     return re.sub(r"[^A-Za-z0-9]+", "_", t).strip("_")[:n].lower() or "busca"
 
 
-def resumos_buscas():
-    return sorted((e.resumo() for e in execucoes.values()), key=lambda r: r["id"])
+def repo_de(ex: Execucao) -> Repositorio:
+    return abrir_pesquisa(ex.params.pesquisa, criar=True)
+
+
+def resumo(ex: Execucao) -> dict:
+    return ex.resumo() | {"pesquisa": ex.params.pesquisa}
+
+
+def resumos_buscas(pesquisa: str | None = None):
+    return sorted((resumo(e) for e in execucoes.values() if pesquisa is None or e.params.pesquisa == pesquisa), key=lambda r: r["id"])
 
 
 def apos_execucao(ex: Execucao):
+    repo = repo_de(ex)
     with trava_fich:
-        fichamento.atualizar_tudo(REPO, repositorio.obras, resumos_buscas(), ex.resumo())
+        fichamento.atualizar_tudo(repo.raiz, repo.obras, resumos_buscas(repo.nome), ex.resumo())
     ex.escrever("Planilha de fichamento e Protocolo Sigma atualizados.")
 
 
@@ -87,7 +190,7 @@ def trabalhador():
         id_ = fila.get()
         ex = execucoes.get(id_)
         if ex and not ex.cancelar.is_set():
-            executar(ex, repositorio, CHAVES, apos_execucao)
+            executar(ex, repo_de(ex), CHAVES, apos_execucao)
         elif ex:
             ex.estado = "cancelada"
         fila.task_done()
@@ -95,10 +198,11 @@ def trabalhador():
 
 def nova_execucao(params: Parametros, origem="manual") -> Execucao:
     params.validar()
+    repo = abrir_pesquisa(params.pesquisa, criar=True)
     id_ = f"{datetime.now():%Y%m%d_%H%M%S}_{slug(params.rotulo or ' '.join(params.blocos[0]))}"
     while id_ in execucoes:
         id_ += "_"
-    pasta = REPO / "buscas" / id_
+    pasta = repo.raiz / "buscas" / id_
     pasta.mkdir(parents=True, exist_ok=True)
     (pasta / "parametros.json").write_text(json.dumps(params.como_dict(), ensure_ascii=False, indent=2), encoding="utf-8")
     ex = Execucao(id=id_, params=params, pasta=pasta, origem=origem)
@@ -117,20 +221,29 @@ agendador = Agendador(REPO / "agendamentos.json", disparar_agendamento)
 
 
 def carregar_anteriores():
-    for d in sorted((REPO / "buscas").iterdir()):
-        f = d / "resumo.json"
-        if not (d.is_dir() and f.exists()) or d.name in execucoes:
-            continue
-        r = json.loads(f.read_text(encoding="utf-8"))
-        pr = r.get("parametros") or {"blocos": r.get("blocos") or [["?"]], "minimo_blocos": r.get("minimo_blocos"), "rotulo": r.get("rotulo", "")}
-        p = Parametros(**{k: v for k, v in pr.items() if k in Parametros.__dataclass_fields__})
-        ex = Execucao(id=d.name, params=p, pasta=d, origem=r.get("origem", "manual"))
-        for k in ("estado", "inicio", "fim", "totais_bases", "registros", "atendem", "a_tentar", "baixados", "ja_existiam",
-                  "falharam", "sem_pdf", "erro"):
-            setattr(ex, k, r.get(k, getattr(ex, k)))
-        if ex.estado in ("na fila", "buscando", "baixando"):
-            ex.estado = "interrompida"
-        execucoes[d.name] = ex
+    for repo in list(repositorios.values()):
+        for d in sorted((repo.raiz / "buscas").iterdir()):
+            f = d / "resumo.json"
+            if not d.is_dir() or d.name in execucoes or not (f.exists() or (d / "parametros.json").exists()):
+                continue
+            if f.exists():
+                r = json.loads(f.read_text(encoding="utf-8"))
+            else:                                       # servidor encerrado no meio da busca: reconstrói pelo acervo
+                r = {"parametros": json.loads((d / "parametros.json").read_text(encoding="utf-8")), "estado": "interrompida",
+                     "baixados": sum(o.get("busca_origem") == d.name for o in repo.obras.values()),
+                     "ja_existiam": sum(d.name in (o.get("buscas") or []) and o.get("busca_origem") != d.name for o in repo.obras.values()),
+                     "erro": "o Biblio-now foi encerrado durante a busca; use Retomar para continuar"}
+            pr = r.get("parametros") or {"blocos": r.get("blocos") or [["?"]], "minimo_blocos": r.get("minimo_blocos"), "rotulo": r.get("rotulo", "")}
+            pr["pesquisa"] = repo.nome                  # a pasta manda: a busca pertence à pesquisa onde está guardada
+            p = Parametros(**{k: v for k, v in pr.items() if k in Parametros.__dataclass_fields__})
+            ex = Execucao(id=d.name, params=p, pasta=d, origem=r.get("origem", "manual"))
+            for k in ("estado", "inicio", "fim", "totais_bases", "registros", "atendem", "a_tentar", "baixados", "ja_existiam",
+                      "falharam", "sem_pdf", "erro", "diagnostico"):
+                setattr(ex, k, r.get(k, getattr(ex, k)))
+            if ex.estado in ("na fila", "buscando", "baixando"):
+                ex.estado = "interrompida"
+                ex.erro = ex.erro or "o Biblio-now foi encerrado durante a busca; use Retomar para continuar"
+            execucoes[d.name] = ex
 
 
 # ---------------------------------------------------------------- API
@@ -139,15 +252,15 @@ app.mount("/static", StaticFiles(directory=ESTATICO), name="static")
 
 PAGINA_SEM_SESSAO = """<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Biblio-now</title>
 <body style="font-family:system-ui;max-width:620px;margin:80px auto;color:#1d2433"><h1 style="color:#1f3a5f">Biblio-now</h1>
-<p>Abra o Biblio-now pelo link exibido na janela em que ele foi iniciado (contém um código de acesso desta sessão).</p>
+<p>Abra o Biblio-now pelo link exibido na janela em que ele foi iniciado, ou pelo arquivo <b>ABRIR_BIBLIO_NOW.html</b>
+na pasta do programa (contém um código de acesso desta sessão).</p>
 <p>O código protege a interface contra acessos de outros programas e páginas.</p></body></html>"""
+CSP_RELATORIO = "default-src 'none'; style-src 'unsafe-inline'; frame-ancestors 'none'"
 
 
 def _cabecalhos(resp, caminho: str):
     for k, v in seg.CABECALHOS.items():
-        resp.headers.setdefault(k, v)
-    if caminho.startswith("/api/protocolo") and "pdf" not in caminho:   # relatório estático com CSS embutido
-        resp.headers["Content-Security-Policy"] = "default-src 'none'; style-src 'unsafe-inline'; frame-ancestors 'none'"
+        resp.headers.setdefault(k, v)                   # setdefault: rotas de relatório definem a própria CSP
     if caminho.startswith("/api/") or caminho == "/":
         resp.headers["Cache-Control"] = "no-store"
     return resp
@@ -175,6 +288,7 @@ async def protecao(request: Request, call_next):
 
 
 class PedidoBusca(BaseModel):
+    pesquisa: str = Field("Geral", min_length=1, max_length=80)
     rotulo: str = Field("", max_length=80)
     blocos: list[list[str]] = Field(..., min_length=1, max_length=8)
     minimo_blocos: int | None = Field(None, ge=1, le=8)
@@ -207,11 +321,31 @@ class PedidoChaves(BaseModel):
     S2_API_KEY: str = Field("", max_length=200)
 
 
+class PedidoPesquisa(BaseModel):
+    nome: str = Field(..., min_length=1, max_length=80)
+    descricao: str = Field("", max_length=500)
+
+
+class PedidoTema(BaseModel):
+    tema: str = Field(..., min_length=3, max_length=300)
+
+
+class PedidoReferencia(BaseModel):
+    texto: str = Field(..., min_length=1, max_length=400_000)
+
+
 def _ex(id_: str) -> Execucao:
     ex = execucoes.get(id_)
     if not ex:
         raise HTTPException(404, "busca não encontrada")
     return ex
+
+
+def _repo(pesquisa: str) -> Repositorio:
+    n = nome_pesquisa(pesquisa)
+    if n not in repositorios:
+        raise HTTPException(404, f"pesquisa não encontrada: {n}")
+    return repositorios[n]
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -221,12 +355,26 @@ def inicio():
 
 @app.get("/api/estado")
 def estado():
-    ativa = next((e.resumo() for e in execucoes.values() if e.estado in ("buscando", "baixando")), None)
+    ativa = next((resumo(e) for e in execucoes.values() if e.estado in ("buscando", "baixando")), None)
+    pesq = []
+    for n, r in sorted(repositorios.items()):
+        info = _info_pesquisa(r.raiz)
+        pesq.append({"nome": n, "descricao": info.get("descricao", ""), "criada_em": info.get("criada_em", ""),
+                     "obras": len(r.obras), "pdfs": len(list(r.pdf.glob("*.pdf"))), "pasta": str(r.raiz),
+                     "buscas": sum(1 for e in execucoes.values() if e.params.pesquisa == n)})
     return {"versao": VERSAO, "autor": AUTOR, "chaves": {k: bool(v) for k, v in CHAVES.items()},
             "seguranca": {"cofre": cofre.origem_chave, "plataforma": seg.plataforma()},
-            "obras": len(repositorio.obras), "pdfs": len(list(repositorio.pdf.glob("*.pdf"))),
+            "pesquisas": pesq, "obras": sum(p["obras"] for p in pesq), "pdfs": sum(p["pdfs"] for p in pesq),
             "buscas": len(execucoes), "agendamentos": sum(1 for a in agendador.listar() if a.get("ativo")),
-            "na_fila": fila.qsize(), "ativa": ativa, "repositorio": str(REPO)}
+            "na_fila": fila.qsize(), "ativa": ativa, "repositorio": str(PESQUISAS)}
+
+
+@app.post("/api/pesquisas")
+def criar_pesquisa(p: PedidoPesquisa):
+    n = nome_pesquisa(p.nome)
+    existia = n in repositorios
+    repo = abrir_pesquisa(n, criar=True, descricao=p.descricao.strip())
+    return {"nome": repo.nome, "pasta": str(repo.raiz), "ja_existia": existia}
 
 
 @app.post("/api/chaves")
@@ -244,14 +392,34 @@ def definir_chaves(p: PedidoChaves):
 @app.post("/api/buscas")
 def criar_busca(p: PedidoBusca):
     try:
-        return nova_execucao(Parametros(**p.model_dump())).resumo()
+        return resumo(nova_execucao(Parametros(**p.model_dump())))
+    except (ValueError, TypeError) as e:
+        raise HTTPException(422, str(e))
+
+
+@app.post("/api/sugestoes")
+def sugerir_palavras(p: PedidoTema):
+    """Palavras-chave sugeridas a partir do tema (dados indexados no OpenAlex; nada é baixado)."""
+    from . import sugestoes
+    try:
+        return sugestoes.sugerir(p.tema, CHAVES)
+    except ValueError as e:
+        raise HTTPException(422, str(e))
+
+
+@app.post("/api/consulta/testar")
+def testar_consulta(p: PedidoBusca):
+    """Conta os trabalhos de cada termo, de cada bloco e da combinação, sem baixar nada."""
+    from .nucleo import diagnosticar
+    try:
+        return diagnosticar(Parametros(**p.model_dump()), CHAVES)
     except (ValueError, TypeError) as e:
         raise HTTPException(422, str(e))
 
 
 @app.get("/api/buscas")
-def listar_buscas():
-    return list(reversed(resumos_buscas()))
+def listar_buscas(pesquisa: str | None = None):
+    return list(reversed(resumos_buscas(nome_pesquisa(pesquisa) if pesquisa else None)))
 
 
 @app.get("/api/buscas/{id_}")
@@ -260,7 +428,7 @@ def detalhe(id_: str):
     log = ex.log[-150:]
     if not log and (ex.pasta / "log.txt").exists():
         log = (ex.pasta / "log.txt").read_text(encoding="utf-8").splitlines()[-150:]
-    return ex.resumo() | {"log": log}
+    return resumo(ex) | {"log": log, "pasta": str(ex.pasta)}
 
 
 @app.post("/api/buscas/{id_}/cancelar")
@@ -269,11 +437,24 @@ def cancelar(id_: str):
     ex.cancelar.set()
     if ex.estado == "na fila":
         ex.estado = "cancelada"
-    return ex.resumo()
+    return resumo(ex)
 
 
-ARQUIVOS = {"resultados.csv": "text/csv", "referencias.bib": "application/x-bibtex", "consulta.txt": "text/plain",
-            "log.txt": "text/plain", "resumo.json": "application/json"}
+@app.post("/api/buscas/{id_}/retomar")
+def retomar(id_: str):
+    """Nova execução com os mesmos parâmetros e na mesma pesquisa. O que já foi baixado aparece como
+    'já no acervo' e não é baixado de novo."""
+    ex = _ex(id_)
+    if ex.estado in ("na fila", "buscando", "baixando"):
+        raise HTTPException(409, "a busca ainda está em andamento")
+    p = Parametros(**{k: v for k, v in ex.params.como_dict().items() if k in Parametros.__dataclass_fields__})
+    base_nome = re.sub(r"\s*\(retomada\)$", "", p.rotulo or " ".join(p.blocos[0]))
+    p.rotulo = base_nome[:68] + " (retomada)"
+    return resumo(nova_execucao(p, origem=f"retomada de {ex.id}"))
+
+
+ARQUIVOS = {"matriz_baixa.csv": "text/csv", "resultados.csv": "text/csv", "referencias.bib": "application/x-bibtex",
+            "consulta.txt": "text/plain", "log.txt": "text/plain", "resumo.json": "application/json"}
 
 
 @app.get("/api/buscas/{id_}/arquivos/{nome}")
@@ -286,18 +467,21 @@ def arquivo_busca(id_: str, nome: str):
 
 @app.get("/api/buscas/{id_}/zip")
 def zip_busca(id_: str):
-    """ZIP com as obras desta busca (pdf/, txt/, bib/) e os relatórios da execução."""
+    """ZIP com as obras desta busca (pdf/, txt/, bib/, rastreabilidade/) e os relatórios da execução."""
     ex = _ex(id_)
+    repo = repo_de(ex)
     lista = ex.pasta / "pdfs_desta_busca.txt"
     nomes = [n.strip() for n in lista.read_text(encoding="utf-8").splitlines() if n.strip()] if lista.exists() else []
+    if not nomes:                                       # busca interrompida: usa as obras associadas a ela
+        nomes = [Path(o["pdf"]).name for o in repo.obras.values() if ex.id in (o.get("buscas") or []) and o.get("pdf")]
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
-        for n in ARQUIVOS:
+        for n in ARQUIVOS | {"matriz_baixa.json": ""}:
             if (ex.pasta / n).exists():
                 z.write(ex.pasta / n, n)
         for n in dict.fromkeys(nomes):
             stem = Path(n).stem
-            for pasta, ext in ((repositorio.pdf, ".pdf"), (repositorio.txt, ".txt"), (repositorio.bib, ".bib")):
+            for pasta, ext in ((repo.pdf, ".pdf"), (repo.txt, ".txt"), (repo.bib, ".bib"), (repo.rastreio, ".json")):
                 f = pasta / f"{stem}{ext}"
                 if f.exists():
                     z.write(f, f"{pasta.name}/{f.name}")
@@ -318,21 +502,34 @@ def registros_busca(id_: str, limite: int = 2000):
 
 
 @app.get("/api/obras")
-def obras(q: str = "", limite: int = 300, pagina: int = 1):
+def obras(pesquisa: str, q: str = "", limite: int = 300, pagina: int = 1):
+    repo = _repo(pesquisa)
     q = q.strip().lower()
-    itens = sorted(repositorio.obras.values(), key=lambda o: o.get("incorporada_em", ""), reverse=True)
+    itens = sorted(repo.obras.values(), key=lambda o: o.get("incorporada_em", ""), reverse=True)
     if q:
         itens = [o for o in itens if q in " ".join([o.get("titulo", ""), " ".join(o.get("autores") or []), o.get("veiculo", ""),
                                                      str(o.get("ano", "")), o.get("doi", "")]).lower()]
+    limite = max(1, min(limite, 1000))
     ini = (max(1, pagina) - 1) * limite
-    cols = ("id", "titulo", "autores", "ano", "veiculo", "doi", "url", "incorporada_em", "busca_origem_nome", "txt_extraido", "palavras_txt")
+    cols = ("id", "titulo", "autores", "ano", "veiculo", "doi", "url", "incorporada_em", "busca_origem_nome", "txt_extraido",
+            "palavras_txt", "baixado_em", "host_download", "fonte")
     return {"total": len(itens), "itens": [{c: o.get(c) for c in cols} for o in itens[ini: ini + limite]]}
 
 
+@app.get("/api/obras/{id_}/rastreabilidade")
+def rastreabilidade(id_: str, pesquisa: str):
+    repo = _repo(pesquisa)
+    f = (repo.rastreio / f"{Path(id_).name}.json").resolve()
+    if f.parent != repo.rastreio.resolve() or not f.exists():
+        raise HTTPException(404, "ficha de rastreabilidade não encontrada")
+    return json.loads(f.read_text(encoding="utf-8"))
+
+
 @app.get("/api/obras/{id_}/{formato}")
-def arquivo_obra(id_: str, formato: str):
-    pastas = {"pdf": (repositorio.pdf, "application/pdf"), "txt": (repositorio.txt, "text/plain; charset=utf-8"),
-              "bib": (repositorio.bib, "application/x-bibtex")}
+def arquivo_obra(id_: str, formato: str, pesquisa: str):
+    repo = _repo(pesquisa)
+    pastas = {"pdf": (repo.pdf, "application/pdf"), "txt": (repo.txt, "text/plain; charset=utf-8"),
+              "bib": (repo.bib, "application/x-bibtex")}
     if formato not in pastas:
         raise HTTPException(404, "formato inválido")
     pasta, mime = pastas[formato]
@@ -343,32 +540,67 @@ def arquivo_obra(id_: str, formato: str):
 
 
 @app.get("/api/fichamento")
-def baixar_fichamento():
-    f = REPO / "fichamento.xlsx"
+def baixar_fichamento(pesquisa: str):
+    repo = _repo(pesquisa)
+    f = repo.raiz / "fichamento.xlsx"
     if not f.exists():
         with trava_fich:
-            fichamento.gerar_planilha(REPO, repositorio.obras, resumos_buscas())
+            fichamento.gerar_planilha(repo.raiz, repo.obras, resumos_buscas(repo.nome))
     return FileResponse(f, media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                        filename=f"biblionow_fichamento_{datetime.now():%Y%m%d}.xlsx")
+                        filename=f"biblionow_fichamento_{slug(repo.nome)}_{datetime.now():%Y%m%d}.xlsx")
 
 
 @app.get("/api/protocolo", response_class=HTMLResponse)
-def ver_protocolo():
-    f = REPO / "protocolo" / "protocolo_sigma.html"
+def ver_protocolo(pesquisa: str):
+    repo = _repo(pesquisa)
+    f = repo.protocolo / "protocolo_sigma.html"
     if not f.exists():
         with trava_fich:
-            fichamento.gerar_protocolo(REPO, repositorio.obras)
-    return f.read_text(encoding="utf-8")
+            fichamento.gerar_protocolo(repo.raiz, repo.obras)
+    r = HTMLResponse(f.read_text(encoding="utf-8"))
+    r.headers["Content-Security-Policy"] = CSP_RELATORIO
+    return r
 
 
 @app.get("/api/protocolo/pdf")
-def protocolo_pdf():
-    f = REPO / "protocolo" / "protocolo_sigma.pdf"
+def protocolo_pdf(pesquisa: str):
+    repo = _repo(pesquisa)
+    f = repo.protocolo / "protocolo_sigma.pdf"
     if not f.exists():
         raise HTTPException(404, "PDF do protocolo indisponível (instale o WeasyPrint) – use a versão HTML")
-    return FileResponse(f, media_type="application/pdf", filename=f"protocolo_sigma_{datetime.now():%Y%m%d}.pdf")
+    return FileResponse(f, media_type="application/pdf", filename=f"protocolo_sigma_{slug(repo.nome)}_{datetime.now():%Y%m%d}.pdf")
 
 
+# ---------------------------------------------------------------- pasta relatorios/ de cada pesquisa
+TIPOS_REL = {".csv": "text/csv", ".json": "application/json", ".txt": "text/plain; charset=utf-8", ".bib": "application/x-bibtex",
+             ".html": "text/html; charset=utf-8", ".pdf": "application/pdf"}
+
+
+@app.get("/api/relatorios")
+def listar_relatorios(pesquisa: str):
+    repo = _repo(pesquisa)
+    itens = []
+    for f in sorted(repo.relatorios.rglob("*")):
+        if f.is_file() and f.suffix in TIPOS_REL:
+            itens.append({"caminho": f.relative_to(repo.relatorios).as_posix(), "tamanho": f.stat().st_size,
+                          "alterado": datetime.fromtimestamp(f.stat().st_mtime).isoformat(timespec="seconds")})
+    return {"pasta": str(repo.relatorios), "itens": itens}
+
+
+@app.get("/api/relatorios/{caminho:path}")
+def arquivo_relatorio(caminho: str, pesquisa: str):
+    rel = _repo(pesquisa).relatorios.resolve()
+    f = (rel / caminho).resolve()
+    if rel not in f.parents or not f.is_file() or f.suffix not in TIPOS_REL:
+        raise HTTPException(404, "relatório não encontrado")
+    if f.suffix == ".html":
+        r = HTMLResponse(f.read_text(encoding="utf-8"))
+        r.headers["Content-Security-Policy"] = CSP_RELATORIO
+        return r
+    return FileResponse(f, media_type=TIPOS_REL[f.suffix], filename=None if f.suffix == ".pdf" else f.name)
+
+
+# ---------------------------------------------------------------- agendamentos
 @app.get("/api/agendamentos")
 def listar_agendamentos():
     return {"itens": agendador.listar(), "dias_semana": DIAS_SEMANA}
@@ -377,8 +609,11 @@ def listar_agendamentos():
 @app.post("/api/agendamentos")
 def criar_agendamento(p: PedidoAgendamento):
     try:
-        Parametros(**p.busca.model_dump()).validar()
-        return agendador.criar(p.model_dump())
+        b = Parametros(**p.busca.model_dump()).validar()
+        d = p.model_dump()
+        d["busca"]["pesquisa"] = b.pesquisa
+        abrir_pesquisa(b.pesquisa, criar=True)
+        return agendador.criar(d)
     except (ValueError, TypeError) as e:
         raise HTTPException(422, str(e))
 
@@ -408,15 +643,12 @@ def executar_agendamento(id_: str):
 
 
 # ---------------------------------------------------------------- validação
-class PedidoReferencia(BaseModel):
-    texto: str = Field(..., min_length=1, max_length=400_000)
-
-
 @app.post("/api/validacao/testes")
-def validacao_testes():
-    with repositorio.trava:
-        obras_ = dict(repositorio.obras)
-    return validacao.testes(REPO, obras_, cofre, CHAVES, ENV, sessao)
+def validacao_testes(pesquisa: str):
+    repo = _repo(pesquisa)
+    with repo.trava:
+        obras_ = dict(repo.obras)
+    return validacao.testes(repo.raiz, obras_, cofre, CHAVES, ENV, sessao) | {"pesquisa": repo.nome}
 
 
 @app.get("/api/validacao/metricas/{id_}")
@@ -437,6 +669,22 @@ def validacao_referencia(id_: str, p: PedidoReferencia):
 # ---------------------------------------------------------------- execução
 ENDERECO_TXT = RAIZ / "ENDERECO_BIBLIO_NOW.txt"
 ENDERECO_HTML = RAIZ / "ABRIR_BIBLIO_NOW.html"
+
+
+def _encerrar():
+    """Ao fechar o servidor no meio de uma busca, grava o que já foi feito e marca a busca como interrompida."""
+    for ex in list(execucoes.values()):
+        if ex.estado in ("buscando", "baixando", "na fila"):
+            ex.cancelar.set()
+            ex.estado, ex.fim = "interrompida", datetime.now().isoformat(timespec="seconds")
+            ex.erro = "o Biblio-now foi encerrado durante a busca; use Retomar para continuar"
+            try:
+                ex.escrever("Biblio-now encerrado durante a busca: progresso gravado; use Retomar para continuar.")
+                (ex.pasta / "resumo.json").write_text(json.dumps(ex.resumo(), ensure_ascii=False, indent=2), encoding="utf-8")
+            except OSError:
+                pass
+    for repo in repositorios.values():
+        repo.gravar()
 
 
 def _apagar_endereco():
@@ -467,7 +715,11 @@ def gravar_endereco(url: str):
         except OSError:
             pass                                        # Windows: a pasta do usuário já restringe o acesso
     atexit.register(_apagar_endereco)                   # saída normal do Python
-    app.router.on_shutdown.append(_apagar_endereco)     # Ctrl+C/SIGTERM: o uvicorn reenvia o sinal e pula o atexit
+    atexit.register(_encerrar)
+
+
+app.router.on_shutdown.append(_encerrar)                # Ctrl+C/SIGTERM: o uvicorn reenvia o sinal e pula o atexit
+app.router.on_shutdown.append(_apagar_endereco)
 
 
 def main():
@@ -482,6 +734,8 @@ def main():
         sys.stdout.reconfigure(line_buffering=True)     # mostra o link na hora, mesmo com a saída redirecionada
     except (AttributeError, ValueError):
         pass
+    migrada = migrar_repositorio_antigo()
+    carregar_pesquisas()
     carregar_anteriores()
     threading.Thread(target=trabalhador, daemon=True, name="buscas").start()
     agendador.iniciar()
@@ -494,7 +748,9 @@ def main():
     print(f"Cofre de chaves: {cofre.origem_chave}")
     if CHAVES_IMPORTADAS:
         print(f"Chaves levadas do .env para o cofre criptografado: {', '.join(CHAVES_IMPORTADAS)}")
-    print(f"Repositório: {REPO}")
+    if migrada:
+        print(f"Repositório antigo movido para a pesquisa '{migrada}'")
+    print(f"Pesquisas em {PESQUISAS}: " + (", ".join(f"{n} ({len(r.obras)} obras)" for n, r in sorted(repositorios.items())) or "nenhuma"))
     print("Chaves: " + ", ".join(f"{k} {'definida' if v else 'não definida'}" for k, v in CHAVES.items()))
     if not a.sem_navegador:
         threading.Timer(1.5, lambda: webbrowser.open(url)).start()

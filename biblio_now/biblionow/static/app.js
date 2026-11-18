@@ -15,7 +15,9 @@ const dataHora = (iso) => {
 const ANO = new Date().getFullYear();
 const ATIVOS = ["na fila", "buscando", "baixando"];
 
-const estadoApp = { aba: "painel", buscas: [], detalhe: null, estado: null, diasSemana: [], acervoPagina: 1, sessaoPerdida: false };
+const estadoApp = { aba: "painel", buscas: [], detalhe: null, estado: null, diasSemana: [], acervoPagina: 1, sessaoPerdida: false,
+                    pesquisa: localStorage.getItem("biblionow.pesquisa") || "" };
+const qp = () => `pesquisa=${encodeURIComponent(estadoApp.pesquisa || "Geral")}`;
 
 /* ------------------------------------------------------------ comunicação com o servidor */
 async function api(metodo, url, corpo) {
@@ -95,10 +97,84 @@ document.addEventListener("click", (e) => {
 
 /* ------------------------------------------------------------ painel */
 async function lerEstado() {
-  estadoApp.estado = await api("GET", "/api/estado");
-  $("#versao").textContent = estadoApp.estado.versao;
-  return estadoApp.estado;
+  const s = (estadoApp.estado = await api("GET", "/api/estado"));
+  $("#versao").textContent = s.versao;
+  const nomes = s.pesquisas.map((p) => p.nome);
+  if (!nomes.includes(estadoApp.pesquisa)) definirPesquisa(nomes[0] || "Geral", false);
+  const sel = $("#pesquisa-atual");
+  const opcoes = (nomes.length ? nomes : ["Geral"]).map((n) => `<option value="${esc(n)}">${esc(n)}</option>`).join("");
+  if (sel.dataset.opcoes !== opcoes) {
+    sel.innerHTML = opcoes;
+    sel.dataset.opcoes = opcoes;
+  }
+  sel.value = estadoApp.pesquisa;
+  atualizarIndicador(s.ativa);
+  return s;
 }
+
+function pesquisaAtual() {
+  return (estadoApp.estado?.pesquisas || []).find((p) => p.nome === estadoApp.pesquisa) || { nome: estadoApp.pesquisa, obras: 0, pdfs: 0, buscas: 0 };
+}
+
+function definirPesquisa(nome, recarregar = true) {
+  estadoApp.pesquisa = nome;
+  localStorage.setItem("biblionow.pesquisa", nome);
+  $("#nome-pesquisa-busca").textContent = nome;
+  $$('[data-link="fichamento"]').forEach((a) => (a.href = `/api/fichamento?${qp()}`));
+  $$('[data-link="protocolo"]').forEach((a) => (a.href = `/api/protocolo?${qp()}`));
+  if (recarregar) {
+    estadoApp.detalhe = null;
+    $("#detalhe").hidden = true;
+    carregarAba(estadoApp.aba);
+  }
+}
+
+function atualizarIndicador(a) {
+  const el = $("#indicador");
+  el.hidden = !a;
+  if (!a) return;
+  const feito = (a.baixados || 0) + (a.falharam || 0);
+  const pct = a.estado === "baixando" && a.a_tentar ? Math.min(100, Math.round((100 * feito) / a.a_tentar)) : 0;
+  el.dataset.id = a.id;
+  el.innerHTML = `<span class="pulso"></span><span>Em segundo plano: <b>${esc(a.rotulo || a.id)}</b> (${esc(a.pesquisa)}) · ${esc(a.estado)}
+    ${a.estado === "baixando" ? ` · ${num(feito)} de ${num(a.a_tentar)} PDFs` : ""}</span>
+    ${a.estado === "baixando" ? `<span class="mini-barra"><div data-largura="${pct}"></div></span>` : ""}
+    <span class="ajuda">Pode trocar de aba ou fechar o navegador: o download continua.</span>`;
+  aplicarLarguras(el);
+}
+
+$("#indicador").addEventListener("click", () => {
+  const id = $("#indicador").dataset.id;
+  const a = estadoApp.estado?.ativa;
+  if (!id || !a) return;
+  if (a.pesquisa !== estadoApp.pesquisa) definirPesquisa(a.pesquisa, false);
+  irPara("buscas");
+  abrirDetalhe(id);
+});
+
+$("#pesquisa-atual").addEventListener("change", (e) => definirPesquisa(e.target.value));
+
+$("#nova-pesquisa").addEventListener("click", () => {
+  $("#pq_nome").value = "";
+  $("#pq_desc").value = "";
+  $("#erro-pesquisa").textContent = "";
+  $("#modal-pesquisa").showModal();
+});
+
+$("#form-pesquisa").addEventListener("submit", async (e) => {
+  if (e.submitter && e.submitter.value === "cancelar") return;
+  e.preventDefault();
+  try {
+    const r = await api("POST", "/api/pesquisas", { nome: $("#pq_nome").value.trim(), descricao: $("#pq_desc").value.trim() });
+    $("#modal-pesquisa").close();
+    aviso(r.ja_existia ? `A pesquisa "${r.nome}" já existia; selecionada.` : `Pesquisa "${r.nome}" criada em ${r.pasta}`, false, 6000);
+    definirPesquisa(r.nome, false);
+    await lerEstado();
+    irPara("nova");
+  } catch (x) {
+    $("#erro-pesquisa").textContent = x.message;
+  }
+});
 
 function blocoAtiva(a) {
   if (!a) return '<div class="vazio">Nenhuma busca em andamento.</div>';
@@ -126,10 +202,12 @@ function numeros(b) {
 }
 
 async function atualizarPainel() {
-  const [s, buscas] = await Promise.all([lerEstado(), api("GET", "/api/buscas")]);
+  const s = await lerEstado();
+  const buscas = await api("GET", `/api/buscas?${qp()}`);
   estadoApp.buscas = buscas;
-  const kpis = [["Obras no acervo", s.obras], ["PDFs", s.pdfs], ["Buscas realizadas", s.buscas],
-                ["Agendamentos ativos", s.agendamentos], ["Na fila", s.na_fila]];
+  const pa = pesquisaAtual();
+  const kpis = [["Obras nesta pesquisa", pa.obras], ["PDFs nesta pesquisa", pa.pdfs], ["Buscas nesta pesquisa", pa.buscas],
+                ["Pesquisas", s.pesquisas.length], ["Agendamentos ativos", s.agendamentos], ["Na fila", s.na_fila]];
   $("#kpis").innerHTML = kpis.map(([l, v]) => `<div class="kpi"><div class="valor">${num(v)}</div><div class="legenda">${esc(l)}</div></div>`).join("");
   const ativa = $("#ativa");
   ativa.classList.toggle("vazio", !s.ativa);
@@ -143,6 +221,25 @@ async function atualizarPainel() {
                             `<td>${selo(b.estado)}</td>`, `<td class="num">${num(b.baixados)}</td>`] })), "clicavel")
     : "Nenhuma busca ainda.";
   $("#aviso-chaves").hidden = Boolean(s.chaves.OPENALEX_API_KEY && s.chaves.S2_API_KEY);
+  carregarRelatorios().catch(() => {});
+}
+
+async function carregarRelatorios() {
+  const el = $("#lista-relatorios");
+  if (!pesquisaAtual().buscas) {
+    el.className = "vazio";
+    el.textContent = "Os relatórios aparecem aqui ao fim de cada busca.";
+    $("#pasta-relatorios").textContent = "";
+    return;
+  }
+  const r = await api("GET", `/api/relatorios?${qp()}`);
+  $("#pasta-relatorios").textContent = r.pasta;
+  el.className = r.itens.length ? "" : "vazio";
+  if (!r.itens.length) return (el.textContent = "Os relatórios aparecem aqui ao fim de cada busca.");
+  const kb = (b) => (b < 1024 ? `${b} B` : b < 1048576 ? `${Math.round(b / 1024)} KB` : `${(b / 1048576).toFixed(1).replace(".", ",")} MB`);
+  el.innerHTML = tabela(["Arquivo", "Atualizado em", "#Tamanho"], r.itens.slice(-60).reverse().map((i) => ({ celulas: [
+    `<td><a href="/api/relatorios/${i.caminho.split("/").map(encodeURIComponent).join("/")}?${qp()}" target="_blank" rel="noopener">${esc(i.caminho)}</a></td>`,
+    `<td>${dataHora(i.alterado)}</td>`, `<td class="num">${kb(i.tamanho)}</td>`] })));
 }
 
 document.addEventListener("click", (e) => {
@@ -173,12 +270,12 @@ function adicionarBloco(termos = []) {
 }
 
 function renumerarBlocos() {
-  $$("#blocos .bloco").forEach((b, i) => ($("b", b).textContent = i > 0 ? `Bloco ${i + 1} · E` : "Bloco 1"));
+  $$("#blocos .bloco").forEach((b, i) => ($("b", b).textContent = i > 0 ? `Bloco ${i + 1} · ${Number($("#minimo").value) === $$("#blocos .bloco").length ? "E" : "OU"}` : "Bloco 1"));
   const n = Math.max(1, $$("#blocos .bloco").length);
   const sel = $("#minimo");
   const atual = Number(sel.value) || n;
-  sel.innerHTML = Array.from({ length: n }, (_, i) => `<option value="${i + 1}">${i + 1} de ${n}${i + 1 === n ? " (todos)" : ""}</option>`).join("");
-  sel.value = String(sel.dataset.mexido ? Math.min(atual, n) : n);
+  sel.innerHTML = Array.from({ length: n }, (_, i) => `<option value="${i + 1}">${i === 0 ? (n > 1 ? "OU · qualquer bloco (busca ampla)" : "1 bloco") : i + 1 === n ? `E · todos os ${n} blocos (busca restrita)` : `ao menos ${i + 1} de ${n} blocos`}</option>`).join("");
+  sel.value = String(sel.dataset.mexido ? Math.min(atual, n) : 1);
   atualizarPrevia();
 }
 
@@ -193,7 +290,7 @@ function atualizarPrevia() {
   if (blocos.length) {
     const partes = blocos.map((b) => "(" + b.map((t) => `"${t}"`).join(" OR ") + ")");
     q = min >= blocos.length ? partes.join(" AND ") : "(" + blocos.flat().map((t) => `"${t}"`).join(" OR ") + ")" +
-        `  → depois: ao menos ${min} de ${blocos.length} blocos no título/resumo`;
+        (min > 1 ? `  → depois: ao menos ${min} de ${blocos.length} blocos no título/resumo` : "");
   }
   $("#previa").textContent = q || "(digite os termos)";
 }
@@ -220,7 +317,7 @@ function lerFormulario() {
   if ($("#f_s2").checked) fontes.push("s2");
   const p = $("#periodo").value;
   return {
-    rotulo: $("#rotulo").value.trim(), blocos: lerBlocos(), minimo_blocos: Number($("#minimo").value) || null, fontes, periodo: p,
+    pesquisa: estadoApp.pesquisa || "Geral", rotulo: $("#rotulo").value.trim(), blocos: lerBlocos(), minimo_blocos: Number($("#minimo").value) || null, fontes, periodo: p,
     ano_min: p === "personalizado" ? Number($("#ano_min").value) || null : null,
     ano_max: p === "personalizado" ? Number($("#ano_max").value) || null : null,
     ordem: $("#ordem").value, max_resultados: Number($("#max_resultados").value) || 1000,
@@ -247,7 +344,11 @@ $("#blocos").addEventListener("click", (e) => {
   e.target.closest(".bloco").remove();
   renumerarBlocos();
 });
-$("#minimo").addEventListener("change", (e) => { e.target.dataset.mexido = "1"; atualizarPrevia(); });
+$("#minimo").addEventListener("change", (e) => {
+  e.target.dataset.mexido = "1";
+  $$("#blocos .bloco").forEach((b, i) => i > 0 && ($("b", b).textContent = `Bloco ${i + 1} · ${Number(e.target.value) === $$("#blocos .bloco").length ? "E" : "OU"}`));
+  atualizarPrevia();
+});
 ["#periodo", "#ano_min", "#ano_max"].forEach((s) => $(s).addEventListener("input", atualizarPeriodo));
 
 $("#form-busca").addEventListener("submit", async (e) => {
@@ -270,9 +371,84 @@ $("#form-busca").addEventListener("submit", async (e) => {
   }
 });
 
+function htmlDiagnostico(d) {
+  if (!d || !d.blocos) return "";
+  const cor = (n) => (n === 0 ? "nao" : n === null || n === undefined ? "" : n < 20 ? "interrompida" : "sim");
+  const sel = (n) => `<span class="selo ${cor(n)}">${n === null || n === undefined ? "?" : num(n)}</span>`;
+  return `<h2>Diagnóstico da consulta</h2><p class="ajuda">${esc(d.base)}. Quantos trabalhos existem para cada termo e bloco.</p>` +
+    tabela(["Bloco", "Termos (trabalhos)", "Bloco inteiro (OU)"], d.blocos.map((b) => ({ celulas: [
+      `<td>${b.bloco}</td>`, `<td>${b.termos.map((t) => `${esc(t.termo)} ${sel(t.trabalhos)}`).join("<br>")}</td>`, `<td>${sel(b.trabalhos)}</td>`] }))) +
+    `<p><b>Esta busca enviará:</b> ${sel(d.combinacao)}${d.blocos.length > 1 ? ` · qualquer bloco (OU): ${sel(d.qualquer_termo)} · todos os blocos (E): ${sel(d.todos_os_blocos)}` : ""}</p>` +
+    (d.sugestoes && d.sugestoes.length ? `<ul class="sugestoes">${d.sugestoes.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : '<p class="ok">A consulta encontra trabalhos.</p>');
+}
+
+/* sugestão de palavras-chave a partir do tema */
+let ultimaSugestao = null;
+$("#sugerir").addEventListener("click", async (e) => {
+  const tema = $("#tema").value.trim();
+  const el = $("#sugestoes");
+  if (tema.length < 3) return aviso("Escreva o tema da pesquisa (pelo menos 3 caracteres).", true);
+  el.hidden = false;
+  el.innerHTML = '<p class="ajuda">Procurando no OpenAlex os trabalhos mais relevantes de cada conceito e as palavras-chave indexadas neles…</p>';
+  e.target.disabled = true;
+  try {
+    const r = (ultimaSugestao = await api("POST", "/api/sugestoes", { tema }));
+    el.innerHTML = `<div class="rotulo-linha"><h2>Palavras-chave sugeridas</h2><span class="ajuda">${esc(r.base)}</span></div>
+      <p class="ajuda">Cada conceito do tema vira um bloco. Marque os termos que quer usar; o número é quantos trabalhos têm o termo no título ou no resumo.</p>` +
+      r.blocos.map((b, i) => `<div class="conceito"><h3>Bloco ${i + 1}: ${esc(b.conceito)} ${b.topicos.length ? `<span class="ajuda">· tema: ${esc(b.topicos.join(" / "))}</span>` : ""}</h3>
+        ${b.aviso ? `<p class="ajuda erro">${esc(b.aviso)}</p>` : ""}
+        <div class="fichas">${b.termos.map((t, j) => `<label class="ficha-termo${t.sugerido ? " marcada" : ""}${t.geral ? " geral" : ""}" title="${esc(t.motivo)}">
+          <input type="checkbox" data-b="${i}" data-t="${j}"${t.sugerido ? " checked" : ""}> ${esc(t.termo)} <small>${t.trabalhos === null || t.trabalhos === undefined ? "?" : num(t.trabalhos)}</small></label>`).join("")}</div></div>`).join("") +
+      `<p class="ajuda">${esc(r.nota)}</p>
+      <div class="rodape-form"><button type="button" class="botao" id="usar-sugestoes">Usar como blocos da busca</button></div>`;
+  } catch (x) {
+    el.innerHTML = `<p class="erro">${esc(x.message)}</p>`;
+  } finally {
+    e.target.disabled = false;
+  }
+});
+$("#tema").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); $("#sugerir").click(); } });
+
+$("#sugestoes").addEventListener("change", (e) => {
+  const c = e.target.closest("input[type=checkbox]");
+  if (c) c.closest(".ficha-termo").classList.toggle("marcada", c.checked);
+});
+
+$("#sugestoes").addEventListener("click", (e) => {
+  if (e.target.id !== "usar-sugestoes" || !ultimaSugestao) return;
+  const escolhidos = ultimaSugestao.blocos.map((b, i) => b.termos.filter((_, j) => $(`#sugestoes input[data-b="${i}"][data-t="${j}"]`).checked).map((t) => t.termo))
+    .filter((b) => b.length);
+  if (!escolhidos.length) return aviso("Marque ao menos um termo.", true);
+  $("#blocos").innerHTML = "";
+  escolhidos.forEach((b) => adicionarBloco(b));
+  delete $("#minimo").dataset.mexido;
+  renumerarBlocos();
+  if (!$("#rotulo").value.trim()) $("#rotulo").value = ultimaSugestao.tema.slice(0, 80);
+  aviso(`${escolhidos.length} bloco(s) preenchido(s), combinados com OU. Use “Testar consulta” para ver o total.`, false, 6000);
+  $("#blocos").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+$("#testar-consulta").addEventListener("click", async (e) => {
+  const f = lerFormulario();
+  const erro = conferirFormulario(f);
+  $("#erro-busca").textContent = erro;
+  if (erro) return;
+  const el = $("#resultado-teste");
+  el.hidden = false;
+  el.innerHTML = '<p class="ajuda">Contando os trabalhos de cada termo no OpenAlex…</p>';
+  e.target.disabled = true;
+  try {
+    el.innerHTML = htmlDiagnostico(await api("POST", "/api/consulta/testar", f));
+  } catch (x) {
+    el.innerHTML = `<p class="erro">${esc(x.message)}</p>`;
+  } finally {
+    e.target.disabled = false;
+  }
+});
+
 /* ------------------------------------------------------------ buscas */
 async function atualizarBuscas() {
-  estadoApp.buscas = await api("GET", "/api/buscas");
+  estadoApp.buscas = await api("GET", `/api/buscas?${qp()}`);
   const el = $("#lista-buscas");
   const b = estadoApp.buscas;
   el.classList.toggle("vazio", !b.length);
@@ -282,11 +458,11 @@ async function atualizarBuscas() {
           `<td>${esc(x.origem)}</td>`, `<td>${dataHora(x.inicio)}</td>`, `<td>${selo(x.estado)}</td>`,
           `<td class="num">${num(x.registros)}</td>`, `<td class="num">${num(x.atendem)}</td>`,
           `<td class="num">${num(x.baixados)}</td>`, `<td class="num">${num(x.ja_existiam)}</td>`] })), "clicavel")
-    : "Nenhuma busca ainda. Crie uma em Nova busca.";
+    : `Nenhuma busca na pesquisa "${esc(estadoApp.pesquisa)}". Crie uma em Nova busca.`;
   if (estadoApp.detalhe) await abrirDetalhe(estadoApp.detalhe, false);
 }
 
-const ARQS = [["resultados.csv", "Resultados (.csv)"], ["referencias.bib", "Referências (.bib)"], ["consulta.txt", "Consulta (.txt)"], ["log.txt", "Log"]];
+const ARQS = [["matriz_baixa.csv", "Matriz da baixa (.csv)"], ["resultados.csv", "Resultados (.csv)"], ["referencias.bib", "Referências (.bib)"], ["consulta.txt", "Consulta (.txt)"], ["log.txt", "Log"]];
 
 async function abrirDetalhe(id, rolar = true) {
   estadoApp.detalhe = id;
@@ -300,7 +476,9 @@ async function abrirDetalhe(id, rolar = true) {
   el.hidden = false;
   el.innerHTML = `<div class="rotulo-linha"><h2>${esc(d.rotulo || d.id)} ${selo(d.estado)}</h2>
       <div class="acoes">${ativo ? `<button class="botao perigo mini" id="cancelar-busca">Cancelar</button>` : ""}
+      ${["interrompida", "cancelada", "erro"].includes(d.estado) ? `<button class="botao mini" id="retomar-busca">Retomar</button>` : ""}
       <button class="botao secundario mini" id="fechar-detalhe">Fechar</button></div></div>
+    <p class="ajuda">Pesquisa <b>${esc(d.pesquisa)}</b> · pasta <code>${esc(d.pasta)}</code></p>
     <p class="ajuda">${esc(d.origem)} · início ${dataHora(d.inicio)}${d.fim ? ` · fim ${dataHora(d.fim)}` : ""} ·
       período: ${esc(p.periodo === "todos" || !p.periodo ? "todos os anos" : p.periodo === "personalizado" ? `${p.ano_min || "…"}–${p.ano_max || "…"}` : `últimos ${p.periodo} ano(s)`)}
       · mínimo de blocos: ${esc(d.minimo_blocos)} de ${esc((d.blocos || []).length)}</p>
@@ -311,6 +489,7 @@ async function abrirDetalhe(id, rolar = true) {
     <div class="links">${ARQS.map(([n, r]) => `<a class="botao secundario mini" href="/api/buscas/${encodeURIComponent(d.id)}/arquivos/${n}">${r}</a>`).join("")}
       ${ativo ? "" : `<a class="botao mini" href="/api/buscas/${encodeURIComponent(d.id)}/zip">Baixar obras (.zip)</a>
       <button class="botao secundario mini" id="ver-registros">Ver registros</button>`}</div>
+    ${d.diagnostico && d.diagnostico.blocos ? `<div class="diagnostico">${htmlDiagnostico(d.diagnostico)}</div>` : ""}
     <div class="log">${esc((d.log || []).join("\n")) || "(sem mensagens)"}</div>
     <div id="registros-busca"></div>`;
   aplicarLarguras(el);
@@ -329,6 +508,17 @@ $("#detalhe").addEventListener("click", async (e) => {
     await api("POST", `/api/buscas/${encodeURIComponent(id)}/cancelar`).catch((x) => aviso(x.message, true));
     aviso("Cancelamento pedido; a busca para após os downloads em curso.");
     abrirDetalhe(id, false);
+  } else if (e.target.id === "retomar-busca") {
+    e.target.disabled = true;
+    try {
+      const r = await api("POST", `/api/buscas/${encodeURIComponent(id)}/retomar`);
+      aviso("Busca retomada: o que já foi baixado não é baixado de novo.");
+      await atualizarBuscas();
+      abrirDetalhe(r.id);
+    } catch (x) {
+      aviso(x.message, true);
+      e.target.disabled = false;
+    }
   } else if (e.target.id === "ver-registros") {
     e.target.disabled = true;
     try {
@@ -353,7 +543,7 @@ $("#filtro-acervo").addEventListener("input", () => {
 async function carregarAcervo(reiniciar = false) {
   if (reiniciar) estadoApp.acervoPagina = 1;
   const q = encodeURIComponent($("#filtro-acervo").value.trim());
-  const r = await api("GET", `/api/obras?q=${q}&limite=200&pagina=${estadoApp.acervoPagina}`);
+  const r = await api("GET", `/api/obras?${qp()}&q=${q}&limite=200&pagina=${estadoApp.acervoPagina}`);
   const el = $("#lista-acervo");
   const linhas = r.itens.map((o) => {
     const id = encodeURIComponent(o.id);
@@ -362,16 +552,17 @@ async function carregarAcervo(reiniciar = false) {
       `<td class="titulo"><b>${esc(o.titulo || o.id)}</b><div class="sub">${esc(autores)}</div></td>`,
       `<td>${esc(o.ano)}</td>`, `<td>${esc(o.veiculo)}</td>`,
       `<td>${o.doi ? `<a href="https://doi.org/${esc(o.doi)}" target="_blank" rel="noopener noreferrer">${esc(o.doi)}</a>` : "—"}</td>`,
-      `<td>${dataHora(o.incorporada_em)}<div class="sub">${esc(o.busca_origem_nome)}</div></td>`,
-      `<td class="links"><a class="botao mini" href="/api/obras/${id}/pdf" target="_blank" rel="noopener">PDF</a>
-        <a class="botao secundario mini" href="/api/obras/${id}/txt" target="_blank" rel="noopener" title="${o.txt_extraido ? num(o.palavras_txt) + " palavras" : "PDF sem texto extraível"}">TXT</a>
-        <a class="botao secundario mini" href="/api/obras/${id}/bib">BIB</a></td>`] };
+      `<td>${dataHora(o.baixado_em || o.incorporada_em)}<div class="sub">${esc(o.host_download || "")}${o.host_download ? " · " : ""}${esc(o.busca_origem_nome)}</div></td>`,
+      `<td class="links"><a class="botao mini" href="/api/obras/${id}/pdf?${qp()}" target="_blank" rel="noopener">PDF</a>
+        <a class="botao secundario mini" href="/api/obras/${id}/txt?${qp()}" target="_blank" rel="noopener" title="${o.txt_extraido ? num(o.palavras_txt) + " palavras" : "PDF sem texto extraível"}">TXT</a>
+        <a class="botao secundario mini" href="/api/obras/${id}/bib?${qp()}">BIB</a>
+        <button class="botao secundario mini" data-rastreio="${esc(o.id)}">Rastreio</button></td>`] };
   });
   const cab = `<p class="ajuda">${num(r.total)} obra(s)${$("#filtro-acervo").value.trim() ? " com o filtro" : ""}.</p>`;
-  const tab = tabela(["Obra", "Ano", "Veículo", "DOI", "Incorporada em", "Arquivos"], linhas);
+  const tab = tabela(["Obra", "Ano", "Veículo", "DOI", "Baixado em", "Arquivos"], linhas);
   if (reiniciar || !$("table", el)) {
     el.classList.toggle("vazio", !r.total);
-    el.innerHTML = r.total ? cab + tab : "O acervo está vazio. As obras aparecem aqui ao fim de cada busca.";
+    el.innerHTML = r.total ? cab + tab : `A pesquisa "${esc(estadoApp.pesquisa)}" ainda não tem obras. Elas aparecem aqui conforme são baixadas.`;
   } else {
     $("tbody", el).insertAdjacentHTML("beforeend", $("tbody", new DOMParser().parseFromString(`<table>${tab.match(/<tbody>[\s\S]*<\/tbody>/)[0]}</table>`, "text/html")).innerHTML);
   }
@@ -380,6 +571,41 @@ async function carregarAcervo(reiniciar = false) {
     el.insertAdjacentHTML("beforeend", '<div class="links"><button class="botao secundario" id="mais-acervo">Carregar mais</button></div>');
     $("#mais-acervo").addEventListener("click", () => { estadoApp.acervoPagina += 1; carregarAcervo(false); });
   }
+}
+
+$("#lista-acervo").addEventListener("click", async (e) => {
+  const b = e.target.closest("[data-rastreio]");
+  if (!b) return;
+  try {
+    const f = await api("GET", `/api/obras/${encodeURIComponent(b.dataset.rastreio)}/rastreabilidade?${qp()}`);
+    $("#conteudo-rastreio").innerHTML = fichaRastreio(f);
+    $("#modal-rastreio").showModal();
+  } catch (x) {
+    aviso(x.message, true);
+  }
+});
+$("#fechar-rastreio").addEventListener("click", () => $("#modal-rastreio").close());
+
+function fichaRastreio(f) {
+  const v = (x) => (x === null || x === undefined || x === "" || (Array.isArray(x) && !x.length) ? "—" : Array.isArray(x) ? x.map((i) => esc(typeof i === "object" ? JSON.stringify(i) : i)).join("<br>") : esc(typeof x === "object" ? JSON.stringify(x) : x));
+  const bloco = (titulo, obj, nomes) => obj ? `<h3>${esc(titulo)}</h3><dl>${Object.entries(nomes).map(([k, n]) => `<dt>${esc(n)}</dt><dd>${v(obj[k])}</dd>`).join("")}</dl>` : "";
+  const d = f.download || {};
+  return `<div class="ficha">${f.reconstruida ? `<p class="cartao aviso">${esc(f.nota)}</p>` : ""}
+    <dl><dt>Arquivo</dt><dd>${v(f.arquivo)}</dd><dt>Pesquisa</dt><dd>${v(f.pesquisa)}</dd></dl>
+    ${bloco("Download", d, { fim_download: "Data e hora da baixa", inicio_download: "Início", duracao_s: "Duração (s)", url_solicitada: "Endereço pedido",
+      url_final: "Endereço final (de onde veio o arquivo)", redirecionamentos: "Redirecionamentos", host: "Servidor", status_http: "Resposta HTTP",
+      content_type: "Tipo de conteúdo", bytes: "Bytes recebidos", last_modified: "Last-Modified (servidor)", etag: "ETag", servidor_http: "Software do servidor",
+      user_agent: "Identificação usada", incorporada_em: "Incorporada em" })}
+    ${f.tentativas ? `<h3>Tentativas (${f.tentativas.length})</h3>${tabela(["Quando", "Endereço", "Resultado"], f.tentativas.map((t) => ({ celulas: [`<td>${esc(t.quando)}</td>`, `<td>${esc(t.url)}</td>`, `<td>${esc(t.resultado)}</td>`] })))}` : ""}
+    ${bloco("Busca e consulta", f.busca, { nome: "Busca", id: "ID da busca", origem: "Origem", inicio: "Início da busca", consulta_openalex: "Consulta no OpenAlex",
+      consulta_semantic_scholar: "Consulta no Semantic Scholar", periodo: "Período", minimo_blocos: "Mínimo de blocos" })}
+    ${bloco("Registro bibliográfico", f.registro_bibliografico, { titulo: "Título", autores: "Autores", ano: "Ano", veiculo: "Veículo", doi: "DOI",
+      pagina_do_artigo: "Página do artigo", url: "Página do artigo", base_de_origem: "Base de origem", fonte: "Base de origem", id_openalex: "ID OpenAlex",
+      id_semantic_scholar: "ID Semantic Scholar", verificacao_blocos: "Blocos atendidos" })}
+    ${bloco("Acesso aberto", f.acesso_aberto, { segundo_a_base: "Acesso aberto segundo a base", status_oa: "Status OA", licenca: "Licença", versao: "Versão",
+      pagina_oa: "Página OA", links_de_pdf_informados: "Links de PDF informados pelas bases" })}
+    ${bloco("Integridade", f.integridade, { sha256: "SHA-256", md5: "MD5", bytes_em_disco: "Bytes em disco", "comeca_com_%PDF": "Começa com %PDF" })}
+    ${bloco("Ambiente", f.ambiente, { programa: "Programa", sistema: "Sistema operacional", python: "Python" })}</div>`;
 }
 
 /* ------------------------------------------------------------ agendamentos */
@@ -438,7 +664,7 @@ async function carregarAgenda() {
   el.innerHTML = r.itens.length
     ? tabela(["Nome", "Quando", "Próxima execução", "Última execução", "Ativo", ""], r.itens.map((a) => ({
         id: a.id, celulas: [
-          `<td class="titulo"><b>${esc(a.nome)}</b><div class="sub">${(a.busca.blocos || []).map((b) => "(" + b.map(esc).join(" OU ") + ")").join(" E ")}</div></td>`,
+          `<td class="titulo"><b>${esc(a.nome)}</b><div class="sub">Pesquisa: ${esc(a.busca.pesquisa || "Geral")}</div><div class="sub">${(a.busca.blocos || []).map((b) => "(" + b.map(esc).join(" OU ") + ")").join(" E ")}</div></td>`,
           `<td>${esc(a.descricao)}</td>`, `<td>${a.ativo ? dataHora(a.proxima_execucao) : "—"}</td>`,
           `<td>${a.ultima_busca ? `<a href="#" data-abrir="${esc(a.ultima_busca)}">${dataHora(a.ultima_execucao)}</a>` : "—"}</td>`,
           `<td><label class="check"><input type="checkbox" data-ativo="${esc(a.id)}"${a.ativo ? " checked" : ""}> ${a.ativo ? "sim" : "não"}</label></td>`,
@@ -482,7 +708,7 @@ $("#lista-agenda").addEventListener("change", async (e) => {
 
 /* ------------------------------------------------------------ validação */
 async function prepararValidacao() {
-  const buscas = await api("GET", "/api/buscas");
+  const buscas = await api("GET", `/api/buscas?${qp()}`);
   estadoApp.buscas = buscas;
   const sel = $("#val-busca");
   const atual = sel.value;
@@ -497,11 +723,11 @@ $("#rodar-testes").addEventListener("click", async (e) => {
   const el = $("#resultado-testes");
   el.textContent = "Rodando…";
   try {
-    const r = await api("POST", "/api/validacao/testes");
+    const r = await api("POST", `/api/validacao/testes?${qp()}`);
     const falhas = r.total - r.aprovados;
     el.classList.remove("vazio");
     el.innerHTML = `<p><span class="selo ${falhas ? "nao" : "sim"}">${r.aprovados} de ${r.total} aprovados</span>
-        ${r.alertas ? `<span class="selo interrompida">${r.alertas} alerta(s)</span>` : ""} <span class="ajuda">em ${dataHora(r.quando)}</span></p>` +
+        ${r.alertas ? `<span class="selo interrompida">${r.alertas} alerta(s)</span>` : ""} <span class="ajuda">pesquisa ${esc(r.pesquisa)} · em ${dataHora(r.quando)}</span></p>` +
       tabela(["Grupo", "Teste", "Resultado", "O que foi conferido"], r.testes.map((t) => ({ celulas: [
         `<td>${esc(t.grupo)}</td>`, `<td>${esc(t.nome)}</td>`,
         `<td>${t.ok ? (t.alerta ? '<span class="selo interrompida">alerta</span>' : '<span class="selo sim">ok</span>') : '<span class="selo nao">falhou</span>'}</td>`,
@@ -570,7 +796,7 @@ async function carregarConfig() {
   st("#st_mail", s.chaves.OPENALEX_EMAIL || s.chaves.UNPAYWALL_EMAIL);
   $("#info-seguranca").textContent = `Sistema: ${s.seguranca.plataforma}. Chave mestra: ${s.seguranca.cofre}. Servidor aceito só em 127.0.0.1, ` +
     "com código de sessão, cookie HttpOnly/SameSite=Strict, proteção contra pedidos de outras páginas (CSRF), CSP restritiva e bloqueio de downloads para endereços internos.";
-  $("#caminho-repo").textContent = `Pasta do repositório: ${s.repositorio}`;
+  $("#caminho-repo").textContent = `Pasta das pesquisas: ${s.repositorio} (uma subpasta por pesquisa: ${s.pesquisas.map((p) => p.nome).join(", ") || "nenhuma ainda"})`;
 }
 
 $("#form-chaves").addEventListener("submit", async (e) => {
@@ -605,6 +831,7 @@ async function ciclo() {
       if (anteriorAtiva && anteriorAtiva !== idAtiva) {
         aviso("Busca concluída: fichamento e Protocolo Sigma atualizados.");
         if (estadoApp.aba === "acervo") carregarAcervo(true);
+        if (estadoApp.aba === "painel") carregarRelatorios().catch(() => {});
         if (estadoApp.aba === "validacao") prepararValidacao();
       }
       anteriorAtiva = idAtiva;
@@ -617,6 +844,7 @@ async function ciclo() {
 
 /* ------------------------------------------------------------ início */
 $("#ano").textContent = ANO;
+definirPesquisa(estadoApp.pesquisa || "Geral", false);
 adicionarBloco();
 adicionarBloco();
 atualizarPeriodo();

@@ -16,6 +16,7 @@
   font-size: 15px;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html, body { margin: 0; }
 body {
   font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -152,6 +153,37 @@ h2.espaco { margin-top: 18px; }
 .g-barra { height: 12px; background: #eef2f7; border-radius: 4px; overflow: hidden; }
 .g-barra > div { height: 100%; background: var(--azul-2); width: 0; }
 td.links { margin: 0; white-space: nowrap; }
+
+/* pesquisa e indicador */
+.seletor-pesquisa { display: flex; align-items: center; gap: 8px; }
+.seletor-pesquisa label { color: #c9d6e8; font-weight: 600; font-size: .8rem; }
+.seletor-pesquisa select { color: var(--texto); width: auto; min-width: 190px; max-width: 280px; padding: 6px 10px; background: #fff; }
+.indicador { flex-basis: 100%; display: flex; align-items: center; gap: 12px; padding: 7px 0 9px; font-size: .84rem; color: #e3ecf7; cursor: pointer; }
+.indicador .mini-barra { flex: 0 0 160px; height: 6px; background: rgba(255,255,255,.2); border-radius: 99px; overflow: hidden; }
+.indicador .mini-barra > div { height: 100%; background: #7fd1a8; width: 0; }
+.indicador .pulso { width: 9px; height: 9px; border-radius: 50%; background: #7fd1a8; animation: pulso 1.2s infinite; }
+@keyframes pulso { 50% { opacity: .3; } }
+.faixa-pesquisa { background: var(--verde-claro); border-radius: 8px; padding: 9px 12px; margin: 0 0 14px; font-size: .88rem; }
+dialog.largo { width: min(900px, 96vw); }
+.ficha dt { font-weight: 600; color: var(--suave); font-size: .78rem; text-transform: uppercase; letter-spacing: .3px; margin-top: 10px; }
+.ficha dd { margin: 2px 0 0; word-break: break-all; font-size: .88rem; }
+.ficha h3 { color: var(--azul); font-size: .95rem; margin: 16px 0 2px; border-bottom: 1px solid var(--linha); padding-bottom: 3px; }
+
+.diagnostico { border: 1px solid var(--linha); border-left: 4px solid var(--azul-2); border-radius: 8px; padding: 12px 14px; margin: 10px 0; background: #fbfcfe; }
+.sugestoes { margin: 6px 0 0; padding-left: 20px; font-size: .88rem; }
+.sugestoes li { margin-bottom: 4px; }
+
+.linha-tema { display: flex; gap: 8px; }
+.linha-tema input { flex: 1; }
+.conceito { margin: 10px 0 14px; }
+.conceito h3 { margin: 0 0 6px; font-size: .95rem; color: var(--azul); }
+.fichas { display: flex; flex-wrap: wrap; gap: 6px; }
+.ficha-termo { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #cfd6e1; border-radius: 999px; padding: 4px 10px;
+               font-weight: 400; font-size: .84rem; background: #fff; cursor: pointer; }
+.ficha-termo input { width: auto; margin: 0; }
+.ficha-termo.marcada { border-color: var(--verde); background: var(--verde-claro); }
+.ficha-termo small { color: var(--suave); font-variant-numeric: tabular-nums; }
+.ficha-termo.geral small { color: var(--aviso); }
 
 .rodape { text-align: center; color: var(--suave); font-size: .8rem; padding: 18px; border-top: 1px solid var(--linha); background: #fff; }
 

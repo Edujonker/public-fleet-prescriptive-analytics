@@ -16,6 +16,11 @@
       <span class="slogan">Busca, download e fichamento de artigos científicos</span>
     </div>
   </div>
+  <div class="seletor-pesquisa">
+    <label for="pesquisa-atual">Pesquisa</label>
+    <select id="pesquisa-atual" aria-label="Pesquisa atual"></select>
+    <button type="button" class="botao mini" id="nova-pesquisa">+ Nova</button>
+  </div>
   <nav class="abas" role="tablist">
     <button class="aba ativa" data-aba="painel" role="tab">Painel</button>
     <button class="aba" data-aba="nova" role="tab">Nova busca</button>
@@ -25,6 +30,7 @@
     <button class="aba" data-aba="validacao" role="tab">Validação</button>
     <button class="aba" data-aba="config" role="tab">Configurações</button>
   </nav>
+  <div id="indicador" class="indicador" hidden></div>
 </header>
 
 <main>
@@ -33,14 +39,18 @@
     <div class="cabecalho">
       <h1>Painel</h1>
       <div class="acoes">
-        <a class="botao secundario" href="/api/fichamento">Baixar fichamento (.xlsx)</a>
-        <a class="botao secundario" href="/api/protocolo" target="_blank" rel="noopener">Abrir Protocolo Sigma</a>
+        <a class="botao secundario" data-link="fichamento" href="#">Baixar fichamento (.xlsx)</a>
+        <a class="botao secundario" data-link="protocolo" href="#" target="_blank" rel="noopener">Abrir Protocolo Sigma</a>
       </div>
     </div>
     <div class="cartoes" id="kpis"></div>
     <div class="grade2">
       <div class="cartao"><h2>Execução em andamento</h2><div id="ativa" class="vazio">Nenhuma busca em andamento.</div></div>
       <div class="cartao"><h2>Últimas buscas</h2><div id="ultimas" class="vazio">Nenhuma busca ainda.</div></div>
+    </div>
+    <div class="cartao">
+      <div class="rotulo-linha"><h2>Relatórios desta pesquisa</h2><span class="ajuda" id="pasta-relatorios"></span></div>
+      <div id="lista-relatorios" class="vazio">Os relatórios aparecem aqui ao fim de cada busca.</div>
     </div>
     <div class="cartao aviso" id="aviso-chaves" hidden>
       <b>Dica:</b> cadastre as chaves gratuitas do OpenAlex e do Semantic Scholar em
@@ -52,6 +62,16 @@
   <section id="nova" class="secao">
     <div class="cabecalho"><h1>Nova busca</h1></div>
     <form id="form-busca" class="cartao" autocomplete="off">
+      <p class="faixa-pesquisa">Os arquivos desta busca vão para a pesquisa <b id="nome-pesquisa-busca"></b>
+        (pasta própria, separada das outras pesquisas). Para outro tema, crie uma pesquisa em <b>+ Nova</b>.</p>
+      <div class="campo tema">
+        <label for="tema">Tema da pesquisa <span class="ajuda">(opcional) escreva com suas palavras e peça sugestões de termos</span></label>
+        <div class="linha-tema">
+          <input id="tema" maxlength="300" placeholder="Ex.: tutoria socrática com inteligência artificial explicável">
+          <button type="button" class="botao" id="sugerir">Sugerir palavras-chave</button>
+        </div>
+        <div id="sugestoes" class="diagnostico" hidden></div>
+      </div>
       <div class="campo">
         <label for="rotulo">Nome da busca</label>
         <input id="rotulo" maxlength="80" placeholder="Ex.: XAI no setor público">
@@ -59,14 +79,14 @@
       <div class="campo">
         <div class="rotulo-linha">
           <label>Blocos de termos</label>
-          <span class="ajuda">Dentro do bloco: <b>OU</b>. Entre blocos: <b>E</b>. Um termo por linha ou separados por vírgula.</span>
+          <span class="ajuda">Dentro do bloco: <b>OU</b>. Entre blocos: <b>OU</b> (busca ampla), ou <b>E</b> se exigir mais blocos abaixo. Um termo por linha ou separados por vírgula.</span>
         </div>
         <div id="blocos"></div>
         <button type="button" class="botao fantasma" id="add-bloco">+ Adicionar bloco</button>
       </div>
       <div class="previa"><span>Consulta:</span> <code id="previa"></code></div>
       <div class="grade5">
-        <div class="campo"><label for="minimo">Mínimo de blocos no título/resumo</label><select id="minimo"></select></div>
+        <div class="campo"><label for="minimo">Combinar blocos</label><select id="minimo"></select></div>
         <div class="campo"><label for="periodo">Período dos artigos</label>
           <select id="periodo">
             <option value="todos">Todos os anos</option>
@@ -94,8 +114,10 @@
         <label class="check"><input type="checkbox" id="exata" checked> Termos exatos no OpenAlex (sem variações de palavra)</label>
         <label class="check"><input type="checkbox" id="parciais"> Baixar também registros que não atingem o mínimo de blocos</label>
       </details>
+      <div id="resultado-teste" class="diagnostico" hidden></div>
       <div class="rodape-form">
         <span id="erro-busca" class="erro" role="alert"></span>
+        <button type="button" class="botao secundario" id="testar-consulta">Testar consulta</button>
         <button type="button" class="botao secundario" id="salvar-agenda">Agendar esta busca</button>
         <button type="submit" class="botao">Buscar e baixar</button>
       </div>
@@ -115,7 +137,7 @@
       <h1>Acervo</h1>
       <div class="acoes">
         <input id="filtro-acervo" type="search" placeholder="Filtrar por título, autor, ano, veículo ou DOI">
-        <a class="botao secundario" href="/api/fichamento">Fichamento (.xlsx)</a>
+        <a class="botao secundario" data-link="fichamento" href="#">Fichamento (.xlsx)</a>
       </div>
     </div>
     <div class="cartao"><div id="lista-acervo" class="vazio">O acervo está vazio.</div></div>
@@ -198,6 +220,24 @@
       <button value="cancelar" class="botao secundario" formnovalidate>Cancelar</button>
       <button value="ok" class="botao" id="confirmar-agenda">Salvar agendamento</button></div>
   </form>
+</dialog>
+
+<dialog id="modal-pesquisa">
+  <form method="dialog" id="form-pesquisa">
+    <h2>Nova pesquisa</h2>
+    <p class="ajuda">Cada pesquisa tem a própria pasta (PDFs, textos, BibTeX, fichamento, Protocolo Sigma, relatórios e
+      rastreabilidade). Exemplo: “Machine learning” e “Aves do Planalto Catarinense” nunca se misturam.</p>
+    <div class="campo"><label for="pq_nome">Nome da pesquisa</label><input id="pq_nome" maxlength="60" required placeholder="Ex.: Aves do Planalto Catarinense"></div>
+    <div class="campo"><label for="pq_desc">Descrição (opcional)</label><textarea id="pq_desc" rows="2" maxlength="500"></textarea></div>
+    <div class="rodape-form"><span id="erro-pesquisa" class="erro"></span>
+      <button value="cancelar" class="botao secundario" formnovalidate>Cancelar</button>
+      <button value="ok" class="botao">Criar pesquisa</button></div>
+  </form>
+</dialog>
+
+<dialog id="modal-rastreio" class="largo">
+  <div class="rotulo-linha"><h2>Rastreabilidade do arquivo</h2><button type="button" class="botao secundario mini" id="fechar-rastreio">Fechar</button></div>
+  <div id="conteudo-rastreio"></div>
 </dialog>
 
 <div id="toast" role="status" aria-live="polite"></div>

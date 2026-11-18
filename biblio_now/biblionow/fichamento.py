@@ -122,13 +122,30 @@ def gerar_planilha(repo_raiz: Path, obras: dict, buscas: list[dict]) -> Path:
                     b.get("registros"), b.get("atendem"), b.get("baixados"), b.get("ja_existiam"), b.get("sem_pdf", 0), b.get("falharam")])
     for i, w in enumerate([30, 28, 20, 20, 20, 12, 60, 10, 10, 10, 10, 10, 10, 10], 1):
         wb2.column_dimensions[get_column_letter(i)].width = w
+    wr = wb.create_sheet("Rastreabilidade")
+    cr = [("id", "ID da obra", 34), ("pdf", "Arquivo PDF", 34), ("pesquisa", "Pesquisa", 20), ("busca_origem_nome", "Busca de origem", 24),
+          ("busca_origem", "ID da busca", 30), ("baixado_em", "Baixado em (data e hora)", 24), ("fonte", "Base de origem", 18),
+          ("url", "Página do artigo", 30), ("url_pdf_final", "Endereço do download (URL final)", 45), ("host_download", "Servidor", 22),
+          ("status_http", "HTTP", 6), ("bytes", "Bytes", 11), ("sha256_pdf", "SHA-256", 30), ("md5_pdf", "MD5", 24),
+          ("licenca", "Licença", 14), ("id_openalex", "ID OpenAlex", 24), ("id_s2", "ID Semantic Scholar", 24),
+          ("rastreabilidade", "Ficha completa (JSON)", 34)]
+    wr.append([c for _, c, _ in cr])
+    for c in wr[1]:
+        c.font, c.fill = Font(bold=True, color="FFFFFF"), azul
+    for ob in sorted(obras.values(), key=lambda o: (o.get("incorporada_em", ""), o.get("id", ""))):
+        wr.append([_txt_celula(ob.get(k)) for k, _, _ in cr])
+    for i, (_, _, w) in enumerate(cr, 1):
+        wr.column_dimensions[get_column_letter(i)].width = w
+    wr.freeze_panes = "B2"
     lm = wb.create_sheet("Leia-me")
-    for linha in [f"Biblio-now {VERSAO} · {AUTOR}", "",
+    for linha in [f"Biblio-now {VERSAO} · {AUTOR}", f"Pesquisa: {repo_raiz.name}", "",
                   "Aba Fichamento: uma linha por obra. As colunas em azul são preenchidas pelo Biblio-now; as verdes são suas.",
                   "Pode preencher as colunas verdes à vontade: elas são mantidas quando a planilha é atualizada após uma nova busca.",
                   "Não mude o texto da coluna 'ID da obra' nem os títulos das colunas verdes: é por eles que o fichamento é recuperado.",
                   "Feche a planilha antes de rodar uma busca; com ela aberta, o Windows impede a gravação e a atualização é adiada.",
                   "Os arquivos citados nas colunas PDF, TXT e BibTeX estão nas pastas pdf/, txt/ e bib/ do repositório.",
+                  "Aba Rastreabilidade: data e hora, endereço e servidor de onde cada PDF foi baixado, resposta HTTP, tamanho e hashes;",
+                  "a ficha completa de cada arquivo (redirecionamentos, tentativas, consulta usada) está em rastreabilidade/<obra>.json.",
                   f"Atualizada em {datetime.now():%d/%m/%Y %H:%M}."]:
         lm.append([linha])
     lm.column_dimensions["A"].width = 120
@@ -219,7 +236,8 @@ def gerar_protocolo(repo_raiz: Path, obras: dict, ultima: dict | None = None) ->
     tot = lambda campo: sum(int(b.get(campo) or 0) for b in buscas if str(b.get(campo) or "").isdigit())
     agora = datetime.now()
     txt_ok = sum(1 for o in obras.values() if o.get("txt_extraido"))
-    cadeias = [verificar_cadeia(prot / n) for n in ("registro_buscas.csv", "registro_incorporacoes.csv")]
+    cadeias = [verificar_cadeia(prot / n) for n in ("registro_buscas.csv", "registro_incorporacoes.csv", "registro_downloads.csv")]
+    downloads = _ler_csv(prot / "registro_downloads.csv")
     css = """@page{size:A4;margin:1.8cm 1.6cm;@bottom-right{content:counter(page) " / " counter(pages);font:8pt Arial;color:#667}}
 body{font-family:Arial,Helvetica,sans-serif;font-size:10pt;color:#1d2433;line-height:1.4;max-width:1100px;margin:auto;padding:16px}
 h1{color:#1f3a5f;font-size:20pt;margin:0}.marca{color:#2e7d5b;font-weight:bold;letter-spacing:.5px}
@@ -230,7 +248,8 @@ td{border-bottom:1px solid #d7dde8;padding:3px 4px;vertical-align:top}tr:nth-chi
 .kpi b{display:block;font-size:16pt;color:#2e7d5b}.nota{background:#fff8e6;border-left:4px solid #d99a00;padding:6px 10px;font-size:9pt}
 .atual{background:#e8f4ee;border-left:4px solid #2e7d5b;padding:6px 10px}"""
     H = [f"<html><head><meta charset='utf-8'><title>Protocolo Sigma · Biblio-now</title><style>{css}</style></head><body>",
-         f"<p class='marca'>BIBLIO-NOW</p><h1>Protocolo Sigma do repositório</h1>",
+         f"<p class='marca'>BIBLIO-NOW</p><h1>Protocolo Sigma · pesquisa “{e(repo_raiz.name)}”</h1>",
+         f"<p>Repositório desta pesquisa: <code>{e(str(repo_raiz))}</code>. Outras pesquisas têm repositório e protocolo próprios.</p>",
          f"<p>Registro auditável das buscas e das obras incorporadas. Gerado automaticamente pelo Biblio-now {VERSAO} "
          f"({e(AUTOR)}). <b>Última atualização: {agora:%d/%m/%Y às %H:%M}</b>.</p>"]
     if ultima:
@@ -246,10 +265,12 @@ td{border-bottom:1px solid #d7dde8;padding:3px 4px;vertical-align:top}tr:nth-chi
                      for c in cadeias) + "</table>")
     H.append("<h2>1. Método</h2><ul>"
              "<li><b>Fontes:</b> OpenAlex e Semantic Scholar, por API pública; PDFs só de versões de acesso aberto (links das bases, página do artigo e Unpaywall).</li>"
-             "<li><b>Consulta:</b> blocos de termos; OR dentro do bloco e AND entre blocos. O registro só é baixado se tiver o mínimo de blocos definido na busca no título ou no resumo.</li>"
+             "<li><b>Consulta:</b> blocos de termos; OR dentro do bloco. Entre blocos, OR por padrão (busca ampla) ou AND quando a busca exige todos os blocos. O registro só é baixado se tiver o mínimo de blocos definido na busca no título ou no resumo.</li>"
              "<li><b>Deduplicação:</b> por DOI ou título normalizado e pelo conteúdo do PDF (MD5). Uma obra encontrada de novo não é baixada outra vez; a nova busca é associada a ela.</li>"
              "<li><b>Arquivos de cada obra:</b> <code>pdf/</code> (texto completo), <code>txt/</code> (texto extraído) e <code>bib/</code> (referência BibTeX).</li>"
-             "<li><b>Registros:</b> <code>registro_buscas.csv</code> e <code>registro_incorporacoes.csv</code> só recebem acréscimos, com data e hora.</li></ul>")
+             "<li><b>Registros:</b> <code>registro_buscas.csv</code>, <code>registro_incorporacoes.csv</code> e <code>registro_downloads.csv</code> só recebem acréscimos, com data e hora e cadeia de hashes.</li>"
+             "<li><b>Rastreabilidade de cada arquivo:</b> <code>rastreabilidade/&lt;obra&gt;.json</code> guarda a busca e a consulta que o encontraram, a base, os IDs, a licença, "
+             "a URL pedida e a final, os redirecionamentos, os cabeçalhos HTTP, todas as tentativas, a data e hora do download e os hashes SHA-256 e MD5.</li></ul>")
     H.append("<h2>2. Fluxo acumulado</h2><table><tr><th>Etapa</th><th>Quantidade</th></tr>" +
              "".join(f"<tr><td>{a}</td><td>{num(b)}</td></tr>" for a, b in [
                  ("Registros únicos avaliados (soma das execuções)", tot("registros_unicos")),
@@ -266,6 +287,19 @@ td{border-bottom:1px solid #d7dde8;padding:3px 4px;vertical-align:top}tr:nth-chi
                      f"<td>{num(b.get('registros_unicos'))}</td><td>{num(b.get('atendem'))}</td><td>{num(b.get('pdfs_baixados'))}</td>"
                      f"<td>{num(b.get('ja_existiam'))}</td><td>{num(b.get('falharam'))}</td><td>{e(b.get('estado', ''))}</td></tr>"
                      for b in reversed(buscas)) + "</table>")
+    if downloads:
+        res = {}
+        for d in downloads:
+            res[d.get("resultado", "")] = res.get(d.get("resultado", ""), 0) + 1
+        hosts = {}
+        for d in downloads:
+            if d.get("resultado") == "baixado":
+                h = (d.get("url_final") or "").split("/")[2] if "://" in (d.get("url_final") or "") else "—"
+                hosts[h] = hosts.get(h, 0) + 1
+        H.append(f"<h2>3.1 Tentativas de download ({num(len(downloads))})</h2><table><tr><th>Resultado</th><th>Tentativas</th></tr>" +
+                 "".join(f"<tr><td>{e(k)}</td><td>{num(v)}</td></tr>" for k, v in sorted(res.items(), key=lambda x: -x[1])) + "</table>"
+                 "<table><tr><th>Servidor de onde os PDFs foram baixados (10 mais frequentes)</th><th>PDFs</th></tr>" +
+                 "".join(f"<tr><td>{e(k)}</td><td>{num(v)}</td></tr>" for k, v in sorted(hosts.items(), key=lambda x: -x[1])[:10]) + "</table>")
     H.append(f"<h2>4. Obras incorporadas ({num(len(incorp))})</h2><table><tr><th>#</th><th>Incorporada em</th><th>Busca</th>"
              "<th>Título</th><th>Autores</th><th>Ano</th><th>DOI</th></tr>" +
              "".join(f"<tr><td>{i}</td><td>{e((o.get('data_incorporacao') or '').replace('T', ' '))}</td><td>{e(o.get('nome_busca') or o.get('id_busca'))}</td>"

@@ -94,7 +94,7 @@ def testes(repo_raiz: Path, obras: dict, cofre: seg.Cofre, chaves: dict, env: Pa
 
     # --- protocolo
     prot = repo_raiz / "protocolo"
-    for nome in ("registro_buscas.csv", "registro_incorporacoes.csv"):
+    for nome in ("registro_buscas.csv", "registro_incorporacoes.csv", "registro_downloads.csv"):
         c = fichamento.verificar_cadeia(prot / nome)
         det = (f"{c['linhas']} linha(s); cadeia SHA-256 íntegra" if c["integro"]
                else f"cadeia quebrada na linha {c['primeira_falha']} (registro alterado ou apagado)")
@@ -135,6 +135,17 @@ def testes(repo_raiz: Path, obras: dict, cofre: seg.Cofre, chaves: dict, env: Pa
     r.append(_t("Repositório", "Toda obra tem o TXT", not sem_txt,
                 f"{n - len(sem_txt)} de {n}" + (f"; {len(txt_vazio)} sem texto extraível (PDF só com imagem ou protegido)" if txt_vazio else ""),
                 alerta=bool(txt_vazio)))
+    sem_rast, reconst = [], 0
+    for oid, ob in obras.items():
+        fr = repo_raiz / (ob.get("rastreabilidade") or f"rastreabilidade/{oid}.json")
+        if not fr.exists():
+            sem_rast.append(oid)
+        elif '"reconstruida": true' in fr.read_text(encoding="utf-8", errors="ignore")[:4000]:
+            reconst += 1
+    r.append(_t("Repositório", "Toda obra tem ficha de rastreabilidade", not sem_rast,
+                f"{n - len(sem_rast)} de {n} fichas (data e hora, endereço do download, cabeçalhos HTTP, tentativas e hashes)"
+                + (f"; {reconst} reconstruída(s) a partir dos registros da época, sem cabeçalhos HTTP" if reconst else "")
+                + (f"; sem ficha: {lista(sem_rast)}" if sem_rast else ""), alerta=bool(reconst)))
     r.append(_t("Repositório", "Toda obra tem o BibTeX", not sem_bib, f"{n - len(sem_bib)} de {n}" + (f"; faltam: {lista(sem_bib)}" if sem_bib else "")))
 
     md5 = {}

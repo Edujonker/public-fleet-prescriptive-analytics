@@ -59,7 +59,7 @@ import time
 import unicodedata
 from datetime import datetime
 from pathlib import Path
-from urllib.parse import quote_plus
+from urllib.parse import quote_plus, urlparse
 
 import requests
 
@@ -396,6 +396,10 @@ def _pdf_na_pagina(html_txt, base):
 def _baixar_um(sessao, url, destino):
     """Uma tentativa num link. Retorna (ok, motivo, link_pdf_encontrado_na_pagina)."""
     with sessao.get(url, stream=True, timeout=(15, 90), allow_redirects=True, headers=HEADERS_PDF) as r:
+        if r.status_code == 202 and any(k.lower() == "x-amzn-waf-action" for k in r.headers):
+            # Desafio anti-robô (AWS WAF, ex.: IEEE Xplore): exige navegador com JavaScript e, em geral, assinatura.
+            # Não é erro passageiro; não tentamos contornar. Nova tentativa só após o prazo de falha definitiva.
+            return False, f"bloqueado por proteção anti-robô do site ({urlparse(r.url).hostname})", None
         if r.status_code != 200:
             return False, f"HTTP {r.status_code}", None
         it = r.iter_content(chunk_size=65536)
@@ -653,6 +657,9 @@ def norm_doi_simples(d):
     return d
 
 
+REPETIR_TRANSITORIAS = False   # --repetir-transitorias: refaz hoje as falhas passageiras (429, 202, rede) já tentadas hoje
+
+
 def pular_por_controle(ent, hoje):
     """Motivo para não tentar de novo hoje, ou None."""
     if not ent or ent.get("status") == "baixado":
@@ -661,7 +668,7 @@ def pular_por_controle(ent, hoje):
     if not quando:
         return None
     if any(t in st for t in TRANSITORIAS):
-        return None if quando < hoje else "tentado hoje"
+        return None if (quando < hoje or REPETIR_TRANSITORIAS) else "tentado hoje"
     try:
         dias = (datetime.strptime(hoje, "%Y-%m-%d") - datetime.strptime(quando, "%Y-%m-%d")).days
     except ValueError:
@@ -683,10 +690,14 @@ def main():
     ap.add_argument("--incluir-parciais", action="store_true",
                     help="baixar também PDFs cujo título/resumo não confirma os 3 grupos")
     ap.add_argument("--saida", default=str(SAIDA_PADRAO), help="pasta dos relatórios (padrão: artigos/)")
+    ap.add_argument("--repetir-transitorias", action="store_true",
+                    help="tenta de novo hoje os PDFs que falharam hoje por erro passageiro (HTTP 429/202/5xx, rede)")
     ap.add_argument("--paralelo", type=int, default=6, help="downloads simultâneos (padrão 6; um por site de cada vez)")
     ap.add_argument("--pasta-pdf", default=None,
                     help="pasta dos PDFs e do registro vistos.json (padrão: a mesma de --saida)")
     args = ap.parse_args()
+    global REPETIR_TRANSITORIAS
+    REPETIR_TRANSITORIAS = args.repetir_transitorias
 
     saida = Path(args.saida)
     saida.mkdir(parents=True, exist_ok=True)

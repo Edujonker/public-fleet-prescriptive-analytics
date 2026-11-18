@@ -8,13 +8,15 @@
 #
 # Ajustes por variável de ambiente (opcional):
 #   MAX_RESULTADOS (padrão 10000 por base)   MAX_PDFS (padrão 10000)   ANO_MIN (padrão 2020)
+#   SUFIXO   grava os relatórios em artigos/atualizacoes/AAAA-MM-DD<SUFIXO>/ (ex.: _retomada), sem sobrescrever os da manhã
+#   EXTRA    argumentos a mais para buscar_artigos.py (ex.: "--repetir-transitorias --paralelo 3")
 # Não altera a revisão sistemática (revisao_sistematica/), cuja busca tem data fixa.
 
 set -uo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 HOJE="$(date +%F)"
-DIR_DIA="$RAIZ/artigos/atualizacoes/$HOJE"
+DIR_DIA="$RAIZ/artigos/atualizacoes/$HOJE${SUFIXO:-}"
 DIR_LOG="$RAIZ/artigos/atualizacoes/logs"
 mkdir -p "$DIR_DIA" "$DIR_LOG"
 LOG="$DIR_LOG/$HOJE.log"
@@ -26,7 +28,7 @@ if ! flock -n 9; then
 fi
 
 {
-    echo "=== $(date '+%F %T') início da busca diária ==="
+    echo "=== $(date '+%F %T') início da busca diária${SUFIXO:+ ($SUFIXO)}${EXTRA:+ · $EXTRA} ==="
     cd "$RAIZ" || exit 1
     # shellcheck disable=SC1091
     source "$RAIZ/.venv/bin/activate"
@@ -45,7 +47,8 @@ fi
         --max-resultados "${MAX_RESULTADOS:-10000}" \
         --max-pdfs "${MAX_PDFS:-10000}" \
         --saida "$DIR_DIA" \
-        --pasta-pdf "$RAIZ/artigos"
+        --pasta-pdf "$RAIZ/artigos" \
+        ${EXTRA:-}
     status=$?
     echo "=== $(date '+%F %T') fim (código $status) ==="
 } >> "$LOG" 2>&1

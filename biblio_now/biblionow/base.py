@@ -59,7 +59,7 @@ import time
 import unicodedata
 from datetime import datetime
 from pathlib import Path
-from urllib.parse import quote_plus
+from urllib.parse import quote_plus, urlparse
 
 import requests
 
@@ -238,6 +238,11 @@ def normalizar_openalex(w):
         "acesso_aberto": bool((w.get("open_access") or {}).get("is_oa")),
         "pdf_urls": pdfs,
         "fonte": "OpenAlex",
+        "id_openalex": w.get("id") or "",
+        "licenca": best.get("license") or "",
+        "versao_oa": best.get("version") or "",
+        "status_oa": (w.get("open_access") or {}).get("oa_status") or "",
+        "pagina_oa": best.get("landing_page_url") or "",
     }
 
 
@@ -293,6 +298,9 @@ def normalizar_s2(p):
         "acesso_aberto": bool(pdf),
         "pdf_urls": [pdf] if pdf else [],
         "fonte": "SemanticScholar",
+        "id_s2": p.get("paperId") or "",
+        "licenca": oa.get("license") or "",
+        "status_oa": (oa.get("status") or "").lower(),
     }
 
 
@@ -320,6 +328,9 @@ def unir(listas):
                     base["resumo"] = r["resumo"]
                 if r["fonte"] not in base["fonte"]:
                     base["fonte"] += "+" + r["fonte"]
+                for campo in ("id_openalex", "id_s2", "licenca", "versao_oa", "status_oa", "pagina_oa"):
+                    if not base.get(campo) and r.get(campo):
+                        base[campo] = r[campo]
             else:
                 indice[k] = r
                 unidos.append(r)
@@ -393,9 +404,15 @@ def _pdf_na_pagina(html_txt, base):
     return urljoin(base, m.group(1).replace("&amp;", "&")) if m else None
 
 
-def _baixar_um(sessao, url, destino):
-    """Uma tentativa num link. Retorna (ok, motivo, link_pdf_encontrado_na_pagina)."""
+def _baixar_um(sessao, url, destino, meta=None):
+    """Uma tentativa num link. Retorna (ok, motivo, link_pdf_encontrado_na_pagina).
+    Se `meta` for um dicionário, recebe os dados de rastreabilidade da resposta que gerou o arquivo."""
+    inicio = datetime.now().astimezone()
     with sessao.get(url, stream=True, timeout=(15, 90), allow_redirects=True, headers=HEADERS_PDF) as r:
+        if r.status_code == 202 and any(k.lower() == "x-amzn-waf-action" for k in r.headers):
+            # Desafio anti-robô (AWS WAF, ex.: IEEE Xplore): exige navegador com JavaScript e, em geral, assinatura.
+            # Não é erro passageiro; não tentamos contornar. Nova tentativa só após o prazo de falha definitiva.
+            return False, f"bloqueado por proteção anti-robô do site ({urlparse(r.url).hostname})", None
         if r.status_code != 200:
             return False, f"HTTP {r.status_code}", None
         it = r.iter_content(chunk_size=65536)
@@ -421,10 +438,23 @@ def _baixar_um(sessao, url, destino):
             tmp.unlink(missing_ok=True)
             return False, "arquivo maior que 60 MB", None
         tmp.rename(destino)
+        if meta is not None:
+            fim = datetime.now().astimezone()
+            h = r.headers
+            meta.update({
+                "url_solicitada": url, "url_final": r.url,
+                "redirecionamentos": [x.url for x in r.history] + ([r.url] if r.history else []),
+                "status_http": r.status_code, "content_type": h.get("Content-Type", ""),
+                "content_length": h.get("Content-Length", ""), "last_modified": h.get("Last-Modified", ""),
+                "etag": h.get("ETag", ""), "servidor_http": h.get("Server", ""),
+                "host": urlparse(r.url).hostname or "", "user_agent": HEADERS_PDF.get("User-Agent", ""),
+                "inicio_download": inicio.isoformat(timespec="seconds"), "fim_download": fim.isoformat(timespec="seconds"),
+                "duracao_s": round((fim - inicio).total_seconds(), 2), "bytes": tamanho,
+            })
         return True, url, None
 
 
-def baixar_pdf(sessao, urls, destino, tentativas=2):
+def baixar_pdf(sessao, urls, destino, tentativas=2, meta=None):
     """Tenta cada URL; se a resposta for a página do artigo, segue o link de PDF declarado nela.
     Erros de rede passageiros têm nova tentativa. Só grava se o conteúdo começar com %PDF.
     Retorna (True, url_do_pdf) ou (False, motivo)."""
@@ -437,7 +467,10 @@ def baixar_pdf(sessao, urls, destino, tentativas=2):
         vistos.add(url)
         for k in range(1, tentativas + 1):
             try:
-                ok, info, pagina = _baixar_um(sessao, url, destino)
+                ok, info, pagina = _baixar_um(sessao, url, destino, meta)
+                if meta is not None:
+                    meta.setdefault("tentativas", []).append({"url": url, "tentativa": k, "resultado": "ok" if ok else info,
+                                                              "quando": datetime.now().astimezone().isoformat(timespec="seconds")})
                 if ok:
                     return True, info
                 motivo = info
@@ -446,13 +479,22 @@ def baixar_pdf(sessao, urls, destino, tentativas=2):
                 break
             except requests.exceptions.SSLError:
                 motivo = "erro de certificado TLS do site"
+                if meta is not None:
+                    meta.setdefault("tentativas", []).append({"url": url, "tentativa": k, "resultado": motivo,
+                                                              "quando": datetime.now().astimezone().isoformat(timespec="seconds")})
                 break
             except ERROS_TRANSITORIOS as e:
                 motivo = f"erro de rede ({e.__class__.__name__})"
+                if meta is not None:
+                    meta.setdefault("tentativas", []).append({"url": url, "tentativa": k, "resultado": motivo,
+                                                              "quando": datetime.now().astimezone().isoformat(timespec="seconds")})
                 if k < tentativas:
                     time.sleep(5 * k)
             except requests.RequestException as e:
                 motivo = f"erro de rede ({e.__class__.__name__})"
+                if meta is not None:
+                    meta.setdefault("tentativas", []).append({"url": url, "tentativa": k, "resultado": f"{motivo}: {str(e)[:120]}",
+                                                              "quando": datetime.now().astimezone().isoformat(timespec="seconds")})
                 break
             finally:
                 destino.with_suffix(".parcial").unlink(missing_ok=True)  # resto de download interrompido

@@ -1,0 +1,53 @@
+=== 2026-11-18 08:03:15 início da busca diária ===
+OPENALEX_API_KEY: definida
+OPENALEX_EMAIL: definida
+UNPAYWALL_EMAIL: definida
+S2_API_KEY: definida
+Consulta: ("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability") 
+
+▶ OpenAlex
+   OpenAlex: 1253 trabalhos correspondem à consulta
+   1253 registros recebidos
+▶ Semantic Scholar
+   Semantic Scholar: 983 trabalhos correspondem à consulta
+   983 registros recebidos
+
+1676 registros únicos após unir as fontes (1181 com os 3 grupos confirmados no título/resumo)
+Inéditos nesta execução (nunca vistos antes): 3
+PDFs a tentar: 442 (6 downloads simultâneos)
+   [   1] 2026_ionescu_EXPLAINABLE_ARTIFICIAL_INTELLIGENCE_AS_A_FOUNDATION_FOR_SUSTAINABLE_TR.pdf
+   Nova tentativa para 16 PDFs com erro de rede passageiro...
+
+PDFs baixados nesta execução: 1
+Inéditos: 3 (lista em novos.csv)
+Relatórios: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos/atualizacoes/2026-11-18
+PDFs:       /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos
+=== 2026-11-18 08:10:37 fim (código 0) ===
+=== 2026-11-18 09:40:47 início da busca diária (_retomada) · --repetir-transitorias --paralelo 3 ===
+OPENALEX_API_KEY: definida
+OPENALEX_EMAIL: definida
+UNPAYWALL_EMAIL: definida
+S2_API_KEY: definida
+Consulta: ("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability") 
+
+▶ OpenAlex
+   OpenAlex: 1253 trabalhos correspondem à consulta
+   1253 registros recebidos
+▶ Semantic Scholar
+   Semantic Scholar: 983 trabalhos correspondem à consulta
+   983 registros recebidos
+
+1676 registros únicos após unir as fontes (1181 com os 3 grupos confirmados no título/resumo)
+Inéditos nesta execução (nunca vistos antes): 0
+PDFs a tentar: 440 (3 downloads simultâneos)
+   [   1] 2025_whitmore_Integrating_Predictive_Analytics_Artificial_Intelligence_And_Big_Data.pdf
+   [   2] 2025_m_Artificial_IntelligenceDriven_Credit_Scoring_and_Real_Time_Risk_Analyt.pdf
+   [   3] 2023_mazumder_Data_Driven_Detection_of_Trade_Based_Money_Laundering_TBML_A_predictiv.pdf
+   [   4] 2026_mohammed_Artificial_Intelligence_Driven_Cybersecurity_Crimes_Emerging_Threats_A.pdf
+   Nova tentativa para 16 PDFs com erro de rede passageiro...
+
+PDFs baixados nesta execução: 4
+Inéditos: 0 (lista em novos.csv)
+Relatórios: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos/atualizacoes/2026-11-18_retomada
+PDFs:       /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos
+=== 2026-11-18 09:51:02 fim (código 0) ===
