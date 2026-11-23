@@ -44,6 +44,19 @@ HASH_ADITIVO = ROOT / "docs/hipoteses/aditivo_01_estudo_robustez.sha256"
 N_REP = 1000
 NIVEIS = (1, 10, 100, 1000)      # 1 = só r = 0 (configuração oficial); demais = r 1..n
 CORTE = "2024-12"
+# Critérios do pré-registro + Aditivo 01 (único lugar com estes números; vão também para resultado_robustez.json,
+# de onde os gráficos em R os leem).
+CRITERIOS = {
+    "robustez_fracao_minima": 0.95,          # decisão robusta: coincide com a oficial em >= 95% das repetições
+    "H1_ganho_mae_limiar": 0.15,             # limiar: mediana do ganho relativo no MAE >= 15%
+    "H2_dif_mae_rel_max": 0.05,              # não inferioridade: MAE do ensemble até 5% acima do SVR...
+    "H2_dif_auc_min": -0.02,                 # ...e AUC no máximo 0,02 abaixo
+    "H3_economia_limiar": 0.10,              # limiar: P2,5 da economia sobre a BL0 > 10%
+    "H4_lime_r2_min": 0.50,                  # anteprojeto: P2,5 do R² local do LIME >= 0,50...
+    "H4_erro_aditivo_max": 1e-3,             # ...e erro de aditividade do SHAP <= 1e-3
+    "H4_spearman_limiar": 0.85,              # limiar: P2,5 de Spearman e de Jaccard > 0,85
+    "H4_jaccard_limiar": 0.85,
+}
 FEATS = ["custo_mes", "vl_pecas_mes", "vl_mo_mes", "qtd_os_mes", "qtd_corretivas_mes", "qtd_preventivas_mes", "km_max",
          "idade_veiculo", "custo_lag1", "custo_lag2", "os_lag1", "corretivas_lag1", "km_diff", "patrimonio_valor_entrada",
          "patrimonio_valor_liquido"]
@@ -358,7 +371,8 @@ def status(a, b):
 def avaliar_nivel(md, h2, h3, conf, ofi):
     """Aplica as medidas e os critérios do pré-registro (com o aditivo) a um conjunto de repetições."""
     n = len(md)
-    lim_rob = 0.95 * n
+    K = CRITERIOS
+    lim_rob = K["robustez_fracao_minima"] * n
     matriz = {}
     for col in [c for c in md.columns if c.startswith(("cls|", "reg|"))]:
         tarefa, modelo, metrica = col.split("|")
@@ -379,31 +393,33 @@ def avaliar_nivel(md, h2, h3, conf, ofi):
     H = {}
     d_roc, g_mae = md["h1|dif_roc_auc"], md["h1|ganho_mae"]
     H["H1"] = {"dif_roc_auc": resumo(d_roc), "ganho_mae": resumo(g_mae),
-               "ante_reamostragem": bool(P(d_roc, 2.5) > 0 or P(g_mae, 2.5) > 0), "lim_reamostragem": bool(g_mae.median() >= 0.15),
-               "reps_atende_ante": int(((d_roc > 0) | (g_mae > 0)).sum()), "reps_atende_lim": int((g_mae >= 0.15).sum()),
+               "ante_reamostragem": bool(P(d_roc, 2.5) > 0 or P(g_mae, 2.5) > 0), "lim_reamostragem": bool(g_mae.median() >= K["H1_ganho_mae_limiar"]),
+               "reps_atende_ante": int(((d_roc > 0) | (g_mae > 0)).sum()), "reps_atende_lim": int((g_mae >= K["H1_ganho_mae_limiar"]).sum()),
                "reps_auc_MP_melhor": int((d_roc > 0).sum()), "reps_mae_MP_melhor": int((g_mae > 0).sum())}
     ens = {}
     for e in ("HistGradientBoosting", "RandomForest", "ExtraTrees"):
         dm, da = h2[f"dif_mae_rel|{e}"], h2[f"dif_auc|{e}"]
         ens[e] = {"dif_mae_rel": resumo(dm), "dif_auc": resumo(da),
-                  "nao_inferior_reamostragem": bool(P(dm, 97.5) <= 0.05 and P(da, 2.5) >= -0.02),
-                  "reps_nao_inferior": int(((dm <= 0.05) & (da >= -0.02)).sum()),
+                  "nao_inferior_reamostragem": bool(P(dm, 97.5) <= K["H2_dif_mae_rel_max"] and P(da, 2.5) >= K["H2_dif_auc_min"]),
+                  "reps_nao_inferior": int(((dm <= K["H2_dif_mae_rel_max"]) & (da >= K["H2_dif_auc_min"])).sum()),
                   "reps_svr_melhor_mae": int((dm > 0).sum()), "reps_ensemble_melhor_auc": int((da > 0).sum())}
-    rep_h2 = pd.concat([(h2[f"dif_mae_rel|{e}"] <= 0.05) & (h2[f"dif_auc|{e}"] >= -0.02) for e in ens], axis=1).any(axis=1)
+    rep_h2 = pd.concat([(h2[f"dif_mae_rel|{e}"] <= K["H2_dif_mae_rel_max"]) & (h2[f"dif_auc|{e}"] >= K["H2_dif_auc_min"]) for e in ens],
+                       axis=1).any(axis=1)
     H["H2"] = {"ensembles": ens, "ante_reamostragem": any(v["nao_inferior_reamostragem"] for v in ens.values()), "lim_reamostragem": None,
                "reps_atende_ante": int(rep_h2.sum()), "mae_svr": resumo(h2["mae|SVR-RBF"]), "mae_hgb": resumo(h2["mae|HistGradientBoosting"]),
                "auc_svc": resumo(h2["auc|SVC-RBF"]), "auc_hgb": resumo(h2["auc|HistGradientBoosting"])}
     ante3 = (h3.custo_milp < h3.custo_bl0) & (h3.custo_milp < h3.custo_heur)
     H["H3"] = {"economia_pct": resumo(h3.economia_pct), "milp_menos_heur": resumo(h3.milp_menos_heur),
                "obrigatorias_pct_min": float(h3.obrigatorias_pct.min()),
-               "ante_reamostragem": bool(ante3.sum() >= lim_rob), "lim_reamostragem": bool(P(h3.economia_pct, 2.5) > 0.10),
-               "reps_atende_ante": int(ante3.sum()), "reps_atende_lim": int((h3.economia_pct > 0.10).sum()),
+               "ante_reamostragem": bool(ante3.sum() >= lim_rob), "lim_reamostragem": bool(P(h3.economia_pct, 2.5) > K["H3_economia_limiar"]),
+               "reps_atende_ante": int(ante3.sum()), "reps_atende_lim": int((h3.economia_pct > K["H3_economia_limiar"]).sum()),
                "reps_milp_igual_heur": int((h3.milp_menos_heur.abs() < 0.01).sum())}
     sp, ja, r2, ead = md["h4|spearman"], md["h4|jaccard"], md["h4|lime_r2"], md["h4|shap_erro_aditivo_max"]
     H["H4"] = {"spearman": resumo(sp), "jaccard": resumo(ja), "lime_r2": resumo(r2), "shap_erro_aditivo_max": float(ead.max()),
-               "ante_reamostragem": bool(P(r2, 2.5) >= 0.50 and ead.max() <= 1e-3),
-               "lim_reamostragem": bool(P(sp, 2.5) > 0.85 and P(ja, 2.5) > 0.85),
-               "reps_atende_ante": int(((r2 >= 0.50) & (ead <= 1e-3)).sum()), "reps_atende_lim": int(((sp > 0.85) & (ja > 0.85)).sum())}
+               "ante_reamostragem": bool(P(r2, 2.5) >= K["H4_lime_r2_min"] and ead.max() <= K["H4_erro_aditivo_max"]),
+               "lim_reamostragem": bool(P(sp, 2.5) > K["H4_spearman_limiar"] and P(ja, 2.5) > K["H4_jaccard_limiar"]),
+               "reps_atende_ante": int(((r2 >= K["H4_lime_r2_min"]) & (ead <= K["H4_erro_aditivo_max"])).sum()),
+               "reps_atende_lim": int(((sp > K["H4_spearman_limiar"]) & (ja > K["H4_jaccard_limiar"])).sum())}
     sn = {"sim": True, "não": False, "—": None}
     for k, v in H.items():
         o = ofi[k]
@@ -450,7 +466,7 @@ def consolidar():
         sys.exit("[ERRO] nenhum nível completo")
     R = {"gerado_em": datetime.now().isoformat(timespec="seconds"), "preregistro": str(PREREG.relative_to(ROOT)),
          "preregistro_sha256": HASH.read_text().split()[0], "aditivo": str(ADITIVO.relative_to(ROOT)),
-         "aditivo_sha256": HASH_ADITIVO.read_text().split()[0], "repeticoes_disponiveis": disp, "nivel_principal": "1000",
+         "aditivo_sha256": HASH_ADITIVO.read_text().split()[0], "repeticoes_disponiveis": disp, "nivel_principal": "1000", "criterios": CRITERIOS,
          "controle_r0": {"verificacoes": len(controle), "aprovadas": len(controle) - len(falhas), "falhas": falhas, "detalhe": controle},
          "niveis": niveis}
     (OUT / "resultado_robustez.json").write_text(json.dumps(R, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -553,10 +569,10 @@ def figuras(R, md, h2, h3, plt):
     # 3. boxplot ROC-AUC e MAE por modelo
     fig, axs = plt.subplots(1, 2, figsize=(14, 4.6))
     mods = list(M["cls"])
-    axs[0].boxplot([md[f"cls|{m}|roc_auc"] for m in mods], labels=mods)
+    axs[0].boxplot([md[f"cls|{m}|roc_auc"] for m in mods], tick_labels=mods)
     axs[0].set_title(f"ROC-AUC no teste temporal ({R['repeticoes']} repetições)"); axs[0].tick_params(axis="x", rotation=15)
     mods = list(M["reg"])
-    axs[1].boxplot([md[f"reg|{m}|mae"] for m in mods], labels=mods)
+    axs[1].boxplot([md[f"reg|{m}|mae"] for m in mods], tick_labels=mods)
     axs[1].set_title(f"MAE (R$) no teste temporal ({R['repeticoes']} repetições)"); axs[1].tick_params(axis="x", rotation=15)
     fig.tight_layout(); fig.savefig(OUT / "fig_boxplot_modelos_100.png", dpi=200); plt.close(fig)
 

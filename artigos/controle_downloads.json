@@ -68,8 +68,8 @@
 "doi:10.15680/irjie.2024.0804003": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.54660/ijmbhr.2026.7.3.77-87": {
 "arquivo": "",
@@ -355,15 +355,15 @@
 },
 "tit:reframingexplainableartificialintelligenceinterpretabilityaccountabilityandhumancenteredreasoninginhighstakesalgorithmic": {
 "arquivo": "",
-"status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.1109/isda70544.2026.11606090": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.22214/ijraset.2026.85188": {
 "arquivo": "2026_garg_XAI_and_its_Applications_in_Decision_Support_System.pdf",
@@ -397,9 +397,9 @@
 },
 "doi:10.1109/iciss71466.2026.11715278": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.1016/j.eswa.2025.127979": {
 "arquivo": "2025_badhon_IRAF_BRB_An_explainable_AI_framework_for_enhanced_interpretability_in.pdf",
@@ -493,9 +493,9 @@
 },
 "doi:10.1109/smartagrisusy71530.2026.11690715": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.53022/oarjms.2021.1.1.0019": {
 "arquivo": "2021_william_The_Role_of_Explainable_AI_XAI_in_Marketing_Decision_Making_and_Strate.pdf",
@@ -830,8 +830,8 @@
 "doi:10.67171/2m2a8y96": {
 "arquivo": "",
 "status": "falhou (HTTP 500)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.25139/lex.v8i2.12746": {
 "arquivo": "",
@@ -878,8 +878,8 @@
 "doi:10.15662/ijfist.2025.0803004": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.14445/22315381/ijett-v73i10p106": {
 "arquivo": "2025_orji_Ensemble_Machine_Learning_Based_Real_Estate_Price_Prediction_with_Expl.pdf",
@@ -1220,8 +1220,8 @@
 "doi:10.65605/a-jmrhs.2026.v04.i03.pp13-23": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "tit:ethicalriskmitigationinartificialintelligenceenabledhealthcare": {
 "arquivo": "2026_hameed_Ethical_Risk_Mitigation_in_Artificial_Intelligence_Enabled_Healthcare.pdf",
@@ -1273,9 +1273,9 @@
 },
 "doi:10.1109/uralcon71028.2026.11734771": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.63125/fnhrrr90": {
 "arquivo": "2026_sah_Digital_Twin_AI_Framework_for_Predictive_Manufacturing_Optimization_Ar.pdf",
@@ -1405,15 +1405,15 @@
 },
 "doi:10.1109/icsist70215.2026.11706323": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.1109/iciet70550.2026.11712633": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "tit:developmentofasmartqualityassuranceframeworkbasedonforensicaudit50withartificialintelligencesupporttoenhanceinternalqual": {
 "arquivo": "2026_mutaufiq_Development_of_a_Smart_Quality_Assurance_Framework_Based_on_Forensic_A.pdf",
@@ -1423,9 +1423,9 @@
 },
 "doi:10.1109/assic70037.2026.11717265": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.59543/jidmis.v3.1247": {
 "arquivo": "2026_alharbi_Enhancing_Trust_in_AI_Predictions_for_Education_An_Application_of_XAI.pdf",
@@ -1448,8 +1448,8 @@
 "doi:10.62311/nesx/rb9jy-978-81-689097-1-7": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.3390/ijms27156755": {
 "arquivo": "2026_blaga_Artificial_Intelligence_and_Genomic_Data_Analysis_New_Frontiers_in_Pre.pdf",
@@ -1621,9 +1621,9 @@
 },
 "doi:10.1109/ecai69016.2026.11613641": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.3844/jcssp.2026.2350.2366": {
 "arquivo": "2026_hirapara_Implementing_a_Hybrid_VMDBiTCNBiGRU_Architecture_With_Intelligent_Opti.pdf",
@@ -1633,51 +1633,51 @@
 },
 "doi:10.1109/icecet65726.2026.11633256": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.1109/icscss69635.2026.11646116": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.1109/icscss69635.2026.11646124": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.1109/icetics69505.2026.11651071": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.1109/imsa70415.2026.11700368": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.1109/icedeg70169.2026.11695396": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.1109/icnpcv69434.2026.11708760": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.1109/iccmrai67732.2026.11724167": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.64388/irev9i12-1719256": {
 "arquivo": "2026_machekera_An_Explainable_Deep_Learning_Framework_for_Energy_Efficient_Water_and.pdf",
@@ -1730,8 +1730,8 @@
 "doi:10.53756/jjkn.v6i1.447": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "tit:accountabilityandequityinmachineassisteddistributionstrategiesadvancingsustainableoperationalpractices": {
 "arquivo": "2026_carter_Accountability_and_Equity_in_Machine_Assisted_Distribution_Strategies.pdf",
@@ -1820,8 +1820,8 @@
 "doi:10.1093/humrep/deag102": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.67644/pandr.v2i1.1865": {
 "arquivo": "2026_bingham_Autonomous_AI_Agents_as_Co_Program_Managers_A_Conceptual_Framework_for.pdf",
@@ -1831,9 +1831,9 @@
 },
 "doi:10.1109/jiot.2026.3680091": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.64497/jssci.98": {
 "arquivo": "2026_jibrin_Predictive_analytics_and_NLP_for_financial_forecasting_a_systematic_re.pdf",
@@ -1850,14 +1850,14 @@
 "doi:10.66472/cybernet.v1i2.440": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.1109/icici68773.2026.11581286": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.25258/ijddt.16.53s.35": {
 "arquivo": "2026_kapadiya_A_Comprehensive_Review_of_Explainable_Generative_AI_for_Healthcare_Int.pdf",
@@ -1885,21 +1885,21 @@
 },
 "doi:10.1109/conit69683.2026.11621614": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.1109/cbms69103.2026.00113": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.1109/conit69683.2026.11621748": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.30574/gjeta.2026.27.2.0138": {
 "arquivo": "2026_bensi_Explainable_AI_assisted_Compliance_Verification_and_Fraud_Flagging_Sys.pdf",
@@ -1945,9 +1945,9 @@
 },
 "doi:10.1109/icsit70359.2026.11765438": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.51244/ijrsi.2026.1307000182": {
 "arquivo": "2026_nordin_Ethical_Governance_of_AI_Driven_Information_Security_Balancing_Data_Pr.pdf",
@@ -2167,9 +2167,9 @@
 },
 "doi:10.1109/icitsif69060.2026.11608423": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.70177/technik.v3i2.4129": {
 "arquivo": "2026_safrizon_ALGORITHMIC_SHARIA_COMPLIANCE_A_MACHINE_LEARNING_FRAMEWORK_FOR_AUTOMAT.pdf",
@@ -2203,15 +2203,15 @@
 },
 "doi:10.1109/iscaie68866.2026.11576316": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.1109/icsft67370.2026.11566252": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.2991/978-94-6239-654-8_58": {
 "arquivo": "2026_prajapati_Bridging_Netops_and_Secops_in_Teclecom_Unified_Monitoring_and_Incident.pdf",
@@ -2246,8 +2246,8 @@
 "doi:10.71317/jgst.2.4.2026.722": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.12688/openreseurope.23124.2": {
 "arquivo": "",
@@ -2269,9 +2269,9 @@
 },
 "doi:10.1109/icietsd68684.2026.11584758": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.62225/2583049x.2026.6.2.6081": {
 "arquivo": "2026_shumedha_Explainability_Regulatory_Compliance_and_Ethical_Dimensions_of_Artific.pdf",
@@ -2294,8 +2294,8 @@
 "doi:10.69836/synergy.v2i1.240": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.52783/jisem.v11i3s.14701": {
 "arquivo": "2026_guduri_AI_Driven_Real_Time_Data_Quality_Validation_in_Healthcare_ETL_Pipeline.pdf",
@@ -2306,8 +2306,8 @@
 "doi:10.55529/jhtd.61.32.43": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.1038/s41598-026-44167-3": {
 "arquivo": "",
@@ -2335,9 +2335,9 @@
 },
 "doi:10.1109/icndsa68777.2026.11652335": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.5281/zenodo.19700283": {
 "arquivo": "2026_sakib_Explainable_AI_for_Blind_and_Low_Vision_Users_Navigating_Trust_Modalit.pdf",
@@ -2498,8 +2498,8 @@
 "doi:10.55606/jaemb.v6i1.8357": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.9790/5933-1703016776": {
 "arquivo": "2026_bharathwaj_AI_in_Credit_Scoring.pdf",
@@ -2510,14 +2510,14 @@
 "doi:10.69750/dmls.03.02.0192": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.71465/ajainn3564": {
 "arquivo": "",
-"status": "falhou (HTTP 500)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (HTTP 404)",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.1080/10967494.2025.2611788": {
 "arquivo": "",
@@ -2623,9 +2623,9 @@
 },
 "doi:10.1109/icseti67678.2026.11636736": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "tit:explainableartificialintelligenceasafoundationforsustainabletrustworthyandhumancentricdecisionmakingacrossconsumersupply": {
 "arquivo": "2026_ionescu_EXPLAINABLE_ARTIFICIAL_INTELLIGENCE_AS_A_FOUNDATION_FOR_SUSTAINABLE_TR.pdf",
@@ -2646,16 +2646,16 @@
 "tentativas": 1
 },
 "tit:aidrivenintelligentautomationindevopsecosystemstheoreticalfoundationsorganizationaltransformationandethicalgovernanceinm": {
-"arquivo": "",
-"status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"arquivo": "2026_schneider_AI_Driven_Intelligent_Automation_in_DevOps_Ecosystems_Theoretical_Foun.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "tit:aienhanceddevopsforintelligentmulticloudsoftwaredeploymentandmaintenanceacomprehensiveanalysis": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.22399/ijcesen.4832": {
 "arquivo": "2026_rangasamy_Contextual_Computing_and_AI_Integration_Adaptive_Decision_Systems_for.pdf",
@@ -2688,10 +2688,10 @@
 "tentativas": 2
 },
 "tit:zerotrusttransformationinaienabledhealthcarelegacymedicaldevicesclinicalworkstationsandthesociotechnicalreconfigurationo": {
-"arquivo": "",
-"status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"arquivo": "2026_solen_Zero_Trust_Transformation_in_AI_Enabled_Healthcare_Legacy_Medical_Devi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.71222/n9rch013": {
 "arquivo": "2026_chen_Explainable_AI_Pipelines_for_Behavioral_Fraud_Modeling_in_Online_Retai.pdf",
@@ -2725,9 +2725,9 @@
 },
 "tit:intelligenthyperautomationandresponsibleartificialintelligenceacrosssociotechnicalsystemsaunifiedtheoreticalandappliedfr": {
 "arquivo": "",
-"status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.64137/3108088x/ijaes-v2i2p101": {
 "arquivo": "2026_khan_Integrated_AI_and_Remote_Sensing_Framework_for_Sustainable_Agriculture.pdf",
@@ -2851,21 +2851,21 @@
 },
 "doi:10.1109/tai.2026.3731946": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.66669/cineforum.v66is4.1473": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.1109/tce.2026.3738403": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.29284/88g14t48": {
 "arquivo": "2026_gayapu_AI_In_Oncology_Harnessing_Clinical_Data_For_Drug_Development.pdf",
@@ -3115,9 +3115,9 @@
 },
 "doi:10.2196/preprints.89088": {
 "arquivo": "",
-"status": "falhou (bloqueado por proteção anti-robô do site; reclassificado de HTTP 202 em 2026-11-18)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (bloqueado por proteção anti-robô do site (preprints.jmir.org))",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.36838/v7i11.106": {
 "arquivo": "2025_vishwanath_Mitigating_Hallucinations_and_Inaccuracies_in_Generative_AI_in_Critica.pdf",
@@ -3186,10 +3186,10 @@
 "tentativas": 1
 },
 "tit:artificialintelligenceagentbasedsystemsandmachinelearninginmodernfinancialdecisionmakingtowardexplainablefairandautonomo": {
-"arquivo": "",
-"status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"arquivo": "2025_hoffman_Artificial_Intelligence_Agent_Based_Systems_And_Machine_Learning_in_Mo.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "tit:artificialintelligencedrivencreditscoringandrealtimeriskanalyticsindigitallendingplatformstheoreticalfoundationsregulato": {
 "arquivo": "2025_m_Artificial_IntelligenceDriven_Credit_Scoring_and_Real_Time_Risk_Analyt.pdf",
@@ -3344,8 +3344,8 @@
 "doi:10.4018/979-8-3373-3760-9.ch005": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.35484/pssr.2025(9-iii)28": {
 "arquivo": "2025_soomro_AI_Driven_Policing_in_Pakistan_Potential_Pitfalls_and_Privacy_Concerns.pdf",
@@ -3354,10 +3354,10 @@
 "tentativas": 1
 },
 "tit:explainableandensemblebasedmachinelearningframeworksforcreditriskassessmentintegratingdeeplearningalternativedataandinte": {
-"arquivo": "",
-"status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"arquivo": "2025_petrovic_Explainable_and_Ensemble_Based_Machine_Learning_Frameworks_for_Credit.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.64823/ijter.2505016": {
 "arquivo": "2025_mishra_Assessing_the_Impact_of_Blockchain_Technology_on_Accounting_Transparen.pdf",
@@ -3530,8 +3530,8 @@
 "doi:10.62311/nesx/rpj6": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.64252/9240es77": {
 "arquivo": "2025_abubakar_Artificial_Intelligence_In_Financial_Decision_Systems_Transforming_Ris.pdf",
@@ -3584,8 +3584,8 @@
 "doi:10.58496/bjml/2025/007": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.70864/joae.2025.v13.i6.pp169-180": {
 "arquivo": "",
@@ -3649,9 +3649,9 @@
 },
 "doi:10.33557/cw2tyd15": {
 "arquivo": "",
-"status": "falhou (erro de rede (ConnectionError))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.20944/preprints202506.0845.v1": {
 "arquivo": "",
@@ -3692,8 +3692,8 @@
 "doi:10.62311/nesx/rphcr18": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "tit:lintelligenceartificielleauseindeladministrationfiscalerevuedelalittrature": {
 "arquivo": "2025_bendaoud_L_intelligence_artificielle_au_sein_de_ladministration_fiscale_Revue_d.pdf",
@@ -3728,14 +3728,14 @@
 "doi:10.15662/ijrpetm.2025.0802005": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.71068/ss000054": {
-"arquivo": "",
-"status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"arquivo": "2025_aguirre_Inteligencia_artificial_responsable_en_decisiones_organizacionales_imp.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-19",
+"tentativas": 5
 },
 "doi:10.3389/fneur.2025.1605735": {
 "arquivo": "2025_singh_Editorial_Artificial_intelligence_in_acute_neurology.pdf",
@@ -3788,8 +3788,8 @@
 "doi:10.70177/jete.v3i1.2127": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectionError))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.36948/ijfmr.2025.v07i02.41005": {
 "arquivo": "2025_ravishankar_THE_ROLE_OF_ARTIFICIAL_INTELLIGENCE_IN_ARBITRATION_PROSPECTS_FOR_INDIA.pdf",
@@ -3890,8 +3890,8 @@
 "doi:10.37745/ijmt.2013/vol12n25868": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.55813/gaea/jessr/v5/n1/175": {
 "arquivo": "2025_coello_zavala_Analisis_de_la_incidencia_de_la_IA_aplicada_en_el_asesoramiento_financ.pdf",
@@ -3914,8 +3914,8 @@
 "doi:10.70470/edraak/2025/001": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.58445/rars.2143": {
 "arquivo": "2025_vasanthageethan_Making_Sense_of_Explainable_AI_in_Healthcare_and_Exploring_Its_Current.pdf",
@@ -3968,8 +3968,8 @@
 "doi:10.63665/eijmr.v01i01.2": {
 "arquivo": "",
 "status": "falhou (erro de rede (TooManyRedirects))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.54660/.ijfmr.2021.2.2.135-147": {
 "arquivo": "2025_akomolafe_AI_in_Diagnostics_and_the_Law_Regulating_Machine_Learning_Tools_in_Cli.pdf",
@@ -4022,8 +4022,8 @@
 "tit:constraintpreservationincounterfactualexplanationsforcreditscoring": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-18",
-"tentativas": 4
+"tentado_em": "2026-11-20",
+"tentativas": 6
 },
 "doi:10.70650/rpimj.2025v1i200002": {
 "arquivo": "2025_prakash_The_Role_of_Artificial_Intelligence_in_News_Curation_and_Production_A.pdf",
@@ -4689,6 +4689,42 @@
 "arquivo": "",
 "status": "falhou (o link devolveu uma página, não um PDF)",
 "tentado_em": "2026-11-18",
+"tentativas": 1
+},
+"doi:10.3389/frai.2026.1943922": {
+"arquivo": "2026_mahlake_A_systematic_review_of_transparent_artificial_intelligence_models_for.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-19",
+"tentativas": 1
+},
+"doi:10.63913/xaih.v1i2.8": {
+"arquivo": "2026_yel_Explainable_Transformer_Models_for_Clinical_Outcome_Prediction_from_Un.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-19",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.8199332": {
+"arquivo": "2023_keles_Saliency_Maps_as_an_Explainable_AI_Method_in_Medical_Imaging_A_Case_St.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-19",
+"tentativas": 1
+},
+"doi:10.3390/make8110387": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-20",
+"tentativas": 1
+},
+"doi:10.1109/icoris71889.2026.11768495": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-20",
+"tentativas": 1
+},
+"doi:10.67512/aq0ntw67": {
+"arquivo": "2026_bagh_AI_Driven_Legal_Governance_Framework_for_Transparent_and_Accountable_P.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-20",
 "tentativas": 1
 }
 }

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<head><meta charset='utf-8'><title>Protocolo SIGMA · Base de Artigos da Dissertação (PPGCAP/UDESC)</title><style>
+    @page {
+        size: A4;
+        margin: 1.8cm 1.5cm 1.8cm 1.5cm;
+        @bottom-left {
+            content: "UNIVERSIDADE DO ESTADO DE SANTA CATARINA — PPGCAP / UDESC · PROTOCOLO SIGMA";
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 7.5pt;
+            color: #64748b;
+            border-top: 0.5pt solid #cbd5e1;
+            padding-top: 3px;
+        }
+        @bottom-right {
+            content: "Página " counter(page) " de " counter(pages);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 8pt;
+            font-weight: bold;
+            color: #1e3a8a;
+            border-top: 0.5pt solid #cbd5e1;
+            padding-top: 3px;
+        }
+    }
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        color: #1e293b;
+        line-height: 1.4;
+        margin: 0;
+        padding: 0;
+    }
+    .marca {
+        color: #059669;
+        font-weight: bold;
+        letter-spacing: 0.8px;
+        font-size: 8.5pt;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+    }
+    h1 {
+        color: #0f2942;
+        font-size: 17pt;
+        margin: 0 0 6px 0;
+        border-bottom: 2.5pt solid #059669;
+        padding-bottom: 4px;
+        line-height: 1.2;
+    }
+    .sub {
+        color: #475569;
+        font-size: 9.5pt;
+        margin-bottom: 12px;
+    }
+    h2 {
+        color: #1e3a8a;
+        font-size: 11.5pt;
+        border-bottom: 1.2pt solid #cbd5e1;
+        padding-bottom: 3px;
+        margin-top: 16px;
+        margin-bottom: 6px;
+    }
+    h3 {
+        color: #0f766e;
+        font-size: 9.8pt;
+        margin-top: 10px;
+        margin-bottom: 4px;
+    }
+    .kpi-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 10px 0 14px 0;
+    }
+    .kpi-card {
+        flex: 1 1 18%;
+        background: #f8fafc;
+        border: 1pt solid #059669;
+        border-radius: 4px;
+        padding: 6px 8px;
+        text-align: center;
+    }
+    .kpi-num {
+        display: block;
+        font-size: 15pt;
+        font-weight: bold;
+        color: #059669;
+        line-height: 1.1;
+    }
+    .kpi-label {
+        font-size: 7.5pt;
+        color: #475569;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8pt;
+        margin: 6px 0 12px 0;
+    }
+    th {
+        background-color: #1e3a8a;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: left;
+        padding: 4px 5px;
+        border: 0.5pt solid #1e3a8a;
+        font-size: 7.6pt;
+    }
+    td {
+        padding: 3.5px 5px;
+        border: 0.5pt solid #cbd5e1;
+        vertical-align: top;
+    }
+    tr:nth-child(even) td {
+        background-color: #f8fafc;
+    }
+    .box-info {
+        background-color: #f0fdf4;
+        border-left: 3.5pt solid #059669;
+        padding: 6px 9px;
+        margin: 8px 0;
+        font-size: 8.5pt;
+        border-radius: 0 3px 3px 0;
+    }
+    .box-destaque {
+        background-color: #eff6ff;
+        border-left: 3.5pt solid #2563eb;
+        padding: 6px 9px;
+        margin: 8px 0;
+        font-size: 8.5pt;
+        border-radius: 0 3px 3px 0;
+    }
+    .code-box {
+        font-family: 'Liberation Mono', 'DejaVu Sans Mono', Courier, monospace;
+        font-size: 7.6pt;
+        background: #f1f5f9;
+        border: 0.5pt solid #cbd5e1;
+        border-left: 3pt solid #1e3a8a;
+        padding: 6px 8px;
+        margin: 6px 0 10px 0;
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+    ul, ol {
+        margin: 4px 0 8px 18px;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 2px;
+    }
+    .badge-ok {
+        color: #16a34a;
+        font-weight: bold;
+    }
+    .badge-sem {
+        color: #ea580c;
+        font-weight: 500;
+    }
+    .mono {
+        font-family: 'Liberation Mono', 'DejaVu Sans Mono', Courier, monospace;
+        font-size: 7.5pt;
+    }
+    .small-table td {
+        font-size: 7.4pt;
+        padding: 2.5px 4px;
+    }
+    .page-break {
+        page-break-before: always;
+    }
+    </style></head>
+<body>
+<p class='marca'>UNIVERSIDADE DO ESTADO DE SANTA CATARINA · PPGCAP / CCT · BIBLIO-NOW 1.0.0</p>
+<h1>Protocolo SIGMA · Base Geral de Artigos da Pesquisa</h1>
+<div class='sub'>Registro de Busca Sistemática, Protocolo de Execução, Cadeia de Custódia e Inventário de Obras Incorporadas · <b>Atualizado em 20/11/2026 às 08:24</b></div>
+<div class='box-info'>
+<strong>Definição e Finalidade do Protocolo SIGMA:</strong> Este documento formaliza o protocolo auditável de aquisição bibliográfica e extração da base geral de literatura científica que subsidia a Dissertação de Mestrado no PPGCAP/UDESC (<em>'Analítica Prescritiva, Teoria dos Grafos e Inteligência Artificial Explicável para a Gestão de Frota Veicular no Setor Público'</em>). Todos os números, hashes criptográficos e registros refletem com exatidão censitária os arquivos armazenados no repositório de artigos.
+</div>
+<div class='kpi-container'>
+<div class='kpi-card'><span class='kpi-num'>6</span><span class='kpi-label'>Buscas Registradas</span></div>
+<div class='kpi-card'><span class='kpi-num'>1.696</span><span class='kpi-label'>Registros Únicos</span></div>
+<div class='kpi-card'><span class='kpi-num'>1.183</span><span class='kpi-label'>Atendem aos 3 Grupos</span></div>
+<div class='kpi-card'><span class='kpi-num'>554</span><span class='kpi-label'>PDFs em Acervo</span></div>
+<div class='kpi-card'><span class='kpi-num'>439.4 MB</span><span class='kpi-label'>Volume Total de PDFs</span></div>
+<div class='kpi-card'><span class='kpi-num'>100%</span><span class='kpi-label'>Cadeia Criptográfica</span></div>
+</div>
+<h2>1. Identificação do Projeto e Equipe Científica</h2>
+<table>
+<tr><th style='width:25%'>Item</th><th>Discriminação Oficial</th></tr>
+<tr><td><b>Instituição de Ensino Superior</b></td><td>Universidade do Estado de Santa Catarina (UDESC) — Centro de Ciências Tecnológicas (CCT)</td></tr>
+<tr><td><b>Programa de Pós-Graduação</b></td><td>Programa de Pós-Graduação em Computação Aplicada (PPGCAP) — Linha: Metodologia e Técnicas de Computação</td></tr>
+<tr><td><b>Autor / Pesquisador Principal</b></td><td>Eduardo Lopes Jonker (Engenheiro de Software / Mestrando PPGCAP)</td></tr>
+<tr><td><b>Comissão de Orientação</b></td><td>Profa. Dra. Vivian Kremer Kalempa (Orientadora); Prof. Dr. Yuri Kaszubowski Lopes (Coorientador)</td></tr>
+<tr><td><b>Repositório Local Auditado</b></td><td><span class='mono'>/home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos</span></td></tr>
+<tr><td><b>Diretrizes Metodológicas</b></td><td>Protocolo SIGMA (Jonker, 2026); Kitchenham (2004); Petersen et al. (2008); Relato Transparente PRISMA 2020</td></tr>
+<tr><td><b>Período Histórico Coberto</b></td><td>Publicações de 2018 a 2026 (Busca Base em 14/11/2026 e Atualizações Contínuas até 20/11/2026)</td></tr>
+</table>
+<h2>2. Estratégia de Busca e Semântica Booleana</h2>
+<p>A estratégia de busca estruturou-se na interseção obrigatória de 3 blocos conceituais (Método Prescritivo/Preditivo, Inteligência Artificial Explicável e Contexto Público/Governança):</p>
+<div class='code-box'>(&quot;prescriptive analytics&quot; OR &quot;predictive analytics&quot; OR &quot;decision support&quot; OR &quot;anomaly detection&quot; OR &quot;fraud detection&quot; OR &quot;risk assessment&quot;) AND (&quot;explainable artificial intelligence&quot; OR &quot;explainable AI&quot; OR &quot;XAI&quot; OR &quot;interpretable machine learning&quot; OR &quot;algorithmic transparency&quot;) AND (&quot;public sector&quot; OR &quot;government&quot; OR &quot;public administration&quot; OR &quot;public procurement&quot; OR &quot;tax&quot; OR &quot;auditability&quot; OR &quot;accountability&quot;)</div>
+<table>
+<tr><th style='width:22%'>Bloco Temático</th><th style='width:45%'>Termos e Expressões Controladas</th><th>Critério de Correspondência</th></tr>
+<tr><td><b>Bloco 1: Método</b></td><td>prescriptive analytics, predictive analytics, decision support, anomaly detection, fraud detection, risk assessment</td><td>Pelo menos 1 termo no Título ou Resumo</td></tr>
+<tr><td><b>Bloco 2: XAI</b></td><td>explainable artificial intelligence, explainable AI, XAI, interpretable machine learning, algorithmic transparency</td><td>Pelo menos 1 termo no Título ou Resumo</td></tr>
+<tr><td><b>Bloco 3: Setor Público</b></td><td>public sector, government, public administration, public procurement, tax, auditability, accountability</td><td>Pelo menos 1 termo no Título ou Resumo</td></tr>
+<tr><td><b>Regra de Inclusão</b></td><td colspan='2'><b>(Bloco 1) AND (Bloco 2) AND (Bloco 3)</b> — Triagem restritiva com expurgo de falsos positivos</td></tr>
+</table>
+<h2>3. Integridade e Cadeia de Custódia dos Registros</h2>
+<p>Seguindo a especificação de segurança do Biblio-now, cada registro de busca e incorporação recebe encadeamento de hashes SHA-256 à prova de adulteração:</p>
+<table>
+<tr><th>Arquivo do Protocolo</th><th>Caminho Relativo</th><th>Linhas / Registros</th><th>Status de Integridade</th></tr>
+<tr><td><b>registro_buscas.csv</b></td><td><span class='mono'>artigos/protocolo/registro_buscas.csv</span></td><td>6</td><td><span class='badge-ok'>Íntegra (Cadeia SHA-256 válida)</span></td></tr>
+<tr><td><b>registro_incorporacoes.csv</b></td><td><span class='mono'>artigos/protocolo/registro_incorporacoes.csv</span></td><td>1.696</td><td><span class='badge-ok'>Íntegra (Cadeia SHA-256 válida)</span></td></tr>
+<tr><td><b>resultados.csv (Base)</b></td><td><span class='mono'>artigos/resultados.csv</span></td><td>880</td><td><span class='badge-ok'>Assinado (MD5 ed0239516ced)</span></td></tr>
+<tr><td><b>fichamento.xlsx</b></td><td><span class='mono'>artigos/fichamento.xlsx</span></td><td>1.696</td><td><span class='badge-ok'>Sincronizado e Auditável</span></td></tr>
+</table>
+<h2>4. Fluxo Acumulado de Aquisição Bibliográfica</h2>
+<table>
+<tr><th style='width:65%'>Etapa do Fluxo de Obtenção</th><th style='width:20%;text-align:right'>Registros</th><th>Percentual Relativo</th></tr>
+<tr><td>1. Total de registros brutos identificados pelas APIs (OpenAlex + Semantic Scholar)</td><td style='text-align:right'><b>2.273+</b></td><td>100,0%</td></tr>
+<tr><td>2. Registros únicos deduplicados após expurgo de correspondências idênticas</td><td style='text-align:right'><b>1.696</b></td><td>74.6%</td></tr>
+<tr><td>3. Registros que atendem integralmente aos 3 blocos semânticos no título/resumo</td><td style='text-align:right'><b>1.183</b></td><td>69.8%</td></tr>
+<tr><td>4. Obras com texto completo (PDF) baixado com sucesso e indexado no acervo</td><td style='text-align:right'><b>554</b></td><td><b>32.7%</b></td></tr>
+<tr><td>5. Obras identificadas sem versão de acesso aberto livre (sob paywall editorial)</td><td style='text-align:right'>451</td><td>26,6%</td></tr>
+<tr><td>6. Tentativas de download com falhas de rede transitórias (HTTP 403, 404, timeouts)</td><td style='text-align:right'>151</td><td>8,9%</td></tr>
+<tr><td>7. Registros não submetidos a download (limite diário de taxa de transferência ou semântica parcial)</td><td style='text-align:right'>809</td><td>47,7%</td></tr>
+</table>
+<h2>5. Registro Histórico das Execuções de Busca</h2>
+<table>
+<tr><th>Data / Hora</th><th>Nome da Execução</th><th>Origem</th><th>Registros</th><th>Atendem</th><th>Novas</th><th>Existentes</th><th>Status</th></tr>
+<tr><td>2026-11-14 15:47:00</td><td><b>Busca Base Sistemática (APIs OpenAlex + S2)</b></td><td>OpenAlex + Semantic Scholar</td><td style='text-align:right'>880</td><td style='text-align:right'>622</td><td style='text-align:right'>880</td><td style='text-align:right'>0</td><td><span class='badge-ok'>concluída</span></td></tr>
+<tr><td>2026-11-14 17:15:00</td><td><b>Atualização Diária 2026-11-14</b></td><td>Busca Diária Automática (APIs)</td><td style='text-align:right'>480</td><td style='text-align:right'>322</td><td style='text-align:right'>238</td><td style='text-align:right'>242</td><td><span class='badge-ok'>concluída</span></td></tr>
+<tr><td>2026-11-15 09:40:00</td><td><b>Atualização Diária 2026-11-15</b></td><td>Busca Diária Automática (APIs)</td><td style='text-align:right'>480</td><td style='text-align:right'>322</td><td style='text-align:right'>0</td><td style='text-align:right'>480</td><td><span class='badge-ok'>concluída</span></td></tr>
+<tr><td>2026-11-16 08:10:00</td><td><b>Atualização Diária 2026-11-16</b></td><td>Busca Diária Automática (APIs)</td><td style='text-align:right'>1.671</td><td style='text-align:right'>1.177</td><td style='text-align:right'>573</td><td style='text-align:right'>1.098</td><td><span class='badge-ok'>concluída</span></td></tr>
+<tr><td>2026-11-17 08:15:00</td><td><b>Atualização Diária 2026-11-17</b></td><td>Busca Diária Automática (APIs)</td><td style='text-align:right'>1.249</td><td style='text-align:right'>1.129</td><td style='text-align:right'>2</td><td style='text-align:right'>1.247</td><td><span class='badge-ok'>concluída</span></td></tr>
+<tr><td>2026-11-18 08:02:00</td><td><b>Atualização Diária 2026-11-18</b></td><td>Busca Diária Automática (APIs)</td><td style='text-align:right'>1.676</td><td style='text-align:right'>1.181</td><td style='text-align:right'>3</td><td style='text-align:right'>1.673</td><td><span class='badge-ok'>concluída</span></td></tr>
+</table>
+<h2>6. Análise de Cobertura e Distribuição Temporal dos Textos Completos</h2>
+<p>Distribuição cronológica dos <b>546 artigos com texto completo (PDF)</b> salvos no repositório:</p>
+<table>
+<tr><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026</th><th>Outros</th><th>Total</th></tr>
+<tr><td style='text-align:center;font-weight:bold'>2</td><td style='text-align:center;font-weight:bold'>8</td><td style='text-align:center;font-weight:bold'>6</td><td style='text-align:center;font-weight:bold'>10</td><td style='text-align:center;font-weight:bold'>17</td><td style='text-align:center;font-weight:bold'>53</td><td style='text-align:center;font-weight:bold'>171</td><td style='text-align:center;font-weight:bold'>286</td><td style='text-align:center;font-weight:bold'>1</td><td style='text-align:center;font-weight:bold;background:#ecfdf5;color:#059669'>554</td></tr>
+</table>
+<div class='box-destaque'>
+<strong>Indicador de Desempenho da Baixa (Intervalo de Confiança de 95% de Wilson):</strong><br>
+A base consolidada alcançou uma taxa de sucesso de download de versões abertas de <strong>21.2% [IC 95%: 19.7% a 22.8%]</strong> entre as tentativas executadas, acumulando <strong>439.4 Megabytes</strong> de PDFs científicos de alta resolução devidamente nomeados e catalogados.
+</div>
+<h2>7. Amostra Representativa das Obras Incorporadas com PDF Local</h2>
+<p>Relação das 60 obras mais recentes com texto integral disponível no acervo para leitura e fichamento:</p>
+<table class='small-table'>
+<tr><th style='width:6%'>Ano</th><th style='width:22%'>Autores</th><th style='width:38%'>Título do Artigo</th><th style='width:18%'>Veículo / Periódico</th><th style='width:16%'>Arquivo PDF</th></tr>
+<tr><td><b>2026</b></td><td>Jignasha Kapadiya; B. Ramani</td><td><b>A Comprehensive Review of Explainable Generative AI for Healthcare Interpretability, Clinical Reliability, and</b></td><td>International Journal of Drug Delivery Techno</td><td><span class='mono'>2026_kapadiya_A_Comprehensive_</span></td></tr>
+<tr><td><b>2026</b></td><td>Adran Velasco</td><td><b>A Decade of Applied Quantitative Analytics for Philippine Policy: Forecasting, Statistical Forensics, and Pred</b></td><td>Preprints.org</td><td><span class='mono'>2026_velasco_A_Decade_of_Appli</span></td></tr>
+<tr><td><b>2026</b></td><td>Jonhariono Sihotang; Amran Manalu</td><td><b>A Foundational Framework for Intelligent Data-Driven Decision Support Systems Based on Adaptive Preference Lea</b></td><td>Jurnal Teknik Informatika C I T Medicom</td><td><span class='mono'>2026_sihotang_A_Foundational_F</span></td></tr>
+<tr><td><b>2026</b></td><td>Pankaj Sahani</td><td><b>A Governance-Centric Lakehouse Architecture For Ai-Ready Public Sector Decision Intelligence Using Medallion D</b></td><td>International Journal of Artificial Intellige</td><td><span class='mono'>2026_sahani_A_Governance_Centr</span></td></tr>
+<tr><td><b>2026</b></td><td>Mohammad Nasar; Mohammad Abu Kausar</td><td><b>A Hybrid Explainable AI Model for Accurate andTransparent Prediction of Student AcademicPerformance</b></td><td>International Journal of Modern Education and</td><td><span class='mono'>2026_nasar_A_Hybrid_Explainabl</span></td></tr>
+<tr><td><b>2026</b></td><td>Jumoke Soyemi; Jamiu R. Olasina</td><td><b>A Hybrid Stacked Ensemble Framework for Fraud Detection in Nigerian Financial Ecosystems: Evaluation with Loca</b></td><td>International Journal of Wireless and Microwa</td><td><span class='mono'>2026_soyemi_A_Hybrid_Stacked_E</span></td></tr>
+<tr><td><b>2026</b></td><td>Pinaki Bose -</td><td><b>A Hybrid, Privacy-Preserving AI Framework for 340B Program Fraud Detection: Moving Beyond Rule-Based Audits wi</b></td><td>International Journal of Computer Information</td><td><span class='mono'>2026_sem_titulo_A_Hybrid_Priva</span></td></tr>
+<tr><td><b>2026</b></td><td>Nabeel Ehsan</td><td><b>A Multi-Layer AI Governance Framework for Enhancing Fraud Detection and Integrity Assurance in Large-Scale Org</b></td><td>Journal of Intelligent Decision Making and In</td><td><span class='mono'>2026_ehsan_A_Multi_Layer_AI_Go</span></td></tr>
+<tr><td><b>2026</b></td><td>Virda Mega Ayu; Harianto Harianto; A. Ahmad; Lili Dwi Yulian</td><td><b>A Random Forest-Based AI Decision Support System for an Integrated Indonesian Civil Service Information System</b></td><td>International Journal Software Engineering an</td><td><span class='mono'>2026_ayu_A_Random_Forest_Based</span></td></tr>
+<tr><td><b>2026</b></td><td>Andressa Girotto Vargas; Edna Dias Canedo</td><td><b>A Requirements Engineering Perspective on Explainability Privacy Trade-offs in Decision Support Systems</b></td><td>Workshop em Engenharia de Requisitos (WER)</td><td><span class='mono'>2026_vargas_A_Requirements_Eng</span></td></tr>
+<tr><td><b>2026</b></td><td>K. H. LAWAL; Oluwaseun Adeniyi Ojerinde; Alenoghena I. B.; F</td><td><b>A Software Architecture Model for Reducing Citizen–Government Trust Deficit in AI-Driven e-Government</b></td><td>Iconic Research and Engineering Journals</td><td><span class='mono'>2026_lawal_A_Software_Architec</span></td></tr>
+<tr><td><b>2026</b></td><td>Dr. Urmila Kadam Dr. Urmila Kadam; Dr. Santosh Deshmukh Dr. </td><td><b>A Study on AI Technologies and Their Role in Modern Cybersecurity Threats</b></td><td>International Journal of Science, Strategic M</td><td><span class='mono'>2026_kadam_A_Study_on_AI_Techn</span></td></tr>
+<tr><td><b>2026</b></td><td>Samia Hossain Swarnali</td><td><b>A Systematic Review of AI-Driven Financial Information Systems for Budget Optimization in U.S. Public Sector I</b></td><td></td><td><span class='mono'>2026_swarnali_A_Systematic_Rev</span></td></tr>
+<tr><td><b>2026</b></td><td>Diouri Chaimae; Benomar Ikram</td><td><b>A bibliometric review of ESG and artificial intelligence in the financial sector</b></td><td>Multidisciplinary Reviews</td><td><span class='mono'>2026_chaimae_A_bibliometric_re</span></td></tr>
+<tr><td><b>2026</b></td><td>Shadia Yahya Baroud; Abdelrafe Elzamly; Heba A. Abughali</td><td><b>A decentralized multi-agent framework integrating interpretable machine learning for automated warranty fraud </b></td><td>Research Square</td><td><span class='mono'>2026_baroud_A_decentralized_mu</span></td></tr>
+<tr><td><b>2026</b></td><td>Grace Oluwaseun Ikudehinbu; Adeola Adeniyi</td><td><b>AI Assurance in Tax Compliance: A Systematic Review and Meta-Analysis of Risk-Based Frameworks for Enhancing C</b></td><td>Research Journal of Finance and Accounting</td><td><span class='mono'>2026_ikudehinbu_AI_Assurance_i</span></td></tr>
+<tr><td><b>2026</b></td><td>Charan Tej Gayapu</td><td><b>AI In Oncology: Harnessing Clinical Data For Drug Development</b></td><td>International Journal of Advances in Signal a</td><td><span class='mono'>2026_gayapu_AI_In_Oncology_Har</span></td></tr>
+<tr><td><b>2026</b></td><td>A. Singh</td><td><b>AI and Machine Learning Enabled Enterprise Cloud Computing for Digital Transformation</b></td><td>Dandao Xuebao/Journal of Ballistics</td><td><span class='mono'>2026_singh_AI_and_Machine_Lear</span></td></tr>
+<tr><td><b>2026</b></td><td>Obaid Ur Rehman Qureshi</td><td><b>AI for Tax and Customs Anomaly Detection: A PRISMA-Guided Systematic Review and Proposed Hybrid AI Framework f</b></td><td>Iconic Research and Engineering Journals</td><td><span class='mono'>2026_qureshi_AI_for_Tax_and_Cu</span></td></tr>
+<tr><td><b>2026</b></td><td>Aniketh Bharathwaj</td><td><b>AI in Credit Scoring</b></td><td>IOSR Journal of Economics and Finance</td><td><span class='mono'>2026_bharathwaj_AI_in_Credit_S</span></td></tr>
+<tr><td><b>2026</b></td><td>Saumen Dhara; Avijit Chakraborty; Trilochan Patra; Sandeepan</td><td><b>AI-Based Load Forecasting &amp; Renewable Energy Output Prediction</b></td><td></td><td><span class='mono'>2026_dhara_AI_Based_Load_Forec</span></td></tr>
+<tr><td><b>2026</b></td><td>Sumera Salim; Dr. Bhuvnender Chaudhary</td><td><b>AI-DRIVEN TRANSFORMATION OF CREDIT RISK ASSESSMENT AND FRAUD DETECTION IN PUBLIC SECTOR BANKS: STRATEGIC MANAG</b></td><td>Zenodo (CERN European Organization for Nuclea</td><td><span class='mono'>2026_salim_AI_DRIVEN_TRANSFORM</span></td></tr>
+<tr><td><b>2026</b></td><td>M. K. Dash; Dipti Acharjya; Dr. Goutam Tanty; Debadeepta Dey</td><td><b>AI-Driven Accounting Transformation and Indian Financial Markets: An Analytical Study of Artificial Intelligen</b></td><td>The Journal of Theoretical Accounting Researc</td><td><span class='mono'>2026_dash_AI_Driven_Accounting</span></td></tr>
+<tr><td><b>2026</b></td><td>Anjali Mudireddy</td><td><b>AI-Driven Business Intelligence Framework for Real-Time Decision-Making and Risk Analytics in Enterprise Appli</b></td><td>Journal of Intelligent Decision Making and In</td><td><span class='mono'>2026_mudireddy_AI_Driven_Busin</span></td></tr>
+<tr><td><b>2026</b></td><td>Puneet Sapra; Shaik Balkhis Banu Banu</td><td><b>AI-Driven Decision Support Systems for Clinical Diagnosis</b></td><td></td><td><span class='mono'>2026_sapra_AI_Driven_Decision_</span></td></tr>
+<tr><td><b>2026</b></td><td>Malik Ashfaq Ur Rahman</td><td><b>AI-Driven Fraud Detection and Financial Security Framework for Saudi Banking Systems</b></td><td>Iconic Research and Engineering Journals</td><td><span class='mono'>2026_rahman_AI_Driven_Fraud_De</span></td></tr>
+<tr><td><b>2026</b></td><td>Deepu Komati</td><td><b>AI-Driven Predictive Analytics for Ethical and Efficient Credit Union Collections: Explainability, Fairness, a</b></td><td>Journal of Information Systems Engineering &amp; </td><td><span class='mono'>2026_komati_AI_Driven_Predicti</span></td></tr>
+<tr><td><b>2026</b></td><td>Deepu Komati</td><td><b>AI-Driven Predictive Analytics for Ethical and Efficient Credit Union Collections: Explainability, Fairness, a</b></td><td>Journal of Information Systems Engineering &amp; </td><td><span class='mono'>2026_komati_AI_Driven_Predicti</span></td></tr>
+<tr><td><b>2026</b></td><td>Sudhakar Guduri</td><td><b>AI-Driven Real-Time Data Quality Validation in Healthcare ETL Pipelines</b></td><td>Journal of Information Systems Engineering &amp; </td><td><span class='mono'>2026_guduri_AI_Driven_Real_Tim</span></td></tr>
+<tr><td><b>2026</b></td><td>Sudhakar Guduri</td><td><b>AI-Driven Real-Time Data Quality Validation in Healthcare ETL Pipelines</b></td><td>Journal of Information Systems Engineering &amp; </td><td><span class='mono'>2026_guduri_AI_Driven_Real_Tim</span></td></tr>
+<tr><td><b>2026</b></td><td>Muhammad Azam; Rawdah Abdul Karim Mohammad Pharaon; E. Mahdy</td><td><b>AI-Driven Sharia Governance in Islamic Digital Payment Systems: Developing a Contemporary Islamic Law Framewor</b></td><td>Nusantara</td><td><span class='mono'>2026_azam_AI_Driven_Sharia_Gov</span></td></tr>
+<tr><td><b>2026</b></td><td>Farah Arzu,Abdul Waheed,Sayed Hassan Ijaz,Dr. Shah E Yar Qad</td><td><b>AI-ENABLED PREDICTIVE RISK INTELLIGENCE FOR SAUDI BANKING SYSTEMS: INTEGRATING SHARIAH COMPLIANCE, ADVANCED FI</b></td><td>Center for Management Science Research</td><td><span class='mono'>2026_adil_AI_ENABLED_PREDICTIV</span></td></tr>
+<tr><td><b>2026</b></td><td>Puthan Veettil Abdulla Mohd Kayoom</td><td><b>AI-Enabled Advanced Decision Intelligence Framework for Optimizing Credit Risk Management in Saudi Enterprises</b></td><td>Iconic research and engineering journals</td><td><span class='mono'>2026_kayoom_AI_Enabled_Advance</span></td></tr>
+<tr><td><b>2026</b></td><td>Syed Eirfan Atthar</td><td><b>AI-Enabled Digital Twins for Low-Carbon Logistics in Emerging Markets: A Human-Centric Framework for Cold-Chai</b></td><td>International journal of research and innovat</td><td><span class='mono'>2026_atthar_AI_Enabled_Digital</span></td></tr>
+<tr><td><b>2026</b></td><td>Qasim Majeed</td><td><b>AI-Enabled Financial Risk Management Framework for Debt Financing Decisions in Saudi Enterprises under Vision </b></td><td>Global academic journal of economics and busi</td><td><span class='mono'>2026_majeed_AI_Enabled_Financi</span></td></tr>
+<tr><td><b>2026</b></td><td>Vibin James</td><td><b>AI-Powered Intelligent Network Automation Framework for Future-Ready Enterprise Computing Systems</b></td><td>Global Academic Journal of Economics and Busi</td><td><span class='mono'>2026_james_AI_Powered_Intellig</span></td></tr>
+<tr><td><b>2026</b></td><td>Jain Chanchala; Shail Shri Sharma; Mishra Preeti; Rohit Rohi</td><td><b>AI-driven financial advisory and behavioral tax planning: A conceptual framework for intelligent FinTech ecosy</b></td><td>The International tax journal</td><td><span class='mono'>2026_chanchala_AI_driven_finan</span></td></tr>
+<tr><td><b>2026</b></td><td>Wiwiek Rabiatul Adawiyah; Hijroh Rokhayati; Bambang Agus Pra</td><td><b>ALGORITHMIC FAIRNESS IN BUSINESS AND SOCIAL SCIENCES: A BIBLIOMETRIC REVIEW OF EMERGING ETHICAL AI GOVERNANCE </b></td><td>Proceedings of the International Conference o</td><td><span class='mono'>2026_adawiyah_ALGORITHMIC_FAIR</span></td></tr>
+<tr><td><b>2026</b></td><td>Nurul Ain Safrizon; Vugar Abdullayev</td><td><b>ALGORITHMIC SHARIA COMPLIANCE: A MACHINE LEARNING FRAMEWORK FOR AUTOMATED RISK ASSESSMENT AND SCREENING IN ISL</b></td><td>Journal of Moeslim Research Technik</td><td><span class='mono'>2026_safrizon_ALGORITHMIC_SHAR</span></td></tr>
+<tr><td><b>2026</b></td><td>A. (Ali) Mustapa</td><td><b>ARCHITECTURE OF A DATA-DRIVEN PLATFORM FOR FORECASTING THE FINANCIAL SUSTAINABILITY OF US SMALL BUSINESSES</b></td><td>Modern American Journal of Engineering, Techn</td><td><span class='mono'>2026_mustapa_ARCHITECTURE_OF_A</span></td></tr>
+<tr><td><b>2026</b></td><td>Mujahidin</td><td><b>ARTIFICIAL INTELLIGENCE AS AN INSTRUMENT FOR LOCAL GOVERNMENT DECISION-MAKING: OPPORTUNITIES, RISKS, AND GOVER</b></td><td>Jurnal Kecerdasan Buatan dan Teknologi Inform</td><td><span class='mono'>2026_mujahidin_ARTIFICIAL_INTE</span></td></tr>
+<tr><td><b>2026</b></td><td>Dr. S Saranya; K Chandrasekar</td><td><b>ARTIFICIAL INTELLIGENCE FOR FRAUD DETECTION AND RISK GOVERNANCE: BUILDING SUSTAINABLE AND RESILIENT FINANCIAL </b></td><td>International Journal of Research In Commerce</td><td><span class='mono'>2026_saranya_ARTIFICIAL_INTELL</span></td></tr>
+<tr><td><b>2026</b></td><td>Emily Carter</td><td><b>Accountability and Equity in Machine-Assisted Distribution Strategies: Advancing Sustainable Operational Pract</b></td><td>Ethiopian International Journal of Multidisci</td><td><span class='mono'>2026_carter_Accountability_and</span></td></tr>
+<tr><td><b>2026</b></td><td>Harrison D. Colebrook</td><td><b>Adaptive Explainable Artificial Intelligence for Governance-Oriented Risk Scoring in Organizational Change Man</b></td><td>Ethiopian International Journal of Multidisci</td><td><span class='mono'>2026_colebrook_Adaptive_Explai</span></td></tr>
+<tr><td><b>2026</b></td><td>Vijaya Sahitha G; Mrs. K Roja Gowardhani</td><td><b>Adaptive Multi-Layer Ensemble Framework for Real-Time Financial Fraud Detection</b></td><td>International Journal of Scientific Developme</td><td><span class='mono'>2026_g_Adaptive_Multi_Layer_En</span></td></tr>
+<tr><td><b>2026</b></td><td>Sayyed Rizwan Hajimiya</td><td><b>Advanced Decision-Making Models for Digital Transformation of Brokerage Operations in Saudi Arabia</b></td><td>Iconic Research and Engineering Journals</td><td><span class='mono'>2026_hajimiya_Advanced_Decisio</span></td></tr>
+<tr><td><b>2026</b></td><td>Rusul Faiz Dauood</td><td><b>Advanced Statistical Modeling for Decision Support Using Operations Research and Intelligent Techniques</b></td><td>Journal of Frontiers in Multidisciplinary Res</td><td><span class='mono'>2026_dawood_Advanced_Statistic</span></td></tr>
+<tr><td><b>2026</b></td><td>Rakesh Venuturumilli; Amoli Singh; Hemanshi Dhaduk; Mr. Laks</td><td><b>Advancing Trustworthy Clinical Decision Support Through Explainable Artificial Intelligence: A Framework for T</b></td><td>European Journal of Prosthodontics and Restor</td><td><span class='mono'>2026_venuturumilli_Advancing_T</span></td></tr>
+<tr><td><b>2026</b></td><td>1Dr. P. S. Naveen Kumar, 2Kavuri Girijeswari, 3Shaik Alia Su</td><td><b>Ai/Ml Based Urban Growth Monitoring Using Remote Sensing Images and Deep Learning</b></td><td>American Journal of AI Cyber Computing Manage</td><td><span class='mono'>2026_kala_Ai_Ml_Based_Urban_Gr</span></td></tr>
+<tr><td><b>2026</b></td><td>Muhammad Adil; Abdul Waheed; Saqib Rasheed; Sayed Hassan Ija</td><td><b>Algorithmic Bias and Prediction Errors in Machine Learning-Based Financial Auditing: Evidence and Challenges f</b></td><td>Journal of Business Insight and Innovation</td><td><span class='mono'>2026_adil_Algorithmic_Bias_and</span></td></tr>
+<tr><td><b>2026</b></td><td>Muhamad Fuji Hakiki; Opik Taupik; Dodih Suhardih; Mutia Pami</td><td><b>Algorithmic Gharar in Islamic Banking: Reconstructing Transparency and Accountability Based on Maqasid as-Syar</b></td><td>Jurnal At-Tadbir : Media Hukum dan Pendidikan</td><td><span class='mono'>2026_hakiki_Algorithmic_Gharar</span></td></tr>
+<tr><td><b>2026</b></td><td>Mlondolozi Mvikweni; P. Masumbe</td><td><b>Algorithmic Governance and Corporate Accountability: A Legal Framework for Responsible AI Deployment in Busine</b></td><td>International Journal of Applied Research in </td><td><span class='mono'>2026_mvikweni_Algorithmic_Gove</span></td></tr>
+<tr><td><b>2026</b></td><td>Juan Esteban Aguirre Espinosa; Dimaro Alexis Agudelo Mejía</td><td><b>Algorithmic Justice in Colombia: between Efficiency and Due Process</b></td><td>Computer and Decision Making: An Internationa</td><td><span class='mono'>2026_espinosa_Algorithmic_Just</span></td></tr>
+<tr><td><b>2026</b></td><td>Avatar Chaubey; Akanksha Verma; Deepika Dhiman; Neha Khanna;</td><td><b>Algorithmic State Power And Constitutional Democracy: Reimagining The Rule Of Law In The Age Of Artificial Int</b></td><td>International Journal of Artificial Intellige</td><td><span class='mono'>2026_chaubey_Algorithmic_State</span></td></tr>
+<tr><td><b>2026</b></td><td></td><td><b>Algorithmic Transformation: Technological, Managerial, Social, and Economic Dimensions of Artificial Intellige</b></td><td>Özgür Yayınları eBooks</td><td><span class='mono'>2026_anon_Algorithmic_Transfor</span></td></tr>
+<tr><td><b>2026</b></td><td>Harshita Bhola -</td><td><b>Algorithmic transparency and socio-economic equity in anticipatory bail under the Bharatiya Nagarik Suraksha S</b></td><td>International Journal of Law Justice and Juri</td><td><span class='mono'>2026_sem_titulo_Algorithmic_tr</span></td></tr>
+<tr><td><b>2026</b></td><td>Anass YACHOULTI</td><td><b>Algorithms in the boardroom: AI decision support and executive judgement</b></td><td>International Journal of Accounting, Finance,</td><td><span class='mono'>2026_yachoulti_Algorithms_in_t</span></td></tr>
+<tr><td><b>2026</b></td><td>Payal Satish Hingmire; Abdul Waheed Shaikh</td><td><b>An AI-Blockchain Framework for Adaptive Fraud Risk Analytics, Transaction Validation, and Payment Integrity in</b></td><td>International Journal of Advanced Scientific </td><td><span class='mono'>2026_hingmire_An_AI_Blockchain</span></td></tr>
+<tr><td><b>2026</b></td><td>V. R. Narayanam; Vimalkumar Kumaresan; Vijayachandar Sanikal</td><td><b>An Edge Cloud IoT Framework with Explainable AI for Real-Time Aircraft Cabin Monitoring and Predictive Safety</b></td><td></td><td><span class='mono'>2026_narayanam_An_Edge_Cloud_I</span></td></tr>
+<tr><td><b>2026</b></td><td>Gladman Nhamoinesu Machekera; Patronella Siphatisiwe Mtemeli</td><td><b>An Explainable Deep Learning Framework for Energy-Efficient Water and Sewer Reticulation Infrastructure: Predi</b></td><td>Iconic Research and Engineering Journals</td><td><span class='mono'>2026_machekera_An_Explainable_</span></td></tr>
+</table>
+<p style='color:#64748b;font-size:7.5pt'>* Lista resumida exibindo as primeiras 60 obras. A relação exaustiva das 554 obras com PDF está disponível na íntegra em <code>artigos/fichamento.xlsx</code> e <code>artigos/protocolo/registro_incorporacoes.csv</code>.</p>
+<h2>8. Procedimento de Consulta e Reprodutibilidade</h2>
+<ol>
+<li><b>Acesso às Obras:</b> Todos os textos completos estão organizados na pasta raiz <code>artigos/</code> no formato padronizado <code>AAAA_autor_titulo.pdf</code>;</li>
+<li><b>Fichamento Qualitativo:</b> O pesquisador preenche suas análises conceituais diretamente na planilha <code>artigos/fichamento.xlsx</code>, preservando dados manuais em novas sincronizações;</li>
+<li><b>Atualizações Contínuas:</b> Novas execuções automáticas pelo script <code>scripts/buscar_artigos.py</code> ou <code>scripts/atualizacao_diaria_artigos.sh</code> adicionam novos registros sem quebrar a cadeia de custódia;</li>
+<li><b>Alinhamento com o PRISMA 2020:</b> As obras catalogadas alimentam diretamente o processo de extração e triagem da Revisão Sistemática de Literatura do PPGCAP/UDESC.</li>
+</ol>
+<div style='margin-top:20px;border-top:1pt solid #cbd5e1;padding-top:8px;font-size:7.5pt;color:#64748b;text-align:center;'>
+UNIVERSIDADE DO ESTADO DE SANTA CATARINA (UDESC) · CENTRO DE CIÊNCIAS TECNOLÓGICAS (CCT)<br>
+Programa de Pós-Graduação em Computação Aplicada (PPGCAP) · Joinville/SC, 2026<br>
+Protocolo SIGMA gerado via Biblio-now 1.0.0 · Auditoria e Rastreabilidade Censitária.
+</div>
+</body></html>

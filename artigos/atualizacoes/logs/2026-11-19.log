@@ -1,0 +1,36 @@
+=== 2026-11-19 08:05:54 início da busca diária ===
+OPENALEX_API_KEY: definida
+OPENALEX_EMAIL: definida
+UNPAYWALL_EMAIL: definida
+S2_API_KEY: definida
+Consulta: ("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability") 
+
+▶ OpenAlex
+   OpenAlex: 1254 trabalhos correspondem à consulta
+   1254 registros recebidos
+▶ Semantic Scholar
+   [SemanticScholar] HTTP 429; tentativa 1/5, aguardando 2s
+   [SemanticScholar] HTTP 429; tentativa 2/5, aguardando 4s
+   [SemanticScholar] HTTP 429; tentativa 3/5, aguardando 8s
+   [SemanticScholar] HTTP 429; tentativa 4/5, aguardando 16s
+   [SemanticScholar] HTTP 429; tentativa 5/5, aguardando 32s
+   Semantic Scholar indisponível (sem chave é comum o erro 429). Seguindo sem ele.
+   [SemanticScholar] sem resposta válida após 5 tentativas
+
+1252 registros únicos após unir as fontes (1131 com os 3 grupos confirmados no título/resumo)
+Inéditos nesta execução (nunca vistos antes): 4
+PDFs a tentar: 415 (6 downloads simultâneos)
+   [   1] 2026_mahlake_A_systematic_review_of_transparent_artificial_intelligence_models_for.pdf
+   [   2] 2026_yel_Explainable_Transformer_Models_for_Clinical_Outcome_Prediction_from_Un.pdf
+   [   3] 2026_schneider_AI_Driven_Intelligent_Automation_in_DevOps_Ecosystems_Theoretical_Foun.pdf
+   [   4] 2026_solen_Zero_Trust_Transformation_in_AI_Enabled_Healthcare_Legacy_Medical_Devi.pdf
+   [   5] 2025_hoffman_Artificial_Intelligence_Agent_Based_Systems_And_Machine_Learning_in_Mo.pdf
+   [   6] 2025_aguirre_Inteligencia_artificial_responsable_en_decisiones_organizacionales_imp.pdf
+   [   7] 2023_keles_Saliency_Maps_as_an_Explainable_AI_Method_in_Medical_Imaging_A_Case_St.pdf
+   Nova tentativa para 16 PDFs com erro de rede passageiro...
+
+PDFs baixados nesta execução: 7
+Inéditos: 4 (lista em novos.csv)
+Relatórios: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos/atualizacoes/2026-11-19
+PDFs:       /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos
+=== 2026-11-19 08:13:54 fim (código 0) ===

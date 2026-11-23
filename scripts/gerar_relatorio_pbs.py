@@ -511,7 +511,7 @@ Data-limite do protocolo: {esc(prisma.get('data_limite_protocolo', '—'))}. Lim
     h.append(tabela(["Domínio", "Ocorrências no código (scripts/)"],
                     [(esc(k), str(v)) for k, v in hosts.most_common() if not k.endswith(("w3.org", "github.com"))]))
     h.append("""<ul>
-<li><b>Usados:</b> OpenAlex (busca, metadados, citações para snowballing, filtro de livros) e Semantic Scholar (busca complementar).</li>
+<li><b>Usados:</b> OpenAlex (busca, metadados, citações para snowballing, filtro de livros), Semantic Scholar (busca complementar) e Scopus/Elsevier API (busca estruturada via Elsevier Developer Portal com autenticação oficial por chave).</li>
 <li><b>Consultados e documentados, sem automação:</b> Google Scholar, CAPES/CAFe, CNKI, Wanfang e CQVIP, por falta de API pública ou por termos de uso; o roteiro manual está em <code>Metodologia de Pesquisa/exportacoes_capes/LEIA-ME_roteiro_de_busca.md</code>.</li>
 <li><b>Testados e indisponíveis:</b> as APIs do DOAB e do OAPEN recusam o endereço IP (lista de permissão); a API de busca do Mercado Livre respondeu 403.</li>
 <li><b>Em avaliação:</b> a API de dados abertos de compras públicas (<code>dadosabertos.compras.gov.br</code>, módulos de catálogo CATMAT e de pesquisa de preços), para comparar preços de peças com os custos da SEA/SC. O catálogo responde; a consulta de preços ainda não retornou registros nos testes.</li>
@@ -580,6 +580,12 @@ Data-limite do protocolo: {esc(prisma.get('data_limite_protocolo', '—'))}. Lim
         ("Relatório JSON da análise do grafo", "dissertacao_frotas/resultados/logs/relatorio_analise_grafos_neo4j.json", "scripts/analise_grafos_frotas.py"),
         ("Figura: modelo nulo e concentração", "dissertacao_frotas/resultados/figuras/grafos_modelo_nulo_e_concentracao.png", "scripts/analise_grafos_frotas.py"),
         ("Figura: centralidade × glosa", "dissertacao_frotas/resultados/figuras/grafos_centralidade_vs_glosa.png", "scripts/analise_grafos_frotas.py"),
+        ("Protocolo SIGMA da base de artigos (PDF)", "artigos/protocolo_sigma.pdf", "scripts/gerar_protocolo_sigma_artigos.py"),
+        ("Fichamento sistemático da base de artigos (Excel)", "artigos/fichamento.xlsx", "scripts/gerar_protocolo_sigma_artigos.py"),
+        ("Declaração de Uso Ético de IA (PPGCAP/UDESC)", "declaraçãode uso de ia.pdf", "scripts/gerar_declaracao_uso_ia_pdf.py"),
+        ("Relatório de conciliação prático-teórica", "conciliação do trabalho prático com o referencial teórico.pdf", "scripts/gerar_html_conciliacao_expandido.py"),
+        ("Relatório de qualificação de pesquisa", "qualificação de pesquisa.pdf", "scripts/gerar_relatorio_qualificacao_pdf.py"),
+        ("Mapeamento BPM de processos de pesquisa", "mapeamento de pesquisa.pdf", "scripts/gerar_mapeamento_bpm.py"),
         ("Protocolo da PBS e registro de incorporações", "revisao_sistematica/protocolo_sigma.pdf", "scripts/gerar_protocolo_e_relatorio_rsl.py"),
         ("Relatório da revisão sistemática (PRISMA 2020)", "revisao_sistematica/relatorio_revisao_sistematica.pdf", "scripts/gerar_protocolo_e_relatorio_rsl.py"),
         ("Registro de incorporações (somente acréscimos)", "revisao_sistematica/registro_incorporacoes.csv", "scripts/gerar_protocolo_e_relatorio_rsl.py"),

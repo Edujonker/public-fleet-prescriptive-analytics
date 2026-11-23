@@ -1,0 +1,28 @@
+=== 2026-11-20 08:09:54 início da busca diária ===
+OPENALEX_API_KEY: definida
+OPENALEX_EMAIL: definida
+UNPAYWALL_EMAIL: definida
+S2_API_KEY: definida
+Consulta: ("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability") 
+
+▶ OpenAlex
+   OpenAlex: 1258 trabalhos correspondem à consulta
+   1258 registros recebidos
+▶ Semantic Scholar
+   [SemanticScholar] HTTP 429; tentativa 1/5, aguardando 2s
+   [SemanticScholar] HTTP 429; tentativa 2/5, aguardando 4s
+   Semantic Scholar: 995 trabalhos correspondem à consulta
+   995 registros recebidos
+
+1693 registros únicos após unir as fontes (1189 com os 3 grupos confirmados no título/resumo)
+Inéditos nesta execução (nunca vistos antes): 16
+PDFs a tentar: 400 (6 downloads simultâneos)
+   [   1] 2026_bagh_AI_Driven_Legal_Governance_Framework_for_Transparent_and_Accountable_P.pdf
+   [   2] 2025_petrovic_Explainable_and_Ensemble_Based_Machine_Learning_Frameworks_for_Credit.pdf
+   Nova tentativa para 16 PDFs com erro de rede passageiro...
+
+PDFs baixados nesta execução: 2
+Inéditos: 16 (lista em novos.csv)
+Relatórios: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos/atualizacoes/2026-11-20
+PDFs:       /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos
+=== 2026-11-20 08:16:04 fim (código 0) ===
