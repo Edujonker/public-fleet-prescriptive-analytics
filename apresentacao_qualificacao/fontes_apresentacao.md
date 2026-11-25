@@ -1,6 +1,6 @@
 # Fontes da apresentação de qualificação
 
-Gerado em 17/11/2026 09:25 por `scripts/gerar_apresentacao_qualificacao.py`. 12 verificações cruzadas aprovadas antes de salvar.
+Gerado em 24/11/2026 08:21 por `scripts/gerar_apresentacao_qualificacao.py`. 12 verificações cruzadas aprovadas antes de salvar.
 
 
 ## Slide 1 — Capa
@@ -90,18 +90,36 @@ Gerado em 17/11/2026 09:25 por `scripts/gerar_apresentacao_qualificacao.py`. 12 
 
 - relatorios/qualificacao_pesquisa.html (Tabela 7.1, lida por este script)
 
-## Slide 17 — 16. Síntese e Próximos Passos
+## Slide 17 — 15b. BiblioNow: Busca e Download Automatizado de Artigos
+
+- biblio_now/ (app.py, nucleo.py, agendador.py, seguranca.py)
+- artigos/resultados.csv (2552 linhas), artigos/protocolo_sigma.pdf
+- artigos/acervo_pdfs.csv (568 PDFs mapeados com hash)
+
+## Slide 18 — 15c. APIs Abertas para Coleta Automatizada de Arquivos
+
+- scripts/buscar_artigos.py (funções buscar_openalex, buscar_s2, buscar_scopus)
+- biblio_now/biblionow/nucleo.py (ciclo de busca e download)
+- credenciais_api.bin (cofre de senhas PBKDF2 + Fernet)
+
+## Slide 19 — 15d. Protocolo Sigma: Rastreabilidade e Automatização da Base de Artigos
+
+- scripts/gerar_protocolo_sigma_artigos.py (cadeia de hashes, HTML, PDF)
+- biblio_now/biblionow/agendador.py (execução agendada)
+- artigos/protocolo/ (CSV auditáveis), artigos/protocolo_sigma.pdf
+
+## Slide 20 — 18. Síntese e Próximos Passos
 
 - scripts/hipoteses_oficiais.py; relatórios citados nos slides anteriores
 
-## Slide 18 — 17. Referências Principais
+## Slide 21 — 19. Referências Principais
 
 - relatorios/qualificacao_pesquisa.html (seção REFERÊNCIAS), filtrada pelas obras citadas nos slides
 
-## Slide 19 — Agradecimentos
+## Slide 22 — Agradecimentos
 
 - overleaf_dissertacao_udesc/PreTextuais/Agradecimentos.tex
 
-## Slide 20 — Encerramento
+## Slide 23 — Encerramento
 
 - —

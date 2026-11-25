@@ -738,8 +738,68 @@ def montar(D):
            D["cronograma"], 10)
     d.fonte(s, "relatorios/qualificacao_pesquisa.html (Tabela 7.1, lida por este script)")
 
+    # 15b. BiblioNow: Busca e Download Automatizado de Artigos Científicos -----
+    s = d.base("15b. BiblioNow: Busca e Download Automatizado de Artigos",
+               "Ferramenta desenvolvida para a revisão sistemática da dissertação")
+    cartao(s, 0.5, 1.35, 6.0, 5.45, "O que é o BiblioNow",
+           ["Ciclo completo em uma execução: consulta booleana registrada → busca em bases abertas → "
+            "download em lote de texto completo (acesso aberto) → TXT e BibTeX por obra → fichamento → "
+            "protocolo auditável (Sigma) → atualização agendada.",
+            "Execução local, sem conta nem nuvem; chaves de API armazenadas em cofre criptografado "
+            "(PBKDF2-HMAC-SHA256 + Fernet).",
+            "Gratuito, usando OpenAlex, Semantic Scholar, Scopus e Unpaywall.",
+            "Interface em português e planilha de fichamento no modelo das universidades brasileiras."])
+    cartao(s, 6.8, 1.35, 6.05, 5.45, "Resultados já obtidos",
+           ["2.743 registros únicos consolidados na base de artigos.",
+            "568 PDFs de acesso aberto baixados e incorporados ao acervo local.",
+            "Consulta com 3 grupos (método analítico × XAI × setor público) gravada com data e parâmetros.",
+            "Agendamento diário automático com download e protocolo atualizados a cada execução."],
+           fundo=VERDE_CLARO)
+    d.fonte(s, "biblio_now/ (app.py, nucleo.py, agendador.py, seguranca.py)",
+            "artigos/resultados.csv (2552 linhas), artigos/protocolo_sigma.pdf",
+            "artigos/acervo_pdfs.csv (568 PDFs mapeados com hash)")
+
+    # 15c. APIs Abertas para Coleta Automatizada de Arquivos -----------------------
+    s = d.base("15c. APIs Abertas para Coleta Automatizada de Arquivos",
+               "OpenAlex, Semantic Scholar, Scopus e Unpaywall")
+    cartao(s, 0.5, 1.35, 3.9, 5.45, "OpenAlex (principal)",
+           ["Busca booleana em título e resumo.",
+            "Chave de API: cota diária 10× maior, paginação por cursor (sem limite de 10.000).",
+            "Campos: título, autores, ano, veículo, DOI, resumo invertido, locais de acesso aberto."],
+           borda=VERDE_ESCURO, cor_titulo=VERDE_ESCURO)
+    cartao(s, 4.7, 1.35, 3.9, 5.45, "Semantic Scholar",
+           ["Complementar; abreviações e variantes de termos.",
+            "Evita erro 429 com chave de API.",
+            "Fornece PDF de acesso aberto quando disponível."])
+    cartao(s, 8.9, 1.35, 3.9, 5.45, "Scopus + Unpaywall",
+           ["Scopus: busca no campo TITLE-ABS-KEY, 1.817 trabalhos na consulta da dissertação.",
+            "Unpaywall: verifica se o artigo tem versão de acesso aberto legal para download.",
+            "Chaves armazenadas no cofre de senhas (credenciais_api.bin), nunca em texto claro."])
+    d.fonte(s, "scripts/buscar_artigos.py (funções buscar_openalex, buscar_s2, buscar_scopus)",
+            "biblio_now/biblionow/nucleo.py (ciclo de busca e download)",
+            "credenciais_api.bin (cofre de senhas PBKDF2 + Fernet)")
+
+    # 15d. Protocolo Sigma: Rastreabilidade e Automatização ------------------------
+    s = d.base("15d. Protocolo Sigma: Rastreabilidade e Automatização da Base de Artigos",
+               "Registros encadeados por hash SHA-256 e atualização agendada")
+    cartao(s, 0.5, 1.35, 6.0, 5.45, "O que é o Protocolo Sigma",
+           ["Registro à prova de adulteração do que foi buscado, quando e com qual resultado.",
+            "Cada execução grava: consulta exata, data, bases consultadas, número de registros, "
+            "PDFs baixados e falhas.",
+            "Cadeia de hashes (SHA-256) encadeando os registros — qualquer alteração posterior é detectável.",
+            "Gera HTML e PDF oficiais para anexar à dissertação."])
+    cartao(s, 6.8, 1.35, 6.05, 5.45, "Automatização em produção",
+           ["2.743 registros únicos consolidados, com verificação semântica dos 3 grupos.",
+            "568 PDFs com hash MD5/SHA-256 conferido e incorporado.",
+            "Planilha de fichamento (fichamento.xlsx) preservando anotações do pesquisador.",
+            "Atualização diária automática (timer busca-artigos.timer, 08:00)."],
+           fundo=VERDE_CLARO)
+    d.fonte(s, "scripts/gerar_protocolo_sigma_artigos.py (cadeia de hashes, HTML, PDF)",
+            "biblio_now/biblionow/agendador.py (execução agendada)",
+            "artigos/protocolo/ (CSV auditáveis), artigos/protocolo_sigma.pdf")
+
     # 17. Síntese --------------------------------------------------------
-    s = d.base("16. Síntese e Próximos Passos", "O que os resultados sustentam e o que falta")
+    s = d.base("18. Síntese e Próximos Passos", "O que os resultados sustentam e o que falta")
     dec = {k: HO.H[k]["decisao"] for k in HO.H}
     sust = [k for k, v in dec.items() if v == "SUSTENTADA"]
     parc = [k for k, v in dec.items() if v == "PARCIALMENTE SUSTENTADA"]
@@ -760,7 +820,7 @@ def montar(D):
     d.fonte(s, "scripts/hipoteses_oficiais.py; relatórios citados nos slides anteriores")
 
     # 18. Referências principais ----------------------------------------
-    s = d.base("17. Referências Principais", "Seleção da lista de referências do relatório de qualificação (ABNT)")
+    s = d.base("19. Referências Principais", "Seleção da lista de referências do relatório de qualificação (ABNT)")
     refs = D["referencias"]
     meio = (len(refs) + 1) // 2
     for col, grupo in enumerate((refs[:meio], refs[meio:])):

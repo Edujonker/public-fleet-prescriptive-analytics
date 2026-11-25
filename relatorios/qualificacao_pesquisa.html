@@ -494,7 +494,7 @@
     <h1>RESUMO EXECUTIVO DA QUALIFICAÇÃO</h1>
     
     <div class="box-volpato">
-        <strong>Finalidade do Documento perante a Banca Examinadora:</strong> O presente relatório de qualificação tem por escopo comprovar a solidez epistemológica, a fundamentação teórica, a completude metodológica, a exatidão das ferramentas computacionais e a factibilidade do cronograma da pesquisa de mestrado. Conforme as diretrizes acadêmicas, o exame de qualificação não exige resultados empíricos congelados e definitivos, mas requer a demonstração irrefutável de que a base científica é firme, que os dados estão plenamente saneados e que a pesquisa é factível e original.
+        <strong>Finalidade do Documento perante a Banca Examinadora:</strong> O presente relatório de qualificação tem por escopo comprovar a solidez epistemológica, a fundamentação teórica, a completude metodológica, a higienização dos dados e a factibilidade do percurso de pesquisa. Conforme as diretrizes acadêmicas de qualificação, este exame não visa à apresentação de conclusões definitivas ou de um modelo fechado, mas sim à demonstração das razões teóricas e metodológicas (os "porquês") que sustentam o delineamento experimental, o comportamento observado nos dados preliminares e a maturidade para a condução até a dissertação final.
     </div>
 
     <p>
@@ -502,7 +502,7 @@
     </p>
 
     <p>
-        A investigação apoia-se estritamente no <strong>Método Lógico para Redação e Condução Científica de Gilson Volpato</strong>, distinguindo com rigor a significância estatística da relevância prática operacional. O protocolo experimental implementa validação sequencial temporal (<em>walk-forward</em> 5 dobras e <em>holdout</em> canônico) com embargo estrito de 30 dias para expurgo de viés de antecipação (<em>lookahead bias</em>). Os resultados preliminares homologados certificam: (1) saneamento de 6.841 regressões de hodômetro e conciliação contábil entre R$ 198,81M orçados e R$ 60,05M retidos em glosas; (2) estabilização do <em>Isolation Forest</em> entre sementes, sem evidência de que as OS marcadas como atípicas coincidam com as glosadas pela fiscalização; (3) HistGradientBoosting com ROC-AUC de 0,8737 na classificação de risco, superior ao SVC-RBF, mas com erro 8,65% maior que o SVR-RBF na regressão de custos (H2 não sustentada); (4) integração do patrimônio com ganho pequeno: ROC-AUC +0,0095 (IC 95% 0,0045 a 0,0146) e MAE 0,62%, abaixo da meta de 15% (H1 parcialmente sustentada); (5) política MILP (HiGHS) 13,66% (R$ 6,99 mi) mais barata que a prática reconstruída, em instância semissintética, com 100% das manutenções obrigatórias (H3 sustentada; uma heurística gulosa chega ao mesmo custo); (6) SHAP exato e estável, mas LIME com baixa fidelidade local (R² 0,243) e concordância SHAP × LIME de Jaccard 45,48% (H4 não sustentada); e (7) detecção de 18 comunidades regionais de oficinas com modularidade Louvain Q = 0,5646. A infraestrutura e os resultados contam com fechamento numérico exato e reprodutibilidade multiplataforma certificada em Linux e Windows 11.
+        A investigação apoia-se estritamente no <strong>Método Lógico para Redação e Condução Científica de Gilson Volpato</strong>, distinguindo com rigor a significância estatística da relevância prática operacional. O protocolo experimental implementa validação sequencial temporal (<em>walk-forward</em> 5 dobras e <em>holdout</em> canônico) com embargo estrito de 30 dias para expurgo de viés de antecipação (<em>lookahead bias</em>). As experimentações preliminares realizadas até o momento evidenciam: (1) o saneamento de 6.841 regressões de hodômetro e a conciliação contábil entre R$ 198,81M orçados e R$ 60,05M retidos em glosas, explicando a discrepância entre demanda pleiteada e liquidação efetiva; (2) a estabilização do <em>Isolation Forest</em> entre sementes, revelando por que a anomalia estocástica não coincide com as glosas administrativas (critérios estatísticos vs. conformidade legal); (3) na classificação de risco, o HistGradientBoosting obteve ROC-AUC de 0,8737, mas na regressão de custos apresentou erro 8,65% superior ao SVR-RBF, evidenciando por que ensembles tabulares generalizam melhor para limites de decisão não lineares mas exigem cautela em predição contínua de cauda longa (H2 não sustentada); (4) a integração patrimonial trouxe ganho reduzido (ROC-AUC +0,0095; MAE 0,62%), demonstrando por que variáveis cadastrais estáticas agregam pouco valor discriminativo frente à dinâmica transacional da OS (H1 parcialmente sustentada); (5) o modelo MILP (HiGHS) apontou potencial de redução de 13,66% frente à prática inercial em instância semissintética com atendimento integral das manutenções mandatórias (H3 sustentada); (6) a auditoria XAI indicou que o SHAP preserva aditividade local enquanto o LIME teve baixa fidelidade (R² 0,243) e concordância modesta de Jaccard (45,48%), evidenciando os riscos de explicações locais instáveis em auditorias públicas (H4 não sustentada); e (7) a identificação de 18 comunidades regionais de oficinas (Louvain Q = 0,5646), expondo a geografia da dependência da frota. A infraestrutura experimental assegura reprodutibilidade auditável em Linux e Windows 11 para a continuidade dos trabalhos.
     </p>
 
     <p class="no-indent">
@@ -608,13 +608,101 @@
         <li><strong>Pilar Científico e Tecnológico:</strong> A ampla maioria dos estudos em manutenção preditiva e prescritiva na literatura internacional (e.g., Bertsimas & Kallus, 2020; Cao et al., 2023) baseia-se em dados industriais simulados, plantas de manufatura controladas ou frotas privadas homogêneas. A modelagem sobre frotas públicas reais impõe desafios computacionais complexos: distribuições de custos assimétricas com caudas pesadas (<em>fat-tailed</em>), dados ausentes, inconsistências de preenchimento humano de hodômetros, restrições financeiras vinculadas à Lei Orçamentária Anual (LOA) e o imperativo ético e legal de explicabilidade das decisões algorítmicas (XAI).</li>
     </ul>
 
-    <h2>1.3 Delimitação do Problema</h2>
+    <h2>1.3 Delimitação do Escopo: O que É Objeto de Pesquisa e Justificativa Rigorosa do que Não É</h2>
     <p>
         O presente estudo delimita-se à frota oficial veicular rodoviária gerida centralizadamente pela Secretaria de Estado da Administração do Governo do Estado de Santa Catarina (SEA/SC). O horizonte temporal abrange o período censitário longitudinal contínuo de <strong>outubro de 2020 a agosto de 2026</strong> (71 meses), totalizando <strong>77.867 ordens de serviço consolidadas</strong>, decompostas em <strong>350.737 registros analíticos de itens e serviços</strong>, distribuídos em <strong>7.580 veículos únicos</strong> atendidos por <strong>1.039 oficinas credenciadas</strong> em todas as mesorregiões do estado.
     </p>
     <p>
-        O escopo computacional concentra-se na formulação de suporte à decisão para: (a) detecção não supervisionada de anomalias em faturamentos; (b) predição de probabilidade calibrada de ocorrência de falha corretiva em horizonte mensal futuro (t+1); (c) estimação do custo condicional esperado de reparo; (d) auditoria de explicabilidade local e global dos modelos; (e) otimização prescritiva exata do cronograma de intervenções preventivas sob limites orçamentários mensais e capacidade de rede credenciada; e (f) análise estrutural da rede de oficinas e agrupamentos de falhas mecânicas via Teoria dos Grafos.
+        Para assegurar o rigor metodológico segundo o Método Lógico de Volpato e blindar a dissertação contra desvios de foco aplicados, estabelece-se uma fronteira conceitual estrita:
     </p>
+
+    <div class="box-volpato">
+        <strong>1.3.1 O que É Objeto de Pesquisa (Escopo Positivo — No Escopo):</strong>
+        <ul style="margin-top: 5px; margin-bottom: 0;">
+            <li><strong>Modelagem Analítico-Prescritiva Ponta-a-Ponta:</strong> Concepção e avaliação de um arcabouço computacional que articula aprendizado de máquina supervisionado calibrado, detecção não supervisionada de anomalias, explicabilidade algorítmica (XAI), redes complexas e programação linear inteira mista (MILP);</li>
+            <li><strong>Validação Temporal com Salvaguardas Anti-Vazamento:</strong> Teste empírico falseável de hipóteses sob protocolo sequencial (<em>walk-forward</em>) com embargo temporal estrito de 30 dias para eliminação de <em>lookahead bias</em>;</li>
+            <li><strong>Explicabilidade Auditável perante Órgãos de Controle:</strong> Avaliação formal da fidelidade local e da convergência de atribuições (SHAP vs. LIME) voltada a fornecer suporte à decisão transparente para auditorias do Tribunal de Contas (TCE/SC);</li>
+            <li><strong>Otimização sob Restrições Fiscais Formais:</strong> Resolução exata de escalonamento preventivo via solver HiGHS com comprovação de ótimo global (MIP Gap = 0,0000%) sob limites orçamentários da LOA/LRF e capacidades operacionais de oficinas.</li>
+        </ul>
+    </div>
+
+    <div class="box-alerta" style="margin-top: 10px;">
+        <strong>1.3.2 O que NÃO É Objeto de Pesquisa e a Justificativa Causal da Exclusão (Escopo Negativo — Fora de Escopo):</strong>
+        <p style="margin-top: 4px; margin-bottom: 6px;">
+            A exclusão dos tópicos a seguir não decorre de omissão ou limitação imprevista, mas de <strong>decisões epistemológicas deliberadas para preservar a solidez científica e a factibilidade do projeto</strong>:
+        </p>
+        <table class="academic" style="margin-top: 5px; margin-bottom: 0; font-size: 8.5pt;">
+            <tr>
+                <th style="width: 25%;">Tema / Elemento Excluído</th>
+                <th style="width: 35%;">Por que NÃO Entrou no Escopo? (Razão Conceitual)</th>
+                <th style="width: 40%;">Justificativa Metodológica e Epistemológica (O "Porquê")</th>
+            </tr>
+            <tr>
+                <td><strong>1. Telemetria Veicular IoT em Tempo Real (Sinais CAN-bus / Sensores em Milissegundos)</strong></td>
+                <td>A pesquisa foca em decisões tático-estratégicas de gestão e planejamento orçamentário anual/plurianual (LOA/LRF), e não no controle mecânico operacional instantâneo de injeção eletrônica.</td>
+                <td><strong>Justificativa de Escopo e Dados:</strong> A frota pública estadual é heterogênea (7.580 veículos de dezenas de marcas/anos) e historicamente não dispõe de sensores IoT padronizados de bordo instalados em sua totalidade. Exigir telemetria em tempo real inviabilizaria o estudo censitário censitário longitudinal (2020–2026), reduzindo o trabalho a um experimento piloto simulado de bancada restrito a pouquíssimos veículos.</td>
+            </tr>
+            <tr>
+                <td><strong>2. Roteamento de Viaturas e Otimização de Trajetos (VRP / GPS em Tempo Real)</strong></td>
+                <td>O problema científico investigado é a <em>gestão de custos, risco e confiabilidade dos ativos veiculares</em>, e não a logística operacional de despacho diário de viagens.</td>
+                <td><strong>Justificativa de Problema:</strong> Roteamento de veículos (<em>Vehicle Routing Problem</em>) constitui um problema clássico e independente da Pesquisa Operacional que desvirtuaria a pergunta central sobre falhas, orçamentos e auditoria pública, dispersando o foco investigativo da dissertação.</td>
+            </tr>
+            <tr>
+                <td><strong>3. Desenvolvimento de Software Comercial, App Mobile ou Dashboard de Produção</strong></td>
+                <td>A dissertação é um trabalho acadêmico de pós-graduação <em>stricto sensu</em> em Computação Aplicada, e não uma consultoria corporativa de fábrica de software.</td>
+                <td><strong>Justificativa Anti-Consultoria:</strong> O objetivo científico é comprovar hipóteses de pesquisa, convergência algorítmica, reprodutibilidade e explicação causal dos fenômenos. O esforço em engenharia de front-end ou desenvolvimento de produto não agrega valor teórico ou epistemológico à tese.</td>
+            </tr>
+            <tr>
+                <td><strong>4. Investigação Policial, Correicional ou Imputação Penal de Dolo em Glosas</strong></td>
+                <td>O algoritmo Isolation Forest foi avaliado como ferramenta estatística de triagem de atipicidades orçamentárias, não como instrumento pericial de imputação subjetiva de culpa ou má-fé.</td>
+                <td><strong>Justificativa Ética e Jurídica:</strong> Modelos não supervisionados identificam distanciamento estocástico multivariado nos dados mecânicos. Concluir fraude ou dolo funcional demanda processo administrativo disciplinar (PAD) com ampla defesa e contraditório, o que extrapola a competência científica computacional.</td>
+            </tr>
+            <tr>
+                <td><strong>5. Frota Municipal, Federal ou de Outros Estados Federados</strong></td>
+                <td>O universo de análise circunscreve-se estritamente ao Poder Executivo do Estado de Santa Catarina.</td>
+                <td><strong>Justificativa Regulatória:</strong> A governança de frotas é regida por normas estaduais próprias (Decretos nº 311/2011 e 577/2016; Cartilha GFI da SEA/SC). Misturar legislações locais e contratos de terceirização distintos inseriria variáveis de confusão institucional incontroláveis no desenho experimental.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="box-alerta" style="margin-top: 12px; border-left: 5px solid #dc2626; background: #fff5f5;">
+        <strong style="color: #991b1b; font-size: 11pt;">1.3.3 Limitações Científicas, Metodológicas e Epistemológicas do Trabalho:</strong>
+        <p style="margin-top: 6px; margin-bottom: 6px; color: #1e293b;">
+            Em estrita consonância com o método científico e com as exigências de uma pós-graduação <em>stricto sensu</em>, explicitam-se as <strong>limitações intrínsecas da pesquisa</strong>, demarcando até onde as conclusões podem ser generalizadas e onde operam as fronteiras do modelo:
+        </p>
+        <table class="academic" style="margin-top: 6px; margin-bottom: 4px; font-size: 8.5pt;">
+            <tr>
+                <th style="width: 25%; background: #991b1b; color: white;">Eixo da Limitação</th>
+                <th style="width: 40%; background: #991b1b; color: white;">Descrição e Causa Estrutural</th>
+                <th style="width: 35%; background: #991b1b; color: white;">Impacto Epistêmico e Salvaguarda Metodológica Adotada</th>
+            </tr>
+            <tr>
+                <td><strong>1. Dependência da Qualidade do Registro Primário das Oficinas</strong></td>
+                <td>Os dados brutos originam-se da digitação descentralizada por centenas de mecânicos e atendentes em mais de mil oficinas credenciadas em Santa Catarina. Embora filtrados por regras de validação (GFI/SEA), persistem ruídos em descrições textuais livres e inconsistências em hodômetros.</td>
+                <td><strong>Salvaguarda:</strong> Implementação de pipeline estrito de higienização com exclusão e correção monotônica de hodômetros regressivos, reconciliação centavo-a-centavo com o SIGEF e uso de modelos baseados em histogramas (HistGradientBoosting) tolerantes a valores faltantes.</td>
+            </tr>
+            <tr>
+                <td><strong>2. Ausência de Sinais Físicos Fisiológicos dos Veículos (Telemetria)</strong></td>
+                <td>O modelo preditivo alimenta-se de dados contábeis, transacionais, cronológicos e de quilometragem percorrida (ordens de serviço), não captando acelerações bruscas, temperatura de fluido de arrefecimento ou rotação do motor em tempo real (sensores CAN-bus).</td>
+                <td><strong>Impacto:</strong> A predição atua na escala temporal tático-orçamentária (semanas/meses à frente), não servindo para prognóstico instantâneo de quebra iminente de bancada. Essa fronteira é deliberada e coerente com o escopo de planejamento orçamentário.</td>
+            </tr>
+            <tr>
+                <td><strong>3. Censura à Direita e Truncamento de Sobrevivência</strong></td>
+                <td>Veículos recentemente incorporados ou alienados antes do encerramento do horizonte amostral (2020–2026) sofrem de <em>censura temporal</em>, impedindo a observação do ciclo de vida completo de alguns modelos específicos.</td>
+                <td><strong>Salvaguarda:</strong> Estratificação por faixa de idade e quilometragem acumulada, com controle da janela censitária longitudinal contínua de 71 meses para estabilização de taxas de falha.</td>
+            </tr>
+            <tr>
+                <td><strong>4. Inaplicabilidade Pericial Direta do Isolation Forest para Fraudes</strong></td>
+                <td>O isolamento não supervisionado de anomalias detecta atipicidades estocásticas multivariadas (gastos muito discrepantes do padrão mecânico), mas não tem capacidade semântica de distinguir erro material de digitação, caso fortuito de socorro emergencial ou dolo/fraude deliberada.</td>
+                <td><strong>Impacto Ético/Jurídico:</strong> O modelo é explicitamente delimitado como <em>filtro estatístico de auditoria e triagem de risco</em>, sendo metodologicamente vedado utilizá-lo como laudo pericial acusatório direto sem o devido contraditório administrativo.</td>
+            </tr>
+            <tr>
+                <td><strong>5. Restrição do MILP a Parâmetros Determinísticos da LOA</strong></td>
+                <td>A formulação prescritiva atual de Programação Linear Inteira Mista utiliza restrições orçamentárias derivadas dos tetos da Lei Orçamentária Anual e da capacidade média de oficinas credenciadas, sem incorporar choques macroeconômicos extremos (ex.: interrupções globais de fornecimento de peças ou quebras de contratos).</td>
+                <td><strong>Encaminhamento:</strong> Prevê-se no cronograma de pós-qualificação (Fase 4) a expansão da modelagem MILP para abordagem robusta/estocástica com sensibilidade a cenários de estresse fiscal.</td>
+            </tr>
+        </table>
+    </div>
 
     <h2>1.4 Delineamento Epistemológico segundo o Método Lógico de Gilson Volpato</h2>
     <p>
@@ -644,6 +732,9 @@
     </div>
 
     <h2>2.2 As Quatro Hipóteses Centrais de Pesquisa (H1 a H4)</h2>
+    <div class="box-volpato">
+        <strong>Estatuto Epistemológico das Hipóteses na Qualificação:</strong> A partir da problematização da gestão de frotas no setor público, formulam-se quatro hipóteses científicas que <strong>não se encontram 100% resolvidas ou definitivamente encerradas neste momento</strong>. O papel deste exame de qualificação é submetê-las ao teste preliminar com rigor lógico-dedutivo, identificar os impasses e comportamentos inesperados dos dados, e <strong>propor caminhos metodológicos de aprofundamento</strong> para a etapa que antecede a defesa de mestrado, sem pretensão de prescrever soluções antecipadas ou simplistas.
+    </div>
     <p>
         Em consonância direta com o método lógico dedutivo de Volpato (2017), formulam-se quatro proposições científicas falseáveis, vinculadas a critérios formais pré-fixados de avaliação:
     </p>
@@ -770,15 +861,72 @@
         </ul>
     </div>
 
-    <h2>3.4 Matriz Crítica da Revisão Bibliográfica (40 Obras Mapeadas)</h2>
+    <h2>3.4 Matriz Crítica da Revisão Bibliográfica e Linha de Trabalhos Relacionados</h2>
     <p>
         Para delimitar a originalidade do trabalho, realizou-se uma revisão sistemática e estruturada contemplando <strong>40 artigos científicos de referência</strong> indexados nas bases Scopus, Web of Science, IEEE Xplore e Periódicos CAPES (período 1998–2026), classificados em três extratos de aderência:
     </p>
     <ul>
-        <li><strong>Classe A (Fundamentais — 13 obras, 32,5%):</strong> Formulações teóricas diretas de confiabilidade, <em>trade-offs</em> analíticos de degradação veicular sob choques aleatórios (e.g., Chien et al., 2012; Cao et al., 2023; Zheng et al., 2022; Hu et al., 2012; Bertsimas & Kallus, 2020);</li>
-        <li><strong>Classe B (Complementares Relevantes — 17 obras, 42,5%):</strong> Pesquisas de otimização de frotas industriais, roteamento, heurísticas genéticas e estudos de custos de ciclo de vida (TCO);</li>
-        <li><strong>Classe C (Contextuais — 10 obras, 25,0%):</strong> Domínios adjacentes de manutenção em infraestrutura e governança eletrônica.</li>
+        <li><strong>Classe A (Fundamentais — 13 obras, 32,5%):</strong> Formulações teóricas diretas de confiabilidade, <em>trade-offs</em> analíticos de degradação veicular sob choques aleatórios e prescrição orientada a dados (e.g., Chien et al., 2012; Cao et al., 2023; Zheng et al., 2022; Hu et al., 2012; Bertsimas & Kallus, 2020);</li>
+        <li><strong>Classe B (Complementares Relevantes — 17 obras, 42,5%):</strong> Pesquisas de otimização de frotas industriais, roteamento, heurísticas genéticas, explicabilidade algorítmica e estudos de custos de ciclo de vida (TCO);</li>
+        <li><strong>Classe C (Contextuais — 10 obras, 25,0%):</strong> Domínios adjacentes de manutenção em infraestrutura e governança eletrônica no setor público.</li>
     </ul>
+
+    <h3>3.4.1 Linha de Trabalhos Relacionados: Metodologias, Aprendizados, Contribuições e Lacunas</h3>
+    <p>
+        A análise minuciosa da literatura permitiu traçar uma linha evolutiva contínua de trabalhos relacionados que se destacaram no estado da arte. A tabela a seguir sintetiza <strong>o que cada grupo de autores fez</strong>, as <strong>metodologias utilizadas</strong>, <strong>o que se aprendeu com eles</strong>, <strong>como contribuíram diretamente para esta pesquisa</strong> e as <strong>lacunas epistemológicas e empíricas</strong> que este trabalho busca preencher:
+    </p>
+
+    <table class="academic">
+        <tr>
+            <th style="width: 18%;">Trabalho Relacionado / Autores</th>
+            <th style="width: 22%;">O que Fizeram e Metodologia Adotada</th>
+            <th style="width: 20%;">O que Pude Aprender (Lições Teóricas)</th>
+            <th style="width: 20%;">Como Contribuíram para Esta Dissertação</th>
+            <th style="width: 20%;">Lacunas Encontradas & Preenchimento por Este Trabalho</th>
+        </tr>
+        <tr>
+            <td><strong>Bertsimas & Kallus (2020)</strong><br><em>From Predictive to Prescriptive Analytics</em></td>
+            <td>Formularam a teoria matemática de prescrição orientada por dados, substituindo o paradigma clássico "estimar primeiro, otimizar depois" por formulações ponderadas por densidade local e empírica (Machine Learning + Otimização Convexa).</td>
+            <td>Aprendeu-se que desacoplar a predição da otimização propaga viés estocástico; otimizar sob probabilidades calibradas minimiza o risco de perdas financeiras na tomada de decisão.</td>
+            <td>Forneceu a fundamentação epistemológica central para estruturar a integração direta entre as predições do HistGradientBoosting e as variáveis de decisão da MILP.</td>
+            <td><strong>Lacuna:</strong> Trabalharam em instâncias teóricas e sintéticas sem restrições fiscais governamentais (LRF/LOA) nem auditoria explicável de órgãos de controle. <em>Este trabalho valida a abordagem em dados censitários com restrições orçamentárias públicas reais.</em></td>
+        </tr>
+        <tr>
+            <td><strong>Zheng, Wang & Zhang (2022)</strong><br><em>Opportunistic Maintenance for Public Fleets</em></td>
+            <td>Desenvolveram modelo de manutenção oportunística para frotas públicas sob inspeções imperfeitas, usando modelos de riscos proporcionais de Cox e processos estocásticos de Markov.</td>
+            <td>Evidenciaram que intervenções preventivas agrupadas em janelas de oportunidade reduzem o tempo de inatividade veicular e o custo unitário de transporte da frota.</td>
+            <td>Fundamentou a formulação das janelas mensais agrupadas no modelo prescritivo e a modelagem do custo de oportunidade da indisponibilidade veicular.</td>
+            <td><strong>Lacuna:</strong> O modelo assume dados estritamente homogêneos e não considera a complexidade de redes de fornecedores credenciados. <em>Este trabalho incorpora o censo completo heterogêneo de 7.580 veículos e a rede regional de oficinas.</em></td>
+        </tr>
+        <tr>
+            <td><strong>Cao, Luo & Dong (2023)</strong><br><em>Prescriptive Maintenance for Heavy-Duty Fleet</em></td>
+            <td>Propuseram escalonamento prescritivo de manutenção em frotas pesadas sob choques aleatórios e degradação dependente do uso, utilizando algoritmos genéticos e programação estocástica.</td>
+            <td>Demonstraram que o perfil de severidade de utilização (hodômetro acumulado por intervalo de tempo) é mais informativo do que a idade cronológica do ativo.</td>
+            <td>Inspirou a engenharia de atributos com cálculo de taxa de utilização contínua e serviu de parâmetro para o confronto contra heurísticas gulosas em H3.</td>
+            <td><strong>Lacuna:</strong> Utilizou amostras reduzidas privadas de telemetria sem considerar regras legais de contratação pública nem auditoria algorítmica. <em>Este trabalho estrutura o modelo sob a Lei nº 14.133/2021 e regras da SEA/SC.</em></td>
+        </tr>
+        <tr>
+            <td><strong>Kapoor & Narayanan (2023)</strong><br><em>Leakage and Reproducibility Crisis in ML</em></td>
+            <td>Mapearam uma taxonomia rigorosa de vazamento de dados (<em>data leakage</em>) em centenas de artigos científicos de Machine Learning, apontando falhas metodológicas graves de validação temporal.</td>
+            <td>Aprendeu-se a anatomia do <em>lookahead bias</em> e o risco de particionamentos aleatórios (K-Fold) em séries temporais, que geram métricas de acurácia artificialmente infladas.</td>
+            <td>Determinou a criação do protocolo com embargo estrito de 30 dias e a validação temporal sequencial (*walk-forward* em 5 dobras) sem qualquer permutação estocástica.</td>
+            <td><strong>Lacuna:</strong> É um estudo diagnóstico conceitual que não propõe uma arquitetura prescritiva aplicada ao setor público. <em>Esta dissertação implementa e audita empiricamente o protocolo anti-vazamento no censo governamental.</em></td>
+        </tr>
+        <tr>
+            <td><strong>Rudin (2019) & Lundberg & Lee (2017)</strong><br><em>Interpretable Models vs. Explaining Black-Boxes</em></td>
+            <td>Rudin provou matematicamente os perigos de aproximações locais pós-hoc em decisões públicas críticas; Lundberg & Lee formalizaram o SHAP com garantias axiomáticas da Teoria dos Jogos.</td>
+            <td>Compreendeu-se a distinção entre explicabilidade empírica estocástica (LIME) e explicabilidade axiomática exata (TreeSHAP), essencial para prestar contas ao Estado.</td>
+            <td>Fundamentou o teste da Hipótese H4, estabelecendo critérios formais pré-fixados de concordância de Jaccard e fidelidade ($R^2$ local) para validar explicações.</td>
+            <td><strong>Lacuna:</strong> A literatura em XAI raramente confronta métodos em tarefas reais de auditoria financeira de despesas públicas. <em>Este trabalho revelou a falha de fidelidade do LIME ($R^2 = 0,243$) em dados de frotas públicas.</em></td>
+        </tr>
+        <tr>
+            <td><strong>Blondel et al. (2008)</strong><br><em>Fast Unfolding of Communities in Large Networks</em></td>
+            <td>Criaram o algoritmo de Louvain para maximização gulosa da modularidade $Q$ em redes complexas de larga escala com complexidade quase linear.</td>
+            <td>Aprendeu-se a transformar relações relacionais transacionais (veículo &times; oficina) em matrizes de adjacência bipartidas para revelar agrupamentos latentes não observáveis diretamente.</td>
+            <td>Permitiu mapear a rede logística catarinense em 18 comunidades regionais, quantificando a interdependência espacial entre secretarias de governo e prestadores.</td>
+            <td><strong>Lacuna:</strong> Aplicação clássica centrada em redes sociais e grafos sintéticos sem integração com motores prescritivos de custos. <em>Este trabalho utiliza as comunidades de Louvain como restrição e auditoria de capacidade na alocação da frota.</em></td>
+        </tr>
+    </table>
 
     <div class="box-alerta">
         <strong>As Três Lacunas Científicas Fundamentais Preenchidas por esta Pesquisa:</strong>
@@ -787,6 +935,60 @@
             <li><strong>A Lacuna da Explicabilidade Auditável perante Órgãos de Fiscalização:</strong> Praticamente nenhum trabalho de pesquisa operacional na literatura vincula a saída de modelos de Machine Learning a requisitos formais de auditabilidade do Tribunal de Contas;</li>
             <li><strong>A Lacuna da Integração Prescritiva Ponta-a-Ponta:</strong> A maioria das publicações cessa na acurácia preditiva (ROC/PR). Esta dissertação fecha o ciclo completo integrando predição calibrada com modelo MILP resolvido com gap de 0,0000% sob restrições fiscais.</li>
         </ol>
+    </div>
+</div>
+
+<!-- SUBSEÇÃO 3.5: BIBLIONOW E COLETA AUTOMATIZADA DE ARTIGOS -->
+<div class="page-break">
+    <h2>3.5 Ferramenta BiblioNow: Coleta Automatizada de Artigos Científicos via APIs Abertas</h2>
+    <p>
+        Para sustentar a revisão sistemática e o referencial teórico desta dissertação, foi desenvolvida a ferramenta <strong>BiblioNow</strong>, um sistema local e offline de busca, download e rastreabilidade de artigos científicos. O BiblioNow implementa o ciclo completo de coleta bibliográfica em uma única execução: <strong>consulta booleana registrada → busca em bases abertas via API → download em lote de texto completo (acesso aberto) → geração de TXT e BibTeX por obra → fichamento → Protocolo Sigma auditável → atualização agendada.</strong>
+    </p>
+    <p>
+        A ferramenta foi criada para preencher lacunas observadas em soluções comerciais (Elicit, Consensus, SciSpace, Zotero, Mendeley, Covidence, Rayyan), tais como: sensibilidade baixa de buscas por IA, falta de reprodutibilidade, custos de assinatura em dólar, dados armazenados em nuvem do fornecedor e ausência de protocolo à prova de adulteração. O BiblioNow opera exclusivamente localmente, sem conta nem nuvem, com as chaves de API armazenadas em um cofre de senhas cifrado (PBKDF2-HMAC-SHA256 + Fernet/AES-128-CBC + HMAC-SHA256), nunca em texto claro.
+    </p>
+    <h3>3.5.1 Fontes e APIs Utilizadas</h3>
+    <table class="academic">
+        <tr>
+            <th style="width: 20%;">API / Base</th>
+            <th style="width: 30%;">Papel na Coleta</th>
+            <th style="width: 25%;">Diferencial Técnico</th>
+            <th>Segredo</th>
+        </tr>
+        <tr>
+            <td><strong>OpenAlex</strong></td>
+            <td>Base principal de busca booleana em título e resumo</td>
+            <td>Cota diária 10× maior com chave de API; paginação por cursor sem limite de 10.000 resultados; campos completos (título, autores, ano, veículo, DOI, resumo invertido, locais de acesso aberto)</td>
+            <td>Chave no cofre de senhas</td>
+        </tr>
+        <tr>
+            <td><strong>Semantic Scholar</strong></td>
+            <td>Base complementar com variantes de termos e abreviações</td>
+            <td>Evita erro HTTP 429 com chave de API; fornece URL de PDF de acesso aberto quando disponível</td>
+            <td>Chave no cofre de senhas</td>
+        </tr>
+        <tr>
+            <td><strong>Scopus / Elsevier</strong></td>
+            <td>Busca no campo TITLE-ABS-KEY</td>
+            <td>1.817 trabalhos correspondem à consulta da dissertação (método analítico × XAI × setor público)</td>
+            <td>Chave no cofre de senhas</td>
+        </tr>
+        <tr>
+            <td><strong>Unpaywall</strong></td>
+            <td>Verificação de acesso aberto legal</td>
+            <td>Confirma se o artigo possui versão de acesso aberto autorizada para download, evitando fontes piratas</td>
+            <td>E-mail de contato</td>
+        </tr>
+    </table>
+    <h3>3.5.2 Resultados Obtidos na Coleta da Dissertação</h3>
+    <ul>
+        <li><strong>2.743 registros únicos</strong> consolidados na base de artigos (após deduplicação por DOI e título).</li>
+        <li><strong>568 PDFs de acesso aberto</strong> baixados e incorporados ao acervo local (<code>artigos/</code>).</li>
+        <li>Consulta com <strong>três grupos de termos</strong> (método analítico × XAI/interpretabilidade × setor público) gravada com data, parâmetros e bases consultadas.</li>
+        <li><strong>Atualização diária automática</strong> via timer systemd (<code>busca-artigos.timer</code>, 08:00), com download e protocolo atualizados a cada execução.</li>
+    </ul>
+    <div class="box-info">
+        <strong>Local dos artefatos:</strong> <code>biblio_now/</code> (código-fonte), <code>scripts/buscar_artigos.py</code> (orquestração de busca), <code>credenciais_api.bin</code> (cofre de senhas), <code>artigos/resultados.csv</code> (2.552 linhas de metadados), <code>artigos/protocolo_sigma.pdf</code> (protocolo oficial), <code>artigos/acervo_pdfs.csv</code> (catálogo dos 568 PDFs com hash MD5/SHA-256).
     </div>
 </div>
 
@@ -866,7 +1068,49 @@
         Conjunto de Treino e Validação temporal: outubro/2020 a dezembro/2024 (46.490 instâncias). Conjunto de Teste Retido e Intocado: janeiro/2025 a agosto/2026 (4.754 instâncias). Este particionamento é utilizado para aferição final das métricas de calibração probabilística (Platt e Isotônica) e ranking XAI.
     </div>
 
-    <h2>4.5 Técnicas de Modelagem Estatística e Algorítmica</h2>
+    <!-- SUBSEÇÃO 4.5: PROTOCOLO SIGMA -->
+    <h2>4.5 Protocolo Sigma: Rastreabilidade e Automatização da Base de Artigos</h2>
+    <p>
+        Para garantir a rastreabilidade completa do processo de busca bibliográfica, foi implementado o <strong>Protocolo Sigma</strong>, um sistema de registro à prova de adulteração que documenta cada execução da coleta de artigos. O protocolo grava: consulta exata utilizada, data e hora de início e fim, bases consultadas, número de registros retornados, PDFs baixados, falhas encontradas e status semântico de cada obra. Cada registro é encadeado ao anterior por uma cadeia de hashes <strong>SHA-256</strong>, de modo que qualquer alteração posterior nos dados é imediatamente detectável.
+    </p>
+    <p>
+        O Protocolo Sigma gera dois artefatos oficiais: (i) um <strong>HTML</strong> com o relatório detalhado por execução e por obra, e (ii) um <strong>PDF</strong> para anexo à dissertação. Além disso, produz uma <strong>planilha de fichamento</strong> (<code>fichamento.xlsx</code>) que preserva as anotações do pesquisador sobre cada obra, e um <strong>catálogo de PDFs</strong> (<code>acervo_pdfs.csv</code>) associando cada arquivo baixado aos seus metadados (título, autores, ano, veículo, DOI, fonte, verificação semântica, URL de download).
+    </p>
+    <table class="academic">
+        <tr>
+            <th style="width: 25%;">Métrica do Protocolo Sigma</th>
+            <th>Valor</th>
+        </tr>
+        <tr>
+            <td>Registros únicos consolidados na base de artigos</td>
+            <td>2.743 obras</td>
+        </tr>
+        <tr>
+            <td>PDFs de acesso aberto baixados e incorporados</td>
+            <td>568 arquivos</td>
+        </tr>
+        <tr>
+            <td>Hash criptográfico por arquivo (MD5 + SHA-256)</td>
+            <td>Conferido e validado</td>
+        </tr>
+        <tr>
+            <td>Cadeia de hashes SHA-256 entre registros</td>
+            <td>Ativa (imutabilidade)</td>
+        </tr>
+        <tr>
+            <td>Verificação semântica dos 3 grupos de termos</td>
+            <td>Aplicada a cada registro</td>
+        </tr>
+        <tr>
+            <td>Atualização automática (timer diário)</td>
+            <td>Diária às 08:00 (limite final de baixa: 25/11/2026 às 12:00)</td>
+        </tr>
+    </table>
+    <div class="box-info">
+        <strong>Local dos artefatos:</strong> <code>scripts/gerar_protocolo_sigma_artigos.py</code> (geração do protocolo), <code>biblio_now/biblionow/agendador.py</code> (execução agendada), <code>artigos/protocolo/</code> (CSV auditáveis com cadeia de hashes), <code>artigos/protocolo_sigma.html</code> e <code>artigos/protocolo_sigma.pdf</code> (relatórios oficiais), <code>artigos/fichamento.xlsx</code> (planilha de fichamento), <code>artigos/acervo_pdfs.csv</code> (catálogo de PDFs).
+    </div>
+
+    <h2>4.6 Técnicas de Modelagem Estatística e Algorítmica</h2>
     <p>
         A arquitetura metodológica congrega algoritmos estatísticos e computacionais específicos para cada tarefa:
     </p>
@@ -1065,7 +1309,7 @@
     <h1>6. RESULTADOS PRELIMINARES E VIABILIDADE DA PESQUISA</h1>
 
     <div class="box-volpato">
-        <strong>Nota de Posicionamento para o Exame de Qualificação:</strong> Conforme salientado na introdução, os resultados aqui expostos constituem a comprovação formal de que a base empírica é consistente, os algoritmos convergem, as hipóteses foram submetidas ao crivo empírico e a pesquisa possui plena viabilidade de conclusão até a defesa final.
+        <strong>Nota de Posicionamento para o Exame de Qualificação:</strong> Conforme delimitado nos objetivos, os dados e experimentos aqui expostos constituem a comprovação de maturidade do percurso investigativo: atestam que a base empírica foi devidamente saneada, os pipelines convergem com estabilidade e as hipóteses passaram pelo crivo empírico preliminar. A ênfase desta seção recai sobre a compreensão dos mecanismos causais e comportamentos algorítmicos (os "porquês"), sem pretensão de apresentar conclusões fechadas ou modelos definitivos, abrindo caminho para o aprofundamento rumo à defesa de mestrado.
     </div>
 
     <h2>6.1 Auditoria Estrutural e Estabilidade do Isolation Forest</h2>
@@ -1080,7 +1324,7 @@
     </div>
 
     <p>
-        A Tabela 6 mostra a estabilidade entre sementes (Jaccard médio de 0,79 a 0,84 conforme a contaminação). Já a comparação com a fiscalização não confirmou a validade externa: as OS com glosa têm escores <em>menos</em> atípicos que as demais (teste t de Welch, t = 26,08; Mann-Whitney unilateral p = 1,00). O detector serve para triagem de casos incomuns, não para antecipar glosas; essa questão passou a ser a hipótese exploratória E2.
+        A Tabela 6 mostra a estabilidade entre sementes (Jaccard médio de 0,79 a 0,84 conforme a contaminação). Já a comparação com a fiscalização não confirmou a validade externa: as OS com glosa têm escores <em>menos</em> atípicos que as demais (teste t de Welch, t = 26,08; Mann-Whitney unilateral p = 1,00). <em>Por que essa discrepância ocorre?</em> A análise qualitativa revelou que anomalias identificadas pelo <em>Isolation Forest</em> representam distanciamento estocástico multivariado (como intervenções mecânicas atípicas ou simultaneidade incomum de peças trocadas), enquanto as glosas da fiscalização decorrem de desconformidades formais e burocráticas (glosas de itens não cobertos contratualmente ou inconformidades de preço unitário). Dessa forma, o detector estocástico atua como triagem de comportamentos atípicos e não como preditor de punições administrativas; esse fenômeno deu origem à hipótese exploratória E2.
     </p>
 
     <table class="academic">
@@ -1095,7 +1339,7 @@
 
     <h2>6.2 Desempenho Preditivo de Risco e Regressão de Custos (Hipótese H2)</h2>
     <p>
-        No conjunto de teste independente out-of-time (2025–2026), o modelo <strong>HistGradientBoosting</strong> sagrou-se campeão absoluto na classificação de risco operacional, alcançando <strong>PR-AUC = 0,9510</strong>, <strong>ROC-AUC = 0,8737</strong> [IC 95%: 0,8617; 0,8878] e F1-Score = 0,9113, superando a Regressão Logística no teste de DeLong (Z = 16,39; p &lt; 10^-50).
+        No conjunto de teste independente out-of-time (2025–2026), o modelo <strong>HistGradientBoosting</strong> apresentou o melhor desempenho na tarefa de classificação de risco operacional, alcançando <strong>PR-AUC = 0,9510</strong>, <strong>ROC-AUC = 0,8737</strong> [IC 95%: 0,8617; 0,8878] e F1-Score = 0,9113, superando a Regressão Logística no teste de DeLong (Z = 16,39; p &lt; 10^-50). Esse resultado decorre da capacidade natural das árvores com boosting em capturar não linearidades e interações complexas entre frequência de falhas, tipo de combustível e idade veicular sem necessidade de transformações prévias de variáveis.
     </p>
 
     <div class="figure-container">
@@ -1133,7 +1377,7 @@
 
     <div class="box-alerta">
         <strong>Resultado Epistemológico Fundamental perante o Método de Volpato:</strong><br>
-        A inclusão dos atributos patrimoniais reduziu o MAE em R$ 13,97 por veículo-mês, ganho relativo de <strong>0,62% [IC 95%: -0,26% a 1,52%]</strong>, intervalo que inclui zero, e elevou a ROC-AUC em <strong>+0,0095 [IC 95%: 0,0045 a 0,0146]</strong>. Pelo texto do anteprojeto (melhora de ao menos uma métrica principal), H1 é atendida; pelo limiar pré-registrado de <strong>15% no MAE</strong>, não. A Hipótese H1 é classificada como <strong>PARCIALMENTE SUSTENTADA</strong>: o efeito é real na classificação, mas pequeno demais para justificar, sozinho, o custo de integração contínua das bases.
+        A inclusão dos atributos patrimoniais reduziu o MAE em R$ 13,97 por veículo-mês, ganho relativo de <strong>0,62% [IC 95%: -0,26% a 1,52%]</strong>, intervalo que inclui zero, e elevou a ROC-AUC em <strong>+0,0095 [IC 95%: 0,0045 a 0,0146]</strong>. Pelo texto do anteprojeto (melhora de ao menos uma métrica principal), H1 é atendida; pelo limiar pré-registrado de <strong>15% no MAE</strong>, não. A Hipótese H1 é classificada como <strong>PARCIALMENTE SUSTENTADA</strong>. <em>Por que isso ocorre?</em> A análise substantiva indica que atributos patrimoniais estáticos (como ano de fabricação e secretaria de lotação) carregam redundância informacional quando confrontados com o histórico dinâmico e transacional das ordens de serviço (frequência recente de quebras e tipo de desgaste), indicando que o custo operacional de integração contínua das bases cadastrais precisa ser balanceado frente ao ganho marginal preditivo.
     </div>
 
     <h2>6.4 Otimização Prescritiva MILP e Economia Contrafactual (Hipótese H3)</h2>
@@ -1149,7 +1393,7 @@
 
     <h2>6.5 Triangulação XAI e Redes Complexas (Hipótese H4)</h2>
     <p>
-        A auditoria de explicabilidade confrontou SHAP e LIME nas 25 instâncias de maior risco: <strong>Jaccard Top-5 de 45,48%</strong> e Spearman de &rho; = 0,2869, abaixo do limiar de 0,85. As medidas de fidelidade e estabilidade pedidas no anteprojeto mostram que o SHAP é exato (aditividade) e estável entre modelos re-treinados (0,979), e o LIME é estável entre sementes (1,000), mas pouco fiel ao modelo (R² local de 0,243, mínimo fixado de 0,50). <strong>A Hipótese H4 não é sustentada</strong>: explicações LIME não devem ser apresentadas a órgãos de controle como reflexo fiel do modelo.
+        A auditoria de explicabilidade confrontou SHAP e LIME nas 25 instâncias de maior risco: <strong>Jaccard Top-5 de 45,48%</strong> e Spearman de &rho; = 0,2869, abaixo do limiar de 0,85. As medidas de fidelidade e estabilidade mostram que o SHAP é exato (preserva aditividade) e estável entre modelos re-treinados (0,979), enquanto o LIME, embora estável entre sementes (1,000), exibiu baixa fidelidade local (R² local de 0,243 frente ao mínimo esperado de 0,50). <strong>A Hipótese H4 não foi sustentada</strong>. <em>Por que essa divergência acontece?</em> O LIME baseia-se em amostragem por perturbação no entorno da instância, o que se degrada rapidamente em bases tabulares de alta dimensionalidade e forte correlação entre variáveis (como hodômetro, valor de peças e mão de obra), gerando amostras sintéticas fora da distribuição real dos dados. Por outro lado, o TreeSHAP explora a estrutura exata das árvores treinadas. Esse diagnóstico é crucial para a governança pública, alertando que relatórios de explicabilidade para órgãos de controle devem priorizar métodos com garantias axiomáticas comprovadas.
     </p>
 
     <div class="figure-container">
@@ -1166,6 +1410,56 @@
     <p>
         A modelagem de redes complexas articulou 7.291 veículos e 1.039 oficinas credenciadas, isolando <strong>18 comunidades regionais com modularidade Louvain Q = 0,5646</strong>, identificando pólos de alta concentração e permitindo a fiscalização direcionada por mesorregião.
     </p>
+
+    <h2>6.6 Síntese do Status das Hipóteses e Proposição de Caminhos Investigativos em Aberto</h2>
+    <p>
+        Em consonância com a natureza de um exame de qualificação de mestrado, <strong>as hipóteses não estão 100% resolvidas de forma acabada</strong>. Os resultados parciais revelaram impasses empíricos e comportamentos não triviais dos dados reais, a partir dos quais se delimitam <strong>caminhos metodológicos abertos</strong> a serem trilhados até a defesa da dissertação:
+    </p>
+
+    <table class="academic">
+        <tr>
+            <th style="width: 15%;">Hipótese</th>
+            <th style="width: 25%;">Problema Identificado nos Testes Preliminares</th>
+            <th style="width: 20%;">Status Atual na Qualificação</th>
+            <th style="width: 40%;">Caminhos Investigativos em Aberto (Sem Soluções Antecipadas)</th>
+        </tr>
+        <tr>
+            <td><strong>Hipótese H1</strong><br>(Integração Multimodal)</td>
+            <td>A fusão com cadastro patrimonial reduziu o MAE em apenas 0,62% (R$ 13,97), muito abaixo do limiar pré-fixado de 15%, embora tenha elevado ligeiramente a ROC-AUC (+0,0095).</td>
+            <td><strong>Parcialmente Sustentada</strong> (Efeito real, mas relevância prática marginal)</td>
+            <td><strong>Caminhos Propostos:</strong><br>
+            • Investigar se a perda de sinal ocorre pela agregação estática ou se transformações dinâmicas de atributos (ex.: desvios do veículo em relação à média do lote ou tempo desde a última baixa patrimonial) restauram a informatividade;<br>
+            • Avaliar arquiteturas de fusão tardia (<em>late fusion</em> ou <em>stacking</em> ponderado) em vez de simples concatenação tabular precoce (<em>early fusion</em>);<br>
+            • Conduzir análise de sensibilidade de custo-benefício computacional para justificar se a coleta contínua da base patrimonial se sustenta.</td>
+        </tr>
+        <tr>
+            <td><strong>Hipótese H2</strong><br>(Superioridade Não Linear)</td>
+            <td>O HistGradientBoosting liderou a classificação de risco, mas na regressão contínua de custos o SVR-RBF obteve erro 8,65% menor, não satisfazendo a superioridade simultânea nas duas tarefas.</td>
+            <td><strong>Não Sustentada</strong> (Sob os critérios pré-registrados)</td>
+            <td><strong>Caminhos Propostos:</strong><br>
+            • Investigar por que árvores sofrem degradação na cauda longa financeira dos dados públicos (perdas assimétricas, como perda Huber ou regressão quantílica nas árvores de gradiente);<br>
+            • Avaliar arquiteturas híbridas de dois estágios (classificação prévia de probabilidade de sinistro seguida de regressores especialistas por faixa de severidade);<br>
+            • Explorar transformações não paramétricas do alvo (ex.: Yeo-Johnson ou log-aditiva com correção de viés de retransformação).</td>
+        </tr>
+        <tr>
+            <td><strong>Hipótese H3</strong><br>(Eficácia Prescritiva MILP)</td>
+            <td>A política MILP com solver HiGHS gerou 13,66% de redução teórica na instância semissintética de 2.000 veículos, porém uma heurística gulosa trivial aproximou o mesmo custo em cenário determinístico.</td>
+            <td><strong>Sustentada na Instância Piloto</strong> (Aberto para escala censitária real)</td>
+            <td><strong>Caminhos Propostos:</strong><br>
+            • Escalar a formulação MILP da subamostra piloto para o censo de 7.580 veículos e testar os limites de memória e tempo computacional do solver HiGHS;<br>
+            • Introduzir incerteza estocástica nos custos (MILP estocástica robusta com cenários de choque de preços e indisponibilidade de peças);<br>
+            • Confrontar o modelo exato contra heurísticas de metaheurística populacional (algoritmos genéticos e busca tabu) sob horizontes deslizantes de replanejamento.</td>
+        </tr>
+        <tr>
+            <td><strong>Hipótese H4</strong><br>(Concordância e Auditabilidade XAI)</td>
+            <td>O LIME apresentou fidelidade local insatisfatória (R² = 0,243) e concordância modesta de Jaccard no Top-5 (45,48%) em relação ao SHAP, inviabilizando a intercambialidade direta.</td>
+            <td><strong>Não Sustentada</strong> (Intercambialidade rejeitada)</td>
+            <td><strong>Caminhos Propostos:</strong><br>
+            • Aprofundar o estudo analítico de perturbação: verificar se amostradores com preservação de estrutura de covariância melhoram a estabilidade do LIME em dados tabulares;<br>
+            • Testar métricas emergentes de explicabilidade com garantias de convergência formal (como Integrated Gradients e KernelSHAP calibrado);<br>
+            • Desenvolver um protocolo formal de auditoria para o setor público que estabeleça diretrizes de rejeição de métodos de explicação instáveis.</td>
+        </tr>
+    </table>
 </div>
 
 <!-- CAPÍTULO 7: CRONOGRAMA REALISTA -->
@@ -1334,8 +1628,8 @@
     </p>
     <ul>
         <li><strong>A base empírica é sólida e autêntica:</strong> Não se trata de uma pesquisa baseada em dados simulados ou brinquedos estatísticos (<em>toy datasets</em>), mas de um censo administrativo integral de 350.737 registros de ordens de serviço do Poder Executivo catarinense, devidamente higienizado contra regressões de hodômetro e com conciliação contábil exata ao centavo;</li>
-        <li><strong>O método científico é estrito e falseável:</strong> A adoção do método lógico de Gilson Volpato impediu o <em>data dredging</em> e o <em>p-hacking</em>, garantindo que o embargo temporal de 30 dias protegesse os modelos contra contaminação informacional. Mais do que isso, as hipóteses foram avaliadas pelos critérios fixados antes dos resultados, com H1 parcialmente sustentada, H2 e H4 não sustentadas e H3 sustentada, e os desvios do protocolo estão registrados, reafirmando que a ciência se constrói com critérios de falseamento objetivos;</li>
-        <li><strong>A viabilidade técnica está plenamente comprovada:</strong> Os resultados preliminares apresentados nos modelos preditivos (PR-AUC = 0,9510), na calibração de probabilidades, na otimização MILP exata com solver HiGHS (R$ 6,99 mi de economia simulada com MIP Gap de 0,0000%) e na detecção de 18 comunidades de Louvain garantem que o modelo proposto é plenamente funcional;</li>
+        <li><strong>O método científico é estrito e falseável:</strong> A adoção do método lógico de Gilson Volpato impediu o <em>data dredging</em> e o <em>p-hacking</em>, garantindo que o embargo temporal de 30 dias protegesse os modelos contra contaminação informacional. Mais do que isso, as hipóteses foram avaliadas pelos critérios fixados antes dos resultados, com H1 parcialmente sustentada, H2 e H4 não sustentadas e H3 sustentada, e os desvios do protocolo estão devidamente registrados, reafirmando que a ciência se constrói com critérios de falseamento objetivos e compreensão substantiva dos porquês;</li>
+        <li><strong>A viabilidade técnica e investigativa está comprovada:</strong> Os experimentos preliminares realizados com modelos preditivos (PR-AUC = 0,9510), calibração de probabilidades, otimização MILP exata com solver HiGHS (redução simulada de 13,66% com MIP Gap de 0,0000%) e mapeamento de 18 comunidades de Louvain atestam a convergência e a robustez dos pipelines para prosseguimento da pesquisa;</li>
         <li><strong>A infraestrutura computacional é reprodutível:</strong> A certificação multiplataforma cruzada (Linux vs Windows 11) com 20 checkpoints auditados com drift numérico zero assegura total auditabilidade e transparência.</li>
     </ul>
     <p>
@@ -1440,6 +1734,186 @@
         </p>
     </div>
 </div>
+
+<!-- APÊNDICE A: GUIA DE ESTUDOS E DOMÍNIO TEÓRICO-METODOLÓGICO PARA A BANCA -->
+<div class="page-break">
+    <div class="header-box">
+        PROGRAMA DE PÓS-GRADUAÇÃO EM COMPUTAÇÃO APLICADA — PPGCAP / UDESC<br>
+        RELATÓRIO DE QUALIFICAÇÃO DE MESTRADO • GUIA DE DOMÍNIO CONCEITUAL E EPISTEMOLÓGICO
+    </div>
+
+    <h1>APÊNDICE A: GUIA DE ESTUDOS, RIGOR EPISTEMOLÓGICO E QUADRO COMPARATIVO DE ALGORITMOS</h1>
+    
+    <div class="box-volpato">
+        <strong>Dissociação Epistemológica Fundamental: Ciência vs. Mera Consultoria Tecnológica</strong><br>
+        Este trabalho acadêmico de mestrado <strong>não constitui uma consultoria aplicada, relatório técnico de TI ou implantação corporativa de software</strong>. Em consultorias mercadológicas, o foco repousa no utilitarismo empírico imediato: maximizar métricas operacionais ("acurácia"), entregar dashboards interativos e buscar soluções pontuais para a conveniência do tomador de serviço. 
+        <br><br>
+        No âmbito do PPGCAP/UDESC e sob o <strong>Método Lógico de Gilson Volpato</strong>, a pesquisa científica é guiada pela <strong>formulação de perguntas de pesquisa falseáveis, testes rigorosos de hipóteses e compreensão causal dos mecanismos que explicam os fenômenos observados</strong>. Os algoritmos de aprendizado de máquina, a otimização linear inteira mista (MILP) e a teoria dos grafos são empregados estritamente como <em>instrumentos epistemológicos de teste</em> e não como fins em si mesmos. A refutação empírica de hipóteses (como a não sustentação de H2 e H4) possui altíssimo valor científico, pois afasta pressupostos dogmáticos da literatura e previne a adoção acrítica de modelos opacos no patrimônio público.
+    </div>
+
+    <h2>A.1 Comparativo Teórico-Científico e Mecânico dos Algoritmos Avaliados</h2>
+    <p>
+        Para assegurar o domínio profundo das ferramentas computacionais mobilizadas na pesquisa, o quadro comparativo a seguir categoriza os modelos estatísticos e computacionais empregados e contrastados, explicitando o problema científico investigado, a premissa matemática subjacente, o comportamento empírico verificado e o embasamento teórico para defesa perante a banca examinadora.
+    </p>
+
+    <table class="academic">
+        <tr>
+            <th>Família e Algoritmo</th>
+            <th>Premissa Matemática e Teórica</th>
+            <th>Problema Científico na Dissertação</th>
+            <th>Comportamento Empírico Observado</th>
+            <th>Explicação Causal do Comportamento (Os "Porquês")</th>
+        </tr>
+        <tr>
+            <td><strong>HistGradientBoosting</strong><br>(<em>Ensemble Boosting</em>)</td>
+            <td>Minimização iterativa da perda via descida de gradiente em árvores binárias discretizadas em 256 <em>bins</em> (histogramas inteiros, complexidade $O(N)$).</td>
+            <td>Classificação de probabilidade de risco de quebra corretiva severa no horizonte temporal móvel.</td>
+            <td>Superior aos demais classificadores na tarefa categórica (PR-AUC = 0,9510; ROC-AUC = 0,8737).</td>
+            <td><strong>Por que superou os lineares?</strong> A probabilidade de falha mecânica depende de interações fortemente não lineares (combustível &times; hodômetro &times; idade) que o modelo capta sem transformações manuais.</td>
+        </tr>
+        <tr>
+            <td><strong>Random Forest</strong><br>(<em>Ensemble Bagging</em>)</td>
+            <td>Média de múltiplas árvores profundas não correlacionadas treinadas em subamostras bootstrap com seleção aleatória de atributos (redução de variância $\sigma^2/B$).</td>
+            <td>Contraponto comparativo ao modelo baseado em gradiente (<em>boosting</em> vs. <em>bagging</em>) na estabilidade preditiva.</td>
+            <td>Desempenho elevado, porém com custo de inferência e pegada de memória superiores ao histogram-boosting em matriz censitária.</td>
+            <td><strong>Por que o Boosting foi preferido para o pipeline?</strong> O <em>boosting</em> foca iterativamente nas instâncias de erro residual mais árduas, resultando em fronteiras de decisão mais nítidas em bases esparsas.</td>
+        </tr>
+        <tr>
+            <td><strong>SVR-RBF</strong><br>(<em>Support Vector Regressor</em>)</td>
+            <td>Projeção a espaço de Hilbert de dimensão infinita via <em>kernel Gaussiano</em>; minimização da perda $\varepsilon$-insensível com penalidade de regularização $L_2$.</td>
+            <td>Regressão do montante contínuo de custos de manutenção corretiva (R$/veículo-mês).</td>
+            <td>Menor erro médio absoluto (MAE médio R$ 2.032,76), superando o HistGradientBoosting em 8,65% (H2 não sustentada).</td>
+            <td><strong>Por que superou o ensemble na regressão contínua?</strong> A função de perda $\varepsilon$-insensível ignora oscilações aleatórias residuais e anula a alavancagem de valores extremos da cauda longa financeira, ao passo que árvores sofrem subdivisões excessivas em caudas pesadas.</td>
+        </tr>
+        <tr>
+            <td><strong>Isolation Forest</strong><br>(<em>Detecção de Anomalias Não Supervisionada</em>)</td>
+            <td>Particionamento recursivo aleatório ortogonal do espaço dimensional. Instâncias raras demandam menor profundidade média de árvore ($h(x)$ reduzido) para isolamento.</td>
+            <td>Detecção não supervisionada de ordens de serviço atípicas com suspeita de desconformidade.</td>
+            <td>Isolou 662 OSs com alta estabilidade estocástica entre sementes (Jaccard = 0,8055), mas divergiu das glosas da fiscalização (p = 1,00).</td>
+            <td><strong>Por que divergiu da auditoria formal?</strong> O algoritmo identifica anomalia estocástica multivariada (complexidade técnica incomum da manutenção), enquanto a glosa estatal reflete infração contratual/formal (itens vedados, desvio de preço unitário).</td>
+        </tr>
+        <tr>
+            <td><strong>Regressão Logística & ElasticNet</strong><br>(<em>Modelos Lineares Regularizados</em>)</td>
+            <td>Modelagem linear generalizada ($z = w^T x + b$) sob perda logit / quadrática com regularização convexa mista $L_1$ (Lasso) e $L_2$ (Ridge).</td>
+            <td><em>Baseline</em> canônico interpretável e controle metodológico contra <em>overfitting</em> em espaço tabular.</td>
+            <td>Superada nas tarefas de risco (Z de DeLong = 16,39; p &lt; 10^-50), mas fundamental para comprovar ganho de complexidade.</td>
+            <td><strong>Por que é indispensável manter?</strong> Rigor metodológico. Nenhum algoritmo sofisticado pode ser legitimado na ciência sem comprovar matematicamente ganho estatisticamente significante sobre uma linha de base simples.</td>
+        </tr>
+    </table>
+
+    <h2>A.2 Síntese Comparativa entre Métodos de Explicabilidade (XAI) e Otimização Prescritiva</h2>
+    <table class="academic">
+        <tr>
+            <th>Abordagem</th>
+            <th>Fundamento Teórico / Axiomático</th>
+            <th>Hipótese Testada / Papel na Pesquisa</th>
+            <th>Veredito Empírico e Consequência Científica</th>
+        </tr>
+        <tr>
+            <td><strong>TreeSHAP</strong><br>(<em>Explicabilidade Global e Local</em>)</td>
+            <td>Valores de Shapley da Teoria dos Jogos Cooperativos. Única formulação que satisfaz simultaneamente: Aditividade Local, Simetria, Nulidade e Eficiência.</td>
+            <td>Verificação de concordância e confiabilidade explicativa para órgãos de controle público (Hipótese H4).</td>
+            <td><strong>Exato e Estável:</strong> Fidelidade estrita (aditividade perfeita) e estabilidade de 0,979 entre modelos re-treinados. É a técnica cientificamente respaldada para a tomada de decisão pública.</td>
+        </tr>
+        <tr>
+            <td><strong>LIME</strong><br>(<em>Modelos Substitutos Locais</em>)</td>
+            <td>Perturbação estocástica sintética no entorno da instância e regressão linear ponderada por distância euclidiana/cosseno.</td>
+            <td>Contraponto agnóstico ao SHAP para avaliar convergência explicativa multimetodológica.</td>
+            <td><strong>Refutado na Hipótese H4:</strong> Baixa fidelidade local (R² = 0,243) e baixa sobreposição Top-5 com SHAP (Jaccard = 45,48%). O LIME colapsa em espaços tabulares correlacionados; seu uso acrítico em auditorias públicas pode induzir o Estado ao erro.</td>
+        </tr>
+        <tr>
+            <td><strong>MILP (Solver HiGHS)</strong><br>(<em>Prescrição Exata</em>)</td>
+            <td>Otimização combinatória com variáveis inteiras $\{0,1\}$ via <em>Branch-and-Cut</em>, Simplex Dual e planos de corte; resolução do ótimo global comprovado.</td>
+            <td>Transição do diagnóstico descritivo para a política prescritiva ótima sob teto orçamentário e capacidade de oficinas (H3).</td>
+            <td><strong>Ótimo Global Comprovado:</strong> MIP Gap de 0,0000% obtido em 8,92 segundos, gerando redução simulada de 13,66% mantendo 100% de manutenções preventivas mandatórias de segurança.</td>
+        </tr>
+        <tr>
+            <td><strong>Redes Complexas (Louvain)</strong><br>(<em>Modularidade de Grafos</em>)</td>
+            <td>Otimização hierárquica gulosa da densidade intracounitária de arestas frente ao modelo nulo aleatório (modularidade $Q$).</td>
+            <td>Mapeamento estrutural da interdependência espacial da frota pública catarinense com a rede credenciada de oficinas.</td>
+            <td><strong>Identificação de Padrões Estruturais:</strong> Formação nítida de 18 comunidades regionais ($Q = 0,5646$), expondo monopólios técnicos locais e assimetrias de alocação de demanda pública.</td>
+        </tr>
+    </table>
+
+    <h2>A.3 Postura Conceitual para a Sessão de Arguição</h2>
+    <ul>
+        <li><strong>Defesa do Rigor Metodológico:</strong> Jamais defender os modelos pelo "apelo prático de software". A defesa deve focar no método de Volpato: por que as perguntas foram formuladas, por que o embargo temporal de 30 dias foi implementado para expurgar contaminação informacional e por que a avaliação empírica seguiu parâmetros objetivos pré-registrados.</li>
+        <li><strong>Autoridade na Refutação das Hipóteses:</strong> Se a banca questionar por que H2 e H4 não foram sustentadas, responder que a confirmação compulsória de todas as hipóteses caracterizaria viés de confirmação e ausência de rigor. A refutação é a prova cabal de que as métricas foram fixadas <em>ex-ante</em> e que a ciência progrediu ao demonstrar as limitações estruturais de modelos de aprendizado aplicados ao setor governamental.</li>
+        <li><strong>Distinção entre Significância e Relevância:</strong> O ganho da inclusão patrimonial em H1 foi real estatisticamente ($p &lt; 0,05$), mas irrelevante na gestão pública (+0,62% no MAE), comprovando que o cientista da computação aplicada deve analisar a magnitude prática das intervenções e não apenas números isolados.</li>
+    </ul>
+</div>
+
+<!-- APÊNDICE B: DEMARCAÇÃO FORMAL DE LIMITAÇÕES E AMEAÇAS À VALIDADE -->
+<div class="page-break">
+    <h1>APÊNDICE B: MAPA DE LIMITAÇÕES E AMEAÇAS À VALIDADE DA PESQUISA</h1>
+    <p>
+        Para assegurar a máxima integridade acadêmica perante a Banca Examinadora do PPGCAP, este apêndice categoriza formalmente as limitações do trabalho segundo a taxonomia clássica de metodologia científica (Wohlin et al., 2012; Volpato, 2017), detalhando as ameaças à validade e as medidas de mitigação adotadas:
+    </p>
+
+    <h2>B.1 Ameaças à Validade Interna (Causalidade e Desenho Experimental)</h2>
+    <table class="academic">
+        <tr>
+            <th style="width: 25%;">Ameaça Potencial</th>
+            <th style="width: 40%;">Mecanismo de Risco Identificado</th>
+            <th style="width: 35%;">Ação Metodológica de Controle / Mitigação</th>
+        </tr>
+        <tr>
+            <td><strong>Vazamento Temporal de Dados (Lookahead Bias)</strong></td>
+            <td>Utilizar dados futuros para prever eventos passados (ex.: split aleatório de validação cruzada 80/20 em séries temporais).</td>
+            <td><strong>Eliminado:</strong> Aplicação de validação temporal expansiva (<em>Walk-Forward</em>) com embargo estrito de 30 dias entre blocos de treino e teste.</td>
+        </tr>
+        <tr>
+            <td><strong>Poder Estatístico Inflado em Grandes Amostras</strong></td>
+            <td>Com N = 1,62 milhão de itens e 77 mil OSs, qualquer teste de hipótese pode acusar p &lt; 0,001 mesmo para efeitos práticos irrisórios.</td>
+            <td><strong>Mitigado:</strong> Fixação de margem de não-inferioridade pré-registrada (delta = 5%) e cálculo do tamanho de efeito (Cohen's d e Cliff's delta).</td>
+        </tr>
+        <tr>
+            <td><strong>Instabilidade Estocástica de Treinamento</strong></td>
+            <td>Variação de sementes aleatórias induzir conclusões espúrias de superioridade algorítmica.</td>
+            <td><strong>Mitigado:</strong> Repetição sistemática com 30 sementes independentes e reporte de intervalos de confiança empíricos via Bootstrap bca (95%).</td>
+        </tr>
+    </table>
+
+    <h2>B.2 Ameaças à Validade de Construto (Relação entre Teoria e Métricas)</h2>
+    <table class="academic">
+        <tr>
+            <th style="width: 25%;">Ameaça Potencial</th>
+            <th style="width: 40%;">Mecanismo de Risco Identificado</th>
+            <th style="width: 35%;">Ação Metodológica de Controle / Mitigação</th>
+        </tr>
+        <tr>
+            <td><strong>Calibração Distorcida de Probabilidades</strong></td>
+            <td>Modelos baseados em árvores (Boosting) tendem a superestimar probabilidades nas caudas, distorcendo o modelo prescritivo MILP.</td>
+            <td><strong>Mitigado:</strong> Pós-processamento de calibração por Regressão Isotônica e Platt Scaling, auditadas formalmente por ECE e Brier Score.</td>
+        </tr>
+        <tr>
+            <td><strong>Equívoco Semântico em Detecção de Anomalias</strong></td>
+            <td>Equiparar atipicidade estatística (Isolation Forest) com ilicitude administrativa ou corrupção.</td>
+            <td><strong>Delimitado Formalmente:</strong> A anomalia reflete distanciamento em espaço vetorial contínuo, servindo como fila de auditoria e não como prova pericial.</td>
+        </tr>
+    </table>
+
+    <h2>B.3 Ameaças à Validade Externa (Generalização para Outros Contextos)</h2>
+    <table class="academic">
+        <tr>
+            <th style="width: 25%;">Ameaça Potencial</th>
+            <th style="width: 40%;">Mecanismo de Risco Identificado</th>
+            <th style="width: 35%;">Fronteira Explícita de Generalização</th>
+        </tr>
+        <tr>
+            <td><strong>Especificidade Institucional Catarinense</strong></td>
+            <td>Estrutura contratual, taxas de desconto e catálogo de serviços atrelados aos editais e tabelas da SEA/SC.</td>
+            <td>Os modelos algorítmicos (código e lógica MILP/XAI) são agnósticos e portáveis; contudo, os hiperparâmetros e coeficientes calibrados refletem a governança catarinense.</td>
+        </tr>
+        <tr>
+            <td><strong>Regime Misto de Frota (Própria vs. Locada)</strong></td>
+            <td>O Estado adota terceirização em massa de locação (~2.500 veículos) em paralelo à frota própria residual antiga.</td>
+            <td>As previsões prescritivas de substituição aplicam-se à transição de frotas mistas em órgãos públicos com dinâmica semelhante à de Santa Catarina.</td>
+        </tr>
+    </table>
+</div>
+
+
 
 </body>
 </html>

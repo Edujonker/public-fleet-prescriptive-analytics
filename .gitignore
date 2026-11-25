@@ -80,6 +80,10 @@ biblio_now/cofre.bin
 biblio_now/.chave_mestra
 biblio_now/repositorio/
 biblio_now/.venv/
+cofre_senhas/
+credenciais_api.bin
+artigos/atualizacoes/cofre_senha.txt
+*.deb
 
 # Histórico do R e PDFs de artigos duplicados (os PDFs de artigos/ já não são versionados)
 .Rhistory

@@ -289,6 +289,57 @@ python3 run_dashboard.py
 
 ---
 
+## 🔐 Cofre de Senhas, BiblioNow e Coleta Automatizada de Artigos
+
+### Cofre de Senhas (`cofre_senhas/`)
+Cofre local e offline para armazenar credenciais de API (OpenAlex, Semantic Scholar, Scopus, emails) cifrado com **PBKDF2-HMAC-SHA256** (480.000 iterações) + **Fernet** (AES-128-CBC + HMAC-SHA256). Nenhuma chave fica em texto claro no `.env` ou no código-fonte.
+
+```bash
+# Criar um novo cofre (define a senha mestra)
+python3 -m cofre_senhas init credenciais_api.bin
+
+# Adicionar uma credencial
+python3 -m cofre_senhas add credenciais_api.bin --site OpenAlex --usuario OPENALEX_API_KEY --senha "SUA_CHAVE"
+
+# Listar entradas (exige senha mestra)
+python3 -m cofre_senhas list credenciais_api.bin
+
+# Revelar senha de uma entrada
+python3 -m cofre_senhas show credenciais_api.bin <ID>
+
+# Alterar a senha mestra (re-cifra todo o cofre)
+python3 -m cofre_senhas trocar-senha credenciais_api.bin
+```
+
+### BiblioNow (`biblio_now/`)
+Ferramenta desenvolvida para a revisão sistemática da dissertação, implementando o ciclo completo de coleta bibliográfica em uma única execução: **consulta booleana registrada → busca em bases abertas via API → download em lote de texto completo (acesso aberto) → TXT e BibTeX por obra → fichamento → Protocolo Sigma auditável → atualização agendada**.
+
+Executa localmente, sem conta nem nuvem. Usa OpenAlex, Semantic Scholar, Scopus e Unpaywall (gratuitos). Interface em português.
+
+### Busca de Artigos (`scripts/buscar_artigos.py`)
+```bash
+# Busca com credenciais do cofre
+export COFRE_SENHA='SUA_SENHA_MESTRA'
+python3 scripts/buscar_artigos.py --senha-mestra "$COFRE_SENHA" --fontes openalex,s2,scopus --max-resultados 1000 --max-pdfs 1000
+```
+
+### Protocolo Sigma (`scripts/gerar_protocolo_sigma_artigos.py`)
+Gera registro à prova de adulteração (cadeia de hashes SHA-256) de cada execução de busca, com HTML e PDF oficiais para anexo à dissertação, além de planilha de fichamento e catálogo de PDFs com hashes MD5/SHA-256.
+
+### Atualização Diária Automatizada
+O timer systemd `busca-artigos.timer` executa diariamente às 08:00 (`Persistent=true`):
+1. Busca novos artigos em OpenAlex, Semantic Scholar e Scopus
+2. Regenera o Protocolo Sigma
+3. Regenera o PBS.pdf
+4. Regenera a apresentação de qualificação
+
+```bash
+systemctl --user status busca-artigos.timer
+systemctl --user list-timers busca-artigos.timer
+```
+
+---
+
 ## 🤖 Assistente de IA via Prompt e Copiloto Interativo
 
 O sistema conta com um assistente de Inteligência Artificial para responder dúvidas diretamente via **prompt de linha de comando (CLI)**, **aplicativo desktop (PyQt6)** e **dashboard web**:

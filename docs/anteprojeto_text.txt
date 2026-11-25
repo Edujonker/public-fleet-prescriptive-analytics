@@ -239,12 +239,12 @@ consistência das explicações em reamostragens ou pequenas perturbações plau
 explicações não revelam causalidade e podem ser instáveis quando as variáveis são
 correlacionadas. Relatórios do modelo descreverão população, finalidade, dados, métricas,
 limites e condições de uso.
-Dados de frota podem conter elementos associados a servidores ou condutores. A pesquisa
-aplicará minimização de dados, pseudonimização de identificadores, controle de acesso,
-armazenamento seguro e retenção limitada; variáveis pessoais não necessárias serão
+Dados de frota contêm apenas atributos técnicos dos veículos e registros operacionais de
+manutenção e abastecimento. A pesquisa aplicará minimização de dados, controle de acesso,
+armazenamento seguro e retenção limitada; variáveis não necessárias à análise de frota serão
 excluídas. A autorização institucional, o enquadramento ético e a conformidade com a Lei
 Geral de Proteção de Dados (Lei nº 13.709/2018) serão verificados antes do tratamento
-analítico. A pseudonimização não equivale a anonimização irreversível.
+analítico.
 
 UDESC • Florianópolis | 7
 
@@ -470,9 +470,8 @@ poderão avaliar clareza, plausibilidade operacional e utilidade com roteiro est
 apresentar a explicação como causalidade.
 5.7 Ética, privacidade e reprodutibilidade
 Antes da extração, serão definidos finalidade, controlador/custodiante, base legal aplicável e
-condições de compartilhamento com as unidades competentes. IDs de veículo e, se inevitável,
-de unidade serão pseudonimizados; identificadores de servidores/condutores e texto livre com
-dados pessoais serão excluídos ou tratados sob protocolo específico. O acesso será restrito,
+condições de compartilhamento com as unidades competentes. IDs de veículo e, se inevitável, de unidade serão tratados com controle de acesso; texto livre com
+dados não relacionados à frota será excluído ou tratado sob protocolo específico. O acesso será restrito,
 com registro de versão e linhagem das transformações; resultados públicos serão agregados
 para reduzir reidentificação. A necessidade de apreciação ética será consultada junto às
 instâncias responsáveis. O pipeline, configurações e métricas serão documentados com dados

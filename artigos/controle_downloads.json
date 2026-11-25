@@ -68,8 +68,8 @@
 "doi:10.15680/irjie.2024.0804003": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.54660/ijmbhr.2026.7.3.77-87": {
 "arquivo": "",
@@ -602,8 +602,8 @@
 "tit:improvingtrustinsafetycriticalaisystemsexplainableaiandanomalydetectionframeworksforhumansafetyinsmartindustries": {
 "arquivo": "",
 "status": "falhou (HTTP 403)",
-"tentado_em": "",
-"tentativas": 1
+"tentado_em": "2026-11-22",
+"tentativas": 2
 },
 "doi:10.56238/rcsv16n6-004": {
 "arquivo": "",
@@ -828,10 +828,10 @@
 "tentativas": 1
 },
 "doi:10.67171/2m2a8y96": {
-"arquivo": "",
-"status": "falhou (HTTP 500)",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"arquivo": "2026_robani_Artificial_Intelligence_Adoption_in_Public_Administration_Challenges_f.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-21",
+"tentativas": 7
 },
 "doi:10.25139/lex.v8i2.12746": {
 "arquivo": "",
@@ -878,8 +878,8 @@
 "doi:10.15662/ijfist.2025.0803004": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.14445/22315381/ijett-v73i10p106": {
 "arquivo": "2025_orji_Ensemble_Machine_Learning_Based_Real_Estate_Price_Prediction_with_Expl.pdf",
@@ -1220,8 +1220,8 @@
 "doi:10.65605/a-jmrhs.2026.v04.i03.pp13-23": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "tit:ethicalriskmitigationinartificialintelligenceenabledhealthcare": {
 "arquivo": "2026_hameed_Ethical_Risk_Mitigation_in_Artificial_Intelligence_Enabled_Healthcare.pdf",
@@ -1448,8 +1448,8 @@
 "doi:10.62311/nesx/rb9jy-978-81-689097-1-7": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.3390/ijms27156755": {
 "arquivo": "2026_blaga_Artificial_Intelligence_and_Genomic_Data_Analysis_New_Frontiers_in_Pre.pdf",
@@ -1730,8 +1730,8 @@
 "doi:10.53756/jjkn.v6i1.447": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "tit:accountabilityandequityinmachineassisteddistributionstrategiesadvancingsustainableoperationalpractices": {
 "arquivo": "2026_carter_Accountability_and_Equity_in_Machine_Assisted_Distribution_Strategies.pdf",
@@ -1820,8 +1820,8 @@
 "doi:10.1093/humrep/deag102": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.67644/pandr.v2i1.1865": {
 "arquivo": "2026_bingham_Autonomous_AI_Agents_as_Co_Program_Managers_A_Conceptual_Framework_for.pdf",
@@ -1850,8 +1850,8 @@
 "doi:10.66472/cybernet.v1i2.440": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.1109/icici68773.2026.11581286": {
 "arquivo": "",
@@ -2246,8 +2246,8 @@
 "doi:10.71317/jgst.2.4.2026.722": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.12688/openreseurope.23124.2": {
 "arquivo": "",
@@ -2293,9 +2293,9 @@
 },
 "doi:10.69836/synergy.v2i1.240": {
 "arquivo": "",
-"status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"status": "falhou (HTTP 522)",
+"tentado_em": "2026-11-22",
+"tentativas": 8
 },
 "doi:10.52783/jisem.v11i3s.14701": {
 "arquivo": "2026_guduri_AI_Driven_Real_Time_Data_Quality_Validation_in_Healthcare_ETL_Pipeline.pdf",
@@ -2306,8 +2306,8 @@
 "doi:10.55529/jhtd.61.32.43": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.1038/s41598-026-44167-3": {
 "arquivo": "",
@@ -2498,8 +2498,8 @@
 "doi:10.55606/jaemb.v6i1.8357": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.9790/5933-1703016776": {
 "arquivo": "2026_bharathwaj_AI_in_Credit_Scoring.pdf",
@@ -2508,10 +2508,10 @@
 "tentativas": 1
 },
 "doi:10.69750/dmls.03.02.0192": {
-"arquivo": "",
-"status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"arquivo": "2026_shuja_Artificial_Intelligence_in_Clinical_Decision_Making_Opportunities_and.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 8
 },
 "doi:10.71465/ajainn3564": {
 "arquivo": "",
@@ -2654,8 +2654,8 @@
 "tit:aienhanceddevopsforintelligentmulticloudsoftwaredeploymentandmaintenanceacomprehensiveanalysis": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.22399/ijcesen.4832": {
 "arquivo": "2026_rangasamy_Contextual_Computing_and_AI_Integration_Adaptive_Decision_Systems_for.pdf",
@@ -2856,10 +2856,10 @@
 "tentativas": 5
 },
 "doi:10.66669/cineforum.v66is4.1473": {
-"arquivo": "",
-"status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"arquivo": "2026_yahaya_Edge_Centric_Artificial_Intelligence_Risk_Intelligence_and_Interventio.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-21",
+"tentativas": 7
 },
 "doi:10.1109/tce.2026.3738403": {
 "arquivo": "",
@@ -3344,8 +3344,8 @@
 "doi:10.4018/979-8-3373-3760-9.ch005": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-22",
+"tentativas": 8
 },
 "doi:10.35484/pssr.2025(9-iii)28": {
 "arquivo": "2025_soomro_AI_Driven_Policing_in_Pakistan_Potential_Pitfalls_and_Privacy_Concerns.pdf",
@@ -3530,8 +3530,8 @@
 "doi:10.62311/nesx/rpj6": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.64252/9240es77": {
 "arquivo": "2025_abubakar_Artificial_Intelligence_In_Financial_Decision_Systems_Transforming_Ris.pdf",
@@ -3584,8 +3584,8 @@
 "doi:10.58496/bjml/2025/007": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.70864/joae.2025.v13.i6.pp169-180": {
 "arquivo": "",
@@ -3650,8 +3650,8 @@
 "doi:10.33557/cw2tyd15": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.20944/preprints202506.0845.v1": {
 "arquivo": "",
@@ -3692,8 +3692,8 @@
 "doi:10.62311/nesx/rphcr18": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "tit:lintelligenceartificielleauseindeladministrationfiscalerevuedelalittrature": {
 "arquivo": "2025_bendaoud_L_intelligence_artificielle_au_sein_de_ladministration_fiscale_Revue_d.pdf",
@@ -3728,8 +3728,8 @@
 "doi:10.15662/ijrpetm.2025.0802005": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.71068/ss000054": {
 "arquivo": "2025_aguirre_Inteligencia_artificial_responsable_en_decisiones_organizacionales_imp.pdf",
@@ -3788,8 +3788,8 @@
 "doi:10.70177/jete.v3i1.2127": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectionError))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.36948/ijfmr.2025.v07i02.41005": {
 "arquivo": "2025_ravishankar_THE_ROLE_OF_ARTIFICIAL_INTELLIGENCE_IN_ARBITRATION_PROSPECTS_FOR_INDIA.pdf",
@@ -3890,8 +3890,8 @@
 "doi:10.37745/ijmt.2013/vol12n25868": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.55813/gaea/jessr/v5/n1/175": {
 "arquivo": "2025_coello_zavala_Analisis_de_la_incidencia_de_la_IA_aplicada_en_el_asesoramiento_financ.pdf",
@@ -3914,8 +3914,8 @@
 "doi:10.70470/edraak/2025/001": {
 "arquivo": "",
 "status": "falhou (HTTP 429)",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.58445/rars.2143": {
 "arquivo": "2025_vasanthageethan_Making_Sense_of_Explainable_AI_in_Healthcare_and_Exploring_Its_Current.pdf",
@@ -3968,8 +3968,8 @@
 "doi:10.63665/eijmr.v01i01.2": {
 "arquivo": "",
 "status": "falhou (erro de rede (TooManyRedirects))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.54660/.ijfmr.2021.2.2.135-147": {
 "arquivo": "2025_akomolafe_AI_in_Diagnostics_and_the_Law_Regulating_Machine_Learning_Tools_in_Cli.pdf",
@@ -4022,8 +4022,8 @@
 "tit:constraintpreservationincounterfactualexplanationsforcreditscoring": {
 "arquivo": "",
 "status": "falhou (erro de rede (ConnectTimeout))",
-"tentado_em": "2026-11-20",
-"tentativas": 6
+"tentado_em": "2026-11-24",
+"tentativas": 10
 },
 "doi:10.70650/rpimj.2025v1i200002": {
 "arquivo": "2025_prakash_The_Role_of_Artificial_Intelligence_in_News_Curation_and_Production_A.pdf",
@@ -4725,6 +4725,5622 @@
 "arquivo": "2026_bagh_AI_Driven_Legal_Governance_Framework_for_Transparent_and_Accountable_P.pdf",
 "status": "baixado",
 "tentado_em": "2026-11-20",
+"tentativas": 1
+},
+"doi:10.9790/0661-2805020111": {
+"arquivo": "2026_george_Explainable_AI_Techniques_for_Network_Traffic_Anomaly_Detection_and_Mi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-21",
+"tentativas": 1
+},
+"doi:10.63282/3050-9416.ijaibdcms-v7i4p107": {
+"arquivo": "2026_pal_Explainable_AI_and_Federated_Learning_for_Privacy_Preserving_Financial.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-21",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.18539072": {
+"arquivo": "2025_baker_Interpretable_Machine_Learning_for_Transparent_Decision_Making_A_Conce.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-21",
+"tentativas": 1
+},
+"doi:10.56238/rcsv14n6-010": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-21",
+"tentativas": 1
+},
+"doi:10.47772/ijriss.2026.101000821": {
+"arquivo": "2026_sapian_Beyond_Trust_Designing_a_Perceived_Intelligence_Scale_for_AI_Powered_D.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.22271/tpi.2019.v8.i3j.25392": {
+"arquivo": "2019_verma_Explainable_AI_in_healthcare_Interpretable_deep_learning_models_for_di.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.1912.02943": {
+"arquivo": "2019_katell_An_Algorithmic_Equity_Toolkit_for_Technology_Audits_by_Community_Advoc.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.63282/3117-5481/aijcst-v1i3p102": {
+"arquivo": "2019_venkateshappa_Enabling_End_to_End_User_Data_Privacy_Compliance_for_GDPR_DMA_Using_Ma.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.22271/tpi.2019.v8.i2sa.25245": {
+"arquivo": "2019_tiwari_Interpretability_machine_learning_models_A_critical_analysis_of_techni.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"tit:aselfmonitoringexplainableaidecisionsupportarchitectureforprepublicationcontentdecisionsinpublicsectorcommunication": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"tit:transforminglegaltextsintocomputationallogicenhancingnextgenerationpublicsectorautomationthroughexplainableaidecisionsup": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1109/tnnls.2020.3027314": {
+"arquivo": "2020_tjoa_A_Survey_on_Explainable_Artificial_Intelligence_XAI_Toward_Medical_XAI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2101.03613": {
+"arquivo": "2021_hussain_Explainable_Artificial_Intelligence_XAI_An_Engineering_Perspective.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.9790/0661-2606012936": {
+"arquivo": "2024_imam_Explainable_Artificial_Intelligence_XAI_Techniques_To_Enhance_Transpar.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2601.06205": {
+"arquivo": "2026_liu_Towards_Public_Administration_Research_Based_on_Interpretable_Machine.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1002/bimj.70089": {
+"arquivo": "2025_langbein_Interpretable_Machine_Learning_for_Survival_Analysis.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.64252/wv3j7t59": {
+"arquivo": "2025_adudhodla_Explainable_AI_And_Blockchain_Interpretable_Machine_Learning_Models_Wi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.18535/ijsrm/v9i05.ec03": {
+"arquivo": "2021_arjunan_Implementing_Explainable_AI_in_Healthcare_Techniques_for_Interpretable.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.3905/jfds.2021.1.066": {
+"arquivo": "2020_jaeger_Interpretable_Machine_Learning_for_Diversified_Portfolio_Construction.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.17803/2713-0533.2023.4.26.872-889": {
+"arquivo": "2024_chaudhary_Explainable_Artificial_Intelligence_xAI_Reflections_on_Judicial_System.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.17719521": {
+"arquivo": "2025_javed_EXPLAINABLE_ARTIFICIAL_INTELLIGENCE_XAI_BRIDGING_TRANSPARENCY_AND_TRUS.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.64643/ijirtv12i11-198336-459": {
+"arquivo": "2026_veer_Explainable_Artificial_Intelligence_XAI_for_Decision_Transparency.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.70593/978-81-981367-4-9_1": {
+"arquivo": "2024_rane_Explainable_Artificial_Intelligence_XAI_as_a_foundation_for_trustworth.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.67228/30713498/ijadsmc-v9i1p104": {
+"arquivo": "2026_leena_Explainable_Artificial_Intelligence_XAI_for_Transparent_Decision_Syste.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.32628/ijsrst25126244": {
+"arquivo": "2025_thakur_A_Comprehensive_Review_of_Explainable_AI_XAI_Methods_in_Deep_Learning.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.70393/6a69656173.323337": {
+"arquivo": "2024_cheng_Interpretable_Machine_Learning_Explainability_in_Algorithm_Design.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.22214/ijraset.2025.73453": {
+"arquivo": "2025_neha_Explainable_AI_XAI_A_Survey_of_Techniques_for_Transparent_and_Trustwor.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"tit:explainableaixaimethodstoolsandchallengesininterpretingmachinelearningmodels": {
+"arquivo": "2021_shankar_Explainable_AI_XAI_Methods_Tools_and_Challenges_in_Interpreting_Machin.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1016/j.ceh.2025.03.004": {
+"arquivo": "2025_elbatanouny_An_interpretable_machine_learning_model_to_predict_hospitalizations.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.51244/ijrsi.2026.1303000202": {
+"arquivo": "2026_swathi_Transparent_Medical_Diagnosis_Explainable_AI_XAI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1007/s42952-024-00302-2": {
+"arquivo": "2025_choi_Meta_anova_screening_interactions_for_interpretable_machine_learning.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.33545/27068919.2026.v8.i7b.2113": {
+"arquivo": "2026_parihar_Explainable_Artificial_Intelligence_XAI_for_mental_health_analysis_A_s.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.31838/ines/03.02.17": {
+"arquivo": "2025_egash_Explainable_Artificial_Intelligence_XAI_State_of_the_Art_Challenges_an.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1017/eds.2026.10044": {
+"arquivo": "2026_wu_Interpretable_machine_learning_for_CMIP6_multi_model_ensembles.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.22214/ijraset.2026.85530": {
+"arquivo": "2026_khaliya_Explainable_AI_XAI_Making_Artificial_Intelligence_Transparent.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"tit:interpretablemachinelearningframeworksforethicalaideployment": {
+"arquivo": "2025_ivanov_Interpretable_Machine_Learning_Frameworks_for_Ethical_AI_Deployment.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.68033/ijaimda.1.2.28-42": {
+"arquivo": "2026_hamdulay_Explainable_Artificial_Intelligence_and_Machine_Learning_for_Responsib.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.67228/3142788x/ijmlpa-2023pi9w2r": {
+"arquivo": "2023_davis_Interpretable_Machine_Learning_Models_for_Critical_Decision_Systems.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"tit:explainableartificialintelligence": {
+"arquivo": "2024_editor_Explainable_Artificial_Intelligence.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1145/3411764.3445088": {
+"arquivo": "2021_suresh_Beyond_Expertise_and_Roles_A_Framework_to_Characterize_the_Stakeholder.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.18090/samriddhi.v15i04.09": {
+"arquivo": "2023_suseelan_Explainable_AI_XAI_for_FAA_Certifiable_Aviation_Systems.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.56726/irjmets82207": {
+"arquivo": "2025_anon_Explainable_Artificial_Intelligence_XAI_Techniques_Challenges_and_Impl.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1145/3709367": {
+"arquivo": "2025_sun_Explainable_Artificial_Intelligence_for_Medical_Applications_A_Review.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1016/j.heliyon.2024.e31158": {
+"arquivo": "2024_khan_Predicting_life_satisfaction_using_machine_learning_and_explainable_AI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.26868/30680611.2026.1328": {
+"arquivo": "2026_jain_Explainable_AI_and_Machine_Learning_for_Transparent_Building_Energy_Be.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.4186/ej.2026.30.5.77": {
+"arquivo": "2026_lawanna_Explainable_Artificial_Intelligence_for_Trustworthy_Machine_Learning_i.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.24425/agg.2025.150692": {
+"arquivo": "2025_kavzoglu_Global_scale_explainable_AI_assessment_for_OBIA_based_classification_u.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.64631/hxnf5075": {
+"arquivo": "2025_martinez_Interpretable_Machine_Learning_for_Acoustic_Classification_of_Incipien.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"tit:aconversationalframeworkforenhancingdataexplainabilityusingmachinelearningandexplainableartificialintelligence": {
+"arquivo": "2026_paidi_A_Conversational_Framework_for_Enhancing_Data_Explainability_Using_Mac.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.36948/ijfmr.2024.v06i02.18735": {
+"arquivo": "2024_sem_titulo_Explainable_Artificial_Intelligence_in_Healthcare.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.21203/rs.3.rs-3209115/v1": {
+"arquivo": "2023_khan_A_Systematic_Literature_Review_of_Explainable_Artificial_Intelligence.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.70177/jsca.v3i2.2104": {
+"arquivo": "2025_muhammadiah_INTERPRETATION_OF_DEEP_LEARNING_MODELS_IN_NATURAL_LANGUAGE_PROCESSING.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.21203/rs.3.rs-9903512/v1": {
+"arquivo": "2026_chahed_Accountability_Risks_of_SHAP_Based_Managerial_Recommendations_in_Expla.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.58425/jpms.v2i1.570": {
+"arquivo": "2025_philip_Explainable_Artificial_Intelligence_XAI_for_Project_Governance_Improvi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.21015/vtse.v13i2.2129": {
+"arquivo": "2025_akhtar_Mitigating_Cyber_Threats_Machine_Learning_and_Explainable_AI_for_Phish.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.15680/ijircce.2025.1312094": {
+"arquivo": "2025_more_Demystifying_the_Black_Box_A_Foundational_Survey_and_Comparative_Analy.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1056/aioa2300331": {
+"arquivo": "2024_barnett_Improving_Clinician_Performance_in_Classifying_EEG_Patterns_on_the_Ict.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.36948/ijfmr.2024.v06i04.25281": {
+"arquivo": "2024_sem_titulo_Explainable_AI_Developing_Interpretable_Deep_Learning_Models_for_Medic.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"tit:explainableartificialintelligencexaiinpsychometricmodellingimprovingtransparencyandfairnessinalgorithmicpersonalitypredi": {
+"arquivo": "2025_dohare_EXPLAINABLE_ARTIFICIAL_INTELLIGENCE_XAI_IN_PSYCHOMETRIC_MODELLING_IMPR.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1016/j.procs.2022.08.105": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1007/s44192-025-00232-3": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1016/j.egyai.2022.100169": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"tit:explainableaifortransparentdecisionmakingaquantitativestudyoninterpretablemachinelearningmodels": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.31305/rrijm.2024.v09.n06.047": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1007/s10586-025-05281-5": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1109/access.2021.3086230": {
+"arquivo": "",
+"status": "falhou (HTTP 420)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.2139/ssrn.5147883": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.3390/bioengineering10080918": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.3390/ai6110285": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"tit:explainableartificialintelligencexaibridgingthegapbetweenaccuracyandinterpretability": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 3
+},
+"doi:10.3390/app15147984": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.3390/electronics13132438": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.70470/shifra/2025/004": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 3
+},
+"doi:10.1007/s10922-026-10084-z": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1038/s41598-026-52271-7": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1016/j.jag.2021.102574": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1109/ojcoms.2025.3562794": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1002/9781394357789.ch9": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.14925968": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 3
+},
+"doi:10.37547/feaiml/volume02issue08-02": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 3
+},
+"doi:10.1016/j.techfore.2026.124710": {
+"arquivo": "2026_camilleri_Opening_the_black_box_Operational_principles_tools_and_frameworks_that.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.3390/electronics14071251": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.52783/pst.3453": {
+"arquivo": "",
+"status": "falhou (HTTP 404)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1145/3598469.3598531": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1080/23311975.2026.2697115": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.21037/qims-24-1745": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.22214/ijraset.2025.73926": {
+"arquivo": "2025_futane_Adaptive_Multi_Model_Cybercrime_Identification_Prediction_using_Machin.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"tit:explainableaixaianditsroleinethicaldecisionmaking": {
+"arquivo": "2021_potla_Explainable_AI_XAI_and_its_Role_in_Ethical_Decision_Making.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.15680/ijmrset.2024.0707002": {
+"arquivo": "2024_usa_Transparency_and_Interpretability_in_Cloudbased_Machine_Learning_with.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.71465/csb38": {
+"arquivo": "2019_zafar_EXPLAINABLE_AI_ENHANCING_TRANSPARENCY_AND_TRUST_IN_MACHINE_LEARNING_MO.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.36948/ijfmr.2025.v07i04.51796": {
+"arquivo": "2025_singh_Explainable_AI_XAI_for_Cloud_Resource_Forecasting_in_E_Commerce_Enviro.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.32628/ijsrst2613125": {
+"arquivo": "2026_awele_Explainable_Artificial_Intelligence_for_Financial_Crime_Prevention_Tra.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.54660/.ijfmr.2024.5.2.148-153": {
+"arquivo": "2024_awele_Explainable_Artificial_Intelligence_for_Financial_Crime_Prevention_Tra.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.54660/.jfmr.2026.7.1.70-75": {
+"arquivo": "2026_awele_Explainable_Artificial_Intelligence_for_Financial_Crime_Prevention_Tra.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:explainableaisystemstoenhancepatientsafetyandclinicalaccountability": {
+"arquivo": "2026_ferdus_Explainable_AI_Systems_to_Enhance_Patient_Safety_and_Clinical_Accounta.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.3390/jcp6040132": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.32628/ijsrst25126288": {
+"arquivo": "2025_khade_Explainable_AI_XAI_in_Healthcare_Building_Trust_in_Medical_Diagnosis_S.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.46632/cset/2/2/2": {
+"arquivo": "2024_anon_Evaluation_of_Explainable_Artificial_Intelligence_using_TOPSIS_Method.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.64643/ijirtv12i8-190882-459": {
+"arquivo": "2026_swaroop_Advancing_Transparency_in_Machine_Learning_A_Technical_Review_of_Expla.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.3390/a18090556": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.14569/ijacsa.2024.0150777": {
+"arquivo": "2024_tong_Explainable_Artificial_Intelligence_for_Urban_Planning_Challenges_Solu.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1016/j.commtr.2025.100226": {
+"arquivo": "2025_zhu_Interpretable_machine_learning_for_traffic_congestion_prediction_Unvei.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.33545/26633582.2026.v8.i2a.270": {
+"arquivo": "2026_chaubey_Explainable_AI_XAI_Bridging_the_gap_between_black_box_models_and_human.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1093/bib/bbad236": {
+"arquivo": "2023_karim_Explainable_AI_for_Bioinformatics_Methods_Tools_and_Applications.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.55041/ijsrem32027": {
+"arquivo": "2024_soni_Enhancing_Transparency_and_Accountability_in_Predictive_Maintenance_wi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.70454/jrist.020306": {
+"arquivo": "2026_bansal_An_Explainable_Artificial_Intelligence_Framework_for_Medical_Diagnosis.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.34248/bsengineering.1787486": {
+"arquivo": "2026_gundogan_Keystroke_Dynamics_for_Authentication_A_Systematic_Comparative_Analysi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.15439/2024f0001": {
+"arquivo": "2024_herrera_Attentiveness_on_criticisms_and_definition_about_Explainable_Artificia.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.51219/jaimld/praveen-kumar/130": {
+"arquivo": "2023_kumar_Explainable_AI_ML_Testing_Ensuring_Transparency_Accountability_and_Com.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.65606/31/2025/36": {
+"arquivo": "2025_muhammad_Blockchain_Enabled_Explainable_AI_A_Framework_for_Verifiable_and_Trust.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.7753/ijsea1409.1006": {
+"arquivo": "2025_anon_Unraveling_Cybersecurity_Threats_Via_Interpretable_Machine_Learning_an.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.63345/jqst.v2i1.239": {
+"arquivo": "2025_pamadi_Explainable_AI_Bridging_the_Gap_Between_Machine_Learning_Models_and_Hu.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 2
+},
+"doi:10.5753/sbc.11014.1.3": {
+"arquivo": "2022_silva_Explainability_e_auditability_interpretando_e_validando_modelos_de_mac.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.30574/gjeta.2025.25.3.0343": {
+"arquivo": "2025_saliu_The_Rise_of_Explainable_AI_Enhancing_Transparency_and_Trust_in_Machine.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.64643/ijirtv13i1-204325-459": {
+"arquivo": "2026_joshi_From_Black_Box_to_Classroom_Ethical_and_Explainable_AI_for_Educational.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.63913/ail.v2i2.58": {
+"arquivo": "2026_prastyo_Explainable_Artificial_Intelligence_for_Understanding_Patterns_of_Educ.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.62341/amia8430": {
+"arquivo": "2024_milad_Exploring_Explainable_Artificial_Intelligence_Technologies_Approaches.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1155/adce/9234704": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1002/9781394357789.ch1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.68159/g968708531": {
+"arquivo": "2025_ali_Explainable_Artificial_Intelligence_for_Clinical_Decision_Support_Syst.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.52783/tjjpt.v45.i02.6376": {
+"arquivo": "2024_devarajan_Explainable_AI_for_Cloud_Based_Machine_Learning_Interpretable_Models_a.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1007/s44163-026-02356-z": {
+"arquivo": "2026_maliti_Predicting_petrol_prices_in_Zambia_using_machine_learning_and_explaina.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.54660/ijfei.2025.2.4.29-36": {
+"arquivo": "2025_ekechi_Explainable_AI_Models_for_Autonomous_UAV_Decision_Making_in_Complex_Te.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.3390/su18168026": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.65521/ijacect.v14i2.2713": {
+"arquivo": "2025_gopalkrishnan_Explainable_Artificial_Intelligence_Frameworks_for_Interpretable_Decis.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1038/s41598-026-49467-2": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"tit:towardsamultiframeworkapproachtoexplainableartificialintelligence": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1109/access.2022.3207812": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.70593/978-81-981271-1-2_6": {
+"arquivo": "2024_rane_Emerging_trends_and_future_research_opportunities_in_artificial_intell.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"tit:visualizingdeeplearningdecisionsgradcambasedexplainableaiformedicalimageanalysis": {
+"arquivo": "2024_bates_Visualizing_Deep_Learning_Decisions_Grad_CAM_Based_Explainable_AI_for.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"tit:anovelexplainableartificialintelligenceframeworkwithimprovedlearningmechanisms": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 3
+},
+"doi:10.48550/arxiv.2112.14466": {
+"arquivo": "2021_sokol_Explainability_Is_in_the_Mind_of_the_Beholder_Establishing_the_Foundat.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1145/3616855.3635697": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.62643/ijerst.2026.v22.n3.4547": {
+"arquivo": "2026_mohurle_EXPLAINABLE_ARTIFICIAL_INTELLIGENCE_FOR_RELIABLE_DECISION_MAKING_IN_AU.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1007/s44206-023-00081-z": {
+"arquivo": "2023_richmond_Explainable_AI_and_Law_An_Evidential_Survey.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1109/ie64880.2025.11130127": {
+"arquivo": "2025_balderas_diaz_Explainable_Artificial_Intelligence_for_Audio_based_Detection_of_Emerg.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.67228/30715628/ijmiet-2023pi1j5w": {
+"arquivo": "2023_krishnan_The_Emergence_of_Explainable_Artificial_Intelligence_in_Modern_Decisio.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.3846/ijspm.2025.25137": {
+"arquivo": "2025_kim_Explainable_AI_based_mass_appraisal_Insights_from_machine_learning_app.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.3390/jrfm19060437": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.58812/esiscs.v1i02.1073": {
+"arquivo": "2023_kumar_Enhancing_Transparency_in_Decision_Making_Systems_Using_Explainable_Ar.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.21590/ijtmh.11.04.12": {
+"arquivo": "2025_misra_Explainable_Generative_AI_for_Enterprise_CRM_Analytics_Interpretable_M.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 3
+},
+"doi:10.1016/j.eswa.2026.133183": {
+"arquivo": "2026_gholizade_Federated_explainable_artificial_intelligence_roles_architectures_eval.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.31979/etd.8nng-zb36": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.3389/frai.2026.1943572": {
+"arquivo": "2026_khawaja_A_global_machine_learning_framework_for_classifying_national_CO2_emiss.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.63913/jcl.v2i3.32": {
+"arquivo": "2026_sugianto_Explainable_AI_for_Android_Malware_Detection_Enhancing_Transparency_Pr.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.32595/iirjet.org/v11i2.2025.237": {
+"arquivo": "2025_haruna_Visualizing_Deep_Learning_Decisions_Grad_CAM_Based_Explainable_AI_for.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.3390/s26072131": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.26438/ijsrcse.v13i4.740": {
+"arquivo": "2025_muia_Explainable_Artificial_Intelligence_A_Comprehensive_Review_of_Techniqu.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.63056/ijair.1.2.2025.94": {
+"arquivo": "2025_nazar_Explainable_Artificial_Intelligence_in_Robotics_Building_Transparent_a.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.55041/ijsrem63776": {
+"arquivo": "2026_v_AgriVeda_AI_An_Intelligent_Smart_Agriculture_Platform_Using_Machine_Le.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1007/s43621-026-02873-y": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1177/0894439320980118": {
+"arquivo": "2020_janssen_Will_Algorithms_Blind_People_The_Effect_of_Explainable_AI_and_Decision.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.67228/30715636/ijetmr-2024pii9t5r": {
+"arquivo": "2024_n_Explainable_Artificial_Intelligence_for_ESG_Performance_Assessment_and.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.62311/nesx/rb-978-81-998923-2-3": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 3
+},
+"tit:iotnetworkintrusiondetectionandclassificationusingexplainablexaimachinelearningalgorithms": {
+"arquivo": "2024_ranjana_IoT_Network_Intrusion_Detection_and_Classification_using_Explainable_X.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1016/j.heliyon.2024.e32968": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.70593/978-81-6632-078-1": {
+"arquivo": "2026_reddy_Deep_Reinforcement_Learning_and_Explainable_Artificial_Intelligence_fo.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1007/s42452-026-08944-z": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.1080/23311975.2026.2722832": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"tit:towardspublicadministrationresearchbasedoninterpretablemachinelearning": {
+"arquivo": "2026_liu_Towards_Public_Administration_Research_Based_on_Interpretable_Machine.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-22",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.21546492": {
+"arquivo": "2026_awele_Explainable_Artificial_Intelligence_for_Financial_Crime_Prevention_Tra.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.18410189": {
+"arquivo": "2025_saliu_The_Rise_of_Explainable_AI_Enhancing_Transparency_and_Trust_in_Machine.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.2139/ssrn.7232622": {
+"arquivo": "2026_kandil_Explainable_AI_Framework_for_Early_Prediction_of_Cost_Overruns_in_U_S.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.71465/csb225": {
+"arquivo": "2026_rudin_Explainable_Artificial_Intelligence_for_Improving_Transparency_and_Rel.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/978-3-032-45476-8_14": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fmed.2026.1899844": {
+"arquivo": "2026_usman_Building_trust_in_mental_health_models_using_explainability.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.34190/icair.7.1.5255": {
+"arquivo": "2026_chandra_How_Can_Artificial_Intelligence_Explain_its_Thinking_A_Review_of_Expla.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/978-3-032-45467-6_6": {
+"arquivo": "2026_vineis_PONTE_Personalized_Orchestration_for_Natural_Language_Trustworthy_Expl.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/978-3-032-45467-6_3": {
+"arquivo": "2026_goller_How_a_Models_Architecture_and_Performance_Influences_Explainability_A.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32674/admcxq87": {
+"arquivo": "2026_nashier_An_explainable_hybrid_artificial_intelligence_framework_for_predicting.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:explainingblackboxmodelsunderlimitedobservabilityfromattributionmeasurementstoglobalandlifecyclesurrogates": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.37284/eajle.9.4.6287": {
+"arquivo": "2026_sangudi_Assessing_the_adequacy_of_Tanzanias_Legal_Framework_in_Regulating_Arti.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/bdcc10110389": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.20944/preprints202611.1452.v1": {
+"arquivo": "2026_gazis_Edge_Computing_for_IoT_Enabled_Smart_Cities_A_Review_of_Middleware_Exp.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:integratedmultilayersecurityarchitecturesforcloudbasedhealthcareandhospitalitysystemsacomprehensivereviewandfutureresear": {
+"arquivo": "2026_dave_Integrated_Multi_Layer_Security_Architectures_for_Cloud_Based_Healthca.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1145/3860323": {
+"arquivo": "2026_kishore_An_Integrated_AI_Driven_Methodology_for_Synthesizing_a_Digital_Similar.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.14445/22315381/ijett-v74i10p122": {
+"arquivo": "2026_chaudhari_Explainable_Human_Action_Intelligence_for_Reliable_and_Transparent_Vid.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.66592/gjtntt51": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.5445/ir/1000198825": {
+"arquivo": "2026_ondraszek_Modeling_interpretation_in_the_age_of_GenAI_semantic_technologies_for.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1922/comdem.v3i8s.19226": {
+"arquivo": "2026_butail_Explainable_AI_in_Small_Business_Credit_Scoring_A_Systematic_Literatur.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1922/comdem.v3i8s.19227": {
+"arquivo": "2026_suar_An_Explainable_AI_Driven_Decision_Support_Framework_for_Legal_Analytic.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1922/comdem.v3i8s.19228": {
+"arquivo": "2026_rao_An_Explainable_Artificial_Intelligence_Framework_for_Integrated_Manage.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48175/ijarsct-40580": {
+"arquivo": "2026_jain_An_Interpretable_Deep_Learning_Model_for_Early_Disease_Diagnosis_Lever.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1922/comdem.v3i6s.18942": {
+"arquivo": "2026_muthamma_An_Explainable_Artificial_Intelligence_Framework_for_Predicting_Green.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.29284/hb2wyv82": {
+"arquivo": "2026_alam_Zero_Trust_Security_Architecture_for_Next_Generation_FinTech_Platforms.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:teachermotivationandinstructionaleffectivenessingovernmentschools": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"tit:teacherburnoutandinstructionalperformanceinsecondaryeducationalinstitutions": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.68526/aijcs.2026.03": {
+"arquivo": "2026_kangara_Advancements_in_Semantic_Resume_Parsing_for_Autonomous_Talent_Acquisit.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fepid.2026.1931979": {
+"arquivo": "2026_breban_Editorial_Modeling_the_impact_of_human_behavior_on_infectious_disease.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/frai.2026.1969037": {
+"arquivo": "2026_viana_Geography_geospatial_analysis_and_artificial_intelligence_between_trad.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.24052/ijbed/v14is02/art-07": {
+"arquivo": "2026_randev_AI_driven_trade_facilitation_and_digital_governance_in_international_t.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30574/wjaets.2026.21.2.0491": {
+"arquivo": "2026_sarkar_EXPLAINABLE_AI_FOR_HIGH_STAKES_DECISION_MAKING.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.55041/ijsrem69309": {
+"arquivo": "2026_mahadev_Explainable_AI_Based_Intelligent_Tax_Prediction_and_Fraud_Detection_Sy.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.56975/jaafr.v4i11.516760": {
+"arquivo": "2026_jagtap_Explainable_Artificial_Intelligence_for_Enhancing_Zero_Trust_Security.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.64388/ire1723819": {
+"arquivo": "2026_m_Explainable_AI_Driven_Student_Risk_Prediction.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.65885/anubodhan.v2n4.2026.141": {
+"arquivo": "2026_vaish_Digital_Platforms_and_Democracy_Polarization_Misinformation_and_Partic.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.33102/43dvwn47": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.1007/s43762-026-00305-1": {
+"arquivo": "2026_nuraliev_Metropolitan_crime_in_London_20102026_a_reproducible_LSOA_level_analyt.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2610.36835": {
+"arquivo": "2026_so_Joint_Distributional_Copula_Regression_for_Insurance_Claim_Frequency_a.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1038/s41598-026-72509-8": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.65713/jeev2i401": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.61368/r.s.d.h.v7i3.1154": {
+"arquivo": "2026_ovalle_Machine_Learning_Explicable_XAI_en_Sistemas_de_Software_Inteligentes_U.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1051/epjconf/202639101009": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:inteligenciaartificialexplicableenprogramacincompetitivaanlisiscomparativodemtodosdemachinelearningbajolosprincipiosfate": {
+"arquivo": "2026_herrera_Inteligencia_Artificial_Explicable_en_programacion_competitiva_analisi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:intelligentthreatdetectionusingexplainableaiandautonomousincidentresponseincloudenterprisesecuritysystems": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.59537/saupress.2577": {
+"arquivo": "2026_demirkol_Artificial_Intelligence_Tools_in_Qualitative_Research_II.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.23313936": {
+"arquivo": "2026_zaidi_L_audit_financier_a_l_ere_de_l_intelligence_artificielle_au_Maroc_enje.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70593/978-81-6632-140-5": {
+"arquivo": "2026_t_Indian_Knowledge_Systems_for_Climate_Resilient_Highways_and_Sustainabl.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.ssaho.2026.103482": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.59261/inkubis.v8i3.417": {
+"arquivo": "2026_imelda_From_Human_Judgment_to_Machine_Learning_A_Philosophical_Study_of_Knowl.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.15662/ijarcst.2026.0905004": {
+"arquivo": "2026_kao_Explainable_AI_for_Automated_DevSecOps_Security_Validation_across_Ente.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.5815/ijieeb.2026.05.08": {
+"arquivo": "2026_sem_titulo_Algorithmic_Digital_Finance_Platforms_as_aDriver_of_Transformation_of.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.69968/agph.2026.1861.286-297": {
+"arquivo": "2026_patel_Predicting_the_Unpredictable_Machine_Learning_for_Crime_Pattern_Recogn.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.67440/ahj.vi.2574": {
+"arquivo": "2026_medhi_The_Black_Box_Dilemma_in_AI_Driven_Management_Accounting_Implications.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.4038/jmtr.v11i4.469": {
+"arquivo": "2026_madurapperuma_Machine_learning_based_adaptive_learning_systems_in_higher_education_A.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63108/vab.ldd.1.3": {
+"arquivo": "2026_sc_Constitutional_Limits_on_Automated_Governance_An_Article_21_Perspectiv.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.56201/wjimt.v9.no10.2025.pg231.254": {
+"arquivo": "2026_berko_AI_Driven_Threat_Detection_for_Public_Sector_Systems_Balancing_Innovat.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1177/22799036261502594": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.37792/rxtajs29": {
+"arquivo": "2026_kunwar_Federated_Explainable_Multi_Agent_Governance_Framework_for_Adaptive_Pe.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.24846/v35i3y202610": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.15869/itobiad.1972257": {
+"arquivo": "2026_bilecen_The_Limits_of_AI_Guidelines_in_Journalism_Is_Algorithmic_Transparency.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70593/978-81-6632-098-9": {
+"arquivo": "2026_mudoi_Research_Ethics_Integrity_and_Plagiarism_in_the_Artificial_Intelligenc.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62311/nesx/rb-43sep-978-81-17475-57-7": {
+"arquivo": "2026_pasupuleti_Autonomous_Regulatory_Document_Compliance_Validation_System.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62311/nesx/rb-34sep-978-81-17475-66-9": {
+"arquivo": "2026_pasupuleti_Uncertainty_Aware_Predictive_Decision_Controller.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1002/9781394357789.ch40": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.37572/edart_2809262849": {
+"arquivo": "2026_reyes_sanchez_NEUROCOGNITIVE_PROCESSES_AND_ARTIFICIAL_INTELLIGENCE_TO_STRENGTHEN_SUS.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.36348/gajeb.2026.v08i05.032": {
+"arquivo": "2026_siddiqui_Enhancing_Cyber_Resilience_Against_Zero_Day_Exploits_in_Saudi_Critical.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63544/jbii.v5i9.230": {
+"arquivo": "2026_siddiqui_Growth_Carbon_Emissions_and_Public_Health_Spending_Long_Run_Evidence_f.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62441/actainnovations.v63i1s.1754": {
+"arquivo": "2026_pagare_AN_EXPLAINABLE_AI_FRAMEWORK_FOR_PREDICTING_EMPLOYEES_WORK_CULTURE_AGIL.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/diagnostics16193107": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48123/rsgis.1898318": {
+"arquivo": "2026_cavdaroglu_A_Multi_Layer_Framework_for_Explainable_and_Accountable_GeoAI_in_GISci.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.31435/ijitss.3(51).2026.5912": {
+"arquivo": "2026_godek_ARTIFICIAL_INTELLIGENCE_IN_THE_DIAGNOSIS_OF_OCCUPATIONAL_DISEASES_TECH.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fbloc.2026.1883639": {
+"arquivo": "2026_abouzaid_Decentralized_blockchain_governance_for_explainable_causal_AI_in_macro.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.71317/kjard.2.9(s).2026.658": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.3390/make8090292": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fpubh.2026.1963120": {
+"arquivo": "2026_akpnar_Editorial_Greening_urban_spaces_and_human_health_volume_III.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.22761/gd.2026.0024": {
+"arquivo": "2026_yum_Analysis_of_Future_Green_Space_Changes_in_Cities_and_Counties_of_Chung.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.56201/ijssmr.vol.11no8.2025.pg565.608": {
+"arquivo": "2026_ashore_onisemo_Human_In_The_Loop_Decision_Systems_Advances_and_Future_Directions.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.indic.2026.101481": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/businesses6030050": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1038/s41598-026-71692-y": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.54938/ijemdss.2026.05.4.823": {
+"arquivo": "2026_malik_Beyond_Black_Box_Budgeting_An_Explainable_Deep_Learning_Framework_for.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/microorganisms14092013": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.20944/preprints202609.0806.v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.18255/2412-6519-2026-3-354-367": {
+"arquivo": "2026_morozova_sem_titulo_7ee84b6883.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.47772/ijriss.2026.1026edu0560": {
+"arquivo": "2026_wijayarathna_Beyond_Marks_Detecting_Hidden_Academic_Risk_Through_Psychosocial_Proxy.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.52132/ajrsp.e.2026.89.2": {
+"arquivo": "2026_al_enezi_Governing_AI_Adoption_in_Government_Administration_An_Integrative_Fram.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.31548/humanhealth.3.2026.67": {
+"arquivo": "2026_burova_PERSONALIZED_NUTRITION_AND_ARTIFICIAL_INTELLIGENCE_MODERN_APPROACHES_R.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.24963/ijcai.2026/810": {
+"arquivo": "2026_levinkopf_Context_Aware_Concept_Distillation_for_Trustworthy_Flood_Prediction.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.7860/jcdr/2026/86004.24236": {
+"arquivo": "2026_kolla_Artificial_Intelligence_in_Spinal_Cord_Stimulation_and_Neuromodulation.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1111/eci.70254": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.29070/w0j61s95": {
+"arquivo": "2026_p_A_Study_on_Human_Centric_Explainable_Ai_Auditing_Systems_for_Financial.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.52152/kf4v4t75": {
+"arquivo": "2026_mohanraj_A_DIGITAL_GOVERNANCE_FRAMEWORK_FOR_AGRICULTURAL_SUPPLY_CHAINS_USING_BL.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30574/wjarr.2026.31.2.2132": {
+"arquivo": "2026_nwankwo_DEVELOPMENT_OF_A_HYBRID_NNCNN_DEEP_LEARNING_FRAMEWORK_FOR_INTELLIGENT.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.61970/adlitip.1818812": {
+"arquivo": "2026_carkcoglu_Current_Advances_in_Age_and_Sex_Estimation_Using_Artificial_Intelligen.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63544/jbii.v5i8.195": {
+"arquivo": "2026_qazi_How_FinTech_Capability_Shapes_Entrepreneurial_Success_The_Mediating_Ro.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62311/nesx/rb18ag-978-81-68314-82-5": {
+"arquivo": "2026_pasupuleti_Green_Maritime_Intelligence_for_Autonomous_Shipping_Smart_Ports_and_Lo.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62311/nesx/rb19ag-978-81-68314-81-8": {
+"arquivo": "2026_pasupuleti_Autonomous_and_Sustainable_Aviation_Intelligence_for_Electric_Aircraft.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62311/nesx/rb36ag-978-81-68314-64-1": {
+"arquivo": "2026_pasupuleti_Responsible_Synthetic_Media_Ecosystems_for_Creator_Rights_Copyright_Pr.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62311/nesx/rb54ag-978-81-68314-46-7": {
+"arquivo": "2026_pasupuleti_Human_AI_Collaborative_Leadership_for_Organizational_Transformation_De.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.31149/ajta.v3i4.4331": {
+"arquivo": "2026_sangida_Trustworthy_Artificial_Intelligence_in_Oncology_Managing_Bias_Privacy.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.26730/1816-4528-2026-4-41-51": {
+"arquivo": "",
+"status": "falhou (HTTP 404)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.iatssr.2026.08.007": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.59543/jidmis.v3.1991": {
+"arquivo": "2026_alasmari_Explainable_Generative_AI_for_Sharia_Compliant_Investment_Decision_Mak.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/info17080809": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/s10278-026-02172-y": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62762/jiap.2026.354772": {
+"arquivo": "2026_mukhtar_Decentralized_and_Explainable_Brain_Tumor_Segmentation_A_Blockchain_Se.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70882/noun-ijcea.2026.1129": {
+"arquivo": "2026_jibril_Artificial_Intelligence_AI_Driven_Digital_Forensics_in_Cybercrime_Inve.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:doexplainableaimodelsexplainthesamethingeverywhereaninstitutionalperspectiveusingpublichealthcaredata": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.20944/preprints202608.0944.v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21511/imfi.23(3).2026.16": {
+"arquivo": "",
+"status": "falhou (erro de certificado TLS do site)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fdgth.2026.1900500": {
+"arquivo": "2026_innocent_Framework_for_developing_explainable_artificial_intelligence_models_fo.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62411/jcta.15962": {
+"arquivo": "2026_omiyeniyi_Bridging_the_AI_Deployment_Gap_in_Predictive_Policing_An_Analytical_Re.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21203/rs.3.rs-10602628/v1": {
+"arquivo": "2026_shakir_Payment_delay_as_the_dominant_predictor_of_schedule_overrun_in_constru.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70112/ajcst-2026.15.2.4434": {
+"arquivo": "2026_iyiade_Interpreting_Multimodal_Data_Fusion_for_Glioblastoma_Prognosis_A_Syste.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63544/w0r2bt07": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.1007/s44163-026-01919-4": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70917/ijcisim-2026-4236": {
+"arquivo": "",
+"status": "falhou (HTTP 404)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70593/978-93-7185-923-3": {
+"arquivo": "2026_katiyar_Indian_Knowledge_Systems_IKS_for_Artificial_Intelligence_Machine_Learn.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.65579/sijri.2026.v2i8.07": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.3390/app16157704": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.68090/ijbsivol1iss2-15": {
+"arquivo": "2026_paizin_Governing_AI_in_Religious_Life_Ethical_Imperatives_and_Algorithm_Theoc.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.54314/jssr.v9i4.6867": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.37547/ijasr-06-08-12": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.1016/j.dib.2026.113366": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.59543/jidmis.v3.1005": {
+"arquivo": "2026_mehta_Artificial_Intelligence_Applications_in_Educational_Management_Improvi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.51244/ijrsi.2026.1307000117": {
+"arquivo": "2026_lavanya_Blockchain_Based_Multimodal_Misinformation_Detection_System.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70715/jitcai.2026.v3.i4.079": {
+"arquivo": "2026_amponsah_Toward_Transparent_Intrusion_Detection_Systems_An_Explainable_Ai_Appro.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.33093/jclc.2026.6.2.23": {
+"arquivo": "2026_muriira_Anglophone_Narratives_in_Artificial_Intelligence_Mapping_Research_on_C.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62383/hukum.v3i4.1163": {
+"arquivo": "2026_abdullah_Perlindungan_Hukum_Data_Pribadi_di_Era_Kecerdasan_Buatan_Tantangan_dan.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.64388/irev10i1-1720112": {
+"arquivo": "2026_khan_AI_Enabled_Non_Conformance_Prediction_and_Corrective_Action_Management.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/s10791-026-10196-9": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.25258/ijddt.16.69s.82": {
+"arquivo": "2026_rai_Artificial_Intelligence_Journalism_and_Democracy_Transforming_Politica.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1186/s12879-026-14018-7": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.71143/5nn89082": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.67564/irassjms.v3.i7.0180": {
+"arquivo": "2026_opong_Artificial_Intelligence_and_People_Analytics_in_Human_Resource_Decisio.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.64823/ijcsa.2601005": {
+"arquivo": "2026_bekele_Development_of_an_Explainable_Artificial_Intelligence_Framework_for_Ac.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.18623/rvd.v23.6942": {
+"arquivo": "2026_syed_AI_DRIVEN_FRAUD_RISK_GOVERNANCE_AND_CREDIT_DECISION_INTELLIGENCE_FRAME.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.59261/inkubis.v8i2.316": {
+"arquivo": "2026_ramantika_A_Machine_Learning_Based_Early_Warning_System_for_Predicting_Rupiah_Ex.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/978-3-032-19321-6_31": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.51244/ijrsi.2026.1306000345": {
+"arquivo": "2026_abdullah_An_Explainable_Machine_Learning_Framework_for_Predicting_Healthcare_Ut.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2607.07316": {
+"arquivo": "2026_sawant_Mechanistic_Interpretability_for_Neural_Networks_Circuits_Sparse_Featu.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/engproc2026143032": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2607.04374": {
+"arquivo": "2026_nanduri_An_End_to_End_Explainable_AI_Framework_with_Automated_LLM_Based_Natura.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:achievingthesweetspotbetweenopennessandperformanceinhighstakesdecisionmakingwithmachinelearningmodels": {
+"arquivo": "2026_bellamy_Achieving_the_Sweet_Spot_Between_Openness_and_Performance_in_High_Stak.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.3390/agriengineering8070270": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.rineng.2026.111706": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.59642/jrtmed.1.2026.06": {
+"arquivo": "2026_papana_Smart_and_sustainable_public_procurement_new_directions_in_public_fina.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.58532/nbennur3314c2": {
+"arquivo": "2026_gadekar_EXPLAINABLE_AND_RESPONSIBLE_AI_A_GUIDE_TO_TRANSPARENCY_FAIRNESS_ACCOUN.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:addressingaisystemicbiasandinjusticeobstaclesandsolutions": {
+"arquivo": "2026_eberhardt_Addressing_AI_Systemic_Bias_and_Injustice_Obstacles_and_Solutions.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.22214/ijraset.2026.83361": {
+"arquivo": "2026_rani_Explainability_in_Modern_Artificial_Intelligence_A_Review_of_Technique.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.15869/itobiad.1813561": {
+"arquivo": "2026_ada_Vergilendirme_Alannda_Makine_Ogrenmesi_Uygulamalar_Bibliyometrik_Bir_A.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.20944/preprints202606.2221.v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.15837/aijjs.v20i1.7666": {
+"arquivo": "2026_kamianetska_AI_IN_CROSS_BORDER_PROCUREMENT_LAW_AND_ETHICS.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.58420/ptk/2026.90.02.006": {
+"arquivo": "",
+"status": "falhou (erro de certificado TLS do site)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.66776/ijaich.2026.1.1.50-66": {
+"arquivo": "",
+"status": "falhou (HTTP 404)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.31673/2412-9070.2026.318102": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.65237/2336-3630-2026-6(3)-8": {
+"arquivo": "2026_sem_titulo_BIG_DATA.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1145/3805689.3812289": {
+"arquivo": "2026_burnat_The_Accountability_Paradox_How_Platform_API_Restrictions_Undermine_AI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.11611/yead.1830100": {
+"arquivo": "2026_tekin_COLLECTIVE_ALGORITHMIC_RIGHTS_A_NEW_RIGHTS_ARCHITECTURE_FOR_GLOBAL_DIG.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5120/ijca4f889d5f5416": {
+"arquivo": "2026_sanketh_Intellectual_Property_Challenges_in_AI_Based_Digital_Health_Diagnostic.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.4103/jcecho.jcecho_29_26": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.29121/shodhai.v3.i1.2026.89": {
+"arquivo": "2026_ray_ALGORITHMIC_BIAS_AND_FAIRNESS_IN_AI_SYSTEMS_CHALLENGES_IMPACTS_AND_RES.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.67224/ioasdjbms.2026.v03i02.003": {
+"arquivo": "2026_ranjan_Balancing_Performance_and_Transparency_A_Framework_for_Implementing_Ex.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.66472/ismat.v1i2.442": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.61336/rzyz9n11": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.25295/fsecon.1802778": {
+"arquivo": "2026_koc_Artificial_Intelligence_Applications_in_Public_Administration_From_Glo.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.67169/publicarciencia.v8i1.53": {
+"arquivo": "2026_galarza_Impacto_de_los_algoritmos_de_inteligencia_artificial_en_la_deteccion_d.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.46799/ijssr.v6i6.1418": {
+"arquivo": "2026_cumbhadrika_Reconstruction_of_the_Concept_of_Legal_Liability_for_Losses_Caused_by.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.14210/cotb.v17.p707-709": {
+"arquivo": "2026_silva_Sistema_Tutor_Baseado_em_Inteligencia_Artificial_Explicavel_para_Ensin.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/su18125894": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.19080/asm.2026.13.555864": {
+"arquivo": "2026_zhu_Interpretable_Machine_Learning_Theory_Methods_and_Applications.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.wds.2026.100325": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/s11084-026-09736-6": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1108/sej-10-2025-0255": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.20944/preprints202606.0177.v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/systems14060620": {
+"arquivo": "",
+"status": "falhou (HTTP 500)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.70088/8kq6kr21": {
+"arquivo": "2026_yu_Necessity_and_Institutional_Design_of_Introducing_a_Qualified_Right_to.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.51583/ijltemas.2026.150500068": {
+"arquivo": "",
+"status": "falhou (HTTP 404)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.55248/gengpi.07.0626.15b05": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63391/3r6dpn92": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.58425/ajt.v5i7.548": {
+"arquivo": "2026_vepuri_An_AI_Driven_Framework_for_Automated_Compliance_Enforcement_in_Regulat.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.22214/ijraset.2026.82127": {
+"arquivo": "2026_swapna_AI_Powered_DPR_Quality_Assessment_and_Risk_Prediction_System.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62311/nesx/rb2m-978-81-687299-8-8": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.22236/jei.v17i1.22548": {
+"arquivo": "2026_alfiani_INDONESIA_MALAYSIA_DIGITAL_TAX_TRANSPARENCY_MAQASID_SHARIA_APPROACH_TO.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1017/cfc.2026.10028": {
+"arquivo": "2026_gorrieri_Between_explaining_and_understanding_Rethinking_AI_explainability_in_m.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.eij.2026.100991": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.20944/preprints202605.2039.v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21203/rs.3.rs-9236082/v1": {
+"arquivo": "2026_sawant_FI_RC_Analysing_Annotator_Disagreement_through_a_Culturally_Aware_Lexi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70528/ijlrp.v7.i5.2268": {
+"arquivo": "2026_ahmad_Regulatory_Challenges_in_AI_Driven_Underwriting_and_How_Insurers_Can_P.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/ichcai70183.2026.11607538": {
+"arquivo": "2026_marsh_Ensuring_Human_Safety_and_Accountability_Through_Data_Management_in_Au.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/urbansci10060298": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63544/jbii.v5i5.180": {
+"arquivo": "2026_afzal_Algorithmic_Power_and_Climate_Diplomacy_Assessing_the_Implications_of.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.64643/ijirtv12i12-206803-459": {
+"arquivo": "2026_s_AI_Powered_Rural_Student_Dropout_Early_Warning_System_with_Explainable.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.20478163": {
+"arquivo": "2026_sellappan_Generative_AI_and_Dynamic_Modeling_for_Real_Time_Cloud_Based_Credit_Ri.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21275/sr26510173603": {
+"arquivo": "2026_mishra_Enhancing_Audit_and_Financial_Reporting_Quality_through_AI_and_Machine.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:biasandfairnessinaisystemschallengesandmitigationstrategies": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.1007/978-3-032-18109-1_9": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70651/3083-6018/2026.5.23": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1145/3837873.3838036": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2605.14067": {
+"arquivo": "2026_sehgal_Comparative_Evaluation_of_Machine_Learning_Approaches_for_Minority_Cla.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21203/rs.3.rs-9509094/v1": {
+"arquivo": "2026_bachhav_AI_Based_Personalised_Portfolio_Allocation_Engine_for_Indian_Retail_In.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.58344/locus.v5i5.5795": {
+"arquivo": "2026_sianturi_Foresight_Bias_in_Decision_Accuracy_and_Prevention_Frameworks_A_System.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.55041/ijcope.v2i5.385": {
+"arquivo": "2026_sikchi_Explainable_Fake_News_Detection_Using_Transformer_Models_for_Multiling.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:mecanismosparaabordarlossesgosyladiscriminacinenprocesosdeaprendizajeautomticoparaunatomadedecisionesalgortmicaconfiable": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.36948/ijfmr.2026.v08i03.76774": {
+"arquivo": "2026_kohli_Corporate_Accountability_in_the_Gig_Economy_Re_examining_Labour_Law_to.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.25041/ip.v7i1.4738": {
+"arquivo": "2026_reza_Artificial_IntelligenceGenerated_Deepfake_Pornography_A_Normative_Anal.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/engproc2026124113": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21203/rs.3.rs-9087087/v1": {
+"arquivo": "2026_francies_A_Multi_Layer_Explainable_AI_Framework_for_Transparent_Urban_Budget_Al.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63922/ijbqr.v4i02.3499": {
+"arquivo": "2026_susilawati_Legal_Review_of_Consumer_Protection_of_Electronic_Transactions_in_Busi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.47260/jafb/1635": {
+"arquivo": "2026_staley_Quantum_Inspired_Counterfactual_Explainable_AI_with_Blockchain_Based_P.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.65923/4nm2g031": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.64771/ijesat.2026.v26.i5.2900": {
+"arquivo": "2026_madhumitha_Road_Safety_Measures_For_Limited_Mobility_Users_Using_XAI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.56975/ijedr.v14i2.307275": {
+"arquivo": "2026_k_sathish_ARTIFICIAL_INTELLIGENCE_IN_SCIENCE_AND_SOCIETY_THE_VISION_OF_USERN.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:neuralintelligenceframeworkforefficientstructureddatasetinterpretationthroughrelationalfocusarchitectures": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.14710/dilrev.11.1.2026.68-93": {
+"arquivo": "2026_satya_HUMAN_RIGHTS_PROTECTION_IN_ARTIFICIAL_INTELLIGENCE_GOVERNANCE_COMPARAT.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/s10796-026-10736-0": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.51583/ijltemas.2026.150300126": {
+"arquivo": "",
+"status": "falhou (HTTP 404)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.71097/ijsat.v17.i2.10890": {
+"arquivo": "2026_sawlani_AI_Enabled_Smart_Taxation_and_Compliance_Management_System_With_Advanc.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.31083/ko53184": {
+"arquivo": "2026_watanabe_Automatic_Classification_of_Records_and_Archives_as_Data_A_Survey_of_E.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.60087/jaigs.v9i01.462": {
+"arquivo": "2026_kompalli_Secure_AI_in_Databases_Privacy_Governance_and_Trust_Mechanisms_in_Orac.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/cancers18081305": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21203/rs.3.rs-9448591/v1": {
+"arquivo": "2026_marciano_Bibliometric_Review_of_the_Ethical_and_Legal_Perspectives_of_Explainab.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.56334/sei/9.6.21": {
+"arquivo": "2026_altundag_Machine_learning_based_risk_analytics_in_combating_the_shadow_economy.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1093/ije/dyag091": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fpsyg.2026.1823924": {
+"arquivo": "2026_garcia_lopez_Neurovictimology_and_the_risks_of_neurotechnologies_and_artificial_int.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.7717/peerj-cs.3722": {
+"arquivo": "2026_lee_Explainable_and_transferable_deep_reinforcement_learning_for_adaptive.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21203/rs.3.rs-9403175/v1": {
+"arquivo": "2026_alam_Artificial_Intelligence_for_Predicting_and_Prioritizing_Microbiologica.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32628/cseit26121381": {
+"arquivo": "2026_pandey_Handwritten_Signature_Verification_Using_Explainable_AI_and_Lightweigh.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1088/2516-1091/ae4e74": {
+"arquivo": "2026_mamun_Trustworthy_AI_in_digital_health_a_comprehensive_review_of_robustness.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.47772/ijriss.2026.100300326": {
+"arquivo": "2026_nwosu_Bolstering_Cybersecurity_and_Blockchain_Networks_Through_AI_Technologi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.2991/978-94-6239-624-1_13": {
+"arquivo": "2026_dinh_Transforming_Accounting_Information_Systems_through_Artificial_Intelli.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30596/jcositte.v7i1.29560": {
+"arquivo": "2026_aryza_Explainable_Data_Driven_Machine_Learning_for_Identifying_MBG_Program_B.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.2991/978-94-6239-616-6_4": {
+"arquivo": "2026_prabha_AI_Based_Fake_Challan_Detection_From_Sms_Using_Machine_Learning.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.33545/27076571.2026.v7.i4a.304": {
+"arquivo": "2026_prajapati_Ethical_Issues_and_Bias_in_Artificial_Intelligence_A_Systematic_Review.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.7160/eriesj.2026.190101": {
+"arquivo": "2026_mones_A_Systematic_Approach_to_Predicting_Students_Academic_Performance_A_Re.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.15190/d.2026.3": {
+"arquivo": "2026_kaushik_Responsible_Innovation_in_AI_Driven_Teledentistry_Ethical_Legal_and_Ec.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30574/wjarr.2026.29.3.0655": {
+"arquivo": "2026_akinseye_Role_of_GenAI_tools_in_real_time_5G_network_forensics_for_hybrid_cloud.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32431/kace.2026.29.3.005": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.31891/2307-5732-2026-363-11": {
+"arquivo": "2026_sem_titulo_sem_titulo_5a73681872.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62970/ijirct.v12.i2.2603032": {
+"arquivo": "2026_ahmad_From_Black_Box_to_Glass_Box_Implementing_Explainable_AI_in_Insurance_U.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.17762/ijisae.v14i1s.8130": {
+"arquivo": "2026_mehathar_AI_Assisted_Workflow_Orchestration_in_Regulated_Healthcare_Contact_Cen.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70594/brain/17.1/1": {
+"arquivo": "2026_dar_Towards_Real_Time_Explainable_AI_Using_Class_Activation_Mapping_for_Br.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.54097/zps8hc20": {
+"arquivo": "2026_zhou_The_Mechanism_analysis_of_Corporate_Financial_Risk_Influences_via_BiLS.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:artificialintelligenceandadvanceddigitalhealthforhypertensionevolvingtoolsforprecisioncardiovascularcare": {
+"arquivo": "2026_pulatova_Artificial_Intelligence_and_Advanced_Digital_Health_for_Hypertension_E.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5194/egusphere-egu26-13454": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5194/egusphere-egu26-13329": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5194/egusphere-egu26-19791": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.64038/cel.01202649": {
+"arquivo": "2026_yassar_TRACEABLE_AND_EXPLAINABLE_AI_LINEAGE_ARCHITECTURES_FOR_REGULATORY_COMP.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:anartificialintelligenceapproachtoestablishingcriticalfactorsinfluencingoffsiteconstructionadoptionintheunitedkingdom": {
+"arquivo": "2026_wusu_An_Artificial_Intelligence_Approach_to_Establishing_Critical_Factors_I.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2603.07606": {
+"arquivo": "2026_soegeng_TT_Sparse_Learning_Sparse_Rule_Models_with_Differentiable_Truth_Tables.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1080/07366981.2026.2637772": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/diagnostics16050752": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/a19030187": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1002/widm.70076": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30574/wjarr.2026.29.2.0243": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectionError))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.1016/j.iswa.2026.200647": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21203/rs.3.rs-8976235/v1": {
+"arquivo": "2026_kohan_Human_Centered_Pathways_to_Trustworthy_AI_in_Healthcare_A_Comparative.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.17392/2061-23-01": {
+"arquivo": "",
+"status": "falhou (HTTP 404)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/southeastcon63549.2026.11476455": {
+"arquivo": "2026_temel_Towards_Trustworthy_Autonomous_Robots_An_Explainable_AI_Based_Decision.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.37082/ijirmps.v14.i1.232939": {
+"arquivo": "2026_chawande_AI_Enhanced_Sanctions_Screening_A_risk_controlled_predictive_complianc.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/s12061-026-09800-8": {
+"arquivo": "2026_zhang_Ecological_well_being_Performance_in_a_Chinese_Urban_Agglomeration_Spa.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.52783/jisem.v11i2s.14634": {
+"arquivo": "2026_bikka_Modern_Workflow_Automation_Architecture_Patterns_Contemporary_Design_A.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.64751/ijaecme.12345679": {
+"arquivo": "2026_rao_BIAS_DETECTION_AND_MITIGATION_USING_EXPLAINABLE_AI_IN_INTELLIGENT_RECR.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.33411/ijist/1764": {
+"arquivo": "",
+"status": "falhou (HTTP 404)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.26434/chemrxiv.15000002/v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.horiz.2026.100177": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:embeddinglegalnormsintoaiworkflowsaframeworkforalgorithmiccomplianceinfinance": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.1186/s12984-026-01892-0": {
+"arquivo": "2026_schopp_Explainability_in_AI_enabled_medical_neurotechnology_a_scoping_review.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.67313/slijms.2026.2": {
+"arquivo": "2026_balraj_Explicable_Artificial_Intelligence_in_Decision_Critical_Systems_A_Comp.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.18848/rphmt363": {
+"arquivo": "2026_mambetaliev_Artificial_Intelligence_as_the_Strategic_Engine_of_Data_Security_Analy.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.18231/j.johs.14516.1767071065": {
+"arquivo": "2026_asokan_Integration_of_artificial_intelligence_and_digital_pathology_in_oral_d.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.54380/ijrdet0126_195": {
+"arquivo": "2026_darbar_The_Role_of_Artificial_Intelligence_in_Studying_Human_Behaviour.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62311/nesx/rp-j32026": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.3389/fmed.2026.1687773": {
+"arquivo": "2026_younas_Prediction_of_thalassemia_carrier_using_federated_learning_and_explain.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.38124/ijisrt/26jan131": {
+"arquivo": "2026_stow_Machine_Learning_for_Predicting_Diagnostic_Test_Discordance_in_Malaria.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1186/s12875-026-03194-9": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/land15020231": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/frcmn.2025.1697204": {
+"arquivo": "2026_villegas_ch_Autonomous_federated_defense_for_zero_day_threats_in_IIoT_explainable.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.71097/ijaidr.v17.i1.1680": {
+"arquivo": "2026_agarwal_Explainable_AI_Toolkits_for_Trustworthy_Retail_Decision_Making_Systems.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.47392/irjaeh.2026.0044": {
+"arquivo": "2026_prasad_A_Conceptual_Framework_for_Safety_and_Decision_Justification_in_Autono.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.20944/preprints202601.1922.v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.22542630": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.21203/rs.3.rs-8467738/v1": {
+"arquivo": "2026_singh_Mapping_the_Intellectual_Landscape_of_Psychometric_Behaviour_in_Algori.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32996/jcsts.2025.8.1.6": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.1140/epjds/s13688-026-00619-4": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/feduc.2025.1681836": {
+"arquivo": "2026_landablanco_Artificial_intelligence_in_education_applications_and_limitations_for.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.26794/1999-849x-2025-18-6-129-140": {
+"arquivo": "2026_shatokhina_Digital_Transformation_of_Tax_Administration_as_a_Strategic_Basis_for.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1111/1541-4337.70403": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1515/opth-2025-0069": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (www.degruyterbrill.com))",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32604/cmc.2025.070010": {
+"arquivo": "2026_abdel_wahab_Toward_Robust_Deepfake_Defense_A_Review_of_Deepfake_Detection_and_Prev.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32604/cmc.2025.068958": {
+"arquivo": "2026_rehman_Advances_in_Machine_Learning_for_Explainable_Intrusion_Detection_Using.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.22271/2790-0673.2026.v6.i1a.281": {
+"arquivo": "2026_pal_AI_Black_Box_decisions_legal_accountability_to_humanities.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/access.2026.3681521": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32604/cmc.2025.070067": {
+"arquivo": "2026_ganapathiyappan_Advanced_AI_Driven_Cybersecurity_Solutions_Intelligent_Threat_Detectio.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.54660/.ijmrge.2026.7.4.709-721": {
+"arquivo": "2026_idowu_Conceptual_Advances_in_AI_Enabled_Compliance_and_Coordination_Models_f.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.procs.2026.08.372": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.28945/5848": {
+"arquivo": "2026_giat_Explainability_in_AI_and_Machine_Learning_Bridging_the_Gap_Between_Int.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.61822/amcs-2026-0017": {
+"arquivo": "2026_wichrowski_A_review_of_explainable_semi_supervised_methods_in_multivariate_time_s.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.59256/ijire.20250606019": {
+"arquivo": "2026_perumal_Developing_a_Transparent_Diagnosis_Model_for_Diabetic_Retinopathy_Usin.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.18178/ijeetc.15.1.72-85": {
+"arquivo": "2026_khodke_Explainable_AI_Based_Mapping_of_Public_Sentiment_on_the_Impact_of_Envi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63665/ijaice.0201.04": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.56975/ijrar.v13i2.333737": {
+"arquivo": "2026_mahima_Cybersecurity_Threats_And_Attacks_From_Modern_Prospects_Using_AI_To_De.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5935/jetia.v12i59.3612": {
+"arquivo": "2026_riyadi_Blockchain_Enabled_Explainable_Artificial_Intelligence_Framework_for_T.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/access.2026.3697847": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:calibratedmultiagentdebateforexplainableaitraceabledecisionmakingacrossdomains": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.56975/ijrar.v13i2.336948": {
+"arquivo": "2026_arshaduzzaman_Enhancing_Transparency_in_Machine_Learning_Through_Fuzzy_Inference_Sys.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.procs.2026.06.051": {
+"arquivo": "",
+"status": "falhou (HTTP 401)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.38193/ijrcms.2026.8328": {
+"arquivo": "2026_nguyet_LABOUR_RIGHTS_PROTECTION_IN_THE_AGE_OF_ARTIFICIAL_INTELLIGENCE_REGULAT.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/ojcs.2026.3714544": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/access.2026.3721052": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.18535/ijecs.v15i08.5672": {
+"arquivo": "2026_nnaji_Explainable_Artificial_Intelligence_Based_Intrusion_Detection_for_Zero.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.68159/j663169488": {
+"arquivo": "2026_silva_Explainable_Neural_Symbolic_Model_for_Clinical_Decision_Support_Combin.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.51483/ijaiml.6.3.2026.348-358": {
+"arquivo": "2026_shukla_Artificial_Intelligence_and_Data_Privacy_Navigating_Cyber_Laws_in_theA.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:theinvisibledigitaltithecommercialaipricinguserlaborplatformpowerandthedeepseekalternativeacomparativestudyofchatgptclau": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:ai": {
+"arquivo": "2026_thaweethanawanij_AI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.65219/sjcm.20260203017": {
+"arquivo": "2026_bavatharini_THE_CREDIT_BLACK_BOX_EXPLAINABLE_AI_AND_ALGORITHMIC_FAIRNESS_IN_DIGITA.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:predictingtheeffectivenessofmonetaryandfiscalpoliciesunderfinancialsanctionamachinelearningandshapanalysis": {
+"arquivo": "2026_mirjalili_Predicting_The_Effectiveness_of_Monetary_and_Fiscal_Policies_Under_Fin.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:aitrustandthefutureofdecisionmaking": {
+"arquivo": "2026_m_AI_TRUST_AND_THE_FUTURE_OF_DECISION_MAKING.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.12677/acpp.2026.1510496": {
+"arquivo": "2026_sem_titulo_Ethical_Governance_of_AI_Enabled_Brain_Computer_Interfaces_from_the_Pe.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32523/2616-7174-2026-156-3-98-113": {
+"arquivo": "2026_wang_Algorithmic_Management_and_Filter_Bubbles_A_Comparative_Analysis_of_Re.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.procs.2026.09.171": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:machinelearningforretailcreditriskscoringasystematicliteraturereviewwithinsightsforsouthafricanbanks": {
+"arquivo": "2026_sithebe_Machine_learning_for_retail_credit_risk_scoring_a_systematic_literatur.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.68159/v792997180": {
+"arquivo": "2026_mendez_Explaining_Without_Exposing_A_Federated_Framework_for_Privacy_Preservi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.68159/a586440683": {
+"arquivo": "2026_bennett_Measuring_What_Explanations_Actually_AchieveAn_Umbrella_Review_of_Fide.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.procs.2026.10.460": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.56778/rjslr.v3i3.519": {
+"arquivo": "2025_oise_Spatiotemporal_Water_Quality_Modeling_Using_Deep_Learning_Architecture.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:artificialintelligenceandthestakeholdergovernanceparadigmacomparativeanalysisofcorporateaccountabilityframeworksintheera": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.56778/jdlde.v4i7.594": {
+"arquivo": "2025_oise_Predicting_and_Preventing_Academic_Misconduct_Using_Behavioral_Analyti.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.22399/ijcesen.5064": {
+"arquivo": "2025_prasad_Architecting_Agentic_AI_Systems_Product_and_System_Design_Patterns_for.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.46287/qyhz8899": {
+"arquivo": "2025_abdelkarim_Predictive_Model_for_Reducing_Employee_Turnover_Using_Machine_Learning.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:explainablemachinelearningmethodsapplicationsandchallenges": {
+"arquivo": "2025_batra_Explainable_Machine_Learning_Methods_Applications_and_Challenges.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.20998/2079-0023.2025.02.05": {
+"arquivo": "2025_sem_titulo_GRAPH_NEURAL_NETWORKS_FOR_TRAFFIC_FLOW_PREDICTION_INNOVATIVE_APPROACHE.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:platformworkgovernanceandregulatoryframeworksasystematicliteraturereviewandbibliometricanalysis": {
+"arquivo": "2025_nedelea_Platform_work_governance_and_regulatory_frameworks_a_systematic_litera.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2512.21699": {
+"arquivo": "2025_bandara_Towards_Responsible_and_Explainable_AI_Agents_with_Consensus_Driven_Re.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.2991/978-2-38476-515-7_19": {
+"arquivo": "2025_chaturvedi_Navigating_the_Legal_Landscape_of_Digital_Media_Regulation_Challenges.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.2991/978-2-38476-515-7_17": {
+"arquivo": "2025_saidalavi_Regulating_AI_in_Financial_Markets_Challenges_and_Opportunities_in_Alg.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.15407/jai2025.04.024": {
+"arquivo": "2025_sem_titulo_Ethics_of_Personalization_Where_is_the_Boundary_Between_Useful_Recomme.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70413/zdif-v04-i31-s88218": {
+"arquivo": "2025_mannobova_THE_ACCOUNTABILITY_GAP_IN_AUTONOMOUS_SYSTEMS_RECONCILING_LEGAL_PERSONH.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.56947/amcs.v31.660": {
+"arquivo": "2025_mali_Analyzing_encrypted_traffic_analysis_using_explainable_AI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.35603/sws.iscss.2025/s02.19": {
+"arquivo": "2025_katsarski_INTEGRATING_SUSTAINABILITY_ACCOUNTING_AND_ARTIFICIAL_INTELLIGENCE_A_BA.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63278/jicrcr.vi.3522": {
+"arquivo": "2025_raj_AI_Enhanced_Cloud_Reliability_Engineering_Integrating_Incident_Automat.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48175/ijarsct-30504": {
+"arquivo": "2025_suraj_Regulating_Artificial_Intelligence_in_India_Constitutional_Challenges.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:advancingtransparentandhumancenteredartificialintelligenceacomprehensivereviewofexplainableaitheoriesmethodsandapplicati": {
+"arquivo": "2025_whitfield_Advancing_Transparent_and_Human_Centered_Artificial_Intelligence_A_Com.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/su172411211": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.58829/lp.12.2.2025.295": {
+"arquivo": "2025_amboro_Digital_Democracy_and_Open_Finance_Technology_Advancing_Transparency_a.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63278/jicrcr.vi.3513": {
+"arquivo": "2025_sigamani_The_Digital_Transformation_Of_Working_Capital_Management_From_Data_Lak.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.47065/bits.v7i3.8651": {
+"arquivo": "2025_risyahputri_Comparison_of_XGBoost_and_LSTM_in_Knowledge_Discovery_for_GrokAI_Mobil.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.12732/ijam.v38i12s.1649": {
+"arquivo": "2025_cheema_TOWARDS_AN_INTERPRETABLE_AND_PRIVACY_PRESERVING_MUSIC_RECOMMENDATION_S.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/hospitals2040029": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.34190/icair.5.1.4117": {
+"arquivo": "2025_manganello_Mapping_the_Research_Landscape_of_Transparent_AI_in_University_Assessm.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/risks13120238": {
+"arquivo": "2025_lin_SHAP_Stability_in_Credit_Risk_Management_A_Case_Study_in_Credit_Card_D.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.64643/ijirtv12i6-187861-459": {
+"arquivo": "2025_patil_Fake_News_Detection_Using_Explainable_Artificial_Intellingence_XAI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.4103/njpt.njpt_68_25": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.22214/ijraset.2025.75641": {
+"arquivo": "2025_sharma_Machine_Learning_for_6G_Wireless_Networks_Paradigms_Enablers_and_the_P.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30574/wjaets.2025.17.2.1493": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectionError))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"tit:explainableartificialintelligenceinhealthcaredecisionmakingethicaljusticeclinicaltrustandhumancenteredinterpretability": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"tit:digitallendingtransformationthroughrealtimeartificialintelligencebasedcreditanalytics": {
+"arquivo": "2025_blackmoor_Digital_Lending_Transformation_Through_Real_Time_Artificial_Intelligen.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.37634/efp.2025.11.11": {
+"arquivo": "2025_semianyk_Use_of_artificial_intelligence_in_risk_analysis_in_public_procurement.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.52340/gs.2025.07.04.21": {
+"arquivo": "2025_arakhamia_Invisible_Editors_Impact_of_AI_on_Media_Content_Quality_and_Trust.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:artificialintelligenceandthedutytogivereasonsbeyondtheblackboxandthelimitsofexplainability": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/electronics14234622": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.51867/aqssr.2.4.55": {
+"arquivo": "2025_kemei_A_historical_and_ethical_inquiry_into_the_transformative_role_of_artif.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32996/jcsts.2025.7.12.13": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.9734/jerr/2025/v27i121728": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1556/032.2025.00134": {
+"arquivo": "",
+"status": "falhou (HTTP 401)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1038/s41598-025-25107-z": {
+"arquivo": "2025_tawfik_FedMedSecure_federated_few_shot_learning_with_cross_attention_mechanis.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1145/3789297.3789357": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1051/shsconf/202522503017": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21203/rs.3.rs-7899983/v1": {
+"arquivo": "2025_oise_Fairness_and_Bias_Mitigation_in_Student_Success_Prediction_Models.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1051/shsconf/202522503017/pdf": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.65713/qpj.v1i104": {
+"arquivo": "2025_professor_TRANSFORMING_BLACK_BOX_MODELS_INTO_TRANSPARANT_SYSTEMS_THROUGH_EXPLAIN.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/systems13111007": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21203/rs.3.rs-8033889/v1": {
+"arquivo": "2025_tasijawa_Exploring_the_Ethical_Landscape_of_Artificial_Intelligence_in_Nursing.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.46254/in05.20250366": {
+"arquivo": "2025_fatima_A_Comprehensive_Review_on_the_Applications_of_Explainable_Artificial_I.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2511.03545": {
+"arquivo": "2025_ordyniak_Explaining_Decisions_in_ML_Models_a_Parameterized_Complexity_Analysis.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.61096/978-81-994851-8-1_8": {
+"arquivo": "2025_harini_AI_in_Clinical_Research_Challenges_and_Opportunities.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.neunet.2025.108277": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.18535/ijsrm/v13i11.ec02": {
+"arquivo": "2025_clement_Ethical_and_Bias_Aware_Data_Science_Quantifying_and_Mitigating_Algorit.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.lddd.2025.100235": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.36948/ijfmr.2025.v07i05.59221": {
+"arquivo": "2025_k_A_Survey_on_Deep_Learning_Based_Intrusion_Detection_Systems_with_SHAP.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:towardtrustworthyanddomaintranscendentexplainableartificialintelligenceaunifiedtheoreticalandappliedframeworkacrosshealt": {
+"arquivo": "2025_morgenstern_Toward_Trustworthy_and_Domain_Transcendent_Explainable_Artificial_Inte.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.71238/snnst.v2i02.179": {
+"arquivo": "2025_shah_EvidenceGrounded_Agent_An_Agentic_AI_Framework_for_Traceable_Complianc.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.52783/jisem.v10i61s.13371": {
+"arquivo": "2025_koripalli_Trust_Transparency_and_Ethics_A_Framework_for_Sustainable_LLM_Integrat.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.58257/ijprems44302": {
+"arquivo": "2025_anon_Next_Gen_Drug_Discovery_Quantum_and_AI_Synergy_in_Regulatory_Context.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.65521/ijeecs.v14i2.2720": {
+"arquivo": "2025_dahalbahadur_Ethical_AI_Frameworks_for_Bias_Detection_and_Fairness_Optimization_in.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.33767/osf.io/hdgnq_v1": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.22541/au.176132815.55027267/v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.2308/tar-2024-0035": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.22541/au.176071897.71599745/v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.12732/ijam.v38i6s.396": {
+"arquivo": "2025_parate_EXPLAINABLE_AI_IN_FLEET_PREDICTIVE_MAINTENANCE_USING_SHAP_AND_LIME_FOR.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/su17209086": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.56557/ajpam/2025/v7i1234": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/978-3-032-08317-3_18": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.12732/ijam.v38i5s.373": {
+"arquivo": "2025_hisamuddin_AGILE_INTELLIGENCE_IN_MANAGERIAL_DECISION_MAKING_A_STRATEGIC_MODEL_FOR.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.33166/aetic.2025.04.004": {
+"arquivo": "2025_japhne_Analysing_Public_Perception_of_Solar_Energy_An_Explainable_AI_Sentimen.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.36948/ijfmr.2025.v07i05.56875": {
+"arquivo": "2025_verma_FROM_DATA_TO_WISDOM_HUMAN_CENTERED_AI_FOR_ETHICAL_AND_TRANSPARENT_DECI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:explainableartificialintelligenceasafoundationforresponsibleethicalandhumancentereddecisionmakingsystems": {
+"arquivo": "2025_reinhardt_Explainable_Artificial_Intelligence_as_a_Foundation_for_Responsible_Et.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.11606/d.3.2025.tde-10122025-095401": {
+"arquivo": "2025_nomachi_Inteligencia_artificial_explicavel_e_inferencia_causal_para_avaliar_o.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fcomp.2025.1685873": {
+"arquivo": "2025_babulak_Editorial_Cyber_security_prevention_defenses_driven_by_AI_and_mathemat.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62019/hcqtrs67": {
+"arquivo": "2025_inam_A_Transformer_Based_Framework_for_Accurate_and_Interpretable_PM2_5_For.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21622/ilcc.2025.05.2.1342": {
+"arquivo": "2025_rojas_Navigating_the_ethical_quagmire_unraveling_the_intricate_landscape_of.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62560/csz.2025.04.6": {
+"arquivo": "2025_kucuk_Digital_tools_and_civic_participation_contrasting_models_of_civil_empo.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/medicina61091597": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5772/intechopen.1011279": {
+"arquivo": "2025_mohammed_Explainable_AI_in_Health_Care_Trust_and_Transparency_in_AI_Powered_Med.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/ijms26178472": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.20944/preprints202508.2202.v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.65923/8p81tb13": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.26855/jamc.2025.09.001": {
+"arquivo": "2025_sun_Interpretability_Bottleneck_Breakthrough_Method_for_Deep_Learning_Algo.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.37547/tajet/volume07issue08-16": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.3390/bioengineering12080879": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.36676/j.sust.sol.v2.i3.72": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.imavis.2025.105689": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/en18154125": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.38124/ijisrt/25jul1197": {
+"arquivo": "2025_ur_rahaman_Analyzing_the_Efficiency_of_Hybrid_Explainable_AI_Models_for_Feature_E.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.22214/ijraset.2025.72946": {
+"arquivo": "2025_rawool_Ethical_and_Computational_Challenges_in_Fairness_Aware_Federated_Learn.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5392/jkca.2025.25.07.403": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:abductivereasoningcausalityandtransparencyinexplainableartificialintelligenceanintegrativetheoreticalandappliedanalysis": {
+"arquivo": "2025_reinhardt_Abductive_Reasoning_Causality_and_Transparency_in_Explainable_Artifici.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.53022/oarjst.2025.14.2.0091": {
+"arquivo": "2025_sunkara_Explainable_AI_for_cyber_threat_Intelligence_Enhancing_analyst_trust.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1088/3049-4753/adde60": {
+"arquivo": "2025_chen_The_need_of_explainability_in_low_carbon_urban_system_design_using_AI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30574/wjbphs.2025.23.1.0664": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectionError))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.30574/gjeta.2025.24.1.0212": {
+"arquivo": "2025_raveendran_Technical_review_How_HIPAA_GDPR_and_DMA_apply_to_information_retrieval.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63090/ijitrs/3139.3209.0007": {
+"arquivo": "2025_e_Explainable_AI_XAI_Enhancing_Interpretability_of_Deep_Learning_Models.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30574/ijsra.2025.16.1.1980": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectionError))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.64823/ijter.2503015": {
+"arquivo": "2025_joshika_Captcha_Solving_using_AI_with_LIME_Explainability.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.52783/jier.v5i3.3262": {
+"arquivo": "2025_ahuchogu_AI_and_Bias_in_Recruitment_Ensuring_Fairness_in_Algorithmic_Hiring.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/systems13070578": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63682/jns.v14i32s.8264": {
+"arquivo": "2025_kumar_AI_Driven_Medical_Diagnosis_and_Patient_Data_Privacy_A_Legal_Analysis.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63878/qrjs12": {
+"arquivo": "2025_arif_DESIGNING_A_STUDENT_CENTRIC_FRAMEWORK_FOR_EXPLAINABLE_AI_IN_ADAPTIVE_L.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70593/978-93-7185-399-6": {
+"arquivo": "2025_rane_Green_Artificial_Intelligence_Sustainable_Techniques_Applications_and.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.11648/j.advances.20250603.12": {
+"arquivo": "2025_nasehi_FPV_Drone_Swarms_in_Asymmetric_Warfare_Tactical_Innovations_and_Ethica.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70382/bejsmsr.v8i9.012": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.55248/gengpi.6.0725.25165": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.59022/ijlp.331": {
+"arquivo": "2025_murodova_The_Black_Box_Problem_in_Administering_Justice_Risks_of_Opaque_Algorit.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fped.2025.1631521": {
+"arquivo": "2025_kurathkoller_Artificial_intelligence_in_pediatrics_promise_peril_and_the_path_ahead.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.71097/ijsat.v16.i2.6661": {
+"arquivo": "2025_reddy_A_COMPARATIVE_STUDY_ON_VISUAL_ANALYSIS_USING_BIG_DATA_AND_MACHINE_LEAR.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.52783/cana.v32.5717": {
+"arquivo": "2025_r_Multi_Disease_Diagnostic_Analysis_for_Chest_X_Ray_Images_with_Explaina.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.55677/csrb/04-v02i06y2025": {
+"arquivo": "2025_sem_titulo_Development_of_Mobile_Applications_Based_on_Artificial_Intelligence_Cu.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.69635/978-1-0690482-4-0-ch5": {
+"arquivo": "2025_sem_titulo_ARTIFICIAL_INTELLIGENCE_FROM_A_TECHNICAL_PERSPECTIVE.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.59075/jssa.v3i2.556": {
+"arquivo": "2025_gulzar_Neuro_Intelligence_and_Crime_Prediction_Ethical_Boundaries_of_Brain_Da.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.31579/2767-7370/146": {
+"arquivo": "2025_maniatis_The_Algorithmic_Doctor_Bridging_the_Transparency_Gap_in_AI_Driven_Heal.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.58496/bjai/2025/008": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.58812/esiscs.v3i01.594": {
+"arquivo": "2025_roy_Artificial_Intelligence_in_Precision_Medicine_Enhancing_Chronic_Diseas.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/cvprw67362.2025.00253": {
+"arquivo": "2025_lee_PCBEAR_Pose_Concept_Bottleneck_for_Explainable_Action_Recognition.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.36948/ijfmr.2025.v07i03.47680": {
+"arquivo": "2025_pokhrel_Machine_Learning_Based_Malware_Detection_and_Classification_Techniques.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.22541/au.174912536.68729526/v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63345/sjaibt.v2.i2.302": {
+"arquivo": "2025_kushwaha_Blockchain_Based_Logging_for_Auditing_AI_Decisions.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.55248/gengpi.6.0625.2126": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/978-3-031-95365-1_6": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2506.06330": {
+"arquivo": "2025_afful_ExplainBench_A_Benchmark_Framework_for_Local_Model_Explanations_in_Fai.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21015/vtse.v13i2.2082": {
+"arquivo": "2025_ali_Interpretable_Deep_Learning_for_Brain_Tumor_Diagnosis_Occlusion_Sensit.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32996/jcsts.2025.7.5.19": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.60026/ijpamed.v9i2.203": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.20944/preprints202505.2339.v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1371/journal.pone.0318542": {
+"arquivo": "2025_nazim_Advancing_malware_imagery_classification_with_explainable_deep_learnin.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5772/intechopen.1005809": {
+"arquivo": "2025_guzman_Perspective_Chapter_Political_and_Economic_Self_Constitution_in_Large.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.47344/jbzmnx25": {
+"arquivo": "2025_raziyeva_Bias_and_Fairness_in_Automated_Loan_Approvals_A_Systematic_Review_of_M.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1101/2025.05.25.25328329": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32515/2663-1636.2025.13(46).2.17-25": {
+"arquivo": "2025_nemnenko_The_Role_of_Algorithm_Transparency_in_Trade_Management_as_a_Tool_for_R.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.64235/dphq6r10": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.55041/ijsrem48266": {
+"arquivo": "2025_gawali_Bias_Checker_AI_Web_Application_A_Framework_for_Identifying_Bias_in_AI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.52783/jisem.v10i45s.8990": {
+"arquivo": "2025_kumar_Integration_of_Machine_Learning_and_Data_Science_for_Optimized_Decisio.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:deeplearningandcnnsinophthalmologytowardaccurateandexplainablediagnosis": {
+"arquivo": "2025_kamal_Deep_Learning_and_Cnns_in_Ophthalmology_Toward_Accurate_and_Explainabl.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32996/jcsts.2025.7.3.33": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.1080/13600869.2025.2497633": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1177/22104968251382171": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/land14050927": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/buildings15081295": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1609/aaai.v39i27.35067": {
+"arquivo": "2025_tingzon_Large_Scale_School_Mapping_Using_Weakly_Supervised_Deep_Learning_for_U.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.envsoft.2025.106466": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/s10479-025-06575-y": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.47363/jesmr/2025(6)290": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2504.04645": {
+"arquivo": "2025_ren_Here_Comes_the_Explanation_A_Shapley_Perspective_on_Multi_contrast_Med.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.71443/9789349552531-15": {
+"arquivo": "2025_sanaj_Automated_Rubric_Based_Grading_Using_Deep_Learning_and_Computer_Vision.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.71443/9789349552517-14": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.31224/4496": {
+"arquivo": "2025_jung_From_Images_to_Reports_The_Future_of_Deep_Learning_in_Radiology_Report.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63125/p8fct530": {
+"arquivo": "2025_zenia_Privacy_Preserving_AI_Based_Cyber_Threat_Detection_in_Financial_Organi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.36227/techrxiv.174353148.84878401/v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63544/ijss.v4i1.136": {
+"arquivo": "2025_bukhari_Analysing_the_Impact_of_Education_Policies_and_Their_Implementation_on.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.54097/a0askn96": {
+"arquivo": "2025_li_Research_on_Automatic_Recognition_and_Auxiliary_Diagnosis_of_Artificia.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/s10207-025-01016-0": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.62527/comien.2.1.22": {
+"arquivo": "2025_magaji_An_Intensive_Review_on_Opinion_Mining_Techniques_State_of_The_Art_Open.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48175/ijarsct-24474": {
+"arquivo": "2025_mudavatu_The_Critical_Role_of_Algorithmic_Transparency_in_Modern_Cybersecurity.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.7753/ijcatr1404.1006": {
+"arquivo": "2025_anon_Explainable_AI_in_Algorithmic_Trading_Mitigating_Bias_and_Improving_Re.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.51219/jaimld/yuvachandra-marasani/675": {
+"arquivo": "2025_marasani_Explainable_AI_Frameworks_for_Patient_Level_Claims_Data_Analytics.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63341/vitce/1.2025.103": {
+"arquivo": "2025_klymenko_Adjustment_of_the_analytic_hierarchy_process_indicators_using_AI_tools.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62311/nesx/97891": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.48550/arxiv.2503.07914": {
+"arquivo": "2025_pranjal_Demystifying_the_Accuracy_Interpretability_Trade_Off_A_Case_Study_of_I.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/frai.2025.1545869": {
+"arquivo": "2025_li_A_critical_look_into_artificial_intelligence_and_healthcare_disparitie.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.56444/malrev.v6i01.5879": {
+"arquivo": "2025_kossay_TANGGUNG_JAWAB_HUKUM_PLATFORM_DIGITAL_ATAS_PENYALAHGUNAAN_AI_DALAM_TRA.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.69888/ftshsl.2025.000361": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.55248/gengpi.6.0225.1034": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.22214/ijraset.2025.66968": {
+"arquivo": "2025_ali_Explainability_in_AI_Interpretable_Models_for_Data_Science.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.ejrad.2025.112014": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/bioengineering12030242": {
+"arquivo": "",
+"status": "falhou (erro de certificado TLS do site)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.47191/ijcsrr/v8-i2-28": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2502.12525": {
+"arquivo": "2025_jiaxin_From_Abstract_to_Actionable_Pairwise_Shapley_Values_for_Explainable_AI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.46632/jdaai/2/3/14": {
+"arquivo": "2025_anon_Assessing_Explainable_in_Artificial_Intelligence_A_TOPSIS_Approach_to.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.33448/rsd-v14i2.48186": {
+"arquivo": "2025_oliveira_Influence_of_racial_bias_in_the_use_of_facial_recognition_applied_to_a.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2502.04695": {
+"arquivo": "2025_seth_Bridging_the_Gap_in_XAI_Why_Reliable_Metrics_Matter_for_Explainability.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:understandingdeeprepresentationsincnnsfromconceptstorelationstorules": {
+"arquivo": "2025_santos_Understanding_Deep_Representations_in_CNNs_from_Concepts_to_Relations.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.56397/jrssh.2025.02.05": {
+"arquivo": "2025_chen_The_Accuracy_and_Biases_of_AI_Based_Internet_Censorship_in_China.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.59341/2707-7799.1846": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30574/wjarr.2025.25.1.0011": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectionError))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.59865/abacj.2024.70": {
+"arquivo": "2025_noonpakdee_Leveraging_Machine_Learning_to_Enhance_Road_Safety_A_Social_Marketing.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5772/intechopen.1008730": {
+"arquivo": "2025_fatima_Machine_Learning_in_Procurement_with_a_View_to_Equity.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1186/s42467-024-00016-5": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:ethicalimplicationsofaiinautomateddecisionmakingsystems": {
+"arquivo": "2025_elgedik_Ethical_Implications_of_AI_in_Automated_Decision_Making_Systems.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.53573/rhimrj.2025.v12n1.026": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.51219/jaimld/elfredah-kevin-alerechi/426": {
+"arquivo": "2025_kevin_alerechi_AI_and_the_Newsroom_Transforming_Journalism_with_Intelligent_Systems.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fninf.2024.1543121": {
+"arquivo": "2025_mehmood_Editorial_Protecting_privacy_in_neuroimaging_analysis_balancing_data_s.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:impactodatecnologiamachinelearningnoprocessodecisriodoscomitsdacaixaumestudoexploratrio": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/access.2025.3546681": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/access.2025.3616353": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/access.2025.3585783": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/access.2025.3599947": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32604/cmes.2025.073705": {
+"arquivo": "2025_alshudukhi_Next_Generation_Lightweight_Explainable_AI_for_Cybersecurity_A_Review.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63125/49gs6175": {
+"arquivo": "2025_hasan_AI_AUGMENTED_RISK_DETECTION_IN_CYBERSECURITY_COMPLIANCE_A_GRC_BASED_EV.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/access.2025.3578906": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1155/int/4934696": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63282/3050-9416.ijaibdcms-v6i2p102": {
+"arquivo": "2025_daram_Explainable_AI_in_Healthcare_Enhancing_Trust_Transparency_and_Ethical.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/access.2025.3599990": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/ojcoms.2025.3608784": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63282/3050-9262.ijaidsml-v6i3p118": {
+"arquivo": "2025_jayaram_AI_Powered_ECM_Automation_with_Agentic_AI_for_Adaptive_Policy_Driven_C.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.4230/oasics.saia.2024.12": {
+"arquivo": "2025_elisabeth_A_View_on_Vulnerabilites_The_Security_Challenges_of_XAI_Academic_Track.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/jstars.2025.3617077": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.procs.2025.09.236": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/access.2025.3634996": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (ieeexplore.ieee.org))",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.4236/jdaip.2025.134030": {
+"arquivo": "2025_owolabi_Explainable_Credit_Intelligence_A_Unified_SHAP_Based_Framework_for_Int.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.34028/iajit/22/6/9": {
+"arquivo": "2025_jain_Integrating_UAV_Networks_and_Edge_Computing_for_Smart_Cities_Architect.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5220/0014162600004932": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.35552/0247.a2701": {
+"arquivo": "2025_risdianto_A_Comprehensive_Bibliometric_and_Systematic_Literature_Review_on_AI_As.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.47743/eufire-2024-1-20": {
+"arquivo": "2025_popescul_SOCIALLY_RESPONSIBLE_USE_OF_ARTIFICIAL_INTELLIGENCE_IN_SMART_CITIES_AN.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.68159/o683295214": {
+"arquivo": "2025_silva_Generative_Artificial_Intelligence_in_Healthcare_Systems_Governance_Sa.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.2172/2516868": {
+"arquivo": "2025_nnsa_Application_of_Artificial_Intelligence_Machine_Learning_to_Operations.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.54660/.ijmrge.2025.6.4.1-10": {
+"arquivo": "2025_iqbal_Artificial_Intelligence_in_Health_Monitoring_A_Detailed_study_of_Curre.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.56975/ijrti.v10i5.204313": {
+"arquivo": "2025_koribilli_Applying_SDTM_CDISC_Standards_for_Automated_Regulatory_Compliance_in_F.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5220/0013610300004664": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:signalsofviolencepatternsofflightpredictingandexplainingconflictrelatedmobility": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.62982/seti07.boje.14": {
+"arquivo": "2025_boskovic_THE_EQUILIBRIUM_OF_THE_SYMBIOSIS_OF_HUMAN_COMPLEXITY_AND_ARTIFICIAL_IN.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/978-3-032-11888-2_3": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63665/iljr.v1.i2.1": {
+"arquivo": "",
+"status": "falhou (HTTP 400)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.29119/1641-3466.2025.241.23": {
+"arquivo": "2025_piosik_BUDGETING_FOR_THE_FUTURE_RELATIONSHIP_BETWEEN_INTENSITY_OF_BUDGETING_M.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.54660/.ijmrge.2025.6.5.1006-1011": {
+"arquivo": "2025_ahmad_Building_Trust_in_Automated_Decisions_The_Role_of_XAI_in_Regulatory_Co.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:enhancingrobustnessandgeneralizabilityofexplainableaiincrossplatformmalwaredetection": {
+"arquivo": "2025_shelar_Enhancing_Robustness_and_Generalizability_of_Explainable_AI_in_Cross_P.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:fairandinterpretablecreditriskmodellingwithmultiagentarchitectureandshap": {
+"arquivo": "2025_pusadkar_Fair_and_Interpretable_Credit_Risk_Modelling_with_Multi_Agent_Architec.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:enhancingdublinrentalpricepredictionbyintegratingpolicyinsightsvialargelanguagemodelsandexplainableai": {
+"arquivo": "2025_odiaka_Enhancing_Dublin_Rental_Price_Prediction_by_Integrating_Policy_Insight.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.68159/u336824617": {
+"arquivo": "2025_benali_AI_Governance_in_Healthcare_Transparency_Bias_Mitigation_and_Lifecycle.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:nlpandmachinelearningframeworkforreducingfalsepositiveinwatchlistnamescreeninginamlsystems": {
+"arquivo": "2025_jadhav_NLP_and_Machine_Learning_Framework_for_Reducing_False_Positive_in_Watc.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5220/0014941500005024": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5220/0014813700004938": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:anexplainableaimodeltopredictfinancialexclusioninkenya": {
+"arquivo": "2025_wamalwa_An_Explainable_AI_model_to_predict_financial_exclusion_in_Kenya.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:openingtheblackboxanactiveapproachtoexplanationmethodsinmachinelearning": {
+"arquivo": "2025_russell_Opening_the_black_box_an_active_approach_to_explanation_methods_in_mac.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.68159/p913351062": {
+"arquivo": "2025_costa_Beyond_Traceability_Reimagining_Food_System_Transparency_through_Expla.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.62311/nesx/rb978-81-983775-7-9": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.21590/ijhit.06.4.314": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.1371/journal.pone.0312395": {
+"arquivo": "2024_kularathne_Analyzing_the_impact_of_socioeconomic_indicators_on_gender_inequality.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.51219/jaimld/sashi-kiran-vuppala/543": {
+"arquivo": "2024_vuppala_Cybersecurity_Risks_in_Reinsurance_How_AI_Can_Detect_and_Prevent_Digit.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.60087/jaigs.v6i1.289": {
+"arquivo": "2024_para_The_Role_of_Explainable_AI_in_Bias_Mitigation_for_Hyper_personalizatio.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1145/3718391.3718408": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.47392/irjaem.2024.0546": {
+"arquivo": "2024_zachariah_Database_and_Modern_Database_Technology.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/frbhe.2024.1503793": {
+"arquivo": "2024_banerjee_Harnessing_pluralism_in_behavioral_public_policy_requires_insights_fro.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1017/s026646232400196x": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30574/ijsra.2024.13.2.2091": {
+"arquivo": "2024_gadde_Explainable_AI_for_dynamic_ensemble_models_in_high_stakes_decision_mak.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.20517/2347-9264.2024.108": {
+"arquivo": "2024_singh_Ethical_issues_of_artificial_intelligence_in_plastic_surgery_a_narrati.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/ecsa-11-20524": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2411.16512": {
+"arquivo": "2024_lai_Guarding_the_Gate_ConceptGuard_Battles_Concept_Level_Backdoors_in_Conc.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.69613/x7we5074": {
+"arquivo": "2024_agrawal_The_Ethics_of_Computing_in_Pharmaceutical_Research.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63345/jqst.v1i4.165": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.17148/iarjset.2024.111026": {
+"arquivo": "2024_upadhyaya_Unlocking_the_Black_Box_Advancements_in_Explainable_AI_and_Model_Inter.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1080/21642583.2024.2427033": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.36001/phmconf.2024.v16i1.4124": {
+"arquivo": "2024_baptista_Using_Explainable_Artificial_Intelligence_to_Interpret_Remaining_Usefu.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.36227/techrxiv.173014748.80471770/v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.24963/kr.2024/53": {
+"arquivo": "2024_ordyniak_Explaining_Decisions_in_ML_Models_A_Parameterized_Complexity_Analysis.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.55843/isc2024conf177a": {
+"arquivo": "2024_ashirovna_THE_USE_OF_ARTIFICIAL_INTELLIGENCE_IN_COMBATING_WAR_CRIMES_ETHICAL_AND.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/tevc.2024.3476443": {
+"arquivo": "2024_zhou_Evolutionary_Computation_and_Explainable_AI_A_Roadmap_to_Understandabl.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2410.16537": {
+"arquivo": "2024_willis_QIXAI_A_Quantum_Inspired_Framework_for_Enhancing_Classical_and_Quantum.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1017/dap.2024.35": {
+"arquivo": "2024_rehill_Transparency_challenges_in_policy_evaluation_with_causal_machine_learn.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70593/978-81-981367-4-9": {
+"arquivo": "2024_ed_Trustworthy_Artificial_Intelligence_in_Industry_and_Society.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.61927/igmin250": {
+"arquivo": "2024_j_Artificial_Intelligence_the_Capacity_for_Discrimination_The_Imperative.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.60087/jaigs.v6i1.236": {
+"arquivo": "2024_lad_Applied_Ethical_and_Explainable_AI_in_Adversarial_Deepfake_Detection_F.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1681/asn.2024qhwgq88q": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30574/wjarr.2024.23.3.2907": {
+"arquivo": "2024_ahmad_Ethical_and_clinical_implications_of_AI_integration_in_cardiovascular.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32628/ijsrset2513837": {
+"arquivo": "2024_tiamiyu_From_Compliance_Burden_to_Enforcement_Precision_AI_Strategies_for_Redu.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fpubh.2024.1417568": {
+"arquivo": "2024_gore_Harnessing_AI_for_public_health_India_s_roadmap.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/etfa61755.2024.10710855": {
+"arquivo": "2024_mhapsekar_Building_Trust_in_AI_Driven_Decision_Making_for_Cyber_Physical_Systems.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.46254/ap05.20240088": {
+"arquivo": "2024_taghikhah_Enhancing_Robustness_in_Explainable_AI_Applications_in_Community_Renew.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1080/1369118x.2024.2400130": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1080/09540962.2024.2392731": {
+"arquivo": "",
+"status": "falhou (bloqueado por proteção anti-robô do site (catalog.lib.kyushu-u.ac.jp))",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2408.12420": {
+"arquivo": "2024_wu_Dataset_Mindset_Explainable_AI_Interpretable_AI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5617/nmi.10755": {
+"arquivo": "2024_somani_Propagating_Transparency_A_Deep_Dive_into_the_Interpretability_of_Neur.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/comst.2024.3437248": {
+"arquivo": "2024_senevirathna_A_Survey_on_XAI_for_5G_and_Beyond_Security_Technical_Aspects_Challenge.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fpubh.2024.1461446": {
+"arquivo": "2024_simoes_Editorial_Artificial_intelligence_and_mental_health_care.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:enhancingcreditdecisiontransparencyforsmallbusinessownersanexplainableaiapproachtomitigatealgorithmicbiasinmicrolending": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.32628/ijsrst24115123": {
+"arquivo": "2024_fagbore_Conceptual_Design_of_Ethical_Investment_Assessment_Models_Using_AI_Enh.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1145/3626772.3657796": {
+"arquivo": "2024_chen_Evaluating_Search_System_Explainability_with_Psychometrics_and_Crowdso.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.ijdrr.2024.104664": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.64035/car.01.2024.5": {
+"arquivo": "2024_malik_EMERGING_TRENDS_IN_ARTIFICIAL_INTELLIGENCE_AND_MACHINE_LEARNING_TRANSF.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.jksuci.2024.102096": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.18280/ria.380321": {
+"arquivo": "2024_agrawal_An_extensive_review_on_significance_of_Explainable_Artificial_Intellig.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/frai.2024.1429186": {
+"arquivo": "2024_mentzas_Editorial_Human_Centered_Artificial_Intelligence_in_Industry_5_0.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/icc51166.2024.10622177": {
+"arquivo": "2024_kaya_X_CBA_Explainability_Aided_CatBoosted_Anomal_E_for_Intrusion_Detection.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1145/3655693.3655714": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.1371/journal.pone.0300670": {
+"arquivo": "2024_akter_Analysis_and_interpretability_of_machine_learning_models_to_classify_t.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.14741/ijaie/v.12.2.1": {
+"arquivo": "2024_mazumder_Explainable_Artificial_Intelligence_for_Protecting_the_U_S_Financial_S.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.55041/ijsrem34025": {
+"arquivo": "2024_kumar_OSINT_OPEN_SOURCE_INTELLIGENCE_Exploring_the_Power_of_Open_Source_Inte.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21833/ijaas.2024.05.025": {
+"arquivo": "2024_janjua_Enhancing_smart_grid_electricity_prediction_with_the_fusion_of_intelli.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/a17050182": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1145/3644073": {
+"arquivo": "2024_gao_Going_Beyond_XAI_A_Systematic_Survey_for_Explanation_Guided_Learning.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:aidriveninnovationsinfinancialtechnologyareviewofalgorithmictradingandriskmanagement": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.54097/bz5w2p29": {
+"arquivo": "2024_zhu_Navigating_the_Path_to_Responsible_AI_Interpretable_Models_and_Ethical.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/frobt.2024.1389191": {
+"arquivo": "2024_al_haija_Editorial_Artificial_intelligence_solutions_for_decision_making_in_rob.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/app14052209": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/jpm14030277": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.55041/ijsrem28831": {
+"arquivo": "2024_singh_Future_of_Artificial_Intelligence_Business_Analytics.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30574/wjarr.2024.21.2.0595": {
+"arquivo": "2024_oyebode_Explainable_deep_learning_integrated_with_decentralized_identity_syste.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1051/e3sconf/202449102041": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.20525/ijrbs.v13i1.3072": {
+"arquivo": "2024_zhou_Application_of_Explainable_Artificial_Intelligence_technique_to_model.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.31449/inf.v48i1.4611": {
+"arquivo": "2024_agbozo_Liver_Disease_Classification_An_XAI_Approach_to_Biomedical_AI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1038/s41598-024-51867-1": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.1109/access.2024.3478739": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.32604/cmes.2024.051363": {
+"arquivo": "2024_singhal_Explainable_Artificial_Intelligence_XAI_Model_for_Cancer_Image_Classif.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/access.2024.3404043": {
+"arquivo": "2024_aljalaud_Counterfactual_Explanation_of_AI_Models_Using_an_Adaptive_Genetic_Algo.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/access.2024.3393558": {
+"arquivo": "2024_albano_Explainable_Vision_Transformers_for_Vein_Biometric_Recognition.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5267/j.ijdns.2024.3.009": {
+"arquivo": "2024_zaqeeba_The_impact_of_using_types_of_artificial_intelligence_technology_in_mon.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.37502/ijsmr.2024.71212": {
+"arquivo": "2024_taiwo_A_Prescriptive_Data_Pipeline_Framework_for_Modeling_Cost_to_Serve_Vari.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.54660/ijaiet.2024.5.1.46-57": {
+"arquivo": "",
+"status": "falhou (HTTP 404)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:explainabilityindeeplearningsegmentationmodelsforbreastcancerbyanalogywithtextureanalysis": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.68159/g989274613": {
+"arquivo": "2024_huy_Human_in_the_Loop_without_the_Hype_A_Conceptual_Taxonomy_of_Human_Role.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:derinrenmeteknikleriileineklerdekzgnlktespiti": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.67228/30715636/ijetmr-2024pi1b3j": {
+"arquivo": "2024_andersson_Explainable_Deep_Learning_Framework_for_Autonomous_Transportation_Safe.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.67228/30715628/ijmiet-2024pi6v6h": {
+"arquivo": "2024_h_n_The_Emergence_of_Explainable_AI_in_Modern_Decision_Systems.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.18034/abcjar.v12i2.783": {
+"arquivo": "2023_richardson_AI_Driven_Optimization_Techniques_for_Evolving_Software_Architecture_i.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.58414/scientifictemper.2023.14.4.39": {
+"arquivo": "",
+"status": "falhou (HTTP 404)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.36676/irt.v9.i5.1583": {
+"arquivo": "2023_tiwari_Biometric_Authentication_in_the_Face_of_Spoofing_Threats_Detection_and.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.34315/apf1642023": {
+"arquivo": "2023_urmeneta_Reflections_on_the_Artificial_Intelligence_Transformation_Responsible.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.heliyon.2023.e23466": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21203/rs.3.rs-3714524/v1": {
+"arquivo": "2023_corona_From_Black_Box_to_Transparency_the_hidden_costs_of_XAI_in_NGN.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.7717/peerj-cs.1629": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1108/jefas-05-2021-0069": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1145/3594728": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.32628/cseit23906208": {
+"arquivo": "2023_popoola_Model_for_Enabling_Predictive_and_Performance_Based_Management_in_Digi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1111/trf.17582": {
+"arquivo": "2023_maynard_Machine_learning_in_transfusion_medicine_A_scoping_review.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.20944/preprints202311.0311.v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2311.14687": {
+"arquivo": "2023_brand_Does_Explainable_AI_Have_Moral_Value.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fdata.2023.1258051": {
+"arquivo": "2023_gupta_Editorial_Smart_cities_challenges_technologies_and_trends.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30574/wjarr.2023.19.3.1986": {
+"arquivo": "2023_tafirenyika_AI_in_healthcare_Predictive_modeling_explainability_and_clinical_impac.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.7557/5.7164": {
+"arquivo": "2023_gasparini_Determinants_of_using_AI_powered_discovery_services.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.37394/23209.2023.20.29": {
+"arquivo": "2023_sreeja_A_Deep_Convolutional_Model_for_Heart_Disease_Prediction_based_on_ECG_D.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.4103/lungindia.lungindia_370_23": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2308.11090": {
+"arquivo": "2023_ratz_Fairness_Explainability_using_Optimal_Transport_with_Applications_in_I.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:harnessingpredictivepowerexploringthecrucialroleofmachinelearninginearlydiseasedetection": {
+"arquivo": "2023_rasool_Harnessing_Predictive_Power_Exploring_the_Crucial_Role_of_Machine_Lear.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.7759/cureus.43262": {
+"arquivo": "2023_jeyaraman_Unraveling_the_Ethical_Enigma_Artificial_Intelligence_in_Healthcare.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fbinf.2023.1194993": {
+"arquivo": "2023_lucieri_Translating_theory_into_practice_assessing_the_privacy_implications_of.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3233/faia230091": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2306.07427": {
+"arquivo": "2023_ghai_Towards_Fair_and_Explainable_AI_using_a_Human_Centered_AI_Approach.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:equityandartificialintelligenceinsurgicalcareacomprehensivereviewofcurrentchallengesandpromisingsolutions": {
+"arquivo": "2023_ahmad_Equity_and_Artificial_Intelligence_in_Surgical_Care_A_Comprehensive_Re.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.1016/j.dajour.2023.100230": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fcomp.2023.1087929": {
+"arquivo": "2023_kuhl_Let_s_go_to_the_Alien_Zoo_Introducing_an_experimental_framework_to_stu.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1002/pip.3675": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/tts.2023.3239921": {
+"arquivo": "2023_petkovic_It_is_Not_Accuracy_vs_ExplainabilityWe_Need_Both_for_Trustworthy_AI_Sy.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.54660/.jfmr.2023.4.2.130-141": {
+"arquivo": "2023_ayobami_Algorithmic_Integrity_A_Predictive_Framework_for_Combating_Corruption.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.54660/.jfmr.2023.4.2.213-222": {
+"arquivo": "",
+"status": "falhou (HTTP 404)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/access.2023.3315605": {
+"arquivo": "2023_aslam_A_Conceptual_Model_Framework_for_XAI_Requirement_Elicitation_of_Applic.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.24251/hicss.2023.153": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63282/3050-9262.ijaidsml-v4i1p106": {
+"arquivo": "2023_taneja_Explainable_AI_in_Healthcare_Ensuring_Trust_and_Transparency_in_ML_Cli.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3390/s22249684": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3233/atde221065": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:buildingtrustinautonomouscyberdecisioninfrastructurethroughexplainableai": {
+"arquivo": "2022_zubair_BUILDING_TRUST_IN_AUTONOMOUS_CYBER_DECISION_INFRASTRUCTURE_THROUGH_EXP.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/jbhi.2022.3224775": {
+"arquivo": "2022_ghiasi_Physiologically_Informed_Gaussian_Processes_for_Interpretable_Modellin.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1556/112.2022.00097": {
+"arquivo": "2022_kampis_Emberarcu_mesterseges_intelligencia.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5753/sbc.11014.1.1": {
+"arquivo": "2022_lopes_Analise_Exploratoria_de_Dados_Espaciais_com_Python.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5753/sbc.11014.1.6": {
+"arquivo": "2022_silva_Desenvolvimento_de_uma_aplicacao_web_para_o_diagnostico_da_COVID_19_us.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5753/sbc.11014.1.4": {
+"arquivo": "2022_silva_Introducao_as_Redes_Neurais_Profundas_com_Python.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5753/sbc.11014.1": {
+"arquivo": "2022_silva_Minicursos_da_ERCEMAPI_2022.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5753/sbc.11014.1.2": {
+"arquivo": "2022_ferreira_Acionamento_de_Dispositivos_Eletroeletronicos_Utilizando_Visao_Computa.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5753/sbc.11014.1.5": {
+"arquivo": "2022_wazlawick_Desenvolvimento_Agil_e_Informatizacao_da_Saude_Publica_no_Brasil.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:explainableartificialintelligenceinautomatedessayscoringasystematicreviewoftransparencyinaibasededucationalassessment": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.1111/exsy.13118": {
+"arquivo": "2022_pimentel_Subgroup_mining_for_performance_analysis_of_regression_models.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"tit:explainableaimodelsforhealthcarediagnostics": {
+"arquivo": "2022_ahsan_Explainable_AI_Models_for_Healthcare_Diagnostics.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.65521/intjournalrecadvengtech.v11i1.873": {
+"arquivo": "2022_ramareddy_Explainable_AI_Models_for_Transparent_Decision_Making_in_Business_Anal.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1007/s12028-022-01504-4": {
+"arquivo": "2022_moss_Demystifying_the_Black_Box_The_Importance_of_Interpretability_of_Predi.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/tcyb.2022.3165104": {
+"arquivo": "2022_napoles_Recurrence_Aware_Long_Term_Cognitive_Network_for_Explainable_Pattern_C.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.2478/remav-2022-0002": {
+"arquivo": "2022_lee_Training_and_Interpreting_Machine_Learning_Models_Application_in_Prope.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2201.06997": {
+"arquivo": "2022_pandianchery_Explainable_AI_Framework_for_COVID_19_Prediction_in_Different_Province.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1109/access.2022.3216617": {
+"arquivo": "2022_neupane_Explainable_Intrusion_Detection_Systems_X_IDS_A_Survey_of_Current_Meth.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.70153/ijcmi/2022.14301": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectionError))",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.17760/d20439220": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63282/3050-9416.ijaibdcms-v3i2p110": {
+"arquivo": "2022_polamarasetti_Building_Trustworthy_AI_in_Salesforce_An_Ethical_and_Governance_Framew.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.68159/l244649356": {
+"arquivo": "2022_kumar_Artificial_Intelligence_in_Healthcare_Systems_Evolution_of_Clinical_An.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.inffus.2021.11.008": {
+"arquivo": "2021_arras_CLEVR_XAI_A_benchmark_dataset_for_the_ground_truth_evaluation_of_neura.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30574/ijsra.2021.2.2.0110": {
+"arquivo": "2021_talati_Artificial_Intelligence_and_unintended_bias_A_call_for_responsible_inn.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2108.10437": {
+"arquivo": "2021_weber_Longitudinal_Distance_Towards_Accountable_Instance_Attribution.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.3389/fdata.2021.742589": {
+"arquivo": "2021_quadrianto_Editorial_Ethical_Machine_Learning_and_Artificial_Intelligence.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1016/j.compbiomed.2021.104578": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2106.07758": {
+"arquivo": "2021_verma_Pitfalls_of_Explainable_ML_An_Industry_Perspective.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.30574/ijsra.2021.2.1.0004": {
+"arquivo": "2021_ekundayo_Transforming_fintech_product_strategies_through_AI_augmented_machine_l.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1093/eurheartj/ehab090": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1101/2021.01.04.21249218": {
+"arquivo": "2021_wang_State_level_COVID_19_Trend_Forecasting_Using_Mobility_and_Policy_Data.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.63282/3050-9246.ijetcsit-v2i1p111": {
+"arquivo": "",
+"status": "falhou (HTTP 404)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.54660/.ijfmr.2021.2.2.343-356": {
+"arquivo": "2021_babalola_Automated_Third_Party_Risk_Management_Platform_with_AI_Driven_Vendor_S.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.67228/3071561x/ijirht-2022pii6a4n": {
+"arquivo": "2021_gupta_Human_Values_in_the_Age_of_Autonomous_Technologies.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.21275/sr24709205430": {
+"arquivo": "2020_tadi_Transparent_Machine_Learning_Building_Trust_in_Data_Analytics.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.2196/23853": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.2196/18752": {
+"arquivo": "2020_ammar_Explainable_Artificial_Intelligence_Recommendation_System_by_Leveragin.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2010.08140": {
+"arquivo": "2020_faruqe_Monitoring_Trust_in_Human_Machine_Interactions_for_Public_Sector_Appli.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1101/2020.05.16.092304": {
+"arquivo": "2020_ziaei_Belief_loads_of_assumptions_impact_brain_networks_underlying_logical_r.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 2
+},
+"doi:10.1097/01.apo.0000656984.56467.2c": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.1145/3351095.3372855": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-23",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.21820828": {
+"arquivo": "2026_dar_Towards_Real_Time_Explainable_AI_Using_Class_Activation_Mapping_for_Br.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.21819065": {
+"arquivo": "2026_dar_Towards_Real_Time_Explainable_AI_Using_Class_Activation_Mapping_for_Br.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.21603351": {
+"arquivo": "2026_pandey_Handwritten_Signature_Verification_Using_Explainable_AI_and_Lightweigh.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.19485945": {
+"arquivo": "2026_bikka_Modern_Workflow_Automation_Architecture_Patterns_Contemporary_Design_A.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.17959521": {
+"arquivo": "2022_zubair_BUILDING_TRUST_IN_AUTONOMOUS_CYBER_DECISION_INFRASTRUCTURE_THROUGH_EXP.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"tit:edgecomputingforiotenabledsmartcitiesareviewofmiddlewareexplainableaianduserbehavioranalytics": {
+"arquivo": "2026_gazis_Edge_Computing_for_IoT_Enabled_Smart_Cities_A_Review_of_Middleware_Exp.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"tit:jointdistributionalcopularegressionforinsuranceclaimfrequencyandseverityviaboosting": {
+"arquivo": "2026_so_Joint_Distributional_Copula_Regression_for_Insurance_Claim_Frequency_a.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.52152/fbz67c81": {
+"arquivo": "2026_mohanraj_A_DIGITAL_GOVERNANCE_FRAMEWORK_FOR_AGRICULTURAL_SUPPLY_CHAINS_USING_BL.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2607.23237": {
+"arquivo": "2026_levinkopf_Context_Aware_Concept_Distillation_for_Trustworthy_Flood_Prediction.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2603.06485": {
+"arquivo": "2026_vineis_PONTE_Personalized_Orchestration_for_Natural_Language_Trustworthy_Expl.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"tit:fairnessexplainabilityusingoptimaltransportwithapplicationsinimageclassification": {
+"arquivo": "2023_ratz_Fairness_Explainability_using_Optimal_Transport_with_Applications_in_I.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.2196/preprints.18752": {
+"arquivo": "2020_ammar_Explainable_Artificial_Intelligence_Recommendation_System_by_Leveragin.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.60022/3(5)-80s": {
+"arquivo": "2026_sem_titulo_BIG_DATA.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.20944/preprints202611.2231.v1": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1016/j.jcot.2025.103208": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1007/978-3-031-87657-8_22": {
+"arquivo": "2025_deandres_tame_From_Pixels_to_Words_Leveraging_Explainability_in_Face_Recognition_Thr.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1007/978-981-99-3814-8_16": {
+"arquivo": "2023_zhou_Evolutionary_Approaches_to_Explainable_Machine_Learning.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1136/annrheumdis-2023-eular.1037": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1016/j.jcrimjus.2022.101898": {
+"arquivo": "2022_campedelli_Explainable_machine_learning_for_predicting_homicide_clearance_in_the.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1016/j.obhdp.2020.03.011": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.3389/fsufs.2026.1972826": {
+"arquivo": "2026_cai_Socioeconomic_determinants_of_suburban_cropland_vitality_an_interpreta.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.55681/economina.v5i10.4818": {
+"arquivo": "",
+"status": "falhou (HTTP 429)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.3390/app16199965": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.65034/anpabstract_cbn260326": {
+"arquivo": "2026_gadelha_Ethical_limits_of_artificial_intelligence_in_therapeutic_decision_maki.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1007/s10796-026-10815-2": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1007/s44196-026-01517-3": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.32628/ijsrst26133132": {
+"arquivo": "2026_upadhye_SmartPrice_A_Multi_modal_Explainable_AI_System_for_Predicting_House_Pr.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.55041/ijsrem.icmex098": {
+"arquivo": "2026_paramasivam_ROLE_OF_ARTIFICIAL_INTELLIGENCE_IN_PROMOTING_SUSTAINABLE_CONSUMER_BUYI.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.63544/jbii.v5i4.261": {
+"arquivo": "2026_rasheed_Artificial_Intelligence_Adoption_Labour_Productivity_and_Inclusive_Eco.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1145/3806980.3807082": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.7189/jogh.15.04315": {
+"arquivo": "2025_zhang_Evaluating_community_resilience_through_social_media_during_Chinas_fir.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.59573/emsj.9(5).2025.20": {
+"arquivo": "2025_kandibanda_AI_in_Action_Implementation_Roadmaps_for_Financial_Services_and_Supply.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.37329/metta.v5i3.4501": {
+"arquivo": "2025_tertibi_The_Urgency_of_Artificial_Intelligence_Regulation_in_Indonesias_Crimin.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.58496/mjaih/2025/014": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.65521/ijasret.v9i3.1843": {
+"arquivo": "2025_kumar_Cyber_Threat_Analysis_and_Detection_Using_Advanced_Deep_Learning_Model.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.12968/bjon.2024.0394": {
+"arquivo": "2025_wynn_The_ethics_of_non_explainable_artificial_intelligence_an_overview_for.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.70838/pemj.330107": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1038/s41598-025-87233-y": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.2196/65434": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.3389/fpls.2024.1491493": {
+"arquivo": "2025_joshi_An_explainable_Bi_LSTM_model_for_winter_wheat_yield_prediction.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1145/3745812.3745885": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.22279/navus.v15.2006": {
+"arquivo": "2024_ferreyra_Analysis_of_economic_satisfaction_using_machine_learning_models_and_ex.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.3390/life14070783": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1080/19361610.2024.2356431": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.3390/rs16081342": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1016/j.jenvman.2024.120394": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1016/j.tbs.2023.100621": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.63876/ijss.v1i2.74": {
+"arquivo": "2023_syarif_Interpretable_Deep_Learning_for_Industrial_Fault_Detection.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.63876/ijss.v1i2.72": {
+"arquivo": "2023_gupta_A_Comparative_Study_of_Explainable_AI_Models_in_High_Stakes_Decision_M.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1111/sltb.12959": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2212.13261": {
+"arquivo": "2023_karim_Explainable_AI_for_Bioinformatics_Methods_Tools_and_Applications.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1109/bigdata55660.2022.10020687": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1101/2022.10.28.513978": {
+"arquivo": "2022_chen_Best_Practices_for_Interpretable_Machine_Learning_in_Computational_Bio.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.48550/arxiv.2207.01227": {
+"arquivo": "2022_alam_Cybersecurity_Past_Present_and_Future.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.3390/su14127375": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.3389/fpubh.2022.814366": {
+"arquivo": "2022_liu_Prediction_of_Online_Psychological_Help_Seeking_Behavior_During_the_CO.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1016/j.artint.2021.103525": {
+"arquivo": "2021_dazeley_Levels_of_explainable_artificial_intelligence_for_human_aligned_conver.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.5281/zenodo.4624733": {
+"arquivo": "2021_leslie_Explaining_decisions_made_with_AI_A_workbook_Use_case_2_Machine_learni.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.1007/978-3-030-57321-8_9": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectTimeout))",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.2471/blt.19.237230": {
+"arquivo": "",
+"status": "falhou (erro de rede (ConnectionError))",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.2139/ssrn.6683721": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.54660/ijmer.2025.6.2.209-217": {
+"arquivo": "2025_carter_Integrating_Machine_Learning_for_Health_Finance_Analytics_Predicting_H.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.20431/2456-0022.0805003": {
+"arquivo": "2025_raval_Evaluating_the_Ethical_and_Financial_Impact_of_AI_Based_Prior_Authoriz.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.54660/ijmor.2024.3.1.234-253": {
+"arquivo": "2024_olanrewaju_AI_in_Personalized_Financial_Advisory_Services_Robo_Advisors_and_Ethic.pdf",
+"status": "baixado",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.24926/265535.4262": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.5220/0012805400003885": {
+"arquivo": "",
+"status": "falhou (o link devolveu uma página, não um PDF)",
+"tentado_em": "2026-11-24",
+"tentativas": 1
+},
+"doi:10.2139/ssrn.3973779": {
+"arquivo": "",
+"status": "falhou (HTTP 403)",
+"tentado_em": "2026-11-24",
 "tentativas": 1
 }
 }

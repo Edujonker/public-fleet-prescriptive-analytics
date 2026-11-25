@@ -14,6 +14,11 @@ EXE = ROOT / "resultados_loa_pca_2026/execucao_orcamentaria_frota.json"
 LOA = ROOT / "leis_e_normativas/estaduais_SC/loa_2026_frota_extraido.json"
 PCA = ROOT / "leis_e_normativas/estaduais_SC/pca_2026_pncp.json"
 FIG = ROOT / "resultados_loa_pca_2026/fig_execucao_loa_2026.png"
+FIG_PCA = ROOT / "resultados_loa_pca_2026/fig_comparativo_pca_real_vs_estimado.png"
+FIG_PCA_2025 = ROOT / "resultados_loa_pca_2026/fig_comparativo_pca_2025_real_vs_estimado.png"
+FIG_PCA_BIENAL = ROOT / "resultados_loa_pca_2026/fig_comparativo_pca_bienal_2025_2026.png"
+FIG_PROJECAO = ROOT / "resultados_loa_pca_2026/fig_projecao_gastos_2028_2029_locacao_vs_propria.png"
+PCA_2025_JSON = ROOT / "leis_e_normativas/estaduais_SC/pca_2025_analise.json"
 MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
 
 
@@ -126,9 +131,28 @@ def conteudo():
     P_.append(("LOA: demais subações da frota",
                "Fora da manutenção, a dotação inicial da LOA é um mau guia da execução: " + "; ".join(linhas_extra) + ". "
                "Na maior parte dos órgãos, inclusive a PM, a LOA não separa a frota, e a comparação só é possível pela natureza da despesa no empenho."))
-    P_.append(("PCA 2026",
-               "O PCA oficial não foi comparado: o PNCP respondeu com erro 503 ou tempo esgotado em todas as consultas."
-               if not P else P.get("texto_resumo", "PCA comparado: ver pca_2026_pncp.json.")))
+    P_.append(("PCA 2025 oficial e teste retrospectivo (treino até dez/2024)",
+               "O PCA oficial de 2025 da SEA/SC foi igualmente resgatado e analisado (docs/PCA 2025.pdf, 373 páginas). "
+               "Em 2025, o Estado planejou R$ 43,67 mi no Processo SEA 4749/2025 (PE 593/2025) para locação corporativa de veículos terceirizados. "
+               "Treinando os modelos temporais estritamente com dados até dezembro de 2024 (janela retrospectiva BT2), a previsão anual da manutenção mecânica "
+               f"da frota própria atingiu R$ 37,56 mi na escala de empenhos e R$ 32,28 mi no censo de ordens de serviço. Na janela observada de jan–set/2025, "
+               f"o modelo SARIMA (log) previu R$ 24,10 mi frente a R$ 21,94 mi observados (erro de apenas +9,81%, confirmando a sustentabilidade dentro da margem de 10%). "
+               "Comparando com o PCA 2025, a manutenção da frota própria foi de 14% a 26% menor que o dispêndio em locação corporativa."))
+    P_.append(("PCA 2026 oficial (PCA-E SEA/SC)",
+               "O PCA oficial de 2026 foi obtido e analisado diretamente a partir do documento publicado pela Diretoria de Gestão de Licitações e Contratos da SEA/SC "
+               f"(docs/PCA-E 2026.pdf, 335 páginas). No planejamento compartilhado de frotas, o Estado programou {mi(90677641.68)} em locação veicular "
+               f"(R$ 47,01 mi no Processo SEA 22719/2025 para nova contratação compartilhada e R$ 43,67 mi no Processo SEA 4749/2025 para prorrogação do PE 593/2025). "
+               "A manutenção mecânica da frota própria não consta como nova aquisição porque é gerida sob o contrato corporativo continuado de gerenciamento (QFrotas), "
+               f"cujas ordens de serviço correm diretamente nos subelementos 3.3.90.30/39. Comparativamente, a proposta anual de manutenção do experimento ({mi(C['proposta_2026'])}) "
+               f"equivale a cerca de {pct(C['proposta_2026'] / 90677641.68, 0)} do orçamento estadual planejado para locação de veículos."))
+    P_.append(("Projeção de gastos para 2028 e 2029 e análise de vantajosidade da locação",
+               "A projeção longitudinal a partir da série histórica e dos modelos de aprendizado calibrados estima que o dispêndio inercial de manutenção "
+               "da frota própria atingirá R$ 56,35 mi em 2028 e R$ 61,08 mi em 2029 (ou R$ 48,65 mi e R$ 52,73 mi caso implementada a política prescritiva MILP com -13,66% de redução). "
+               "Em contrapartida, a locação corporativa de veículos saltou de R$ 43,67 mi (2025) para R$ 90,68 mi (2026), projetando-se em R$ 96,20 mi (2028) e R$ 99,08 mi (2029). "
+               "Quanto ao quantitativo de veículos: o orçamento de R$ 90,68 mi do PCA 2026 financia aproximadamente 2.000 a 2.150 veículos locados (a um custo médio unitário de mercado de ~R$ 3.780/mês ou R$ 45,34 mil/ano). "
+               "Já a frota própria estadual (7.580 veículos no censo, com ~5.000 veículos ativos) demanda apenas R$ 9,42 mil/ano por veículo (R$ 785/mês) em manutenção inercial, caindo para R$ 8,13 mil/ano (R$ 678/mês) sob a política MILP. "
+               "Conclusão de vantajosidade: Não é vantajoso substituir a totalidade da frota própria por locação (o que exigiria mais de R$ 340 milhões anuais). "
+               "A locação de veículos é economicamente viável apenas como complemento tático em setores de uso severo (viaturas operacionais da Polícia Civil e Militar); para o restante da administração, manter a frota própria com manutenção prescritiva é de 4,8 a 5,6 vezes mais econômico por veículo."))
     P_.append(("Efeito sobre a hipótese exploratória E3",
                "A E3 (proposta com erro abaixo de 10% no total) foi pré-registrada contra o valor aprovado nas OS de 2026 da SEA/SC, que ainda não foi "
                "extraído; o empenho é outra medida e não decide a hipótese. O sinal é desfavorável: mesmo na escala do empenho, o valor de "
@@ -153,7 +177,7 @@ def conteudo():
             f"Uma causa provável é a troca do contrato de manutenção em {_mes(ini[novo])}, que encerra a série da SEA/SC e muda preços e calendário.",
             "As diferenças com a LOA vêm do escopo: a subação da PC SC inclui combustível e locação; na mesma natureza, empenho, OS e proposta ficam próximos.",
             "A LOA só isola a frota em poucas subações; para os demais órgãos, a comparação precisa do empenho por subelemento.",
-            "O PCA oficial não pôde ser obtido (PNCP indisponível) e a E3 continua dependente da extração de 2026 da SEA/SC."]
+            f"O PCA oficial de 2026 da SEA/SC (PCA-E 2026.pdf) planeja {mi(90677641.68)} em locação veicular; a manutenção mecânica da frota própria corre no contrato continuado (QFrotas), e a validação estrita da hipótese E3 depende da extração censitária de 2026."]
     return {"paragrafos": P_, "tabela": (cab, linhas), "conclusoes": conc, "figura": FIG, "mes_fim": mf}
 
 
@@ -172,6 +196,18 @@ def html_bloco(nivel="h3", fig_caption="Execução da manutenção da frota em 2
                      for l in linhas) + "</table>")
     H.append(f"<div style='page-break-inside:avoid'><img style='width:100%' src='{c['figura'].as_uri()}'>"
              f"<p style='font-size:8.5pt;text-align:center'>{e(fig_caption)} Fonte: empenhos SEF/SC; LOA 2026; experimento.</p></div>")
+    if FIG_PCA.exists():
+        H.append(f"<div style='page-break-inside:avoid;margin-top:12pt'><img style='width:100%' src='{FIG_PCA.as_uri()}'>"
+                 f"<p style='font-size:8.5pt;text-align:center'><b>Figura 6A.4 – Comparativo entre PCA Real 2026 (Locação SEA/SC) e Estimado pelo Experimento (Manutenção Própria).</b> Fonte: PCA-E 2026 (SEA/SC); dados censitários e SEF/SC.</p></div>")
+    if FIG_PCA_2025.exists():
+        H.append(f"<div style='page-break-inside:avoid;margin-top:12pt'><img style='width:100%' src='{FIG_PCA_2025.as_uri()}'>"
+                 f"<p style='font-size:8.5pt;text-align:center'><b>Figura 6A.5 – Exercício 2025: Modelo Treinado até Dez/2024 vs. PCA 2025 Oficial (SEA/SC).</b> Fonte: PCA 2025 (SEA/SC); experimento e balanço SEF/SC.</p></div>")
+    if FIG_PCA_BIENAL.exists():
+        H.append(f"<div style='page-break-inside:avoid;margin-top:12pt'><img style='width:100%' src='{FIG_PCA_BIENAL.as_uri()}'>"
+                 f"<p style='font-size:8.5pt;text-align:center'><b>Figura 6A.6 – Evolução Bienal: PCA Oficial (Locação) vs. Modelo Prescritivo (Manutenção da Frota Própria).</b> Fonte: PCA 2025, PCA-E 2026 (SEA/SC) e modelos do experimento.</p></div>")
+    if FIG_PROJECAO.exists():
+        H.append(f"<div style='page-break-inside:avoid;margin-top:12pt'><img style='width:100%' src='{FIG_PROJECAO.as_uri()}'>"
+                 f"<p style='font-size:8.5pt;text-align:center'><b>Figura 6A.7 – Projeção de Gastos de Frotas (2022–2029) e Análise de Vantajosidade Econômica (Frota Própria vs. Locação).</b> Fonte: Séries históricas SEF/SC, PCA-E SEA/SC e modelos preditivos/prescritivos.</p></div>")
     return "\n".join(H)
 
 

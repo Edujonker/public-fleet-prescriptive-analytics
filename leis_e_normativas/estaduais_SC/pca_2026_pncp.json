@@ -1,0 +1,46 @@
+{
+  "fonte": "Plano de Contratações Anual do Estado de Santa Catarina (PCA-E 2026) - SEA/SC, Diretoria de Gestão de Licitações e Contratos (DGLC / GPLAC), publicado em fevereiro/2026 (documento oficial: docs/PCA-E 2026.pdf, 335 páginas).",
+  "data_extracao": "2026-11-24",
+  "arquivo_origem": "docs/PCA-E 2026.pdf",
+  "tamanho_bytes": 10313941,
+  "paginas": 335,
+  "visao_geral": "O PCA-E 2026 consolida o planejamento centralizado de compras públicas do Poder Executivo de Santa Catarina para o exercício de 2026, regido pela Lei nº 14.133/2021. Na área de frotas e transportes, o planejamento estadual priorizou contratações compartilhadas e o gerenciamento corporativo.",
+  "itens_frota_pca_2026": [
+    {
+      "grupo": "306",
+      "objeto": "LOCAÇÃO DE VEÍCULOS",
+      "tipo_processo": "EM PROCESSO (Nova Contratação Compartilhada)",
+      "sgp_e": "SEA 22719/2025",
+      "valor_estimado": 47006321.70,
+      "descricao": "Registro de preços compartilhado para locação corporativa de veículos automotores para atendimento das secretarias e órgãos estaduais."
+    },
+    {
+      "grupo": "3",
+      "objeto": "LOCAÇÃO DE VEÍCULOS",
+      "tipo_processo": "PRORROGAÇÃO (PE 593/2025)",
+      "sgp_e": "SEA 4749/2025",
+      "valor_estimado": 43671319.98,
+      "descricao": "Prorrogação de contrato de locação de veículos vigente para continuidade operacional da frota."
+    },
+    {
+      "grupo": "504220068 / 500710001",
+      "objeto": "SISTEMA DE GERENCIAMENTO - ABASTECIMENTO E COMBUSTÍVEIS",
+      "tipo_processo": "CONSOLIDADO PCA ÓRGÃOS",
+      "sgp_e": "Gestão Centralizada SEA",
+      "valor_estimado": 0.0,
+      "descricao": "Gerenciamento e fornecimento de combustíveis, óleos lubrificantes e aditivos para a frota via cartão magnético/sistema informatizado."
+    }
+  ],
+  "total_locacao_planejada_pca_2026": 90677641.68,
+  "manutencao_mecanica_no_pca": {
+    "status": "Contrato corporativo continuado não licitado em 2026 como novo item compartilhado",
+    "explicacao": "A manutenção mecânica preventiva e corretiva da frota estadual não consta como novo item de aquisição no PCA-E 2026 porque já foi contratada e consolidada centralizadamente pela SEA/SC (vigência do contrato corporativo com a empresa gerenciadora, ex-QFrotas Sistemas Ltda., substituindo a Ticket Gestão). As demandas operacionais de manutenção de cada secretaria correm contra as atas e contratos corporativos vigentes por meio de empenhos nos subelementos 3.3.90.30.39 e 3.3.90.39.19."
+  },
+  "comparativo_experimento_pca": {
+    "proposta_experimento_manutencao_2026": 38164010.59,
+    "proposta_experimento_escala_empenho": 53526027.67,
+    "locacao_planejada_pca_2026": 90677641.68,
+    "analise_relativa": "O Estado de Santa Catarina planejou R$ 90,68 milhões para locação de veículos no PCA-E 2026 (R$ 47,01 mi em nova licitação e R$ 43,67 mi em prorrogações). Em contraste, o dispêndio de manutenção mecânica projetado pelo experimento (R$ 38,16 mi no censo de OS; R$ 53,53 mi na escala de empenhos) representa cerca de 42% a 59% do valor anual despendido em locação de frotas, demonstrando o peso do modelo híbrido (frota própria mantida vs. frota locada) na administração pública catarinense."
+  },
+  "texto_resumo": "O PCA-E 2026 oficial da SEA/SC foi obtido e analisado (docs/PCA-E 2026.pdf, 335 páginas). No tocante a frotas, o documento oficial planeja R$ 90,68 milhões em locação de veículos compartilhada (R$ 47,01 mi na nova contratação SEA 22719/2025 e R$ 43,67 mi na prorrogação SEA 4749/2025). A manutenção mecânica da frota própria corre no contrato corporativo continuado de gerenciamento (QFrotas), sem nova contratação no PCA de 2026."
+}

@@ -1,0 +1,5 @@
+﻿base;status;consulta;campos;filtros;acao_pendente
+Scopus;pendente;NÃO ARQUIVADA - preencher com a consulta exata;título, resumo, palavras-chave (a confirmar);a confirmar;obter consulta exata, campos e filtros
+IEEE Xplore;pendente;NÃO ARQUIVADA - preencher com a consulta exata;a confirmar;a confirmar;obter consulta exata, campos e filtros
+Web of Science;não executada/pendente;;;;obter consulta exata, campos e filtros
+ACM Digital Library;não executada/pendente;;;;obter consulta exata, campos e filtros

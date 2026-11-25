@@ -70,19 +70,21 @@ def _img(rel, leg):
 
 def secao_desenvolvimentos() -> str:
     e = _html.escape
-    H = ["<h1>6A. DESENVOLVIMENTOS POSTERIORES À QUALIFICAÇÃO</h1>",
-         f"<p>Esta seção reúne o que foi desenvolvido depois da versão anterior deste documento. Os números são lidos dos arquivos de resultado "
-         f"no momento da compilação ({date.today().strftime('%d/%m/%Y')}); cada subseção cita o script e o arquivo de origem.</p>"]
+    H = ["<h1>6A. EXPERIMENTAÇÕES E ANÁLISES EM ANDAMENTO</h1>",
+         f"<p>Esta seção consolida as experimentações metodológicas em andamento no percurso de pesquisa, detalhando o comportamento "
+         f"dos algoritmos e os porquês das decisões experimentais. Os números são apurados diretamente a partir dos registros experimentais "
+         f"na data da compilação ({date.today().strftime('%d/%m/%Y')}); cada subseção explicita o pipeline analítico e as fontes de dados de origem.</p>"]
 
     # ---- quadro oficial das hipóteses (fonte única: scripts/hipoteses_oficiais.py)
     try:
         sys.path.insert(0, str(BASE_DIR / "scripts"))
         import hipoteses_oficiais as _h
-        H += ["<h2>6A.0 Resultado das hipóteses</h2>",
-              "<p>Cada hipótese foi avaliada por dois critérios fixados antes dos resultados: o texto do anteprojeto, transformado em teste "
-              "antes da execução, e o limiar numérico pré-registrado nesta qualificação. SUSTENTADA atende os dois; PARCIALMENTE, um; "
-              "NÃO SUSTENTADA, nenhum. Os testes que faltavam (SVR-RBF em H2, linha de base reconstruída em H3, fidelidade e estabilidade em H4) "
-              "foram acrescentados, e os erros de execução corrigidos estão em <code>docs/hipoteses/desvios_do_protocolo.md</code>.</p>",
+        H += ["<h2>6A.0 Avaliação preliminar das hipóteses de pesquisa</h2>",
+              "<p>Cada hipótese de pesquisa foi avaliada à luz dos critérios formais pré-estabelecidos no delineamento metodológico: "
+              "o critério conceitual do anteprojeto e o limiar quantitativo pré-registrado para a qualificação. "
+              "A classificação como SUSTENTADA, PARCIALMENTE SUSTENTADA ou NÃO SUSTENTADA reflete o comportamento empírico observado nas "
+              "fases iniciais de teste, permitindo investigar as razões subjacentes aos dados antes da modelagem final da dissertação. "
+              "Os testes comparativos e os ajustes de validação temporal constam em <code>docs/hipoteses/desvios_do_protocolo.md</code>.</p>",
               _h.bloco_html(),
               "<p><b>Hipóteses exploratórias.</b> Três hipóteses surgiram da análise e foram pré-registradas em 15/11/2026 para teste "
               "confirmatório na extração de 2026 da SEA/SC, ainda não recebida: E1 (estrutura de comunidades e concentração do mercado de "

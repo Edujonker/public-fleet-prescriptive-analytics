@@ -1,0 +1,31 @@
+=== 2026-11-21 08:03:54 início da busca diária ===
+OPENALEX_API_KEY: definida
+OPENALEX_EMAIL: definida
+UNPAYWALL_EMAIL: definida
+S2_API_KEY: definida
+Consulta: ("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability") 
+
+▶ OpenAlex
+   OpenAlex: 1265 trabalhos correspondem à consulta
+   1265 registros recebidos
+▶ Semantic Scholar
+   Semantic Scholar: 1001 trabalhos correspondem à consulta
+   [SemanticScholar] HTTP 429; tentativa 1/5, aguardando 2s
+   [SemanticScholar] HTTP 429; tentativa 2/5, aguardando 4s
+   1001 registros recebidos
+
+1704 registros únicos após unir as fontes (1197 com os 3 grupos confirmados no título/resumo)
+Inéditos nesta execução (nunca vistos antes): 11
+PDFs a tentar: 403 (6 downloads simultâneos)
+   [   1] 2026_robani_Artificial_Intelligence_Adoption_in_Public_Administration_Challenges_f.pdf
+   [   2] 2026_yahaya_Edge_Centric_Artificial_Intelligence_Risk_Intelligence_and_Interventio.pdf
+   [   3] 2026_pal_Explainable_AI_and_Federated_Learning_for_Privacy_Preserving_Financial.pdf
+   [   4] 2025_baker_Interpretable_Machine_Learning_for_Transparent_Decision_Making_A_Conce.pdf
+   [   5] 2026_george_Explainable_AI_Techniques_for_Network_Traffic_Anomaly_Detection_and_Mi.pdf
+   Nova tentativa para 16 PDFs com erro de rede passageiro...
+
+PDFs baixados nesta execução: 5
+Inéditos: 11 (lista em novos.csv)
+Relatórios: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos/atualizacoes/2026-11-21
+PDFs:       /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos
+=== 2026-11-21 08:10:20 fim (código 0) ===

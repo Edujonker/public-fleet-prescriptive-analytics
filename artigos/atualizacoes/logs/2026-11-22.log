@@ -1,0 +1,24 @@
+=== 2026-11-22 08:07:54 início da busca diária ===
+OPENALEX_API_KEY: não definida
+OPENALEX_EMAIL: não definida
+UNPAYWALL_EMAIL: não definida
+S2_API_KEY: não definida
+Consulta: ("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability") 
+
+▶ OpenAlex
+   OpenAlex: 1268 trabalhos correspondem à consulta
+   1268 registros recebidos
+▶ Semantic Scholar
+   Semantic Scholar: 1004 trabalhos correspondem à consulta
+   1004 registros recebidos
+
+1709 registros únicos após unir as fontes (1200 com os 3 grupos confirmados no título/resumo)
+Inéditos nesta execução (nunca vistos antes): 0
+PDFs a tentar: 3 (6 downloads simultâneos)
+   Nova tentativa para 3 PDFs com erro de rede passageiro...
+
+PDFs baixados nesta execução: 0
+Inéditos: 0 (lista em novos.csv)
+Relatórios: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos/atualizacoes/2026-11-22
+PDFs:       /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos
+=== 2026-11-22 08:11:30 fim (código 0) ===

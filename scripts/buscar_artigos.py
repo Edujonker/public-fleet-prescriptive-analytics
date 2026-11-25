@@ -11,15 +11,22 @@ Consulta (a mesma em todas as fontes):
 Por que não o Google Scholar
   O Google Scholar não tem API e os termos de uso do Google proíbem consultas
   automatizadas; scripts recebem CAPTCHA e bloqueio de IP. Este script usa
-  duas bases com API oficial e gratuita, que indexam os mesmos periódicos:
+  cinco bases com API oficial e gratuita, que indexam os mesmos periódicos:
     - OpenAlex          (principal; busca booleana em título e resumo)
     - Semantic Scholar  (complementar; sem chave costuma responder 429)
+    - arXiv             (preprints; API pública, http://export.arxiv.org/api/query)
+    - Crossref          (metadados DOI; API pública, https://api.crossref.org/works)
+    - SciELO            (metadados e resumos; API pública, http://articlemeta.scielo.org)
   O link equivalente do Google Scholar é gravado em artigos/consulta.txt
   para conferência manual no navegador.
 
 O que é baixado
   Somente PDFs de acesso aberto (licença do autor ou da editora). O script
   não contorna paywall. Para os demais, o CSV traz o DOI e o link da página.
+
+Agradecimento ao arXiv
+  Este projeto utiliza os dados da API pública do arXiv. Agradecemos ao arXiv
+  pela utilização de sua interoperabilidade de acesso aberto.
 
 Saídas em  artigos/
   *.pdf              artigos baixados (ano_autor_titulo.pdf)
@@ -33,7 +40,12 @@ Uso
   python3 scripts/buscar_artigos.py --ano-min 2018 --ordem citacoes
   python3 scripts/buscar_artigos.py --sem-pdf             # só metadados
   python3 scripts/buscar_artigos.py --fontes openalex     # sem Semantic Scholar
+  python3 scripts/buscar_artigos.py --fontes openalex,s2,scopus  # inclui Scopus (precisa de SCOPUS_API_KEY)
+  python3 scripts/buscar_artigos.py --fontes openalex,s2,arxiv  # inclui arXiv (API pública, sem chave)
+  python3 scripts/buscar_artigos.py --fontes openalex,s2,crossref  # inclui Crossref REST API (sem chave)
   python3 scripts/buscar_artigos.py --ampla               # OpenAlex com radicalização
+  python3 scripts/buscar_artigos.py --senha-mestra <senha>  # lê chaves do cofre credenciais_api.bin
+  export COFRE_SENHA=<senha>  # alternativa: senha mestra por variável de ambiente
 
 Fidelidade aos termos
   Por padrão o OpenAlex busca os termos literais (search...exact). Com
@@ -42,9 +54,15 @@ Fidelidade aos termos
   conferido no título e no resumo e só os que contêm os 3 grupos têm o PDF
   baixado (--incluir-parciais baixa os demais).
 
-Chaves opcionais (gratuitas), por variável de ambiente
+Chaves opcionais (gratuitas), por variável de ambiente ou cofre de senhas
   OPENALEX_API_KEY   cota diária 10x maior  (https://openalex.org/settings/api-key)
   S2_API_KEY         evita o erro 429       (https://www.semanticscholar.org/product/api)
+  SCOPUS_API_KEY     busca na base Scopus/Elsevier (https://dev.elsevier.com/)
+  OPENALEX_EMAIL     email de identificação OpenAlex ("polite pool")
+  UNPAYWALL_EMAIL    email para verificação de acesso aberto (Unpaywall)
+  COFRE_SENHA        senha mestra do cofre credenciais_api.bin (cria com o comando `init` do cofre_senhas)
+  As chaves podem ficar no cofre de senhas (cofre_senhas/credenciais_api.bin) em vez de texto claro no .env;
+  o script lê do cofre quando a variável de ambiente não está definida.
 
 Pode ser executado de novo: PDFs já baixados são mantidos e não são baixados outra vez.
 """
@@ -57,11 +75,46 @@ import re
 import sys
 import time
 import unicodedata
+import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import quote_plus, urlparse
 
 import requests
+
+# ── Cofre de senhas local (credenciais de API em credenciais_api.bin) ──────────
+COFRE_PADRAO = Path(__file__).resolve().parent.parent / "credenciais_api.bin"
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+try:
+    from cofre_senhas.cofre import Cofre
+except Exception:  # pragma: no cover - cofre ausente
+    Cofre = None
+
+
+def carregar_credenciais_cofre(senha_mestra: str | None, caminho: Path = COFRE_PADRAO) -> dict[str, str]:
+    """Lê credenciais do cofre de senhas (fallback quando não estão no ambiente)."""
+    creds: dict[str, str] = {}
+    if senha_mestra is None or Cofre is None or not caminho.exists():
+        return creds
+    cofre = Cofre(caminho)
+    try:
+        cofre.desbloquear(senha_mestra)
+    except Exception:
+        return creds
+    for e in cofre.listar():
+        creds[e.usuario] = e.senha
+    return creds
+
+
+CREDENCIAIS_COFRE: dict[str, str] = {}
+
+
+def _valor_chave(nome_env: str) -> str:
+    """Valor de uma chave: variável de ambiente primeiro, depois cofre de senhas."""
+    valor = os.environ.get(nome_env, "").strip()
+    if valor:
+        return valor
+    return CREDENCIAIS_COFRE.get(nome_env, "").strip()
 
 ROOT = Path(__file__).resolve().parent.parent
 SAIDA_PADRAO = ROOT / "artigos"
@@ -71,6 +124,9 @@ GRUPOS = {
     "metodo": [
         "prescriptive analytics", "predictive analytics", "decision support",
         "anomaly detection", "fraud detection", "risk assessment",
+        "machine learning", "deep learning", "supervised learning",
+        "unsupervised learning", "comparative study", "comparative analysis",
+        "model comparison", "performance comparison", "benchmarking",
     ],
     "xai": [
         "explainable artificial intelligence", "explainable AI", "XAI",
@@ -143,7 +199,7 @@ def resumo_de_indice(indice):
 
 
 def buscar_openalex(sessao, max_resultados, ano_min, ordem, ampla=False):
-    chave = os.environ.get("OPENALEX_API_KEY", "").strip()
+    chave = _valor_chave("OPENALEX_API_KEY")
     headers = {"Authorization": f"Bearer {chave}"} if chave else None
     # Sem chave, buscas com muitos operadores booleanos: 1 requisição/s.
     pausa = 0.3 if chave else 1.2
@@ -167,7 +223,7 @@ def buscar_openalex(sessao, max_resultados, ano_min, ordem, ampla=False):
     elif ordem == "recentes":
         params["sort"] = "publication_date:desc"
 
-    email = os.environ.get("OPENALEX_EMAIL", "").strip()
+    email = _valor_chave("OPENALEX_EMAIL")
     if email:
         params["mailto"] = email          # "polite pool": menos erros 429
     # Com chave de API, paginação por cursor (sem limite). Sem chave, o OpenAlex só aceita
@@ -243,7 +299,7 @@ def normalizar_openalex(w):
 
 # ── Semantic Scholar ─────────────────────────────────────────────────────────
 def buscar_s2(sessao, max_resultados, ano_min, ordem):
-    chave = os.environ.get("S2_API_KEY", "").strip()
+    chave = _valor_chave("S2_API_KEY")
     headers = {"x-api-key": chave} if chave else None
     params = {
         "query": CONSULTA_S2,
@@ -293,6 +349,395 @@ def normalizar_s2(p):
         "acesso_aberto": bool(pdf),
         "pdf_urls": [pdf] if pdf else [],
         "fonte": "SemanticScholar",
+    }
+
+
+# ── Scopus / Elsevier ──────────────────────────────────────────────────────────
+SCOPUS_URL = "https://api.elsevier.com/content/search/scopus"
+
+CONSULTA_SCOPUS = (
+    "TITLE-ABS-KEY(\"explainable AI\" OR \"predictive analytics\" OR \"decision support\" "
+    "OR \"anomaly detection\" OR \"fraud detection\" OR \"risk assessment\" "
+    "OR \"machine learning\" OR \"deep learning\" OR \"supervised learning\" "
+    "OR \"unsupervised learning\" OR \"comparative study\" OR \"comparative analysis\" "
+    "OR \"model comparison\" OR \"performance comparison\" OR \"benchmarking\") "
+    "AND TITLE-ABS-KEY(\"explainable artificial intelligence\" OR \"explainable AI\" OR \"XAI\" "
+    "OR \"interpretable machine learning\" OR \"algorithmic transparency\") "
+    "AND TITLE-ABS-KEY(\"public sector\" OR \"government\" OR \"public administration\" "
+    "OR \"public procurement\" OR \"tax\" OR \"auditability\" OR \"accountability\")"
+)
+
+# ── arXiv (API pública, http://export.arxiv.org/api/query) ─────────────────────
+ARXIV_URL = "http://export.arxiv.org/api/query"
+
+# Sintaxe do arXiv: all:busca em todos os campos; AND/OR/NOT entre blocos.
+# Termos de várias palavras entre aspas. Espaços são codificados pelo requests.
+CONSULTA_ARXIV = (
+    'all:("prescriptive analytics" OR "predictive analytics" OR "decision support" '
+    'OR "anomaly detection" OR "fraud detection" OR "risk assessment" '
+    'OR "machine learning" OR "deep learning" OR "supervised learning" '
+    'OR "unsupervised learning" OR "comparative study" OR "comparative analysis" '
+    'OR "model comparison" OR "performance comparison" OR "benchmarking") '
+    'AND all:("explainable AI" OR "explainable artificial intelligence" OR "XAI" '
+    'OR "interpretable machine learning" OR "algorithmic transparency") '
+    'AND all:("public sector" OR "government" OR "public administration" '
+    'OR "public procurement" OR "tax" OR "auditability" OR "accountability")'
+)
+
+
+def buscar_arxiv(sessao, max_resultados, ano_min, ordem):
+    """Consulta a API pública do arXiv (feed Atom). Sem chave, limite de 1 req/3s
+    (cortesia do arXiv) e no máximo ~2000 resultados por consulta."""
+    params = {
+        "search_query": CONSULTA_ARXIV,
+        "start": 0,
+        "max_results": min(100, max_resultados),
+        "sortBy": "relevance" if ordem == "relevancia" else ("lastUpdatedDate" if ordem == "recentes" else "relevance"),
+        "sortOrder": "descending",
+    }
+    if ano_min:
+        params["search_query"] = f"({CONSULTA_ARXIV}) AND submittedDate:[{ano_min}01010000 TO *]"
+    registros, total = [], None
+    start = 0
+    while len(registros) < max_resultados:
+        params["start"] = start
+        try:
+            r = sessao.get(ARXIV_URL, params=params, timeout=(15, 90))
+        except requests.RequestException as e:
+            print(f"   [arXiv] erro de rede ({e.__class__.__name__}); pulando fonte")
+            return [], 0
+        if r.status_code != 200:
+            print(f"   [arXiv] HTTP {r.status_code}; pulando fonte")
+            return [], 0
+        try:
+            root = ET.fromstring(r.text)
+        except ET.ParseError:
+            print("   [arXiv] resposta não é XML válido; pulando fonte")
+            return [], 0
+        ns = {"a": "http://www.w3.org/2005/Atom", "arxiv": "http://arxiv.org/schemas/atom"}
+        if total is None:
+            tot_el = root.find("opensearch:totalResults", {"opensearch": "http://a9.com/-/spec/opensearch/1.1/"})
+            total = int(tot_el.text) if tot_el is not None and tot_el.text else 0
+            print(f"   arXiv: {total} trabalhos correspondem à consulta")
+        entries = root.findall("a:entry", ns)
+        if not entries:
+            break
+        for e in entries:
+            registros.append(normalizar_arxiv(e, ns))
+            if len(registros) >= max_resultados:
+                break
+        start += len(entries)
+        if start >= (total or 0):
+            break
+        time.sleep(3.5)
+    return registros, total or 0
+
+
+def normalizar_arxiv(e, ns):
+    titulo_el = e.find("a:title", ns)
+    titulo = " ".join((titulo_el.text or "").split()) if titulo_el is not None else ""
+    resumo_el = e.find("a:summary", ns)
+    resumo = " ".join((resumo_el.text or "").split()) if resumo_el is not None else ""
+    publicado_el = e.find("a:published", ns)
+    ano = (publicado_el.text[:4] if publicado_el is not None and publicado_el.text else "") or ""
+    autores = [a.find("a:name", ns).text for a in e.findall("a:author", ns) if a.find("a:name", ns) is not None]
+    id_el = e.find("a:id", ns)
+    arxiv_id = id_el.text if id_el is not None else ""
+    pdf_url = ""
+    for link in e.findall("a:link", ns):
+        href = link.get("href") or ""
+        rel = link.get("rel") or ""
+        if "arxiv.org" in href and ("pdf" in href.lower() or rel == "related"):
+            pdf_url = href.replace("/abs/", "/pdf/")
+            break
+    cats = [c.get("term") for c in e.findall("a:category", ns) if c.get("term")]
+    veiculo = "; ".join(cats) if cats else "arXiv"
+    doi_el = e.find("arxiv:doi", ns)
+    doi = doi_el.text.strip() if doi_el is not None and doi_el.text else ""
+    return {
+        "titulo": titulo,
+        "ano": ano,
+        "autores": autores,
+        "veiculo": veiculo,
+        "tipo": "preprint",
+        "doi": doi,
+        "url": arxiv_id,
+        "citacoes": 0,
+        "resumo": resumo,
+        "acesso_aberto": bool(pdf_url),
+        "pdf_urls": [pdf_url] if pdf_url else [],
+        "fonte": "arXiv",
+    }
+
+
+# ── Crossref REST API (https://api.crossref.org/works) ─────────────────────────
+CROSSREF_URL = "https://api.crossref.org/works"
+
+# query.bibliographic busca em título, autores, volume, nome do jornal, etc.
+# A Crossref não tem sintaxe booleana AND/OR como OpenAlex/Scopus; usamos os
+# termos mais discriminativos do grupo "metodo" e do grupo "setor_publico",
+# deixamos o XAI como filtro pós-recebimento (conferir_semantica já faz isso).
+CONSULTA_CROSSREF = (
+    "prescriptive analytics predictive analytics decision support "
+    "anomaly detection fraud detection risk assessment "
+    "machine learning deep learning supervised learning unsupervised learning "
+    "comparative study comparative analysis model comparison "
+    "performance comparison benchmarking "
+    "public sector government public administration public procurement "
+    "tax auditability accountability"
+)
+
+
+def buscar_crossref(sessao, max_resultados, ano_min, ordem):
+    """Consulta a Crossref REST API (/works). Sem chave, usa cursor de paginação
+    e mailto (boa prática de identificação). Limite de ~1000 itens por request."""
+    mailto = _valor_chave("OPENALEX_EMAIL") or _valor_chave("UNPAYWALL_EMAIL")
+    params = {
+        "query.bibliographic": CONSULTA_CROSSREF,
+        "rows": min(100, max_resultados),
+        "cursor": "*",
+        "select": "DOI,title,author,published,container-title,abstract,URL,type,score",
+    }
+    if mailto:
+        params["mailto"] = mailto
+    if ano_min:
+        params["filter"] = f"from-pub-date:{ano_min}-01-01"
+    if ordem == "citacoes":
+        params["sort"] = "is-referenced-by-count"
+        params["order"] = "desc"
+    elif ordem == "recentes":
+        params["sort"] = "published"
+        params["order"] = "desc"
+
+    registros, total = [], None
+    cursor = "*"
+    while len(registros) < max_resultados:
+        params["cursor"] = cursor
+        try:
+            r = sessao.get(CROSSREF_URL, params=params, timeout=(15, 90))
+        except requests.RequestException as e:
+            print(f"   [Crossref] erro de rede ({e.__class__.__name__}); pulando fonte")
+            return [], 0
+        if r.status_code != 200:
+            print(f"   [Crossref] HTTP {r.status_code}; pulando fonte")
+            return [], 0
+        try:
+            dados = r.json()
+        except ValueError:
+            print("   [Crossref] resposta não é JSON válido; pulando fonte")
+            return [], 0
+        msg = dados.get("message") or {}
+        if total is None:
+            total = int(msg.get("total-results") or 0)
+            print(f"   Crossref: {total} trabalhos correspondem à consulta")
+        items = msg.get("items") or []
+        if not items:
+            break
+        for it in items:
+            registros.append(normalizar_crossref(it))
+            if len(registros) >= max_resultados:
+                break
+        next_cursor = msg.get("next-cursor")
+        if not next_cursor or next_cursor == cursor:
+            break
+        cursor = next_cursor
+    return registros, total or 0
+
+
+def normalizar_crossref(it):
+    titulo_lista = it.get("title") or []
+    titulo = " ".join(titulo_lista[0].split()) if titulo_lista else ""
+    resumo = it.get("abstract") or ""
+    publicado = it.get("published") or {}
+    date_parts = publicado.get("date-parts") or [[]]
+    ano = str(date_parts[0][0]) if date_parts and date_parts[0] else ""
+    autores = []
+    for a in it.get("author") or []:
+        nome = a.get("given") or ""
+        sobrenome = a.get("family") or ""
+        nome_completo = " ".join([n for n in (nome, sobrenome) if n]).strip()
+        if nome_completo:
+            autores.append(nome_completo)
+    container = it.get("container-title") or []
+    veiculo = container[0] if container else ""
+    doi = (it.get("DOI") or "").strip()
+    url = it.get("URL") or ""
+    tipo = (it.get("type") or "").lower()
+    citacoes = int(it.get("is-referenced-by-count") or 0)
+    return {
+        "titulo": titulo,
+        "ano": ano,
+        "autores": autores,
+        "veiculo": veiculo,
+        "tipo": tipo,
+        "doi": doi,
+        "url": url,
+        "citacoes": citacoes,
+        "resumo": resumo,
+        "acesso_aberto": bool(doi),  # Crossref não garante OA; o download tenta o DOI
+        "pdf_urls": [],
+        "fonte": "Crossref",
+    }
+
+
+# ── SciELO ArticleMeta API (http://articlemeta.scielo.org) ─────────────────────
+SCIELO_URL = "http://articlemeta.scielo.org/v1/articles/"
+
+# Termos de busca da SciELO (API usa q = texto livre, sem sintaxe booleana AND/OR).
+# Usamos os termos mais discriminativos dos grupos metodo e setor_publico.
+CONSULTA_SCIELO = (
+    "prescriptive analytics predictive analytics decision support "
+    "anomaly detection fraud detection risk assessment "
+    "machine learning deep learning supervised learning unsupervised learning "
+    "comparative study comparative analysis model comparison "
+    "performance comparison benchmarking "
+    "public sector government public administration public procurement "
+    "tax auditability accountability explainable AI XAI "
+    "interpretable machine learning algorithmic transparency"
+)
+
+
+def buscar_scielo(sessao, max_resultados, ano_min, ordem):
+    """Consulta a SciELO ArticleMeta API (RESTful, JSON).
+    Parâmetros: q (texto livre), collection (scl por padrão), offset/limit,
+    from_publication_date / until_publication_date. Sem chave, sem rate limit
+    declarado; usamos pausa curta entre páginas por cortesia."""
+    params = {
+        "q": CONSULTA_SCIELO,
+        "collection": "scl",
+        "limit": min(100, max_resultados),
+        "offset": 0,
+        "format": "json",
+    }
+    if ano_min:
+        params["from_publication_date"] = f"{ano_min}-01-01"
+    registros, total = [], None
+    offset = 0
+    while len(registros) < max_resultados:
+        params["offset"] = offset
+        try:
+            r = sessao.get(SCIELO_URL, params=params, timeout=(15, 90))
+        except requests.RequestException as e:
+            print(f"   [SciELO] erro de rede ({e.__class__.__name__}); pulando fonte")
+            return [], 0
+        if r.status_code != 200:
+            print(f"   [SciELO] HTTP {r.status_code}; pulando fonte")
+            return [], 0
+        try:
+            dados = r.json()
+        except ValueError:
+            print("   [SciELO] resposta não é JSON válido; pulando fonte")
+            return [], 0
+        if total is None:
+            total = int(dados.get("total") or 0)
+            print(f"   SciELO: {total} trabalhos correspondem à consulta")
+        items = dados.get("items") or []
+        if not items:
+            break
+        for it in items:
+            registros.append(normalizar_scielo(it))
+            if len(registros) >= max_resultados:
+                break
+        offset += len(items)
+        if offset >= (total or 0):
+            break
+        time.sleep(1.0)
+    return registros, total or 0
+
+
+def normalizar_scielo(it):
+    titulo = " ".join((it.get("title") or "").split()) if it.get("title") else ""
+    resumo = " ".join((it.get("abstract") or "").split()) if it.get("abstract") else ""
+    ano = str(it.get("publication_date") or "")[:4] if it.get("publication_date") else ""
+    autores = [a for a in (it.get("authors") or []) if a]
+    veiculo = it.get("journal_title") or it.get("journal") or ""
+    doi = (it.get("doi") or "").strip()
+    url = it.get("url") or it.get("link") or ""
+    tipo = (it.get("document_type") or it.get("type") or "").lower()
+    return {
+        "titulo": titulo,
+        "ano": ano,
+        "autores": autores,
+        "veiculo": veiculo,
+        "tipo": tipo,
+        "doi": doi,
+        "url": url,
+        "citacoes": 0,
+        "resumo": resumo,
+        "acesso_aberto": bool(doi),  # SciELO é acervo de acesso aberto
+        "pdf_urls": [],
+        "fonte": "SciELO",
+    }
+
+
+def buscar_scopus(sessao, max_resultados, ano_min, ordem):
+    chave = _valor_chave("SCOPUS_API_KEY")
+    if not chave:
+        print("   Scopus: chave não configurada (SCOPUS_API_KEY); pulando fonte")
+        return [], 0
+    headers = {"X-ELS-APIKey": chave, "Accept": "application/json"}
+    params = {
+        "query": CONSULTA_SCOPUS,
+        "count": min(25, max_resultados),
+        "view": "STANDARD",
+    }
+    if ano_min:
+        params["query"] = f"{CONSULTA_SCOPUS} AND PUBYEAR > {ano_min - 1}"
+    registros, total, start = [], None, 0
+    while len(registros) < max_resultados:
+        params["start"] = start
+        try:
+            dados = get_json(sessao, SCOPUS_URL, params, headers, tentativas=6, rotulo="Scopus")
+        except RuntimeError as e:
+            if "HTTP 401" in str(e) or "HTTP 403" in str(e):
+                print("   Scopus: chave não aceita (inválida ou sem escopo); pulando fonte")
+                return [], 0
+            raise
+        sr = dados.get("search-results") or {}
+        if total is None:
+            total = int(sr.get("opensearch:totalResults") or 0)
+            print(f"   Scopus: {total} trabalhos correspondem à consulta")
+        lote = sr.get("entry") or []
+        if not lote:
+            break
+        for e in lote:
+            registros.append(normalizar_scopus(e))
+            if len(registros) >= max_resultados:
+                break
+        start += len(lote)
+        if start >= total:
+            break
+        time.sleep(1.2)
+    return registros, total or 0
+
+
+def normalizar_scopus(e):
+    identificadores = e.get("identifier") or ""
+    doi = ""
+    if isinstance(identificadores, str) and "DOI" in identificadores:
+        doi = identificadores.split(":")[-1].strip()
+    autores = []
+    for a in (e.get("authors") or {}).get("author", []) or []:
+        n = a.get("authty") or a.get("$") or a.get("ce:indexed-name") or ""
+        if n:
+            autores.append(n)
+    link_pdf = ""
+    for lnk in (e.get("link") or []) or []:
+        if (lnk or {}).get("@ref") == "scopus":
+            link_pdf = (lnk or {}).get("@href") or ""
+    return {
+        "titulo": (e.get("dc:title") or "").strip(),
+        "ano": (e.get("prism:coverDate") or "")[:4] or "",
+        "autores": autores,
+        "veiculo": (e.get("prism:publicationName") or "").strip(),
+        "tipo": (e.get("prism:aggregationType") or "").strip(),
+        "doi": doi,
+        "url": f"https://doi.org/{doi}" if doi else link_pdf,
+        "citacoes": int(e.get("citedby-count") or 0),
+        "resumo": (e.get("dc:description") or "").strip(),
+        "acesso_aberto": bool(link_pdf),
+        "pdf_urls": [link_pdf] if link_pdf else [],
+        "fonte": "Scopus",
     }
 
 
@@ -539,6 +984,15 @@ Consulta (OpenAlex, campo título + resumo):
 Consulta (Semantic Scholar, sintaxe bulk):
 {CONSULTA_S2}
 
+Consulta (arXiv, sintaxe all:):
+{CONSULTA_ARXIV}
+
+Consulta (Crossref, query.bibliographic):
+{CONSULTA_CROSSREF}
+
+Consulta (SciELO ArticleMeta, q texto livre):
+{CONSULTA_SCIELO}
+
 Parâmetros: max_resultados={args.max_resultados}, max_pdfs={args.max_pdfs}, ano_min={args.ano_min or '-'}, ordem={args.ordem}, fontes={args.fontes}
 Correspondência no OpenAlex: {'ampla (com radicalização)' if args.ampla else 'exata (termos literais)'}; Semantic Scholar sempre radicaliza.
 Só são baixados PDFs com os 3 grupos confirmados no título/resumo{' (exceto com --incluir-parciais)' if not args.incluir_parciais else ' — desativado por --incluir-parciais'}.
@@ -683,7 +1137,7 @@ def main():
     ap.add_argument("--max-pdfs", type=int, default=100, help="máximo de PDFs a baixar nesta execução (padrão 100)")
     ap.add_argument("--ano-min", type=int, default=None, help="ano mínimo de publicação")
     ap.add_argument("--ordem", choices=["relevancia", "citacoes", "recentes"], default="relevancia")
-    ap.add_argument("--fontes", default="openalex,s2", help="openalex, s2 ou openalex,s2 (padrão)")
+    ap.add_argument("--fontes", default="openalex,s2", help="openalex, s2, scopus, arxiv, crossref e/ou scielo (padrão: openalex,s2)")
     ap.add_argument("--sem-pdf", action="store_true", help="só metadados, sem baixar PDFs")
     ap.add_argument("--ampla", action="store_true",
                     help="OpenAlex com radicalização (mais resultados, menos fiéis aos termos)")
@@ -695,9 +1149,17 @@ def main():
     ap.add_argument("--paralelo", type=int, default=6, help="downloads simultâneos (padrão 6; um por site de cada vez)")
     ap.add_argument("--pasta-pdf", default=None,
                     help="pasta dos PDFs e do registro vistos.json (padrão: a mesma de --saida)")
+    ap.add_argument("--senha-mestra", default=os.environ.get("COFRE_SENHA", ""),
+                    help="senha mestra do cofre de credenciais de API (ou COFRE_SENHA)")
+    ap.add_argument("--cofre", default=str(COFRE_PADRAO),
+                    help="caminho do cofre de credenciais de API (padrão: credenciais_api.bin)")
     args = ap.parse_args()
     global REPETIR_TRANSITORIAS
     REPETIR_TRANSITORIAS = args.repetir_transitorias
+
+    # Credenciais do cofre (fallback quando não estão no ambiente)
+    global CREDENCIAIS_COFRE
+    CREDENCIAIS_COFRE = carregar_credenciais_cofre(args.senha_mestra or None, Path(args.cofre))
 
     saida = Path(args.saida)
     saida.mkdir(parents=True, exist_ok=True)
@@ -732,6 +1194,46 @@ def main():
             print("   Semantic Scholar indisponível (sem chave é comum o erro 429). Seguindo sem ele.")
             print("  ", e)
             totais["SemanticScholar"] = "indisponível"
+    if "scopus" in fontes:
+        print("▶ Scopus")
+        try:
+            regs, tot = buscar_scopus(sessao, args.max_resultados, args.ano_min, args.ordem)
+            listas.append(regs)
+            totais["Scopus"] = tot
+            print(f"   {len(regs)} registros recebidos")
+        except RuntimeError as e:
+            print("   Scopus indisponível:", e)
+            totais["Scopus"] = "indisponível"
+    if "arxiv" in fontes:
+        print("▶ arXiv")
+        try:
+            regs, tot = buscar_arxiv(sessao, args.max_resultados, args.ano_min, args.ordem)
+            listas.append(regs)
+            totais["arXiv"] = tot
+            print(f"   {len(regs)} registros recebidos")
+        except RuntimeError as e:
+            print("   arXiv indisponível:", e)
+            totais["arXiv"] = "indisponível"
+    if "crossref" in fontes:
+        print("▶ Crossref")
+        try:
+            regs, tot = buscar_crossref(sessao, args.max_resultados, args.ano_min, args.ordem)
+            listas.append(regs)
+            totais["Crossref"] = tot
+            print(f"   {len(regs)} registros recebidos")
+        except RuntimeError as e:
+            print("   Crossref indisponível:", e)
+            totais["Crossref"] = "indisponível"
+    if "scielo" in fontes:
+        print("▶ SciELO")
+        try:
+            regs, tot = buscar_scielo(sessao, args.max_resultados, args.ano_min, args.ordem)
+            listas.append(regs)
+            totais["SciELO"] = tot
+            print(f"   {len(regs)} registros recebidos")
+        except RuntimeError as e:
+            print("   SciELO indisponível:", e)
+            totais["SciELO"] = "indisponível"
 
     registros = unir(listas)
     if not registros:
@@ -759,7 +1261,7 @@ def main():
     print(f"Inéditos nesta execução (nunca vistos antes): {len(novos)}")
 
     baixados = 0
-    email_upw = os.environ.get("UNPAYWALL_EMAIL", os.environ.get("OPENALEX_EMAIL", "")).strip()
+    email_upw = _valor_chave("UNPAYWALL_EMAIL") or _valor_chave("OPENALEX_EMAIL")
     controle = carregar_controle(pasta_pdf)
     try:
         fila = []

@@ -1,0 +1,60 @@
+{
+  "fonte": "Plano de Contratações Anual do Estado de Santa Catarina (PCA 2025) - SEA/SC, Diretoria de Gestão de Licitações e Contratos (DGLC / GPLAC), publicado em fevereiro/2025 (documento oficial: docs/PCA 2025.pdf, 373 páginas).",
+  "data_analise": "2026-11-24",
+  "arquivo_origem": "docs/PCA 2025.pdf",
+  "tamanho_bytes": 5420704,
+  "paginas": 373,
+  "visao_geral": "O PCA 2025 consolida as demandas de compras e contratações do Estado de Santa Catarina para o exercício de 2025. O documento formalizou no Anexo I itens de abastecimento, gerenciamento e materiais de manutenção, além de registrar no histórico a locação corporativa de veículos.",
+  "itens_frota_pca_2025": [
+    {
+      "codigo": "PE 593/2025",
+      "objeto": "LOCAÇÃO DE VEÍCULOS CORPORATIVA",
+      "processo": "SEA 4749/2025",
+      "valor_estimado": 43671319.98,
+      "descricao": "Contratação de serviços compartilhados de locação de veículos automotores para atendimento aos órgãos da Administração Pública Estadual."
+    },
+    {
+      "codigo": "504120001",
+      "objeto": "SISTEMA DE GERENCIAMENTO - ABASTECIMENTO DE COMBUSTÍVEIS",
+      "quantidade": 5934.0,
+      "descricao": "Gerenciamento do abastecimento de combustíveis da frota estadual."
+    },
+    {
+      "codigo": "504120002",
+      "objeto": "SISTEMA DE GERENCIAMENTO - FORNECIMENTO DE COMBUSTÍVEL, LUBRIFICANTES E ADITIVOS",
+      "quantidade": 5019.0,
+      "descricao": "Gerenciamento centralizado de combustíveis e óleos lubrificantes."
+    },
+    {
+      "codigo": "504120003",
+      "objeto": "SISTEMA DE GERENCIAMENTO - FORNECIMENTO DE PEÇAS E ACESSÓRIOS PARA VEÍCULOS",
+      "quantidade": 1.0,
+      "descricao": "Item de registro do sistema informatizado para fornecimento de peças e manutenção mecânica."
+    }
+  ],
+  "total_locacao_planejada_pca_2025": 43671319.98,
+  "modelo_treinado_ate_dez_2024": {
+    "janela_teste_retrospectiva": "BT2 (treino 2022 a dez/2024 -> previsão para 2025)",
+    "previsao_modelo_sarima_log_os_2025": 24095840.70,
+    "realizado_observado_os_jan_sep_2025": 21942414.82,
+    "erro_retrospectivo_jan_sep_pct": 9.81,
+    "ano_2025_completo_projetado_censo_os": 32283572.80,
+    "ano_2025_completo_escala_empenho": 37558013.13,
+    "empenho_real_liquidado_sef_2025": 41778516.43
+  },
+  "comparativo_prescritivo_vs_pca_2025": {
+    "pca_oficial_frotas_2025": 43671319.98,
+    "modelo_prescritivo_escala_empenho": 37558013.13,
+    "modelo_prescritivo_censo_os": 32283572.80,
+    "diferenca_escala_empenho": -6113306.85,
+    "diferenca_escala_empenho_pct": -14.0,
+    "diferenca_censo_os": -11387747.18,
+    "diferenca_censo_os_pct": -26.1
+  },
+  "porques_da_diferenca_2025": [
+    "Objeto Contratual Distinto: O PCA Oficial 2025 (R$ 43,67 mi no PE 593/2025) alocou recursos exclusivamente para locação corporativa de veículos terceirizados, enquanto o Modelo Prescritivo (R$ 37,56 mi escala empenho / R$ 32,28 mi censo OS) estimou a demanda de manutenção mecânica preventiva e corretiva da frota própria do Estado.",
+    "Contrato Continuado Corporativo: A manutenção mecânica da frota própria foi executada sob contrato corporativo de gerenciamento (Ticket Gestão / transição para QFrotas), não demandando licitação avulsa no PCA de 2025 e correndo nos subelementos 3.3.90.30.39 e 3.3.90.39.19.",
+    "Alta Aderência Preditiva: Quando o modelo foi treinado com dados até dez/2024, sua projeção retrospectiva para a frota própria atingiu R$ 24,10 mi para jan-set/2025 frente a R$ 21,94 mi observados (erro de apenas +9,81%, confirmando a aderência dentro da margem de 10% da hipótese E3).",
+    "Economia Estrutural: Manter a frota própria estadual em 2025 demandou cerca de R$ 37,56 mi a R$ 41,78 mi, um valor 14% a 26% inferior ao montante dispendido pelo Estado com aluguel de viaturas (R$ 43,67 mi no PCA)."
+  ]
+}

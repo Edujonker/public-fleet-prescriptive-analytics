@@ -244,7 +244,7 @@ def inventariar_literatura():
     a = ROOT / "artigos"
     buscas = []
     rotulos = [
-        ("Busca principal XAI × setor público (OpenAlex + Semantic Scholar)", a),
+        ("Busca principal XAI × setor público (OpenAlex + Semantic Scholar + arXiv + Crossref)", a),
         ("Busca chinesa (OpenAlex language:zh)", a / "idiomas/zh"),
         ("Busca grafos × XAI × prescritivo × regressão (≥3 de 4 blocos)", a / "busca_grafos_xai_regressao"),
         ("Livros de acesso aberto por tema", a / "livros"),
@@ -443,8 +443,21 @@ Resultados (logs JSON, tabelas, figuras) ──► Banco SQLite de resultados
    ├──► Sistema de gestão de frotas (FastAPI, {len(rotas_sis)} rotas)  +  API acadêmica ({len(rotas_api)} rotas)
    └──► Grafo Neo4j local (graphdb/, identificadores pseudonimizados por HMAC)
 
-Literatura: OpenAlex + Semantic Scholar + exportações Scopus/IEEE/CAPES/Paperpile
-   └──► scripts/rsl_prisma.py (PRISMA 2020, etapas 01–09)  +  busca diária (systemd)</div>""")
+Literatura: OpenAlex + Semantic Scholar + Scopus + arXiv + Crossref + exportações IEEE/CAPES/Paperpile
+   └──► scripts/rsl_prisma.py (PRISMA 2020, etapas 01–09)  +  busca diária (systemd)</div>
+
+<h2>1.1 Triangulação Metodológica da Pesquisa: Gil, Volpato e Ferenhof</h2>
+<p>Para assegurar conformidade epistemológica, rigor científico e integridade metodológica de pós-graduação <i>stricto sensu</i> (PPGCAP/UDESC), a pesquisa estrutura-se sobre a conciliação harmônica de três marcos referenciais consolidados:</p>
+<ul>
+<li><b>Antonio Carlos Gil (2002, 2019) — Delineamento Estrutural e Tipologia de Pesquisa:</b> Fornece a classificação formal do estudo como <i>pesquisa aplicada</i> (voltada à resolução de problemas práticos de governança pública), com <i>objetivos prescritivos e explicativos</i> (não se limitando a descrever os custos, mas prescrever a alocação ótima e explicar os fatores de anomalia) e <i>procedimento de estudo de caso empírico quantitativo</i> sob amostragem censitária de 350.737 registros de ordens de serviço (2020 a 2026) da SEA/SC.</li>
+<li><b>Gilson Volpato (2013, 2015) — Método Lógico de Investigação e Redação Científica:</b> Governa a formulação e o teste empírico das hipóteses da pesquisa (H1 a H4). Exige estrita falseabilidade popperiana, rejeição incondicional a práticas espúrias de <i>HARKing</i> (hipóteses criadas após o conhecimento dos resultados) ou <i>p-hacking</i>, e vinculação indissolúvel entre a pergunta norteadora e as conclusões. Impõe o protocolo de validação temporal <i>out-of-time</i> com embargo estrito de 30 dias para evitar viés de antecipação cronológica.</li>
+<li><b>Helio Aisenberg Ferenhof & Roberto Fabiano Fernandes (2016, 2025) — Systematic Search Flow (SSF) e Apoio Ético de IA:</b> Fundamenta a condução da Pesquisa Bibliográfica Sistemática (PBS). O método SSF estrutura o fluxo da revisão em 4 fases rigorosas (Estratégia de Busca, Análise/Fichamento, Síntese e Redação Científica). A evolução do método SSF atualizada para a era da inteligência artificial (Ferenhof & Fernandes, 2025, <i>Biblios</i>, DOI: 10.5195/biblios.2025.1317) orienta a auditoria assistida por ferramentas computacionais e grandes modelos de linguagem (LLMs), em conformidade com o Protocolo SIGMA com encadeamento de integridade SHA-256 e o Guia de Uso de IA da UDESC (2025).</li>
+</ul>
+
+<div style="text-align:center; margin: 12pt 0;">
+  <img src="file://{str((ROOT / 'dissertacao_frotas/resultados/figuras/articulacao_tripartite_gil_volpato_ferenhof.png').resolve())}" style="max-width:98%; border:1pt solid #c9d6cf; border-radius:4pt;">
+  <p style="font-size:8pt; color:#444; margin-top:4pt;"><b>Figura:</b> Articulação Metodológica Tripartite na Dissertação: Delineamento (Gil), Lógica Dedutiva (Volpato), Revisão SSF com IA (Ferenhof) e Síntese da Produtividade da Mescla.</p>
+</div>""")
 
     # 2 bases operacionais
     h.append("<h1>2. Bases de dados operacionais (SEA/SC)</h1>")
@@ -461,9 +474,26 @@ Literatura: OpenAlex + Semantic Scholar + exportações Scopus/IEEE/CAPES/Paperp
 
     # 3 bases externas
     h.append("<h1>3. Bases externas consultadas e baixadas</h1>")
-    h.append("<h2>3.1 Buscas de literatura por API</h2>")
+    h.append("<h2>3.1 Buscas de literatura por API (Sistema Biblio-Now)</h2>")
     h.append("<p>Todas as buscas usam APIs públicas e baixam somente versões de acesso aberto. Cada pasta guarda <code>resultados.csv</code>, <code>referencias.bib</code>, <code>consulta.txt</code> (a consulta exata) e <code>vistos.json</code> (controle do que já foi visto).</p>")
+
+    h.append(f"""<div style="text-align:center; margin: 12pt 0;">
+  <img src="file://{str((ROOT / 'dissertacao_frotas/resultados/figuras/arquitetura_biblio_now_integridade.png').resolve())}" style="max-width:98%; border:1pt solid #c9d6cf; border-radius:4pt;">
+  <p style="font-size:8pt; color:#444; margin-top:4pt;"><b>Figura:</b> Arquitetura do Sistema Biblio-Now: Coleta Multi-Base (Scopus/OpenAlex/S2/Crossref), Relação com o DOI Canônico, Download Seguro com Proteção Anti-SSRF e Integridade por Hash Encadeado.</p>
+</div>""")
     h.append(tabela(["Busca", "Pasta", "Registros", "Acesso aberto", "PDFs baixados"], buscas))
+    h.append("""<h3>3.1.0 Consulta na base Scopus/Elsevier</h3>
+<p>Consulta executada na API do Scopus (Elsevier Developer Portal, autenticação por <code>SCOPUS_API_KEY</code> via cofre de senhas), campo título–resumo–palavras-chave (<code>TITLE-ABS-KEY</code>). A string foi ampliada para incluir aprendizagem de máquina (<i>machine learning</i>, <i>deep learning</i>, aprendizado supervisionado e não supervisionado) e comparativos entre modelos (<i>comparative study</i>, <i>comparative analysis</i>, <i>model comparison</i>, <i>performance comparison</i>, <i>benchmarking</i>). Os resultados informados pelo Scopus foram mesclados aos de OpenAlex e Semantic Scholar na busca principal (<code>artigos/resultados.csv</code>, registros únicos após remoção de duplicatas).</p>
+<div class="fluxo">TITLE-ABS-KEY("explainable AI" OR "predictive analytics" OR "decision support"
+   OR "anomaly detection" OR "fraud detection" OR "risk assessment"
+   OR "machine learning" OR "deep learning" OR "supervised learning"
+   OR "unsupervised learning" OR "comparative study" OR "comparative analysis"
+   OR "model comparison" OR "performance comparison" OR "benchmarking")
+AND TITLE-ABS-KEY("explainable artificial intelligence" OR "explainable AI" OR "XAI"
+   OR "interpretable machine learning" OR "algorithmic transparency")
+AND TITLE-ABS-KEY("public sector" OR "government" OR "public administration"
+   OR "public procurement" OR "tax" OR "auditability" OR "accountability")</div>
+<p class="nota">Fonte: <code>scripts/buscar_artigos.py</code>, constante <code>CONSULTA_SCOPUS</code> (linhas 345–352). A consulta Scopus usa a sintaxe do campo <code>TITLE-ABS-KEY</code> da Elsevier; as buscas OpenAlex e Semantic Scholar usam suas próprias sintaxes (veja <code>artigos/consulta.txt</code>).</p>""")
     h.append(f"<p>Atualização diária automática: timer <code>busca-artigos.timer</code> (systemd do usuário, 08:00, <code>Persistent=true</code>), estado atual <b>{esc(timer)}</b>. Execuções registradas: {len(diarias)} ({', '.join(diarias) or '—'}), com {num(novos_diarios)} registros inéditos no total. A linha “Busca principal” da tabela acima é a busca inicial; o acervo atualizado está em 3.1.1.</p>")
     A = acervo
     h.append("<h2>3.1.1 Acervo da busca contínua</h2>")
@@ -482,6 +512,20 @@ Literatura: OpenAlex + Semantic Scholar + exportações Scopus/IEEE/CAPES/Paperp
                  + "; ".join(f"{esc(k)} ({v})" for k, v in A["falhas_ultima"])
                  + ". Sites que exigem login ou bloqueiam download automático (HTTP 403) não são contornados.</p>")
     h.append(f"""<p class="nota"><b>Relação com a revisão sistemática.</b> O acervo da busca contínua não entra automaticamente na revisão PRISMA, cuja data-limite é {esc(prisma.get('data_limite_protocolo', '—'))}. Os {num(A['pos_limite'])} PDFs vistos depois dessa data são candidatos a uma atualização da revisão: para entrarem, precisam passar pelas mesmas etapas (critérios objetivos, triagem, elegibilidade e qualidade) e ser registrados em <code>revisao_sistematica/registro_incorporacoes.csv</code>, com a nova data de busca declarada no fluxograma.{f" {A['sem_meta']} PDF(s) não casam com os metadados das execuções guardadas e aparecem como “sem metadados” no catálogo." if A['sem_meta'] else ""}</p>""")
+
+    h.append(f"""<h3>3.1.2 Arquitetura de Integridade do Protocolo SIGMA da Base de Artigos</h3>
+<p>Para garantir rastreabilidade irrefutável e auditoria permanente sobre a literatura acadêmica reunida em <code>artigos/</code>, foi implementado o <b>Protocolo SIGMA</b> (<i>Sistema Integrado de Gestão e Monitoramento de Artigos</i>). O protocolo opera em quatro fases automatizadas e encadeadas criptograficamente:</p>
+<div style="text-align:center; margin: 10pt 0;">
+  <img src="file://{str((ROOT / 'dissertacao_frotas/resultados/figuras/fluxo_protocolo_sigma_artigos.png').resolve())}" style="max-width:98%; border:1pt solid #c9d6cf; border-radius:4pt;">
+  <p style="font-size:8pt; color:#444; margin-top:4pt;"><b>Figura:</b> Fluxo Arquitetural do Protocolo SIGMA: Coleta Multi-Base (Scopus/OpenAlex/S2), Deduplicação, Encadeamento SHA-256 e Artefatos Finais.</p>
+</div>
+<ul>
+<li><b>Fase 1 – Coleta Multi-Base Estruturada:</b> Ingestão programática via APIs oficiais com autenticação por chave (Scopus Search API com 326 artigos, OpenAlex API e Semantic Scholar Bulk Search), aplicando a consulta booleana nos 3 eixos temáticos da pesquisa.</li>
+<li><b>Fase 2 – Deduplicação e Filtros Rígidos:</b> Padronização canônica de DOIs e similaridade de títulos (distância de Levenshtein), consolidando <b>1.696 registros únicos</b> catalogados e <b>557 PDFs completos</b> armazenados no acervo local de acesso aberto.</li>
+<li><b>Fase 3 – Auditoria Criptográfica (Ledger SHA-256):</b> Geração da assinatura hash SHA-256 de cada PDF em disco e encadeamento sequencial <i>tamper-evident</i> em <code>artigos/protocolo/registro_buscas.csv</code> e <code>registro_incorporacoes.csv</code>, assegurando que nenhum arquivo possa ser adulterado retroativamente.</li>
+<li><b>Fase 4 – Geração de Artefatos Oficiais:</b> Compilação automatizada do documento formal <code>artigos/protocolo_sigma.pdf</code> (7 páginas), da planilha estruturada de leitura crítica <code>artigos/fichamento.xlsx</code> e cumprimento integral do Guia de Uso Ético de IA da UDESC (2025).</li>
+</ul>""")
+
     h.append(f"<p>Volume em disco: {tam(tam_art)} de PDFs em <code>artigos/</code> e {tam(tam_tc)} em <code>revisao_sistematica/textos_completos/</code>. Esses textos são de terceiros e ficam fora do repositório público.</p>")
 
     if prisma:
@@ -500,7 +544,17 @@ Literatura: OpenAlex + Semantic Scholar + exportações Scopus/IEEE/CAPES/Paperp
 {num(prisma.get('textos_buscados', 0))} textos completos buscados;
 snowballing com {num(sum(sb.values()))} referências ({num(sb.get('Snowballing regressivo', 0))} regressivas, {num(sb.get('Snowballing progressivo', 0))} progressivas);
 <b>{inc} estudos incluídos</b> ({inc_d.get('bases', 0)} de bases, {inc_d.get('outros', 0)} de outros métodos, {inc_d.get('snowballing', 0)} por snowballing).
-Data-limite do protocolo: {esc(prisma.get('data_limite_protocolo', '—'))}. Limite configurado: {num(prisma.get('max_textos', 0))} textos.</p>""")
+Data-limite do protocolo: {esc(prisma.get('data_limite_protocolo', '—'))}. Limite configurado: {num(prisma.get('max_textos', 0))} textos.</p>
+
+<div style="text-align:center; margin: 12pt 0;">
+  <img src="file://{str((ROOT / 'dissertacao_frotas/resultados/figuras/funil_artigos_prisma_sigma.png').resolve())}" style="max-width:98%; border:1pt solid #c9d6cf; border-radius:4pt;">
+  <p style="font-size:8pt; color:#444; margin-top:4pt;"><b>Figura A:</b> Funil Quantitativo de Artigos (PRISMA 2020 / Protocolo SIGMA): Do Volume Bruto Identificado aos 274 Estudos Finais Incluídos.</p>
+</div>
+
+<div style="text-align:center; margin: 12pt 0;">
+  <img src="file://{str((ROOT / 'dissertacao_frotas/resultados/figuras/funil_metodologico_selecao_artigos_detalhado.png').resolve())}" style="max-width:98%; border:1pt solid #c9d6cf; border-radius:4pt;">
+  <p style="font-size:8pt; color:#444; margin-top:4pt;"><b>Figura B:</b> Rastreabilidade Metodológica das Causas de Descarte e Critérios de Inclusão por Etapa do Funil.</p>
+</div>""")
 
     if fipe:
         n_arq, n_uni, meses, anos = fipe
@@ -511,7 +565,7 @@ Data-limite do protocolo: {esc(prisma.get('data_limite_protocolo', '—'))}. Lim
     h.append(tabela(["Domínio", "Ocorrências no código (scripts/)"],
                     [(esc(k), str(v)) for k, v in hosts.most_common() if not k.endswith(("w3.org", "github.com"))]))
     h.append("""<ul>
-<li><b>Usados:</b> OpenAlex (busca, metadados, citações para snowballing, filtro de livros), Semantic Scholar (busca complementar) e Scopus/Elsevier API (busca estruturada via Elsevier Developer Portal com autenticação oficial por chave).</li>
+<li><b>Usados:</b> OpenAlex (busca, metadados, citações para snowballing, filtro de livros), Semantic Scholar (busca complementar), arXiv (preprints, API pública), Crossref (metadados DOI, API pública) e Scopus/Elsevier API (busca estruturada via Elsevier Developer Portal com autenticação oficial por chave).</li>
 <li><b>Consultados e documentados, sem automação:</b> Google Scholar, CAPES/CAFe, CNKI, Wanfang e CQVIP, por falta de API pública ou por termos de uso; o roteiro manual está em <code>Metodologia de Pesquisa/exportacoes_capes/LEIA-ME_roteiro_de_busca.md</code>.</li>
 <li><b>Testados e indisponíveis:</b> as APIs do DOAB e do OAPEN recusam o endereço IP (lista de permissão); a API de busca do Mercado Livre respondeu 403.</li>
 <li><b>Em avaliação:</b> a API de dados abertos de compras públicas (<code>dadosabertos.compras.gov.br</code>, módulos de catálogo CATMAT e de pesquisa de preços), para comparar preços de peças com os custos da SEA/SC. O catálogo responde; a consulta de preços ainda não retornou registros nos testes.</li>

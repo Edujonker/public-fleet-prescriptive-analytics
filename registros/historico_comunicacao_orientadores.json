@@ -1,0 +1,149 @@
+{
+    "metadados": {
+        "mestrando": "Eduardo Lopes Jonker",
+        "email_mestrando": "eduardo.jonker@sea.sc.gov.br",
+        "orientadora": "Profª. Dra. Vivian Kremer Kalempa (vivian.kalempa@udesc.br)",
+        "coorientador": "Prof. Dr. Yuri Kaszubowski Lopes (yuri.lopes@udesc.br)",
+        "programa": "PPGCAP / CCT / UDESC",
+        "data_emissao_livro": "24/11/2026"
+    },
+    "comunicacoes_email": [
+        {
+            "id": "E01",
+            "data_hora": "2026-04-14",
+            "data_formatada": "14 de abril de 2026",
+            "canal": "E-mail Institucional",
+            "remetente": "Eduardo Lopes Jonker (eduardo.jonker@sea.sc.gov.br)",
+            "destinatario": "Profª. Dra. Vivian Kremer Kalempa (vivian.kalempa@udesc.br)",
+            "assunto": "Aprovação de Artigo Cientifico Revista Cajuína A3",
+            "tipo": "Publicação Científica e Produção Bibliográfica",
+            "objeto": "Submissão e versão final de artigo científico",
+            "resumo": "Troca de mensagens referente às etapas de submissão, revisão textual, formatação das referências bibliográficas, adequação das figuras e encaminhamento da versão final do artigo aprovado para publicação na Revista Cadernos Cajuína (Qualis A3)."
+        },
+        {
+            "id": "E02",
+            "data_hora": "2026-04-14",
+            "data_formatada": "14 de abril de 2026",
+            "canal": "E-mail Institucional",
+            "remetente": "Eduardo Lopes Jonker (eduardo.jonker@sea.sc.gov.br)",
+            "destinatario": "Profª. Dra. Vivian Kremer Kalempa (vivian.kalempa@udesc.br)",
+            "assunto": "Participação do INOVA UDESC 2026",
+            "tipo": "Evento Científico / Extensão",
+            "objeto": "Inscrição de trabalho em evento científico",
+            "resumo": "Solicitação de orientação acadêmica e providências institucionais para a formalização da inscrição de trabalho focado em governança algorítmica e controle de gestão no congresso INOVA UDESC 2026."
+        },
+        {
+            "id": "E03",
+            "data_hora": "2026-04-14",
+            "data_formatada": "14 de abril de 2026",
+            "canal": "E-mail Institucional",
+            "remetente": "Eduardo Lopes Jonker (eduardo.jonker@sea.sc.gov.br)",
+            "destinatario": "Profª. Dra. Vivian Kremer Kalempa (vivian.kalempa@udesc.br)",
+            "assunto": "Proposta de Artigo cientifico",
+            "tipo": "Planejamento de Artigo em Congresso (SBSI 2026)",
+            "objeto": "Diagnóstico de maturidade analítica (SBSI 2026)",
+            "resumo": "Apresentação da proposta de artigo científico voltada ao diagnóstico de maturidade analítica em secretarias de Estado, visando à preparação e submissão junto ao Simpósio Brasileiro de Sistemas de Informação (SBSI 2026)."
+        },
+        {
+            "id": "E04",
+            "data_hora": "2026-11-14",
+            "data_formatada": "14 de novembro de 2026",
+            "canal": "E-mail Institucional",
+            "remetente": "Eduardo Lopes Jonker (eduardo.jonker@sea.sc.gov.br)",
+            "destinatario": "Profª. Dra. Vivian Kremer Kalempa (vivian.kalempa@udesc.br)",
+            "assunto": "Solicitação de Registro de Proficiência em Língua Inglesa – Eduardo Lopes Jonker (Cód. 1410791553)",
+            "tipo": "Trâmite Acadêmico Institucional (PPGCAP)",
+            "objeto": "Averbação de nota de proficiência em língua estrangeira",
+            "resumo": "Comunicação formal de aprovação no Exame de Proficiência em Língua Inglesa prestado junto ao DLLE/UFSC (nota obtida: 9,00), acompanhada da solicitação de registro e averbação no histórico acadêmico do curso de Mestrado em Computação Aplicada (PPGCAP/UDESC)."
+        },
+        {
+            "id": "E05",
+            "data_hora": "2026-11-14",
+            "data_formatada": "14 de novembro de 2026",
+            "canal": "E-mail Institucional",
+            "remetente": "Eduardo Lopes Jonker (eduardo.jonker@sea.sc.gov.br)",
+            "destinatario": "Profª. Dra. Vivian Kremer Kalempa (vivian.kalempa@udesc.br)",
+            "assunto": "Criação de Ferramentas para RSL",
+            "tipo": "Desenvolvimento de Metodologia e Software Acadêmico",
+            "objeto": "Desenvolvimento de script para Revisão Sistemática da Literatura (RSL/PBS)",
+            "resumo": "Compartilhamento do código e documentação de script desenvolvido de forma própria, integrado a APIs públicas, destinado à otimização e automação de coleta de dados em Revisão Sistemática da Literatura (RSL)."
+        }
+    ],
+    "comunicacoes_whatsapp": [
+        {
+            "id": 1,
+            "data_hora": "2026-11-17 10:30",
+            "data_formatada": "17 de novembro de 2026 (terça-feira) às 10:30",
+            "remetente": "Prof. Dr. Yuri Kaszubowski Lopes (Coorientador)",
+            "destinatario": "Eduardo Lopes Jonker (Mestrando) e Profª. Dra. Vivian Kremer Kalempa",
+            "canal": "WhatsApp — Grupo Oficial de Mestrado PPGCAP/UDESC",
+            "tipo": "Orientação e Diretriz Epistemológica / Metodológica",
+            "assunto": "Diretriz sobre Separação Servidor vs. Aluno e Balizamento Normativo do Uso de Inteligência Artificial",
+            "transcricao": [
+                "\"Eduardo, separe seu papel de servidor do de estudante de pós-graduação. Não existe um aluno abrir SGPe para o orientador assinar qualquer coisa, são raros os estudantes com acesso ao SGPe.\"",
+                "\"Sobre o uso de IA, ainda estamos nos adaptando a tecnologia, que não é necessariamente nova, mas que a poucos anos entrou no cotidiano. Minha atual percepção, é ferramenta e toda ferramenta deve ser utilizada. Uso para gramática, ortografia e thesaurus é perfeitamente aceitável, existem ferramentas que fazem isso a décadas (sublinhado azul e vermelho do word), só mudou o motor por trás.\n+ Uso para gerar texto ... aqui não pode\n+ Uso para melhor texto … para mim é uma área cinza, melhorar pequenas frases ... talvez ok\n+ Uso como buscador (estilo Google) ... acho ok, mas d...\""
+            ],
+            "status_retorno": "Concluído / Respondido pelo mestrando",
+            "sintese_academica": "O orientador estabelece formalmente duas balizas inegociáveis: (1) Demarcação de identidade: o projeto deve seguir a lógica do pesquisador em formação (aluno de mestrado) e não os procedimentos administrativos burocráticos do servidor de carreira da SEA/SC; (2) Uso ético de IA Generativa: restrição terminante à geração autônoma de texto de autoria, admitindo estritamente revisão ortográfica/gramatical, auxílio como motor de busca e suporte computacional documentado."
+        },
+        {
+            "id": 2,
+            "data_hora": "2026-11-17 10:31",
+            "data_formatada": "17 de novembro de 2026 (terça-feira) às 10:31",
+            "remetente": "Eduardo Lopes Jonker (Mestrando)",
+            "destinatario": "Prof. Dr. Yuri Kaszubowski Lopes e Profª. Dra. Vivian Kremer Kalempa",
+            "canal": "WhatsApp — Grupo Oficial de Mestrado PPGCAP/UDESC",
+            "tipo": "Manifestação do Orientado e Relato de Desenvolvimento",
+            "assunto": "Reflexão sobre Sistemas de Protocolo e Desenvolvimento de Ferramenta Própria de Pesquisa Bibliográfica Sistemática (PBS)",
+            "transcricao": [
+                "\"Bom dia professor, estava meditando no que o Sr falou da separação do servidor/aluno, o SGPE tem acesso externo, os orientadores poderia criar um processo para cada orientado e o orientado tem acesso assina, acho que facilitaria bem para os professores, que teriam um unico repositório documental eu faço parte da comissão que estuda a migraçãoo para o Sistema de Protocolo Eletronico SEI, que tem processosi nternos e externos, també posso junto a SCTI criar um protocolo de uso para fins academicos se os professores acharem interessante.\"",
+                "\"Também estou criando a minha própria ferramenta de PBS, ela usa chaves de AP! do Google Scollar e sematic.scollar, para varrer a web busca artigos com o DOI, gera automaticamente o protocolo SIGMA, salva os artigos completos em três formatos, Bib,.tex, pdf e txt, cria uma planilha de fichamento e categoriza as obras de acordo com o numero de citações, consegui até o momento baixar 1000 artigos por dias, criei uma rotina que a pessoa pode definir o período de baixa, o tempo doa artigos, Ex: ultimos 5 anos, assim criei a minha própria ferramenta e não tenho de pagar para isto.\""
+            ],
+            "status_retorno": "Registrado / Encaminhamento da ferramenta de PBS",
+            "sintese_academica": "O mestrando acolhe a reflexão sobre os sistemas institucionais e apresenta a criação do pipeline automatizado de busca e fichamento sistemático de artigos acadêmicos (PBS) com Google Scholar / Semantic Scholar / DOI, garantindo a reprodutibilidade metodológica do Estado da Arte sem ônus financeiro."
+        },
+        {
+            "id": 3,
+            "data_hora": "2026-11-20 11:16",
+            "data_formatada": "20 de novembro de 2026 (sexta-feira) às 11:16",
+            "remetente": "Eduardo Lopes Jonker (Mestrando)",
+            "destinatario": "Profª. Dra. Vivian Kremer Kalempa e Prof. Dr. Yuri Kaszubowski Lopes",
+            "canal": "WhatsApp — Grupo Oficial de Mestrado PPGCAP/UDESC",
+            "tipo": "Submissão Formal de Documento Acadêmico",
+            "assunto": "Submissão da Declaração Formal de Uso de Inteligência Artificial Generativa",
+            "transcricao": [
+                "\"Submeto a apreciação, de documento que comporá na minha dissetação , sobre o uso da IA e a submissão aos orientadores para o aceite, podem comentar, solicitar ubtituição paracial ou integral de textos para usar com documento formal entre orientado e orientadores\""
+            ],
+            "anexos": [
+                "declaracao_de_uso_de_ia.pdf (4 páginas, 53 kB)"
+            ],
+            "status_retorno": "Aguardando parecer/aceite formal dos orientadores",
+            "sintese_academica": "Cumprimento estrito e proativo da diretriz dada pelo Prof. Yuri em 17/11: elaboração de uma declaração formal detalhada em 4 páginas estabelecendo a taxonomia das ferramentas, os papéis de apoio e assegurando a autoria humana primária da dissertação."
+        },
+        {
+            "id": 4,
+            "data_hora": "2026-11-24 08:11 - 08:30",
+            "data_formatada": "24 de novembro de 2026 (terça-feira) das 08:11 às 08:30",
+            "remetente": "Eduardo Lopes Jonker (Mestrando)",
+            "destinatario": "Profª. Dra. Vivian Kremer Kalempa e Prof. Dr. Yuri Kaszubowski Lopes",
+            "canal": "WhatsApp — Grupo Oficial de Mestrado PPGCAP/UDESC",
+            "tipo": "Comunicação de Resultados, Limitações e Demarcação Epistemológica Anti-Consultoria",
+            "assunto": "Estudo de TCO Quinquenal (Locação vs Própria), PCA 2025/2026, Delimitação de Escopo (IoT) e Manifesto Anti-Consultoria",
+            "transcricao": [
+                "\"[08:11] Uma analise do contrato de locaçãoefetuado em 2026 do governo e uma projeção de compra e manutyenção de frota própria e o mcomparativo de resultado em 5 anos\"",
+                "\"[08:13] Não deu para comparar PCA 2026 @~Yuri Lopes devido a locação, mas pude comparar 2025 e acredito que chegamos bem perto, como sabemos que o previsto nunca é o realizado, acho que chegamos bem perto\"",
+                "\"[08:18] Estou escrevendo as limitações de escopo do trabalho, tem muita coisa que não da para abarcar neste mestrado. EX: Analise da influência da dirigibilidade no gasto de combustível, uso do IOT para analise do comportamento e diminuição de falhas em registros feitos por humanos.\"",
+                "\"[08:23] Mas eu sempre fui um defensor da locação de veículos, mas quebrei parcialmente a cara, em algumas realidade de alto uso como viaturas policiais é vantajoso a locação, no geral não. Outra indagação o governo do estado locou 2500 TOROS??? Por que ???? Tinha outros concorrentes com melhores indices como a montana?? Quais as metricas usadas ??? Para esta decisão, hoje desde as 5:00 , me levantei com estas duvidas, mas não quero perguntar ainda as gerencias de frotas, quero que os dados e os contratos me expliquem ou me deem indicios\"",
+                "\"[08:27] Um estudo que seria otimo e me lembrou a diissertação da Professora Vivian, sobre computação Ubiqua, mas só no Doutorado ou em outra reencarnação, é o uso de IOT-CAN-BUS para a previsão prescritiva de falhas ou probabilidade de queima ou mal funcionamento em alguma peça,,levando em conta o manual do fabricante e a leitura dos sensores\"",
+                "\"[08:29] Estou trabalhando muito no viés da presunção, isolando anomalias , mas evitando julga-las como desvios ou conluios, apenas identificando e levantando hipoteses que podem ter ocorrido, sem entrar no julgamento\"",
+                "\"[08:30] O MAIOR RISCO E PERIGO QUE SOFRO NESTA DISSERTAÇÃO: Não transformar o trabalho uma consultoria especializada, que venha a resolver ou criar um sistema, busco entender e explicar através da metodologia de pesquisa cientifica\""
+            ],
+            "anexos": [
+                "fig_comparativo_tco_locacao_vs_propria_5anos.png (TCO Quinquenal 2026-2030)",
+                "fig_comparativo_pca_bienal_2025_2026.png (Comparativo PCA 2025/2026)"
+            ],
+            "status_retorno": "Aguardando retorno / Em análise pelos orientadores",
+            "sintese_academica": "Momento culminante de maturidade científica do mestrando: (1) Demonstração do TCO e porquês da discrepância do PCA 2026; (2) Delimitação explícita das fronteiras de escopo (exclusão de IoT CAN-bus e estilo de condução para trabalhos futuros/doutorado); (3) Ética estrita na detecção de anomalias (presunção de inocência e recusa a rotular atipicidade como dolo); (4) Manifesto de demarcação: recusa consciente de atuar como consultoria corporativa e compromisso intransigente com o método de pesquisa científica."
+        }
+    ]
+}

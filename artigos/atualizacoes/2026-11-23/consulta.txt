@@ -1,0 +1,30 @@
+Busca bibliográfica — 23/11/2026 08:41
+
+Consulta (OpenAlex, campo título + resumo):
+("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment" OR "machine learning" OR "deep learning" OR "supervised learning" OR "unsupervised learning" OR "comparative study" OR "comparative analysis" OR "model comparison" OR "performance comparison" OR "benchmarking") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability")
+
+Consulta (Semantic Scholar, sintaxe bulk):
+("prescriptive analytics" | "predictive analytics" | "decision support" | "anomaly detection" | "fraud detection" | "risk assessment" | "machine learning" | "deep learning" | "supervised learning" | "unsupervised learning" | "comparative study" | "comparative analysis" | "model comparison" | "performance comparison" | "benchmarking") + ("explainable artificial intelligence" | "explainable AI" | "XAI" | "interpretable machine learning" | "algorithmic transparency") + ("public sector" | "government" | "public administration" | "public procurement" | "tax" | "auditability" | "accountability")
+
+Consulta (arXiv, sintaxe all:):
+all:("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment" OR "machine learning" OR "deep learning" OR "supervised learning" OR "unsupervised learning" OR "comparative study" OR "comparative analysis" OR "model comparison" OR "performance comparison" OR "benchmarking") AND all:("explainable AI" OR "explainable artificial intelligence" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND all:("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability")
+
+Consulta (Crossref, query.bibliographic):
+prescriptive analytics predictive analytics decision support anomaly detection fraud detection risk assessment machine learning deep learning supervised learning unsupervised learning comparative study comparative analysis model comparison performance comparison benchmarking public sector government public administration public procurement tax auditability accountability
+
+Consulta (SciELO ArticleMeta, q texto livre):
+prescriptive analytics predictive analytics decision support anomaly detection fraud detection risk assessment machine learning deep learning supervised learning unsupervised learning comparative study comparative analysis model comparison performance comparison benchmarking public sector government public administration public procurement tax auditability accountability explainable AI XAI interpretable machine learning algorithmic transparency
+
+Parâmetros: max_resultados=10000, max_pdfs=10000, ano_min=2020, ordem=recentes, fontes=openalex,s2
+Correspondência no OpenAlex: exata (termos literais); Semantic Scholar sempre radicaliza.
+Só são baixados PDFs com os 3 grupos confirmados no título/resumo (exceto com --incluir-parciais).
+
+Correspondências informadas pelas bases: {"OpenAlex": 2820, "SemanticScholar": "indisponível"}
+Registros únicos gravados: 2815
+Conferência da semântica no título/resumo: {"ok": 2506, "sem_resumo": 299, "parcial": 10}
+Status dos PDFs: {"baixado": 444, "ja_existia": 655, "sem_pdf_aberto": 899, "falhou": 291, "nao_tentado": 526}
+
+Mesma consulta no Google Scholar (para conferência manual no navegador):
+https://scholar.google.com/scholar?q=%28%22prescriptive+analytics%22+OR+%22predictive+analytics%22+OR+%22decision+support%22+OR+%22anomaly+detection%22+OR+%22fraud+detection%22+OR+%22risk+assessment%22+OR+%22machine+learning%22+OR+%22deep+learning%22+OR+%22supervised+learning%22+OR+%22unsupervised+learning%22+OR+%22comparative+study%22+OR+%22comparative+analysis%22+OR+%22model+comparison%22+OR+%22performance+comparison%22+OR+%22benchmarking%22%29+AND+%28%22explainable+artificial+intelligence%22+OR+%22explainable+AI%22+OR+%22XAI%22+OR+%22interpretable+machine+learning%22+OR+%22algorithmic+transparency%22%29+AND+%28%22public+sector%22+OR+%22government%22+OR+%22public+administration%22+OR+%22public+procurement%22+OR+%22tax%22+OR+%22auditability%22+OR+%22accountability%22%29
+Observação: consultas longas podem ser encurtadas pelo Google Scholar; o número
+de resultados lá não é comparável ao das APIs.

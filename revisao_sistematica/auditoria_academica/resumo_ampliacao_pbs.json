@@ -1,0 +1,13 @@
+{
+  "data_emissao": "2026-11-20",
+  "data_limite_nova": "2026-12-05",
+  "periodo": "2020-2026",
+  "status": "ampliação contínua ativa",
+  "corpus_base_incluidos": 274,
+  "candidatos_detectados": 244,
+  "triagem_preliminar_elegiveis": 28,
+  "triagem_preliminar_manual": 188,
+  "triagem_preliminar_excluidos": 28,
+  "validacao_humana": "pendente",
+  "justificativa": "Ampliar o corpus até a data de fechamento acordada sem descartar estudos novos."
+}

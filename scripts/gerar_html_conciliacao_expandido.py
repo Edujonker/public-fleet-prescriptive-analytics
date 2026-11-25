@@ -431,7 +431,7 @@ def gerar_html():
             <td><strong>Opportunistic Maintenance for Public Fleets</strong></td>
             <td>Rui Zheng, Jin Wang & Yan Zhang (2022)<br><em>Reliability Eng. & System Safety</em></td>
             <td>Otimização de políticas de manutenção preventiva em frotas governamentais sob restrições orçamentárias anuais rígidas e inspeções imperfeitas.</td>
-            <td>Balizou a modelagem de restrições de disponibilidade compulsória operacional ($\ge 95\%$) sob tetos fixos da LOA estadual.</td>
+            <td>Balizou a modelagem de restrições de disponibilidade compulsória operacional ($\\ge 95\\%$) sob tetos fixos da LOA estadual.</td>
         </tr>
         <tr>
             <td><strong>Theory of the Firm: Agency Costs and Ownership</strong></td>
@@ -583,7 +583,7 @@ def gerar_html():
             <td><strong>Dr. Sayash Kapoor & Prof. Dr. Arvind Narayanan</strong></td>
             <td>Princeton University (Center for Information Technology Policy, EUA)</td>
             <td>Mapeadores da crise de reprodutibilidade e vazamento temporal (*leakage*) em aprendizado de máquina (Kapoor & Narayanan, 2023).</td>
-            <td>Inspiraram o protocolo de embargo estrito de 30 dias que garantiu variância mínima temporal ($\sigma < 0,01$).</td>
+            <td>Inspiraram o protocolo de embargo estrito de 30 dias que garantiu variância mínima temporal ($\\sigma < 0,01$).</td>
         </tr>
         <tr>
             <td><strong>Prof. Dr. Vincent D. Blondel</strong></td>
@@ -1100,7 +1100,7 @@ def gerar_html():
         </tr>
         <tr>
             <td><strong>Hipótese H4</strong></td>
-            <td>Atribuições locais de SHAP e LIME exibem concordância estrutural estrita ($>85\%$).</td>
+            <td>Atribuições locais de SHAP e LIME exibem concordância estrutural estrita ($>85\\%$).</td>
             <td>Similaridade de Jaccard no Top-5 de apenas 45,48% e correlação de Spearman $\rho = 0,2869$.</td>
             <td><strong class="badge-cross">REJEITADA</strong> (Confirmação empírica da crítica de Cynthia Rudin, 2019 sobre divergência XAI).</td>
         </tr>

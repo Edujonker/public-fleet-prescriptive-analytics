@@ -1,0 +1,511 @@
+=== 2026-11-23 08:10:15 início da atualização diária ===
+OPENALEX_API_KEY: não definida
+OPENALEX_EMAIL: não definida
+UNPAYWALL_EMAIL: não definida
+S2_API_KEY: não definida
+SCOPUS_API_KEY: não definida
+=== 2026-11-23 08:10:15 etapa 1: busca de novos artigos ===
+Consulta: ("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment" OR "machine learning" OR "deep learning" OR "supervised learning" OR "unsupervised learning" OR "comparative study" OR "comparative analysis" OR "model comparison" OR "performance comparison" OR "benchmarking") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability") 
+
+▶ OpenAlex
+   OpenAlex: 2820 trabalhos correspondem à consulta
+   2820 registros recebidos
+▶ Semantic Scholar
+   [SemanticScholar] HTTP 429; tentativa 1/5, aguardando 2s
+   [SemanticScholar] HTTP 429; tentativa 2/5, aguardando 4s
+   Semantic Scholar: 2297 trabalhos correspondem à consulta
+   [SemanticScholar] HTTP 429; tentativa 1/5, aguardando 2s
+   [SemanticScholar] HTTP 429; tentativa 2/5, aguardando 4s
+   [SemanticScholar] HTTP 429; tentativa 1/5, aguardando 2s
+   [SemanticScholar] HTTP 429; tentativa 2/5, aguardando 4s
+   [SemanticScholar] HTTP 429; tentativa 3/5, aguardando 8s
+   [SemanticScholar] HTTP 429; tentativa 4/5, aguardando 16s
+   [SemanticScholar] HTTP 429; tentativa 5/5, aguardando 32s
+   Semantic Scholar indisponível (sem chave é comum o erro 429). Seguindo sem ele.
+   [SemanticScholar] sem resposta válida após 5 tentativas
+
+2815 registros únicos após unir as fontes (2506 com os 3 grupos confirmados no título/resumo)
+Inéditos nesta execução (nunca vistos antes): 821
+PDFs a tentar: 1560 (6 downloads simultâneos)
+   [   1] 2026_usman_Building_trust_in_mental_health_models_using_explainability.pdf
+   [   2] 2026_goller_How_a_Models_Architecture_and_Performance_Influences_Explainability_A.pdf
+   [   3] 2026_vineis_PONTE_Personalized_Orchestration_for_Natural_Language_Trustworthy_Expl.pdf
+   [   4] 2026_sangudi_Assessing_the_adequacy_of_Tanzanias_Legal_Framework_in_Regulating_Arti.pdf
+   [   5] 2026_gazis_Edge_Computing_for_IoT_Enabled_Smart_Cities_A_Review_of_Middleware_Exp.pdf
+   [   6] 2026_chandra_How_Can_Artificial_Intelligence_Explain_its_Thinking_A_Review_of_Expla.pdf
+   [   7] 2026_nashier_An_explainable_hybrid_artificial_intelligence_framework_for_predicting.pdf
+   [   8] 2026_dave_Integrated_Multi_Layer_Security_Architectures_for_Cloud_Based_Healthca.pdf
+   [   9] 2026_kishore_An_Integrated_AI_Driven_Methodology_for_Synthesizing_a_Digital_Similar.pdf
+   [  10] 2026_rudin_Explainable_Artificial_Intelligence_for_Improving_Transparency_and_Rel.pdf
+   [  11] 2026_butail_Explainable_AI_in_Small_Business_Credit_Scoring_A_Systematic_Literatur.pdf
+   [  12] 2026_suar_An_Explainable_AI_Driven_Decision_Support_Framework_for_Legal_Analytic.pdf
+   [  13] 2026_muthamma_An_Explainable_Artificial_Intelligence_Framework_for_Predicting_Green.pdf
+   [  14] 2026_rao_An_Explainable_Artificial_Intelligence_Framework_for_Integrated_Manage.pdf
+   [  15] 2026_alam_Zero_Trust_Security_Architecture_for_Next_Generation_FinTech_Platforms.pdf
+   [  16] 2026_breban_Editorial_Modeling_the_impact_of_human_behavior_on_infectious_disease.pdf
+   [  17] 2026_viana_Geography_geospatial_analysis_and_artificial_intelligence_between_trad.pdf
+   [  18] 2026_chaudhari_Explainable_Human_Action_Intelligence_for_Reliable_and_Transparent_Vid.pdf
+   [  19] 2026_randev_AI_driven_trade_facilitation_and_digital_governance_in_international_t.pdf
+   [  20] 2026_sarkar_EXPLAINABLE_AI_FOR_HIGH_STAKES_DECISION_MAKING.pdf
+   [  21] 2026_jain_An_Interpretable_Deep_Learning_Model_for_Early_Disease_Diagnosis_Lever.pdf
+   [  22] 2026_jagtap_Explainable_Artificial_Intelligence_for_Enhancing_Zero_Trust_Security.pdf
+   [  23] 2026_m_Explainable_AI_Driven_Student_Risk_Prediction.pdf
+   [  24] 2026_kangara_Advancements_in_Semantic_Resume_Parsing_for_Autonomous_Talent_Acquisit.pdf
+   [  25] 2026_mahadev_Explainable_AI_Based_Intelligent_Tax_Prediction_and_Fraud_Detection_Sy.pdf
+   [  26] 2026_so_Joint_Distributional_Copula_Regression_for_Insurance_Claim_Frequency_a.pdf
+   [  27] 2026_ovalle_Machine_Learning_Explicable_XAI_en_Sistemas_de_Software_Inteligentes_U.pdf
+   [  28] 2026_nuraliev_Metropolitan_crime_in_London_20102026_a_reproducible_LSOA_level_analyt.pdf
+   [  29] 2026_t_Indian_Knowledge_Systems_for_Climate_Resilient_Highways_and_Sustainabl.pdf
+   [  30] 2026_zaidi_L_audit_financier_a_l_ere_de_l_intelligence_artificielle_au_Maroc_enje.pdf
+   [  31] 2026_ondraszek_Modeling_interpretation_in_the_age_of_GenAI_semantic_technologies_for.pdf
+   [  32] 2026_imelda_From_Human_Judgment_to_Machine_Learning_A_Philosophical_Study_of_Knowl.pdf
+   [  33] 2026_sem_titulo_Algorithmic_Digital_Finance_Platforms_as_aDriver_of_Transformation_of.pdf
+   [  34] 2026_herrera_Inteligencia_Artificial_Explicable_en_programacion_competitiva_analisi.pdf
+   [  35] 2026_medhi_The_Black_Box_Dilemma_in_AI_Driven_Management_Accounting_Implications.pdf
+   [  36] 2026_berko_AI_Driven_Threat_Detection_for_Public_Sector_Systems_Balancing_Innovat.pdf
+   [  37] 2026_madurapperuma_Machine_learning_based_adaptive_learning_systems_in_higher_education_A.pdf
+   [  38] 2026_bilecen_The_Limits_of_AI_Guidelines_in_Journalism_Is_Algorithmic_Transparency.pdf
+   [  39] 2026_mudoi_Research_Ethics_Integrity_and_Plagiarism_in_the_Artificial_Intelligenc.pdf
+   [  40] 2026_pasupuleti_Autonomous_Regulatory_Document_Compliance_Validation_System.pdf
+   [  41] 2026_reyes_sanchez_NEUROCOGNITIVE_PROCESSES_AND_ARTIFICIAL_INTELLIGENCE_TO_STRENGTHEN_SUS.pdf
+   [  42] 2026_pasupuleti_Uncertainty_Aware_Predictive_Decision_Controller.pdf
+   [  43] 2026_siddiqui_Growth_Carbon_Emissions_and_Public_Health_Spending_Long_Run_Evidence_f.pdf
+   [  44] 2026_siddiqui_Enhancing_Cyber_Resilience_Against_Zero_Day_Exploits_in_Saudi_Critical.pdf
+   [  45] 2026_pagare_AN_EXPLAINABLE_AI_FRAMEWORK_FOR_PREDICTING_EMPLOYEES_WORK_CULTURE_AGIL.pdf
+   [  46] 2026_godek_ARTIFICIAL_INTELLIGENCE_IN_THE_DIAGNOSIS_OF_OCCUPATIONAL_DISEASES_TECH.pdf
+   [  47] 2026_abouzaid_Decentralized_blockchain_governance_for_explainable_causal_AI_in_macro.pdf
+   [  48] 2026_akpnar_Editorial_Greening_urban_spaces_and_human_health_volume_III.pdf
+   [  49] 2026_cavdaroglu_A_Multi_Layer_Framework_for_Explainable_and_Accountable_GeoAI_in_GISci.pdf
+   [  50] 2026_ashore_onisemo_Human_In_The_Loop_Decision_Systems_Advances_and_Future_Directions.pdf
+   [  51] 2026_yum_Analysis_of_Future_Green_Space_Changes_in_Cities_and_Counties_of_Chung.pdf
+   [  52] 2026_demirkol_Artificial_Intelligence_Tools_in_Qualitative_Research_II.pdf
+   [  53] 2026_malik_Beyond_Black_Box_Budgeting_An_Explainable_Deep_Learning_Framework_for.pdf
+   [  54] 2026_wijayarathna_Beyond_Marks_Detecting_Hidden_Academic_Risk_Through_Psychosocial_Proxy.pdf
+   [  55] 2026_levinkopf_Context_Aware_Concept_Distillation_for_Trustworthy_Flood_Prediction.pdf
+   [  56] 2026_al_enezi_Governing_AI_Adoption_in_Government_Administration_An_Integrative_Fram.pdf
+   [  57] 2026_morozova_sem_titulo_7ee84b6883.pdf
+   [  58] 2026_p_A_Study_on_Human_Centric_Explainable_Ai_Auditing_Systems_for_Financial.pdf
+   [  59] 2026_nwankwo_DEVELOPMENT_OF_A_HYBRID_NNCNN_DEEP_LEARNING_FRAMEWORK_FOR_INTELLIGENT.pdf
+   [  60] 2026_burova_PERSONALIZED_NUTRITION_AND_ARTIFICIAL_INTELLIGENCE_MODERN_APPROACHES_R.pdf
+   [  61] 2026_carkcoglu_Current_Advances_in_Age_and_Sex_Estimation_Using_Artificial_Intelligen.pdf
+   [  62] 2026_mohanraj_A_DIGITAL_GOVERNANCE_FRAMEWORK_FOR_AGRICULTURAL_SUPPLY_CHAINS_USING_BL.pdf
+   [  63] 2026_kolla_Artificial_Intelligence_in_Spinal_Cord_Stimulation_and_Neuromodulation.pdf
+   [  64] 2026_qazi_How_FinTech_Capability_Shapes_Entrepreneurial_Success_The_Mediating_Ro.pdf
+   [  65] 2026_pasupuleti_Green_Maritime_Intelligence_for_Autonomous_Shipping_Smart_Ports_and_Lo.pdf
+   [  66] 2026_sangida_Trustworthy_Artificial_Intelligence_in_Oncology_Managing_Bias_Privacy.pdf
+   [  67] 2026_alasmari_Explainable_Generative_AI_for_Sharia_Compliant_Investment_Decision_Mak.pdf
+   [  68] 2026_pasupuleti_Autonomous_and_Sustainable_Aviation_Intelligence_for_Electric_Aircraft.pdf
+   [  69] 2026_jibril_Artificial_Intelligence_AI_Driven_Digital_Forensics_in_Cybercrime_Inve.pdf
+   [  70] 2026_pasupuleti_Responsible_Synthetic_Media_Ecosystems_for_Creator_Rights_Copyright_Pr.pdf
+   [  71] 2026_mukhtar_Decentralized_and_Explainable_Brain_Tumor_Segmentation_A_Blockchain_Se.pdf
+   [  72] 2026_shakir_Payment_delay_as_the_dominant_predictor_of_schedule_overrun_in_constru.pdf
+   [  73] 2026_iyiade_Interpreting_Multimodal_Data_Fusion_for_Glioblastoma_Prognosis_A_Syste.pdf
+   [  74] 2026_pasupuleti_Human_AI_Collaborative_Leadership_for_Organizational_Transformation_De.pdf
+   [  75] 2026_innocent_Framework_for_developing_explainable_artificial_intelligence_models_fo.pdf
+   [  76] 2026_paizin_Governing_AI_in_Religious_Life_Ethical_Imperatives_and_Algorithm_Theoc.pdf
+   [  77] 2026_katiyar_Indian_Knowledge_Systems_IKS_for_Artificial_Intelligence_Machine_Learn.pdf
+   [  78] 2026_omiyeniyi_Bridging_the_AI_Deployment_Gap_in_Predictive_Policing_An_Analytical_Re.pdf
+   [  79] 2026_mehta_Artificial_Intelligence_Applications_in_Educational_Management_Improvi.pdf
+   [  80] 2026_lavanya_Blockchain_Based_Multimodal_Misinformation_Detection_System.pdf
+   [  81] 2026_amponsah_Toward_Transparent_Intrusion_Detection_Systems_An_Explainable_Ai_Appro.pdf
+   [  82] 2026_khan_AI_Enabled_Non_Conformance_Prediction_and_Corrective_Action_Management.pdf
+   [  83] 2026_muriira_Anglophone_Narratives_in_Artificial_Intelligence_Mapping_Research_on_C.pdf
+   [  84] 2026_opong_Artificial_Intelligence_and_People_Analytics_in_Human_Resource_Decisio.pdf
+   [  85] 2026_bekele_Development_of_an_Explainable_Artificial_Intelligence_Framework_for_Ac.pdf
+   [  86] 2026_syed_AI_DRIVEN_FRAUD_RISK_GOVERNANCE_AND_CREDIT_DECISION_INTELLIGENCE_FRAME.pdf
+   [  87] 2026_rai_Artificial_Intelligence_Journalism_and_Democracy_Transforming_Politica.pdf
+   [  88] 2026_ramantika_A_Machine_Learning_Based_Early_Warning_System_for_Predicting_Rupiah_Ex.pdf
+   [  89] 2026_sawant_Mechanistic_Interpretability_for_Neural_Networks_Circuits_Sparse_Featu.pdf
+   [  90] 2026_abdullah_An_Explainable_Machine_Learning_Framework_for_Predicting_Healthcare_Ut.pdf
+   [  91] 2026_nanduri_An_End_to_End_Explainable_AI_Framework_with_Automated_LLM_Based_Natura.pdf
+   [  92] 2026_gadekar_EXPLAINABLE_AND_RESPONSIBLE_AI_A_GUIDE_TO_TRANSPARENCY_FAIRNESS_ACCOUN.pdf
+   [  93] 2026_ada_Vergilendirme_Alannda_Makine_Ogrenmesi_Uygulamalar_Bibliyometrik_Bir_A.pdf
+   [  94] 2026_papana_Smart_and_sustainable_public_procurement_new_directions_in_public_fina.pdf
+   [  95] 2026_kamianetska_AI_IN_CROSS_BORDER_PROCUREMENT_LAW_AND_ETHICS.pdf
+   [  96] 2026_rani_Explainability_in_Modern_Artificial_Intelligence_A_Review_of_Technique.pdf
+   [  97] 2026_burnat_The_Accountability_Paradox_How_Platform_API_Restrictions_Undermine_AI.pdf
+   [  98] 2026_tekin_COLLECTIVE_ALGORITHMIC_RIGHTS_A_NEW_RIGHTS_ARCHITECTURE_FOR_GLOBAL_DIG.pdf
+   [  99] 2026_ray_ALGORITHMIC_BIAS_AND_FAIRNESS_IN_AI_SYSTEMS_CHALLENGES_IMPACTS_AND_RES.pdf
+   [ 100] 2026_koc_Artificial_Intelligence_Applications_in_Public_Administration_From_Glo.pdf
+   [ 101] 2026_galarza_Impacto_de_los_algoritmos_de_inteligencia_artificial_en_la_deteccion_d.pdf
+   [ 102] 2026_cumbhadrika_Reconstruction_of_the_Concept_of_Legal_Liability_for_Losses_Caused_by.pdf
+   [ 103] 2026_silva_Sistema_Tutor_Baseado_em_Inteligencia_Artificial_Explicavel_para_Ensin.pdf
+   [ 104] 2026_sem_titulo_BIG_DATA.pdf
+   [ 105] 2026_sanketh_Intellectual_Property_Challenges_in_AI_Based_Digital_Health_Diagnostic.pdf
+   [ 106] 2026_ranjan_Balancing_Performance_and_Transparency_A_Framework_for_Implementing_Ex.pdf
+   [ 107] 2026_yu_Necessity_and_Institutional_Design_of_Introducing_a_Qualified_Right_to.pdf
+   [ 108] 2026_zhu_Interpretable_Machine_Learning_Theory_Methods_and_Applications.pdf
+   [ 109] 2026_vepuri_An_AI_Driven_Framework_for_Automated_Compliance_Enforcement_in_Regulat.pdf
+   [ 110] 2026_gorrieri_Between_explaining_and_understanding_Rethinking_AI_explainability_in_m.pdf
+   [ 111] 2026_alfiani_INDONESIA_MALAYSIA_DIGITAL_TAX_TRANSPARENCY_MAQASID_SHARIA_APPROACH_TO.pdf
+   [ 112] 2026_swapna_AI_Powered_DPR_Quality_Assessment_and_Risk_Prediction_System.pdf
+   [ 113] 2026_sawant_FI_RC_Analysing_Annotator_Disagreement_through_a_Culturally_Aware_Lexi.pdf
+   [ 114] 2026_s_AI_Powered_Rural_Student_Dropout_Early_Warning_System_with_Explainable.pdf
+   [ 115] 2026_ahmad_Regulatory_Challenges_in_AI_Driven_Underwriting_and_How_Insurers_Can_P.pdf
+   [ 116] 2026_afzal_Algorithmic_Power_and_Climate_Diplomacy_Assessing_the_Implications_of.pdf
+   [ 117] 2026_sellappan_Generative_AI_and_Dynamic_Modeling_for_Real_Time_Cloud_Based_Credit_Ri.pdf
+   [ 118] 2026_mishra_Enhancing_Audit_and_Financial_Reporting_Quality_through_AI_and_Machine.pdf
+   [ 119] 2026_sehgal_Comparative_Evaluation_of_Machine_Learning_Approaches_for_Minority_Cla.pdf
+   [ 120] 2026_sikchi_Explainable_Fake_News_Detection_Using_Transformer_Models_for_Multiling.pdf
+   [ 121] 2026_bachhav_AI_Based_Personalised_Portfolio_Allocation_Engine_for_Indian_Retail_In.pdf
+   [ 122] 2026_sianturi_Foresight_Bias_in_Decision_Accuracy_and_Prevention_Frameworks_A_System.pdf
+   [ 123] 2026_reza_Artificial_IntelligenceGenerated_Deepfake_Pornography_A_Normative_Anal.pdf
+   [ 124] 2026_francies_A_Multi_Layer_Explainable_AI_Framework_for_Transparent_Urban_Budget_Al.pdf
+   [ 125] 2026_staley_Quantum_Inspired_Counterfactual_Explainable_AI_with_Blockchain_Based_P.pdf
+   [ 126] 2026_kohli_Corporate_Accountability_in_the_Gig_Economy_Re_examining_Labour_Law_to.pdf
+   [ 127] 2026_susilawati_Legal_Review_of_Consumer_Protection_of_Electronic_Transactions_in_Busi.pdf
+   [ 128] 2026_madhumitha_Road_Safety_Measures_For_Limited_Mobility_Users_Using_XAI.pdf
+   [ 129] 2026_k_sathish_ARTIFICIAL_INTELLIGENCE_IN_SCIENCE_AND_SOCIETY_THE_VISION_OF_USERN.pdf
+   [ 130] 2026_satya_HUMAN_RIGHTS_PROTECTION_IN_ARTIFICIAL_INTELLIGENCE_GOVERNANCE_COMPARAT.pdf
+   [ 131] 2026_kompalli_Secure_AI_in_Databases_Privacy_Governance_and_Trust_Mechanisms_in_Orac.pdf
+   [ 132] 2026_marciano_Bibliometric_Review_of_the_Ethical_and_Legal_Perspectives_of_Explainab.pdf
+   [ 133] 2026_watanabe_Automatic_Classification_of_Records_and_Archives_as_Data_A_Survey_of_E.pdf
+   [ 134] 2026_altundag_Machine_learning_based_risk_analytics_in_combating_the_shadow_economy.pdf
+   [ 135] 2026_sawlani_AI_Enabled_Smart_Taxation_and_Compliance_Management_System_With_Advanc.pdf
+   [ 136] 2026_garcia_lopez_Neurovictimology_and_the_risks_of_neurotechnologies_and_artificial_int.pdf
+   [ 137] 2026_alam_Artificial_Intelligence_for_Predicting_and_Prioritizing_Microbiologica.pdf
+   [ 138] 2026_pandey_Handwritten_Signature_Verification_Using_Explainable_AI_and_Lightweigh.pdf
+   [ 139] 2026_dinh_Transforming_Accounting_Information_Systems_through_Artificial_Intelli.pdf
+   [ 140] 2026_mamun_Trustworthy_AI_in_digital_health_a_comprehensive_review_of_robustness.pdf
+   [ 141] 2026_nwosu_Bolstering_Cybersecurity_and_Blockchain_Networks_Through_AI_Technologi.pdf
+   [ 142] 2026_prabha_AI_Based_Fake_Challan_Detection_From_Sms_Using_Machine_Learning.pdf
+   [ 143] 2026_prajapati_Ethical_Issues_and_Bias_in_Artificial_Intelligence_A_Systematic_Review.pdf
+   [ 144] 2026_kaushik_Responsible_Innovation_in_AI_Driven_Teledentistry_Ethical_Legal_and_Ec.pdf
+   [ 145] 2026_aryza_Explainable_Data_Driven_Machine_Learning_for_Identifying_MBG_Program_B.pdf
+   [ 146] 2026_sem_titulo_sem_titulo_5a73681872.pdf
+   [ 147] 2026_mones_A_Systematic_Approach_to_Predicting_Students_Academic_Performance_A_Re.pdf
+   [ 148] 2026_akinseye_Role_of_GenAI_tools_in_real_time_5G_network_forensics_for_hybrid_cloud.pdf
+   [ 149] 2026_lee_Explainable_and_transferable_deep_reinforcement_learning_for_adaptive.pdf
+   [ 150] 2026_ahmad_From_Black_Box_to_Glass_Box_Implementing_Explainable_AI_in_Insurance_U.pdf
+   [ 151] 2026_zhou_The_Mechanism_analysis_of_Corporate_Financial_Risk_Influences_via_BiLS.pdf
+   [ 152] 2026_pulatova_Artificial_Intelligence_and_Advanced_Digital_Health_for_Hypertension_E.pdf
+   [ 153] 2026_mehathar_AI_Assisted_Workflow_Orchestration_in_Regulated_Healthcare_Contact_Cen.pdf
+   [ 154] 2026_marsh_Ensuring_Human_Safety_and_Accountability_Through_Data_Management_in_Au.pdf
+   [ 155] 2026_yassar_TRACEABLE_AND_EXPLAINABLE_AI_LINEAGE_ARCHITECTURES_FOR_REGULATORY_COMP.pdf
+   [ 156] 2026_soegeng_TT_Sparse_Learning_Sparse_Rule_Models_with_Differentiable_Truth_Tables.pdf
+   [ 157] 2026_dar_Towards_Real_Time_Explainable_AI_Using_Class_Activation_Mapping_for_Br.pdf
+   [ 158] 2026_wusu_An_Artificial_Intelligence_Approach_to_Establishing_Critical_Factors_I.pdf
+   [ 159] 2026_temel_Towards_Trustworthy_Autonomous_Robots_An_Explainable_AI_Based_Decision.pdf
+   [ 160] 2026_kohan_Human_Centered_Pathways_to_Trustworthy_AI_in_Healthcare_A_Comparative.pdf
+   [ 161] 2026_bikka_Modern_Workflow_Automation_Architecture_Patterns_Contemporary_Design_A.pdf
+   [ 162] 2026_zhang_Ecological_well_being_Performance_in_a_Chinese_Urban_Agglomeration_Spa.pdf
+   [ 163] 2026_chawande_AI_Enhanced_Sanctions_Screening_A_risk_controlled_predictive_complianc.pdf
+   [ 164] 2026_rao_BIAS_DETECTION_AND_MITIGATION_USING_EXPLAINABLE_AI_IN_INTELLIGENT_RECR.pdf
+   [ 165] 2026_balraj_Explicable_Artificial_Intelligence_in_Decision_Critical_Systems_A_Comp.pdf
+   [ 166] 2026_darbar_The_Role_of_Artificial_Intelligence_in_Studying_Human_Behaviour.pdf
+   [ 167] 2026_mambetaliev_Artificial_Intelligence_as_the_Strategic_Engine_of_Data_Security_Analy.pdf
+   [ 168] 2026_asokan_Integration_of_artificial_intelligence_and_digital_pathology_in_oral_d.pdf
+   [ 169] 2026_stow_Machine_Learning_for_Predicting_Diagnostic_Test_Discordance_in_Malaria.pdf
+   [ 170] 2026_younas_Prediction_of_thalassemia_carrier_using_federated_learning_and_explain.pdf
+   [ 171] 2026_schopp_Explainability_in_AI_enabled_medical_neurotechnology_a_scoping_review.pdf
+   [ 172] 2026_agarwal_Explainable_AI_Toolkits_for_Trustworthy_Retail_Decision_Making_Systems.pdf
+   [ 173] 2026_singh_Mapping_the_Intellectual_Landscape_of_Psychometric_Behaviour_in_Algori.pdf
+   [ 174] 2026_shatokhina_Digital_Transformation_of_Tax_Administration_as_a_Strategic_Basis_for.pdf
+   [ 175] 2026_pal_AI_Black_Box_decisions_legal_accountability_to_humanities.pdf
+   [ 176] 2026_villegas_ch_Autonomous_federated_defense_for_zero_day_threats_in_IIoT_explainable.pdf
+   [ 177] 2026_landablanco_Artificial_intelligence_in_education_applications_and_limitations_for.pdf
+   [ 178] 2026_idowu_Conceptual_Advances_in_AI_Enabled_Compliance_and_Coordination_Models_f.pdf
+   [ 179] 2026_giat_Explainability_in_AI_and_Machine_Learning_Bridging_the_Gap_Between_Int.pdf
+   [ 180] 2026_wichrowski_A_review_of_explainable_semi_supervised_methods_in_multivariate_time_s.pdf
+   [ 181] 2026_perumal_Developing_a_Transparent_Diagnosis_Model_for_Diabetic_Retinopathy_Usin.pdf
+   [ 182] 2026_khodke_Explainable_AI_Based_Mapping_of_Public_Sentiment_on_the_Impact_of_Envi.pdf
+   [ 183] 2026_rehman_Advances_in_Machine_Learning_for_Explainable_Intrusion_Detection_Using.pdf
+   [ 184] 2026_mahima_Cybersecurity_Threats_And_Attacks_From_Modern_Prospects_Using_AI_To_De.pdf
+   [ 185] 2026_arshaduzzaman_Enhancing_Transparency_in_Machine_Learning_Through_Fuzzy_Inference_Sys.pdf
+   [ 186] 2026_abdel_wahab_Toward_Robust_Deepfake_Defense_A_Review_of_Deepfake_Detection_and_Prev.pdf
+   [ 187] 2026_ganapathiyappan_Advanced_AI_Driven_Cybersecurity_Solutions_Intelligent_Threat_Detectio.pdf
+   [ 188] 2026_nnaji_Explainable_Artificial_Intelligence_Based_Intrusion_Detection_for_Zero.pdf
+   [ 189] 2026_riyadi_Blockchain_Enabled_Explainable_Artificial_Intelligence_Framework_for_T.pdf
+   [ 190] 2026_silva_Explainable_Neural_Symbolic_Model_for_Clinical_Decision_Support_Combin.pdf
+   [ 191] 2026_shukla_Artificial_Intelligence_and_Data_Privacy_Navigating_Cyber_Laws_in_theA.pdf
+   [ 192] 2026_nguyet_LABOUR_RIGHTS_PROTECTION_IN_THE_AGE_OF_ARTIFICIAL_INTELLIGENCE_REGULAT.pdf
+   [ 193] 2026_thaweethanawanij_AI.pdf
+   [ 194] 2026_bavatharini_THE_CREDIT_BLACK_BOX_EXPLAINABLE_AI_AND_ALGORITHMIC_FAIRNESS_IN_DIGITA.pdf
+   [ 195] 2026_m_AI_TRUST_AND_THE_FUTURE_OF_DECISION_MAKING.pdf
+   [ 196] 2026_sem_titulo_Ethical_Governance_of_AI_Enabled_Brain_Computer_Interfaces_from_the_Pe.pdf
+   [ 197] 2026_mirjalili_Predicting_The_Effectiveness_of_Monetary_and_Fiscal_Policies_Under_Fin.pdf
+   [ 198] 2026_mendez_Explaining_Without_Exposing_A_Federated_Framework_for_Privacy_Preservi.pdf
+   [ 199] 2026_bennett_Measuring_What_Explanations_Actually_AchieveAn_Umbrella_Review_of_Fide.pdf
+   [ 200] 2025_abdelkarim_Predictive_Model_for_Reducing_Employee_Turnover_Using_Machine_Learning.pdf
+   [ 201] 2026_sithebe_Machine_learning_for_retail_credit_risk_scoring_a_systematic_literatur.pdf
+   [ 202] 2025_oise_Spatiotemporal_Water_Quality_Modeling_Using_Deep_Learning_Architecture.pdf
+   [ 203] 2025_prasad_Architecting_Agentic_AI_Systems_Product_and_System_Design_Patterns_for.pdf
+   [ 204] 2025_batra_Explainable_Machine_Learning_Methods_Applications_and_Challenges.pdf
+   [ 205] 2025_nedelea_Platform_work_governance_and_regulatory_frameworks_a_systematic_litera.pdf
+   [ 206] 2025_chaturvedi_Navigating_the_Legal_Landscape_of_Digital_Media_Regulation_Challenges.pdf
+   [ 207] 2025_saidalavi_Regulating_AI_in_Financial_Markets_Challenges_and_Opportunities_in_Alg.pdf
+   [ 208] 2025_bandara_Towards_Responsible_and_Explainable_AI_Agents_with_Consensus_Driven_Re.pdf
+   [ 209] 2026_wang_Algorithmic_Management_and_Filter_Bubbles_A_Comparative_Analysis_of_Re.pdf
+   [ 210] 2025_oise_Predicting_and_Preventing_Academic_Misconduct_Using_Behavioral_Analyti.pdf
+   [ 211] 2025_sem_titulo_Ethics_of_Personalization_Where_is_the_Boundary_Between_Useful_Recomme.pdf
+   [ 212] 2025_sem_titulo_GRAPH_NEURAL_NETWORKS_FOR_TRAFFIC_FLOW_PREDICTION_INNOVATIVE_APPROACHE.pdf
+   [ 213] 2025_katsarski_INTEGRATING_SUSTAINABILITY_ACCOUNTING_AND_ARTIFICIAL_INTELLIGENCE_A_BA.pdf
+   [ 214] 2025_raj_AI_Enhanced_Cloud_Reliability_Engineering_Integrating_Incident_Automat.pdf
+   [ 215] 2025_whitfield_Advancing_Transparent_and_Human_Centered_Artificial_Intelligence_A_Com.pdf
+   [ 216] 2025_mannobova_THE_ACCOUNTABILITY_GAP_IN_AUTONOMOUS_SYSTEMS_RECONCILING_LEGAL_PERSONH.pdf
+   [ 217] 2025_sigamani_The_Digital_Transformation_Of_Working_Capital_Management_From_Data_Lak.pdf
+   [ 218] 2025_mali_Analyzing_encrypted_traffic_analysis_using_explainable_AI.pdf
+   [ 219] 2025_cheema_TOWARDS_AN_INTERPRETABLE_AND_PRIVACY_PRESERVING_MUSIC_RECOMMENDATION_S.pdf
+   [ 220] 2025_lin_SHAP_Stability_in_Credit_Risk_Management_A_Case_Study_in_Credit_Card_D.pdf
+   [ 221] 2025_manganello_Mapping_the_Research_Landscape_of_Transparent_AI_in_University_Assessm.pdf
+   [ 222] 2025_suraj_Regulating_Artificial_Intelligence_in_India_Constitutional_Challenges.pdf
+   [ 223] 2025_patil_Fake_News_Detection_Using_Explainable_Artificial_Intellingence_XAI.pdf
+   [ 224] 2025_amboro_Digital_Democracy_and_Open_Finance_Technology_Advancing_Transparency_a.pdf
+   [ 225] 2025_blackmoor_Digital_Lending_Transformation_Through_Real_Time_Artificial_Intelligen.pdf
+   [ 226] 2025_risyahputri_Comparison_of_XGBoost_and_LSTM_in_Knowledge_Discovery_for_GrokAI_Mobil.pdf
+   [ 227] 2025_semianyk_Use_of_artificial_intelligence_in_risk_analysis_in_public_procurement.pdf
+   [ 228] 2025_arakhamia_Invisible_Editors_Impact_of_AI_on_Media_Content_Quality_and_Trust.pdf
+   [ 229] 2025_sharma_Machine_Learning_for_6G_Wireless_Networks_Paradigms_Enablers_and_the_P.pdf
+   [ 230] 2025_kemei_A_historical_and_ethical_inquiry_into_the_transformative_role_of_artif.pdf
+   [ 231] 2025_oise_Fairness_and_Bias_Mitigation_in_Student_Success_Prediction_Models.pdf
+   [ 232] 2025_tawfik_FedMedSecure_federated_few_shot_learning_with_cross_attention_mechanis.pdf
+   [ 233] 2025_ordyniak_Explaining_Decisions_in_ML_Models_a_Parameterized_Complexity_Analysis.pdf
+   [ 234] 2025_clement_Ethical_and_Bias_Aware_Data_Science_Quantifying_and_Mitigating_Algorit.pdf
+   [ 235] 2025_tasijawa_Exploring_the_Ethical_Landscape_of_Artificial_Intelligence_in_Nursing.pdf
+   [ 236] 2025_k_A_Survey_on_Deep_Learning_Based_Intrusion_Detection_Systems_with_SHAP.pdf
+   [ 237] 2025_fatima_A_Comprehensive_Review_on_the_Applications_of_Explainable_Artificial_I.pdf
+   [ 238] 2025_morgenstern_Toward_Trustworthy_and_Domain_Transcendent_Explainable_Artificial_Inte.pdf
+   [ 239] 2025_koripalli_Trust_Transparency_and_Ethics_A_Framework_for_Sustainable_LLM_Integrat.pdf
+   [ 240] 2025_harini_AI_in_Clinical_Research_Challenges_and_Opportunities.pdf
+   [ 241] 2025_dahalbahadur_Ethical_AI_Frameworks_for_Bias_Detection_and_Fairness_Optimization_in.pdf
+   [ 242] 2025_shah_EvidenceGrounded_Agent_An_Agentic_AI_Framework_for_Traceable_Complianc.pdf
+   [ 243] 2025_professor_TRANSFORMING_BLACK_BOX_MODELS_INTO_TRANSPARANT_SYSTEMS_THROUGH_EXPLAIN.pdf
+   [ 244] 2025_parate_EXPLAINABLE_AI_IN_FLEET_PREDICTIVE_MAINTENANCE_USING_SHAP_AND_LIME_FOR.pdf
+   [ 245] 2025_hisamuddin_AGILE_INTELLIGENCE_IN_MANAGERIAL_DECISION_MAKING_A_STRATEGIC_MODEL_FOR.pdf
+   [ 246] 2025_anon_Next_Gen_Drug_Discovery_Quantum_and_AI_Synergy_in_Regulatory_Context.pdf
+   [ 247] 2025_reinhardt_Explainable_Artificial_Intelligence_as_a_Foundation_for_Responsible_Et.pdf
+   [ 248] 2025_babulak_Editorial_Cyber_security_prevention_defenses_driven_by_AI_and_mathemat.pdf
+   [ 249] 2025_nomachi_Inteligencia_artificial_explicavel_e_inferencia_causal_para_avaliar_o.pdf
+   [ 250] 2025_verma_FROM_DATA_TO_WISDOM_HUMAN_CENTERED_AI_FOR_ETHICAL_AND_TRANSPARENT_DECI.pdf
+   [ 251] 2025_rojas_Navigating_the_ethical_quagmire_unraveling_the_intricate_landscape_of.pdf
+   [ 252] 2025_mohammed_Explainable_AI_in_Health_Care_Trust_and_Transparency_in_AI_Powered_Med.pdf
+   [ 253] 2025_sun_Interpretability_Bottleneck_Breakthrough_Method_for_Deep_Learning_Algo.pdf
+   [ 254] 2025_kucuk_Digital_tools_and_civic_participation_contrasting_models_of_civil_empo.pdf
+   [ 255] 2025_ur_rahaman_Analyzing_the_Efficiency_of_Hybrid_Explainable_AI_Models_for_Feature_E.pdf
+   [ 256] 2025_reinhardt_Abductive_Reasoning_Causality_and_Transparency_in_Explainable_Artifici.pdf
+   [ 257] 2025_chen_The_need_of_explainability_in_low_carbon_urban_system_design_using_AI.pdf
+   [ 258] 2025_sunkara_Explainable_AI_for_cyber_threat_Intelligence_Enhancing_analyst_trust.pdf
+   [ 259] 2025_raveendran_Technical_review_How_HIPAA_GDPR_and_DMA_apply_to_information_retrieval.pdf
+   [ 260] 2025_inam_A_Transformer_Based_Framework_for_Accurate_and_Interpretable_PM2_5_For.pdf
+   [ 261] 2025_joshika_Captcha_Solving_using_AI_with_LIME_Explainability.pdf
+   [ 262] 2025_ahuchogu_AI_and_Bias_in_Recruitment_Ensuring_Fairness_in_Algorithmic_Hiring.pdf
+   [ 263] 2025_rawool_Ethical_and_Computational_Challenges_in_Fairness_Aware_Federated_Learn.pdf
+   [ 264] 2025_kumar_AI_Driven_Medical_Diagnosis_and_Patient_Data_Privacy_A_Legal_Analysis.pdf
+   [ 265] 2025_arif_DESIGNING_A_STUDENT_CENTRIC_FRAMEWORK_FOR_EXPLAINABLE_AI_IN_ADAPTIVE_L.pdf
+   [ 266] 2025_rane_Green_Artificial_Intelligence_Sustainable_Techniques_Applications_and.pdf
+   [ 267] 2025_e_Explainable_AI_XAI_Enhancing_Interpretability_of_Deep_Learning_Models.pdf
+   [ 268] 2025_kurathkoller_Artificial_intelligence_in_pediatrics_promise_peril_and_the_path_ahead.pdf
+   [ 269] 2025_murodova_The_Black_Box_Problem_in_Administering_Justice_Risks_of_Opaque_Algorit.pdf
+   [ 270] 2025_nasehi_FPV_Drone_Swarms_in_Asymmetric_Warfare_Tactical_Innovations_and_Ethica.pdf
+   [ 271] 2025_reddy_A_COMPARATIVE_STUDY_ON_VISUAL_ANALYSIS_USING_BIG_DATA_AND_MACHINE_LEAR.pdf
+   [ 272] 2025_sem_titulo_Development_of_Mobile_Applications_Based_on_Artificial_Intelligence_Cu.pdf
+   [ 273] 2025_sem_titulo_ARTIFICIAL_INTELLIGENCE_FROM_A_TECHNICAL_PERSPECTIVE.pdf
+   [ 274] 2025_r_Multi_Disease_Diagnostic_Analysis_for_Chest_X_Ray_Images_with_Explaina.pdf
+   [ 275] 2025_maniatis_The_Algorithmic_Doctor_Bridging_the_Transparency_Gap_in_AI_Driven_Heal.pdf
+   [ 276] 2025_lee_PCBEAR_Pose_Concept_Bottleneck_for_Explainable_Action_Recognition.pdf
+   [ 277] 2025_pokhrel_Machine_Learning_Based_Malware_Detection_and_Classification_Techniques.pdf
+   [ 278] 2025_roy_Artificial_Intelligence_in_Precision_Medicine_Enhancing_Chronic_Diseas.pdf
+   [ 279] 2025_kushwaha_Blockchain_Based_Logging_for_Auditing_AI_Decisions.pdf
+   [ 280] 2025_afful_ExplainBench_A_Benchmark_Framework_for_Local_Model_Explanations_in_Fai.pdf
+   [ 281] 2025_ali_Interpretable_Deep_Learning_for_Brain_Tumor_Diagnosis_Occlusion_Sensit.pdf
+   [ 282] 2025_gulzar_Neuro_Intelligence_and_Crime_Prediction_Ethical_Boundaries_of_Brain_Da.pdf
+   [ 283] 2025_nazim_Advancing_malware_imagery_classification_with_explainable_deep_learnin.pdf
+   [ 284] 2025_raziyeva_Bias_and_Fairness_in_Automated_Loan_Approvals_A_Systematic_Review_of_M.pdf
+   [ 285] 2025_nemnenko_The_Role_of_Algorithm_Transparency_in_Trade_Management_as_a_Tool_for_R.pdf
+   [ 286] 2025_gawali_Bias_Checker_AI_Web_Application_A_Framework_for_Identifying_Bias_in_AI.pdf
+   [ 287] 2025_kumar_Integration_of_Machine_Learning_and_Data_Science_for_Optimized_Decisio.pdf
+   [ 288] 2025_kamal_Deep_Learning_and_Cnns_in_Ophthalmology_Toward_Accurate_and_Explainabl.pdf
+   [ 289] 2025_tingzon_Large_Scale_School_Mapping_Using_Weakly_Supervised_Deep_Learning_for_U.pdf
+   [ 290] 2025_guzman_Perspective_Chapter_Political_and_Economic_Self_Constitution_in_Large.pdf
+   [ 291] 2025_jung_From_Images_to_Reports_The_Future_of_Deep_Learning_in_Radiology_Report.pdf
+   [ 292] 2025_ren_Here_Comes_the_Explanation_A_Shapley_Perspective_on_Multi_contrast_Med.pdf
+   [ 293] 2025_li_Research_on_Automatic_Recognition_and_Auxiliary_Diagnosis_of_Artificia.pdf
+   [ 294] 2025_zenia_Privacy_Preserving_AI_Based_Cyber_Threat_Detection_in_Financial_Organi.pdf
+   [ 295] 2025_magaji_An_Intensive_Review_on_Opinion_Mining_Techniques_State_of_The_Art_Open.pdf
+   [ 296] 2025_mudavatu_The_Critical_Role_of_Algorithmic_Transparency_in_Modern_Cybersecurity.pdf
+   [ 297] 2025_bukhari_Analysing_the_Impact_of_Education_Policies_and_Their_Implementation_on.pdf
+   [ 298] 2025_anon_Explainable_AI_in_Algorithmic_Trading_Mitigating_Bias_and_Improving_Re.pdf
+   [ 299] 2025_marasani_Explainable_AI_Frameworks_for_Patient_Level_Claims_Data_Analytics.pdf
+   [ 300] 2025_pranjal_Demystifying_the_Accuracy_Interpretability_Trade_Off_A_Case_Study_of_I.pdf
+   [ 301] 2025_klymenko_Adjustment_of_the_analytic_hierarchy_process_indicators_using_AI_tools.pdf
+   [ 302] 2025_li_A_critical_look_into_artificial_intelligence_and_healthcare_disparitie.pdf
+   [ 303] 2025_kossay_TANGGUNG_JAWAB_HUKUM_PLATFORM_DIGITAL_ATAS_PENYALAHGUNAAN_AI_DALAM_TRA.pdf
+   [ 304] 2025_pamadi_Explainable_AI_Bridging_the_Gap_Between_Machine_Learning_Models_and_Hu.pdf
+   [ 305] 2025_ali_Explainability_in_AI_Interpretable_Models_for_Data_Science.pdf
+   [ 306] 2025_jiaxin_From_Abstract_to_Actionable_Pairwise_Shapley_Values_for_Explainable_AI.pdf
+   [ 307] 2025_oliveira_Influence_of_racial_bias_in_the_use_of_facial_recognition_applied_to_a.pdf
+   [ 308] 2025_seth_Bridging_the_Gap_in_XAI_Why_Reliable_Metrics_Matter_for_Explainability.pdf
+   [ 309] 2025_anon_Assessing_Explainable_in_Artificial_Intelligence_A_TOPSIS_Approach_to.pdf
+   [ 310] 2025_chen_The_Accuracy_and_Biases_of_AI_Based_Internet_Censorship_in_China.pdf
+   [ 311] 2025_noonpakdee_Leveraging_Machine_Learning_to_Enhance_Road_Safety_A_Social_Marketing.pdf
+   [ 312] 2025_santos_Understanding_Deep_Representations_in_CNNs_from_Concepts_to_Relations.pdf
+   [ 313] 2025_kevin_alerechi_AI_and_the_Newsroom_Transforming_Journalism_with_Intelligent_Systems.pdf
+   [ 314] 2025_mehmood_Editorial_Protecting_privacy_in_neuroimaging_analysis_balancing_data_s.pdf
+   [ 315] 2025_elgedik_Ethical_Implications_of_AI_in_Automated_Decision_Making_Systems.pdf
+   [ 316] 2025_alshudukhi_Next_Generation_Lightweight_Explainable_AI_for_Cybersecurity_A_Review.pdf
+   [ 317] 2025_daram_Explainable_AI_in_Healthcare_Enhancing_Trust_Transparency_and_Ethical.pdf
+   [ 318] 2025_jayaram_AI_Powered_ECM_Automation_with_Agentic_AI_for_Adaptive_Policy_Driven_C.pdf
+   [ 319] 2025_hasan_AI_AUGMENTED_RISK_DETECTION_IN_CYBERSECURITY_COMPLIANCE_A_GRC_BASED_EV.pdf
+   [ 320] 2025_elisabeth_A_View_on_Vulnerabilites_The_Security_Challenges_of_XAI_Academic_Track.pdf
+   [ 321] 2025_fatima_Machine_Learning_in_Procurement_with_a_View_to_Equity.pdf
+   [ 322] 2025_owolabi_Explainable_Credit_Intelligence_A_Unified_SHAP_Based_Framework_for_Int.pdf
+   [ 323] 2025_risdianto_A_Comprehensive_Bibliometric_and_Systematic_Literature_Review_on_AI_As.pdf
+   [ 324] 2025_silva_Generative_Artificial_Intelligence_in_Healthcare_Systems_Governance_Sa.pdf
+   [ 325] 2025_nnsa_Application_of_Artificial_Intelligence_Machine_Learning_to_Operations.pdf
+   [ 326] 2025_iqbal_Artificial_Intelligence_in_Health_Monitoring_A_Detailed_study_of_Curre.pdf
+   [ 327] 2025_koribilli_Applying_SDTM_CDISC_Standards_for_Automated_Regulatory_Compliance_in_F.pdf
+   [ 328] 2025_jain_Integrating_UAV_Networks_and_Edge_Computing_for_Smart_Cities_Architect.pdf
+   [ 329] 2025_popescul_SOCIALLY_RESPONSIBLE_USE_OF_ARTIFICIAL_INTELLIGENCE_IN_SMART_CITIES_AN.pdf
+   [ 330] 2025_boskovic_THE_EQUILIBRIUM_OF_THE_SYMBIOSIS_OF_HUMAN_COMPLEXITY_AND_ARTIFICIAL_IN.pdf
+   [ 331] 2025_ahmad_Building_Trust_in_Automated_Decisions_The_Role_of_XAI_in_Regulatory_Co.pdf
+   [ 332] 2025_shelar_Enhancing_Robustness_and_Generalizability_of_Explainable_AI_in_Cross_P.pdf
+   [ 333] 2025_piosik_BUDGETING_FOR_THE_FUTURE_RELATIONSHIP_BETWEEN_INTENSITY_OF_BUDGETING_M.pdf
+   [ 334] 2025_benali_AI_Governance_in_Healthcare_Transparency_Bias_Mitigation_and_Lifecycle.pdf
+   [ 335] 2025_pusadkar_Fair_and_Interpretable_Credit_Risk_Modelling_with_Multi_Agent_Architec.pdf
+   [ 336] 2025_russell_Opening_the_black_box_an_active_approach_to_explanation_methods_in_mac.pdf
+   [ 337] 2025_costa_Beyond_Traceability_Reimagining_Food_System_Transparency_through_Expla.pdf
+   [ 338] 2025_odiaka_Enhancing_Dublin_Rental_Price_Prediction_by_Integrating_Policy_Insight.pdf
+   [ 339] 2024_vuppala_Cybersecurity_Risks_in_Reinsurance_How_AI_Can_Detect_and_Prevent_Digit.pdf
+   [ 340] 2025_jadhav_NLP_and_Machine_Learning_Framework_for_Reducing_False_Positive_in_Watc.pdf
+   [ 341] 2024_zachariah_Database_and_Modern_Database_Technology.pdf
+   [ 342] 2024_kularathne_Analyzing_the_impact_of_socioeconomic_indicators_on_gender_inequality.pdf
+   [ 343] 2024_banerjee_Harnessing_pluralism_in_behavioral_public_policy_requires_insights_fro.pdf
+   [ 344] 2024_para_The_Role_of_Explainable_AI_in_Bias_Mitigation_for_Hyper_personalizatio.pdf
+   [ 345] 2024_gadde_Explainable_AI_for_dynamic_ensemble_models_in_high_stakes_decision_mak.pdf
+   [ 346] 2024_singh_Ethical_issues_of_artificial_intelligence_in_plastic_surgery_a_narrati.pdf
+   [ 347] 2024_lai_Guarding_the_Gate_ConceptGuard_Battles_Concept_Level_Backdoors_in_Conc.pdf
+   [ 348] 2024_upadhyaya_Unlocking_the_Black_Box_Advancements_in_Explainable_AI_and_Model_Inter.pdf
+   [ 349] 2024_agrawal_The_Ethics_of_Computing_in_Pharmaceutical_Research.pdf
+   [ 350] 2024_baptista_Using_Explainable_Artificial_Intelligence_to_Interpret_Remaining_Usefu.pdf
+   [ 351] 2024_willis_QIXAI_A_Quantum_Inspired_Framework_for_Enhancing_Classical_and_Quantum.pdf
+   [ 352] 2024_ashirovna_THE_USE_OF_ARTIFICIAL_INTELLIGENCE_IN_COMBATING_WAR_CRIMES_ETHICAL_AND.pdf
+   [ 353] 2024_ordyniak_Explaining_Decisions_in_ML_Models_A_Parameterized_Complexity_Analysis.pdf
+   [ 354] 2024_rehill_Transparency_challenges_in_policy_evaluation_with_causal_machine_learn.pdf
+   [ 355] 2024_j_Artificial_Intelligence_the_Capacity_for_Discrimination_The_Imperative.pdf
+   [ 356] 2024_zhou_Evolutionary_Computation_and_Explainable_AI_A_Roadmap_to_Understandabl.pdf
+   [ 357] 2024_tiamiyu_From_Compliance_Burden_to_Enforcement_Precision_AI_Strategies_for_Redu.pdf
+   [ 358] 2024_mhapsekar_Building_Trust_in_AI_Driven_Decision_Making_for_Cyber_Physical_Systems.pdf
+   [ 359] 2025_wamalwa_An_Explainable_AI_model_to_predict_financial_exclusion_in_Kenya.pdf
+   [ 360] 2024_lad_Applied_Ethical_and_Explainable_AI_in_Adversarial_Deepfake_Detection_F.pdf
+   [ 361] 2024_gore_Harnessing_AI_for_public_health_India_s_roadmap.pdf
+   [ 362] 2024_ahmad_Ethical_and_clinical_implications_of_AI_integration_in_cardiovascular.pdf
+   [ 363] 2024_taghikhah_Enhancing_Robustness_in_Explainable_AI_Applications_in_Community_Renew.pdf
+   [ 364] 2024_wu_Dataset_Mindset_Explainable_AI_Interpretable_AI.pdf
+   [ 365] 2024_simoes_Editorial_Artificial_intelligence_and_mental_health_care.pdf
+   [ 366] 2024_senevirathna_A_Survey_on_XAI_for_5G_and_Beyond_Security_Technical_Aspects_Challenge.pdf
+   [ 367] 2024_chen_Evaluating_Search_System_Explainability_with_Psychometrics_and_Crowdso.pdf
+   [ 368] 2024_fagbore_Conceptual_Design_of_Ethical_Investment_Assessment_Models_Using_AI_Enh.pdf
+   [ 369] 2024_malik_EMERGING_TRENDS_IN_ARTIFICIAL_INTELLIGENCE_AND_MACHINE_LEARNING_TRANSF.pdf
+   [ 370] 2024_kaya_X_CBA_Explainability_Aided_CatBoosted_Anomal_E_for_Intrusion_Detection.pdf
+   [ 371] 2024_somani_Propagating_Transparency_A_Deep_Dive_into_the_Interpretability_of_Neur.pdf
+   [ 372] 2024_mentzas_Editorial_Human_Centered_Artificial_Intelligence_in_Industry_5_0.pdf
+   [ 373] 2024_agrawal_An_extensive_review_on_significance_of_Explainable_Artificial_Intellig.pdf
+   [ 374] 2024_ed_Trustworthy_Artificial_Intelligence_in_Industry_and_Society.pdf
+   [ 375] 2024_akter_Analysis_and_interpretability_of_machine_learning_models_to_classify_t.pdf
+   [ 376] 2024_kumar_OSINT_OPEN_SOURCE_INTELLIGENCE_Exploring_the_Power_of_Open_Source_Inte.pdf
+   [ 377] 2024_gao_Going_Beyond_XAI_A_Systematic_Survey_for_Explanation_Guided_Learning.pdf
+   [ 378] 2024_janjua_Enhancing_smart_grid_electricity_prediction_with_the_fusion_of_intelli.pdf
+   [ 379] 2024_al_haija_Editorial_Artificial_intelligence_solutions_for_decision_making_in_rob.pdf
+   [ 380] 2024_zhu_Navigating_the_Path_to_Responsible_AI_Interpretable_Models_and_Ethical.pdf
+   [ 381] 2024_singh_Future_of_Artificial_Intelligence_Business_Analytics.pdf
+   [ 382] 2024_zhou_Application_of_Explainable_Artificial_Intelligence_technique_to_model.pdf
+   [ 383] 2024_oyebode_Explainable_deep_learning_integrated_with_decentralized_identity_syste.pdf
+   [ 384] 2024_agbozo_Liver_Disease_Classification_An_XAI_Approach_to_Biomedical_AI.pdf
+   [ 385] 2024_aljalaud_Counterfactual_Explanation_of_AI_Models_Using_an_Adaptive_Genetic_Algo.pdf
+   [ 386] 2024_albano_Explainable_Vision_Transformers_for_Vein_Biometric_Recognition.pdf
+   [ 387] 2024_huy_Human_in_the_Loop_without_the_Hype_A_Conceptual_Taxonomy_of_Human_Role.pdf
+   [ 388] 2024_singhal_Explainable_Artificial_Intelligence_XAI_Model_for_Cancer_Image_Classif.pdf
+   [ 389] 2024_zaqeeba_The_impact_of_using_types_of_artificial_intelligence_technology_in_mon.pdf
+   [ 390] 2024_taiwo_A_Prescriptive_Data_Pipeline_Framework_for_Modeling_Cost_to_Serve_Vari.pdf
+   [ 391] 2024_andersson_Explainable_Deep_Learning_Framework_for_Autonomous_Transportation_Safe.pdf
+   [ 392] 2024_h_n_The_Emergence_of_Explainable_AI_in_Modern_Decision_Systems.pdf
+   [ 393] 2023_richardson_AI_Driven_Optimization_Techniques_for_Evolving_Software_Architecture_i.pdf
+   [ 394] 2023_tiwari_Biometric_Authentication_in_the_Face_of_Spoofing_Threats_Detection_and.pdf
+   [ 395] 2023_corona_From_Black_Box_to_Transparency_the_hidden_costs_of_XAI_in_NGN.pdf
+   [ 396] 2023_urmeneta_Reflections_on_the_Artificial_Intelligence_Transformation_Responsible.pdf
+   [ 397] 2023_popoola_Model_for_Enabling_Predictive_and_Performance_Based_Management_in_Digi.pdf
+   [ 398] 2023_brand_Does_Explainable_AI_Have_Moral_Value.pdf
+   [ 399] 2023_gupta_Editorial_Smart_cities_challenges_technologies_and_trends.pdf
+   [ 400] 2023_tafirenyika_AI_in_healthcare_Predictive_modeling_explainability_and_clinical_impac.pdf
+   [ 401] 2023_maynard_Machine_learning_in_transfusion_medicine_A_scoping_review.pdf
+   [ 402] 2023_ratz_Fairness_Explainability_using_Optimal_Transport_with_Applications_in_I.pdf
+   [ 403] 2023_sreeja_A_Deep_Convolutional_Model_for_Heart_Disease_Prediction_based_on_ECG_D.pdf
+   [ 404] 2023_jeyaraman_Unraveling_the_Ethical_Enigma_Artificial_Intelligence_in_Healthcare.pdf
+   [ 405] 2023_rasool_Harnessing_Predictive_Power_Exploring_the_Crucial_Role_of_Machine_Lear.pdf
+   [ 406] 2023_lucieri_Translating_theory_into_practice_assessing_the_privacy_implications_of.pdf
+   [ 407] 2023_gasparini_Determinants_of_using_AI_powered_discovery_services.pdf
+   [ 408] 2023_ghai_Towards_Fair_and_Explainable_AI_using_a_Human_Centered_AI_Approach.pdf
+   [ 409] 2023_aslam_A_Conceptual_Model_Framework_for_XAI_Requirement_Elicitation_of_Applic.pdf
+   [ 410] 2023_kuhl_Let_s_go_to_the_Alien_Zoo_Introducing_an_experimental_framework_to_stu.pdf
+   [ 411] 2023_petkovic_It_is_Not_Accuracy_vs_ExplainabilityWe_Need_Both_for_Trustworthy_AI_Sy.pdf
+   [ 412] 2023_ayobami_Algorithmic_Integrity_A_Predictive_Framework_for_Combating_Corruption.pdf
+   [ 413] 2023_taneja_Explainable_AI_in_Healthcare_Ensuring_Trust_and_Transparency_in_ML_Cli.pdf
+   [ 414] 2022_zubair_BUILDING_TRUST_IN_AUTONOMOUS_CYBER_DECISION_INFRASTRUCTURE_THROUGH_EXP.pdf
+   [ 415] 2022_lopes_Analise_Exploratoria_de_Dados_Espaciais_com_Python.pdf
+   [ 416] 2022_silva_Desenvolvimento_de_uma_aplicacao_web_para_o_diagnostico_da_COVID_19_us.pdf
+   [ 417] 2022_kampis_Emberarcu_mesterseges_intelligencia.pdf
+   [ 418] 2022_silva_Introducao_as_Redes_Neurais_Profundas_com_Python.pdf
+   [ 419] 2022_ferreira_Acionamento_de_Dispositivos_Eletroeletronicos_Utilizando_Visao_Computa.pdf
+   [ 420] 2022_wazlawick_Desenvolvimento_Agil_e_Informatizacao_da_Saude_Publica_no_Brasil.pdf
+   [ 421] 2022_silva_Minicursos_da_ERCEMAPI_2022.pdf
+   [ 422] 2022_pimentel_Subgroup_mining_for_performance_analysis_of_regression_models.pdf
+   [ 423] 2022_ramareddy_Explainable_AI_Models_for_Transparent_Decision_Making_in_Business_Anal.pdf
+   [ 424] 2022_napoles_Recurrence_Aware_Long_Term_Cognitive_Network_for_Explainable_Pattern_C.pdf
+   [ 425] 2022_ahsan_Explainable_AI_Models_for_Healthcare_Diagnostics.pdf
+   [ 426] 2022_pandianchery_Explainable_AI_Framework_for_COVID_19_Prediction_in_Different_Province.pdf
+   [ 427] 2022_moss_Demystifying_the_Black_Box_The_Importance_of_Interpretability_of_Predi.pdf
+   [ 428] 2022_lee_Training_and_Interpreting_Machine_Learning_Models_Application_in_Prope.pdf
+   [ 429] 2022_polamarasetti_Building_Trustworthy_AI_in_Salesforce_An_Ethical_and_Governance_Framew.pdf
+   [ 430] 2022_neupane_Explainable_Intrusion_Detection_Systems_X_IDS_A_Survey_of_Current_Meth.pdf
+   [ 431] 2022_kumar_Artificial_Intelligence_in_Healthcare_Systems_Evolution_of_Clinical_An.pdf
+   [ 432] 2021_arras_CLEVR_XAI_A_benchmark_dataset_for_the_ground_truth_evaluation_of_neura.pdf
+   [ 433] 2021_weber_Longitudinal_Distance_Towards_Accountable_Instance_Attribution.pdf
+   [ 434] 2021_quadrianto_Editorial_Ethical_Machine_Learning_and_Artificial_Intelligence.pdf
+   [ 435] 2021_verma_Pitfalls_of_Explainable_ML_An_Industry_Perspective.pdf
+   [ 436] 2021_talati_Artificial_Intelligence_and_unintended_bias_A_call_for_responsible_inn.pdf
+   [ 437] 2021_wang_State_level_COVID_19_Trend_Forecasting_Using_Mobility_and_Policy_Data.pdf
+   [ 438] 2021_ekundayo_Transforming_fintech_product_strategies_through_AI_augmented_machine_l.pdf
+   [ 439] 2021_babalola_Automated_Third_Party_Risk_Management_Platform_with_AI_Driven_Vendor_S.pdf
+   [ 440] 2020_tadi_Transparent_Machine_Learning_Building_Trust_in_Data_Analytics.pdf
+   [ 441] 2020_ammar_Explainable_Artificial_Intelligence_Recommendation_System_by_Leveragin.pdf
+   [ 442] 2020_faruqe_Monitoring_Trust_in_Human_Machine_Interactions_for_Public_Sector_Appli.pdf
+   [ 443] 2021_gupta_Human_Values_in_the_Age_of_Autonomous_Technologies.pdf
+   [ 444] 2022_ghiasi_Physiologically_Informed_Gaussian_Processes_for_Interpretable_Modellin.pdf
+   Nova tentativa para 42 PDFs com erro de rede passageiro...
+
+PDFs baixados nesta execução: 444
+Inéditos: 821 (lista em novos.csv)
+Relatórios: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos/atualizacoes/2026-11-23
+PDFs:       /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos
+=== 2026-11-23 08:41:11 fim busca (código 0) ===
+=== 2026-11-23 08:41:11 etapa 2: regeneração do Protocolo Sigma ===
+===========================================================================
+GERAÇÃO DO PROTOCOLO SIGMA DA BASE DE ARTIGOS
+PPGCAP / CCT / UDESC — Eduardo Lopes Jonker
+===========================================================================
+1. Mapeados 1113 PDFs no acervo de artigos/...
+2. Consolidados 1680 registros únicos na base de artigos.
+3. Total de obras com PDF local conferido e incorporado: 552
+4. Gerando planilha de fichamento em fichamento.xlsx...
+✓ Planilha de fichamento salva com sucesso: fichamento.xlsx
+5. Gerando arquivos CSV auditáveis de protocolo com cadeia de hashes...
+✓ Registros de protocolo gerados em artigos/protocolo/
+6. Construindo HTML do Protocolo SIGMA...
+✓ HTML salvo em: protocolo_sigma.html (34.1 KB)
+7. Renderizando PDF oficial com WeasyPrint...
+✓ PDF gerado com sucesso: protocolo_sigma.pdf (0.07 MB)
+8. Espelhando cópias para relatorios_pdf/ e Documentos/...
+✓ Cópia espelhada em: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos/protocolo/protocolo_sigma.pdf
+✓ Cópia espelhada em: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/relatorios_pdf/protocolo_sigma_base_artigos.pdf
+✓ Cópia espelhada em: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/Documentos/protocolo_sigma_base_artigos.pdf
+===========================================================================
+PROTOCOLO SIGMA DA BASE DE ARTIGOS GERADO COM 100% DE SUCESSO!
+===========================================================================
+=== 2026-11-23 08:41:13 fim protocolo sigma (código 0) ===
+=== 2026-11-23 08:41:13 etapa 3: regeneração do PBS.pdf ===
+OK: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/PBS.pdf (2836 KB)
+=== 2026-11-23 08:41:17 fim PBS.pdf (código 0) ===
+=== 2026-11-23 08:41:17 etapa 4: regeneração da apresentação de qualificação ===
+OK: apresentacao_qualificacao/Qualificacao_Mestrado_UDESC_Eduardo_Jonker.pptx (23 slides); fontes em apresentacao_qualificacao/fontes_apresentacao.md
+=== 2026-11-23 08:41:18 fim apresentação (código 0) ===
+=== 2026-11-23 08:41:18 fim da atualização diária (códigos: busca=0 sigma=0 pbs=0 apresent=0) ===

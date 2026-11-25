@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-15T15:09:08",
+  "gerado_em": "2026-11-24T07:40:20",
   "inicio_treino": "2022-01",
   "corte": "2025-09",
   "regra_corte": "último mês com >= 50% das OS do mesmo mês do ano anterior",
@@ -368,5 +368,50 @@
     "n_combustivel": 1,
     "html_resumo": "<p><b>LOA 2026 (Lei nº 19.683/2026).</b> O detalhamento do crédito foi lido por OCR (629 páginas). A LOA identifica a frota em apenas 2 subações de manutenção, 1 de combustível e 8 de aquisição. Nos demais órgãos, inclusive a PM, que responde por metade do gasto da base da SEA/SC, a manutenção de veículos fica dentro de ações genéricas (por exemplo, 900.0002 “Administração e manutenção de unidades gestoras”) e o detalhamento chega só ao grupo de despesa. Por isso a LOA não permite isolar a dotação de manutenção da frota da maioria dos órgãos.</p><table><tr><th>Unidade orçamentária</th><th>Subação</th><th>Tipo</th><th>Valor LOA</th><th>Por grupo de despesa</th><th>Meta física</th><th>Pág. PDF</th></tr><tr><td>Fundo Penitenciário do Estado de Santa Catarina (FUPESC)</td><td>Renovação da Frota - SEJUR<br><small>750.0261.011045 · Aquisição de veículos</small></td><td>aquisição</td><td>R$ 38,05 mi</td><td>—</td><td>127 veículos adquiridos</td><td>615, 618</td></tr><tr><td>CELESC Distribuição S.A.</td><td>Aquisição de veículos<br><small>182.0261.000941 · Aquisição de veículos</small></td><td>aquisição</td><td>R$ 27,76 mi</td><td>4 – investimentos: R$ 27,76 mi</td><td>1 veículos adquiridos</td><td>640, 642</td></tr><tr><td>Fundo de Melhoria da Polícia Civil (FUMPC)</td><td>Gestão da frota - PCSC<br><small>702.0262.013148 · Manutenção de veículos</small></td><td>manutenção</td><td>R$ 15,67 mi</td><td>—</td><td>2200 veículos mantidos</td><td>306, 307</td></tr><tr><td>Fundo Estadual de Saúde (FES)</td><td>Aquisição de veículos para a Secretaria de Estado da) S<br><small>400.0261.014016 · Aquisição de veículos</small></td><td>aquisição</td><td>R$ 5,15 mi</td><td>—</td><td>103 veículos adquiridos</td><td>532, 539</td></tr><tr><td>Secretaria de Estado da Infraestrutura e Mobilidade (SIE)</td><td>Aquisição de combustíveis e lubrificantes - SIE e PMRv<br><small>130.0007.014455 · Aquisição de combustível e lubrificante</small></td><td>combustível</td><td>R$ 3,00 mi</td><td>—</td><td>—</td><td>586</td></tr><tr><td>Secretaria de Estado da Infraestrutura e Mobilidade (SIE)</td><td>Modernização da frota de veículos, aeronaves e<br><small>130.0089.014456 · Modernização da frota</small></td><td>aquisição</td><td>R$ 2,50 mi</td><td>—</td><td>—</td><td>587</td></tr><tr><td>Fundo de Melhoria da Polícia Civil (FUMPC)</td><td>Aquisição de veículos - PCSC<br><small>704.0261.015785 · Aquisição de veículos</small></td><td>aquisição</td><td>R$ 1,00 mi</td><td>—</td><td>100 veículos adquiridos</td><td>306, 307</td></tr><tr><td>Secretaria de Estado da Casa Civil (SCC)</td><td>Aquisição de veículos oficiais - SCC<br><small>900.0261.011054 · Aquisição de veículos</small></td><td>aquisição</td><td>R$ 0,90 mi</td><td>—</td><td>1 veículos adquiridos</td><td>417, 419</td></tr><tr><td>SC Participações e Parcerias S.A.(SCPAR)</td><td>Modernização frota - SCPAR HOLDING<br><small>188.0261.015710 · Aquisição de veículos</small></td><td>aquisição</td><td>R$ 0,40 mi</td><td>4 – investimentos: R$ 0,40 mi</td><td>2 veículos adquiridos</td><td>630, 631</td></tr><tr><td>CELESC Geração S.A.</td><td>Aquisição de veículos<br><small>160.0261.014189 · Aquisição de veículos</small></td><td>aquisição</td><td>R$ 0,36 mi</td><td>4 – investimentos: R$ 0,36 mi</td><td>1 veículos adquiridos</td><td>638, 639</td></tr><tr><td>Fundo para Melhoria da Segurança Pública (FSP)</td><td>Gestão sustentável da frota - combustível e manutenção<br><small>704.0262.013102 · Manutenção de veículos</small></td><td>manutenção</td><td>R$ 0,21 mi</td><td>—</td><td>14 veículos mantidos</td><td>318, 319</td></tr></table><p><b>Comparação onde há correspondência de órgão.</b></p><table><tr><th>Subação da LOA</th><th>LOA 2026</th><th>Proposta do experimento</th><th>Realizado 2024 (OS da SEA/SC)</th><th>LOA ÷ proposta</th></tr><tr><td>Gestão da frota - PCSC (702.0262.013148)</td><td>R$ 15,67 mi</td><td>R$ 1,64 mi</td><td>R$ 1,63 mi</td><td>9,5×</td></tr><tr><td>Gestão sustentável da frota - combustível e manutenção (704.0262.013102)</td><td>R$ 0,21 mi</td><td>R$ 0,06 mi</td><td>R$ 0,06 mi</td><td>3,5×</td></tr></table><p>A diferença vem do escopo: as subações da LOA tratam da gestão da frota (manutenção, combustível e outros custos), e o experimento prevê apenas as OS do contrato de manutenção da SEA/SC. A proposta ficou próxima do realizado de 2024 nesses órgãos, o que é coerente, mas não confirma a previsão de 2026. Para comparar orçamento e execução, a fonte adequada é a execução da despesa por elemento e subelemento (3.3.90.30 e 3.3.90.39) filtrada pelo contrato de manutenção.</p>"
   },
-  "pca_oficial": null
+  "pca_oficial": {
+    "fonte": "Plano de Contratações Anual do Estado de Santa Catarina (PCA-E 2026) - SEA/SC, Diretoria de Gestão de Licitações e Contratos (DGLC / GPLAC), publicado em fevereiro/2026 (documento oficial: docs/PCA-E 2026.pdf, 335 páginas).",
+    "data_extracao": "2026-11-24",
+    "arquivo_origem": "docs/PCA-E 2026.pdf",
+    "tamanho_bytes": 10313941,
+    "paginas": 335,
+    "visao_geral": "O PCA-E 2026 consolida o planejamento centralizado de compras públicas do Poder Executivo de Santa Catarina para o exercício de 2026, regido pela Lei nº 14.133/2021. Na área de frotas e transportes, o planejamento estadual priorizou contratações compartilhadas e o gerenciamento corporativo.",
+    "itens_frota_pca_2026": [
+      {
+        "grupo": "306",
+        "objeto": "LOCAÇÃO DE VEÍCULOS",
+        "tipo_processo": "EM PROCESSO (Nova Contratação Compartilhada)",
+        "sgp_e": "SEA 22719/2025",
+        "valor_estimado": 47006321.7,
+        "descricao": "Registro de preços compartilhado para locação corporativa de veículos automotores para atendimento das secretarias e órgãos estaduais."
+      },
+      {
+        "grupo": "3",
+        "objeto": "LOCAÇÃO DE VEÍCULOS",
+        "tipo_processo": "PRORROGAÇÃO (PE 593/2025)",
+        "sgp_e": "SEA 4749/2025",
+        "valor_estimado": 43671319.98,
+        "descricao": "Prorrogação de contrato de locação de veículos vigente para continuidade operacional da frota."
+      },
+      {
+        "grupo": "504220068 / 500710001",
+        "objeto": "SISTEMA DE GERENCIAMENTO - ABASTECIMENTO E COMBUSTÍVEIS",
+        "tipo_processo": "CONSOLIDADO PCA ÓRGÃOS",
+        "sgp_e": "Gestão Centralizada SEA",
+        "valor_estimado": 0.0,
+        "descricao": "Gerenciamento e fornecimento de combustíveis, óleos lubrificantes e aditivos para a frota via cartão magnético/sistema informatizado."
+      }
+    ],
+    "total_locacao_planejada_pca_2026": 90677641.68,
+    "manutencao_mecanica_no_pca": {
+      "status": "Contrato corporativo continuado não licitado em 2026 como novo item compartilhado",
+      "explicacao": "A manutenção mecânica preventiva e corretiva da frota estadual não consta como novo item de aquisição no PCA-E 2026 porque já foi contratada e consolidada centralizadamente pela SEA/SC (vigência do contrato corporativo com a empresa gerenciadora, ex-QFrotas Sistemas Ltda., substituindo a Ticket Gestão). As demandas operacionais de manutenção de cada secretaria correm contra as atas e contratos corporativos vigentes por meio de empenhos nos subelementos 3.3.90.30.39 e 3.3.90.39.19."
+    },
+    "comparativo_experimento_pca": {
+      "proposta_experimento_manutencao_2026": 38164010.59,
+      "proposta_experimento_escala_empenho": 53526027.67,
+      "locacao_planejada_pca_2026": 90677641.68,
+      "analise_relativa": "O Estado de Santa Catarina planejou R$ 90,68 milhões para locação de veículos no PCA-E 2026 (R$ 47,01 mi em nova licitação e R$ 43,67 mi em prorrogações). Em contraste, o dispêndio de manutenção mecânica projetado pelo experimento (R$ 38,16 mi no censo de OS; R$ 53,53 mi na escala de empenhos) representa cerca de 42% a 59% do valor anual despendido em locação de frotas, demonstrando o peso do modelo híbrido (frota própria mantida vs. frota locada) na administração pública catarinense."
+    },
+    "texto_resumo": "O PCA-E 2026 oficial da SEA/SC foi obtido e analisado (docs/PCA-E 2026.pdf, 335 páginas). No tocante a frotas, o documento oficial planeja R$ 90,68 milhões em locação de veículos compartilhada (R$ 47,01 mi na nova contratação SEA 22719/2025 e R$ 43,67 mi na prorrogação SEA 4749/2025). A manutenção mecânica da frota própria corre no contrato corporativo continuado de gerenciamento (QFrotas), sem nova contratação no PCA de 2026."
+  }
 }

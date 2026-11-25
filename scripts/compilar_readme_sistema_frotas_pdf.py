@@ -270,7 +270,7 @@ O sistema possui persistência embarcada via Mongita, não necessitando de insta
   ```
 * **No Windows**:
   ```cmd
-  python sistema_gestao_frotas\executar_sistema.py
+  python sistema_gestao_frotas\\executar_sistema.py
   ```
 
 ### 7.3 Credenciais Padrão de Demonstração (RBAC)

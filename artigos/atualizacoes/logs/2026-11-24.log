@@ -1,0 +1,100 @@
+=== 2026-11-24 08:07:20 início da atualização diária ===
+OPENALEX_API_KEY: não definida
+OPENALEX_EMAIL: não definida
+UNPAYWALL_EMAIL: não definida
+S2_API_KEY: não definida
+SCOPUS_API_KEY: não definida
+=== 2026-11-24 08:07:20 etapa 1: busca de novos artigos ===
+Consulta: ("prescriptive analytics" OR "predictive analytics" OR "decision support" OR "anomaly detection" OR "fraud detection" OR "risk assessment" OR "machine learning" OR "deep learning" OR "supervised learning" OR "unsupervised learning" OR "comparative study" OR "comparative analysis" OR "model comparison" OR "performance comparison" OR "benchmarking") AND ("explainable artificial intelligence" OR "explainable AI" OR "XAI" OR "interpretable machine learning" OR "algorithmic transparency") AND ("public sector" OR "government" OR "public administration" OR "public procurement" OR "tax" OR "auditability" OR "accountability") 
+
+▶ OpenAlex
+   OpenAlex: 2817 trabalhos correspondem à consulta
+   2817 registros recebidos
+▶ Semantic Scholar
+   Semantic Scholar: 2299 trabalhos correspondem à consulta
+   [SemanticScholar] HTTP 429; tentativa 1/5, aguardando 2s
+   2299 registros recebidos
+
+3828 registros únicos após unir as fontes (2659 com os 3 grupos confirmados no título/resumo)
+Inéditos nesta execução (nunca vistos antes): 353
+PDFs a tentar: 1029 (6 downloads simultâneos)
+   [   1] 2026_vaish_Digital_Platforms_and_Democracy_Polarization_Misinformation_and_Partic.pdf
+   [   2] 2026_sc_Constitutional_Limits_on_Automated_Governance_An_Article_21_Perspectiv.pdf
+   [   3] 2026_kao_Explainable_AI_for_Automated_DevSecOps_Security_Validation_across_Ente.pdf
+   [   4] 2026_kunwar_Federated_Explainable_Multi_Agent_Governance_Framework_for_Adaptive_Pe.pdf
+   [   5] 2026_patel_Predicting_the_Unpredictable_Machine_Learning_for_Crime_Pattern_Recogn.pdf
+   [   6] 2026_abdullah_Perlindungan_Hukum_Data_Pribadi_di_Era_Kecerdasan_Buatan_Tantangan_dan.pdf
+   [   7] 2026_bellamy_Achieving_the_Sweet_Spot_Between_Openness_and_Performance_in_High_Stak.pdf
+   [   8] 2026_eberhardt_Addressing_AI_Systemic_Bias_and_Injustice_Obstacles_and_Solutions.pdf
+   [   9] 2026_prasad_A_Conceptual_Framework_for_Safety_and_Decision_Justification_in_Autono.pdf
+   [  10] 2025_misra_Explainable_Generative_AI_for_Enterprise_CRM_Analytics_Interpretable_M.pdf
+   [  11] 2025_japhne_Analysing_Public_Perception_of_Solar_Energy_An_Explainable_AI_Sentimen.pdf
+   [  12] 2025_deandres_tame_From_Pixels_to_Words_Leveraging_Explainability_in_Face_Recognition_Thr.pdf
+   [  13] 2025_sanaj_Automated_Rubric_Based_Grading_Using_Deep_Learning_and_Computer_Vision.pdf
+   [  14] 2024_mazumder_Explainable_Artificial_Intelligence_for_Protecting_the_U_S_Financial_S.pdf
+   [  15] 2023_zhou_Evolutionary_Approaches_to_Explainable_Machine_Learning.pdf
+   [  16] 2023_ahmad_Equity_and_Artificial_Intelligence_in_Surgical_Care_A_Comprehensive_Re.pdf
+   [  17] 2022_campedelli_Explainable_machine_learning_for_predicting_homicide_clearance_in_the.pdf
+   [  18] 2020_ziaei_Belief_loads_of_assumptions_impact_brain_networks_underlying_logical_r.pdf
+   [  19] 2026_cai_Socioeconomic_determinants_of_suburban_cropland_vitality_an_interpreta.pdf
+   [  20] 2026_gadelha_Ethical_limits_of_artificial_intelligence_in_therapeutic_decision_maki.pdf
+   [  21] 2026_upadhye_SmartPrice_A_Multi_modal_Explainable_AI_System_for_Predicting_House_Pr.pdf
+   [  22] 2026_rasheed_Artificial_Intelligence_Adoption_Labour_Productivity_and_Inclusive_Eco.pdf
+   [  23] 2026_paramasivam_ROLE_OF_ARTIFICIAL_INTELLIGENCE_IN_PROMOTING_SUSTAINABLE_CONSUMER_BUYI.pdf
+   [  24] 2025_zhang_Evaluating_community_resilience_through_social_media_during_Chinas_fir.pdf
+   [  25] 2025_kandibanda_AI_in_Action_Implementation_Roadmaps_for_Financial_Services_and_Supply.pdf
+   [  26] 2025_tertibi_The_Urgency_of_Artificial_Intelligence_Regulation_in_Indonesias_Crimin.pdf
+   [  27] 2025_kumar_Cyber_Threat_Analysis_and_Detection_Using_Advanced_Deep_Learning_Model.pdf
+   [  28] 2025_wynn_The_ethics_of_non_explainable_artificial_intelligence_an_overview_for.pdf
+   [  29] 2024_ferreyra_Analysis_of_economic_satisfaction_using_machine_learning_models_and_ex.pdf
+   [  30] 2025_joshi_An_explainable_Bi_LSTM_model_for_winter_wheat_yield_prediction.pdf
+   [  31] 2022_karim_Explainable_AI_for_Bioinformatics_Methods_Tools_and_Applications.pdf
+   [  32] 2023_syarif_Interpretable_Deep_Learning_for_Industrial_Fault_Detection.pdf
+   [  33] 2022_alam_Cybersecurity_Past_Present_and_Future.pdf
+   [  34] 2022_chen_Best_Practices_for_Interpretable_Machine_Learning_in_Computational_Bio.pdf
+   [  35] 2023_gupta_A_Comparative_Study_of_Explainable_AI_Models_in_High_Stakes_Decision_M.pdf
+   [  36] 2022_liu_Prediction_of_Online_Psychological_Help_Seeking_Behavior_During_the_CO.pdf
+   [  37] 2021_leslie_Explaining_decisions_made_with_AI_A_workbook_Use_case_2_Machine_learni.pdf
+   [  38] 2025_carter_Integrating_Machine_Learning_for_Health_Finance_Analytics_Predicting_H.pdf
+   [  39] 2021_dazeley_Levels_of_explainable_artificial_intelligence_for_human_aligned_conver.pdf
+   [  40] 2024_olanrewaju_AI_in_Personalized_Financial_Advisory_Services_Robo_Advisors_and_Ethic.pdf
+   [  41] 2025_raval_Evaluating_the_Ethical_and_Financial_Impact_of_AI_Based_Prior_Authoriz.pdf
+   Nova tentativa para 41 PDFs com erro de rede passageiro...
+   (repetido: 2022_karim_Explainable_AI_for_Bioinformatics_Methods_Tools_and_Applications.pdf tem o mesmo conteúdo de 2023_karim_Explainable_AI_for_Bioinformatics_Methods_Tools_and_Applications.pdf; mantido o anterior)
+
+PDFs baixados nesta execução: 40
+Inéditos: 353 (lista em novos.csv)
+Relatórios: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos/atualizacoes/2026-11-24
+PDFs:       /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos
+=== 2026-11-24 08:21:22 fim busca (código 0) ===
+=== 2026-11-24 08:21:22 etapa 2: regeneração do Protocolo Sigma ===
+===========================================================================
+GERAÇÃO DO PROTOCOLO SIGMA DA BASE DE ARTIGOS
+PPGCAP / CCT / UDESC — Eduardo Lopes Jonker
+===========================================================================
+1. Mapeados 1153 PDFs no acervo de artigos/...
+2. Consolidados 1680 registros únicos na base de artigos.
+3. Total de obras com PDF local conferido e incorporado: 552
+4. Gerando planilha de fichamento em fichamento.xlsx...
+✓ Planilha de fichamento salva com sucesso: fichamento.xlsx
+5. Gerando arquivos CSV auditáveis de protocolo com cadeia de hashes...
+✓ Registros de protocolo gerados em artigos/protocolo/
+6. Construindo HTML do Protocolo SIGMA...
+✓ HTML salvo em: protocolo_sigma.html (34.1 KB)
+7. Renderizando PDF oficial com WeasyPrint...
+✓ PDF gerado com sucesso: protocolo_sigma.pdf (0.07 MB)
+8. Espelhando cópias para relatorios_pdf/ e Documentos/...
+✓ Cópia espelhada em: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/artigos/protocolo/protocolo_sigma.pdf
+✓ Cópia espelhada em: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/relatorios_pdf/protocolo_sigma_base_artigos.pdf
+✓ Cópia espelhada em: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/Documentos/protocolo_sigma_base_artigos.pdf
+===========================================================================
+PROTOCOLO SIGMA DA BASE DE ARTIGOS GERADO COM 100% DE SUCESSO!
+===========================================================================
+=== 2026-11-24 08:21:24 fim protocolo sigma (código 0) ===
+=== 2026-11-24 08:21:24 etapa 3: regeneração do PBS.pdf ===
+OK: /home/eduardo-note/Documentos/Dissertação/Geral_de_OS_23439885_202609110934 (1)/PBS.pdf (2837 KB)
+=== 2026-11-24 08:21:29 fim PBS.pdf (código 0) ===
+=== 2026-11-24 08:21:29 etapa 4: regeneração da apresentação de qualificação ===
+OK: apresentacao_qualificacao/Qualificacao_Mestrado_UDESC_Eduardo_Jonker.pptx (23 slides); fontes em apresentacao_qualificacao/fontes_apresentacao.md
+=== 2026-11-24 08:21:30 fim apresentação (código 0) ===
+=== 2026-11-24 08:21:30 fim da atualização diária (códigos: busca=0 sigma=0 pbs=0 apresent=0) ===

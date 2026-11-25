@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Livro de Registro de Comunicações Acadêmicas aos Orientadores</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 1.8cm 1.8cm 1.8cm 1.8cm;
+            @top-right {
+                content: "PPGCAP/UDESC - Livro de Registro de Comunicações e Orientação";
+                font-family: 'Liberation Sans', sans-serif;
+                font-size: 8pt;
+                color: #64748b;
+            }
+            @bottom-center {
+                content: "Página " counter(page) " de " counter(pages);
+                font-family: 'Liberation Sans', sans-serif;
+                font-size: 8.5pt;
+                color: #64748b;
+            }
+        }
+        body {
+            font-family: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
+            color: #1e293b;
+            line-height: 1.45;
+            font-size: 9pt;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2.5px solid #0f2942;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+        .inst {
+            font-size: 11pt;
+            font-weight: bold;
+            color: #0f2942;
+            text-transform: uppercase;
+        }
+        .subinst {
+            font-size: 8.5pt;
+            color: #475569;
+        }
+        .doc-title {
+            font-size: 13.5pt;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .meta-box {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid #1e3a8a;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+        .meta-box table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .meta-box td {
+            padding: 3px 5px;
+            font-size: 8.5pt;
+        }
+        .meta-label {
+            font-weight: bold;
+            color: #0f2942;
+            width: 22%;
+        }
+        .section-title {
+            font-size: 10.5pt;
+            font-weight: bold;
+            color: #0f2942;
+            border-bottom: 1.5px solid #cbd5e1;
+            padding-bottom: 3px;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        table.log-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 6px;
+            margin-bottom: 8px;
+        }
+        table.log-table th, table.log-table td {
+            border: 1px solid #cbd5e1;
+            padding: 5px 7px;
+            font-size: 8.5pt;
+            text-align: left;
+        }
+        table.log-table th {
+            background-color: #0f2942;
+            color: white;
+            font-weight: bold;
+        }
+        .msg-bubble-prof {
+            background-color: #f0fdf4;
+            border-left: 3.5px solid #16a34a;
+            padding: 6px 10px;
+            margin: 4px 0;
+            font-size: 8.5pt;
+            border-radius: 0 4px 4px 0;
+        }
+        .msg-bubble-aluno {
+            background-color: #eff6ff;
+            border-left: 3.5px solid #2563eb;
+            padding: 6px 10px;
+            margin: 4px 0;
+            font-size: 8.5pt;
+            border-radius: 0 4px 4px 0;
+        }
+        .box-sintese {
+            background-color: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-left: 3.5px solid #d97706;
+            padding: 6px 10px;
+            margin-top: 6px;
+            font-size: 8.5pt;
+            color: #92400e;
+        }
+        .status-badge-ok {
+            display: inline-block;
+            background-color: #dcfce7;
+            color: #166534;
+            padding: 2px 7px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 7.5pt;
+            border: 1px solid #86efac;
+        }
+        .status-badge-pend {
+            display: inline-block;
+            background-color: #fef3c7;
+            color: #92400e;
+            padding: 2px 7px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 7.5pt;
+            border: 1px solid #fcd34d;
+        }
+        .comprovante-box {
+            text-align: center;
+            margin-top: 6px;
+            padding: 6px;
+            border: 1px dashed #94a3b8;
+            background: #fafafa;
+        }
+        .comprovante-img {
+            max-width: 72%;
+            height: auto;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .page-break {
+            page-break-before: always;
+        }
+        .footer-signatures {
+            margin-top: 25px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .footer-signatures td {
+            text-align: center;
+            width: 50%;
+            padding: 10px 15px;
+            font-size: 8.5pt;
+        }
+        .sig-line {
+            border-top: 1px solid #0f2942;
+            margin-bottom: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="inst">Universidade do Estado de Santa Catarina — UDESC</div>
+        <div class="subinst">Centro de Ciências Tecnológicas — CCT | Programa de Pós-Graduação em Computação Aplicada — PPGCAP</div>
+        <div class="doc-title">Livro de Registro de Comunicações Acadêmicas</div>
+    </div>
+
+    <div class="meta-box">
+        <table>
+            <tr>
+                <td class="meta-label">Mestrando:</td>
+                <td>Eduardo Lopes Jonker (eduardo.jonker@sea.sc.gov.br)</td>
+                <td class="meta-label">Linha de Pesquisa:</td>
+                <td>Metodologia e Técnicas da Computação</td>
+            </tr>
+            <tr>
+                <td class="meta-label">Orientadora:</td>
+                <td>Profª. Dra. Vivian Kremer Kalempa (vivian.kalempa@udesc.br)</td>
+                <td class="meta-label">Coorientador:</td>
+                <td>Prof. Dr. Yuri Kaszubowski Lopes (yuri.lopes@udesc.br)</td>
+            </tr>
+            <tr>
+                <td class="meta-label">Dissertação:</td>
+                <td colspan="3">Modelagem Preditivo-Prescritiva e Auditoria em Gestão de Frotas Públicas Governamentais</td>
+            </tr>
+            <tr>
+                <td class="meta-label">Data de Emissão:</td>
+                <td colspan="3">24 de novembro de 2026</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- PARTE I: COMUNICAÇÕES POR E-MAIL INSTITUCIONAL -->
+    <div class="section-title">PARTE I — COMUNICAÇÕES FORMAIS POR E-MAIL INSTITUCIONAL (SEA/SC ➔ UDESC)</div>
+    <p style="font-size: 8.5pt; margin-bottom: 8px; color: #475569;">
+        Registros consolidados de correspondências eletrônicas enviadas pelo mestrando via <code>eduardo.jonker@sea.sc.gov.br</code> para a orientadora <code>vivian.kalempa@udesc.br</code>, abrangendo produção científica, eventos, averbações de proficiência e ferramentas de pesquisa.
+    </p>
+
+    <table class="log-table">
+        <tr>
+            <th style="width: 6%; text-align: center;">Item</th>
+            <th style="width: 12%;">Data</th>
+            <th style="width: 32%;">Assunto Principal</th>
+            <th style="width: 32%;">Objeto da Comunicação</th>
+            <th style="width: 18%; text-align: center;">Status / Trâmite</th>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: bold;">1</td>
+            <td>14/04/2026</td>
+            <td><strong>Aprovação de Artigo Cientifico Revista Cajuína A3</strong></td>
+            <td>Submissão e versão final de artigo científico aprovado</td>
+            <td style="text-align: center;"><span class="status-badge-ok">Publicado / A3</span></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: bold;">2</td>
+            <td>14/04/2026</td>
+            <td><strong>Participação do INOVA UDESC 2026</strong></td>
+            <td>Inscrição de trabalho em evento científico institucional</td>
+            <td style="text-align: center;"><span class="status-badge-ok">Inscrito / Concluído</span></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: bold;">3</td>
+            <td>14/04/2026</td>
+            <td><strong>Proposta de Artigo cientifico (SBSI 2026)</strong></td>
+            <td>Diagnóstico de maturidade analítica em secretarias estaduais</td>
+            <td style="text-align: center;"><span class="status-badge-ok">Submetido / Avaliado</span></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: bold;">4</td>
+            <td>14/11/2026</td>
+            <td><strong>Solicitação de Registro de Proficiência em Inglês</strong><br><span style="font-size: 7.5pt; color: #64748b;">(DLLE/UFSC - Nota 9,00 - Cód. 1410791553)</span></td>
+            <td>Averbação de nota de proficiência em língua estrangeira no PPGCAP</td>
+            <td style="text-align: center;"><span class="status-badge-ok">Nota 9,00 / Deferido</span></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: bold;">5</td>
+            <td>14/11/2026</td>
+            <td><strong>Criação de Ferramentas para RSL</strong></td>
+            <td>Desenvolvimento e documentação de script automatizado para RSL/PBS</td>
+            <td style="text-align: center;"><span class="status-badge-ok">Código Compartilhado</span></td>
+        </tr>
+    </table>
+
+    <div class="section-title" style="margin-top: 12px;">Detalhamento das Comunicações por E-mail</div>
+    <div style="font-size: 8.5pt; line-height: 1.4;">
+        <p style="margin-bottom: 5px;"><strong>1. Aprovação de Artigo Científico – Revista Cadernos Cajuína (Qualis A3):</strong><br>
+        Troca de mensagens referente às etapas de submissão, revisão textual, formatação das referências bibliográficas, adequação das figuras e encaminhamento da versão final do artigo aprovado para publicação na Revista Cadernos Cajuína.</p>
+        
+        <p style="margin-bottom: 5px;"><strong>2. Inscrição e Participação no INOVA UDESC 2026:</strong><br>
+        Solicitação de orientação acadêmica e providências institucionais para a formalização da inscrição de trabalho focado em governança algorítmica e controle de gestão no congresso INOVA UDESC 2026.</p>
+        
+        <p style="margin-bottom: 5px;"><strong>3. Proposta de Submissão de Artigo Científico (SBSI 2026):</strong><br>
+        Apresentação da proposta de artigo científico voltada ao diagnóstico de maturidade analítica em secretarias de Estado, visando à preparação e submissão junto ao Simpósio Brasileiro de Sistemas de Informação (SBSI 2026).</p>
+        
+        <p style="margin-bottom: 5px;"><strong>4. Averbação de Proficiência em Língua Inglesa no PPGCAP:</strong><br>
+        Comunicação formal de aprovação no Exame de Proficiência em Língua Inglesa prestado junto ao DLLE/UFSC com nota <strong>9,00</strong> (Cód. 1410791553), acompanhada da solicitação de registro e averbação no histórico acadêmico do curso de Mestrado em Computação Aplicada.</p>
+        
+        <p style="margin-bottom: 5px;"><strong>5. Desenvolvimento de Ferramentas Automáticas para RSL / PBS:</strong><br>
+        Compartilhamento do código-fonte e da documentação de script desenvolvido de forma própria, integrado a APIs públicas (Google Scholar e Semantic Scholar), destinado à automação de coleta de dados, extração de BibTeX e fichamento sistemático na Revisão Sistemática da Literatura (RSL).</p>
+    </div>
+
+    <!-- PARTE II: SESSÕES DE ALINHAMENTO NO GRUPO DE WHATSAPP -->
+    <div class="page-break"></div>
+    <div class="section-title">PARTE II — SESSÕES DE ALINHAMENTO NO GRUPO DE ORIENTAÇÃO (WHATSAPP)</div>
+
+    <!-- SESSÃO 1: 17/11/2026 -->
+    <table class="log-table">
+        <tr>
+            <th style="width: 25%;">Registro WhatsApp 01</th>
+            <td><strong>17 de novembro de 2026 às 10:30 e 10:31</strong></td>
+        </tr>
+        <tr>
+            <th>Interlocutores</th>
+            <td>Prof. Dr. Yuri Kaszubowski Lopes (Coorientador) e Mestrando Eduardo Lopes Jonker</td>
+        </tr>
+        <tr>
+            <th>Tópico Central</th>
+            <td><strong>Separação de Papéis (Servidor vs. Aluno) e Balizamento Normativo do Uso de IA</strong></td>
+        </tr>
+        <tr>
+            <th>Status do Retorno</th>
+            <td><span class="status-badge-ok">Diretrizes incorporadas pelo orientado</span></td>
+        </tr>
+    </table>
+
+    <div class="msg-bubble-prof">
+        <strong>[10:30] Prof. Dr. Yuri K. Lopes:</strong><br>
+        <em>"Eduardo, separe seu papel de servidor do de estudante de pós-graduação. Não existe um aluno abrir SGPe para o orientador assinar qualquer coisa, são raros os estudantes com acesso ao SGPe."</em><br><br>
+        <em>"Sobre o uso de IA, ainda estamos nos adaptando a tecnologia, que não é necessariamente nova, mas que a poucos anos entrou no cotidiano. Minha atual percepção, é ferramenta e toda ferramenta deve ser utilizada. Uso para gramática, ortografia e thesaurus é perfeitamente aceitável, existem ferramentas que fazem isso a décadas (sublinhado azul e vermelho do word), só mudou o motor por trás.<br>
+        + Uso para gerar texto ... aqui não pode<br>
+        + Uso para melhor texto … para mim é uma área cinza, melhorar pequenas frases ... talvez ok<br>
+        + Uso como buscador (estilo Google) ... acho ok, mas d..."</em>
+    </div>
+
+    <div class="msg-bubble-aluno">
+        <strong>[10:30 / 10:31] Eduardo Lopes Jonker (Mestrando):</strong><br>
+        <em>"Bom dia professor, estava meditando no que o Sr falou da separação do servidor/aluno, o SGPE tem acesso externo, os orientadores poderia criar um processo para cada orientado e o orientado tem acesso assina, acho que facilitaria bem para os professores, que teriam um unico repositório documental eu faço parte da comissão que estuda a migraçãoo para o Sistema de Protocolo Eletronico SEI, que tem processosi nternos e externos, també posso junto a SCTI criar um protocolo de uso para fins academicos se os professores acharem interessante."</em><br><br>
+        <em>"Também estou criando a minha própria ferramenta de PBS, ela usa chaves de AP! do Google Scollar e sematic.scollar, para varrer a web busca artigos com o DOI, gera automaticamente o protocolo SIGMA, salva os artigos completos em três formatos, Bib,.tex, pdf e txt, cria uma planilha de fichamento e categoriza as obras de acordo com o numero de citações, consegui até o momento baixar 1000 artigos por dias, criei uma rotina que a pessoa pode definir o período de baixa, o tempo doa artigos, Ex: ultimos 5 anos, assim criei a minha própria ferramenta e não tenho de pagar para isto."</em>
+    </div>
+
+    <div class="box-sintese">
+        <strong>Impacto Epistêmico:</strong> Demarcação de identidade (aluno de mestrado vs. servidor), proibição de texto gerado por IA e validação da ferramenta autônoma de PBS.
+    </div>
+
+    <!-- SESSÃO 2: 20/11/2026 -->
+    <div class="page-break"></div>
+    <table class="log-table">
+        <tr>
+            <th style="width: 25%;">Registro WhatsApp 02</th>
+            <td><strong>20 de novembro de 2026 às 11:16</strong></td>
+        </tr>
+        <tr>
+            <th>Interlocutores</th>
+            <td>Mestrando Eduardo Lopes Jonker, Profª. Dra. Vivian K. Kalempa e Prof. Dr. Yuri K. Lopes</td>
+        </tr>
+        <tr>
+            <th>Tópico Central</th>
+            <td><strong>Submissão Formal da Declaração de Uso de Inteligência Artificial Generativa</strong></td>
+        </tr>
+        <tr>
+            <th>Artefato Transmitido</th>
+            <td>Documento anexo: <code>declaracao_de_uso_de_ia.pdf</code> (4 páginas, 53 kB)</td>
+        </tr>
+        <tr>
+            <th>Status do Retorno</th>
+            <td><span class="status-badge-pend">Aguardando parecer/aceite formal dos orientadores</span></td>
+        </tr>
+    </table>
+
+    <div class="msg-bubble-aluno">
+        <strong>[11:16] Eduardo Lopes Jonker (Mestrando):</strong><br>
+        <em>"Submeto a apreciação, de documento que comporá na minha dissetação , sobre o uso da IA e a submissão aos orientadores para o aceite, podem comentar, solicitar ubtituição paracial ou integral de textos para usar com documento formal entre orientado e orientadores"</em>
+    </div>
+
+    <div class="comprovante-box">
+        <img class="comprovante-img" src="/home/eduardo-note/.gemini/antigravity/brain/ec9040d0-512f-44a4-bb59-13bae08d5cbc/.user_uploaded/media_1795520112094_2728670d.png" alt="Envio Declaracao IA">
+        <p style="font-size: 7.5pt; color: #64748b; margin-top: 3px;">
+            Figura 1: Evidência de envio do arquivo declaracao_de_uso_de_ia.pdf e mensagem de submissão no grupo em 20/11/2026.
+        </p>
+    </div>
+
+    <!-- SESSÃO 3: 24/11/2026 -->
+    <div class="page-break"></div>
+    <table class="log-table">
+        <tr>
+            <th style="width: 25%;">Registro WhatsApp 03</th>
+            <td><strong>24 de novembro de 2026 das 08:11 às 08:30</strong></td>
+        </tr>
+        <tr>
+            <th>Interlocutores</th>
+            <td>Mestrando Eduardo Lopes Jonker, Profª. Dra. Vivian K. Kalempa e Prof. Dr. Yuri K. Lopes</td>
+        </tr>
+        <tr>
+            <th>Tópico Central</th>
+            <td><strong>TCO Quinquenal, PCA 2025/2026, Delimitação de Escopo (IoT) e Manifesto Anti-Consultoria</strong></td>
+        </tr>
+        <tr>
+            <th>Artefatos Transmitidos</th>
+            <td>
+                1. Gráfico TCO Quinquenal: <code>fig_comparativo_tco_locacao_vs_propria_5anos.png</code>;<br>
+                2. Gráfico Evolução Bienal PCA: <code>fig_comparativo_pca_bienal_2025_2026.png</code>.
+            </td>
+        </tr>
+        <tr>
+            <th>Status do Retorno</th>
+            <td><span class="status-badge-pend">Aguardando retorno / Em análise pelos orientadores</span></td>
+        </tr>
+    </table>
+
+    <div class="msg-bubble-aluno">
+        <strong>[08:11]</strong> <em>"Uma analise do contrato de locaçãoefetuado em 2026 do governo e uma projeção de compra e manutyenção de frota própria e o mcomparativo de resultado em 5 anos"</em><br>
+        <strong>[08:13]</strong> <em>"Não deu para comparar PCA 2026 @~Yuri Lopes devido a locação, mas pude comparar 2025 e acredito que chegamos bem perto, como sabemos que o previsto nunca é o realizado, acho que chegamos bem perto"</em><br>
+        <strong>[08:18]</strong> <em>"Estou escrevendo as limitações de escopo do trabalho, tem muita coisa que não da para abarcar neste mestrado. EX: Analise da influência da dirigibilidade no gasto de combustível, uso do IOT para analise do comportamento e diminuição de falhas em registros feitos por humanos."</em><br>
+        <strong>[08:23]</strong> <em>"Mas eu sempre fui um defensor da locação de veículos, mas quebrei parcialmente a cara, em algumas realidade de alto uso como viaturas policiais é vantajoso a locação, no geral não. Outra indagação o governo do estado locou 2500 TOROS??? Por que ???? Tinha outros concorrentes com melhores indices como a montana?? Quais as metricas usadas ??? Para esta decisão, hoje desde as 5:00 , me levantei com estas duvidas, mas não quero perguntar ainda as gerencias de frotas, quero que os dados e os contratos me expliquem ou me deem indicios"</em><br>
+        <strong>[08:27]</strong> <em>"Um estudo que seria otimo e me lembrou a diissertação da Professora Vivian, sobre computação Ubiqua, mas só no Doutorado ou em outra reencarnação, é o uso de IOT-CAN-BUS para a previsão prescritiva de falhas ou probabilidade de queima ou mal funcionamento em alguma peça,,levando em conta o manual do fabricante e a leitura dos sensores"</em><br>
+        <strong>[08:29]</strong> <em>"Estou trabalhando muito no viés da presunção, isolando anomalias , mas evitando julga-las como desvios ou conluios, apenas identificando e levantando hipoteses que podem ter ocorrido, sem entrar no julgamento"</em><br>
+        <strong>[08:30]</strong> <em>"<strong>O MAIOR RISCO E PERIGO QUE SOFRO NESTA DISSERTAÇÃO:</strong> Não transformar o trabalho uma consultoria especializada, que venha a resolver ou criar um sistema, busco entender e explicar através da metodologia de pesquisa cientifica"</em>
+    </div>
+
+    <div class="comprovante-box">
+        <img class="comprovante-img" src="/home/eduardo-note/.gemini/antigravity/brain/ec9040d0-512f-44a4-bb59-13bae08d5cbc/.user_uploaded/media_1795520004939_14105a7f.jpg" alt="Envio PCA e TCO">
+        <p style="font-size: 7.5pt; color: #64748b; margin-top: 3px;">
+            Figura 2: Evidência de envio das análises do PCA, TCO e manifesto metodológico anti-consultoria em 24/11/2026.
+        </p>
+    </div>
+
+    <table class="footer-signatures">
+        <tr>
+            <td>
+                <div class="sig-line"></div>
+                <strong>Eduardo Lopes Jonker</strong><br>
+                Mestrando (PPGCAP / UDESC)
+            </td>
+            <td>
+                <div class="sig-line"></div>
+                <strong>Profª. Dra. Vivian K. Kalempa / Prof. Dr. Yuri K. Lopes</strong><br>
+                Corpo Docente Orientador (PPGCAP / UDESC)
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
